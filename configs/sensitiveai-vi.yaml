@@ -40,6 +40,7 @@ training:
   warmup_ratio: 0.1
   optimizer: adamw_torch
   scheduler: linear
+  min_lr_ratio: 0.01
   max_grad_norm: 1.0
   precision: bf16
   gradient_checkpointing: true

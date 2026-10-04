@@ -1,0 +1,548 @@
+PS C:\AI\AIModerationContent> python -m src.training.run_experiment --config sensitiveai-vi
+[2026-10-04 13:11:11] INFO    sensitiveai.train | ==============================================================================
+[2026-10-04 13:11:11] INFO    sensitiveai.train | SensitiveAI training run
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   config        : C:\AI\AIModerationContent\configs\sensitiveai-vi.yaml
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   model_name    : sensitiveai-vi
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   run_id        : run_005
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   base_model    : microsoft/mdeberta-v3-base
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   head          : standard
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   report dir    : C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005
+[2026-10-04 13:11:11] INFO    sensitiveai.train |   experiment dir: C:\AI\AIModerationContent\experiments\sensitiveai-vi\run_005
+[2026-10-04 13:11:11] INFO    sensitiveai.train | ==============================================================================
+[2026-10-04 13:11:11] INFO    sensitiveai.train | [data] split fingerprints: {'train': 'f705ffe94d41', 'validation': '6aa552aafb92', 'test': 'd8f9ae7ddd8c'}
+[2026-10-04 13:11:13] INFO    sensitiveai.train | [env] GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+[2026-10-04 13:11:16] INFO    src.data.dataset | [data] tokenising (max_length=256) train=24046, validation=2672, test=6680
+[2026-10-04 13:11:21] INFO    src.data.dataset | [data] label counts (train): {0: 2556, 1: 1605, 2: 19885}
+[2026-10-04 13:11:21] INFO    sensitiveai.train | 
+Class weights (estimated on TRAIN only)
+----------------------------------------------
+HATE       n=   2556  weight=1.0000
+OFFENSIVE  n=   1605  weight=1.0000
+CLEAN      n=  19885  weight=1.0000
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 198/198 [00:00<00:00, 3514.57it/s]
+[transformers] DebertaV2ForSequenceClassification LOAD REPORT from: microsoft/mdeberta-v3-base
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+lm_predictions.lm_head.dense.weight        | UNEXPECTED | 
+lm_predictions.lm_head.bias                | UNEXPECTED |
+mask_predictions.dense.bias                | UNEXPECTED |
+mask_predictions.LayerNorm.weight          | UNEXPECTED |
+lm_predictions.lm_head.dense.bias          | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+mask_predictions.dense.bias                | UNEXPECTED |
+mask_predictions.LayerNorm.weight          | UNEXPECTED |
+lm_predictions.lm_head.dense.bias          | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+mask_predictions.LayerNorm.weight          | UNEXPECTED |
+lm_predictions.lm_head.dense.bias          | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+lm_predictions.lm_head.dense.bias          | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+mask_predictions.LayerNorm.bias            | UNEXPECTED |
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+classifier.weight                          | MISSING    |
+mask_predictions.classifier.weight         | UNEXPECTED |
+mask_predictions.classifier.bias           | UNEXPECTED |
+mask_predictions.dense.weight              | UNEXPECTED |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+classifier.weight                          | MISSING    |
+classifier.bias                            | MISSING    |
+pooler.dense.weight                        | MISSING    |
+pooler.dense.bias                          | MISSING    |
+classifier.weight                          | MISSING    |
+classifier.bias                            | MISSING    |
+
+classifier.weight                          | MISSING    |
+classifier.bias                            | MISSING    |
+
+Notes:
+classifier.bias                            | MISSING    |
+
+Notes:
+
+Notes:
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[2026-10-04 13:11:23] INFO    src.models.model | [model] standard head loaded from microsoft/mdeberta-v3-base (num_labels=3)
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[2026-10-04 13:11:23] INFO    src.models.model | [model] standard head loaded from microsoft/mdeberta-v3-base (num_labels=3)
+[2026-10-04 13:11:23] INFO    sensitiveai.train | [model] total=278.81M trainable=278.81M non-trainable=0.00M
+[2026-10-04 13:11:23] INFO    src.models.model | [model] standard head loaded from microsoft/mdeberta-v3-base (num_labels=3)
+[2026-10-04 13:11:23] INFO    sensitiveai.train | [model] total=278.81M trainable=278.81M non-trainable=0.00M
+[2026-10-04 13:11:23] INFO    sensitiveai.train |
+[2026-10-04 13:11:23] INFO    sensitiveai.train | [model] total=278.81M trainable=278.81M non-trainable=0.00M
+[2026-10-04 13:11:23] INFO    sensitiveai.train |
+Training plan: 1 stage(s), 6 epoch(s) total
+[2026-10-04 13:11:23] INFO    sensitiveai.train |
+Training plan: 1 stage(s), 6 epoch(s) total
+Training plan: 1 stage(s), 6 epoch(s) total
+------------------------------------------------------------------------
+  [single] epochs 1-6 :: single (6 epochs) | lr=3e-05 | loss=cross_entropy
+------------------------------------------------------------------------
+  [single] epochs 1-6 :: single (6 epochs) | lr=3e-05 | loss=cross_entropy
+  [single] epochs 1-6 :: single (6 epochs) | lr=3e-05 | loss=cross_entropy
+[2026-10-04 13:11:23] INFO    sensitiveai.train | [train] callbacks: BestCheckpointCallback, EarlyStoppingCallback, CSVLoggerCallback
+[2026-10-04 13:11:23] INFO    sensitiveai.train | [train] callbacks: BestCheckpointCallback, EarlyStoppingCallback, CSVLoggerCallback
+[2026-10-04 13:11:24] INFO    src.training.trainer | [train] gradient checkpointing enabled
+[2026-10-04 13:11:24] INFO    src.callbacks.stage_controller |
+=== STAGE 1/1 :: single ===
+single (6 epochs) | lr=3e-05 | loss=cross_entropy
+[2026-10-04 13:11:24] WARNING src.training.optim | [optim] 2 parameters were not assigned to any group
+[2026-10-04 13:12:17] INFO    src.training.trainer | [train] step 50/4512  loss=1.0863  lr=3.33e-06
+[2026-10-04 13:13:00] INFO    src.training.trainer | [train] step 100/4512  loss=0.8651  lr=6.65e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:17:22] INFO    src.training.trainer | [train] step 400/4512  loss=0.5771  lr=2.66e-05
+[2026-10-04 13:18:06] INFO    src.training.trainer | [train] step 450/4512  loss=0.5703  lr=2.99e-05
+[2026-10-04 13:18:49] INFO    src.training.trainer | [train] step 500/4512  loss=0.5566  lr=2.96e-05
+[2026-10-04 13:19:32] INFO    src.training.trainer | [train] step 550/4512  loss=0.5456  lr=2.93e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:17:22] INFO    src.training.trainer | [train] step 400/4512  loss=0.5771  lr=2.66e-05
+[2026-10-04 13:18:06] INFO    src.training.trainer | [train] step 450/4512  loss=0.5703  lr=2.99e-05
+[2026-10-04 13:18:49] INFO    src.training.trainer | [train] step 500/4512  loss=0.5566  lr=2.96e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:17:22] INFO    src.training.trainer | [train] step 400/4512  loss=0.5771  lr=2.66e-05
+[2026-10-04 13:18:06] INFO    src.training.trainer | [train] step 450/4512  loss=0.5703  lr=2.99e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:17:22] INFO    src.training.trainer | [train] step 400/4512  loss=0.5771  lr=2.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:13:44] INFO    src.training.trainer | [train] step 150/4512  loss=0.7622  lr=9.98e-06
+[2026-10-04 13:14:27] INFO    src.training.trainer | [train] step 200/4512  loss=0.7064  lr=1.33e-05
+[2026-10-04 13:15:11] INFO    src.training.trainer | [train] step 250/4512  loss=0.6582  lr=1.66e-05
+[2026-10-04 13:15:56] INFO    src.training.trainer | [train] step 300/4512  loss=0.6256  lr=2.00e-05
+[2026-10-04 13:16:39] INFO    src.training.trainer | [train] step 350/4512  loss=0.6019  lr=2.33e-05
+[2026-10-04 13:17:22] INFO    src.training.trainer | [train] step 400/4512  loss=0.5771  lr=2.66e-05
+[2026-10-04 13:18:06] INFO    src.training.trainer | [train] step 450/4512  loss=0.5703  lr=2.99e-05
+[2026-10-04 13:18:49] INFO    src.training.trainer | [train] step 500/4512  loss=0.5566  lr=2.96e-05
+[2026-10-04 13:19:32] INFO    src.training.trainer | [train] step 550/4512  loss=0.5456  lr=2.93e-05
+[2026-10-04 13:20:15] INFO    src.training.trainer | [train] step 600/4512  loss=0.5355  lr=2.89e-05
+[2026-10-04 13:20:59] INFO    src.training.trainer | [train] step 650/4512  loss=0.5245  lr=2.85e-05
+[2026-10-04 13:21:42] INFO    src.training.trainer | [train] step 700/4512  loss=0.5147  lr=2.82e-05
+[2026-10-04 13:22:26] INFO    src.training.trainer | [train] step 750/4512  loss=0.5068  lr=2.78e-05
+[2026-10-04 13:22:43] INFO    src.training.trainer | [epoch  1/ 6 | single] train_loss=0.5063 train_acc=0.7981 | val_loss=0.4273 val_acc=0.8496 val_macro_f1=0.5919 (663.6s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.03it/s] 
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [best] macro_f1=0.591866 at epoch 1 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+[2026-10-04 13:22:46] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.5063 val_loss=0.4273 val_acc=0.8496rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+[2026-10-04 13:22:46] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.5063 val_loss=0.4273 val_acc=0.8496 val_macro_f1=0.5919  *best*
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+[2026-10-04 13:22:46] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.5063 val_loss=0.4273 val_acc=0.8496 val_macro_f1=0.5919  *best*
+[2026-10-04 13:23:30] INFO    src.training.trainer | [train] step 50/4512  loss=0.3480  lr=2.74e-05
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+[2026-10-04 13:22:46] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.5063 val_loss=0.4273 val_acc=0.8496 val_macro_f1=0.5919  *best*
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+rts\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:22:46] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.591866 at epoch 1
+[2026-10-04 13:22:46] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.5063 val_loss=0.4273 val_acc=0.8496 val_macro_f1=0.5919  *best*
+[2026-10-04 13:23:30] INFO    src.training.trainer | [train] step 50/4512  loss=0.3480  lr=2.74e-05
+[2026-10-04 13:24:13] INFO    src.training.trainer | [train] step 100/4512  loss=0.3575  lr=2.70e-05
+[2026-10-04 13:24:56] INFO    src.training.trainer | [train] step 150/4512  loss=0.3516  lr=2.67e-05
+[2026-10-04 13:25:40] INFO    src.training.trainer | [train] step 200/4512  loss=0.3429  lr=2.63e-05
+[2026-10-04 13:26:24] INFO    src.training.trainer | [train] step 250/4512  loss=0.3438  lr=2.59e-05
+[2026-10-04 13:27:07] INFO    src.training.trainer | [train] step 300/4512  loss=0.3383  lr=2.56e-05
+[2026-10-04 13:27:50] INFO    src.training.trainer | [train] step 350/4512  loss=0.3364  lr=2.52e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:30:00] INFO    src.training.trainer | [train] step 500/4512  loss=0.3314  lr=2.41e-05
+[2026-10-04 13:30:43] INFO    src.training.trainer | [train] step 550/4512  loss=0.3288  lr=2.37e-05
+[2026-10-04 13:31:27] INFO    src.training.trainer | [train] step 600/4512  loss=0.3307  lr=2.33e-05
+[2026-10-04 13:32:11] INFO    src.training.trainer | [train] step 650/4512  loss=0.3287  lr=2.30e-05
+[2026-10-04 13:32:54] INFO    src.training.trainer | [train] step 700/4512  loss=0.3294  lr=2.26e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:30:00] INFO    src.training.trainer | [train] step 500/4512  loss=0.3314  lr=2.41e-05
+[2026-10-04 13:30:43] INFO    src.training.trainer | [train] step 550/4512  loss=0.3288  lr=2.37e-05
+[2026-10-04 13:31:27] INFO    src.training.trainer | [train] step 600/4512  loss=0.3307  lr=2.33e-05
+[2026-10-04 13:32:11] INFO    src.training.trainer | [train] step 650/4512  loss=0.3287  lr=2.30e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:30:00] INFO    src.training.trainer | [train] step 500/4512  loss=0.3314  lr=2.41e-05
+[2026-10-04 13:30:43] INFO    src.training.trainer | [train] step 550/4512  loss=0.3288  lr=2.37e-05
+[2026-10-04 13:31:27] INFO    src.training.trainer | [train] step 600/4512  loss=0.3307  lr=2.33e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:30:00] INFO    src.training.trainer | [train] step 500/4512  loss=0.3314  lr=2.41e-05
+[2026-10-04 13:30:43] INFO    src.training.trainer | [train] step 550/4512  loss=0.3288  lr=2.37e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:28:34] INFO    src.training.trainer | [train] step 400/4512  loss=0.3337  lr=2.48e-05
+[2026-10-04 13:29:17] INFO    src.training.trainer | [train] step 450/4512  loss=0.3333  lr=2.45e-05
+[2026-10-04 13:30:00] INFO    src.training.trainer | [train] step 500/4512  loss=0.3314  lr=2.41e-05
+[2026-10-04 13:30:43] INFO    src.training.trainer | [train] step 550/4512  loss=0.3288  lr=2.37e-05
+[2026-10-04 13:31:27] INFO    src.training.trainer | [train] step 600/4512  loss=0.3307  lr=2.33e-05
+[2026-10-04 13:32:11] INFO    src.training.trainer | [train] step 650/4512  loss=0.3287  lr=2.30e-05
+[2026-10-04 13:32:54] INFO    src.training.trainer | [train] step 700/4512  loss=0.3294  lr=2.26e-05
+[2026-10-04 13:33:37] INFO    src.training.trainer | [train] step 750/4512  loss=0.3302  lr=2.22e-05
+[2026-10-04 13:33:54] INFO    src.training.trainer | [epoch  2/ 6 | single] train_loss=0.3300 train_acc=0.8835 | val_loss=0.3922 val_acc=0.8537 val_macro_f1=0.6617 (652.9s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.23it/s] 
+[2026-10-04 13:33:57] INFO    src.callbacks.monitoring | [best] macro_f1=0.661700 at epoch 2 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:33:57] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.661700 at epoch 2
+[2026-10-04 13:33:57] INFO    src.callbacks.csv_logger | [log] stage=single epoch=2 loss=0.3300 val_loss=0.3922 val_acc=0.8537 val_macro_f1=0.6617  *best*
+[2026-10-04 13:34:41] INFO    src.training.trainer | [train] step 50/4512  loss=0.2589  lr=2.19e-05
+[2026-10-04 13:35:24] INFO    src.training.trainer | [train] step 100/4512  loss=0.2756  lr=2.15e-05
+[2026-10-04 13:36:07] INFO    src.training.trainer | [train] step 150/4512  loss=0.2709  lr=2.11e-05
+[2026-10-04 13:36:50] INFO    src.training.trainer | [train] step 200/4512  loss=0.2664  lr=2.07e-05
+[2026-10-04 13:37:34] INFO    src.training.trainer | [train] step 250/4512  loss=0.2664  lr=2.04e-05
+[2026-10-04 13:38:18] INFO    src.training.trainer | [train] step 300/4512  loss=0.2703  lr=2.00e-05
+[2026-10-04 13:39:03] INFO    src.training.trainer | [train] step 350/4512  loss=0.2680  lr=1.96e-05
+[2026-10-04 13:39:47] INFO    src.training.trainer | [train] step 400/4512  loss=0.2675  lr=1.93e-05
+[2026-10-04 13:40:30] INFO    src.training.trainer | [train] step 450/4512  loss=0.2666  lr=1.89e-05
+[2026-10-04 13:41:14] INFO    src.training.trainer | [train] step 500/4512  loss=0.2669  lr=1.85e-05
+[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.674205 at epoch 3
+[2026-10-04 13:45:10] INFO    src.callbacks.csv_logger | [log] stage=single epoch=3 loss=0.2643 val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742  *best*
+[2026-10-04 13:45:54] INFO    src.training.trainer | [train] step 50/4512  loss=0.1893  lr=1.63e-05
+[2026-10-04 13:46:37] INFO    src.training.trainer | [train] step 100/4512  loss=0.1882  lr=1.59e-05
+[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.674205 at epoch 3
+[2026-10-04 13:45:10] INFO    src.callbacks.csv_logger | [log] stage=single epoch=3 loss=0.2643 val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742  *best*
+[2026-10-04 13:45:54] INFO    src.training.trainer | [train] step 50/4512  loss=0.1893  lr=1.63e-05
+[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.674205 at epoch 3
+[2026-10-04 13:45:10] INFO    src.callbacks.csv_logger | [log] stage=single epoch=3 loss=0.2643 val_loss=0.3448 val_acc=0.8757[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\repo[2026-10-04 13:41:57] INFO    src.training.trainer | [train] step 550/4512  loss=0.2666  lr=1.82e-05
+[2026-10-04 13:42:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2659  lr=1.78e-05
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:43:24] INFO    src.training.trainer | [train] step 650/4512  loss=0.2630  lr=1.74e-05
+[2026-10-04 13:44:07] INFO    src.training.trainer | [train] step 700/4512  loss=0.2648  lr=1.70e-05
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:44:50] INFO    src.training.trainer | [train] step 750/4512  loss=0.2644  lr=1.67e-05
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:07] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2643 train_acc=0.9088 | val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742 (654.2s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\repoWriting model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.12it/s] 
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\repo[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.674205 at epoch 3 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:45:10] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.674205 at epoch 3
+[2026-10-04 13:45:10] INFO    src.callbacks.csv_logger | [log] stage=single epoch=3 loss=0.2643 val_loss=0.3448 val_acc=0.8757 val_macro_f1=0.6742  *best*
+[2026-10-04 13:45:54] INFO    src.training.trainer | [train] step 50/4512  loss=0.1893  lr=1.63e-05
+[2026-10-04 13:46:37] INFO    src.training.trainer | [train] step 100/4512  loss=0.1882  lr=1.59e-05
+[2026-10-04 13:47:20] INFO    src.training.trainer | [train] step 150/4512  loss=0.2032  lr=1.56e-05
+[2026-10-04 13:48:03] INFO    src.training.trainer | [train] step 200/4512  loss=0.2014  lr=1.52e-05
+[2026-10-04 13:48:47] INFO    src.training.trainer | [train] step 250/4512  loss=0.2012  lr=1.48e-05
+[2026-10-04 13:49:30] INFO    src.training.trainer | [train] step 300/4512  loss=0.2000  lr=1.44e-05
+[2026-10-04 13:50:14] INFO    src.training.trainer | [train] step 350/4512  loss=0.2017  lr=1.41e-05
+[2026-10-04 13:50:57] INFO    src.training.trainer | [train] step 400/4512  loss=0.2021  lr=1.37e-05
+[2026-10-04 13:51:40] INFO    src.training.trainer | [train] step 450/4512  loss=0.2047  lr=1.33e-05
+[2026-10-04 13:52:23] INFO    src.training.trainer | [train] step 500/4512  loss=0.2076  lr=1.30e-05
+[2026-10-04 13:53:07] INFO    src.training.trainer | [train] step 550/4512  loss=0.2061  lr=1.26e-05
+[2026-10-04 13:53:50] INFO    src.training.trainer | [train] step 600/4512  loss=0.2041  lr=1.22e-05
+[2026-10-04 13:54:33] INFO    src.training.trainer | [train] step 650/4512  loss=0.2058  lr=1.19e-05
+[2026-10-04 13:55:16] INFO    src.training.trainer | [train] step 700/4512  loss=0.2083  lr=1.15e-05
+[2026-10-04 13:55:59] INFO    src.training.trainer | [train] step 750/4512  loss=0.2086  lr=1.11e-05
+[2026-10-04 13:56:16] INFO    src.training.trainer | [epoch  4/ 6 | single] train_loss=0.2086 train_acc=0.9273 | val_loss=0.4092 val_acc=0.8810 val_macro_f1=0.6878 (650.4s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.17it/s] 
+[2026-10-04 13:56:19] INFO    src.callbacks.monitoring | [best] macro_f1=0.687807 at epoch 4 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 13:56:19] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.687807 at epoch 4
+[2026-10-04 13:56:19] INFO    src.callbacks.csv_logger | [log] stage=single epoch=4 loss=0.2086 val_loss=0.4092 val_acc=0.8810 v val_macro_f1=0.6878  *best*
+[2026-10-04 13:57:03] INFO    src.training.trainer | [train] step 50/4512  loss=0.1710  lr=1.07e-05
+[2026-10-04 13:57:46] INFO    src.training.trainer | [train] step 100/4512  loss=0.1575  lr=1.04e-05
+[2026-10-04 13:58:29] INFO    src.training.trainer | [train] step 150/4512  loss=0.1590  lr=1.00e-05
+[2026-10-04 13:59:12] INFO    src.training.trainer | [train] step 200/4512  loss=0.1597  lr=9.63e-06
+[2026-10-04 13:59:56] INFO    src.training.trainer | [train] step 250/4512  loss=0.1624  lr=9.26e-06
+[2026-10-04 14:00:39] INFO    src.training.trainer | [train] step 300/4512  loss=0.1605  lr=8.89e-06
+[2026-10-04 14:01:22] INFO    src.training.trainer | [train] step 350/4512  loss=0.1622  lr=8.52e-06
+[2026-10-04 14:02:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1628  lr=8.16e-06
+[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 13:59:56] INFO    src.training.trainer | [train] step 250/4512  loss=0.1624  lr=9.26e-06
+[2026-10-04 14:00:39] INFO    src.training.trainer | [train] step 300/4512  loss=0.1605  lr=8.89e-06
+[2026-10-04 14:01:22] INFO    src.training.trainer | [train] step 350/4512  loss=0.1622  lr=8.52e-06
+[2026-10-04 14:02:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1628  lr=8.16e-06
+[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:00:39] INFO    src.training.trainer | [train] step 300/4512  loss=0.1605  lr=8.89e-06
+[2026-10-04 14:01:22] INFO    src.training.trainer | [train] step 350/4512  loss=0.1622  lr=8.52e-06
+[2026-10-04 14:02:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1628  lr=8.16e-06
+[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:01:22] INFO    src.training.trainer | [train] step 350/4512  loss=0.1622  lr=8.52e-06
+[2026-10-04 14:02:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1628  lr=8.16e-06
+[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:02:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1628  lr=8.16e-06
+[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:02:48] INFO    src.training.trainer | [train] step 450/4512  loss=0.1632  lr=7.79e-06
+[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:03:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1613  lr=7.42e-06
+[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:04:15] INFO    src.training.trainer | [train] step 550/4512  loss=0.1633  lr=7.05e-06
+[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:04:58] INFO    src.training.trainer | [train] step 600/4512  loss=0.1637  lr=6.68e-06
+[2026-10-04 14:05:41] INFO    src.training.trainer | [train] step 650/4512  loss=0.1637  lr=6.31e-06
+[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237[2026-10-04 14:06:25] INFO    src.training.trainer | [train] step 700/4512  loss=0.1631  lr=5.94e-06
+[2026-10-04 14:07:08] INFO    src.training.trainer | [train] step 750/4512  loss=0.1630  lr=5.57e-06
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237 val_acc=0.8765 val_macro_f1=0.6923 (649.4s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.17it/s]   
+[2026-10-04 14:07:24] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1629 train_acc=0.9449 | val_loss=0.4237 val_acc=0.8765 val_macro_f1=0.6923 (649.4s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.17it/s]   
+[2026-10-04 14:07:28] INFO    src.callbacks.monitoring | [best] macro_f1=0.692300 at epoch 5 -> C:\AI\AIModerationContent\report val_acc=0.8765 val_macro_f1=0.6923 (649.4s)
+Writing model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.17it/s]   
+[2026-10-04 14:07:28] INFO    src.callbacks.monitoring | [best] macro_f1=0.692300 at epoch 5 -> C:\AI\AIModerationContent\reportWriting model shards: 100%|████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.17it/s]   
+[2026-10-04 14:07:28] INFO    src.callbacks.monitoring | [best] macro_f1=0.692300 at epoch 5 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 14:07:28] INFO    src.callbacks.monitoring | [best] macro_f1=0.692300 at epoch 5 -> C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+s\sensitiveai-vi\run_005\best_model
+[2026-10-04 14:07:28] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.692300 at epoch 5
+[2026-10-04 14:07:28] INFO    src.callbacks.csv_logger | [log] stage=single epoch=5 loss=0.1629 val_loss=0.4237 val_acc=0.8765 val_macro_f1=0.6923  *best*
+[2026-10-04 14:08:11] INFO    src.training.trainer | [train] step 50/4512  loss=0.1163  lr=5.19e-06
+[2026-10-04 14:08:54] INFO    src.training.trainer | [train] step 100/4512  loss=0.1252  lr=4.82e-06
+[2026-10-04 14:09:37] INFO    src.training.trainer | [train] step 150/4512  loss=0.1216  lr=4.45e-06
+[2026-10-04 14:10:21] INFO    src.training.trainer | [train] step 200/4512  loss=0.1274  lr=4.08e-06
+[2026-10-04 14:11:04] INFO    src.training.trainer | [train] step 250/4512  loss=0.1302  lr=3.71e-06
+[2026-10-04 14:11:47] INFO    src.training.trainer | [train] step 300/4512  loss=0.1330  lr=3.34e-06
+[2026-10-04 14:12:30] INFO    src.training.trainer | [train] step 350/4512  loss=0.1296  lr=2.97e-06
+[2026-10-04 14:13:13] INFO    src.training.trainer | [train] step 400/4512  loss=0.1297  lr=2.60e-06
+[2026-10-04 14:13:57] INFO    src.training.trainer | [train] step 450/4512  loss=0.1288  lr=2.23e-06
+[2026-10-04 14:14:40] INFO    src.training.trainer | [train] step 500/4512  loss=0.1253  lr=1.86e-06
+[2026-10-04 14:15:23] INFO    src.training.trainer | [train] step 550/4512  loss=0.1255  lr=1.49e-06
+[2026-10-04 14:16:06] INFO    src.training.trainer | [train] step 600/4512  loss=0.1251  lr=1.12e-06
+[2026-10-04 14:16:49] INFO    src.training.trainer | [train] step 650/4512  loss=0.1245  lr=7.54e-07
+[2026-10-04 14:17:33] INFO    src.training.trainer | [train] step 700/4512  loss=0.1239  lr=3.84e-07
+[2026-10-04 14:18:16] INFO    src.training.trainer | [train] step 750/4512  loss=0.1227  lr=1.48e-08
+[2026-10-04 14:18:33] INFO    src.training.trainer | [epoch  6/ 6 | single] train_loss=0.1226 train_acc=0.9603 | val_loss=0.5006 val_acc=0.8772 val_macro_f1=0.6891 (649.5s)
+[2026-10-04 14:18:33] INFO    src.callbacks.monitoring | [early-stop] macro_f1=0.689150 (best 0.692300 @ epoch 5) - 1/3 epochs without improvement
+[2026-10-04 14:18:33] INFO    src.callbacks.csv_logger | [log] stage=single epoch=6 loss=0.1226 val_loss=0.5006 val_acc=0.8772 val_macro_f1=0.6892
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.25it/s]
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.2) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[2026-10-04 14:18:36] INFO    sensitiveai.train | ==============================================================================
+[2026-10-04 14:18:36] INFO    sensitiveai.train | Training finished: run_005
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   best macro_f1 = 0.692300 at epoch 5 (stage single)
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   epochs run      : 6/6
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   training time   : 4029.2 s
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   best checkpoint : C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\best_model
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   training log    : C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\training_log.csv
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   run guide       : C:\AI\AIModerationContent\reports\sensitiveai-vi\run_005\explain.md
+[2026-10-04 14:18:36] INFO    sensitiveai.train |
+[2026-10-04 14:18:36] INFO    sensitiveai.train | Next step (evaluation on the test set):
+[2026-10-04 14:18:36] INFO    sensitiveai.train |   python -m src.evaluation.run_evaluation --model sensitiveai-vi --run-id run_005
+[2026-10-04 14:18:36] INFO    sensitiveai.train | ==============================================================================
+PS C:\AI\AIModerationContent>

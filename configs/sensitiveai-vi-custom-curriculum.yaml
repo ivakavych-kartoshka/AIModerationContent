@@ -20,7 +20,7 @@ head: custom
 seed: 42
 deterministic: true
 
-encoder_checkpoint: null
+encoder_checkpoint: reports/sensitiveai-vi-customdlr2stage/run_003/best_model
 
 head_options:
   head_hidden_size: 512
@@ -53,6 +53,7 @@ training:
   warmup_ratio: 0.1
   optimizer: adamw_torch
   scheduler: linear
+  min_lr_ratio: 0.01
   max_grad_norm: 1.0
   precision: bf16
   gradient_checkpointing: true

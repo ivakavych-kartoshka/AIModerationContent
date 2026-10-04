@@ -21,7 +21,8 @@ head: custom
 seed: 42
 deterministic: true
 
-encoder_checkpoint: null       # pre-trained encoder (stage 1 starts from scratch)
+encoder_checkpoint: reports/sensitiveai-vi-custom/run_002/best_model
+       # pre-trained encoder (stage 1 starts from scratch)
 
 head_options:
   head_hidden_size: 512
@@ -55,6 +56,7 @@ training:
   warmup_ratio: 0.1
   optimizer: adamw_torch
   scheduler: linear
+  min_lr_ratio: 0.01
   max_grad_norm: 1.0
   precision: bf16
   gradient_checkpointing: true
