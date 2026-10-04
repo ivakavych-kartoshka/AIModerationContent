@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese,english]{babel}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{hyperref}
+
+\title{\textbf{SensitiveAI:} HATE / OFFENSIVE / CLEAN classification for Vietnamese\\
+       social-media text with mDeBERTa}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Related work}
+\input{sections/related_work}
+
+\section{Dataset}
+\label{sec:dataset}
+\input{sections/dataset}
+
+\section{Methodology}
+\label{sec:method}
+\input{sections/methodology}
+
+\subsection{Discriminative learning rates and stage-wise training}
+\label{sec:dlr}
+\input{sections/dlr_two_stage}
+
+\subsection{Curriculum concept training}
+\label{sec:curriculum}
+\input{sections/curriculum}
+
+\section{Experimental setup}
+\label{sec:setup}
+\input{sections/setup}
+
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+
+% Các file trong paper/tables do scripts/03_compare_models.py sinh ra và đã chứa
+% sẵn môi trường table + tabular, nên chỉ \input trực tiếp, không bọc thêm.
+\input{tables/model_comparison}
+\input{tables/classification_results}
+\input{tables/ablation_results}
+
+\section{Discussion}
+\input{sections/discussion}
+
+\section{Conclusion}
+\input{sections/conclusion}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,169 @@
+# =============================================================================
+# Model 4 - sensitiveai-vi-custom-curriculum
+#
+# Research plan, section 13: Custom Head + 3-stage curriculum training.
+#
+#   Stage 1 - OFFENSIVE-focused concept   (OFFENSIVE positive, HATE/CLEAN negative)
+#   Stage 2 - HATE-focused concept        (HATE positive, OFFENSIVE/CLEAN negative)
+#   Stage 3 - final 3-class training     (HATE / OFFENSIVE / CLEAN)
+#
+# The whole dataset is used in every stage: the negative class of a concept is
+# formed by the *other two* classes, never by dropping samples.
+# The 3-way head is kept throughout - the concept loss only re-reads the logits,
+# so the label mapping never changes between stages.
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-vi-custom-curriculum.yaml
+# =============================================================================
+model_name: sensitiveai-vi-custom-curriculum
+base_model: microsoft/mdeberta-v3-base
+head: custom
+seed: 42
+deterministic: true
+
+encoder_checkpoint: null
+
+head_options:
+  head_hidden_size: 512
+  dropout: 0.1
+  use_cls_pool: true
+  use_mean_pool: true
+  use_max_pool: true
+  use_attention_pool: false
+  use_class_prior: false
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 3
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: true
+  class_weight: manual          # explicit label-specific weights (plan section 10)
+  class_weight_manual:
+    HATE: 3.0                   # rarest class -> highest weight
+    OFFENSIVE: 2.0
+    CLEAN: 1.0
+  concept:
+    focus: OFFENSIVE            # overridden per stage below
+    positive_weight: auto       # neg/pos ratio estimated on TRAIN only
+    normalize_positive_weight: true
+    gamma: 0.0
+
+dlr:
+  enabled: true
+  embedding_lr: 5.0e-6
+  encoder_lr: 1.0e-5
+  layer_lr: 2.0e-5
+  head_lr: 8.0e-5
+  layer_split: 0.5
+  layer_decay: 1.0
+
+stages:
+  - name: stage_1
+    description: >-
+      OFFENSIVE-focused stage. Concept: OFFENSIVE -> positive, HATE -> negative,
+      CLEAN -> negative. Full dataset, class weights estimated on TRAIN only.
+    epochs: 3
+    save_checkpoint: true
+    loss:
+      type: concept
+      concept:
+        focus: OFFENSIVE
+        positive_weight: auto
+        normalize_positive_weight: true
+
+  - name: stage_2
+    description: >-
+      HATE-focused stage, continued from the stage 1 checkpoint.
+      Concept: HATE -> positive, OFFENSIVE -> negative, CLEAN -> negative.
+    epochs: 3
+    save_checkpoint: true
+    init_from: "stage:stage_1"
+    training:
+      learning_rate: 1.0e-5
+      warmup_ratio: 0.05
+    dlr:
+      embedding_lr: 2.5e-6
+      encoder_lr: 5.0e-6
+      layer_lr: 1.0e-5
+      head_lr: 5.0e-5
+    loss:
+      type: concept
+      concept:
+        focus: HATE
+        positive_weight: auto
+        normalize_positive_weight: true
+
+  - name: stage_3
+    description: >-
+      Final 3-class training (HATE / OFFENSIVE / CLEAN) continued from the
+      stage 2 checkpoint, with explicit label-specific class weights.
+    epochs: 4
+    save_checkpoint: true
+    init_from: "stage:stage_2"
+    training:
+      learning_rate: 1.5e-5
+      warmup_ratio: 0.05
+    dlr:
+      embedding_lr: 2.5e-6
+      encoder_lr: 5.0e-6
+      layer_lr: 1.0e-5
+      head_lr: 5.0e-5
+    loss:
+      type: cross_entropy
+      use_class_weight: true
+      class_weight: manual
+      class_weight_manual:
+        HATE: 3.0
+        OFFENSIVE: 2.0
+        CLEAN: 1.0
+
+thresholds:
+  enabled: true
+  search: macro_f1
+  grid_size: 101
+  coordinate_ascent_rounds: 3
+  init: 0.5
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 3
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: thresholds
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

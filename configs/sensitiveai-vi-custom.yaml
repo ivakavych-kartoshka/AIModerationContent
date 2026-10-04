@@ -1,0 +1,92 @@
+# =============================================================================
+# Model 2 - sensitiveai-vi-custom
+#
+# Research plan, section 7: measures the effect of the Custom Classification
+# Head. Everything else is deliberately identical to sensitiveai-vi so that the
+# comparison isolates the head.
+#
+# Encoder initialisation:
+#   No previous checkpoint is used -> the head is built on top of the plain
+#   pre-trained microsoft/mdeberta-v3-base encoder.
+#   (To initialise from an existing SensitiveAI checkpoint instead, set
+#    `encoder_checkpoint: reports/sensitiveai-vi/run_001/best_model`; the path is
+#    then recorded verbatim in this configuration and in run_pointer.txt of the
+#    run directory.)
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-vi-custom.yaml
+# =============================================================================
+model_name: sensitiveai-vi-custom
+base_model: microsoft/mdeberta-v3-base
+head: custom
+seed: 42
+deterministic: true
+
+# Optional encoder initialisation. Left empty on purpose for the reported run.
+encoder_checkpoint: null
+
+# Custom head (see src/models/custom_head.py for the full definition).
+head_options:
+  head_hidden_size: 512        # fusion bottleneck
+  dropout: 0.1
+  use_cls_pool: true           # first-token view
+  use_mean_pool: true          # content view
+  use_max_pool: true           # salience view
+  use_attention_pool: false    # optional 4th, learned view (off by default)
+  use_class_prior: false
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 6
+  learning_rate: 3.0e-5        # identical to the baseline
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: false      # identical to the baseline
+
+dlr:
+  enabled: false
+
+thresholds:
+  enabled: false
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 3
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: argmax
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

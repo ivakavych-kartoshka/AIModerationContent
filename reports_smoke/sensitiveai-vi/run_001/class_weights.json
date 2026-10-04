@@ -1,0 +1,13 @@
+{
+  "estimated_on": "train split only",
+  "train_label_counts": {
+    "HATE": 27,
+    "OFFENSIVE": 17,
+    "CLEAN": 212
+  },
+  "per_stage": {
+    "single": null
+  },
+  "primary": null,
+  "table": "Class weights (estimated on TRAIN only)\n----------------------------------------------\nHATE       n=     27  weight=1.0000\nOFFENSIVE  n=     17  weight=1.0000\nCLEAN      n=    212  weight=1.0000"
+}

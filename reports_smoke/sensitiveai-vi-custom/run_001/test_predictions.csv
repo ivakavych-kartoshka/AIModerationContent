@@ -1,0 +1,129 @@
+index,text,true_label_id,true_label,pred_label_id,pred_label,correct,prob_HATE,prob_OFFENSIVE,prob_CLEAN
+0,à thì ra người nhật cũng chẳng hợn võ hồng tâm,2,CLEAN,2,CLEAN,1,0.03481148,0.02430233,0.94088614
+1,mong thầy chỉ đóng mv thôi:v,2,CLEAN,2,CLEAN,1,0.024078747,0.02158405,0.95433724
+2,best cà khịa,2,CLEAN,2,CLEAN,1,0.027899232,0.018877564,0.9532233
+3,m à t ko còn ngon ngữ nào mà chửi m nữa,2,CLEAN,2,CLEAN,1,0.034934293,0.020860216,0.9442055
+4,b52 😄,2,CLEAN,2,CLEAN,1,0.019650903,0.0186051,0.961744
+5,xin fb của idol trần dần. ai có share với ạ.😃😃😃😃,2,CLEAN,2,CLEAN,1,0.023060689,0.02654269,0.9503966
+6,hâhhahaha được fan cưng r nhá =))))),2,CLEAN,2,CLEAN,1,0.024675589,0.034798164,0.94052625
+7,share bài này là lũ ban cắn chết nên thôi:))),2,CLEAN,2,CLEAN,1,0.023418207,0.03380813,0.9427737
+8,huy quang ghê nhờ 🙂,2,CLEAN,2,CLEAN,1,0.028309178,0.019456593,0.9522342
+9,chui hay lam co oi,2,CLEAN,2,CLEAN,1,0.03386977,0.014229759,0.9519004
+10,bê đê hả,2,CLEAN,2,CLEAN,1,0.024315996,0.011943617,0.96374035
+11,linh phan sao k đc,2,CLEAN,2,CLEAN,1,0.0255262,0.016610214,0.95786357
+12,gai tre,2,CLEAN,2,CLEAN,1,0.019354554,0.010942073,0.9697034
+13,nguyễn việt hehehe!,2,CLEAN,2,CLEAN,1,0.023995867,0.024951752,0.95105237
+14,:^)),2,CLEAN,2,CLEAN,1,0.032048754,0.024003409,0.9439478
+15,yêu xa khiến chúng ta trưởng thành hơn 😊,2,CLEAN,2,CLEAN,1,0.021721423,0.017867554,0.9604111
+16,khúc hương giang ủa chớ sao dzẩy. chạy event hả,2,CLEAN,2,CLEAN,1,0.027618691,0.021342073,0.9510392
+17,óc chó,1,OFFENSIVE,2,CLEAN,0,0.033484455,0.018063508,0.94845206
+18,phố bolsa thiên về cộng sản việt nam.,2,CLEAN,2,CLEAN,1,0.030280598,0.020329429,0.94938993
+19,"nền giáo dục phương tây đã dạy gì cho những \""ai kia\""☹️. nghĩ nó chán, sang chảnh mà ý thức l0l😑",1,OFFENSIVE,2,CLEAN,0,0.03446038,0.026837775,0.93870175
+20,chị dàu quá em con 10 triệu,2,CLEAN,2,CLEAN,1,0.02637844,0.021698313,0.9519233
+21,có trao giấy khen ko thầy,2,CLEAN,2,CLEAN,1,0.020770429,0.024283092,0.95494646
+22,trung đậm đen,2,CLEAN,2,CLEAN,1,0.029909372,0.03233974,0.9377509
+23,nguoi ta co tien lam rang gia.cgu.bon minh tien dau.lam.bactram trieu do bo,2,CLEAN,2,CLEAN,1,0.03352557,0.016857715,0.9496167
+24,cả đoàn trốn trại...nói chuyện điên khùng,0,HATE,2,CLEAN,0,0.035089653,0.03120938,0.93370104
+25,phạm hằng nga like chi rứa má:v,2,CLEAN,2,CLEAN,1,0.022644054,0.014506326,0.9628496
+26,ba hard cc:)),0,HATE,2,CLEAN,0,0.021757776,0.02371028,0.954532
+27,vũ thế đức hay quá ban oi,2,CLEAN,2,CLEAN,1,0.024227958,0.015521012,0.96025103
+28,uyên tú bạn ở gần quận hải châu à,2,CLEAN,2,CLEAN,1,0.02682191,0.027673326,0.94550484
+29,thái phan chuẩn cmnr😂,2,CLEAN,2,CLEAN,1,0.018012043,0.013810312,0.9681777
+30,tối ngày đi ra ngoài đường khùng khùng,1,OFFENSIVE,2,CLEAN,0,0.048556566,0.035248287,0.9161952
+31,hoàng vũ có tiền thì thằng đéo nào cũng đẹp🙂,1,OFFENSIVE,2,CLEAN,0,0.029371643,0.020504713,0.9501237
+32,dễ tha thứ vậy em em có tấm lòng nhân hậu quá,2,CLEAN,2,CLEAN,1,0.042262826,0.025434218,0.932303
+33,duy khánh thế cứ đàn bà thì mới không biết đúng sai à?? 😀??,2,CLEAN,2,CLEAN,1,0.037116945,0.027799306,0.93508375
+34,đẹp trai tài năng tư duy đỉnh cả đỉnh thầy dell có nha các em và thầy rất tỉnh với thầy hát rất hây nha các em,2,CLEAN,2,CLEAN,1,0.034445822,0.02724889,0.9383052
+35,chị làm đẹp thành công lắm. 👍👍👍👍👍,2,CLEAN,2,CLEAN,1,0.01747827,0.020755963,0.9617658
+36,"mày bị ngu hay gì mà m hổng hiểu, mày ngon m để hình bản mày lên là xác định 8h tối nay dở nóc nhà màyyy",0,HATE,2,CLEAN,0,0.03796373,0.027774861,0.9342614
+37,ông sena kiểu như: clg đang xảy ra vậy:))),2,CLEAN,2,CLEAN,1,0.02828693,0.027631665,0.9440814
+38,mùa dịch a luân rảnh. làm hài hay thật,2,CLEAN,2,CLEAN,1,0.036226764,0.022144977,0.94162834
+39,ông già đi thái rồi tối nay talkshow tí nhé anh em ơi:)),2,CLEAN,2,CLEAN,1,0.027211552,0.035768908,0.93701947
+40,mọi người dành ít phút like hoặc thả tim clip của lớp em nha. em cảm ơn ❤,2,CLEAN,2,CLEAN,1,0.024864417,0.01997912,0.95515656
+41,tạch 🙂,2,CLEAN,2,CLEAN,1,0.019253872,0.016087212,0.964659
+42,cuong ly dinh zừa,2,CLEAN,2,CLEAN,1,0.035456914,0.013669857,0.9508732
+43,anh nguyen có phải con hnay e cho c xem k nhờ?:))),2,CLEAN,2,CLEAN,1,0.02922936,0.032607708,0.9381629
+44,chỉ có thể là việt nam.....,2,CLEAN,2,CLEAN,1,0.016094357,0.02632861,0.9575771
+45,đem đưa lên cơ sơ xo thẩm quyền thp bốc phân mà ăn:),0,HATE,2,CLEAN,0,0.040445153,0.024531223,0.9350236
+46,@kỹ năng sinh tồn ngáo đá hả bạn có làm j bn chưa mà chửi người ta,0,HATE,2,CLEAN,0,0.035631195,0.030956922,0.9334119
+47,có kg chị một ngàn đô lận đó nhe,2,CLEAN,2,CLEAN,1,0.035537496,0.026203707,0.9382588
+48,đỉnh cao của thần đồng toán học:))),2,CLEAN,2,CLEAN,1,0.023276486,0.01743328,0.9592902
+49,đã nghe nhưng chắc ko hợp vs mk nên nghe có lần ko thấy gì nổi bật lắm,2,CLEAN,2,CLEAN,1,0.039028145,0.022764914,0.93820685
+50,nhìn cái mặt nó kìa. cặn bã 🖕🖕,0,HATE,2,CLEAN,0,0.03541114,0.022333523,0.94225544
+51,bùi thanh thư luôn cho nóng😂,2,CLEAN,2,CLEAN,1,0.022020644,0.019433148,0.9585462
+52,"k đc public đ/c các ông ơi,có duyên sẽ gặp thôi",2,CLEAN,2,CLEAN,1,0.02849007,0.028048374,0.94346154
+53,đẹp trai thực sự 😎😎😎,2,CLEAN,2,CLEAN,1,0.019106975,0.023593964,0.9572991
+54,đình quang add em vứi anh ui😌,2,CLEAN,2,CLEAN,1,0.021412231,0.01693847,0.9616493
+55,khi nào senna ra thầy nhớ làm giáo án nha thầy:33 mãu iu thầy dấu bé baaa,2,CLEAN,2,CLEAN,1,0.036248155,0.02889955,0.9348523
+56,bỏng ngô um. để see 2 people kia sao:))),2,CLEAN,2,CLEAN,1,0.021537513,0.026182955,0.95227957
+57,có trúng mà tại thằng kia tool vs cả khẩu này k đau chứ để ak x6 của anh chip là chết rồi:))),2,CLEAN,2,CLEAN,1,0.02871337,0.027829954,0.94345665
+58,phản động là gì vậy? auto đéo động não à,0,HATE,2,CLEAN,0,0.02757582,0.022861157,0.9495629
+59,thích cô quá cô ơi,2,CLEAN,2,CLEAN,1,0.017228339,0.019829698,0.96294194
+60,sạo lồn,1,OFFENSIVE,2,CLEAN,0,0.035586942,0.017479718,0.9469333
+61,sao giống đàn ông vậy??,2,CLEAN,2,CLEAN,1,0.025165662,0.02309331,0.951741
+62,là cò tè há mõm,2,CLEAN,2,CLEAN,1,0.03019526,0.015665095,0.95413965
+63,kh tụ nhiên bị ban đâu ông êi,2,CLEAN,2,CLEAN,1,0.028590223,0.0172059,0.9542038
+64,giống abe,2,CLEAN,2,CLEAN,1,0.028414315,0.015814947,0.9557707
+65,trương duy ko mvp đội mình thì là mvp của đội bạn:))),2,CLEAN,2,CLEAN,1,0.026137212,0.023246918,0.9506159
+66,mấy con cá đấy gọi chung là quân đội và cớm:v,0,HATE,2,CLEAN,0,0.035010062,0.033406835,0.9315831
+67,em thích tính chế v đó..,2,CLEAN,2,CLEAN,1,0.026012503,0.027907342,0.94608015
+68,"1 cây xăng có đầy đủ ban, bệ từ cửa hàng trưởng, cửa hàng phó, kế toán, nhân viên, lao công, bảo vệ nên lúc nào họ cũng than lỗ. lạ 1 cái nữa là đa số cây xăng petrolimex, nhân viên ở đó thường nói tiếng nghệ an, hà tĩnh",2,CLEAN,2,CLEAN,1,0.04099111,0.026055535,0.93295336
+69,có công trình thì mới có tiền vào..,2,CLEAN,2,CLEAN,1,0.019994415,0.024117868,0.95588773
+70,má này bắt chước phong cách ngọc trinh.,2,CLEAN,2,CLEAN,1,0.03448182,0.026232386,0.93928576
+71,ông này có lúc nào tỉnh đâu,2,CLEAN,2,CLEAN,1,0.039413854,0.035055406,0.92553073
+72,chửi đi rồi khóc,2,CLEAN,2,CLEAN,1,0.03627595,0.035435617,0.9282884
+73,hồi còn sống tôi cũng hay gáy to như anh độ các ông ạ,2,CLEAN,2,CLEAN,1,0.029829863,0.020183895,0.9499862
+74,chuẩn bị xóa kênh nha thầy =)),2,CLEAN,2,CLEAN,1,0.0234576,0.024776163,0.95176625
+75,anna nguyễn càng nghe càng hay với kiểu luyến láy vẫn y nguyên,2,CLEAN,2,CLEAN,1,0.0334967,0.02508787,0.94141537
+76,u cao long no het di chi,2,CLEAN,2,CLEAN,1,0.028546145,0.018721018,0.95273274
+77,võ hồng nhung phạm hồng giang maii anhh uyên thảo tống xuân hòa linh khánh:)),2,CLEAN,2,CLEAN,1,0.036419712,0.01693674,0.94664353
+78,nghe thì vô lý nhưng lại rất thuyết phục,2,CLEAN,2,CLEAN,1,0.04037301,0.026271215,0.9333557
+79,"cố lên chú ơi,có sự chỉ đạo tận tình của chú sẽ vượt qua dịch bệnh,việt nam cố lên cố lên",2,CLEAN,2,CLEAN,1,0.026877806,0.02564698,0.9474753
+80,tiến chiểu sao thằng này lại là chủ tịch,2,CLEAN,2,CLEAN,1,0.04484833,0.025754232,0.9293974
+81,phan thị mỹ dung like đê dm,1,OFFENSIVE,2,CLEAN,0,0.024358079,0.010233597,0.96540827
+82,chào abe nhận lì xì nè,2,CLEAN,2,CLEAN,1,0.03279605,0.023622109,0.94358176
+83,trần thái linh a độ gọi a ơi 🙂,2,CLEAN,2,CLEAN,1,0.027996384,0.015461071,0.9565426
+84,#error!,2,CLEAN,2,CLEAN,1,0.055782642,0.036870074,0.90734726
+85,làm ít rượu táo mèo xong tối đá phò trên stream chứ thầy:),2,CLEAN,2,CLEAN,1,0.038538534,0.027758265,0.9337032
+86,cực kì thuyết phục:(,2,CLEAN,2,CLEAN,1,0.02780745,0.014653497,0.9575391
+87,quả đầu trọc moies ngầu anh ạ:)),2,CLEAN,2,CLEAN,1,0.033264033,0.02452736,0.94220865
+88,ý thức nd đã kém rồi nói gì đến mấy anh bụng phệ,1,OFFENSIVE,2,CLEAN,0,0.040877253,0.02876074,0.930362
+89,yettt,2,CLEAN,2,CLEAN,1,0.030285388,0.020174418,0.94954014
+90,xin cái link live hôm đó đi,2,CLEAN,2,CLEAN,1,0.023299407,0.03135278,0.9453478
+91,julie biebz mốt rủ đi ăn vậy cho sang nha homie:))),2,CLEAN,2,CLEAN,1,0.03141148,0.036154393,0.9324341
+92,dậy thì ko thành công 🤣🤣,2,CLEAN,2,CLEAN,1,0.028556932,0.033126622,0.9383164
+93,nguyễn tâm kaka,2,CLEAN,2,CLEAN,1,0.024049737,0.015286942,0.9606633
+94,589952505,2,CLEAN,2,CLEAN,1,0.051569227,0.027175073,0.9212557
+95,có hông nhe noe,2,CLEAN,2,CLEAN,1,0.032486763,0.025499154,0.9420141
+96,ngày xưa em bỏ anh theo thằng bán khẩu trang.,2,CLEAN,2,CLEAN,1,0.023559524,0.027977627,0.9484629
+97,cũng thích thật ý nhưng nhug chưa c ai hợp tác a ạ,2,CLEAN,2,CLEAN,1,0.032549135,0.02362814,0.9438227
+98,ánh sáng của đảng:)),2,CLEAN,2,CLEAN,1,0.022560833,0.018128138,0.959311
+99,uh cần lồn gì phải lịch sự,1,OFFENSIVE,2,CLEAN,0,0.036008246,0.02804325,0.9359485
+100,thôi bớt ngựa ông... đừng đi tùm lum để khéo mắc bệnh rồi cách li... là dân việt nam mừng lắm rồi,0,HATE,2,CLEAN,0,0.04379363,0.034374014,0.9218323
+101,nhàn lê bài này đọc tên là biết chie để khịa thôi.:))),2,CLEAN,2,CLEAN,1,0.03233974,0.029909372,0.9377509
+102,tộc thuê cả bãi biển hay sao mà dell có bóng dáng ai vậy 😑,2,CLEAN,2,CLEAN,1,0.025284037,0.018498195,0.95621777
+103,các bạn like hộ mình cái ảnh bià với,2,CLEAN,2,CLEAN,1,0.029106246,0.021970548,0.9489232
+104,"chị thấy cái đó là chị xỉu ba ngày, tỉnh dậy thấy xỉu nữa 🤣🤣",2,CLEAN,2,CLEAN,1,0.039108373,0.03533147,0.9255602
+105,._. má cho ngàn likee,2,CLEAN,2,CLEAN,1,0.023664076,0.023664076,0.95267195
+106,lâm khánh chi ngày càng đẹp,2,CLEAN,2,CLEAN,1,0.028784238,0.018012716,0.953203
+107,anh độ off sang động viên các em đi anh:> toang quá hiccc,2,CLEAN,2,CLEAN,1,0.023681315,0.022952717,0.953366
+108,thầy đang quay tay nha mọi người,2,CLEAN,2,CLEAN,1,0.029008493,0.032615125,0.93837637
+109,để avata bít ngay là ngu hơn chó,0,HATE,2,CLEAN,0,0.038619097,0.025725864,0.93565506
+110,huỳnh my đỉ mẹ. t vs m đi trước thời đại mất tiêu r bé 🤣,2,CLEAN,2,CLEAN,1,0.0304175,0.023321904,0.94626063
+111,ngoan thực sự,2,CLEAN,2,CLEAN,1,0.036966585,0.024433421,0.9386
+112,thảo trần đừng nhớ tới t lúc đấy nha😌😌😌,2,CLEAN,2,CLEAN,1,0.037041936,0.029764032,0.93319404
+113,vừa mới tạm biệt cá xemesis và cá pewpew,2,CLEAN,2,CLEAN,1,0.040312167,0.020429213,0.93925864
+114,éo thèm nhé =)),1,OFFENSIVE,2,CLEAN,0,0.025934359,0.02342974,0.9506359
+115,mục tiêu của team là đi nước ngoài làm vlog ăn đồ lạ nên không sao,2,CLEAN,2,CLEAN,1,0.021213818,0.018575441,0.9602108
+116,"từ dịch này thấy ý thức người nhật xăng đổ nửa bình, nhưng giấy vệ sinh không thể thiếu. không hy sinh bản thân để cứu người khác, nhưng dính dịch thì kéo nhiều người dính theo.",0,HATE,2,CLEAN,0,0.038207833,0.028840788,0.9329514
+117,idol mới,2,CLEAN,2,CLEAN,1,0.018748287,0.019648034,0.96160364
+118,chị nói mai gì 15.lần mà ko đau chị,2,CLEAN,2,CLEAN,1,0.034134638,0.028744245,0.93712115
+119,cô ba vàng giả cái () cát không.😂,0,HATE,2,CLEAN,0,0.023301419,0.023853997,0.95284456
+120,duy khánh rồi sao 😞,2,CLEAN,2,CLEAN,1,0.02698415,0.014331173,0.95868456
+121,hoàng thu trang lại nữa,2,CLEAN,2,CLEAN,1,0.032160424,0.02060274,0.94723684
+122,quẩy lên anh em,2,CLEAN,2,CLEAN,1,0.031117307,0.030634874,0.9382478
+123,"có giang hồ bên đài loan tìm đến nhà rồi, nên mới lên mạng khóc lóc ý oi dó",2,CLEAN,2,CLEAN,1,0.042537097,0.026411885,0.9310511
+124,"lê tấn tài vì tao thấy mày là khỉ đầu chó lên tao mới chửi, nhưng tao đã nhầm, mày là xúc vật thì sao hiểu tiếng người 😂",0,HATE,2,CLEAN,0,0.03341431,0.027485862,0.93909985
+125,nguyễn hoài phong noi đi kia bạn ơi:)),2,CLEAN,2,CLEAN,1,0.02238984,0.02557,0.9520402
+126,h tao mới biết hacker việt nam đi rip face:((?,2,CLEAN,2,CLEAN,1,0.026164092,0.029647801,0.9441881
+127,e noi chuyen lam chi nho lai e phuong cua chi que o vinh long e noi chuyen de thuong qua di e gai oi,2,CLEAN,2,CLEAN,1,0.034530025,0.024871048,0.9405989

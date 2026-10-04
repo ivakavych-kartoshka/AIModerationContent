@@ -1,0 +1,55 @@
+# =============================================================================
+# Fixed data split (research plan, sections 3, 4 and 5).
+#
+#   python -m src.data.split --strategy official
+#
+# The split is created ONCE and shared by all four models; every training and
+# evaluation run verifies the SHA-256 fingerprints recorded in
+# data/splits/split_manifest.json.
+# =============================================================================
+
+# Where the cleaned per-file data produced by `python -m src.data.preprocess` lives.
+processed_dir: data/processed/vihsd
+
+# Where the fixed split is written (train.csv / validation.csv / test.csv).
+splits_dir: data/splits
+
+# official  -> keep the ViHSD authors' train / dev / test partition (default,
+#              the published test set is preserved 1:1)
+# stratified -> concatenate everything and re-split with stratification
+strategy: official
+
+# Fixed seed. Used for the stratified strategy, for the train-shuffling of every
+# run, and for the DataLoader workers.
+seed: 42
+
+# Ratios used only by the `stratified` strategy.
+ratios:
+  train: 0.8
+  validation: 0.1
+  test: 0.1
+
+# Rebuild even if data/splits/split_manifest.json already exists.
+overwrite: false
+
+# ---------------------------------------------------------------------------
+# Text cleaning (plan section 3).
+# Everything that DELETES content is opt-in and disabled by default, so no
+# information is lost. Only lossless decoding repairs are enabled.
+# ---------------------------------------------------------------------------
+cleaning:
+  lowercase: true               # Unicode-aware: keeps Vietnamese diacritics
+  normalize_unicode: NFC        # composed Vietnamese, no accent stripping
+  unescape_html_entities: true
+  remove_invisible_chars: true
+  strip_tags: true
+  normalize_unicode_spaces: true
+  fix_punct_spacing: true
+  collapse_to_single_space: true
+  strip_edges: true
+  # --- opt-in, information-removing (OFF) ---
+  remove_urls: false
+  remove_mentions: false
+  remove_repeated_punctuation: false
+  max_repeat_char: 0
+  min_chars: 1

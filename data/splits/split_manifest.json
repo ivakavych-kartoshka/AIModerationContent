@@ -1,0 +1,68 @@
+{
+  "strategy": "official",
+  "seed": 42,
+  "ratios": {
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "label_mapping": {
+    "0": "HATE",
+    "1": "OFFENSIVE",
+    "2": "CLEAN"
+  },
+  "columns": [
+    "text",
+    "label",
+    "label_name",
+    "source",
+    "source_row"
+  ],
+  "splits": {
+    "train": {
+      "file": "train.csv",
+      "num_samples": 24046,
+      "sha256": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244",
+      "label_distribution": {
+        "HATE": 2556,
+        "OFFENSIVE": 1605,
+        "CLEAN": 19885
+      },
+      "label_ratios": {
+        "HATE": 0.106296,
+        "OFFENSIVE": 0.066747,
+        "CLEAN": 0.826957
+      }
+    },
+    "validation": {
+      "file": "validation.csv",
+      "num_samples": 2672,
+      "sha256": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353",
+      "label_distribution": {
+        "HATE": 270,
+        "OFFENSIVE": 212,
+        "CLEAN": 2190
+      },
+      "label_ratios": {
+        "HATE": 0.101048,
+        "OFFENSIVE": 0.079341,
+        "CLEAN": 0.819611
+      }
+    },
+    "test": {
+      "file": "test.csv",
+      "num_samples": 6680,
+      "sha256": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b",
+      "label_distribution": {
+        "HATE": 688,
+        "OFFENSIVE": 444,
+        "CLEAN": 5548
+      },
+      "label_ratios": {
+        "HATE": 0.102994,
+        "OFFENSIVE": 0.066467,
+        "CLEAN": 0.830539
+      }
+    }
+  }
+}

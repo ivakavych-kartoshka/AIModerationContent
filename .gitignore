@@ -1,0 +1,33 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ---- Data (raw is downloaded, processed/splits are derived) ----
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/splits/*.csv
+!data/splits/.gitkeep
+
+# ---- Large artifacts ----
+checkpoints/
+experiments/*/*/best_model/
+experiments/*/*/last_model/
+reports/*/*/*/best_model/
+reports/*/*/*/last_model/
+*.pt
+*.bin
+*.safetensors
+
+# ---- Logs ----
+*.log
+logs/
+
+# ---- OS ----
+Thumbs.db
+.DS_Store

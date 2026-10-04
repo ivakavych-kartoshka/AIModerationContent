@@ -1,0 +1,8 @@
+Label-specific thresholds (optimised on VALIDATION, frozen for TEST)
+------------------------------------------------------------------
+objective            : macro_f1
+objective before     : 0.300429
+objective after      : 0.409398
+threshold HATE      : 0.3
+threshold OFFENSIVE : 0.0
+threshold CLEAN     : 0.5

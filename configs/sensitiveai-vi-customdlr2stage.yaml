@@ -1,0 +1,154 @@
+# =============================================================================
+# Model 3 - sensitiveai-vi-customdlr2stage
+#
+# Research plan, section 8. Combines:
+#   * Custom Classification Head          (identical to sensitiveai-vi-custom)
+#   * Discriminative Learning Rates       (section 8.2)
+#   * Two-stage training                  (section 8.3)
+#   * Class Weight                        (section 9)
+#   * Label-specific Class Weight         (section 10)
+#   * Focal Loss                          (section 11)
+#   * Label-specific Threshold            (section 12, searched on VALIDATION)
+#
+# Dataset, split and label mapping are unchanged - only the optimisation recipe
+# differs from model 2.
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-vi-customdlr2stage.yaml
+# =============================================================================
+model_name: sensitiveai-vi-customdlr2stage
+base_model: microsoft/mdeberta-v3-base
+head: custom
+seed: 42
+deterministic: true
+
+encoder_checkpoint: null       # pre-trained encoder (stage 1 starts from scratch)
+
+head_options:
+  head_hidden_size: 512
+  dropout: 0.1
+  use_cls_pool: true
+  use_mean_pool: true
+  use_max_pool: true
+  use_attention_pool: false
+  use_class_prior: false
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+# --- global defaults; each stage may override them -------------------------- #
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 4
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: true
+  class_weight: inverse_sqrt_frequency   # milder than inverse_frequency
+  class_weight_beta: 0.999
+  label_smoothing: 0.0
+  focal:
+    gamma: 2.0
+    alpha:                              # label-specific alpha (plan section 11)
+      HATE: 0.5
+      OFFENSIVE: 0.25
+      CLEAN: 0.25
+
+# --- discriminative learning rates (plan section 8.2) ---------------------- #
+dlr:
+  enabled: true
+  embedding_lr: 5.0e-6         # word embeddings move the least
+  encoder_lr: 1.0e-5           # lower transformer blocks
+  layer_lr: 2.0e-5             # upper transformer blocks
+  head_lr: 1.0e-4              # classification head moves the most
+  layer_split: 0.5             # first 50% of the blocks count as "lower"
+  layer_decay: 1.0             # >1/<1 applies a geometric decay across blocks
+
+stages:
+  - name: stage_1
+    description: >-
+      Stabilise the pre-trained representation. Cross-entropy with class weights
+      computed on the TRAIN split only.
+    epochs: 4
+    save_checkpoint: true
+    training:
+      learning_rate: 2.0e-5
+      warmup_ratio: 0.1
+    loss:
+      type: cross_entropy
+      use_class_weight: true
+      class_weight: inverse_sqrt_frequency
+
+  - name: stage_2
+    description: >-
+      Continue from the stage 1 checkpoint with lower learning rates, focal loss
+      and label-specific alpha so that hard / rare HATE samples dominate the
+      gradient.
+    epochs: 3
+    save_checkpoint: true
+    init_from: "stage:stage_1"
+    training:
+      learning_rate: 1.0e-5
+      warmup_ratio: 0.05
+    dlr:
+      embedding_lr: 2.5e-6
+      encoder_lr: 5.0e-6
+      layer_lr: 1.0e-5
+      head_lr: 5.0e-5
+    loss:
+      type: focal
+      use_class_weight: true
+      class_weight: inverse_sqrt_frequency
+      focal:
+        gamma: 2.0
+        alpha:
+          HATE: 0.5
+          OFFENSIVE: 0.25
+          CLEAN: 0.25
+
+# --- label-specific thresholds (plan section 12) --------------------------- #
+thresholds:
+  enabled: true
+  search: macro_f1              # objective optimised on the VALIDATION split
+  grid_size: 101
+  coordinate_ascent_rounds: 3
+  init: 0.5
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 3
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: thresholds     # frozen thresholds are applied to the test pass
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

@@ -1,0 +1,3 @@
+model_name,stage,stage_index,epoch,epoch_in_stage,learning_rate,encoder_lr,head_lr,loss,accuracy,val_loss,val_accuracy,val_macro_f1,val_weighted_f1,grad_norm,epoch_seconds,cumulative_seconds,is_best,val_HATE_precision,val_HATE_recall,val_HATE_f1,val_OFFENSIVE_precision,val_OFFENSIVE_recall,val_OFFENSIVE_f1,val_CLEAN_precision,val_CLEAN_recall,val_CLEAN_f1,val_macro_roc_auc
+sensitiveai-vi-customdlr2stage,stage_1,1,1,1,0.0,0.0,0.0,0.921613,0.769531,1.07586,0.820312,0.300429,0.739337,23.453157,10.297,10.301,1,0.0,0.0,0.0,0.0,0.0,0.0,0.820312,1.0,0.901288,0.567787
+sensitiveai-vi-customdlr2stage,stage_2,2,2,1,0.0,0.0,0.0,0.089237,0.648438,0.106557,0.820312,0.300429,0.739337,5.904787,11.342,23.698,0,0.0,0.0,0.0,0.0,0.0,0.0,0.820312,1.0,0.901288,0.579445

@@ -1,0 +1,4 @@
+model_name,stage,stage_index,epoch,epoch_in_stage,learning_rate,encoder_lr,head_lr,loss,accuracy,val_loss,val_accuracy,val_macro_f1,val_weighted_f1,grad_norm,epoch_seconds,cumulative_seconds,is_best,val_HATE_precision,val_HATE_recall,val_HATE_f1,val_OFFENSIVE_precision,val_OFFENSIVE_recall,val_OFFENSIVE_f1,val_CLEAN_precision,val_CLEAN_recall,val_CLEAN_f1,val_macro_roc_auc
+sensitiveai-vi-custom-curriculum,stage_1,1,1,1,0.0,0.0,0.0,0.646796,0.125,0.791748,0.117188,0.074811,0.049663,30.775188,10.34,10.347,1,0.103175,1.0,0.18705,0.0,0.0,0.0,1.0,0.019048,0.037383,0.445177
+sensitiveai-vi-custom-curriculum,stage_2,2,2,1,0.0,0.0,0.0,0.583873,0.792969,0.548729,0.820312,0.300429,0.739337,5.524273,9.748,22.224,1,0.0,0.0,0.0,0.0,0.0,0.0,0.820312,1.0,0.901288,0.573973
+sensitiveai-vi-custom-curriculum,stage_3,3,3,1,0.0,0.0,0.0,0.829059,0.808594,1.001721,0.820312,0.300429,0.739337,17.297863,9.78,34.02,0,0.0,0.0,0.0,0.0,0.0,0.0,0.820312,1.0,0.901288,0.552383

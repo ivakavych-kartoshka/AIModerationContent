@@ -1,0 +1,13 @@
+{
+  "fingerprints": {
+    "train": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244",
+    "validation": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353",
+    "test": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b"
+  },
+  "sizes": {
+    "train": 256,
+    "validation": 128,
+    "test": 128
+  },
+  "splits_dir": "C:\\AI\\AIModerationContent\\data\\splits"
+}
