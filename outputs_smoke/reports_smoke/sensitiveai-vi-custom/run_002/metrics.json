@@ -64,7 +64,7 @@
   "run_id": "run_002",
   "split": "test",
   "decision_rule": "argmax",
-  "checkpoint": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom\\run_002\\last_model",
+  "checkpoint": "outputs_smoke/reports_smoke/sensitiveai-vi-custom/run_002/last_model",
   "num_test_samples": 6680,
   "test_loss_under_training_objective": 0.6487580375244505,
   "metrics_with_argmax": {

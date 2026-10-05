@@ -1,0 +1,73 @@
+==========================================================================
+Model summary - sensitiveai-vi-custom
+==========================================================================
+
+[Model]
+Model Name                        : sensitiveai-vi-custom
+Base Model                        : microsoft/mdeberta-v3-base
+Classification Head               : custom
+Training Stages                   : 1 stage(s)
+  stage single                    : epochs 1-6
+
+[Parameters]
+Total Parameters                  : 279,406,083
+Trainable Parameters              : 279,406,083
+Non-trainable Parameters          : 0
+Estimated Parameter Memory        : 1065.85 MB (fp32 weights)
+  head parameters                 : 1,187,331
+Peak GPU Memory (inference)       : 2150.75 MB
+
+[Dataset]
+Dataset                           : uitnlp/vihsd
+Split directory                   : data/splits
+Label Mapping                     : HATE=0, OFFENSIVE=1, CLEAN=2
+Training Samples                  : 24,046
+Validation Samples                : 2,672
+Test Samples                      : 6,680
+Max sequence length               : 256
+
+[Training]
+Best Metric                       : macro_f1
+Best Value                        : 0.703459
+Best Epoch                        : 3
+Best Stage                        : single
+Epochs Run                        : 6 / 6
+Training Time                     : 01:07:50 (h:mm:ss)
+Early Stopped                     : True
+
+[Inference Benchmark]
+Batch Size                        : 32
+Average Latency / Batch           : 344.743 ms
+Average Latency / Sample          : 10.7732 ms
+Latency p95 / Batch               : 345.344 ms
+FPS (samples / second)            : 92.82
+Precision                         : fp32
+Timed Batches                     : 50
+
+[Test Results]  (decision rule: argmax)
+Accuracy                          : 0.8793
+Macro Precision                   : 0.6890
+Macro Recall                      : 0.6489
+Macro F1                          : 0.6671
+Weighted F1                       : 0.8752
+Macro ROC-AUC                     : 0.9158
+Macro Average Precision           : 0.6968
+
+Class          Precision      Recall          F1     Support
+HATE              0.6563      0.5523      0.5998         688
+OFFENSIVE         0.4803      0.4392      0.4588         444
+CLEAN             0.9305      0.9551      0.9426        5548
+
+[Hardware / Software]
+GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU
+GPU Memory (GB)                   : 8.0
+CUDA Version (torch)              : 12.6
+cuDNN Version                     : 91002
+NVIDIA Driver                     : 617.14
+PyTorch Version                   : 2.13.0+cu126
+Transformers Version              : 5.14.1
+scikit-learn Version              : 1.8.0
+Python Version                    : 3.11.9
+Platform                          : Windows-10-10.0.26300-SP0
+
+==========================================================================

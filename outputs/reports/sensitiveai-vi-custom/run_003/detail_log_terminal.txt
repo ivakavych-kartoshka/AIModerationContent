@@ -1,0 +1,188 @@
+PS D:\Year4\FA26\Capstone_Project\AIModerationContent> python -m src.training.run_experiment --config sensitiveai-vi-custom --run-id run_003
+[2026-10-05 16:41:13] INFO    sensitiveai.train | ==============================================================================
+[2026-10-05 16:41:13] INFO    sensitiveai.train | SensitiveAI training run
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   config        : D:\Year4\FA26\Capstone_Project\AIModerationContent\configs\sensitiveai-vi-custom.yaml
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   model_name    : sensitiveai-vi-custom
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   run_id        : run_003
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   base_model    : microsoft/mdeberta-v3-base
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   head          : custom
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   report dir    : D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003
+[2026-10-05 16:41:13] INFO    sensitiveai.train |   experiment dir: D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\experiments\sensitiveai-vi-custom\run_003
+[2026-10-05 16:41:13] INFO    sensitiveai.train | ==============================================================================
+[2026-10-05 16:41:13] INFO    sensitiveai.train | [data] split fingerprints: {'train': 'f705ffe94d41', 'validation': '6aa552aafb92', 'test': 'd8f9ae7ddd8c'}    
+[2026-10-05 16:41:15] INFO    sensitiveai.train | [env] GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+[2026-10-05 16:41:17] INFO    src.data.dataset | [data] tokenising (max_length=256) train=24046, validation=2672, test=6680
+[2026-10-05 16:41:22] INFO    src.data.dataset | [data] label counts (train): {0: 2556, 1: 1605, 2: 19885}
+[2026-10-05 16:41:22] INFO    sensitiveai.train | 
+Class weights (estimated on TRAIN only)
+----------------------------------------------
+HATE       n=   2556  weight=1.0000
+OFFENSIVE  n=   1605  weight=1.0000
+CLEAN      n=  19885  weight=1.0000
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 198/198 [00:00<00:00, 4076.98it/s]
+[transformers] DebertaV2Model LOAD REPORT from: microsoft/mdeberta-v3-base
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+deberta.embeddings.word_embeddings._weight | UNEXPECTED |  | 
+mask_predictions.LayerNorm.bias            | UNEXPECTED |  | 
+mask_predictions.classifier.bias           | UNEXPECTED |  | 
+lm_predictions.lm_head.LayerNorm.weight    | UNEXPECTED |  | 
+mask_predictions.classifier.weight         | UNEXPECTED |  | 
+mask_predictions.LayerNorm.weight          | UNEXPECTED |  | 
+lm_predictions.lm_head.dense.bias          | UNEXPECTED |  | 
+mask_predictions.dense.weight              | UNEXPECTED |  | 
+lm_predictions.lm_head.LayerNorm.bias      | UNEXPECTED |  | 
+lm_predictions.lm_head.bias                | UNEXPECTED |  | 
+lm_predictions.lm_head.dense.weight        | UNEXPECTED |  | 
+mask_predictions.dense.bias                | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[2026-10-05 16:41:23] INFO    src.models.model | [model] custom head on top of microsoft/mdeberta-v3-base:
+CustomClassificationHead
+  pooling views      : cls(768) + mean(768) + max(768)  -> fused 2304
+  fusion_norm        : LayerNorm(2304)
+  fusion_mlp         : Linear(2304 -> 512) + GELU + Dropout(0.1) + LayerNorm(512)
+  classifier         : Dropout(0.1) + Linear(512 -> 3)
+  class_prior bias   : False
+[2026-10-05 16:41:23] INFO    sensitiveai.train | [model] total=279.41M trainable=279.41M non-trainable=0.00M
+[2026-10-05 16:41:23] INFO    sensitiveai.train |
+Training plan: 1 stage(s), 6 epoch(s) total
+------------------------------------------------------------------------
+  [single] epochs 1-6 :: single (6 epochs) | lr=3e-05 | loss=cross_entropy
+[2026-10-05 16:41:23] INFO    sensitiveai.train | [train] callbacks: BestCheckpointCallback, EarlyStoppingCallback, CSVLoggerCallback
+[2026-10-05 16:41:24] INFO    src.training.trainer | [train] gradient checkpointing enabled
+[2026-10-05 16:41:24] INFO    src.callbacks.stage_controller |
+=== STAGE 1/1 :: single ===
+single (6 epochs) | lr=3e-05 | loss=cross_entropy
+[2026-10-05 16:42:19] INFO    src.training.trainer | [train] step 50/4512  loss=1.0499  lr=3.33e-06
+[2026-10-05 16:43:03] INFO    src.training.trainer | [train] step 100/4512  loss=0.7976  lr=6.65e-06
+[2026-10-05 16:43:46] INFO    src.training.trainer | [train] step 150/4512  loss=0.7131  lr=9.98e-06
+[2026-10-05 16:44:30] INFO    src.training.trainer | [train] step 200/4512  loss=0.6687  lr=1.33e-05
+[2026-10-05 16:45:13] INFO    src.training.trainer | [train] step 250/4512  loss=0.6278  lr=1.66e-05
+[2026-10-05 16:45:57] INFO    src.training.trainer | [train] step 300/4512  loss=0.6015  lr=2.00e-05
+[2026-10-05 16:46:40] INFO    src.training.trainer | [train] step 350/4512  loss=0.5833  lr=2.33e-05
+[2026-10-05 16:47:23] INFO    src.training.trainer | [train] step 400/4512  loss=0.5607  lr=2.66e-05
+[2026-10-05 16:48:07] INFO    src.training.trainer | [train] step 450/4512  loss=0.5509  lr=2.99e-05
+[2026-10-05 16:48:50] INFO    src.training.trainer | [train] step 500/4512  loss=0.5384  lr=2.96e-05
+[2026-10-05 16:49:34] INFO    src.training.trainer | [train] step 550/4512  loss=0.5278  lr=2.93e-05
+[2026-10-05 16:50:17] INFO    src.training.trainer | [train] step 600/4512  loss=0.5195  lr=2.89e-05
+[2026-10-05 16:51:01] INFO    src.training.trainer | [train] step 650/4512  loss=0.5089  lr=2.85e-05
+[2026-10-05 16:51:44] INFO    src.training.trainer | [train] step 700/4512  loss=0.5002  lr=2.82e-05
+[2026-10-05 16:52:28] INFO    src.training.trainer | [train] step 750/4512  loss=0.4924  lr=2.78e-05
+[2026-10-05 16:52:45] INFO    src.training.trainer | [epoch  1/ 6 | single] train_loss=0.4919 train_acc=0.8158 | val_loss=0.3781 val_acc=0.8630 val_macro_f1=0.6541 (665.0s)
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.22it/s] 
+[2026-10-05 16:52:48] INFO    src.callbacks.monitoring | [best] macro_f1=0.654061 at epoch 1 -> D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\best_model
+[2026-10-05 16:52:48] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.654061 at epoch 1
+[2026-10-05 16:52:48] INFO    src.callbacks.csv_logger | [log] stage=single epoch=1 loss=0.4919 val_loss=0.3781 val_acc=0.8630 val_macro_f1=0.6541  *best*      
+[2026-10-05 16:53:31] INFO    src.training.trainer | [train] step 50/4512  loss=0.3400  lr=2.74e-05
+[2026-10-05 16:54:15] INFO    src.training.trainer | [train] step 100/4512  loss=0.3640  lr=2.70e-05
+[2026-10-05 16:54:58] INFO    src.training.trainer | [train] step 150/4512  loss=0.3520  lr=2.67e-05
+[2026-10-05 16:55:41] INFO    src.training.trainer | [train] step 200/4512  loss=0.3380  lr=2.63e-05
+[2026-10-05 16:56:25] INFO    src.training.trainer | [train] step 250/4512  loss=0.3396  lr=2.59e-05
+[2026-10-05 16:57:09] INFO    src.training.trainer | [train] step 300/4512  loss=0.3332  lr=2.56e-05
+[2026-10-05 16:57:52] INFO    src.training.trainer | [train] step 350/4512  loss=0.3313  lr=2.52e-05
+[2026-10-05 16:58:36] INFO    src.training.trainer | [train] step 400/4512  loss=0.3276  lr=2.48e-05
+[2026-10-05 16:59:19] INFO    src.training.trainer | [train] step 450/4512  loss=0.3262  lr=2.45e-05
+[2026-10-05 17:00:03] INFO    src.training.trainer | [train] step 500/4512  loss=0.3253  lr=2.41e-05
+[2026-10-05 17:00:47] INFO    src.training.trainer | [train] step 550/4512  loss=0.3248  lr=2.37e-05
+[2026-10-05 17:01:30] INFO    src.training.trainer | [train] step 600/4512  loss=0.3255  lr=2.33e-05
+[2026-10-05 17:02:14] INFO    src.training.trainer | [train] step 650/4512  loss=0.3231  lr=2.30e-05
+[2026-10-05 17:02:57] INFO    src.training.trainer | [train] step 700/4512  loss=0.3253  lr=2.26e-05
+[2026-10-05 17:03:41] INFO    src.training.trainer | [train] step 750/4512  loss=0.3264  lr=2.22e-05
+[2026-10-05 17:03:57] INFO    src.training.trainer | [epoch  2/ 6 | single] train_loss=0.3263 train_acc=0.8831 | val_loss=0.3715 val_acc=0.8548 val_macro_f1=0.6610 (654.1s)
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.01s/it] 
+[2026-10-05 17:04:01] INFO    src.callbacks.monitoring | [best] macro_f1=0.660965 at epoch 2 -> D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\best_model
+[2026-10-05 17:04:01] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.660965 at epoch 2
+[2026-10-05 17:04:01] INFO    src.callbacks.csv_logger | [log] stage=single epoch=2 loss=0.3263 val_loss=0.3715 val_acc=0.8548 val_macro_f1=0.6610  *best*      
+[2026-10-05 17:04:44] INFO    src.training.trainer | [train] step 50/4512  loss=0.2515  lr=2.19e-05
+[2026-10-05 17:05:27] INFO    src.training.trainer | [train] step 100/4512  loss=0.2564  lr=2.15e-05
+[2026-10-05 17:06:11] INFO    src.training.trainer | [train] step 150/4512  loss=0.2550  lr=2.11e-05
+[2026-10-05 17:06:54] INFO    src.training.trainer | [train] step 200/4512  loss=0.2502  lr=2.07e-05
+[2026-10-05 17:07:37] INFO    src.training.trainer | [train] step 250/4512  loss=0.2505  lr=2.04e-05
+[2026-10-05 17:08:20] INFO    src.training.trainer | [train] step 300/4512  loss=0.2541  lr=2.00e-05
+[2026-10-05 17:09:03] INFO    src.training.trainer | [train] step 350/4512  loss=0.2518  lr=1.96e-05
+[2026-10-05 17:09:47] INFO    src.training.trainer | [train] step 400/4512  loss=0.2512  lr=1.93e-05
+[2026-10-05 17:10:30] INFO    src.training.trainer | [train] step 450/4512  loss=0.2519  lr=1.89e-05
+[2026-10-05 17:11:13] INFO    src.training.trainer | [train] step 500/4512  loss=0.2525  lr=1.85e-05
+[2026-10-05 17:11:56] INFO    src.training.trainer | [train] step 550/4512  loss=0.2529  lr=1.82e-05
+[2026-10-05 17:12:40] INFO    src.training.trainer | [train] step 600/4512  loss=0.2525  lr=1.78e-05
+[2026-10-05 17:13:23] INFO    src.training.trainer | [train] step 650/4512  loss=0.2500  lr=1.74e-05
+[2026-10-05 17:14:06] INFO    src.training.trainer | [train] step 700/4512  loss=0.2523  lr=1.70e-05
+[2026-10-05 17:14:49] INFO    src.training.trainer | [train] step 750/4512  loss=0.2519  lr=1.67e-05
+[2026-10-05 17:15:06] INFO    src.training.trainer | [epoch  3/ 6 | single] train_loss=0.2518 train_acc=0.9100 | val_loss=0.3480 val_acc=0.8821 val_macro_f1=0.7035 (649.8s)
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.16it/s] 
+[2026-10-05 17:15:10] INFO    src.callbacks.monitoring | [best] macro_f1=0.703459 at epoch 3 -> D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\best_model
+[2026-10-05 17:15:10] INFO    src.callbacks.monitoring | [early-stop] new best macro_f1=0.703459 at epoch 3
+[2026-10-05 17:15:10] INFO    src.callbacks.csv_logger | [log] stage=single epoch=3 loss=0.2518 val_loss=0.3480 val_acc=0.8821 val_macro_f1=0.7035  *best*      
+[2026-10-05 17:15:53] INFO    src.training.trainer | [train] step 50/4512  loss=0.1965  lr=1.63e-05
+[2026-10-05 17:16:36] INFO    src.training.trainer | [train] step 100/4512  loss=0.1807  lr=1.59e-05
+[2026-10-05 17:17:20] INFO    src.training.trainer | [train] step 150/4512  loss=0.1926  lr=1.56e-05
+[2026-10-05 17:18:03] INFO    src.training.trainer | [train] step 200/4512  loss=0.1879  lr=1.52e-05
+[2026-10-05 17:18:46] INFO    src.training.trainer | [train] step 250/4512  loss=0.1910  lr=1.48e-05
+[2026-10-05 17:19:29] INFO    src.training.trainer | [train] step 300/4512  loss=0.1917  lr=1.44e-05
+[2026-10-05 17:20:13] INFO    src.training.trainer | [train] step 350/4512  loss=0.1914  lr=1.41e-05
+[2026-10-05 17:20:56] INFO    src.training.trainer | [train] step 400/4512  loss=0.1895  lr=1.37e-05
+[2026-10-05 17:21:40] INFO    src.training.trainer | [train] step 450/4512  loss=0.1932  lr=1.33e-05
+[2026-10-05 17:22:23] INFO    src.training.trainer | [train] step 500/4512  loss=0.1953  lr=1.30e-05
+[2026-10-05 17:23:07] INFO    src.training.trainer | [train] step 550/4512  loss=0.1934  lr=1.26e-05
+[2026-10-05 17:23:50] INFO    src.training.trainer | [train] step 600/4512  loss=0.1921  lr=1.22e-05
+[2026-10-05 17:24:34] INFO    src.training.trainer | [train] step 650/4512  loss=0.1932  lr=1.19e-05
+[2026-10-05 17:25:18] INFO    src.training.trainer | [train] step 700/4512  loss=0.1935  lr=1.15e-05
+[2026-10-05 17:26:01] INFO    src.training.trainer | [train] step 750/4512  loss=0.1935  lr=1.11e-05
+[2026-10-05 17:26:18] INFO    src.training.trainer | [epoch  4/ 6 | single] train_loss=0.1935 train_acc=0.9305 | val_loss=0.4722 val_acc=0.8746 val_macro_f1=0.6651 (653.1s)
+[2026-10-05 17:26:18] INFO    src.callbacks.monitoring | [early-stop] macro_f1=0.665070 (best 0.703459 @ epoch 3) - 1/3 epochs without improvement
+[2026-10-05 17:26:18] INFO    src.callbacks.csv_logger | [log] stage=single epoch=4 loss=0.1935 val_loss=0.4722 val_acc=0.8746 val_macro_f1=0.6651
+[2026-10-05 17:27:02] INFO    src.training.trainer | [train] step 50/4512  loss=0.1503  lr=1.07e-05
+[2026-10-05 17:27:45] INFO    src.training.trainer | [train] step 100/4512  loss=0.1403  lr=1.04e-05
+[2026-10-05 17:28:28] INFO    src.training.trainer | [train] step 150/4512  loss=0.1427  lr=1.00e-05
+[2026-10-05 17:29:12] INFO    src.training.trainer | [train] step 200/4512  loss=0.1407  lr=9.63e-06
+[2026-10-05 17:29:55] INFO    src.training.trainer | [train] step 250/4512  loss=0.1427  lr=9.26e-06
+[2026-10-05 17:30:39] INFO    src.training.trainer | [train] step 300/4512  loss=0.1437  lr=8.89e-06
+[2026-10-05 17:31:22] INFO    src.training.trainer | [train] step 350/4512  loss=0.1453  lr=8.52e-06
+[2026-10-05 17:32:05] INFO    src.training.trainer | [train] step 400/4512  loss=0.1447  lr=8.16e-06
+[2026-10-05 17:32:49] INFO    src.training.trainer | [train] step 450/4512  loss=0.1439  lr=7.79e-06
+[2026-10-05 17:33:32] INFO    src.training.trainer | [train] step 500/4512  loss=0.1426  lr=7.42e-06
+[2026-10-05 17:34:16] INFO    src.training.trainer | [train] step 550/4512  loss=0.1441  lr=7.05e-06
+[2026-10-05 17:34:59] INFO    src.training.trainer | [train] step 600/4512  loss=0.1429  lr=6.68e-06
+[2026-10-05 17:35:43] INFO    src.training.trainer | [train] step 650/4512  loss=0.1433  lr=6.31e-06
+[2026-10-05 17:36:26] INFO    src.training.trainer | [train] step 700/4512  loss=0.1436  lr=5.94e-06
+[2026-10-05 17:37:10] INFO    src.training.trainer | [train] step 750/4512  loss=0.1435  lr=5.57e-06
+[2026-10-05 17:37:27] INFO    src.training.trainer | [epoch  5/ 6 | single] train_loss=0.1432 train_acc=0.9506 | val_loss=0.4972 val_acc=0.8739 val_macro_f1=0.6860 (652.6s)
+[2026-10-05 17:37:27] INFO    src.callbacks.monitoring | [early-stop] macro_f1=0.686000 (best 0.703459 @ epoch 3) - 2/3 epochs without improvement
+[2026-10-05 17:37:27] INFO    src.callbacks.csv_logger | [log] stage=single epoch=5 loss=0.1432 val_loss=0.4972 val_acc=0.8739 val_macro_f1=0.6860
+[2026-10-05 17:38:10] INFO    src.training.trainer | [train] step 50/4512  loss=0.0955  lr=5.19e-06
+[2026-10-05 17:38:53] INFO    src.training.trainer | [train] step 100/4512  loss=0.1075  lr=4.82e-06
+[2026-10-05 17:39:37] INFO    src.training.trainer | [train] step 150/4512  loss=0.1061  lr=4.45e-06
+[2026-10-05 17:40:21] INFO    src.training.trainer | [train] step 200/4512  loss=0.1091  lr=4.08e-06
+[2026-10-05 17:41:04] INFO    src.training.trainer | [train] step 250/4512  loss=0.1101  lr=3.71e-06
+[2026-10-05 17:41:48] INFO    src.training.trainer | [train] step 300/4512  loss=0.1095  lr=3.34e-06
+[2026-10-05 17:42:31] INFO    src.training.trainer | [train] step 350/4512  loss=0.1088  lr=2.97e-06
+[2026-10-05 17:43:15] INFO    src.training.trainer | [train] step 400/4512  loss=0.1087  lr=2.60e-06
+[2026-10-05 17:43:59] INFO    src.training.trainer | [train] step 450/4512  loss=0.1054  lr=2.23e-06
+[2026-10-05 17:44:47] INFO    src.training.trainer | [train] step 500/4512  loss=0.1045  lr=1.86e-06
+[2026-10-05 17:45:39] INFO    src.training.trainer | [train] step 550/4512  loss=0.1061  lr=1.49e-06
+[2026-10-05 17:46:31] INFO    src.training.trainer | [train] step 600/4512  loss=0.1063  lr=1.12e-06
+[2026-10-05 17:47:22] INFO    src.training.trainer | [train] step 650/4512  loss=0.1058  lr=7.54e-07
+[2026-10-05 17:48:13] INFO    src.training.trainer | [train] step 700/4512  loss=0.1052  lr=3.84e-07
+[2026-10-05 17:48:57] INFO    src.training.trainer | [train] step 750/4512  loss=0.1049  lr=1.48e-08
+[2026-10-05 17:49:14] INFO    src.training.trainer | [epoch  6/ 6 | single] train_loss=0.1047 train_acc=0.9647 | val_loss=0.5818 val_acc=0.8799 val_macro_f1=0.6916 (692.1s)
+[2026-10-05 17:49:14] INFO    src.callbacks.monitoring | [early-stop] macro_f1=0.691632 (best 0.703459 @ epoch 3) - 3/3 epochs without improvement
+[2026-10-05 17:49:14] INFO    src.callbacks.monitoring | [early-stop] stopping after epoch 6 (patience exhausted)
+[2026-10-05 17:49:14] INFO    src.callbacks.csv_logger | [log] stage=single epoch=6 loss=0.1047 val_loss=0.5818 val_acc=0.8799 val_macro_f1=0.6916
+[2026-10-05 17:49:14] INFO    src.training.trainer | [train] early stopping triggered after epoch 6
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.31s/it]
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.2) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[2026-10-05 17:49:18] INFO    sensitiveai.train | ==============================================================================
+[2026-10-05 17:49:18] INFO    sensitiveai.train | Training finished: run_003
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   best macro_f1 = 0.703459 at epoch 3 (stage single)
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   epochs run      : 6/6
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   training time   : 4070.4 s
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   best checkpoint : D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\best_model
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   training log    : D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\training_log.csv
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   run guide       : D:\Year4\FA26\Capstone_Project\AIModerationContent\outputs\reports\sensitiveai-vi-custom\run_003\explain.md
+[2026-10-05 17:49:18] INFO    sensitiveai.train |
+[2026-10-05 17:49:18] INFO    sensitiveai.train | Next step (evaluation on the test set):
+[2026-10-05 17:49:18] INFO    sensitiveai.train |   python -m src.evaluation.run_evaluation --model sensitiveai-vi-custom --run-id run_003
+[2026-10-05 17:49:18] INFO    sensitiveai.train | ==============================================================================

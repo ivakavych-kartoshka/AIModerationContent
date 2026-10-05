@@ -18,9 +18,9 @@ Estimated Parameter Memory        : 1065.85 MB (fp32 weights)
 
 [Dataset]
 Dataset                           : uitnlp/vihsd
-Split directory                   : C:\AI\AIModerationContent\data\splits
+Split directory                   : data/splits
 Label Mapping                     : HATE=0, OFFENSIVE=1, CLEAN=2
-Training Samples                  : 0
+Training Samples                  : 24,046
 Validation Samples                : 2,672
 Test Samples                      : 6,680
 Max sequence length               : 256

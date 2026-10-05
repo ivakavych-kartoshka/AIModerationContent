@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-10-05 07:16:54",
+  "timestamp": "2026-10-05 16:07:55",
   "model": "sensitiveai-vi-custom",
   "run_id": "run_002",
-  "checkpoint": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom\\run_002\\last_model",
+  "checkpoint": "outputs_smoke/reports_smoke/sensitiveai-vi-custom/run_002/last_model",
   "split": "test",
   "decision_rule": "argmax",
   "thresholds_file": null,
-  "metrics_file": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom\\run_002\\metrics.json",
-  "report_dir": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom\\run_002",
+  "metrics_file": "outputs_smoke/reports_smoke/sensitiveai-vi-custom/run_002/metrics.json",
+  "report_dir": "outputs_smoke/reports_smoke/sensitiveai-vi-custom/run_002",
   "benchmark": null,
   "environment": {
     "python": "3.11.9",

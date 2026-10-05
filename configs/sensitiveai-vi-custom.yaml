@@ -22,7 +22,7 @@ seed: 42
 deterministic: true
 
 # Optional encoder initialisation. Left empty on purpose for the reported run.
-encoder_checkpoint: outputs/reports/sensitiveai-vi/run_005/best_model
+encoder_checkpoint: null
 
 # Custom head (see src/models/custom_head.py for the full definition).
 head_options:
