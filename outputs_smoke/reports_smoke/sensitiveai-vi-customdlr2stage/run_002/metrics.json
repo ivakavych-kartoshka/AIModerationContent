@@ -1,0 +1,210 @@
+{
+  "accuracy": 0.8715568862275449,
+  "HATE_precision": 0.6110344827586207,
+  "HATE_recall": 0.6438953488372093,
+  "HATE_f1": 0.627034677990092,
+  "HATE_support": 688,
+  "OFFENSIVE_precision": 0.43448275862068964,
+  "OFFENSIVE_recall": 0.42567567567567566,
+  "OFFENSIVE_f1": 0.4300341296928328,
+  "OFFENSIVE_support": 444,
+  "CLEAN_precision": 0.9402173913043478,
+  "CLEAN_recall": 0.9354722422494592,
+  "CLEAN_f1": 0.9378388146006505,
+  "CLEAN_support": 5548,
+  "macro_precision": 0.6619115442278861,
+  "macro_recall": 0.6683477555874481,
+  "macro_f1": 0.6649692074278585,
+  "weighted_f1": 0.8720755621923968,
+  "confusion_matrix": [
+    [
+      443,
+      76,
+      169
+    ],
+    [
+      94,
+      189,
+      161
+    ],
+    [
+      188,
+      170,
+      5190
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.6438953488372093,
+      0.11046511627906977,
+      0.24563953488372092
+    ],
+    [
+      0.21171171171171171,
+      0.42567567567567566,
+      0.36261261261261263
+    ],
+    [
+      0.033886085075702954,
+      0.030641672674837778,
+      0.9354722422494592
+    ]
+  ],
+  "HATE_roc_auc": 0.9049917816778962,
+  "HATE_average_precision": 0.6177911195490083,
+  "OFFENSIVE_roc_auc": 0.8717390016700471,
+  "OFFENSIVE_average_precision": 0.4170343220216347,
+  "CLEAN_roc_auc": 0.9146726385339893,
+  "CLEAN_average_precision": 0.9770449519349023,
+  "macro_roc_auc": 0.8971344739606443,
+  "macro_average_precision": 0.6706234645018485,
+  "micro_roc_auc": 0.9616271144089068,
+  "micro_average_precision": 0.9373049903899144,
+  "model_name": "sensitiveai-vi-customdlr2stage",
+  "run_id": "run_002",
+  "split": "test",
+  "decision_rule": "thresholds",
+  "checkpoint": "outputs_smoke\\reports_smoke\\sensitiveai-vi-customdlr2stage\\run_002\\last_model",
+  "num_test_samples": 6680,
+  "test_loss_under_training_objective": 0.5592569892902575,
+  "metrics_with_argmax": {
+    "accuracy": 0.8712574850299402,
+    "HATE_precision": 0.6110344827586207,
+    "HATE_recall": 0.6438953488372093,
+    "HATE_f1": 0.627034677990092,
+    "HATE_support": 688,
+    "OFFENSIVE_precision": 0.43249427917620137,
+    "OFFENSIVE_recall": 0.42567567567567566,
+    "OFFENSIVE_f1": 0.42905788876276957,
+    "OFFENSIVE_support": 444,
+    "CLEAN_precision": 0.9401957230880754,
+    "CLEAN_recall": 0.9351117519826965,
+    "CLEAN_f1": 0.9376468461955539,
+    "CLEAN_support": 5548,
+    "macro_precision": 0.6612414950076325,
+    "macro_recall": 0.6682275921651938,
+    "macro_f1": 0.6645798043161385,
+    "weighted_f1": 0.8718512370899382,
+    "confusion_matrix_normalized": [
+      [
+        0.6438953488372093,
+        0.11046511627906977,
+        0.24563953488372092
+      ],
+      [
+        0.21171171171171171,
+        0.42567567567567566,
+        0.36261261261261263
+      ],
+      [
+        0.033886085075702954,
+        0.031002162941600575,
+        0.9351117519826965
+      ]
+    ],
+    "HATE_roc_auc": 0.9049917816778962,
+    "HATE_average_precision": 0.6177911195490083,
+    "OFFENSIVE_roc_auc": 0.8717390016700471,
+    "OFFENSIVE_average_precision": 0.4170343220216347,
+    "CLEAN_roc_auc": 0.9146726385339893,
+    "CLEAN_average_precision": 0.9770449519349023,
+    "macro_roc_auc": 0.8971344739606443,
+    "macro_average_precision": 0.6706234645018485,
+    "micro_roc_auc": 0.9616271144089068,
+    "micro_average_precision": 0.9373049903899144
+  },
+  "validation": {
+    "decision_rule": "thresholds",
+    "accuracy": 0.8686377245508982,
+    "HATE_precision": 0.5808580858085809,
+    "HATE_recall": 0.6518518518518519,
+    "HATE_f1": 0.6143106457242583,
+    "HATE_support": 270,
+    "OFFENSIVE_precision": 0.4723618090452261,
+    "OFFENSIVE_recall": 0.44339622641509435,
+    "OFFENSIVE_f1": 0.45742092457420924,
+    "OFFENSIVE_support": 212,
+    "CLEAN_precision": 0.9451612903225807,
+    "CLEAN_recall": 0.9365296803652968,
+    "CLEAN_f1": 0.9408256880733945,
+    "CLEAN_support": 2190,
+    "macro_precision": 0.6661270617254625,
+    "macro_recall": 0.6772592528774144,
+    "macro_f1": 0.6708524194572872,
+    "weighted_f1": 0.8694780566003054,
+    "confusion_matrix_normalized": [
+      [
+        0.6518518518518519,
+        0.12962962962962962,
+        0.21851851851851853
+      ],
+      [
+        0.27358490566037735,
+        0.44339622641509435,
+        0.2830188679245283
+      ],
+      [
+        0.031506849315068496,
+        0.0319634703196347,
+        0.9365296803652968
+      ]
+    ],
+    "HATE_roc_auc": 0.9176488728528694,
+    "HATE_average_precision": 0.6379356767336506,
+    "OFFENSIVE_roc_auc": 0.8838184537505752,
+    "OFFENSIVE_average_precision": 0.4801598694963628,
+    "CLEAN_roc_auc": 0.9288334375414463,
+    "CLEAN_average_precision": 0.9812764232485599,
+    "macro_roc_auc": 0.9101002547149637,
+    "macro_average_precision": 0.6997906564928579,
+    "micro_roc_auc": 0.9622642929896196,
+    "micro_average_precision": 0.9391253421455459,
+    "with_argmax": {
+      "accuracy": 0.8675149700598802,
+      "HATE_precision": 0.5770491803278689,
+      "HATE_recall": 0.6518518518518519,
+      "HATE_f1": 0.6121739130434782,
+      "HATE_support": 270,
+      "OFFENSIVE_precision": 0.46766169154228854,
+      "OFFENSIVE_recall": 0.44339622641509435,
+      "OFFENSIVE_f1": 0.4552058111380145,
+      "OFFENSIVE_support": 212,
+      "CLEAN_precision": 0.9455216989843028,
+      "CLEAN_recall": 0.9351598173515981,
+      "CLEAN_f1": 0.9403122130394858,
+      "CLEAN_support": 2190,
+      "macro_precision": 0.6634108569514868,
+      "macro_recall": 0.6768026318728482,
+      "macro_f1": 0.6692306457403262,
+      "weighted_f1": 0.8686655445507007,
+      "confusion_matrix_normalized": [
+        [
+          0.6518518518518519,
+          0.13333333333333333,
+          0.21481481481481482
+        ],
+        [
+          0.27358490566037735,
+          0.44339622641509435,
+          0.2830188679245283
+        ],
+        [
+          0.032420091324200914,
+          0.032420091324200914,
+          0.9351598173515981
+        ]
+      ],
+      "HATE_roc_auc": 0.9176488728528694,
+      "HATE_average_precision": 0.6379356767336506,
+      "OFFENSIVE_roc_auc": 0.8838184537505752,
+      "OFFENSIVE_average_precision": 0.4801598694963628,
+      "CLEAN_roc_auc": 0.9288334375414463,
+      "CLEAN_average_precision": 0.9812764232485599,
+      "macro_roc_auc": 0.9101002547149637,
+      "macro_average_precision": 0.6997906564928579,
+      "micro_roc_auc": 0.9622642929896196,
+      "micro_average_precision": 0.9391253421455459
+    }
+  },
+  "macro_average_precision_macro": 0.6706234645018485
+}

@@ -31,6 +31,8 @@ from .paths import (  # noqa: F401
     experiment_dir,
     guard_free_run_dir,
     next_run_id,
+    project_path,
+    project_relative,
     report_dir,
     run_dir_name,
 )

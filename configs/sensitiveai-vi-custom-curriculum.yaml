@@ -20,7 +20,7 @@ head: custom
 seed: 42
 deterministic: true
 
-encoder_checkpoint: reports/sensitiveai-vi-customdlr2stage/run_003/best_model
+encoder_checkpoint: outputs/reports/sensitiveai-vi-customdlr2stage/run_003/best_model
 
 head_options:
   head_hidden_size: 512

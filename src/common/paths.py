@@ -23,6 +23,25 @@ def project_path(path_like: str | Path) -> Path:
     return p if p.is_absolute() else (PROJECT_ROOT / p)
 
 
+def project_relative(path_like: str | Path) -> str:
+    """Render ``path_like`` relative to the project root, POSIX separators.
+
+    Paths written into artifacts (``training_summary.json``, ``evaluation.json``,
+    ...) are audit records, so an absolute path such as
+    ``C:/AI/AIModerationContent/outputs/reports`` goes stale as soon as the
+    project folder is renamed or moved, and is meaningless on another machine
+    (README section 12).  Recording a project-relative path keeps the record
+    valid in both cases; anything outside the project keeps its absolute form.
+    """
+    p = Path(path_like)
+    if not p.is_absolute():
+        return p.as_posix()
+    try:
+        return p.resolve().relative_to(PROJECT_ROOT).as_posix() or "."
+    except ValueError:
+        return p.as_posix()
+
+
 def run_dir_name(run_id: str) -> str:
     """Normalise a run id such as ``1`` / ``run_1`` / ``run_001`` -> ``run_001``."""
     digits = re.sub(r"\D", "", str(run_id))

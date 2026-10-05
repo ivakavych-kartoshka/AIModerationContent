@@ -47,6 +47,7 @@ from ..common.paths import (
     guard_free_run_dir,
     next_run_id,
     project_path,
+    project_relative,
     report_dir,
     run_dir_name,
 )
@@ -144,9 +145,16 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     )
 
     if args.smoke_test:
-        LOGGER.warning("SMOKE TEST: tiny subsets, checkpoints disabled - results are meaningless.")
-        cfg["dataset"]["max_train_samples"] = args.max_train_samples or 256
-        cfg["dataset"]["max_eval_samples"] = args.max_eval_samples or 128
+        LOGGER.warning(
+            "SMOKE TEST: full dataset, 1 epoch, checkpoints disabled - "
+            "pipeline check on the real data distribution."
+        )
+        # Run on the full dataset so metrics are meaningful.
+        # Only cap if the caller explicitly passes --max-train-samples / --max-eval-samples.
+        if args.max_train_samples:
+            cfg["dataset"]["max_train_samples"] = args.max_train_samples
+        if args.max_eval_samples:
+            cfg["dataset"]["max_eval_samples"] = args.max_eval_samples
         cfg["training"]["epochs"] = 1
         cfg["training"]["batch_size"] = 4
         cfg["training"]["eval_batch_size"] = 8
@@ -164,9 +172,9 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
 
     save_checkpoints = bool(cfg.get("output", {}).get("save_checkpoints", True)) and not args.no_save_checkpoints
 
-    reports_root = Path(args.reports_dir) if args.reports_dir else project_path(get(cfg, "output.reports_dir", "reports"))
+    reports_root = Path(args.reports_dir) if args.reports_dir else project_path(get(cfg, "output.reports_dir", "outputs/reports"))
     experiments_root = Path(args.experiments_dir) if args.experiments_dir else project_path(
-        get(cfg, "output.experiments_dir", "experiments")
+        get(cfg, "output.experiments_dir", "outputs/experiments")
     )
     report_path = Path(args.output_dir) if args.output_dir else report_dir(str(cfg["model_name"]), run_id, reports_root)
     experiment_path = experiment_dir(str(cfg["model_name"]), run_id, experiments_root)
@@ -271,7 +279,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     dump_yaml(cfg, experiment_path / "config.yaml", header=header)
     dump_json(class_weight_info, report_path / "class_weights.json")
     dump_json(
-        {"fingerprints": fingerprints, "sizes": bundle.sizes, "splits_dir": str(splits_dir)},
+        {"fingerprints": fingerprints, "sizes": bundle.sizes, "splits_dir": project_relative(splits_dir)},
         report_path / "split_manifest_used.json",
     )
 
@@ -302,12 +310,12 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
         "model_name": cfg["model_name"],
         "base_model": cfg["base_model"],
         "head": cfg["head"],
-        "config_file": str(config_path),
-        "report_dir": str(report_path),
-        "experiment_dir": str(experiment_path),
+        "config_file": project_relative(config_path),
+        "report_dir": project_relative(report_path),
+        "experiment_dir": project_relative(experiment_path),
         "dataset": {
             "name": get(cfg, "dataset.name"),
-            "splits_dir": str(splits_dir),
+            "splits_dir": project_relative(splits_dir),
             "fingerprints": fingerprints,
             "num_train": bundle.sizes["train"],
             "num_validation": bundle.sizes["validation"],

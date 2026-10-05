@@ -26,6 +26,7 @@ from typing import List, Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from src.common.config import load_config, resolve_config_path  # noqa: E402
 from src.common.constants import MODEL_NAMES  # noqa: E402
 from src.common.logging_utils import get_logger  # noqa: E402
 from src.common.paths import find_best_report_dir  # noqa: E402
@@ -69,6 +70,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     LOGGER.info("=" * 78)
 
     results = []
+    prev_report: Optional[Path] = None  # report dir of the previous model in this batch
     for index, model in enumerate(models, start=1):
         LOGGER.info("")
         LOGGER.info("#" * 78)
@@ -83,6 +85,37 @@ def main(argv: Optional[List[str]] = None) -> int:
                 LOGGER.info("[train_all] model 2 encoder initialised from %s", ckpt)
             except FileNotFoundError as exc:
                 LOGGER.warning("[train_all] %s - model 2 will start from the pre-trained encoder", exc)
+
+        # The four models chain 1 -> 2 -> 3 -> 4 (plan sections 7, 8, 13): a model
+        # may initialise its encoder from the previous model's checkpoint.  When the
+        # path recorded in the config does not exist (e.g. a smoke batch that never
+        # produced outputs/reports/..., or smoke runs that save only last_model),
+        # fall back to the checkpoint written by the previous model of *this* batch
+        # so the run can continue instead of dying with FileNotFoundError.
+        if prev_report is not None and not any(o.startswith("encoder_checkpoint=") for o in overrides):
+            configured = load_config(resolve_config_path(f"configs/{model}.yaml")).get("encoder_checkpoint")
+            if configured and not Path(configured).exists():
+                fallback = next(
+                    (
+                        prev_report / name
+                        for name in ("best_model", "last_model")
+                        if (prev_report / name).is_dir() and any((prev_report / name).iterdir())
+                    ),
+                    None,
+                )
+                if fallback is not None:
+                    overrides.append(f"encoder_checkpoint={fallback.as_posix()}")
+                    LOGGER.warning(
+                        "[train_all] %s: configured encoder_checkpoint %s not found - "
+                        "initialising from this batch instead: %s",
+                        model, configured, fallback,
+                    )
+                else:
+                    LOGGER.warning(
+                        "[train_all] %s: configured encoder_checkpoint %s not found and %s "
+                        "has no checkpoint - keeping the configured path",
+                        model, configured, prev_report,
+                    )
 
         model_args = argparse.Namespace(**vars(args))
         model_args.config = f"configs/{model}.yaml"
@@ -104,6 +137,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                 "best_macro_f1": summary.get("training", {}).get("best_value"),
             }
         )
+        if summary.get("report_dir"):
+            prev_report = Path(summary["report_dir"])
 
         if args.dry_run:
             LOGGER.info("[train_all] dry run - skipping the remaining models")
