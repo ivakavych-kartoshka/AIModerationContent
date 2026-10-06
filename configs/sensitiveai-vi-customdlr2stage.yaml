@@ -50,7 +50,7 @@ training:
   batch_size: 16
   eval_batch_size: 32
   gradient_accumulation: 2
-  epochs: 4
+  epochs: 30
   learning_rate: 2.0e-5
   weight_decay: 0.01
   warmup_ratio: 0.1
@@ -91,7 +91,7 @@ stages:
     description: >-
       Stabilise the pre-trained representation. Cross-entropy with class weights
       computed on the TRAIN split only.
-    epochs: 4
+    epochs: 15
     save_checkpoint: true
     training:
       learning_rate: 2.0e-5
@@ -106,7 +106,7 @@ stages:
       Continue from the stage 1 checkpoint with lower learning rates, focal loss
       and label-specific alpha so that hard / rare HATE samples dominate the
       gradient.
-    epochs: 3
+    epochs: 15
     save_checkpoint: true
     init_from: "stage:stage_1"
     training:
@@ -140,7 +140,7 @@ early_stopping:
   enabled: true
   metric: macro_f1
   mode: max
-  patience: 3
+  patience: 6
   min_delta: 0.0
 
 evaluation:

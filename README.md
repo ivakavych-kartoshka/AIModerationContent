@@ -109,12 +109,12 @@ sensitiveai-vi                     (baseline)
 |---|:---:|:---:|:---:|:---:|
 | **Head** | standard `[CLS]` | multi-view pooling | multi-view pooling | multi-view pooling |
 | **Số stage** | 1 | 1 | **2** | **3** |
-| **Tổng epoch** | 6 | 6 | 7 | 10 |
+| **Tổng epoch** | 30 | 30 | 30 (15 + 15) | 30 (10 + 10 + 10) |
 | **Loss** | CE | CE | CE → **focal** | **concept** → **concept** → CE |
 | **Learning rate** | đồng nhất 3e-5 | đồng nhất 3e-5 | **DLR 4 nhóm** | **DLR 4 nhóm** |
 | **Class weight** | không | không | **inverse-sqrt-frequency** | **manual (3/2/1)** |
 | **Decision rule** | argmax | argmax | **threshold riêng từng nhãn** | **threshold riêng từng nhãn** |
-| **Early stopping** | có (patience 3) | có | có | có |
+| **Early stopping** | có (patience 6) | có (patience 6) | có (patience 6) | có (patience 6) |
 
 ### 3.2 Model 1 — `sensitiveai-vi` (baseline)
 
@@ -457,11 +457,17 @@ và mỗi lần chuyển stage đều được ghi lại trong `stage_transition
 | `warmup_ratio` | 0.1 (0.05 ở stage sau của model 3/4) | Ổn định khởi động |
 | `scheduler` | linear decay | Chuẩn cho fine-tune |
 | `num_workers` | 2 | (đặt 0 khi debug trên Windows) |
-| `early_stopping` | macro F1, patience 3 | Chọn trên **validation** |
+| `early_stopping` | macro F1, patience 6 | Chọn trên **validation**, dừng sau 6 epoch liên tiếp không cải thiện |
 
 Bốn config dùng **giống hệt nhau** toàn bộ bảng trên — đây là phần "giữ cố định" của thiết
 kế thực nghiệm. Chỉ có `warmup_ratio` được giảm còn 0.05 ở các stage sau của model 3 và 4
 (vì giai đoạn đó bắt đầu từ checkpoint đã học).
+
+Ở model 3 và 4, mỗi stage có **riêng** budget 6 epoch không cải thiện: bộ đếm được
+reset ở `on_stage_begin` (`src/callbacks/monitoring.py:78`) vì chuyển stage là đổi bài
+toán tối ưu (CE → focal, concept OFFENSIVE → concept HATE) nên vài epoch đầu stage mới
+hợp lệ là thấp hơn best của stage trước. `best_value` thì **không** reset — checkpoint
+tốt nhất vẫn được chọn trên toàn run.
 
 > **Nếu gặp CUDA Out of Memory:** đặt `training.batch_size=8` và
 > `training.gradient_accumulation=4` — effective batch vẫn là 32.

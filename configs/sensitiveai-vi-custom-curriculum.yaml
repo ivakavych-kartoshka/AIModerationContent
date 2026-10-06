@@ -47,7 +47,7 @@ training:
   batch_size: 16
   eval_batch_size: 32
   gradient_accumulation: 2
-  epochs: 3
+  epochs: 30
   learning_rate: 2.0e-5
   weight_decay: 0.01
   warmup_ratio: 0.1
@@ -88,7 +88,7 @@ stages:
     description: >-
       OFFENSIVE-focused stage. Concept: OFFENSIVE -> positive, HATE -> negative,
       CLEAN -> negative. Full dataset, class weights estimated on TRAIN only.
-    epochs: 3
+    epochs: 10
     save_checkpoint: true
     loss:
       type: concept
@@ -101,7 +101,7 @@ stages:
     description: >-
       HATE-focused stage, continued from the stage 1 checkpoint.
       Concept: HATE -> positive, OFFENSIVE -> negative, CLEAN -> negative.
-    epochs: 3
+    epochs: 10
     save_checkpoint: true
     init_from: "stage:stage_1"
     training:
@@ -123,7 +123,7 @@ stages:
     description: >-
       Final 3-class training (HATE / OFFENSIVE / CLEAN) continued from the
       stage 2 checkpoint, with explicit label-specific class weights.
-    epochs: 4
+    epochs: 10
     save_checkpoint: true
     init_from: "stage:stage_2"
     training:
@@ -154,7 +154,7 @@ early_stopping:
   enabled: true
   metric: macro_f1
   mode: max
-  patience: 3
+  patience: 6
   min_delta: 0.0
 
 evaluation:

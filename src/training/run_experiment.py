@@ -49,6 +49,7 @@ from ..common.paths import (
     project_path,
     project_relative,
     report_dir,
+    resolve_encoder_checkpoint,
     run_dir_name,
 )
 from ..common.seeding import seed_everything
@@ -247,6 +248,13 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     LOGGER.info("\n%s", class_weight_info["table"])
 
     # ---- model -------------------------------------------------------- #
+    # The config records the run directory of the model it chains from; that
+    # directory goes stale after every retrain, so it is re-pointed at the
+    # latest run of the same model and written back for provenance.
+    encoder_checkpoint = resolve_encoder_checkpoint(cfg.get("encoder_checkpoint"))
+    if encoder_checkpoint is not None:
+        cfg["encoder_checkpoint"] = project_relative(encoder_checkpoint)
+
     head_options = dict(cfg.get("head_options") or {})
     model = build_model(
         head=str(cfg["head"]),

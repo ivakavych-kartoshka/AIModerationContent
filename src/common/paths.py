@@ -15,6 +15,9 @@ from .constants import (
     PROJECT_ROOT,
     REPORTS_DIR,
 )
+from .logging_utils import get_logger
+
+LOGGER = get_logger(__name__)
 
 
 def project_path(path_like: str | Path) -> Path:
@@ -124,6 +127,70 @@ def find_best_report_dir(model_name: str, reports_root: Path | None = None, run_
         return sorted(candidates)[-1]
     raise FileNotFoundError(
         f"No finished run found for '{model_name}' under {root}. Train the model first."
+    )
+
+
+#: Segment that marks the reports root inside a checkpoint path, e.g.
+#: ``outputs/reports/sensitiveai-vi-custom/run_002/best_model``.
+_REPORTS_SEGMENT = "reports"
+
+
+def model_name_from_checkpoint_path(path: str | Path) -> Optional[str]:
+    """Recover the producing model name from a ``reports/<model>/run_*/...`` path."""
+    parts = [p for p in Path(path).parts if p not in (".", "")]
+    for i, part in enumerate(parts):
+        if part.startswith(_REPORTS_SEGMENT) and i + 1 < len(parts):
+            return parts[i + 1]
+    return None
+
+
+def resolve_encoder_checkpoint(configured: str | Path | None) -> Optional[Path]:
+    """Turn the configured ``encoder_checkpoint`` into a directory that exists.
+
+    A config records *one* run of the previous model (``.../run_002/best_model``).
+    That directory is tied to a single run: after a retrain it is either gone or,
+    worse, still there and silently seeds the encoder from stale weights.  So a
+    missing path is not an error here - it is re-pointed at the newest finished
+    run of the same model, which is what "chain from the previous model" means
+    and what lets every model be trained on its own.
+
+    Returns ``None`` when nothing is configured, and raises ``FileNotFoundError``
+    with an actionable message when neither the configured path nor any run of
+    the referenced model can be used.
+    """
+    if not configured:
+        return None
+
+    path = project_path(configured)
+    if path.is_dir():
+        return path
+
+    model_name = model_name_from_checkpoint_path(configured)
+    if model_name:
+        try:
+            latest = find_best_report_dir(model_name)
+        except FileNotFoundError:
+            latest = None
+        if latest is not None:
+            for name in ("best_model", "last_model"):
+                candidate = latest / name
+                if candidate.is_dir():
+                    LOGGER.warning(
+                        "[encoder_checkpoint] %s not found - using the latest run of "
+                        "'%s' instead: %s", path, model_name, candidate,
+                    )
+                    return candidate
+
+    raise FileNotFoundError(
+        f"encoder_checkpoint does not exist: {project_relative(path)}\n"
+        + (
+            f"It belongs to model '{model_name}', which has no finished run under "
+            f"{_model_root(model_name, None, REPORTS_DIR)}.\n"
+            if model_name
+            else ""
+        )
+        + "Train that model first, or point the config at an existing checkpoint "
+          "(or set encoder_checkpoint=null to start from the pre-trained encoder)."
     )
 
 

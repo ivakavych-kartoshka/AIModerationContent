@@ -34,7 +34,7 @@ training:
   batch_size: 16
   eval_batch_size: 32
   gradient_accumulation: 2
-  epochs: 6
+  epochs: 30
   learning_rate: 3.0e-5
   weight_decay: 0.01
   warmup_ratio: 0.1
@@ -61,7 +61,7 @@ early_stopping:
   enabled: true
   metric: macro_f1             # selected on VALIDATION only
   mode: max
-  patience: 3
+  patience: 6
   min_delta: 0.0
 
 evaluation:
