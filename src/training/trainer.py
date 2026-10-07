@@ -14,7 +14,10 @@ Features
 * per-stage loss rebuild - cross-entropy / focal / curriculum concept loss,
   with class weights estimated on the training split only;
 * callbacks: best-checkpoint saving, early stopping, ``training_log.csv``;
-* every decision (best model, early stop, thresholds) is taken on validation.
+* every decision (best model, early stop, thresholds) is taken on validation;
+* early stopping on a non-final stage only ends that stage early - the run
+  continues with the next stage, initialised from the *best* epoch of the
+  stopped stage rather than the last one.
 """
 
 from __future__ import annotations
@@ -30,7 +33,12 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 
 from ..callbacks.base import CallbackList
-from ..callbacks.monitoring import BestCheckpointCallback, EarlyStoppingCallback
+from ..callbacks.monitoring import (
+    BestCheckpointCallback,
+    EarlyStoppingCallback,
+    is_better,
+    resolve_direction,
+)
 from ..callbacks.stage_controller import StageController
 from ..common.constants import LABELS
 from ..common.logging_utils import get_logger
@@ -153,6 +161,10 @@ class Trainer:
         self.optimizer: Optional[torch.optim.Optimizer] = None
         self.scheduler: Optional[torch.optim.lr_scheduler.LambdaLR] = None
         self.criterion: Optional[nn.Module] = None
+
+        es_cfg = config.get("early_stopping", {}) or {}
+        self.monitor_metric = str(es_cfg.get("metric", "macro_f1"))
+        self.monitor_mode = str(es_cfg.get("mode") or resolve_direction(self.monitor_metric))
 
         self._prepare_model()
 
@@ -413,6 +425,7 @@ class Trainer:
             stage = self.controller.begin_stage()
             self.current_stage = stage
             self.current_stage_index = self.controller.index + 1
+            is_last_stage = self.controller.is_last_stage
 
             if stage.init_from:
                 self.load_model(stage.init_from)
@@ -425,6 +438,14 @@ class Trainer:
             self._track_lrs(self.optimizer)
 
             self.callbacks.on_stage_begin(trainer=self, stage=stage)
+
+            # The stage checkpoint handed to the *next* stage is the best epoch
+            # of this stage (not the last one) so the next stage always starts
+            # from the strongest base.  Weights are cloned to CPU memory so GPU
+            # vRAM is not doubled while training continues.
+            stage_best_value: Optional[float] = None
+            stage_best_epoch: Optional[int] = None
+            stage_best_state: Optional[Dict[str, Any]] = None
 
             while not self.controller.is_stage_finished():
                 self.global_epoch = self.controller.begin_epoch()
@@ -464,14 +485,40 @@ class Trainer:
                     }
                 )
 
+                value = metrics.get(self.monitor_metric, metrics.get(f"val_{self.monitor_metric}"))
+                if value is not None and value == value:  # ignore NaN
+                    value = float(value)
+                    if is_better(value, stage_best_value, self.monitor_mode):
+                        stage_best_value = value
+                        stage_best_epoch = self.global_epoch
+                        stage_best_state = {
+                            k: v.detach().cpu().clone() for k, v in self.model.state_dict().items()
+                        }
+
                 if early_stopping is not None and early_stopping.should_stop:
-                    LOGGER.info("[train] early stopping triggered after epoch %d", self.global_epoch)
+                    if is_last_stage:
+                        LOGGER.info("[train] early stopping triggered after epoch %d (last stage)", self.global_epoch)
+                    else:
+                        LOGGER.info(
+                            "[train] early stopping ended stage %s at epoch %d - "
+                            "best epoch kept as the base for the next stage",
+                            stage.name, self.global_epoch,
+                        )
                     break
+
+            if stage_best_state is not None and not is_last_stage:
+                LOGGER.info(
+                    "[stage] restoring best %s=%.6f at epoch %d for the %s checkpoint",
+                    self.monitor_metric, stage_best_value, stage_best_epoch, stage.name,
+                )
+                self.model.load_state_dict(stage_best_state)
 
             self.controller.end_stage(model=self.model)
             self.callbacks.on_stage_end(trainer=self, stage=stage)
 
-            if early_stopping is not None and early_stopping.should_stop:
+            # early stopping only ends the whole run when it fires on the last
+            # stage; an earlier stage simply finishes early and training continues
+            if early_stopping is not None and early_stopping.should_stop and is_last_stage:
                 break
             if not self.controller.next_stage_exists():
                 break

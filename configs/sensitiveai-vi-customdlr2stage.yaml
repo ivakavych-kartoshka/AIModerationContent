@@ -21,7 +21,7 @@ head: custom
 seed: 42
 deterministic: true
 
-encoder_checkpoint: outputs/reports/sensitiveai-vi-custom/run_002/best_model
+encoder_checkpoint: outputs/reports/sensitiveai-vi-custom/run_001/best_model
        # pre-trained encoder (stage 1 starts from scratch)
 
 head_options:

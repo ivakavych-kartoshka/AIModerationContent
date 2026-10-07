@@ -1,0 +1,729 @@
+{
+  "run_id": "run_001",
+  "model_name": "sensitiveai-vi-custom-curriculum",
+  "base_model": "microsoft/mdeberta-v3-base",
+  "head": "custom",
+  "config_file": "configs/sensitiveai-vi-custom-curriculum.yaml",
+  "report_dir": "outputs/reports/sensitiveai-vi-custom-curriculum/run_001",
+  "experiment_dir": "outputs/experiments/sensitiveai-vi-custom-curriculum/run_001",
+  "dataset": {
+    "name": "uitnlp/vihsd",
+    "splits_dir": "data/splits",
+    "fingerprints": {
+      "train": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244",
+      "validation": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353",
+      "test": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b"
+    },
+    "num_train": 24046,
+    "num_validation": 2672,
+    "num_test": 6680,
+    "max_length": 256
+  },
+  "class_weights": {
+    "estimated_on": "train split only",
+    "train_label_counts": {
+      "HATE": 2556,
+      "OFFENSIVE": 1605,
+      "CLEAN": 19885
+    },
+    "per_stage": {
+      "stage_1": {
+        "HATE": 1.5,
+        "OFFENSIVE": 1.0,
+        "CLEAN": 0.5
+      },
+      "stage_2": {
+        "HATE": 1.5,
+        "OFFENSIVE": 1.0,
+        "CLEAN": 0.5
+      },
+      "stage_3": {
+        "HATE": 1.5,
+        "OFFENSIVE": 1.0,
+        "CLEAN": 0.5
+      }
+    },
+    "primary": {
+      "HATE": 1.5,
+      "OFFENSIVE": 1.0,
+      "CLEAN": 0.5
+    },
+    "table": "Class weights (estimated on TRAIN only)\n----------------------------------------------\nHATE       n=   2556  weight=1.5000\nOFFENSIVE  n=   1605  weight=1.0000\nCLEAN      n=  19885  weight=0.5000"
+  },
+  "parameters": {
+    "total_parameters": 279406083,
+    "trainable_parameters": 279406083,
+    "non_trainable_parameters": 0,
+    "estimated_parameter_memory_mb": 1065.85,
+    "head_only": {
+      "total_parameters": 1187331,
+      "trainable_parameters": 1187331,
+      "non_trainable_parameters": 0
+    }
+  },
+  "training": {
+    "model_name": "sensitiveai-vi-custom-curriculum",
+    "best_metric": "macro_f1",
+    "best_value": 0.6941996657807886,
+    "best_epoch": 1,
+    "best_stage": "stage_1",
+    "epochs_run": 19,
+    "total_epochs_planned": 30,
+    "training_seconds": 13121.286,
+    "training_time_hms": "03:38:41",
+    "stopped_early": true,
+    "early_stopping": {
+      "metric": "macro_f1",
+      "mode": "max",
+      "patience": 6,
+      "min_delta": 0.0,
+      "best_value": 0.6941996657807886,
+      "best_epoch": 1,
+      "num_bad_epochs": 6,
+      "stopped_early": true,
+      "stage_resets": [
+        {
+          "stage": "stage_2",
+          "epoch": 11,
+          "bad_epochs_carried": 6
+        },
+        {
+          "stage": "stage_3",
+          "epoch": 21,
+          "bad_epochs_carried": 6
+        }
+      ],
+      "history": [
+        {
+          "epoch": 1,
+          "value": 0.6941996657807886,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "value": 0.676139807471216,
+          "is_best": false
+        },
+        {
+          "epoch": 3,
+          "value": 0.6824154754647092,
+          "is_best": false
+        },
+        {
+          "epoch": 4,
+          "value": 0.6874256426366477,
+          "is_best": false
+        },
+        {
+          "epoch": 5,
+          "value": 0.6733937377764887,
+          "is_best": false
+        },
+        {
+          "epoch": 6,
+          "value": 0.6798074298402006,
+          "is_best": false
+        },
+        {
+          "epoch": 7,
+          "value": 0.685815938350626,
+          "is_best": false
+        },
+        {
+          "epoch": 8,
+          "value": 0.6871025929639561,
+          "is_best": false
+        },
+        {
+          "epoch": 9,
+          "value": 0.6880856619506663,
+          "is_best": false
+        },
+        {
+          "epoch": 10,
+          "value": 0.6856272364431627,
+          "is_best": false
+        },
+        {
+          "epoch": 11,
+          "value": 0.6912199614304182,
+          "is_best": false
+        },
+        {
+          "epoch": 12,
+          "value": 0.6941782134389181,
+          "is_best": false
+        },
+        {
+          "epoch": 13,
+          "value": 0.682516894694898,
+          "is_best": false
+        },
+        {
+          "epoch": 14,
+          "value": 0.6811070756049751,
+          "is_best": false
+        },
+        {
+          "epoch": 15,
+          "value": 0.6771568318157214,
+          "is_best": false
+        },
+        {
+          "epoch": 16,
+          "value": 0.6831491846064051,
+          "is_best": false
+        },
+        {
+          "epoch": 17,
+          "value": 0.6930077147097963,
+          "is_best": false
+        },
+        {
+          "epoch": 18,
+          "value": 0.691663242982585,
+          "is_best": false
+        },
+        {
+          "epoch": 19,
+          "value": 0.6794735649453848,
+          "is_best": false
+        }
+      ]
+    },
+    "best_checkpoint": {
+      "metric": "macro_f1",
+      "mode": "max",
+      "best_value": 0.6941996657807886,
+      "best_epoch": 1,
+      "best_stage": "stage_1",
+      "saved_to": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_001\\best_model",
+      "history": [
+        {
+          "epoch": 1,
+          "value": 0.6941996657807886,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "value": 0.676139807471216,
+          "is_best": false
+        },
+        {
+          "epoch": 3,
+          "value": 0.6824154754647092,
+          "is_best": false
+        },
+        {
+          "epoch": 4,
+          "value": 0.6874256426366477,
+          "is_best": false
+        },
+        {
+          "epoch": 5,
+          "value": 0.6733937377764887,
+          "is_best": false
+        },
+        {
+          "epoch": 6,
+          "value": 0.6798074298402006,
+          "is_best": false
+        },
+        {
+          "epoch": 7,
+          "value": 0.685815938350626,
+          "is_best": false
+        },
+        {
+          "epoch": 8,
+          "value": 0.6871025929639561,
+          "is_best": false
+        },
+        {
+          "epoch": 9,
+          "value": 0.6880856619506663,
+          "is_best": false
+        },
+        {
+          "epoch": 10,
+          "value": 0.6856272364431627,
+          "is_best": false
+        },
+        {
+          "epoch": 11,
+          "value": 0.6912199614304182,
+          "is_best": false
+        },
+        {
+          "epoch": 12,
+          "value": 0.6941782134389181,
+          "is_best": false
+        },
+        {
+          "epoch": 13,
+          "value": 0.682516894694898,
+          "is_best": false
+        },
+        {
+          "epoch": 14,
+          "value": 0.6811070756049751,
+          "is_best": false
+        },
+        {
+          "epoch": 15,
+          "value": 0.6771568318157214,
+          "is_best": false
+        },
+        {
+          "epoch": 16,
+          "value": 0.6831491846064051,
+          "is_best": false
+        },
+        {
+          "epoch": 17,
+          "value": 0.6930077147097963,
+          "is_best": false
+        },
+        {
+          "epoch": 18,
+          "value": 0.691663242982585,
+          "is_best": false
+        },
+        {
+          "epoch": 19,
+          "value": 0.6794735649453848,
+          "is_best": false
+        }
+      ]
+    },
+    "stages": {
+      "num_stages": 3,
+      "total_epochs_planned": 30,
+      "epochs_run": 19,
+      "stages": [
+        {
+          "name": "stage_1",
+          "description": "OFFENSIVE-focused stage. Concept: OFFENSIVE -> positive, HATE -> negative, CLEAN -> negative. Full dataset, class weights estimated on TRAIN only.",
+          "focus_label": "OFFENSIVE",
+          "epochs": 10,
+          "global_epoch_start": 1,
+          "global_epoch_end": 10,
+          "init_from": null,
+          "save_checkpoint": true,
+          "training": {
+            "batch_size": 16,
+            "eval_batch_size": 32,
+            "gradient_accumulation": 2,
+            "learning_rate": 2e-05,
+            "weight_decay": 0.01,
+            "warmup_ratio": 0.1,
+            "optimizer": "adamw_torch",
+            "max_grad_norm": 1.0,
+            "scheduler": "linear",
+            "precision": "bf16",
+            "label_smoothing": 0.0
+          },
+          "dlr": {
+            "enabled": true,
+            "encoder_lr": 1e-05,
+            "layer_lr": 2e-05,
+            "head_lr": 8e-05,
+            "embedding_lr": 5e-06,
+            "layer_split": 0.5,
+            "layer_decay": 1.0
+          },
+          "loss": {
+            "type": "concept",
+            "use_class_weight": true,
+            "class_weight": "manual",
+            "class_weight_manual": {
+              "HATE": 3.0,
+              "OFFENSIVE": 2.0,
+              "CLEAN": 1.0
+            },
+            "class_weight_beta": 0.999,
+            "focal": {
+              "gamma": 2.0,
+              "alpha": null
+            },
+            "concept": {
+              "focus": "OFFENSIVE",
+              "positive_weight": "auto",
+              "normalize_positive_weight": true,
+              "gamma": 0.0
+            }
+          }
+        },
+        {
+          "name": "stage_2",
+          "description": "HATE-focused stage, continued from the stage 1 checkpoint. Concept: HATE -> positive, OFFENSIVE -> negative, CLEAN -> negative.",
+          "focus_label": "HATE",
+          "epochs": 10,
+          "global_epoch_start": 11,
+          "global_epoch_end": 20,
+          "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_1",
+          "save_checkpoint": true,
+          "training": {
+            "batch_size": 16,
+            "eval_batch_size": 32,
+            "gradient_accumulation": 2,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "warmup_ratio": 0.05,
+            "optimizer": "adamw_torch",
+            "max_grad_norm": 1.0,
+            "scheduler": "linear",
+            "precision": "bf16",
+            "label_smoothing": 0.0
+          },
+          "dlr": {
+            "enabled": true,
+            "encoder_lr": 5e-06,
+            "layer_lr": 1e-05,
+            "head_lr": 5e-05,
+            "embedding_lr": 2.5e-06,
+            "layer_split": 0.5,
+            "layer_decay": 1.0
+          },
+          "loss": {
+            "type": "concept",
+            "use_class_weight": true,
+            "class_weight": "manual",
+            "class_weight_manual": {
+              "HATE": 3.0,
+              "OFFENSIVE": 2.0,
+              "CLEAN": 1.0
+            },
+            "class_weight_beta": 0.999,
+            "focal": {
+              "gamma": 2.0,
+              "alpha": null
+            },
+            "concept": {
+              "focus": "HATE",
+              "positive_weight": "auto",
+              "normalize_positive_weight": true,
+              "gamma": 0.0
+            }
+          }
+        },
+        {
+          "name": "stage_3",
+          "description": "Final 3-class training (HATE / OFFENSIVE / CLEAN) continued from the stage 2 checkpoint, with explicit label-specific class weights.",
+          "focus_label": null,
+          "epochs": 10,
+          "global_epoch_start": 21,
+          "global_epoch_end": 30,
+          "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_2",
+          "save_checkpoint": true,
+          "training": {
+            "batch_size": 16,
+            "eval_batch_size": 32,
+            "gradient_accumulation": 2,
+            "learning_rate": 1.5e-05,
+            "weight_decay": 0.01,
+            "warmup_ratio": 0.05,
+            "optimizer": "adamw_torch",
+            "max_grad_norm": 1.0,
+            "scheduler": "linear",
+            "precision": "bf16",
+            "label_smoothing": 0.0
+          },
+          "dlr": {
+            "enabled": true,
+            "encoder_lr": 5e-06,
+            "layer_lr": 1e-05,
+            "head_lr": 5e-05,
+            "embedding_lr": 2.5e-06,
+            "layer_split": 0.5,
+            "layer_decay": 1.0
+          },
+          "loss": {
+            "type": "cross_entropy",
+            "use_class_weight": true,
+            "class_weight": "manual",
+            "class_weight_manual": {
+              "HATE": 3.0,
+              "OFFENSIVE": 2.0,
+              "CLEAN": 1.0
+            },
+            "class_weight_beta": 0.999,
+            "focal": {
+              "gamma": 2.0,
+              "alpha": null
+            },
+            "concept": {
+              "focus": "OFFENSIVE",
+              "positive_weight": "auto",
+              "normalize_positive_weight": true,
+              "gamma": 0.0
+            }
+          }
+        }
+      ],
+      "transitions": [
+        {
+          "event": "stage_begin",
+          "global_epoch": 0,
+          "stage": "stage_1",
+          "index": 1,
+          "spec": {
+            "name": "stage_1",
+            "description": "OFFENSIVE-focused stage. Concept: OFFENSIVE -> positive, HATE -> negative, CLEAN -> negative. Full dataset, class weights estimated on TRAIN only.",
+            "epochs": 10,
+            "focus_label": "OFFENSIVE",
+            "init_from": null,
+            "save_checkpoint": true,
+            "training": {
+              "batch_size": 16,
+              "eval_batch_size": 32,
+              "gradient_accumulation": 2,
+              "learning_rate": 2e-05,
+              "weight_decay": 0.01,
+              "warmup_ratio": 0.1,
+              "optimizer": "adamw_torch",
+              "max_grad_norm": 1.0,
+              "scheduler": "linear",
+              "precision": "bf16",
+              "label_smoothing": 0.0
+            },
+            "dlr": {
+              "enabled": true,
+              "encoder_lr": 1e-05,
+              "layer_lr": 2e-05,
+              "head_lr": 8e-05,
+              "embedding_lr": 5e-06,
+              "layer_split": 0.5,
+              "layer_decay": 1.0
+            },
+            "loss": {
+              "type": "concept",
+              "use_class_weight": true,
+              "class_weight": "manual",
+              "class_weight_manual": {
+                "HATE": 3.0,
+                "OFFENSIVE": 2.0,
+                "CLEAN": 1.0
+              },
+              "class_weight_beta": 0.999,
+              "focal": {
+                "gamma": 2.0,
+                "alpha": null
+              },
+              "concept": {
+                "focus": "OFFENSIVE",
+                "positive_weight": "auto",
+                "normalize_positive_weight": true,
+                "gamma": 0.0
+              }
+            },
+            "global_epoch_start": 1,
+            "global_epoch_end": 10
+          }
+        },
+        {
+          "event": "stage_end",
+          "global_epoch": 7,
+          "stage": "stage_1",
+          "index": 1,
+          "epochs_run": 7,
+          "last_global_epoch": 7,
+          "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_1"
+        },
+        {
+          "event": "stage_begin",
+          "global_epoch": 7,
+          "stage": "stage_2",
+          "index": 2,
+          "spec": {
+            "name": "stage_2",
+            "description": "HATE-focused stage, continued from the stage 1 checkpoint. Concept: HATE -> positive, OFFENSIVE -> negative, CLEAN -> negative.",
+            "epochs": 10,
+            "focus_label": "HATE",
+            "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_1",
+            "save_checkpoint": true,
+            "training": {
+              "batch_size": 16,
+              "eval_batch_size": 32,
+              "gradient_accumulation": 2,
+              "learning_rate": 1e-05,
+              "weight_decay": 0.01,
+              "warmup_ratio": 0.05,
+              "optimizer": "adamw_torch",
+              "max_grad_norm": 1.0,
+              "scheduler": "linear",
+              "precision": "bf16",
+              "label_smoothing": 0.0
+            },
+            "dlr": {
+              "enabled": true,
+              "encoder_lr": 5e-06,
+              "layer_lr": 1e-05,
+              "head_lr": 5e-05,
+              "embedding_lr": 2.5e-06,
+              "layer_split": 0.5,
+              "layer_decay": 1.0
+            },
+            "loss": {
+              "type": "concept",
+              "use_class_weight": true,
+              "class_weight": "manual",
+              "class_weight_manual": {
+                "HATE": 3.0,
+                "OFFENSIVE": 2.0,
+                "CLEAN": 1.0
+              },
+              "class_weight_beta": 0.999,
+              "focal": {
+                "gamma": 2.0,
+                "alpha": null
+              },
+              "concept": {
+                "focus": "HATE",
+                "positive_weight": "auto",
+                "normalize_positive_weight": true,
+                "gamma": 0.0
+              }
+            },
+            "global_epoch_start": 11,
+            "global_epoch_end": 20
+          }
+        },
+        {
+          "event": "stage_end",
+          "global_epoch": 13,
+          "stage": "stage_2",
+          "index": 2,
+          "epochs_run": 6,
+          "last_global_epoch": 13,
+          "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_2"
+        },
+        {
+          "event": "stage_begin",
+          "global_epoch": 13,
+          "stage": "stage_3",
+          "index": 3,
+          "spec": {
+            "name": "stage_3",
+            "description": "Final 3-class training (HATE / OFFENSIVE / CLEAN) continued from the stage 2 checkpoint, with explicit label-specific class weights.",
+            "epochs": 10,
+            "focus_label": null,
+            "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_2",
+            "save_checkpoint": true,
+            "training": {
+              "batch_size": 16,
+              "eval_batch_size": 32,
+              "gradient_accumulation": 2,
+              "learning_rate": 1.5e-05,
+              "weight_decay": 0.01,
+              "warmup_ratio": 0.05,
+              "optimizer": "adamw_torch",
+              "max_grad_norm": 1.0,
+              "scheduler": "linear",
+              "precision": "bf16",
+              "label_smoothing": 0.0
+            },
+            "dlr": {
+              "enabled": true,
+              "encoder_lr": 5e-06,
+              "layer_lr": 1e-05,
+              "head_lr": 5e-05,
+              "embedding_lr": 2.5e-06,
+              "layer_split": 0.5,
+              "layer_decay": 1.0
+            },
+            "loss": {
+              "type": "cross_entropy",
+              "use_class_weight": true,
+              "class_weight": "manual",
+              "class_weight_manual": {
+                "HATE": 3.0,
+                "OFFENSIVE": 2.0,
+                "CLEAN": 1.0
+              },
+              "class_weight_beta": 0.999,
+              "focal": {
+                "gamma": 2.0,
+                "alpha": null
+              },
+              "concept": {
+                "focus": "OFFENSIVE",
+                "positive_weight": "auto",
+                "normalize_positive_weight": true,
+                "gamma": 0.0
+              }
+            },
+            "global_epoch_start": 21,
+            "global_epoch_end": 30
+          }
+        },
+        {
+          "event": "stage_end",
+          "global_epoch": 19,
+          "stage": "stage_3",
+          "index": 3,
+          "epochs_run": 6,
+          "last_global_epoch": 19,
+          "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001\\stage_checkpoints\\stage_3"
+        },
+        {
+          "event": "train_end",
+          "global_epoch": 19,
+          "reason": "early_stopping",
+          "epochs_run": 19
+        }
+      ]
+    },
+    "lr_by_group": {
+      "stage_1": {
+        "discriminative": true,
+        "encoder_lr": 1e-05,
+        "layer_lr": 2e-05,
+        "head_lr": 8e-05,
+        "learning_rate": 2e-05,
+        "steps_per_epoch": 752,
+        "total_steps": 7520
+      },
+      "stage_2": {
+        "discriminative": true,
+        "encoder_lr": 5e-06,
+        "layer_lr": 1e-05,
+        "head_lr": 5e-05,
+        "learning_rate": 1e-05,
+        "steps_per_epoch": 752,
+        "total_steps": 7520
+      },
+      "stage_3": {
+        "discriminative": true,
+        "encoder_lr": 5e-06,
+        "layer_lr": 1e-05,
+        "head_lr": 5e-05,
+        "learning_rate": 1.5e-05,
+        "steps_per_epoch": 752,
+        "total_steps": 7520
+      }
+    },
+    "wall_clock_seconds": 13124.62
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch": "2.13.0+cu126",
+    "transformers": "5.14.1",
+    "tokenizers": "0.22.2",
+    "datasets": "5.0.0",
+    "sklearn": "1.8.0",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.1",
+    "cuda_available": true,
+    "cuda_version": "12.6",
+    "cudnn_version": "91002",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_memory_gb": 8.0,
+    "gpu_count": 1,
+    "nvidia_driver": "617.14"
+  },
+  "finished_at": "2026-10-07 11:03:37"
+}
