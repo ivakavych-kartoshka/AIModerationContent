@@ -14,6 +14,7 @@
 | `dataset.tex` | file | 3.4 KB · 2026-10-15 18:50:03 |
 | `discussion.tex` | file | 2.8 KB · 2026-10-15 20:45:14 |
 | `dlr_two_stage.tex` | file | 1.7 KB · 2026-10-15 20:45:14 |
+| `explain.md` | file | 1.2 KB · 2026-10-17 00:09:27 |
 | `introduction.tex` | file | 3.2 KB · 2026-10-15 18:40:44 |
 | `methodology.tex` | file | 6.2 KB · 2026-10-15 18:19:58 |
 | `related_work.tex` | file | 2.4 KB · 2026-10-15 17:54:55 |
@@ -22,4 +23,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

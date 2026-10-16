@@ -22,7 +22,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `config.json` | file | 1.1 KB · 2026-10-04 12:46:46 |
-| `explain.md` | file | 1.9 KB · 2026-10-04 13:00:00 |
+| `explain.md` | file | 1.9 KB · 2026-10-17 00:09:27 |
 | `model.safetensors` | file | 1.0 GB · 2026-10-04 12:46:47 |
 | `tokenizer.json` | file | 15.3 MB · 2026-10-04 12:46:47 |
 | `tokenizer_config.json` | file | 3.0 KB · 2026-10-04 12:46:47 |
@@ -33,4 +33,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

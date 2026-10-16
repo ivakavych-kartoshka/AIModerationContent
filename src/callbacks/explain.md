@@ -26,10 +26,10 @@
 | `__init__.py` | file | 638 B · 2026-10-04 10:40:30 |
 | `base.py` | file | 3.9 KB · 2026-10-04 10:39:47 |
 | `csv_logger.py` | file | 6.6 KB · 2026-10-11 13:15:44 |
-| `explain.md` | file | 1.9 KB · 2026-10-04 13:00:00 |
+| `explain.md` | file | 1.9 KB · 2026-10-17 00:09:27 |
 | `monitoring.py` | file | 8.0 KB · 2026-10-11 12:01:11 |
 | `stage_controller.py` | file | 6.6 KB · 2026-10-04 12:38:57 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

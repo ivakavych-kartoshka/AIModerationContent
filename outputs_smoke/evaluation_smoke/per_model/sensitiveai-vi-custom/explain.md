@@ -20,6 +20,7 @@
 | `confusion_matrix.png` | file | 54.8 KB · 2026-10-05 16:35:13 |
 | `confusion_matrix_normalized.png` | file | 61.6 KB · 2026-10-05 16:35:13 |
 | `confusion_matrix_raw.png` | file | 55.9 KB · 2026-10-05 16:35:13 |
+| `explain.md` | file | 2.3 KB · 2026-10-17 00:09:27 |
 | `metrics.json` | file | 6.5 KB · 2026-10-05 16:35:13 |
 | `model_summary.txt` | file | 2.6 KB · 2026-10-05 16:35:13 |
 | `pr_curve.png` | file | 132.0 KB · 2026-10-05 16:35:13 |
@@ -34,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

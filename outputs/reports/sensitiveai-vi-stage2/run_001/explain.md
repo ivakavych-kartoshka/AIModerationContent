@@ -19,9 +19,9 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `best_model` | thư mục | 4 file, 1.1 GB |
-| `history` | thư mục | 21 file, 2.8 MB |
-| `last_model` | thư mục | 4 file, 1.1 GB |
+| `best_model` | thư mục | 5 file, 1.1 GB |
+| `history` | thư mục | 23 file, 2.8 MB |
+| `last_model` | thư mục | 5 file, 1.1 GB |
 | `benchmark.json` | file | 603 B · 2026-10-13 12:35:53 |
 | `Best_model_classification_report.txt` | file | 389 B · 2026-10-13 12:35:28 |
 | `best_training_state.pt` | file | 2.1 GB · 2026-10-11 22:30:03 |
@@ -34,7 +34,7 @@
 | `confusion_matrix_raw.png` | file | 56.6 KB · 2026-10-13 12:35:28 |
 | `evaluate.log` | file | 6.5 KB · 2026-10-13 12:35:53 |
 | `evaluation.json` | file | 1.7 KB · 2026-10-13 12:35:53 |
-| `explain.md` | file | 1.4 KB · 2026-10-11 21:33:13 |
+| `explain.md` | file | 3.6 KB · 2026-10-17 00:09:28 |
 | `last_training_state.pt` | file | 13.4 KB · 2026-10-13 14:26:55 |
 | `last_training_state.pt.tmp` | file | 2.1 GB · 2026-10-13 13:48:44 |
 | `metrics.json` | file | 6.5 KB · 2026-10-13 12:35:53 |
@@ -62,4 +62,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

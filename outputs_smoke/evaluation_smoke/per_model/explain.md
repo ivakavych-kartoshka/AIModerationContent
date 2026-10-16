@@ -20,11 +20,12 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `sensitiveai-vi` | thư mục | 17 file, 2.5 MB |
-| `sensitiveai-vi-custom` | thư mục | 17 file, 2.6 MB |
-| `sensitiveai-vi-custom-curriculum` | thư mục | 18 file, 2.5 MB |
-| `sensitiveai-vi-customdlr2stage` | thư mục | 18 file, 2.7 MB |
+| `sensitiveai-vi` | thư mục | 18 file, 2.5 MB |
+| `sensitiveai-vi-custom` | thư mục | 18 file, 2.6 MB |
+| `sensitiveai-vi-custom-curriculum` | thư mục | 19 file, 2.5 MB |
+| `sensitiveai-vi-customdlr2stage` | thư mục | 19 file, 2.7 MB |
+| `explain.md` | file | 1.7 KB · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

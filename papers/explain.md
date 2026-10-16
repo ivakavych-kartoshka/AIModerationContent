@@ -9,11 +9,12 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `figures` | thư mục | 15 file, 1.9 MB |
-| `sections` | thư mục | 10 file, 33.8 KB |
-| `supplementary` | thư mục | 75 file, 10.8 MB |
-| `tables` | thư mục | 7 file, 7.9 KB |
-| `template` | thư mục | 7 file, 665.1 KB |
+| `figures` | thư mục | 16 file, 1.9 MB |
+| `sections` | thư mục | 11 file, 35.0 KB |
+| `supplementary` | thư mục | 87 file, 10.8 MB |
+| `tables` | thư mục | 8 file, 9.0 KB |
+| `template` | thư mục | 8 file, 666.1 KB |
+| `explain.md` | file | 1.6 KB · 2026-10-17 00:09:27 |
 | `main.aux` | file | 16.2 KB · 2026-10-15 23:05:26 |
 | `main.bbl` | file | 5.7 KB · 2026-10-15 23:05:25 |
 | `main.blg` | file | 1.0 KB · 2026-10-15 23:05:25 |
@@ -30,4 +31,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

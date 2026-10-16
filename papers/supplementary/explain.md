@@ -9,9 +9,10 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `figures` | thư mục | 49 file, 5.5 MB |
-| `sections` | thư mục | 2 file, 14.0 KB |
-| `tables` | thư mục | 11 file, 12.5 KB |
+| `figures` | thư mục | 58 file, 5.6 MB |
+| `sections` | thư mục | 3 file, 14.7 KB |
+| `tables` | thư mục | 12 file, 13.8 KB |
+| `explain.md` | file | 1.5 KB · 2026-10-17 00:09:27 |
 | `llncs.cls` | file | 42.4 KB · 2026-09-07 00:28:37 |
 | `main.aux` | file | 24.8 KB · 2026-10-15 23:05:13 |
 | `main.bbl` | file | 1.3 KB · 2026-10-15 23:05:08 |
@@ -28,4 +29,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

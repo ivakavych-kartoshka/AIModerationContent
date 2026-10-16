@@ -36,22 +36,23 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `.freebuff` | thư mục | 1 file, 37 B |
-| `.git` | thư mục | 1652 file, 691.5 MB |
+| `.git` | thư mục | 1830 file, 691.6 MB |
 | `checkpoints` | thư mục | 1 file, 1.3 KB |
-| `configs` | thư mục | 10 file, 27.9 KB |
-| `data` | thư mục | 33 file, 8.0 MB |
+| `configs` | thư mục | 11 file, 30.5 KB |
+| `data` | thư mục | 75 file, 31.1 MB |
 | `docs` | thư mục | 2 file, 25.2 KB |
-| `outputs` | thư mục | 633 file, 57.5 GB |
-| `outputs_smoke` | thư mục | 612 file, 19.9 GB |
-| `papers` | thư mục | 127 file, 14.1 MB |
-| `scripts` | thư mục | 17 file, 146.5 KB |
-| `src` | thư mục | 104 file, 1.0 MB |
-| `.gitignore` | file | 848 B · 2026-10-16 16:01:27 |
-| `explain.md` | file | 3.3 KB · 2026-10-04 13:00:00 |
+| `outputs` | thư mục | 688 file, 57.5 GB |
+| `outputs_smoke` | thư mục | 619 file, 19.9 GB |
+| `papers` | thư mục | 144 file, 14.1 MB |
+| `scripts` | thư mục | 24 file, 208.4 KB |
+| `src` | thư mục | 129 file, 1.4 MB |
+| `.gitignore` | file | 857 B · 2026-10-16 20:32:49 |
+| `explain.md` | file | 3.2 KB · 2026-10-17 00:09:27 |
 | `fix.txt` | file | 15 B · 2026-10-15 19:35:21 |
 | `plan.md` | file | 20.1 KB · 2026-10-04 13:04:21 |
 | `README.md` | file | 48.7 KB · 2026-10-05 22:28:54 |
 | `requirements.txt` | file | 517 B · 2026-10-04 11:31:24 |
+| `Rule_Engine_Plan.md` | file | 11.5 KB · 2026-10-16 22:44:58 |
 | `texput.log` | file | 744 B · 2026-10-15 21:33:57 |
 
 ## Cách đọc
@@ -62,4 +63,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

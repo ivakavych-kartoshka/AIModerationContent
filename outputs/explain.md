@@ -21,12 +21,12 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `evaluation` | thư mục | 156 file, 16.8 MB |
+| `evaluation` | thư mục | 176 file, 16.9 MB |
 | `experiments` | thư mục | 97 file, 10.4 GB |
-| `reports` | thư mục | 379 file, 47.1 GB |
-| `seeds` | thư mục | 0 file, 0 B |
-| `explain.md` | file | 1.2 KB · 2026-10-04 22:27:44 |
+| `reports` | thư mục | 413 file, 47.1 GB |
+| `seeds` | thư mục | 1 file, 628 B |
+| `explain.md` | file | 1.8 KB · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

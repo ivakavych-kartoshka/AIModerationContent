@@ -10,6 +10,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `confusion_matrix_normalized.png` | file | 62.7 KB · 2026-10-15 21:20:16 |
+| `explain.md` | file | 995 B · 2026-10-17 00:09:27 |
 | `pr_curve.png` | file | 133.9 KB · 2026-10-15 21:20:16 |
 | `roc_curve.png` | file | 127.0 KB · 2026-10-15 21:20:16 |
 | `val_accuracy_curve.png` | file | 112.9 KB · 2026-10-15 21:20:16 |
@@ -17,4 +18,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

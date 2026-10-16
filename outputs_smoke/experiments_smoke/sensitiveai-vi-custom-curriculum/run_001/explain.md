@@ -16,8 +16,8 @@
 |---|---|---|
 | `stage_checkpoints` | thư mục | 7 file, 1.0 GB |
 | `config.yaml` | file | 3.9 KB · 2026-10-04 12:47:42 |
-| `explain.md` | file | 1.3 KB · 2026-10-04 13:00:01 |
+| `explain.md` | file | 1.3 KB · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

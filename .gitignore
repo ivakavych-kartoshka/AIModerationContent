@@ -56,3 +56,5 @@ checkpoints/
 # ---- Logs ----
 *.log
 logs/
+
+temp/

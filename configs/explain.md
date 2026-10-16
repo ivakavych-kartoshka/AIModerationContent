@@ -16,6 +16,7 @@
 | `sensitiveai-vi-custom.yaml` | Model 2 - giống baseline, **chỉ thay head** bằng multi-view pooling, 6 epoch. |
 | `sensitiveai-vi-customdlr2stage.yaml` | Model 3 - custom head + DLR 4 nhóm + 2 stage (CE -> focal) + class weight + threshold, 7 epoch. |
 | `sensitiveai-vi-custom-curriculum.yaml` | Model 4 - custom head + DLR + curriculum 3 stage (OFFENSIVE -> HATE -> CE) + class weight manual + threshold, 10 epoch. |
+| `rule_engine.yaml` | Cấu hình rule engine: chuẩn hoá, view chống ngụy trang, ngưỡng khớp và trọng số điểm (plan §37-39). Mọi trọng số là giả thuyết ban đầu, tune trên validation. |
 | `explain.md` | File này. |
 
 
@@ -24,8 +25,9 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `data_split.yaml` | file | 2.0 KB · 2026-10-04 10:45:52 |
-| `explain.md` | file | 2.1 KB · 2026-10-04 13:00:00 |
+| `explain.md` | file | 2.7 KB · 2026-10-17 00:09:27 |
 | `phobert-base.yaml` | file | 2.0 KB · 2026-10-15 15:32:13 |
+| `rule_engine.yaml` | file | 2.1 KB · 2026-10-16 23:35:44 |
 | `sensitiveai-vi-custom-curriculum.yaml` | file | 4.4 KB · 2026-10-06 22:25:01 |
 | `sensitiveai-vi-custom.yaml` | file | 2.5 KB · 2026-10-05 22:08:16 |
 | `sensitiveai-vi-customdlr2stage-ext.yaml` | file | 3.4 KB · 2026-10-11 12:14:46 |
@@ -36,4 +38,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

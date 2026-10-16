@@ -11,6 +11,7 @@
 |---|---|---|
 | `accuracy_all_models.png` | file | 51.5 KB · 2026-10-13 12:36:16 |
 | `comparison_summary.json` | file | 4.3 KB · 2026-10-13 12:36:16 |
+| `explain.md` | file | 1.8 KB · 2026-10-17 00:09:28 |
 | `macro_f1_all_models.png` | file | 47.0 KB · 2026-10-13 12:36:16 |
 | `model_comparison.csv` | file | 1.4 KB · 2026-10-13 12:36:15 |
 | `model_comparison.md` | file | 2.9 KB · 2026-10-13 12:36:15 |
@@ -28,4 +29,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

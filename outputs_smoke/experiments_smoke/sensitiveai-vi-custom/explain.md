@@ -28,10 +28,10 @@ Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `run_001` | thư mục | 3 file, 10.4 KB |
-| `run_002` | thư mục | 3 file, 10.3 KB |
-| `run_003` | thư mục | 3 file, 10.2 KB |
-| `explain.md` | file | 2.1 KB · 2026-10-04 13:00:01 |
+| `run_002` | thư mục | 3 file, 10.6 KB |
+| `run_003` | thư mục | 3 file, 10.5 KB |
+| `explain.md` | file | 2.3 KB · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

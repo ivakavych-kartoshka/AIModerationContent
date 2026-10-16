@@ -1,0 +1,59 @@
+# =============================================================================
+# Rule engine configuration (Rule_Engine_Plan.md sections 37-39)
+#
+#   python -m src.rule_engine  # (no CLI yet - use scripts/17_evaluate_rule_engine.py)
+#
+# Every weight below is an INITIAL HYPOTHESIS that must be tuned on the
+# validation split (section 39). It is not a calibrated probability.
+# =============================================================================
+
+lexicon_path: data/processed/lexicon/verified_lexicon.csv
+dictionary_version: v1
+
+# --- section 37: input normalization -------------------------------------- #
+normalize:
+  unicode_form: NFC
+  lowercase: true
+  remove_invisible: true
+  collapse_whitespace: true
+  max_repeat_char: 3        # "nguuuu" -> "nguu"; 0 disables the cap
+  max_text_chars: 20000
+
+# --- section 38: anti-obfuscation matching views -------------------------- #
+obfuscation:
+  enabled: true
+  accentless: true           # "con cho"  (auxiliary signal only)
+  leet: true                 # "c0n ch0"
+  collapse_repeats: true     # "nguuu" -> "ngu"
+  separator_stripping: true  # "n g u"
+  min_compact_term_len: 3
+  max_variant_chars: 40000
+
+# --- dictionary matching --------------------------------------------------- #
+matcher:
+  min_term_len: 2
+  fuzzy_enabled: true
+  fuzzy_max_distance: 1
+  fuzzy_min_term_len: 6
+  max_matches: 200
+
+# --- section 39: scoring --------------------------------------------------- #
+scoring:
+  severity:                  # label severity, section 39 table
+    HATE: 0.90
+    OFFENSIVE: 0.60
+  match_factors:             # confidence of each match type
+    exact: 1.00
+    accentless_alias: 0.90
+    leet: 0.80
+    repeat_collapsed: 0.75
+    separator_inserted: 0.80
+    obfuscated_combined: 0.60
+    fuzzy: 0.60
+  negation_factor: 0.50      # slur preceded by "không / chẳng / ..."
+  quote_factor: 0.60         # slur inside quotation marks
+  context_required_factor: 0.85
+  aggregation_cap: 10        # max matches per label in 1 - prod(1 - s_i)
+  min_review_statuses:       # which lexicon entries may match
+    - verified
+    - auto

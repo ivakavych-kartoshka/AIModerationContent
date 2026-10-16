@@ -10,6 +10,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `confusion_matrices.png` | file | 76.4 KB · 2026-10-15 22:02:42 |
+| `explain.md` | file | 1.7 KB · 2026-10-17 00:09:27 |
 | `f1_summary_all_models.png` | file | 67.1 KB · 2026-10-15 01:27:23 |
 | `macro_f1_all_models.png` | file | 62.8 KB · 2026-10-14 23:56:09 |
 | `per_class_f1_all_models.png` | file | 54.9 KB · 2026-10-14 23:56:09 |
@@ -27,4 +28,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

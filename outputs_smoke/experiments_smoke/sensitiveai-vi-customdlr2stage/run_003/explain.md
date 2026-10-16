@@ -16,9 +16,9 @@
 |---|---|---|
 | `stage_checkpoints` | thư mục | 11 file, 2.1 GB |
 | `config.yaml` | file | 3.5 KB · 2026-10-06 23:49:39 |
-| `explain.md` | file | 1.0 KB · 2026-10-06 23:49:35 |
+| `explain.md` | file | 1.4 KB · 2026-10-17 00:09:27 |
 | `training_summary.json` | file | 11.9 KB · 2026-10-06 23:50:29 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

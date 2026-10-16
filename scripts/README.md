@@ -104,6 +104,51 @@ Rồi chuẩn hoá (NFC, hạ chữ, `_`→space, gộp space), khử trùng l�
 `blueeyes_offensive_words.txt`, `sensitive_words_combined.txt` (danh sách gộp
 dùng để quét văn bản) và `lexicon_report.json` (số từ, phần giao, SHA-256).
 
+## 8. `13_extract_vihsd_words.py` — trích từ nhạy cảm từ ViHSD
+
+```powershell
+python scripts/13_extract_vihsd_words.py                       # quét train+dev+test
+python scripts/13_extract_vihsd_words.py --min-toxic-df 10     # chặt hơn
+python scripts/13_extract_vihsd_words.py --show-terms 20       # xem mẫu từ mới
+```
+
+Quét các split đã làm sạch trong `data/processed/vihsd/`, đếm document
+frequency theo nhóm toxic (HATE+OFFENSIVE) và CLEAN. Từ/cụm từ xuất hiện
+`>= --min-toxic-df` lần ở toxic và `<= --max-clean-df` lần ở clean, chưa có
+trong lexicon, sẽ được ghi vào `data/processed/lexicon/vihsd_extracted_words.txt`
+và gộp vào `sensitive_words_combined.txt` (cập nhật `lexicon_report.json`).
+Chạy `12_build_lexicon.py` trước.
+
+## 9. `14_fetch_additional_datasets.py` — 5 dataset cùng nhãn ViHSD
+
+```powershell
+python scripts/14_fetch_additional_datasets.py                 # tải + kiểm tra + tổng kết
+python scripts/14_fetch_additional_datasets.py --stage verify  # chỉ đếm lại nhãn
+python scripts/14_fetch_additional_datasets.py --force-download
+```
+
+Tải về `data/raw/additional/` (bất biến) 5 dataset đã xác minh dùng **đúng**
+bộ nhãn `CLEAN`/`OFFENSIVE`/`HATE`:
+
+| Dataset | Nguồn | Điểm đặc biệt |
+|---|---|---|
+| `vominhmanh/vihsd-explainable` | Hugging Face | ViHSD + `explanation` + `evidence` spans (nguồn từ nhạy cảm chất lượng cao) |
+| `leminhhung0101/R-ViHSD` | Hugging Face | 48K mẫu train, biến thể nhiễu (`noise_type`) — kiểm tra độ robust |
+| `BonTori/vietnamese-hsd-cleaned` | Hugging Face | ~62K **mẫu mới** từ TDTU YouTube/voz, cùng 3 nhãn |
+| `ViCM` | GitHub | 5.415 **mẫu mới** code-mixed (+480 diễn đàn); nhãn `0=Clean,1=Hate,2=Offensive` → **phải remap** |
+| `VLSP2019-HSD` | thủ công | 25.431 **mẫu mới** bài Facebook; phải ký agreement form |
+
+Bước verify đếm nhãn thật trên từng file, ghi `NOTES.md` mỗi dataset và
+`additional_datasets_report.json` tổng hợp (`labels_exact_match`,
+`source`, `requires_remap`, `pending_manual_download`).
+
+Riêng **VLSP2019-HSD** không tải tự động được (không có mirror công khai):
+
+1. Mở trang task: https://vlsp.org.vn/vlsp2019/eval/hsd
+2. Ký **HSD Agreement form**: https://drive.google.com/drive/folders/1HSOWdiMFQy0bjd09TBYaI7lsf7iYZaq5
+3. Chép file `.csv`/`.xlsx` nhận được vào `data/raw/additional/vlsp2019-hsd/`.
+4. Chạy lại `python scripts/14_fetch_additional_datasets.py --stage verify`.
+
 ## Module-level (chạy từng bước)
 
 ```powershell

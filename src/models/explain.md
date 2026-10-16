@@ -23,9 +23,9 @@
 | `__pycache__` | thư mục | 3 file, 33.3 KB |
 | `__init__.py` | file | 579 B · 2026-10-04 10:37:24 |
 | `custom_head.py` | file | 10.6 KB · 2026-10-04 11:39:41 |
-| `explain.md` | file | 1.7 KB · 2026-10-04 13:00:00 |
+| `explain.md` | file | 1.7 KB · 2026-10-17 00:09:27 |
 | `model.py` | file | 12.6 KB · 2026-10-05 16:01:30 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

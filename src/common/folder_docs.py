@@ -152,6 +152,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("sensitiveai-vi-custom.yaml", "Model 2 - giống baseline, **chỉ thay head** bằng multi-view pooling, 6 epoch."),
                 ("sensitiveai-vi-customdlr2stage.yaml", "Model 3 - custom head + DLR 4 nhóm + 2 stage (CE -> focal) + class weight + threshold, 7 epoch."),
                 ("sensitiveai-vi-custom-curriculum.yaml", "Model 4 - custom head + DLR + curriculum 3 stage (OFFENSIVE -> HATE -> CE) + class weight manual + threshold, 10 epoch."),
+                ("rule_engine.yaml", "Cấu hình rule engine: chuẩn hoá, view chống ngụy trang, ngưỡng khớp và trọng số điểm (plan §37-39). Mọi trọng số là giả thuyết ban đầu, tune trên validation."),
                 ("explain.md", "File này."),
             ),
             keep_policy="**KHÔNG SỬA** sau khi đã chạy thật. Muốn thử biến thể mới thì copy sang file mới.",
@@ -171,6 +172,12 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("04_check_setup.py", "Kiểm tra môi trường, split, config, và forward pass. **Không** train."),
                 ("05_document_folders.py", "Sinh lại `explain.md` cho toàn bộ cây thư mục + bảng liệt kê các run."),
                 ("12_build_lexicon.py", "Tải 2 từ điển từ ngữ nhạy cảm từ GitHub về `data/raw/lexicon/` rồi trích xuất danh sách từ đã chuẩn hoá vào `data/processed/lexicon/`."),
+                ("13_extract_vihsd_words.py", "Quét ViHSD, trích từ/cụm từ xuất hiện nhiều ở HATE+OFFENSIVE và gần như không ở CLEAN, gộp vào lexicon."),
+                ("14_fetch_additional_datasets.py", "Tải 5 dataset tiếng Việt cùng nhãn CLEAN/OFFENSIVE/HATE về `data/raw/additional/` + file giải thích nhãn `NOTES.md` (ViCM tải từ GitHub, VLSP2019 ký form rồi tự chép file vào)."),
+                ("15_extract_corpus_words.py", "Quét cả 3 dataset (ViHSD/ViCM/bontori), trích ứng viên từ/cụm từ nhạy cảm ra `data/processed/lexicon/sensitive_words_from_datasets.txt`."),
+                ("16_label_lexicon.py", "Gán nhãn HATE/OFFENSIVE cho từng ứng viên dựa bằng chứng trên **train split**, ghi `verified_lexicon.csv`, `review_queue.csv`, `label_mapping.yaml`, `provenance.json` (plan §36)."),
+                ("17_evaluate_rule_engine.py", "Chấm rule engine trên validation (tune threshold) / test (threshold đóng băng), xuất metrics, confusion matrix, phân tích FP/FN, latency, robustness (plan §39, §44)."),
+                ("18_smoke_test_rule_engine.py", "Smoke test nhanh rule engine (không cần GPU): nạp config/lexicon, kiểm tra offset map + giữ dấu, khớp exact, phân loại biến đổi, xử lý text rỗng/None/rất dài. `--split` (validation/test/train/all) và `--limit 0` chạy end-to-end trên một phần hoặc toàn bộ ViHSD (argmax, không tune threshold); ghi kết quả vào `outputs_smoke/evaluation_smoke/rule_engine/`."),
                 ("README.md", "Hướng dẫn dùng từng script."),
                 ("explain.md", "File này."),
             ),
@@ -192,6 +199,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("callbacks/", "Ghi CSV từng epoch, theo dõi best checkpoint, early stopping, điều phối stage."),
                 ("training/", "Optimizer theo nhóm DLR, kế hoạch stage, vòng lặp train, CLI `run_experiment`."),
                 ("evaluation/", "Chỉ số, đường cong, tìm threshold, benchmark tốc độ, biểu đồ, CLI đánh giá."),
+                ("rule_engine/", "Rule engine từ vựng đứng độc lập: chuẩn hoá giữ offset, view chống ngụy trang, khớp từ điển và chấm điểm có bằng chứng (plan §35-39)."),
                 ("comparison/", "Gộp 4 model và sinh bảng + LaTeX cho paper."),
             ),
             keep_policy="**KHÔNG XÓA.** Sửa mã ở đây không ảnh hưởng tới log đã tạo.",
@@ -230,6 +238,8 @@ def _specs() -> Dict[str, FolderDoc]:
             contents=(
                 ("download.py", "Tải `uitnlp/vihsd` từ Hugging Face về `data/raw/vihsd/`."),
                 ("lexicon.py", "Tải 2 lexicon GitHub về `data/raw/lexicon/`, chuẩn hoá (NFC, hạ chữ, `_`→space) và ghi danh sách từ nhạy cảm + `lexicon_report.json` (SHA-256) vào `data/processed/lexicon/`."),
+                ("vihsd_lexicon.py", "Quét ViHSD đã làm sạch, đếm document frequency theo nhóm toxic/clean, trích từ/cụm từ mới vào lexicon (ghép `vihsd_extracted_words.txt` + cập nhật report)."),
+                ("additional.py", "Tải 5 dataset cùng nhãn CLEAN/OFFENSIVE/HATE (3 từ Hugging Face, ViCM từ GitHub, VLSP2019 tải thủ công) về `data/raw/additional/`, đếm nhãn từng file (áp `label_map` nếu mã hoá khác), ghi `NOTES.md` từng dataset + `additional_datasets_report.json` tổng hợp."),
                 ("preprocess.py", "Làm sạch + remap nhãn canonical + ghi `preprocessing_report.json`."),
                 ("split.py", "Tạo split, tính SHA-256 từng file, kiểm tra toàn vẹn, ghi `split_manifest.json`."),
                 ("dataset.py", "Tokenize `train/validation/test`, `TokenizedTextDataset`, `collate_fn` an toàn Windows (num_workers>0)."),
@@ -306,6 +316,26 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("explain.md", "File này."),
             ),
         ),
+        "src/rule_engine": FolderDoc(
+            title="rule_engine - rule engine từ vựng",
+            purpose=(
+                "Bộ phát hiện từ vựng **đứng độc lập** với model AI (plan §41): chuẩn hoá văn bản nhưng giữ nguyên "
+                "offset về câu gốc, dựng view đối chiếu chống ngụy trang, khớp từ điển đã gán nhãn và cho ra điểm "
+                "`rule_hate_score` / `rule_offensive_score` kèm bằng chứng giải thích được (span, từ điển, loại khớp, "
+                "hệ số tin cậy). Đây là đầu vào cho bước fusion AI + rule ở giai đoạn sau (plan §40)."
+            ),
+            produced_by="Không sinh ra - mã nguồn. Kết quả đánh giá nằm ở `evaluation/rule_engine/`.",
+            contents=(
+                ("config.py", "`NormalizeConfig` / `ObfuscationConfig` / `MatcherConfig` / `ScoringConfig` / `RuleEngineConfig`, nạp từ `configs/rule_engine.yaml` và kiểm tra hợp lệ."),
+                ("normalize.py", "Chuẩn hoá NFC + hạ chữ + bỏ ký tự vô hình + gộp space (kèm giới hạn lặp ký tự), **giữ offset map** về câu gốc; không xóa dấu tiếng Việt (plan §37)."),
+                ("obfuscation.py", "Dựng view `base` / `plain` (không dấu + leet + gộp lặp) / `compact` (bỏ dấu cách, dấu câu) và phân loại biến đổi thành `match_type` + `transformation_trace` (plan §38)."),
+                ("lexical_classifier.py", "Nạp `verified_lexicon.csv` thành `Lexicon` (chỉ dùng entry có `review_status` được cho phép) với tra cứu từ nhanh."),
+                ("matcher.py", "Khớp `exact` / `accentless_alias` / `leet` / `repeat_collapsed` / `separator_inserted` / `obfuscated_combined` / `fuzzy` (Levenshtein có chặn), khử trùng span và ghi đầy đủ bằng chứng."),
+                ("scoring.py", "Điểm `severity x confidence x match_factor x context_factor` (phủ định, trích dẫn, `context_required`) rồi gộp mỗi nhãn bằng `1 - prod(1 - s_i)` (plan §39)."),
+                ("engine.py", "`RuleEngine.analyze()` gom toàn bộ pipeline và trả về evidence dict; `from_config` / `from_lexicon` để dựng nhanh."),
+                ("explain.md", "File này."),
+            ),
+        ),
         "src/comparison": FolderDoc(
             title="comparison - so sánh 4 model",
             purpose=(
@@ -343,6 +373,7 @@ def _specs() -> Dict[str, FolderDoc]:
             children=(
                 ("vihsd/", "3 file CSV gốc của ViHSD: `train.csv`, `dev.csv`, `test.csv`."),
                 ("lexicon/", "2 bộ từ điển từ ngữ nhạy cảm tải từ GitHub (không sửa)."),
+                ("additional/", "5 dataset tiếng Việt cùng nhãn CLEAN/OFFENSIVE/HATE (3 từ Hugging Face, ViCM từ GitHub, VLSP2019 thủ công - không sửa)."),
             ),
             keep_policy="**BẤT BIẾN.** Được xem là dữ liệu đầu vào gốc. Không sửa tay, không ghi đè bằng bản đã làm sạch.",
         ),
@@ -371,6 +402,42 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("blue-eyes-vn-vietnamese-offensive-words/", "`vn_offensive_words.txt` (+ bản copy định dạng array, README, LICENSE) từ github.com/blue-eyes-vn/vietnamese-offensive-words."),
             ),
             keep_policy="**BẤT BIẾN.** Dữ liệu đầu vào gốc - không sửa tay, không ghi đè.",
+        ),
+        "data/raw/additional": FolderDoc(
+            title="data/raw/additional - 5 dataset cùng nhãn với ViHSD",
+            purpose=(
+                "Năm bộ dữ liệu tiếng Việt đã xác minh dùng **đúng** bộ nhãn CLEAN / OFFENSIVE / HATE như ViHSD: "
+                "ViHSD-Explainable (thêm evidence spans), R-ViHSD (nhiễu robustness) và Vietnamese-HSD-cleaned "
+                "(ViHSD + 62K mẫu mới từ TDTU YouTube/voz); thêm ViCM (5.415 mẫu code-mixed MỚI, mã hoá "
+                "`0=Clean, 1=Hate, 2=Offensive` - PHẢI remap) và VLSP2019-HSD (25.431 bài Facebook MỚI, tải thủ "
+                "công sau khi ký agreement form). Mỗi thư mục con có `NOTES.md` giải thích nhãn; số liệu đếm thật "
+                "trên file nằm ở `additional_datasets_report.json`."
+            ),
+            produced_by="`python scripts/14_fetch_additional_datasets.py`",
+            children=(
+                ("vominhmanh-vihsd-explainable/", "jsonl train/validation/test + README. 33.400 mẫu ViHSD + explanation + evidence."),
+                ("leminhhung0101-r-vihsd/", "csv 4 split. Train 48.092 mẫu gồm biến thể nhiễu (cột `noise_type`)."),
+                ("bontori-vietnamese-hsd-cleaned/", "parquet train/dev/test. 86.719 mẫu train gộp ViHSD + TDTU YouTube/voz."),
+                ("vicm-code-mixed/", "xlsx train/dev/test + csv forum + README. 5.415 mẫu code-mixed MỚI (+480 diễn đàn, nhãn phải remap)."),
+                ("vlsp2019-hsd/", "chưa có file - ký form VLSP rồi chép csv/xlsx vào đây, chạy lại `--stage verify`."),
+                ("additional_datasets_report.json", "Tổng hợp: nhãn quan sát được, số dòng, cờ `labels_exact_match`, `source`, `requires_remap`, `pending_manual_download` từng dataset."),
+            ),
+            reading_guide=(
+                "Muốn biết nhãn có khớp ViHSD không: mở `NOTES.md` trong từng thư mục con, mục 2.",
+                "Muốn biết dataset nào có mẫu mới thật: `bontori-.../NOTES.md` - lọc theo cột `source`.",
+                "Chỉ dùng `Real_Label` của ViCM làm nhãn; `Predicted_Label` là kết quả mô hình, không phải ground truth.",
+            ),
+            keep_policy="**BẤT BIẾN.** Dữ liệu đầu vào gốc - không sửa tay, không ghi đè.",
+        ),
+        "data/raw/additional/*": FolderDoc(
+            title="data/raw/additional/<tên dataset> - file dữ liệu gốc",
+            purpose="File dữ liệu tải nguyên bản (Hugging Face hoặc GitHub), kèm `NOTES.md` giải thích nhãn và quan hệ với ViHSD.",
+            produced_by="`python scripts/14_fetch_additional_datasets.py`",
+            reading_guide=(
+                "Đọc `NOTES.md` trước khi dùng dataset - giải thích mối quan hệ với ViHSD và cách ánh xạ nhãn.",
+                "Không sửa file dữ liệu - mọi xử lý nằm ở script, không ghi tay vào đây.",
+            ),
+            keep_policy="**BẤT BIẾN.** Nguyên bản từ upstream.",
         ),
         "data/raw/lexicon/*": FolderDoc(
             title="data/raw/lexicon/<nguồn> - file lexicon gốc",
@@ -410,24 +477,32 @@ def _specs() -> Dict[str, FolderDoc]:
         "data/processed/lexicon": FolderDoc(
             title="data/processed/lexicon - danh sách từ nhạy cảm đã chuẩn hoá",
             purpose=(
-                "Kết quả trích xuất từ 2 lexicon nguồn: mỗi file một từ/cụm từ trên một dòng, UTF-8, "
-                "đã NFC + hạ chữ + `_`→space + gộp space, sắp xếp và khử trùng lặp. "
-                "`sensitive_words_combined.txt` là danh sách gộp để dùng khi lọc văn bản."
+                "Kết quả trích xuất từ 2 lexicon nguồn (mỗi file một từ/cụm từ trên một dòng, UTF-8, đã NFC + hạ chữ "
+                "+ `_`→space + gộp space, sắp xếp và khử trùng lặp), cùng **từ điển đã gán nhãn HATE/OFFENSIVE** mà rule "
+                "engine dùng để khớp (plan §36)."
             ),
-            produced_by="`python scripts/12_build_lexicon.py --stage extract`",
+            produced_by="`python scripts/12_build_lexicon.py --stage extract`, `scripts/15_extract_corpus_words.py`, `scripts/16_label_lexicon.py`",
             contents=(
                 ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị)."),
                 ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode)."),
                 ("sensitive_words_combined.txt", "Gộp 2 nguồn, khử trùng lặp - file nên dùng để quét văn bản."),
+                ("sensitive_words_from_datasets.txt", "Ứng viên từ/cụm từ trích từ 3 dataset (ViHSD/ViCM/bontori) - đầu vào của bước gán nhãn."),
+                ("verified_lexicon.csv", "**Từ điển đã gán nhãn** (plan §36.2): `entry_id, term, canonical_form, lexical_labels, severity, confidence, context_required, source_datasets, source_split, review_status, dictionary_version`. Đầu vào của rule engine."),
+                ("candidates_train.csv", "Toàn bộ ứng viên kèm bằng chứng đếm được trên train split (số lần xuất hiện theo từng nhãn)."),
+                ("review_queue.csv", "Các ứng viên còn mơ hồ cần người duyệt tay."),
+                ("label_mapping.yaml", "Ánh xạ nhãn từ khóa -> id chuẩn và mô tả quy tắc gán nhãn đã dùng."),
+                ("provenance.json", "Dấu vết tái lập: tham số, SHA-256 file nguồn/đầu ra, phân bố nhãn và các sai lệch so với kế hoạch (deviation)."),
+                ("manual_review.csv", "**Tùy chọn** - quyết định duyệt tay, merge sau khi gán nhãn tự động nếu tồn tại."),
                 ("lexicon_report.json", "Số từ từng nguồn, phần giao, số cụm từ nhiều chữ, SHA-256 từng file output và từng file nguồn."),
                 ("explain.md", "File này."),
             ),
             reading_guide=(
                 "Muốn biết có bao nhiêu từ: `lexicon_report.json`, khoá `counts`.",
-                "Nghi ngờ file bị đổi: so SHA-256 trong `lexicon_report.json` với file trên đĩa.",
+                "Nghi ngờ file bị đổi: so SHA-256 trong `lexicon_report.json` / `provenance.json` với file trên đĩa.",
                 "Muốn lọc văn bản: đọc `sensitive_words_combined.txt`, mỗi dòng một cụm từ (lowercase).",
+                "Muốn xem từ điển rule engine thực dùng: `verified_lexicon.csv` (chỉ entry `verified`/`auto` được khớp mặc định).",
             ),
-            keep_policy="**Sinh lại được** từ `data/raw/lexicon`, nhưng nên giữ lại để đối chiếu SHA-256.",
+            keep_policy="**Sinh lại được** từ `data/raw/lexicon` + 3 dataset, nhưng nên giữ lại để đối chiếu SHA-256.",
         ),
         "data/splits": FolderDoc(
             title="data/splits - split cố định dùng chung",
@@ -625,6 +700,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("logs/", "Nhật ký CSV của **mọi** lần chấm điểm - nối các lần chạy lại thành một dòng thời gian."),
                 ("per_model/", "Bản sao số liệu chính của từng model, gom lại một chỗ."),
                 ("comparison/", "Bảng và biểu đồ so sánh 4 model."),
+                ("rule_engine/", "Kết quả đánh giá rule engine từ vựng độc lập (plan §39, §44)."),
             ),
             reading_guide=(
                 "Muốn xem toàn bộ lịch sử chấm điểm: `evaluation/logs/evaluation_log.csv`.",
@@ -684,6 +760,56 @@ def _specs() -> Dict[str, FolderDoc]:
             reading_guide=(
                 "Bảng quan trọng nhất: `model_comparison.md` (macro F1, weighted F1, per-class F1, latency).",
                 "Giải thích vì sao accuracy không phải số liệu chính: xem mục 2.2 của `README.md`.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_engine": FolderDoc(
+            title="evaluation/rule_engine - đánh giá rule engine",
+            purpose=(
+                "Kết quả chấm riêng cho rule engine từ vựng (không dùng model AI). Threshold quyết định được tune "
+                "**trên validation** rồi đóng băng vào `thresholds.json`; test chỉ được chấm một lần với threshold đã "
+                "đóng băng (plan §44)."
+            ),
+            produced_by="`python scripts/17_evaluate_rule_engine.py`",
+            contents=(
+                ("thresholds.json", "Ngưỡng riêng từng nhãn tối ưu trên validation + vết tìm kiếm; đóng băng trước khi chấm test."),
+                ("metrics.json", "Bộ chỉ số đầy đủ: accuracy, macro/weighted F1, per-class P/R/F1, ROC-AUC/AP, confusion matrix."),
+                ("per_class_metrics.csv", "Precision/recall/F1/support/AUC/AP theo từng nhãn và dòng MACRO."),
+                ("confusion_matrix.csv", "Ma trận nhầm lẫn dạng CSV (hàng = nhãn thật)."),
+                ("confusion_matrix.txt", "Ma trận nhầm lẫn và bản chuẩn hoá theo hàng, in tên nhãn."),
+                ("classification_report.txt", "Báo cáo phân loại đầy đủ của sklearn (tên nhãn, không dùng id)."),
+                ("false_positive_analysis.csv", "Các câu CLEAN bị báo nhầm kèm bằng chứng khớp mạnh nhất."),
+                ("false_negative_analysis.csv", "Các câu HATE/OFFENSIVE bị bỏ sót."),
+                ("latency.json", "Latency (mean/p50/p95/max) và throughput mỗi câu."),
+                ("robustness.json", "Tỉ lệ phát hiện trên mẫu bị làm nhiễu (leet/spaced/no_accent/repeat) nếu chạy `--robustness`."),
+                ("test/", "Kết quả chấm **test một lần** với threshold đã đóng băng (nằm riêng để không ghi đè kết quả validation)."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Số liệu chính: `metrics.json` (macro F1) và `per_class_metrics.csv`.",
+                "Xem vì sao báo nhầm: `false_positive_analysis.csv` (cột `top_matches`).",
+                "So sánh AUC/AP giữa các lớp: cột `roc_auc`, `average_precision` trong `per_class_metrics.csv`.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "outputs_smoke/evaluation_smoke/rule_engine": FolderDoc(
+            title="outputs_smoke/evaluation_smoke/rule_engine - smoke test rule engine",
+            purpose=(
+                "Kết quả **smoke test** nhanh cho rule engine từ vựng (không cần GPU, chạy vài giây). "
+                "Chỉ kiểm tra code chạy đúng (offset map, giữ dấu, khớp exact, phân loại biến đổi, xử lý text rỗng/rất dài) "
+                "và chạy end-to-end trên một phần hoặc **toàn bộ ViHSD** bằng **argmax trực tiếp, KHÔNG tune threshold** "
+                "nên số liệu thấp hơn `evaluation/rule_engine/` (nơi có tune threshold)."
+            ),
+            produced_by="`python scripts/18_smoke_test_rule_engine.py --split all --limit 0`",
+            contents=(
+                ("smoke_test.json", "Kết quả đầy đủ dạng JSON: danh sách check (label/ok/detail), metrics end-to-end theo từng split + combined, meta (config, lexicon, split, limit) và cờ `passed`."),
+                ("smoke_test.md", "Bản báo cáo Markdown của cùng nội dung (bảng check + bảng metrics) để đọc nhanh."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Xem nhanh: `smoke_test.md` (bảng check và bảng macro-F1/accuracy theo split).",
+                "Muốn trích xuất: đọc `smoke_test.json` (khóa `passed`, `eval`, `checks`).",
+                "Số liệu chính thức (có tune threshold): dùng `evaluation/rule_engine/`, không dùng folder này.",
             ),
             keep_policy=KEEP_POLICY,
         ),

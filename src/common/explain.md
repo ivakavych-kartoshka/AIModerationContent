@@ -25,17 +25,17 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `__pycache__` | thư mục | 8 file, 113.9 KB |
+| `__pycache__` | thư mục | 8 file, 124.0 KB |
 | `__init__.py` | file | 860 B · 2026-10-05 07:54:23 |
 | `config.py` | file | 10.8 KB · 2026-10-05 07:54:23 |
 | `constants.py` | file | 3.1 KB · 2026-10-16 15:59:21 |
 | `env_info.py` | file | 3.6 KB · 2026-10-04 10:34:28 |
-| `explain.md` | file | 2.4 KB · 2026-10-04 13:00:00 |
-| `folder_docs.py` | file | 67.6 KB · 2026-10-16 16:01:40 |
+| `explain.md` | file | 2.4 KB · 2026-10-17 00:09:27 |
+| `folder_docs.py` | file | 79.6 KB · 2026-10-17 00:09:20 |
 | `logging_utils.py` | file | 1.2 KB · 2026-10-04 11:40:29 |
 | `paths.py` | file | 11.5 KB · 2026-10-14 22:31:15 |
 | `seeding.py` | file | 1.3 KB · 2026-10-04 10:33:52 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

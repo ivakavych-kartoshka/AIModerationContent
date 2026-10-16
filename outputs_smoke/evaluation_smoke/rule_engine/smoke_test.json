@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-10-17T00:31:13",
+  "passed": true,
+  "n_checks": 24,
+  "n_failed": 0,
+  "failures": [],
+  "meta": {
+    "config_path": "configs\\rule_engine.yaml",
+    "split": "validation",
+    "limit": 0,
+    "lexicon_entries": 2564,
+    "lexicon_path": "data/processed/lexicon/verified_lexicon.csv"
+  },
+  "eval": {
+    "validation": {
+      "rows": 2672,
+      "macro_f1": 0.36123520629297046,
+      "accuracy": 0.6163922155688623,
+      "hate_f1": 0.2995319812792512,
+      "offensive_f1": 0.02575107296137339,
+      "clean_f1": 0.7584225646382867,
+      "ms_per_row": 0.5182027320362628
+    }
+  },
+  "checks": [
+    {
+      "label": "config loads + validates",
+      "ok": true,
+      "detail": "configs\\rule_engine.yaml"
+    },
+    {
+      "label": "lexicon loads",
+      "ok": true,
+      "detail": "2564 entries"
+    },
+    {
+      "label": "engine builds",
+      "ok": true,
+      "detail": "matcher ready"
+    },
+    {
+      "label": "keeps Vietnamese diacritics",
+      "ok": true,
+      "detail": "'thằng mất dạy, tao ghét nó'"
+    },
+    {
+      "label": "lowercases",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "collapses whitespace runs",
+      "ok": true,
+      "detail": "'thằng mất dạy, tao ghét nó'"
+    },
+    {
+      "label": "offset map length == normalized length",
+      "ok": true,
+      "detail": "26 vs 26"
+    },
+    {
+      "label": "offset map monotonic",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "raw_slice reproduces raw text",
+      "ok": true,
+      "detail": "'Thằng '"
+    },
+    {
+      "label": "exact match found",
+      "ok": true,
+      "detail": "term='ad ngu'"
+    },
+    {
+      "label": "match_type is exact",
+      "ok": true,
+      "detail": "exact"
+    },
+    {
+      "label": "raw_span == input text",
+      "ok": true,
+      "detail": "'ad ngu'"
+    },
+    {
+      "label": "scores in [0, 1]",
+      "ok": true,
+      "detail": "rule_score=0.7469"
+    },
+    {
+      "label": "no double count for a span+label",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "base/plain/compact views built",
+      "ok": true,
+      "detail": "base,compact,plain"
+    },
+    {
+      "label": "classify 'c0n ch0'->'con chó'",
+      "ok": true,
+      "detail": "leet, got ('obfuscated_combined', 'accentless+leet')"
+    },
+    {
+      "label": "classify 'con cho'->'con chó'",
+      "ok": true,
+      "detail": "accentless, got ('accentless_alias', 'accentless')"
+    },
+    {
+      "label": "classify 'nguuu'->'ngu'",
+      "ok": true,
+      "detail": "collapse, got ('repeat_collapsed', 'collapse')"
+    },
+    {
+      "label": "classify 'n g u'->'ngu'",
+      "ok": true,
+      "detail": "separator, got ('separator_inserted', 'separators')"
+    },
+    {
+      "label": "bounded_levenshtein distance",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "handles empty string",
+      "ok": true,
+      "detail": "n_matches=0"
+    },
+    {
+      "label": "handles None",
+      "ok": true,
+      "detail": "n_matches=0"
+    },
+    {
+      "label": "handles very long text",
+      "ok": true,
+      "detail": "n_matches=200 truncated=True"
+    },
+    {
+      "label": "eval validation (2672 rows)",
+      "ok": true,
+      "detail": "macro_f1=0.3612 acc=0.6164 HATE_f1=0.2995 OFF_f1=0.0258 (0.52 ms/row)"
+    }
+  ]
+}

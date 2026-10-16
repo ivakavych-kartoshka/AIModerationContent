@@ -9,13 +9,14 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `M1` | thư mục | 5 file, 517.4 KB |
-| `M2` | thư mục | 5 file, 534.8 KB |
-| `M3` | thư mục | 5 file, 560.5 KB |
-| `M4` | thư mục | 5 file, 556.0 KB |
-| `M5` | thư mục | 5 file, 536.2 KB |
-| `M6` | thư mục | 5 file, 528.7 KB |
+| `M1` | thư mục | 6 file, 518.4 KB |
+| `M2` | thư mục | 6 file, 535.8 KB |
+| `M3` | thư mục | 6 file, 561.5 KB |
+| `M4` | thư mục | 6 file, 557.0 KB |
+| `M5` | thư mục | 6 file, 537.2 KB |
+| `M6` | thư mục | 6 file, 529.7 KB |
+| `explain.md` | file | 905 B · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

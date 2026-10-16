@@ -34,9 +34,10 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `vi_vs_stage2` | thư mục | 16 file, 1.1 MB |
+| `vi_vs_stage2` | thư mục | 17 file, 1.1 MB |
 | `accuracy_all_models.png` | file | 61.6 KB · 2026-10-14 23:56:09 |
 | `comparison_summary.json` | file | 7.5 KB · 2026-10-14 23:56:09 |
+| `explain.md` | file | 4.0 KB · 2026-10-17 00:09:28 |
 | `f1_summary_all_models.png` | file | 67.1 KB · 2026-10-15 01:27:23 |
 | `macro_f1_all_models.png` | file | 62.8 KB · 2026-10-14 23:56:09 |
 | `model_comparison.csv` | file | 3.4 KB · 2026-10-14 23:56:05 |
@@ -61,4 +62,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

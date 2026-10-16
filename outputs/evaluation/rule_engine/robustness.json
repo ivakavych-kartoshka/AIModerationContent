@@ -1,0 +1,30 @@
+{
+  "n_positive": 400,
+  "modes": {
+    "leet": {
+      "detection_rate": 0.2,
+      "detected": 80,
+      "total": 400
+    },
+    "spaced": {
+      "detection_rate": 0.315,
+      "detected": 126,
+      "total": 400
+    },
+    "no_accent": {
+      "detection_rate": 0.2625,
+      "detected": 105,
+      "total": 400
+    },
+    "repeat": {
+      "detection_rate": 0.1175,
+      "detected": 47,
+      "total": 400
+    }
+  },
+  "thresholds": {
+    "HATE": 0.89,
+    "OFFENSIVE": 0.33,
+    "CLEAN": 0.03
+  }
+}

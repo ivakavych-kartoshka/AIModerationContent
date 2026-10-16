@@ -18,14 +18,14 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `sensitiveai-vi` | thư mục | 18 file, 2.6 MB |
-| `sensitiveai-vi-custom` | thư mục | 18 file, 2.3 MB |
-| `sensitiveai-vi-custom-curriculum` | thư mục | 19 file, 2.1 MB |
-| `sensitiveai-vi-customdlr2stage` | thư mục | 19 file, 2.1 MB |
-| `sensitiveai-vi-customdlr2stage-ext` | thư mục | 19 file, 2.0 MB |
-| `sensitiveai-vi-stage2` | thư mục | 19 file, 2.7 MB |
-| `explain.md` | file | 1.4 KB · 2026-10-04 13:00:01 |
+| `sensitiveai-vi` | thư mục | 19 file, 2.6 MB |
+| `sensitiveai-vi-custom` | thư mục | 19 file, 2.3 MB |
+| `sensitiveai-vi-custom-curriculum` | thư mục | 20 file, 2.1 MB |
+| `sensitiveai-vi-customdlr2stage` | thư mục | 20 file, 2.1 MB |
+| `sensitiveai-vi-customdlr2stage-ext` | thư mục | 20 file, 2.0 MB |
+| `sensitiveai-vi-stage2` | thư mục | 20 file, 2.7 MB |
+| `explain.md` | file | 1.5 KB · 2026-10-17 00:09:28 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

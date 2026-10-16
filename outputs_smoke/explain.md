@@ -23,11 +23,11 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `evaluation_smoke` | thư mục | 89 file, 11.6 MB |
+| `evaluation_smoke` | thư mục | 97 file, 11.6 MB |
 | `experiments_smoke` | thư mục | 92 file, 10.4 GB |
-| `paper_smoke` | thư mục | 18 file, 1.2 MB |
-| `reports_smoke` | thư mục | 413 file, 9.5 GB |
+| `reports_smoke` | thư mục | 429 file, 9.5 GB |
+| `explain.md` | file | 1.9 KB · 2026-10-17 00:09:27 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

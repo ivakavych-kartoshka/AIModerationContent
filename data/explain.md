@@ -20,10 +20,11 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `processed` | thư mục | 10 file, 2.8 MB |
-| `raw` | thư mục | 17 file, 2.5 MB |
+| `processed` | thư mục | 17 file, 3.3 MB |
+| `raw` | thư mục | 21 file, 11.8 MB |
 | `splits` | thư mục | 5 file, 2.7 MB |
-| `explain.md` | file | 1.7 KB · 2026-10-04 13:00:00 |
+| `temp` | thư mục | 31 file, 13.2 MB |
+| `explain.md` | file | 1.7 KB · 2026-10-17 00:09:27 |
 
 ## Cách đọc
 
@@ -32,4 +33,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
