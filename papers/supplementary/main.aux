@@ -1,0 +1,151 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{liu2024mdeberta,he2023debertav3}
+\citation{luu2021vihsd}
+\@writefile{toc}{\contentsline {title}{Supplementary Material for ``SensitiveAI: An Ablation Study of Optimization Recipes for Vietnamese Hate Speech Detection''}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{ Pham Kha Vy \and Cao Hong Nga\textsuperscript  {*} }{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Overview and Scope}{1}{section.1}\protected@file@percent }
+\newlabel{sec:supp-overview}{{1}{1}{Overview and Scope}{section.1}{}}
+\citation{lin2017focal}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Data and the Fixed Split}{2}{section.2}\protected@file@percent }
+\newlabel{sec:supp-data}{{2}{2}{Data and the Fixed Split}{section.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The fixed split used by all six systems. Digests are the first 12 hex digits of the full SHA-256 recorded in the released \texttt  {split\_manifest.json}.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:supp-splits}{{1}{2}{The fixed split used by all six systems. Digests are the first 12 hex digits of the full SHA-256 recorded in the released \texttt {split\_manifest.json}}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Complete Per-Class Results}{2}{section.3}\protected@file@percent }
+\newlabel{sec:supp-perclass}{{3}{2}{Complete Per-Class Results}{section.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Per-class precision, recall and F1 on the ViHSD test set for all six systems, with the macro-F1. Best per column in bold.}}{2}{table.2}\protected@file@percent }
+\newlabel{tab:supp-per-class}{{2}{2}{Per-class precision, recall and F1 on the ViHSD test set for all six systems, with the macro-F1. Best per column in bold}{table.2}{}}
+\citation{saito2015precision}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Raw test-set confusion counts for all six systems over the 6{,}680 test comments. The three column blocks are the \emph  {true} class and the sub-columns the \emph  {predicted} class (H = HATE, O = OFFENSIVE, C = CLEAN); each row therefore sums to 6{,}680.}}{3}{table.3}\protected@file@percent }
+\newlabel{tab:supp-confusion}{{3}{3}{Raw test-set confusion counts for all six systems over the 6{,}680 test comments. The three column blocks are the \emph {true} class and the sub-columns the \emph {predicted} class (H = HATE, O = OFFENSIVE, C = CLEAN); each row therefore sums to 6{,}680}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Normalised confusion matrices (rows = true, columns = predicted) for the six systems, on the same colour scale. \textsc  {M6} (bottom right) trades CLEAN recall for minority recall relative to the other five.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:supp-confusion}{{1}{3}{Normalised confusion matrices (rows = true, columns = predicted) for the six systems, on the same colour scale. \model {M6} (bottom right) trades CLEAN recall for minority recall relative to the other five}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Ranking Quality: ROC-AUC, Average Precision and MCC}{4}{section.4}\protected@file@percent }
+\newlabel{sec:supp-ranking}{{4}{4}{Ranking Quality: ROC-AUC, Average Precision and MCC}{section.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces One-vs-rest ranking quality per class (ROC-AUC / average precision) and the macro averages, for all six systems. Best macro value in bold.}}{4}{table.4}\protected@file@percent }
+\newlabel{tab:supp-ranking}{{4}{4}{One-vs-rest ranking quality per class (ROC-AUC / average precision) and the macro averages, for all six systems. Best macro value in bold}{table.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Posterior Calibration}{4}{section.5}\protected@file@percent }
+\newlabel{sec:supp-calibration}{{5}{4}{Posterior Calibration}{section.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Calibration of the frozen posteriors on the test set: top-label expected calibration error (ECE, 10 bins), multiclass Brier score and negative log-likelihood (lower is better). Best per column in bold.}}{5}{table.5}\protected@file@percent }
+\newlabel{tab:supp-calibration}{{5}{5}{Calibration of the frozen posteriors on the test set: top-label expected calibration error (ECE, 10 bins), multiclass Brier score and negative log-likelihood (lower is better). Best per column in bold}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Reliability diagram of the top-label confidence for the six systems (10 bins). The dashed diagonal is perfect calibration. \textsc  {M6} sits closest to the diagonal; \textsc  {M3} and \textsc  {M5} are the most over-confident.}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:supp-reliability}{{2}{5}{Reliability diagram of the top-label confidence for the six systems (10 bins). The dashed diagonal is perfect calibration. \model {M6} sits closest to the diagonal; \model {M3} and \model {M5} are the most over-confident}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Error Complementarity}{6}{section.6}\protected@file@percent }
+\newlabel{sec:supp-error}{{6}{6}{Error Complementarity}{section.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Error complementarity across the six systems. \emph  {Top:} how many test comments are misclassified by exactly $k$ systems. \emph  {Bottom:} the comments no system gets right, broken down by their gold label.}}{6}{table.6}\protected@file@percent }
+\newlabel{tab:supp-error-overlap}{{6}{6}{Error complementarity across the six systems. \emph {Top:} how many test comments are misclassified by exactly $k$ systems. \emph {Bottom:} the comments no system gets right, broken down by their gold label}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Number of test comments misclassified by exactly $k$ of the six systems. The spike at $k=6$ is the 504-comment hard core; the rest is spread thinly, i.e.\ the systems mostly agree on which items are easy.}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:supp-error-overlap}{{3}{6}{Number of test comments misclassified by exactly $k$ of the six systems. The spike at $k=6$ is the 504-comment hard core; the rest is spread thinly, i.e.\ the systems mostly agree on which items are easy}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Errors made by exactly one system (out of the six). A high count means the system's mistakes are largely its own; a low count means its errors are shared with the others.}}{7}{table.7}\protected@file@percent }
+\newlabel{tab:supp-unique-errors}{{7}{7}{Errors made by exactly one system (out of the six). A high count means the system's mistakes are largely its own; a low count means its errors are shared with the others}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Stratified Macro-F1 by Surface Phenomenon}{7}{section.7}\protected@file@percent }
+\newlabel{sec:supp-strata}{{7}{7}{Stratified Macro-F1 by Surface Phenomenon}{section.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Macro-F1 by surface phenomenon of the test comments, for all six systems. Strata overlap (a comment can be both short and teencode); counts are the number of test comments carrying the tag.}}{7}{table.8}\protected@file@percent }
+\newlabel{tab:supp-stratification}{{8}{7}{Macro-F1 by surface phenomenon of the test comments, for all six systems. Strata overlap (a comment can be both short and teencode); counts are the number of test comments carrying the tag}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Comparison Figures Across the Six Systems}{7}{section.8}\protected@file@percent }
+\newlabel{sec:supp-comparison-figures}{{8}{7}{Comparison Figures Across the Six Systems}{section.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Test accuracy for all six systems with 95\% bootstrap confidence intervals. The highest accuracy belongs to \textsc  {M5}, which does not have the best macro-F1.}}{8}{figure.4}\protected@file@percent }
+\newlabel{fig:supp-acc}{{4}{8}{Test accuracy for all six systems with 95\% bootstrap confidence intervals. The highest accuracy belongs to \model {M5}, which does not have the best macro-F1}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Test macro-F1 (mean of the three class F1 scores) for all six systems. The six systems sit in a narrow band, which is why no pairwise macro-F1 difference is significant.}}{8}{figure.5}\protected@file@percent }
+\newlabel{fig:supp-macro-f1}{{5}{8}{Test macro-F1 (mean of the three class F1 scores) for all six systems. The six systems sit in a narrow band, which is why no pairwise macro-F1 difference is significant}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Per-class F1 for HATE, OFFENSIVE and CLEAN, grouped by system. The minority classes (HATE, OFFENSIVE) show the largest spread across systems, while CLEAN is saturated.}}{8}{figure.6}\protected@file@percent }
+\newlabel{fig:supp-per-class-f1}{{6}{8}{Per-class F1 for HATE, OFFENSIVE and CLEAN, grouped by system. The minority classes (HATE, OFFENSIVE) show the largest spread across systems, while CLEAN is saturated}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Macro-F1, weighted-F1 and per-class F1 side by side for every system.}}{9}{figure.7}\protected@file@percent }
+\newlabel{fig:supp-f1-summary}{{7}{9}{Macro-F1, weighted-F1 and per-class F1 side by side for every system}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Validation loss over the training epochs for all six systems. The checkpoint is \emph  {not} selected to minimise this curve: it is the epoch with the highest validation macro-F1 (Fig.~ ef{fig:supp-val-acc}), which is why the selected checkpoints can sit on a rising-loss epoch.}}{9}{figure.8}\protected@file@percent }
+\newlabel{fig:supp-val-loss}{{8}{9}{Validation loss over the training epochs for all six systems. The checkpoint is \emph {not} selected to minimise this curve: it is the epoch with the highest validation macro-F1 (Fig.~ ef{fig:supp-val-acc}), which is why the selected checkpoints can sit on a rising-loss epoch}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Validation accuracy over the training epochs for all six systems.}}{10}{figure.9}\protected@file@percent }
+\newlabel{fig:supp-val-acc}{{9}{10}{Validation accuracy over the training epochs for all six systems}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Validation loss and accuracy on the same axes for all six systems.}}{10}{figure.10}\protected@file@percent }
+\newlabel{fig:supp-val-loss-acc}{{10}{10}{Validation loss and accuracy on the same axes for all six systems}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces One-vs-rest precision--recall curves (micro and macro averages) for all six systems.}}{11}{figure.11}\protected@file@percent }
+\newlabel{fig:supp-pr-all}{{11}{11}{One-vs-rest precision--recall curves (micro and macro averages) for all six systems}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces One-vs-rest ROC curves (micro and macro averages) for all six systems.}}{11}{figure.12}\protected@file@percent }
+\newlabel{fig:supp-roc-all}{{12}{11}{One-vs-rest ROC curves (micro and macro averages) for all six systems}{figure.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Precision--recall curve for the HATE class, all six systems.}}{12}{figure.13}\protected@file@percent }
+\newlabel{fig:supp-pr-hate}{{13}{12}{Precision--recall curve for the HATE class, all six systems}{figure.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Precision--recall curve for the OFFENSIVE class, all six systems.}}{12}{figure.14}\protected@file@percent }
+\newlabel{fig:supp-pr-offensive}{{14}{12}{Precision--recall curve for the OFFENSIVE class, all six systems}{figure.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Precision--recall curve for the CLEAN class, all six systems.}}{13}{figure.15}\protected@file@percent }
+\newlabel{fig:supp-pr-clean}{{15}{13}{Precision--recall curve for the CLEAN class, all six systems}{figure.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces ROC curve for the HATE class, all six systems.}}{13}{figure.16}\protected@file@percent }
+\newlabel{fig:supp-roc-hate}{{16}{13}{ROC curve for the HATE class, all six systems}{figure.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces ROC curve for the OFFENSIVE class, all six systems.}}{14}{figure.17}\protected@file@percent }
+\newlabel{fig:supp-roc-offensive}{{17}{14}{ROC curve for the OFFENSIVE class, all six systems}{figure.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces ROC curve for the CLEAN class, all six systems.}}{14}{figure.18}\protected@file@percent }
+\newlabel{fig:supp-roc-clean}{{18}{14}{ROC curve for the CLEAN class, all six systems}{figure.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Per-System Figures}{15}{section.9}\protected@file@percent }
+\newlabel{sec:supp-per-system-figures}{{9}{15}{Per-System Figures}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}\textsc  {M1}}{15}{subsection.9.1}\protected@file@percent }
+\newlabel{sec:supp-per-m1}{{9.1}{15}{\model {M1}}{subsection.9.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{15}{figure.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}\textsc  {M2}}{15}{subsection.9.2}\protected@file@percent }
+\newlabel{sec:supp-per-m2}{{9.2}{15}{\model {M2}}{subsection.9.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}\textsc  {M3}}{15}{subsection.9.3}\protected@file@percent }
+\newlabel{sec:supp-per-m3}{{9.3}{15}{\model {M3}}{subsection.9.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Precision--recall curve.}}{16}{figure.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces ROC curve.}}{16}{figure.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Validation loss over the training epochs.}}{17}{figure.22}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Validation accuracy over the training epochs.}}{17}{figure.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}\textsc  {M4}}{17}{subsection.9.4}\protected@file@percent }
+\newlabel{sec:supp-per-m4}{{9.4}{17}{\model {M4}}{subsection.9.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}\textsc  {M5}}{17}{subsection.9.5}\protected@file@percent }
+\newlabel{sec:supp-per-m5}{{9.5}{17}{\model {M5}}{subsection.9.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{18}{figure.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Precision--recall curve.}}{18}{figure.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces ROC curve.}}{19}{figure.26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Validation loss over the training epochs.}}{19}{figure.27}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Validation accuracy over the training epochs.}}{20}{figure.28}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{20}{figure.29}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Precision--recall curve.}}{21}{figure.30}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces ROC curve.}}{21}{figure.31}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Validation loss over the training epochs.}}{22}{figure.32}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces Validation accuracy over the training epochs.}}{22}{figure.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}\textsc  {M6}}{22}{subsection.9.6}\protected@file@percent }
+\newlabel{sec:supp-per-m6}{{9.6}{22}{\model {M6}}{subsection.9.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{23}{figure.34}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces Precision--recall curve.}}{23}{figure.35}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces ROC curve.}}{24}{figure.36}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {37}{\ignorespaces Validation loss over the training epochs.}}{24}{figure.37}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces Validation accuracy over the training epochs.}}{25}{figure.38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{25}{figure.39}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces Precision--recall curve.}}{26}{figure.40}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {41}{\ignorespaces ROC curve.}}{26}{figure.41}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {42}{\ignorespaces Validation loss over the training epochs.}}{27}{figure.42}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {43}{\ignorespaces Validation accuracy over the training epochs.}}{27}{figure.43}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {44}{\ignorespaces Normalised confusion matrix (rows = true, columns = predicted).}}{28}{figure.44}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {45}{\ignorespaces Precision--recall curve.}}{28}{figure.45}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {46}{\ignorespaces ROC curve.}}{29}{figure.46}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {47}{\ignorespaces Validation loss over the training epochs.}}{29}{figure.47}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {48}{\ignorespaces Validation accuracy over the training epochs.}}{30}{figure.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Complete Pairwise Significance Matrix}{31}{section.10}\protected@file@percent }
+\newlabel{sec:supp-significance}{{10}{31}{Complete Pairwise Significance Matrix}{section.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Complete pairwise comparison of all $\binom  {6}{2}=15$ system pairs. $\Delta $M-F1 is the paired-bootstrap difference ($A$ minus $B$) with a 95\% CI, $p_{\text  {F1}}$ its bootstrap $p$-value; $p_{\text  {acc}}$ is the exact two-sided McNemar $p$-value on accuracy. $^{\dagger }$ marks $p<0.05$ after a Holm--Bonferroni step-down correction over these 15 tests.}}{31}{table.9}\protected@file@percent }
+\newlabel{tab:supp-pairs}{{9}{31}{Complete pairwise comparison of all $\binom {6}{2}=15$ system pairs. $\Delta $M-F1 is the paired-bootstrap difference ($A$ minus $B$) with a 95\% CI, $p_{\text {F1}}$ its bootstrap $p$-value; $p_{\text {acc}}$ is the exact two-sided McNemar $p$-value on accuracy. $^{\dagger }$ marks $p<0.05$ after a Holm--Bonferroni step-down correction over these 15 tests}{table.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Post-hoc Decision-Rule Diagnostic}{31}{section.11}\protected@file@percent }
+\newlabel{sec:supp-threshold}{{11}{31}{Post-hoc Decision-Rule Diagnostic}{section.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Post-hoc prior-reweighting diagnostic. The frozen posteriors are reweighted by a joint factor $u$ on the two minority classes and re-argmaxed; $u^{\star }$ is the \emph  {oracle} factor that maximises test macro-F1. ``argmax M-F1'' is the macro-F1 of a plain argmax on the frozen posteriors; it differs from the system's headline macro-F1 only for M4, whose validation-searched thresholds ($0.01/0.5/0.64$) \emph  {lowered} test macro-F1 from the argmax $0.6602$ to the reported $0.6590$. $u^{\star }$ is chosen on the test labels and the gain is therefore an oracle upper bound over this one-parameter reweighting family, not a deployable decision rule.}}{32}{table.10}\protected@file@percent }
+\newlabel{tab:supp-threshold}{{10}{32}{Post-hoc prior-reweighting diagnostic. The frozen posteriors are reweighted by a joint factor $u$ on the two minority classes and re-argmaxed; $u^{\star }$ is the \emph {oracle} factor that maximises test macro-F1. ``argmax M-F1'' is the macro-F1 of a plain argmax on the frozen posteriors; it differs from the system's headline macro-F1 only for M4, whose validation-searched thresholds ($0.01/0.5/0.64$) \emph {lowered} test macro-F1 from the argmax $0.6602$ to the reported $0.6590$. $u^{\star }$ is chosen on the test labels and the gain is therefore an oracle upper bound over this one-parameter reweighting family, not a deployable decision rule}{table.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {49}{\ignorespaces Test macro-F1 as a function of the minority reweighting factor $u$ for the six systems. The curves are flat near their maxima: no threshold change recovers a meaningful amount of macro-F1.}}{32}{figure.49}\protected@file@percent }
+\newlabel{fig:supp-threshold}{{49}{32}{Test macro-F1 as a function of the minority reweighting factor $u$ for the six systems. The curves are flat near their maxima: no threshold change recovers a meaningful amount of macro-F1}{figure.49}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Resolved Hyperparameters and Training Cost}{33}{section.12}\protected@file@percent }
+\newlabel{sec:supp-hyper}{{12}{33}{Resolved Hyperparameters and Training Cost}{section.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Resolved per-system configuration as recorded in each run's \texttt  {training\_summary.json} and \texttt  {configs/*.yaml}. ``lr'' is the stage-1 encoder rate; ``head lr'' the discriminative head rate when DLR is on. ``thr.''\ marks the systems whose test pass applied per-class thresholds searched on validation (M3--M6, read from each run's \texttt  {metrics.json}); the search returned the trivial $0.5$ for all but M4. AdamW, weight decay 0.01, gradient clipping 1.0 and max length 256 are shared.}}{33}{table.11}\protected@file@percent }
+\newlabel{tab:supp-hyperparameters}{{11}{33}{Resolved per-system configuration as recorded in each run's \texttt {training\_summary.json} and \texttt {configs/*.yaml}. ``lr'' is the stage-1 encoder rate; ``head lr'' the discriminative head rate when DLR is on. ``thr.''\ marks the systems whose test pass applied per-class thresholds searched on validation (M3--M6, read from each run's \texttt {metrics.json}); the search returned the trivial $0.5$ for all but M4. AdamW, weight decay 0.01, gradient clipping 1.0 and max length 256 are shared}{table.11}{}}
+\bibstyle{splncs04}
+\bibdata{references}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Wall-clock cost and checkpoint selection per system. ``best ep.'' is the epoch whose validation macro-F1 was frozen for the test pass and ``stopped'' whether early stopping fired before the planned epoch budget.}}{34}{table.12}\protected@file@percent }
+\newlabel{tab:supp-timing}{{12}{34}{Wall-clock cost and checkpoint selection per system. ``best ep.'' is the epoch whose validation macro-F1 was frozen for the test pass and ``stopped'' whether early stopping fired before the planned epoch budget}{table.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Complementary Experiments}{34}{section.13}\protected@file@percent }
+\newlabel{sec:supp-complementary}{{13}{34}{Complementary Experiments}{section.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {14}Reproduction}{34}{section.14}\protected@file@percent }
+\newlabel{sec:supp-reproduce}{{14}{34}{Reproduction}{section.14}{}}
+\bibcite{he2023debertav3}{1}
+\bibcite{lin2017focal}{2}
+\bibcite{luu2021vihsd}{3}
+\bibcite{liu2024mdeberta}{4}
+\bibcite{saito2015precision}{5}
+\gdef \@abspage@last{35}

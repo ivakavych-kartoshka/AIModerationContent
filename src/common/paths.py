@@ -97,6 +97,34 @@ def evaluation_log_path(root: Path | None = None) -> Path:
     return base / "logs" / "evaluation_log.csv"
 
 
+def _run_number(run_name: str) -> int:
+    digits = re.sub(r"\D", "", str(run_name))
+    return int(digits) if digits else -1
+
+
+def find_resume_run(model_name: str, reports_root: Path | None = None, run_id: Optional[str] = None) -> Path:
+    """Locate a run that can be resumed (``--resume``).
+
+    A run is resumable when it contains a ``last_model/`` checkpoint **and** a
+    ``last_training_state.pt`` written by :meth:`Trainer._save_resume_checkpoint`.
+    With no ``run_id`` the most recent such run is returned.
+    """
+    root = _model_root(model_name, reports_root, REPORTS_DIR)
+    if run_id:
+        candidates = [report_dir(model_name, run_id, reports_root)]
+    else:
+        candidates = sorted(root.glob("run_*"), key=lambda d: _run_number(d.name), reverse=True)
+    for candidate in candidates:
+        if (candidate / "last_model").is_dir() and (candidate / "last_training_state.pt").is_file():
+            return candidate
+    raise FileNotFoundError(
+        f"No resumable run found for '{model_name}' under {root}.\n"
+        "A run is resumable once it has written last_model/ + last_training_state.pt "
+        "(saved after each epoch; control the cadence with "
+        "output.resume_save_every_n_epochs)."
+    )
+
+
 def find_best_report_dir(model_name: str, reports_root: Path | None = None, run_id: Optional[str] = None) -> Path:
     """Locate the report directory of a finished run.
 
@@ -116,12 +144,12 @@ def find_best_report_dir(model_name: str, reports_root: Path | None = None, run_
         if candidate and (root / candidate).is_dir():
             return root / candidate
 
-    # A run counts as finished once training produced its summary, whether or
-    # not it has been evaluated yet (evaluation is the *next* step).
-    candidates = [
-        d
-        for d in root.glob("run_*")
-        if (d / "training_summary.json").is_file() or (d / "metrics.json").is_file()
+    # Prefer runs that finished *evaluation* (they carry metrics.json). A newer
+    # run that only produced training_summary.json - e.g. an interrupted retrain
+    # - must not shadow an earlier run whose metrics the comparison needs.
+    evaluated = [d for d in root.glob("run_*") if (d / "metrics.json").is_file()]
+    candidates = evaluated or [
+        d for d in root.glob("run_*") if (d / "training_summary.json").is_file()
     ]
     if candidates:
         return sorted(candidates)[-1]

@@ -34,24 +34,41 @@ CLASS_NAMES: Sequence[str] = tuple(LABELS)
 #: Fixed colour per class across every figure of the project.
 CLASS_COLORS = {"HATE": "#d62728", "OFFENSIVE": "#ff7f0e", "CLEAN": "#2ca02c"}
 
-#: Fixed colour per compared model across every comparison figure.
+#: Fixed colour per compared model across every comparison figure.  Every model
+#: that appears in the paper is listed so the colours never depend on Python's
+#: per-process ``hash`` (which is randomised and would recolour the figures on
+#: each run).
 MODEL_COLORS = {
     "sensitiveai-vi": "#1f77b4",
     "sensitiveai-vi-custom": "#2ca02c",
     "sensitiveai-vi-customdlr2stage": "#d62728",
     "sensitiveai-vi-custom-curriculum": "#9467bd",
+    "sensitiveai-vi-customdlr2stage-ext": "#17becf",
+    "sensitiveai-vi-stage2": "#8c564b",
 }
 MODEL_MARKERS = {
     "sensitiveai-vi": "o",
     "sensitiveai-vi-custom": "s",
     "sensitiveai-vi-customdlr2stage": "^",
     "sensitiveai-vi-custom-curriculum": "D",
+    "sensitiveai-vi-customdlr2stage-ext": "P",
+    "sensitiveai-vi-stage2": "v",
 }
+#: Canonical ordering used in tables and legends (identical to the order the
+#: systems appear in the paper's comparison table).
 MODEL_ORDER = (
     "sensitiveai-vi",
     "sensitiveai-vi-custom",
     "sensitiveai-vi-customdlr2stage",
     "sensitiveai-vi-custom-curriculum",
+    "sensitiveai-vi-customdlr2stage-ext",
+    "sensitiveai-vi-stage2",
+)
+
+#: Deterministic colour cycle for any model not listed in :data:`MODEL_COLORS`.
+_FALLBACK_COLORS = (
+    "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+    "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf",
 )
 
 DPI = 200
@@ -85,16 +102,27 @@ def _save(fig: plt.Figure, path: str | Path) -> Path:
 
 
 def model_color(model_name: str) -> str:
-    return MODEL_COLORS.get(model_name, None) or plt.cm.tab10(abs(hash(model_name)) % 10)
+    if model_name in MODEL_COLORS:
+        return MODEL_COLORS[model_name]
+    # Deterministic fallback: ``hash()`` is salted per process, so sum the code
+    # points instead - the same model always gets the same colour.
+    return _FALLBACK_COLORS[sum(ord(ch) for ch in model_name) % len(_FALLBACK_COLORS)]
 
 
 def model_label(model_name: str) -> str:
-    """Short label used inside comparison legends."""
+    """Short label used inside comparison legends and bar charts.
+
+    Kept short on purpose: the comparison figures have six entries, so a long
+    label such as ``sensitiveai-vi-customdlr2stage-ext`` would overlap its
+    neighbours on the axis.
+    """
     return {
-        "sensitiveai-vi": "Model 1 (baseline)",
-        "sensitiveai-vi-custom": "Model 2 (custom head)",
-        "sensitiveai-vi-customdlr2stage": "Model 3 (DLR + 2-stage)",
-        "sensitiveai-vi-custom-curriculum": "Model 4 (curriculum)",
+        "sensitiveai-vi": "M1 baseline",
+        "sensitiveai-vi-custom": "M2 custom head",
+        "sensitiveai-vi-customdlr2stage": "M3 DLR + 2-stage",
+        "sensitiveai-vi-custom-curriculum": "M4 curriculum",
+        "sensitiveai-vi-customdlr2stage-ext": "M5 stage-1 ext.",
+        "sensitiveai-vi-stage2": "M6 stage-2 only",
     }.get(model_name, model_name)
 
 

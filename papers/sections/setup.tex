@@ -1,0 +1,40 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Hardware and Software}
+All experiments were run on a single workstation with an NVIDIA GeForce RTX
+4060 Laptop GPU (8\,GB), CUDA 12.6, PyTorch 2.13 and Python 3.11, using the
+Hugging Face Transformers library \cite{wolf2020transformers}.  The
+\texttt{mdeberta-v3-base} encoder has $278.2$M parameters.  The standard Hugging
+Face head (a 768-d pooler plus a 3-way linear layer) adds $0.59$M, so the
+standard-head systems (M1, M6) total $278.8$M; the multi-view head adds
+$1.19$M, so the custom-head systems (M2--M5) total $279.4$M.  The largest gap
+between any two systems is thus $+0.21\%$ of the parameters, and we treat them as
+of essentially identical size.
+
+\subsection{Training Protocol}
+All systems share one configuration: AdamW \cite{loshchilov2019adamw} with weight
+decay 0.01, a linear schedule with warmup $0.05$--$0.1$, batch size 16 with
+gradient accumulation~2 (effective 32), gradient clipping at norm 1.0, sequence
+length 256 tokens, bf16 training (fp32 for the latency benchmark), and up to
+15--30 epochs depending on the recipe.  Early stopping monitors validation
+macro-F1 with patience 6 and restores the best checkpoint.  The systems differ
+only in the encoder initialisation, the number of stages, the loss sequence and
+the class-weighting scheme (Sect.~\ref{sec:chain}); the test split is evaluated
+exactly once per system with the checkpoint selected on validation.
+Table~\ref{tab:training-details} lists the resolved configuration and the frozen
+checkpoint (best epoch and its validation macro-F1) for each system.  Every system
+reads the same three split files (verified by SHA-256 digest) and label mapping,
+and all class weights and thresholds are estimated on training and validation only,
+never on test; only the head, learning rates, number of stages and loss vary.
+
+\input{tables/training_details}
+
+\subsection{Metrics}
+Because of the imbalance described in Sect.~\ref{sec:imbalance}, we treat
+\emph{macro-averaged F1} as primary and report accuracy only as a diagnostic,
+alongside per-class precision, recall and F1 and macro ROC-AUC / average precision
+(AP), since precision-recall summaries are more trustworthy than ROC under
+imbalance \cite{saito2015precision}.  Calibration uses the top-label expected
+calibration error (ECE, 10 bins); significance uses a percentile bootstrap
+(macro-F1) and the exact McNemar test (accuracy).

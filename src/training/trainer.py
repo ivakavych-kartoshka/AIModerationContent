@@ -409,7 +409,7 @@ class Trainer:
         return epoch_metrics
 
     # ------------------------------------------------------------------ #
-    def train(self) -> TrainResult:
+    def train(self, resume_state: Optional[Dict[str, Any]] = None) -> TrainResult:
         t0 = time.perf_counter()
         early_stopping: Optional[EarlyStoppingCallback] = None
         best_ckpt: Optional[BestCheckpointCallback] = None
@@ -419,15 +419,52 @@ class Trainer:
             elif isinstance(cb, BestCheckpointCallback):
                 best_ckpt = cb
 
+        resume_state = resume_state or {}
+        resume_stage = resume_state.get("stage_name")
+        resume_epoch_in_stage = int(resume_state.get("epoch_in_stage", 0))
+        resume_epoch = int(resume_state.get("epoch", 0))
+
+        if resume_state:
+            LOGGER.info(
+                "[resume] continuing from epoch %d (stage %r, %d epochs completed in it)",
+                resume_epoch, resume_stage, resume_epoch_in_stage,
+            )
+            if resume_epoch >= self.controller.total_epochs:
+                LOGGER.warning(
+                    "[resume] the saved checkpoint already reached the planned %d "
+                    "epochs - training will finish immediately unless the config "
+                    "was extended", self.controller.total_epochs,
+                )
+            self.controller.global_epoch = resume_epoch
+            self.controller.index = int(resume_state.get("controller_index", 0))
+            if resume_state.get("history") is not None:
+                self.history = list(resume_state["history"])
+            rng_state = resume_state.get("torch_rng_state")
+            if rng_state is not None:
+                try:
+                    torch.set_rng_state(rng_state)
+                except (RuntimeError, ValueError):  # pragma: no cover
+                    LOGGER.warning("[resume] could not restore the RNG state")
+            # weights are restored from the run's own checkpoint (custom or standard head)
+            self.load_model(self.output_dir / "last_model")
+            LOGGER.info("[resume] weights loaded from %s", self.output_dir / "last_model")
+
         self.callbacks.on_train_begin(trainer=self)
 
+        resume_consumed = not resume_state
         while True:
             stage = self.controller.begin_stage()
             self.current_stage = stage
             self.current_stage_index = self.controller.index + 1
             is_last_stage = self.controller.is_last_stage
 
-            if stage.init_from:
+            resumed_here = (not resume_consumed and stage.name == resume_stage)
+            if resumed_here:
+                self.controller.global_epoch = resume_epoch
+                self.controller.epoch_in_stage = resume_epoch_in_stage
+                LOGGER.info("[resume] staying in stage %s - skipping init_from", stage.name)
+
+            if not resumed_here and stage.init_from:
                 self.load_model(stage.init_from)
                 LOGGER.info("[stage] initialised weights from %s", stage.init_from)
 
@@ -435,9 +472,44 @@ class Trainer:
             self.optimizer = runtime["optimizer"]
             self.scheduler = runtime["scheduler"]
             self.criterion = runtime["criterion"]
+
+            if resumed_here:
+                self.optimizer.load_state_dict(resume_state["optimizer"])
+                self.scheduler.load_state_dict(resume_state["scheduler"])
+                if resume_state.get("scaler") and self.scaler.is_enabled():
+                    self.scaler.load_state_dict(resume_state["scaler"])
+                LOGGER.info(
+                    "[resume] optimizer + scheduler restored for stage %s", stage.name,
+                )
+
             self._track_lrs(self.optimizer)
 
             self.callbacks.on_stage_begin(trainer=self, stage=stage)
+
+            if resumed_here:
+                # on_stage_begin resets the plateau counter of the "new" stage, so
+                # the interrupted stage's counters are restored *after* it.
+                if best_ckpt is not None and resume_state.get("best_checkpoint"):
+                    payload: Dict[str, Any] = resume_state["best_checkpoint"]
+                    best_ckpt.best_value = payload.get("best_value")
+                    best_ckpt.best_epoch = payload.get("best_epoch")
+                    best_ckpt.best_stage = payload.get("best_stage")
+                    best_ckpt.history = list(payload.get("history") or [])
+                    LOGGER.info(
+                        "[resume] best-checkpoint state restored: %s=%.6f @ epoch %s",
+                        best_ckpt.metric, best_ckpt.best_value, best_ckpt.best_epoch,
+                    )
+                if early_stopping is not None and resume_state.get("early_stopping"):
+                    payload = resume_state["early_stopping"]
+                    early_stopping.best_value = payload.get("best_value")
+                    early_stopping.best_epoch = payload.get("best_epoch")
+                    early_stopping.num_bad_epochs = int(payload.get("num_bad_epochs") or 0)
+                    early_stopping.history = list(payload.get("history") or [])
+                    LOGGER.info(
+                        "[resume] early-stopping state restored: %d/%d epochs without "
+                        "improvement", early_stopping.num_bad_epochs, early_stopping.patience,
+                    )
+                resume_consumed = True
 
             # The stage checkpoint handed to the *next* stage is the best epoch
             # of this stage (not the last one) so the next stage always starts
@@ -494,6 +566,13 @@ class Trainer:
                         stage_best_state = {
                             k: v.detach().cpu().clone() for k, v in self.model.state_dict().items()
                         }
+
+                # periodic resume checkpoint (overwrites last_model each time)
+                save_every = max(
+                    int(self.config.get("output", {}).get("resume_save_every_n_epochs", 1) or 1), 1
+                )
+                if self.global_epoch % save_every == 0:
+                    self._save_resume_checkpoint()
 
                 if early_stopping is not None and early_stopping.should_stop:
                     if is_last_stage:
@@ -563,31 +642,67 @@ class Trainer:
         return out
 
     def load_model(self, path: str | Path) -> None:
-        """Restore weights from a directory produced by ``save_pretrained``."""
-        from ..models.model import CustomHeadModel
+        """Restore weights from a directory produced by ``save_pretrained``.
+
+        Works for both head types: a custom-head checkpoint carries
+        ``sensitiveai_config.json``, a standard HF checkpoint does not.
+        """
+        from ..models.model import CUSTOM_CONFIG_NAME, CustomHeadModel, StandardHeadModel
 
         src = Path(path)
         if not src.is_dir():
             raise FileNotFoundError(f"Checkpoint directory not found: {src}")
-        loaded = CustomHeadModel.from_pretrained(src)
+        if (src / CUSTOM_CONFIG_NAME).is_file():
+            loaded = CustomHeadModel.from_pretrained(src)
+        else:
+            loaded = StandardHeadModel.from_pretrained(src)
         self.model.load_state_dict(loaded.state_dict())
         LOGGER.info("[train] weights loaded from %s", src)
 
     def save_training_state(self, path: str | Path) -> Path:
         out = Path(path)
         out.parent.mkdir(parents=True, exist_ok=True)
+        best_ckpt = next(
+            (cb for cb in self.callbacks if isinstance(cb, BestCheckpointCallback)), None
+        )
+        early_stopping = next(
+            (cb for cb in self.callbacks if isinstance(cb, EarlyStoppingCallback)), None
+        )
         payload: Dict[str, Any] = {
             "epoch": self.global_epoch,
+            "epoch_in_stage": int(self.controller.epoch_in_stage),
             "stage_index": self.current_stage_index,
+            "controller_index": self.controller.index,
             "stage_name": getattr(self.current_stage, "name", None),
             "optimizer": self.optimizer.state_dict() if self.optimizer else None,
             "scheduler": self.scheduler.state_dict() if self.scheduler else None,
-            "scaler": self.scaler.state_dict() if self.scaler else None,
+            "scaler": self.scaler.state_dict() if self.scaler.is_enabled() else {},
             "history": self.history,
             "torch_rng_state": torch.get_rng_state(),
+            "best_checkpoint": best_ckpt.summary() if best_ckpt else {},
+            "early_stopping": early_stopping.summary() if early_stopping else {},
         }
         torch.save(payload, out)
         return out
+
+    def load_training_state(self, path: str | Path) -> Dict[str, Any]:
+        """Read a state file written by :meth:`save_training_state`."""
+        src = Path(path)
+        if not src.is_file():
+            raise FileNotFoundError(f"Training state not found: {src}")
+        return torch.load(src, map_location="cpu")
+
+    def _save_resume_checkpoint(self) -> None:
+        """Persist the current weights + optimizer/scheduler state so the run can
+        be resumed (``--resume``) from exactly this epoch."""
+        if not bool(self.config.get("output", {}).get("save_last_checkpoint", True)):
+            return
+        self.save_model(self.output_dir / "last_model")
+        self.save_training_state(self.output_dir / "last_training_state.pt")
+        LOGGER.info(
+            "[resume] checkpoint saved: epoch %d -> %s (last_model + last_training_state.pt)",
+            self.global_epoch, self.output_dir.name,
+        )
 
 
 __all__ = ["TrainResult", "Trainer"]

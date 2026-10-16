@@ -1,0 +1,120 @@
+# =============================================================================
+# sensitiveai-vi-stage2  (experiment requested by the teacher)
+#
+# Takes the best checkpoint of the plain mdeberta baseline (sensitiveai-vi
+# run_001, STANDARD Hugging Face head) and applies the *exact same* stage-2
+# recipe used by sensitiveai-vi-customdlr2stage:
+#     focal loss (gamma=2, label-specific alpha) + class weights
+#     + discriminative learning rates (halved), LR 1e-5, warmup 0.05, 15 epochs.
+#
+# The head is deliberately left standard - NOT custom - so the comparison
+#     "baseline (mdeberta + standard head) + stage 2"
+#   vs
+#     "custom head + DLR + stage 1/2"   (sensitiveai-vi-customdlr2stage)
+# isolates the contribution of the custom head / DLR machinery.  Using the
+# custom head here would make it identical to the model under evaluation.
+#
+# NOTE: continuing from a standard-head checkpoint needs
+# src/training/trainer.py:load_model() to accept it (added for this experiment).
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-vi-stage2.yaml
+# =============================================================================
+model_name: sensitiveai-vi-stage2
+base_model: microsoft/mdeberta-v3-base
+head: standard
+seed: 42
+deterministic: true
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+# --- stage-2 recipe, identical to sensitiveai-vi-customdlr2stage stage_2 ----- #
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 15
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: focal
+  use_class_weight: true
+  class_weight: inverse_sqrt_frequency
+  class_weight_beta: 0.999
+  label_smoothing: 0.0
+  focal:
+    gamma: 2.0
+    alpha:
+      HATE: 0.5
+      OFFENSIVE: 0.25
+      CLEAN: 0.25
+
+dlr:
+  enabled: false
+  embedding_lr: 2.5e-6
+  encoder_lr: 5.0e-6
+  layer_lr: 1.0e-5
+  head_lr: 5.0e-5
+  layer_split: 0.5
+  layer_decay: 1.0
+
+stages:
+  - name: stage_2
+    description: >-
+      Stage-2 recipe (focal + class weights + halved discriminative LRs),
+      applied to the best checkpoint of the plain mdeberta baseline.
+    epochs: 15
+    init_from: outputs/reports/sensitiveai-vi/run_001/best_model
+    save_checkpoint: true
+
+thresholds:
+  enabled: false
+  search: macro_f1
+  grid_size: 101
+  coordinate_ascent_rounds: 3
+  init: 0.5
+
+early_stopping:
+  enabled: false
+  metric: macro_f1
+  mode: max
+  patience: 20
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: thresholds
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true
+
+
+
+
+
+
+

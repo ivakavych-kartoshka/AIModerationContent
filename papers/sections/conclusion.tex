@@ -1,0 +1,46 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented SensitiveAI, a controlled comparison of six optimisation recipes for
+three-class Vietnamese hate speech detection on UIT-ViHSD.  Holding the split,
+backbone, tokenizer and seed fixed while swapping \emph{whole}
+recipes---head, losses, rates, stages and decision rule together---lets us read the
+chain as the combined direction of each design choice.  Our main---deliberately
+modest---finding is that we
+\emph{detected no} macro-F1 difference among the recipes: the $1.0$-point spread
+lies within one paired-bootstrap interval and no pairwise difference is
+significant.  This is a failure to detect, not proof of equivalence.  The
+only robust paired differences are in \emph{accuracy}: the focal-only probe (M6),
+which reaches the highest minority recall by giving up \textsc{clean} recall, is
+significantly less accurate than M3 and M1 (McNemar $p<0.001$, both surviving a
+Holm--Bonferroni correction over the seven reported comparisons), so the
+highest-accuracy system (M5) is also the
+macro-F1 laggard---accuracy is unsafe on an 83\%-majority corpus.  The best macro-F1
+($0.6638$, M3) edges the baseline by under a point; M6 gives the best HATE F1
+($0.6088$) and macro ROC-AUC ($0.8930$) at a slightly lower macro-F1 ($0.6604$);
+the custom head alone adds only $+0.30$.  Multi-stage training never won on
+validation---both multi-stage systems froze a stage-1 checkpoint, so the
+three-stage curriculum added cost but no selected gain.  OFFENSIVE F1 stays near
+$0.46$ for every recipe, consistent with the labelled data, not the optimiser,
+being the binding constraint.
+
+\paragraph{Future Work.}
+Repeat each system with several seeds to quantify \emph{training} variance and test
+the gaps against it; re-train the published baselines under the same split so
+Table~\ref{tab:external} becomes a controlled comparison; and enrich the data
+(span-level supervision, hard-negative retrieval, targeted
+\textsc{offensive} examples).  A controlled latency study is still needed before
+any throughput claim about the custom head.
+
+\paragraph*{Acknowledgements.}
+All experiments were run on a single consumer GPU (NVIDIA GeForce RTX~4060
+Laptop, 8\,GB).  The authors thank the creators and annotators of the UIT-ViHSD
+dataset and the maintainers of the PyTorch and Hugging Face Transformers
+libraries, on which this study is built.
+
+\paragraph*{Data and Code Availability.}
+The code, the six configuration files, the split manifest with SHA-256 digests
+(and the script that rebuilds the identical split), the frozen per-model test
+predictions, the post-hoc analysis reports and the scripts that reproduce every
+table and figure are available at
+\url{https://anonymous.4open.science/r/AIModerationContent-ECEE/}.

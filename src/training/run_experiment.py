@@ -20,6 +20,14 @@ What it does
    ``reports/<model>/run_XXX/`` and the stage checkpoints into
    ``experiments/<model>/run_XXX/``.
 
+Resuming
+--------
+Every epoch also refreshes ``last_model/`` + ``last_training_state.pt`` in the
+report dir (cadence: ``output.resume_save_every_n_epochs``, default 1). If a run
+is interrupted, re-run the same command with ``--resume`` to continue from that
+epoch with the optimizer/scheduler/early-stopping state intact and the CSV log
+appended. The config must plan at least as many epochs as the original run.
+
 Evaluation is a separate step (``python -m src.evaluation.run_evaluation``) so
 that the test set is touched exactly once, at the end.
 """
@@ -44,6 +52,7 @@ from ..common.logging_utils import add_file_handler, get_logger
 from ..common.paths import (
     ensure_dir,
     experiment_dir,
+    find_resume_run,
     guard_free_run_dir,
     next_run_id,
     project_path,
@@ -91,6 +100,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--allow-run-reuse", action="store_true",
                    help="Append to an occupied run directory instead of refusing (logs are never "
                         "overwritten by default).")
+    p.add_argument("--resume", action="store_true",
+                   help="Resume this model's latest interrupted run from its last checkpoint "
+                        "(weights + optimizer/scheduler state). Pass --run-id or --output-dir to "
+                        "pick a specific run; the config must describe at least as many epochs as "
+                        "were originally planned.")
     return p
 
 
@@ -116,7 +130,8 @@ def collect_class_weights(cfg: Dict[str, Any], train_labels: List[int]) -> Dict[
     }
 
 
-def build_callbacks(cfg: Dict[str, Any], report_path: Path, save_checkpoints: bool) -> CallbackList:
+def build_callbacks(cfg: Dict[str, Any], report_path: Path, save_checkpoints: bool,
+                    csv_append: bool = False) -> CallbackList:
     es_cfg = get(cfg, "early_stopping", {}) or {}
     metric = str(es_cfg.get("metric", "macro_f1"))
     mode = es_cfg.get("mode") or resolve_direction(metric)
@@ -131,7 +146,11 @@ def build_callbacks(cfg: Dict[str, Any], report_path: Path, save_checkpoints: bo
                 min_delta=float(es_cfg.get("min_delta", 0.0)),
                 enabled=bool(es_cfg.get("enabled", True)),
             ),
-            CSVLoggerCallback(report_path / "training_log.csv", model_name=str(cfg.get("model_name", ""))),
+            CSVLoggerCallback(
+                report_path / "training_log.csv",
+                model_name=str(cfg.get("model_name", "")),
+                append=csv_append,
+            ),
         ]
     )
     return callbacks
@@ -141,9 +160,25 @@ def build_callbacks(cfg: Dict[str, Any], report_path: Path, save_checkpoints: bo
 def run(args: argparse.Namespace) -> Dict[str, Any]:
     config_path = resolve_config_path(args.config)
     cfg = load_config(config_path, overrides=args.set)
-    run_id = run_dir_name(args.run_id) if args.run_id else next_run_id(
-        str(cfg["model_name"]), Path(args.reports_dir) if args.reports_dir else None
+
+    reports_root = Path(args.reports_dir) if args.reports_dir else project_path(
+        get(cfg, "output.reports_dir", "outputs/reports")
     )
+    experiments_root = Path(args.experiments_dir) if args.experiments_dir else project_path(
+        get(cfg, "output.experiments_dir", "outputs/experiments")
+    )
+
+    resume_req = bool(getattr(args, "resume", False))
+    resume_state: Optional[Dict[str, Any]] = None
+    resume_report: Optional[Path] = None
+
+    if args.run_id:
+        run_id = run_dir_name(args.run_id)
+    elif resume_req and not args.output_dir:
+        resume_report = find_resume_run(str(cfg["model_name"]), reports_root)
+        run_id = resume_report.name
+    else:
+        run_id = next_run_id(str(cfg["model_name"]), reports_root)
 
     if args.smoke_test:
         LOGGER.warning(
@@ -173,14 +208,26 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
 
     save_checkpoints = bool(cfg.get("output", {}).get("save_checkpoints", True)) and not args.no_save_checkpoints
 
-    reports_root = Path(args.reports_dir) if args.reports_dir else project_path(get(cfg, "output.reports_dir", "outputs/reports"))
-    experiments_root = Path(args.experiments_dir) if args.experiments_dir else project_path(
-        get(cfg, "output.experiments_dir", "outputs/experiments")
-    )
     report_path = Path(args.output_dir) if args.output_dir else report_dir(str(cfg["model_name"]), run_id, reports_root)
     experiment_path = experiment_dir(str(cfg["model_name"]), run_id, experiments_root)
 
-    guard_free_run_dir(report_path, allow_reuse=bool(getattr(args, "allow_run_reuse", False)))
+    if resume_req:
+        resume_report = resume_report or report_path
+        weights_dir = resume_report / "last_model"
+        state_file = resume_report / "last_training_state.pt"
+        if not weights_dir.is_dir() or not state_file.is_file():
+            raise FileNotFoundError(
+                f"Cannot resume {project_relative(resume_report)}: missing last_model/ or "
+                "last_training_state.pt.\nThe run must have written a resume checkpoint "
+                "(output.resume_save_every_n_epochs >= 1, the default)."
+            )
+        resume_state = torch.load(state_file, map_location="cpu")
+        LOGGER.info(
+            "[resume] %s -> epoch %s (stage %s)",
+            project_relative(resume_report), resume_state.get("epoch"), resume_state.get("stage_name"),
+        )
+
+    guard_free_run_dir(report_path, allow_reuse=resume_req or bool(getattr(args, "allow_run_reuse", False)))
     guard_free_run_dir(experiment_path, allow_reuse=True)
 
     if args.dry_run:
@@ -251,9 +298,11 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     # The config records the run directory of the model it chains from; that
     # directory goes stale after every retrain, so it is re-pointed at the
     # latest run of the same model and written back for provenance.
-    encoder_checkpoint = resolve_encoder_checkpoint(cfg.get("encoder_checkpoint"))
-    if encoder_checkpoint is not None:
-        cfg["encoder_checkpoint"] = project_relative(encoder_checkpoint)
+    encoder_checkpoint = None
+    if not resume_req:
+        encoder_checkpoint = resolve_encoder_checkpoint(cfg.get("encoder_checkpoint"))
+        if encoder_checkpoint is not None:
+            cfg["encoder_checkpoint"] = project_relative(encoder_checkpoint)
 
     head_options = dict(cfg.get("head_options") or {})
     model = build_model(
@@ -292,7 +341,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     )
 
     # ---- train -------------------------------------------------------- #
-    callbacks = build_callbacks(cfg, report_path, save_checkpoints)
+    callbacks = build_callbacks(cfg, report_path, save_checkpoints, csv_append=resume_req)
     LOGGER.info("[train] callbacks: %s", ", ".join(callbacks.describe()))
 
     trainer = Trainer(
@@ -309,7 +358,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     trainer.tokenizer = tokenizer  # saved next to every checkpoint
 
     started = time.time()
-    result = trainer.train()
+    result = trainer.train(resume_state=resume_state)
     result_dict = result.to_dict()
     result_dict["wall_clock_seconds"] = round(time.time() - started, 3)
 

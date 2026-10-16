@@ -31,3 +31,8 @@ logs/
 # ---- OS ----
 Thumbs.db
 .DS_Store
+outputs/
+*.pt
+*.pt.tmp
+*.safetensors
+*.bin

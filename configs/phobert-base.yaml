@@ -1,0 +1,78 @@
+# =============================================================================
+# Monolingual baseline - phobert-base
+#
+# Same fixed split, label mapping and baseline recipe as sensitiveai-vi
+# (standard Hugging Face head, unweighted cross-entropy, single LR, plain
+# argmax), but on the Vietnamese monolingual encoder vinai/phobert-base-v2
+# instead of the multilingual microsoft/mdeberta-v3-base.
+#
+# Purpose: put the published PhoBERT numbers on the *same split and protocol*
+# as our systems, so the external comparison is no longer cross-paper only.
+# Everything else is deliberately identical to configs/sensitiveai-vi.yaml.
+#
+#   python -m src.training.run_experiment --config configs/phobert-base.yaml
+#   python -m src.evaluation.run_evaluation  --model phobert-base
+# =============================================================================
+model_name: phobert-base
+base_model: vinai/phobert-base-v2
+head: standard
+seed: 42
+deterministic: true
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3          # HATE=0, OFFENSIVE=1, CLEAN=2  (fixed by the plan)
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 30
+  learning_rate: 3.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: false      # identical to the baseline
+
+dlr:
+  enabled: false
+
+thresholds:
+  enabled: false               # plain argmax, as for sensitiveai-vi
+
+early_stopping:
+  enabled: true
+  metric: macro_f1             # selected on VALIDATION only
+  mode: max
+  patience: 6
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: argmax
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

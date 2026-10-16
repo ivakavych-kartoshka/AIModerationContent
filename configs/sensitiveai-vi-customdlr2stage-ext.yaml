@@ -1,0 +1,129 @@
+# =============================================================================
+# sensitiveai-vi-customdlr2stage-ext
+#
+# Experiment (answer to the teacher's comment): take the best epoch of the
+# 2-stage model's stage_1 (sensitiveai-vi-customdlr2stage run_001, epoch 15,
+# val macro-F1 0.7089) and continue training for another 15 epochs with the
+# SAME recipe as stage_1 - DLR + class-weighted cross-entropy, LR 2e-5, linear
+# schedule.  This asks whether epoch 15 was a genuine peak or merely the end of
+# the LR schedule (i.e. whether more training keeps improving the model).
+#
+# IMPORTANT: the trainer rebuilds the optimizer and LR schedule at every stage,
+# so these 15 epochs are a *second* warmup + decay cycle, not a continuation of
+# a 30-epoch linear schedule.
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-vi-customdlr2stage-ext.yaml
+# =============================================================================
+model_name: sensitiveai-vi-customdlr2stage-ext
+base_model: microsoft/mdeberta-v3-base
+head: custom
+seed: 42
+deterministic: true
+
+encoder_checkpoint: outputs/reports/sensitiveai-vi-custom/run_001/best_model
+
+head_options:
+  head_hidden_size: 512
+  dropout: 0.1
+  use_cls_pool: true
+  use_mean_pool: true
+  use_max_pool: true
+  use_attention_pool: false
+  use_class_prior: false
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 256
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 15
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: true
+  class_weight: inverse_sqrt_frequency
+  class_weight_beta: 0.999
+  label_smoothing: 0.0
+  focal:
+    gamma: 2.0
+    alpha:
+      HATE: 0.5
+      OFFENSIVE: 0.25
+      CLEAN: 0.25
+
+# --- discriminative learning rates (identical to run_001 stage_1) ----------- #
+dlr:
+  enabled: true
+  embedding_lr: 5.0e-6
+  encoder_lr: 1.0e-5
+  layer_lr: 2.0e-5
+  head_lr: 1.0e-4
+  layer_split: 0.5
+  layer_decay: 1.0
+
+# --- single "continuation" stage: epoch 15 (+15 epochs, same recipe) -------- #
+stages:
+  - name: stage_1_ext
+    description: >-
+      Continue from the epoch-15 checkpoint of sensitiveai-vi-customdlr2stage
+      run_001 stage_1 using the identical stage_1 recipe (DLR + class-weighted
+      cross-entropy) for another 15 epochs.
+    epochs: 15
+    init_from: outputs/experiments/sensitiveai-vi-customdlr2stage/run_001/stage_checkpoints/stage_1
+    save_checkpoint: true
+    training:
+      learning_rate: 2.0e-5
+      warmup_ratio: 0.1
+    loss:
+      type: cross_entropy
+      use_class_weight: true
+      class_weight: inverse_sqrt_frequency
+
+# --- label-specific thresholds (plan section 12) --------------------------- #
+thresholds:
+  enabled: true
+  search: macro_f1
+  grid_size: 101
+  coordinate_ascent_rounds: 3
+  init: 0.5
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 15         # >= #epochs: observe the whole continuation, never stop early
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: thresholds
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

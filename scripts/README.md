@@ -60,6 +60,31 @@ python scripts/04_check_setup.py
 Kiểm tra CUDA, 4 config, fingerprint của fixed split và forward pass của cả
 hai loại head. Không train.
 
+## 5. `09_seed_variance.py` — multi-seed (độ ổn định theo seed)
+
+```powershell
+python scripts/09_seed_variance.py --seeds 42 43 44 45 46
+python scripts/09_seed_variance.py --seeds 43 --models sensitiveai-vi
+python scripts/09_seed_variance.py --seeds 42 43 --dry-run   # chỉ sinh config
+```
+
+Sáu hệ thống không độc lập (M3 nối từ M2, M4 từ M3, M5 từ M2 + stage_1 của M3,
+M6 từ M1). Script tự sinh config riêng cho **từng seed** và ghi lại mọi đường dẫn
+`encoder_checkpoint` / `stages[*].init_from` để mỗi seed là một chuỗi khép kín
+(không lẫn checkpoint giữa các seed). Kết quả trong `outputs/seeds/`:
+`seed_<S>/seed_summary.json` và `seed_variance_summary.{json,md}` (mean ± std).
+
+## 6. `10_train_monolingual_baselines.py` — baseline đơn ngữ
+
+```powershell
+python scripts/10_train_monolingual_baselines.py                 # PhoBERT + ViSoBERT
+python scripts/10_train_monolingual_baselines.py --models phobert-base
+```
+
+Train PhoBERT (`vinai/phobert-base-v2`) và ViSoBERT (`uitnlp/visobert`) bằng
+đúng công thức baseline (standard head, cross-entropy không weight, argmax) trên
+cùng split đã cố định. Kết quả trong `outputs/baselines/monolingual_summary.{json,md}`.
+
 ## Module-level (chạy từng bước)
 
 ```powershell

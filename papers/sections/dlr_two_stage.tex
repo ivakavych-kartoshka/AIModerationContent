@@ -1,0 +1,29 @@
+\subsection{Discriminative Learning Rates and Two-Stage Training}
+\label{sec:dlr}
+
+Two optimisation ideas are combined in M3.
+
+\paragraph{Discriminative (layer-wise) learning rates.}
+Following ULMFiT \cite{howard2018ulmfit}, parameters are split into four groups
+with decreasing rates from head to input (embeddings $5\times10^{-6}$, lower half
+$1\times10^{-5}$, upper half $2\times10^{-5}$, head $1\times10^{-4}$), so the
+task-specific head adapts quickly from random initialisation while pre-trained
+representations avoid catastrophic forgetting.  The encoder starts from the same
+checkpoint as M1 and M2, so the recipes share one initialisation.
+
+\paragraph{Two-stage training.}
+Training has two stages of up to 15 epochs each: \emph{stage~1} stabilises the
+representation under class-weighted cross-entropy at rate $2\times10^{-5}$ with
+warmup $0.1$; \emph{stage~2} continues from its checkpoint with lower rates and
+focal loss, which down-weights easy examples.  Here the selected
+checkpoint was the \emph{end of stage~1} (validation macro-F1 $0.7089$); focal
+stage~2 never improved on it and stopped early, so M3's headline number comes from
+discriminative rates plus class-weighted cross-entropy, not focal loss.
+
+\paragraph{Label-specific decision thresholds.}
+The decision rule is changed from argmax to per-class thresholds: a label is
+accepted when its probability reaches its own threshold, the highest-probability
+accepted label wins, and if none passes the plain argmax is used.  The thresholds
+are searched to maximise validation macro-F1 by coordinate ascent over a
+101-point grid in $[0,1]$ from $0.5$, on the validation split only, then frozen
+and applied unchanged to the test pass.

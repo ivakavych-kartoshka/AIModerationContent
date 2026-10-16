@@ -1,0 +1,116 @@
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Backbone and Common Configuration}
+All six systems use the same encoder, \texttt{microsoft/mdeberta-v3-base}
+\cite{he2023debertav3,liu2024mdeberta}, a multilingual DeBERTa-v3 model with a
+hidden size of 768 and 12 transformer layers.  The encoder is left untouched;
+the systems differ only in what sits on top of it and in how it is trained.
+
+The training configuration is fixed across systems (Sect.~\ref{sec:setup}).
+The seed is 42 and all runs shared device and library versions; the tokenizer,
+label mapping and split are identical everywhere (bitwise determinism across
+hardware is not claimed).  Figure~\ref{fig:architecture} overviews the pipeline and
+the points at which the six systems differ.
+
+\begin{figure}[t]
+\centering
+\resizebox{0.55\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >=Latex,
+  node distance=2mm,
+  box/.style={rectangle, rounded corners=2pt, draw=black!65, line width=0.5pt,
+              fill=blue!6, align=center, text width=62mm, minimum height=5mm, inner sep=1.5pt},
+  view/.style={rectangle, rounded corners=2pt, draw=black!65, line width=0.5pt,
+              fill=green!9, align=center, text width=22mm, minimum height=4.6mm, inner sep=1.5pt},
+  outbox/.style={rectangle, rounded corners=2pt, draw=black!65, line width=0.5pt,
+              fill=orange!12, align=center, text width=62mm, minimum height=5mm, inner sep=1.5pt},
+  ar/.style={-{Latex[length=1.5mm]}, line width=0.6pt, draw=black!75}
+]
+\node[box] (input) {Input comment $\rightarrow$ mDeBERTa tokenizer (max 256 tokens)};
+\node[box, below=of input] (enc) {\textbf{mDeBERTa-v3-base} encoder (12 layers, $d{=}768$, fine-tuned)};
+\node[view, below=3mm of enc] (mean) {Masked mean};
+\node[view, left=2mm of mean] (cls) {CLS $h_0$};
+\node[view, right=2mm of mean] (max) {Masked max};
+\node[box, below=4mm of mean] (concat) {Concatenate (2304-d) $\rightarrow$ LayerNorm};
+\node[box, below=of concat] (mlp) {Fusion MLP: $2304{\to}512$, GELU, Dropout, LayerNorm, $512{\to}3$};
+\node[outbox, below=of mlp] (out) {Decision: argmax or per-class thresholds $\rightarrow$
+   \textsc{hate} / \textsc{offensive} / \textsc{clean}};
+
+\draw[ar] (input) -- (enc);
+\draw[ar] (enc) -- (cls);
+\draw[ar] (enc) -- (mean);
+\draw[ar] (enc) -- (max);
+\draw[ar] (cls) -- (concat);
+\draw[ar] (mean) -- (concat);
+\draw[ar] (max) -- (concat);
+\draw[ar] (concat) -- (mlp);
+\draw[ar] (mlp) -- (out);
+\end{tikzpicture}}
+\caption{The SensitiveAI pipeline.  All six systems share the encoder and the
+decision stage; M2--M5 add the multi-view pooling head shown here, whereas M1 and
+M6 keep the standard first-token head.  The recipes ablated on top are the
+baseline, the multi-view head plus DLR and two-stage training (weighted CE then
+focal), and the three-stage concept curriculum.}
+\label{fig:architecture}
+\end{figure}
+
+\subsection{Systems and the Ablation Chain}
+\label{sec:chain}
+The systems form a chain in which each step swaps a whole recipe of decisions
+(head, losses, learning rates, stages and decision rule together), plus two probes
+that target a single component.  We label them \textbf{M1}--\textbf{M6} and use
+these labels throughout:
+
+\begin{enumerate}
+  \item \textbf{M1}, \model{sensitiveai-vi} (baseline): standard Hugging Face
+        head, single rate $3\times10^{-5}$, unweighted cross-entropy, argmax.
+  \item \textbf{M2}, \model{sensitiveai-vi-custom}: baseline plus the multi-view
+        head (Sect.~\ref{sec:head}).
+  \item \textbf{M3}, \model{sensitiveai-vi-customdlr2stage}: custom head plus
+        discriminative learning rates, two-stage training, class-weighted
+        cross-entropy then focal loss, and searched thresholds
+        (Sect.~\ref{sec:dlr}).
+  \item \textbf{M4}, \model{sensitiveai-vi-custom-curriculum}: custom head plus a
+        three-stage ``concept'' curriculum instead of the two stages
+        (Sect.~\ref{sec:curriculum}).
+  \item \textbf{M5}, \model{sensitiveai-vi-customdlr2stage-ext}: probe continuing
+        M3's stage~1 for 15 further epochs, to test whether that optimum was a
+        peak or merely the end of the schedule.
+  \item \textbf{M6}, \model{sensitiveai-vi-stage2}: probe applying \emph{only}
+        the stage-2 recipe (focal loss, class weights, lower rate) on the
+        baseline checkpoint, keeping the standard head.
+\end{enumerate}
+
+\subsection{Multi-View Classification Head}
+\label{sec:head}
+The standard DeBERTa head places a pooler on the first token and a single linear
+layer on top, $\mathbf{h}[0] \rightarrow \mathrm{Linear}(768{\to}768)+\tanh
+\rightarrow \mathrm{Linear}(768{\to}3)$, so the decision rests on one
+token---fragile for short, noisy comments where a trigger word, not the first
+token, decides the label.  The custom head keeps the encoder and changes only what
+follows.  With final states $\mathbf{H}\in\mathbb{R}^{L\times 768}$ and mask
+$\mathbf{m}\in\{0,1\}^{L}$, the three views are
+$\mathbf{z}_{\mathrm{cls}}=\mathbf{H}[0]$,
+$\mathbf{z}_{\mathrm{mean}}=\tfrac{\sum_{l} m_l\,\mathbf{H}[l]}{\sum_l m_l}$ and
+$\mathbf{z}_{\mathrm{max}}=\max_{l:\,m_l=1}\mathbf{H}[l]$, where the masked mean
+ignores padding and the masked max maximises over valid positions only.  The views
+are concatenated into a 2304-dimensional vector, LayerNorm-normalised, and passed
+through a fusion block $\mathrm{Linear}(2304{\to}512)\rightarrow
+\mathrm{GELU}\rightarrow \mathrm{Dropout}(0.1)\rightarrow \mathrm{LayerNorm}
+\rightarrow \mathrm{Dropout}(0.1)\rightarrow \mathrm{Linear}(512{\to}3)$; the
+512-unit bottleneck adds a non-linear, regularised boundary.  Since the encoder,
+data and optimiser are unchanged, M1 vs.\ M2 is the one clean single-factor step in
+the chain and isolates the head.
+
+\subsection{Losses and Class Weighting}
+\label{sec:losses}
+The baseline uses unweighted cross-entropy; later systems use \emph{weighted
+cross-entropy} (class weights = inverse square root of the training frequency,
+normalised to mean one), \emph{focal loss} \cite{lin2017focal} with $\gamma=2$ and
+$\alpha_{\textsc{hate}}=0.5$,
+$\alpha_{\textsc{offensive}}=\alpha_{\textsc{clean}}=0.25$ combined with those
+weights, or \emph{manual weights} $\textsc{hate}{:}3,\ \textsc{offensive}{:}2,\
+\textsc{clean}{:}1$ for the curriculum's final stage.  Class weights are computed
+on the training split only.

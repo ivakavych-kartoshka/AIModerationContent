@@ -86,13 +86,17 @@ class CSVLoggerCallback(Callback):
 
     name = "csv_logger"
 
-    def __init__(self, path: str | Path, model_name: str = "", columns: Sequence[str] = COLUMNS) -> None:
+    def __init__(self, path: str | Path, model_name: str = "", columns: Sequence[str] = COLUMNS,
+                 append: bool = False) -> None:
         super().__init__()
         self.path = Path(path)
         self.model_name = model_name
         self.columns = list(columns)
         self.rows: list[Dict[str, Any]] = []
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        if append and self.path.is_file():
+            # keep the header + rows written by the interrupted run (--resume)
+            return
         # truncate: a run_id is never reused
         with self.path.open("w", encoding="utf-8", newline="") as fh:
             csv.DictWriter(fh, fieldnames=self.columns).writeheader()
