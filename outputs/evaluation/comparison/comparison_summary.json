@@ -3,9 +3,11 @@
     "sensitiveai-vi",
     "sensitiveai-vi-custom",
     "sensitiveai-vi-customdlr2stage",
-    "sensitiveai-vi-custom-curriculum"
+    "sensitiveai-vi-custom-curriculum",
+    "sensitiveai-vi-customdlr2stage-ext",
+    "sensitiveai-vi-stage2"
   ],
-  "num_models": 4,
+  "num_models": 6,
   "table_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.csv",
   "markdown_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.md",
   "figures": {
@@ -19,28 +21,30 @@
     "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\roc_clean_all_models.png",
     "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\validation_accuracy_all_models.png",
     "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\validation_loss_all_models.png",
+    "validation_loss_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\validation_loss_accuracy_all_models.png",
     "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\macro_f1_all_models.png",
     "accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\accuracy_all_models.png",
     "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\per_class_f1_all_models.png"
   },
   "latex_tables": {
-    "model_comparison": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\model_comparison.tex",
-    "classification_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\classification_results.tex",
-    "ablation_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\ablation_results.tex"
+    "model_comparison": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\model_comparison.tex",
+    "classification_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\classification_results.tex",
+    "ablation_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\ablation_results.tex"
   },
   "paper_figures": {
-    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_accuracy_all_models.png",
-    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_loss_all_models.png",
-    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_curve_all_models.png",
-    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_curve_all_models.png",
-    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_hate_all_models.png",
-    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_offensive_all_models.png",
-    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_clean_all_models.png",
-    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_hate_all_models.png",
-    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_offensive_all_models.png",
-    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_clean_all_models.png",
-    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\macro_f1_all_models.png",
-    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\per_class_f1_all_models.png"
+    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_loss_all_models.png",
+    "validation_loss_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_loss_accuracy_all_models.png",
+    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_hate_all_models.png",
+    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_offensive_all_models.png",
+    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_clean_all_models.png",
+    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_hate_all_models.png",
+    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_offensive_all_models.png",
+    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_clean_all_models.png",
+    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\macro_f1_all_models.png",
+    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\per_class_f1_all_models.png"
   },
   "best_macro_f1_model": "sensitiveai-vi-customdlr2stage",
   "best_macro_f1": 0.6637600346663973,
@@ -80,6 +84,24 @@
       "macro_average_precision": 0.6367033254502207,
       "decision_rule": "thresholds",
       "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_001"
+    },
+    "sensitiveai-vi-customdlr2stage-ext": {
+      "accuracy": 0.8782934131736527,
+      "macro_f1": 0.653616303338486,
+      "weighted_f1": 0.8710639120128569,
+      "macro_roc_auc": 0.8096101664924135,
+      "macro_average_precision": 0.6124480714749313,
+      "decision_rule": "thresholds",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage-ext\\run_002"
+    },
+    "sensitiveai-vi-stage2": {
+      "accuracy": 0.8633233532934131,
+      "macro_f1": 0.6604345136937018,
+      "weighted_f1": 0.8678710028149399,
+      "macro_roc_auc": 0.8929574343326477,
+      "macro_average_precision": 0.6533899673980419,
+      "decision_rule": "thresholds",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-stage2\\run_002"
     }
   }
 }

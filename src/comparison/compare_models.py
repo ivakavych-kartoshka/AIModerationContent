@@ -317,28 +317,78 @@ def plot_validation_metric_comparison(
 
     ax.set_xlabel("Epoch")
     ax.set_ylabel(ylabel + (" (%)" if as_percent else ""))
-    ax.set_title(f"{ylabel} across the four compared models")
+    ax.set_title(f"{ylabel} across the {plotted} compared models")
     ax.legend(loc="best", fontsize=8, framealpha=0.9)
     fig.tight_layout()
     return _save(fig, path)
 
 
+def plot_val_loss_accuracy_pair(runs: Dict[str, Any], path: Path) -> Path:
+    """Two-panel figure: validation loss (left) and accuracy (right) per epoch.
+
+    Both panels share one legend so the six systems can be read off a single
+    figure, matching the paper's loss/accuracy comparison.
+    """
+    setup_style()
+    import matplotlib.pyplot as plt
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.2, 2.6))
+    panels = (
+        (axes[0], "val_loss", "Validation loss", 1.0),
+        (axes[1], "val_accuracy", "Validation accuracy", 100.0),
+    )
+    handles = None
+    for ax, column, ylabel, scale in panels:
+        for name in order_models(runs):
+            log = runs[name].get("log")
+            if log is None or len(log) == 0 or column not in log.columns:
+                LOGGER.warning("[compare] no '%s' column for %s", column, name)
+                continue
+            log = log.sort_values("epoch")
+            line, = ax.plot(
+                log["epoch"], log[column].astype(float) * scale,
+                color=model_color(name), linewidth=1.8,
+                marker=MODEL_MARKERS.get(name, "o"), markersize=3.5,
+                label=model_label(name),
+            )
+            if handles is None:
+                handles = []
+            if column == "val_loss":
+                handles.append(line)
+        ax.set_xlabel("Epoch")
+        ax.set_ylabel(ylabel + (" (%)" if scale == 100.0 else ""))
+        ax.set_title(ylabel)
+    if handles:
+        axes[1].legend(handles=handles, fontsize=7.0, framealpha=0.9, loc="lower right")
+    fig.tight_layout()
+    return _save(fig, path)
+
+
 def plot_metric_bars(runs: Dict[str, Any], path: Path, metric: str = "macro_f1", title: Optional[str] = None) -> Path:
+    """Horizontal bar chart of one metric.
+
+    Horizontal bars keep the six model labels on separate rows, so the tick
+    labels cannot overlap (a vertical version with six long model names did).
+    """
     setup_style()
     import matplotlib.pyplot as plt
 
     names = order_models(runs)
     values = [float(runs[n]["metrics"].get(metric, float("nan"))) for n in names]
-    labels = [model_label(n).replace(" (", "\n(") for n in names]
+    labels = [model_label(n) for n in names]
 
-    fig, ax = plt.subplots(figsize=(7.0, 4.2))
-    bars = ax.bar(labels, values, color=[model_color(n) for n in names], width=0.6)
+    fig, ax = plt.subplots(figsize=(7.0, 2.7))
+    ypos = np.arange(len(names))[::-1]
+    bars = ax.barh(ypos, values, color=[model_color(n) for n in names], height=0.64)
     for bar, value in zip(bars, values):
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.005,
-                f"{value:.4f}", ha="center", va="bottom", fontsize=9)
-    lo = min(values) if values else 0.0
-    ax.set_ylim(max(0.0, lo - 0.05), min(1.0, max(values) + 0.05) if values else 1.0)
-    ax.set_ylabel(metric.replace("_", " ").upper())
+        ax.text(bar.get_width() + 0.0015, bar.get_y() + bar.get_height() / 2,
+                f"{value:.4f}", va="center", ha="left", fontsize=9)
+    lo, hi = min(values), max(values)
+    pad = max(hi - lo, 0.01)
+    ax.set_xlim(max(0.0, lo - 1.4 * pad), min(1.0, hi + 1.6 * pad))
+    ax.set_yticks(ypos)
+    ax.set_yticklabels(labels, fontsize=9)
+    ax.set_xlabel(metric.replace("_", " ").upper())
     ax.set_title(title or f"{metric.replace('_', ' ').title()} on the ViHSD test set")
     fig.tight_layout()
     return _save(fig, path)
@@ -352,17 +402,17 @@ def plot_per_class_f1_comparison(runs: Dict[str, Any], path: Path) -> Path:
     width = 0.8 / max(len(names), 1)
     x = np.arange(len(CLASSES))
 
-    fig, ax = plt.subplots(figsize=(7.6, 4.4))
+    fig, ax = plt.subplots(figsize=(8.4, 3.0))
     for i, name in enumerate(names):
         values = [float(runs[name]["metrics"].get(f"{c}_f1", float("nan"))) for c in CLASSES]
         ax.bar(x + i * width - 0.4 + width / 2, values, width=width,
                color=model_color(name), label=model_label(name))
     ax.set_xticks(x)
     ax.set_xticklabels(CLASSES)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylim(0, 1.18)
     ax.set_ylabel("F1-score")
     ax.set_title("Per-class F1 comparison on the ViHSD test set")
-    ax.legend(fontsize=8, framealpha=0.9)
+    ax.legend(fontsize=7.0, framealpha=0.9, ncol=3, loc="upper center")
     fig.tight_layout()
     return _save(fig, path)
 
@@ -413,29 +463,47 @@ def write_latex_tables(table: pd.DataFrame, runs: Dict[str, Any], paper_dir: Pat
     tables_dir = ensure_dir(paper_dir / "tables")
     outputs: Dict[str, Path] = {}
 
+    # Short labels shared with the comparison figures and the prose, so the
+    # tables, figures and text all refer to the systems the same way.
+    short = {
+        "sensitiveai-vi": "M1",
+        "sensitiveai-vi-custom": "M2",
+        "sensitiveai-vi-customdlr2stage": "M3",
+        "sensitiveai-vi-custom-curriculum": "M4",
+        "sensitiveai-vi-customdlr2stage-ext": "M5",
+        "sensitiveai-vi-stage2": "M6",
+    }
+
+    def _label(name: str) -> str:
+        return short.get(str(name), str(name).replace("_", "\\_"))
+
     # ---- model_comparison.tex --------------------------------------- #
     headline = table[[
         "Model", "Accuracy", "Macro F1", "Weighted F1", "HATE F1", "OFFENSIVE F1", "CLEAN F1",
         "Macro ROC-AUC", "Macro AP",
     ]].copy()
     rendered = _bold_best(headline, headline.columns[1:])
+    headers = ["Model", "Acc.", "M-F1", "W-F1", "HATE",
+               "OFF.", "CLEAN", "AUC", "AP"]
     lines = [
         "% AUTO-GENERATED by src/comparison/compare_models.py - do not edit by hand.",
         "\\begin{table}[t]",
         "\\centering",
-        "\\caption{Comparison of the four SensitiveAI systems on the ViHSD test set. "
-        "All systems share the same fixed split, the same label mapping and the same test set.}",
+        "\\small",
+        "\\setlength{\\tabcolsep}{4pt}",
+        f"\\caption{{Comparison of the six systems (M1--M6, Sect.~\\ref{{sec:chain}}) "
+        "on the ViHSD test set under one fixed split; M-F1/W-F1: macro/weighted F1; "
+        "HATE/OFF./CLEAN: per-class F1; AUC/AP: macro ROC-AUC / average precision.}",
         "\\label{tab:model-comparison}",
-        "\\resizebox{\\textwidth}{!}{%",
         "\\begin{tabular}{l" + "c" * (rendered.shape[1] - 1) + "}",
         "\\toprule",
-        " & ".join(str(c).replace("_", " ") for c in rendered.columns) + " \\\\",
+        " & ".join(headers) + " \\\\",
         "\\midrule",
     ]
     for _, row in rendered.iterrows():
-        name = str(row["Model"]).replace("_", "\\_")
-        lines.append(f"{name} & " + " & ".join(str(row[c]) for c in rendered.columns[1:]) + " \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}%", "}", "\\end{table}", ""]
+        lines.append(f"{_label(row['Model'])} & "
+                     + " & ".join(str(row[c]) for c in rendered.columns[1:]) + " \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
     outputs["model_comparison"] = _write_tex(tables_dir / "model_comparison.tex", lines)
 
     # ---- classification_results.tex ---------------------------------- #
@@ -443,12 +511,14 @@ def write_latex_tables(table: pd.DataFrame, runs: Dict[str, Any], paper_dir: Pat
         "% AUTO-GENERATED by src/comparison/compare_models.py - do not edit by hand.",
         "\\begin{table}[t]",
         "\\centering",
-        "\\caption{Per-class precision / recall / F1 on the ViHSD test set.}",
+        "\\small",
+        "\\setlength{\\tabcolsep}{2.5pt}",
+        "\\caption{Per-class precision / recall / F1 on the ViHSD test set "
+        "(M1--M6, Sect.~\\ref{sec:chain}).}",
         "\\label{tab:classification-results}",
-        "\\resizebox{\\textwidth}{!}{%",
         "\\begin{tabular}{l" + "ccc" * 3 + "}",
         "\\toprule",
-        "& \\multicolumn{3}{c}{HATE} & \\multicolumn{3}{c}{OFFENSIVE} & \\multicolumn{3}{c}{CLEAN} \\\\",
+        "& \\multicolumn{3}{c}{HATE} & \\multicolumn{3}{c}{OFF.} & \\multicolumn{3}{c}{CLEAN} \\\\",
         "\\cmidrule(lr){2-4} \\cmidrule(lr){5-7} \\cmidrule(lr){8-10}",
         "Model & P & R & F1 & P & R & F1 & P & R & F1 \\\\",
         "\\midrule",
@@ -458,10 +528,9 @@ def write_latex_tables(table: pd.DataFrame, runs: Dict[str, Any], paper_dir: Pat
     )
     rendered_cls = _bold_best(table, metric_cols)
     for _, row in rendered_cls.iterrows():
-        name = str(row["Model"]).replace("_", "\\_")
         values = " & ".join(str(row[c]) for c in metric_cols)
-        lines.append(f"{name} & {values} \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}%", "}", "\\end{table}", ""]
+        lines.append(f"{_label(row['Model'])} & {values} \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
     outputs["classification_results"] = _write_tex(tables_dir / "classification_results.tex", lines)
 
     # ---- ablation_results.tex ---------------------------------------- #
@@ -469,26 +538,29 @@ def write_latex_tables(table: pd.DataFrame, runs: Dict[str, Any], paper_dir: Pat
         "% AUTO-GENERATED by src/comparison/compare_models.py - do not edit by hand.",
         "\\begin{table}[t]",
         "\\centering",
+        "\\small",
         "\\caption{Ablation view: the effect of each design decision "
-        "(custom head, discriminative learning rates + two-stage training, curriculum training).}",
+        "(custom head, discriminative learning rates + two-stage training, curriculum "
+        "training) for M1--M6 (Sect.~\\ref{sec:chain}).}",
         "\\label{tab:ablation-results}",
-        "\\resizebox{\\textwidth}{!}{%",
         "\\begin{tabular}{lccccc}",
         "\\toprule",
-        "Variant & Head & DLR & Stages & Loss & Macro F1 \\\\",
+        "System & Head & DLR & Stages & Loss & Macro F1 \\\\",
         "\\midrule",
     ]
     features = {
         "sensitiveai-vi": ("standard", "no", "1", "cross-entropy"),
         "sensitiveai-vi-custom": ("custom", "no", "1", "cross-entropy"),
-        "sensitiveai-vi-customdlr2stage": ("custom", "yes", "2", "CE stage 1 / focal stage 2"),
-        "sensitiveai-vi-custom-curriculum": ("custom", "yes", "3", "concept 1 / concept 2 / CE"),
+        "sensitiveai-vi-customdlr2stage": ("custom", "yes", "2", "CE then focal"),
+        "sensitiveai-vi-custom-curriculum": ("custom", "yes", "3", "concept, concept, CE"),
+        "sensitiveai-vi-customdlr2stage-ext": ("custom", "yes", "2 (long)", "CE (stage 1)"),
+        "sensitiveai-vi-stage2": ("standard", "no", "1 (stage 2)", "focal"),
     }
     for name in order_models(runs):
         head, dlr, stages, loss = features.get(name, ("custom", "yes", "?", "?"))
         f1 = _fmt(runs[name]["metrics"].get("macro_f1"))
-        lines.append(f"{name.replace('_', chr(92) + '_')} & {head} & {dlr} & {stages} & {loss} & {f1} \\\\")
-    lines += ["\\bottomrule", "\\end{tabular}%", "}", "\\end{table}", ""]
+        lines.append(f"{_label(name)} & {head} & {dlr} & {stages} & {loss} & {f1} \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}", "\\end{table}", ""]
     outputs["ablation_results"] = _write_tex(tables_dir / "ablation_results.tex", lines)
 
     for key, path in outputs.items():
@@ -548,6 +620,9 @@ def run(
     figures["validation_loss_all_models.png"] = plot_validation_metric_comparison(
         runs, out_dir / "validation_loss_all_models.png", "val_loss", "Validation Loss", as_percent=False
     )
+    figures["validation_loss_accuracy_all_models.png"] = plot_val_loss_accuracy_pair(
+        runs, out_dir / "validation_loss_accuracy_all_models.png"
+    )
     figures["macro_f1_all_models.png"] = plot_metric_bars(runs, out_dir / "macro_f1_all_models.png", "macro_f1")
     figures["accuracy_all_models.png"] = plot_metric_bars(runs, out_dir / "accuracy_all_models.png", "accuracy")
     figures["per_class_f1_all_models.png"] = plot_per_class_f1_comparison(
@@ -561,6 +636,7 @@ def run(
         [
             "validation_accuracy_all_models.png",
             "validation_loss_all_models.png",
+            "validation_loss_accuracy_all_models.png",
             "pr_curve_all_models.png",
             "roc_curve_all_models.png",
             "pr_hate_all_models.png",

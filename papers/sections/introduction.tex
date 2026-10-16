@@ -1,0 +1,53 @@
+\section{Introduction}
+\label{sec:intro}
+
+Vietnam has one of the fastest-growing social-media user bases in Southeast Asia,
+and the volume of Vietnamese text platforms must moderate keeps rising.  Flagging
+hateful and offensive comments automatically is therefore a practical prerequisite
+for healthier communities, yet Vietnamese remains low-resource and its social-media
+style is hard (code-switching, ``teencode,'' informal spellings, evasive
+substitutions, dropped diacritics).
+
+The release of \emph{UIT-ViHSD} \cite{luu2021vihsd}, a human-annotated corpus of
+roughly 33k Vietnamese comments labelled \textsc{clean}, \textsc{offensive} or
+\textsc{hate}, made supervised transformer fine-tuning a realistic default and a
+standard benchmark for monolingual encoders such as PhoBERT \cite{nguyen2020phobert}
+and multilingual ones such as mBERT and XLM-R
+\cite{conneau2020xlmr,nguyen2022smtce,hoang2023vihos}.  Multilingual DeBERTa-v3
+variants have become popular because they combine a large multilingual pre-training
+corpus with disentangled attention \cite{he2021deberta,he2023debertav3}.
+
+In parallel, many \emph{optimisation} tricks are routinely applied to imbalanced
+text classification: a richer classification head, discriminative (layer-wise)
+learning rates, multi-stage fine-tuning, class-weighted or focal losses
+\cite{lin2017focal}, curriculum learning \cite{bengio2009curriculum}, and per-class
+decision thresholds \cite{saito2015precision}.  In the literature these are usually
+bundled together and reported as a single end-to-end improvement, which leaves a
+practical question unanswered: \emph{which of these decisions actually moves the
+number on Vietnamese hate speech detection, and by how much?}
+
+This paper answers that with a \emph{controlled ablation}: six systems sharing one
+backbone (\texttt{microsoft/mdeberta-v3-base}), one fingerprinted split, one frozen
+label mapping, one tokenizer configuration and one seed, differing \emph{only} in
+the optimisation recipe and each scored once on the held-out test set.  The chain
+(Sect.~\ref{sec:method}) runs from a plain baseline, to a multi-view pooling head,
+to a variant adding discriminative rates and class-weighted two-stage training, to a
+three-stage curriculum.
+
+Our contributions are:
+
+\begin{itemize}
+  \item A comparison of six optimisation recipes for three-class Vietnamese hate
+        speech detection under one fixed split and seed, reported with split
+        fingerprints, per-class metrics, bootstrap intervals and paired significance
+        tests so it can be reproduced rather than re-argued.
+  \item A multi-view classification head (first-token, masked-mean and masked-max
+        pooling) attaining the best macro-F1 at essentially the same parameter
+        count as the standard head.
+  \item An empirical demonstration that the recipes are not uniformly better: no
+        pairwise macro-F1 difference is significant (a failure to detect, not
+        proof of equivalence), the most accurate system has one of the lowest
+        macro-F1 scores, a three-stage curriculum never wins validation
+        selection, and a validation-searched threshold collapses to the trivial
+        $0.5$---negative results we discuss for applied moderation.
+\end{itemize}

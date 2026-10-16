@@ -1,0 +1,19 @@
+\subsection{Three-Stage Curriculum Concept Training}
+\label{sec:curriculum}
+
+M4 replaces the two stages with a three-stage curriculum
+\cite{bengio2009curriculum} that shapes the representation with easier binary
+sub-problems before the final decision: \emph{stage~1} targets
+``\textsc{offensive} versus anything else'', \emph{stage~2} ``\textsc{hate} versus
+anything else'', and \emph{stage~3} returns to the three-class objective with
+class weights $\textsc{hate}{:}3,\ \textsc{offensive}{:}2,\ \textsc{clean}{:}1$.
+The full dataset is used in \emph{every} stage (a concept's negative class is the
+other two classes) and the three-way head is kept throughout, the concept loss
+simply re-reading the three logits as a binary objective.  Each stage runs up to 10
+epochs with rates decreasing from $2\times10^{-5}$ to $1\times10^{-5}$
+(stage~3 raises this slightly to $1.5\times10^{-5}$) and the discriminative
+grouping of Sect.~\ref{sec:dlr}.  M4
+asks whether a finer sequence of increasingly difficult stages beats M3's two.
+All three stages run, but no epoch after the first improves the validation
+macro-F1 used for checkpoint selection (best $0.694$), so the finer sequence does
+not win.

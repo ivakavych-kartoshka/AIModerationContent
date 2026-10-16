@@ -1,0 +1,113 @@
+% =============================================================================
+%  ICEIR 2026 submission - SensitiveAI
+%  Template: Springer LNNS (Lecture Notes in Networks and Systems), which uses
+%  the LNCS "llncs" document class.  Compile with pdflatex + bibtex (splncs04).
+%
+%  NOTE TO AUTHORS: fill in the real author names, affiliations and ORCIDs
+%  below (placeholders marked TODO), then compile:
+%      pdflatex main
+%      bibtex   main
+%      pdflatex main
+%      pdflatex main
+% =============================================================================
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc}
+\usepackage[hidelinks]{hyperref}
+
+% Pack floats more tightly so tables/figures share text pages instead of
+% creating half-empty float pages (keeps the paper within the 12--15 page limit).
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.9}
+\setcounter{totalnumber}{6}
+
+% Tighten the whitespace between floats and the surrounding text so the many
+% tables and figures share text pages without visibly large gaps.
+\setlength{\textfloatsep}{4pt plus 2pt minus 2pt}
+\setlength{\floatsep}{4pt plus 2pt minus 2pt}
+\setlength{\intextsep}{4pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{1pt}
+
+% Allow TeX to stretch lines slightly so long unbreakable tokens (model names,
+% inline math) do not overflow the margin.
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\model}[1]{\textsc{#1}}
+
+\begin{document}
+
+\title{SensitiveAI: An Ablation Study of Optimization Recipes
+       for Vietnamese Hate Speech Detection}
+\titlerunning{SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD}
+
+\author{
+Pham Kha Vy\inst{1} \and
+Cao Hong Nga\inst{1}\textsuperscript{*}
+}
+
+\authorrunning{P. K. Vy and C. H. Nga}
+
+\institute{
+FPT University, Can Tho, Vietnam\\
+\email{phamkhavycm2004@gmail.com}\\
+\email{caohongnga@gmail.com}\\
+\textsuperscript{*}is the correspondent author.
+}
+
+
+\maketitle
+
+\begin{abstract}
+Hate speech on Vietnamese social media is a pressing moderation problem, and
+fine-tuned multilingual transformers such as mDeBERTa-v3 are now a common
+approach.  Reported gains, however, usually bundle several independent design
+decisions---head, learning-rate schedule, loss, class weighting, curriculum and
+decision rule---into one number, so it is unclear which decision matters.  We
+present \emph{SensitiveAI}, a controlled ablation of six systems sharing one fixed
+split, label mapping, backbone (\texttt{microsoft/mdeberta-v3-base}) and seed,
+differing only in the optimisation recipe, each scored once on the ViHSD test set
+(three classes HATE / OFFENSIVE / CLEAN, 83\% CLEAN).  All six land in a narrow
+0.654--0.664 macro-F1 and 0.863--0.878 accuracy band; no pairwise macro-F1
+difference is significant under a paired bootstrap, and the only significant paired
+comparisons are in accuracy, where the focal-only probe buys the highest minority
+recall by giving up \textsc{clean} recall and so loses accuracy.  A
+multi-view head with discriminative learning rates reaches the best macro-F1
+(0.6638), a focal-only continuation of the baseline gives the best HATE F1 (0.609)
+and macro ROC-AUC (0.893), and the highest accuracy (0.878) belongs to the system
+with the \emph{lowest} macro-F1---the classic imbalanced-classification trap.  A
+three-stage curriculum whose later stages never won validation selection, and a
+validation-searched threshold rule, did not improve over simpler recipes.  We
+report the full protocol, bootstrap confidence intervals,
+a confusion-matrix and error analysis, and the negative results, so the comparison
+can be reproduced rather than re-argued.
+\keywords{hate speech detection \and Vietnamese NLP \and mDeBERTa \and
+          class imbalance \and ablation study \and reproducibility.}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/dataset}
+\input{sections/methodology}
+\input{sections/dlr_two_stage}
+\input{sections/curriculum}
+\input{sections/setup}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\bibliographystyle{splncs04}
+{\let\small\scriptsize\bibliography{references}}
+
+\end{document}

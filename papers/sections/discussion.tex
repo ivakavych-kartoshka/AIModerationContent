@@ -1,0 +1,49 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Which Decisions Actually Matter}
+All recipes sit within $1.0$ macro-F1 point and, as
+Sect.~\ref{sec:significance} shows, these gaps are not statistically
+distinguishable under our tests (not proof of equivalence), so the ablation gives
+only the direction of the effects.
+Class-weighted focal loss on a plain head (M6) reached $0.6604$, matching the full
+recipe within noise while giving the best minority recall and macro ROC-AUC (its
+macro AP is second to M1's), so
+the loss change gave the largest observed shift; the multi-view
+head alone adds only $+0.30$ macro-F1.  More stages did not help: both
+multi-stage systems were frozen
+at a stage-1 checkpoint, so the extra stages never improved validation selection.
+The threshold search collapsed to
+$0.5$ (M3, M5, M6) or failed to transfer (M4), so the decision rule added no gain.
+
+The accuracy leader is also the macro-F1 laggard (Sect.~\ref{sec:trap}), a direct
+consequence of an 83\%-majority test set: each extra \textsc{clean} prediction
+raises accuracy even when it misclassifies a minority comment, so an
+accuracy-optimised system would under-report offensive and hateful content---the
+opposite of the product requirement.  Selection should therefore use macro-F1 (or
+minority recall), driven by validation so the test split stays honest.
+
+\subsection{Threats to Validity}
+\label{sec:threats}
+Each system was trained once (seed 42), so the estimates carry run-to-run variance
+the shared split and seed do not remove; the bootstrap intervals quantify sampling
+noise but not training noise, and as the observed gaps already lie inside one
+interval we claim no recipe is reliably better.  The official split reuses comments
+across train/dev/test (Sect.~\ref{sec:dataset}); we report this rather than hide it,
+and the de-duplicated check leaves the macro-F1 ordering effectively unchanged
+(Table~\ref{tab:duplicate-free}), but absolute scores are
+optimistic under a strictly leakage-free protocol.  ViHSD is the only corpus, its
+external baselines (Table~\ref{tab:external}) reprint published numbers under other
+settings, and the latency runs were inconsistent between identical architectures,
+so no cost claim is made.  Agreement is only moderate ($\kappa\approx0.5$), so part
+of the error is irreducible.
+
+\subsection{Implications}
+For applied moderation the message is negative but worth reporting: no single trick
+solves Vietnamese hate speech detection, and added complexity---curricula, searched
+thresholds, longer training---did not pay off.  The
+minority classes remain hard
+(OFFENSIVE F1 stuck near $0.46$ across all six systems), which is consistent with
+the labelled data, not the optimiser, being the binding constraint; more labelled
+offensive examples or span-level supervision as in ViHOS \cite{hoang2023vihos}
+are plausible next steps.

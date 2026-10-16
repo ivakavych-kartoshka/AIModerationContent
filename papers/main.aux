@@ -1,0 +1,151 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{luu2021vihsd}
+\citation{nguyen2020phobert}
+\citation{conneau2020xlmr,nguyen2022smtce,hoang2023vihos}
+\citation{he2021deberta,he2023debertav3}
+\@writefile{toc}{\contentsline {title}{SensitiveAI: An Ablation Study of Optimization Recipes for Vietnamese Hate Speech Detection}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{ Pham Kha Vy \and Cao Hong Nga\textsuperscript  {*} }{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{lin2017focal}
+\citation{bengio2009curriculum}
+\citation{saito2015precision}
+\citation{luu2021vihsd}
+\citation{vu2020hsdvlsp}
+\citation{nguyen2021victsd}
+\citation{hoang2023vihos}
+\citation{nguyen2022smtce}
+\citation{tran2023videberta}
+\citation{nguyen2023visobert}
+\citation{nguyen2024vihatet5}
+\citation{tran2022phobertcnn}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Vietnamese Hate Speech Detection}{2}{subsection.2.1}\protected@file@percent }
+\citation{nguyen2020phobert}
+\citation{devlin2019bert}
+\citation{conneau2020xlmr}
+\citation{he2021deberta}
+\citation{he2023debertav3}
+\citation{cui2019classbalanced}
+\citation{lin2017focal}
+\citation{bengio2009curriculum}
+\citation{howard2018ulmfit}
+\citation{luu2021vihsd}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Pre-trained Encoders}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Learning under Class Imbalance}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Dataset}{3}{section.3}\protected@file@percent }
+\newlabel{sec:dataset}{{3}{3}{Dataset}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}UIT-ViHSD}{3}{subsection.3.1}\protected@file@percent }
+\citation{he2023debertav3,liu2024mdeberta}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The fixed split stored once and reread by every system. Counts are comments after cleaning (Sect.~\ref {sec:dataset}). The SHA-256 digest (first 12 hex digits of the full value in the released manifest) is copied into each run directory and re-checked before training.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:splits}{{1}{4}{The fixed split stored once and reread by every system. Counts are comments after cleaning (Sect.~\ref {sec:dataset}). The SHA-256 digest (first 12 hex digits of the full value in the released manifest) is copied into each run directory and re-checked before training}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Label Mapping and Imbalance}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:imbalance}{{3.2}{4}{Label Mapping and Imbalance}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Fixed Split and Reproducibility}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Duplication Across Splits}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{4}{section.4}\protected@file@percent }
+\newlabel{sec:method}{{4}{4}{Methodology}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Backbone and Common Configuration}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Full vs.\ the 5,785 duplicate-free test comments (Sect.~\ref {sec:dataset}). Accuracy drops for every system while macro-F1 and its ordering are essentially unchanged, so the conclusions do not rest on the overlap (Sect.~\ref {sec:threats}).}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:duplicate-free}{{2}{5}{Full vs.\ the 5,785 duplicate-free test comments (Sect.~\ref {sec:dataset}). Accuracy drops for every system while macro-F1 and its ordering are essentially unchanged, so the conclusions do not rest on the overlap (Sect.~\ref {sec:threats})}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The SensitiveAI pipeline. All six systems share the encoder and the decision stage; M2--M5 add the multi-view pooling head shown here, whereas M1 and M6 keep the standard first-token head. The recipes ablated on top are the baseline, the multi-view head plus DLR and two-stage training (weighted CE then focal), and the three-stage concept curriculum.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:architecture}{{1}{5}{The SensitiveAI pipeline. All six systems share the encoder and the decision stage; M2--M5 add the multi-view pooling head shown here, whereas M1 and M6 keep the standard first-token head. The recipes ablated on top are the baseline, the multi-view head plus DLR and two-stage training (weighted CE then focal), and the three-stage concept curriculum}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Systems and the Ablation Chain}{5}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:chain}{{4.2}{5}{Systems and the Ablation Chain}{subsection.4.2}{}}
+\citation{lin2017focal}
+\citation{howard2018ulmfit}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Multi-View Classification Head}{6}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:head}{{4.3}{6}{Multi-View Classification Head}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Losses and Class Weighting}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:losses}{{4.4}{6}{Losses and Class Weighting}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Discriminative Learning Rates and Two-Stage Training}{6}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:dlr}{{4.5}{6}{Discriminative Learning Rates and Two-Stage Training}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Discriminative (layer-wise) learning rates.}{6}{section*.2}\protected@file@percent }
+\citation{bengio2009curriculum}
+\citation{wolf2020transformers}
+\citation{loshchilov2019adamw}
+\@writefile{toc}{\contentsline {paragraph}{Two-stage training.}{7}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Label-specific decision thresholds.}{7}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Three-Stage Curriculum Concept Training}{7}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:curriculum}{{4.6}{7}{Three-Stage Curriculum Concept Training}{subsection.4.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Setup}{7}{section.5}\protected@file@percent }
+\newlabel{sec:setup}{{5}{7}{Experimental Setup}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Hardware and Software}{7}{subsection.5.1}\protected@file@percent }
+\citation{saito2015precision}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Training configuration and the validation checkpoint that was frozen for the test pass (M1--M6, Sect.~\ref {sec:chain}). AdamW, linear schedule, effective batch size 32 and sequence length 256 are shared by all systems. ``init`` is the encoder the first stage starts from; ``best ep.`` is the epoch whose validation macro-F1 was highest (it can lie in an earlier stage).}}{8}{table.3}\protected@file@percent }
+\newlabel{tab:training-details}{{3}{8}{Training configuration and the validation checkpoint that was frozen for the test pass (M1--M6, Sect.~\ref {sec:chain}). AdamW, linear schedule, effective batch size 32 and sequence length 256 are shared by all systems. ``init`` is the encoder the first stage starts from; ``best ep.`` is the epoch whose validation macro-F1 was highest (it can lie in an earlier stage)}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Training Protocol}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Metrics}{8}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{8}{section.6}\protected@file@percent }
+\newlabel{sec:results}{{6}{8}{Results}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Headline Comparison}{8}{subsection.6.1}\protected@file@percent }
+\citation{saito2015precision}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Comparison of the six systems (M1--M6, Sect.~\ref {sec:chain}) on the ViHSD test set under one fixed split; M-F1/W-F1: macro/weighted F1; HATE/OFF./CLEAN: per-class F1; AUC/AP: macro ROC-AUC / average precision.}}{9}{table.4}\protected@file@percent }
+\newlabel{tab:model-comparison}{{4}{9}{Comparison of the six systems (M1--M6, Sect.~\ref {sec:chain}) on the ViHSD test set under one fixed split; M-F1/W-F1: macro/weighted F1; HATE/OFF./CLEAN: per-class F1; AUC/AP: macro ROC-AUC / average precision}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Ablation Reading}{9}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Accuracy Versus Macro-F1}{9}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:trap}{{6.3}{9}{Accuracy Versus Macro-F1}{subsection.6.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Row-normalised test confusion matrices for the baseline (M1), the best macro-F1 system (M3) and the focal-only probe (M6). Every system shares one failure mode: \textsc  {offensive} comments sent to \textsc  {hate} or \textsc  {clean}, and \textsc  {hate} diluted into its neighbours; the systems differ by a few percent along these rows, not by a change of failure mode.}}{10}{figure.2}\protected@file@percent }
+\newlabel{fig:confusion}{{2}{10}{Row-normalised test confusion matrices for the baseline (M1), the best macro-F1 system (M3) and the focal-only probe (M6). Every system shares one failure mode: \textsc {offensive} comments sent to \textsc {hate} or \textsc {clean}, and \textsc {hate} diluted into its neighbours; the systems differ by a few percent along these rows, not by a change of failure mode}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Training Dynamics}{10}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Per-Class Behaviour and Error Analysis}{10}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Statistical Significance and Calibration}{10}{subsection.6.6}\protected@file@percent }
+\newlabel{sec:significance}{{6.6}{10}{Statistical Significance and Calibration}{subsection.6.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Post-hoc statistics on the frozen test predictions. \emph  {Top:} accuracy and macro-F1 with 95\% percentile bootstrap intervals (10,000 resamples of the 6,680 test items) and the top-label expected calibration error (ECE, 10 bins). \emph  {Bottom:} paired comparisons, $A$ minus $B$, with a 95\% paired-bootstrap interval on macro-F1; $p_{\text  {F1}}$ is the paired-bootstrap $p$-value and $p_{\text  {acc}}$ the exact two-sided McNemar $p$-value on the two systems' correctness. $^{\dagger }$ marks $p<0.05$ after a Holm--Bonferroni correction over the seven comparisons below; values below $0.001$ are shown as $<0.001$. No macro-F1 gap is significant; the only differences that survive correction are the two accuracy gaps involving M6, discussed in the text.}}{11}{table.5}\protected@file@percent }
+\newlabel{tab:significance}{{5}{11}{Post-hoc statistics on the frozen test predictions. \emph {Top:} accuracy and macro-F1 with 95\% percentile bootstrap intervals (10,000 resamples of the 6,680 test items) and the top-label expected calibration error (ECE, 10 bins). \emph {Bottom:} paired comparisons, $A$ minus $B$, with a 95\% paired-bootstrap interval on macro-F1; $p_{\text {F1}}$ is the paired-bootstrap $p$-value and $p_{\text {acc}}$ the exact two-sided McNemar $p$-value on the two systems' correctness. $^{\dagger }$ marks $p<0.05$ after a Holm--Bonferroni correction over the seven comparisons below; values below $0.001$ are shown as $<0.001$. No macro-F1 gap is significant; the only differences that survive correction are the two accuracy gaps involving M6, discussed in the text}{table.5}{}}
+\newlabel{tab:confidence}{{5}{11}{Post-hoc statistics on the frozen test predictions. \emph {Top:} accuracy and macro-F1 with 95\% percentile bootstrap intervals (10,000 resamples of the 6,680 test items) and the top-label expected calibration error (ECE, 10 bins). \emph {Bottom:} paired comparisons, $A$ minus $B$, with a 95\% paired-bootstrap interval on macro-F1; $p_{\text {F1}}$ is the paired-bootstrap $p$-value and $p_{\text {acc}}$ the exact two-sided McNemar $p$-value on the two systems' correctness. $^{\dagger }$ marks $p<0.05$ after a Holm--Bonferroni correction over the seven comparisons below; values below $0.001$ are shown as $<0.001$. No macro-F1 gap is significant; the only differences that survive correction are the two accuracy gaps involving M6, discussed in the text}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Ranking Quality and Decision Rules}{11}{subsection.6.7}\protected@file@percent }
+\citation{nguyen2022smtce}
+\citation{nguyen2022smtce}
+\citation{luu2021vihsd}
+\citation{nguyen2022smtce,conneau2020xlmr}
+\citation{nguyen2022smtce}
+\citation{nguyen2022smtce,nguyen2020phobert}
+\citation{nguyen2022smtce}
+\citation{tran2022phobertcnn}
+\citation{nguyen2023visobert}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Published macro-F1 on ViHSD vs.\ our best system (reported values, not re-trained by us). External rows differ in split handling, preprocessing, encoder size and model selection, none of which we control; SMTCE rows are as tabulated in \cite  {nguyen2022smtce}.}}{12}{table.6}\protected@file@percent }
+\newlabel{tab:external}{{6}{12}{Published macro-F1 on ViHSD vs.\ our best system (reported values, not re-trained by us). External rows differ in split handling, preprocessing, encoder size and model selection, none of which we control; SMTCE rows are as tabulated in \cite {nguyen2022smtce}}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Inference Cost}{12}{subsection.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}External Comparison}{12}{subsection.6.9}\protected@file@percent }
+\newlabel{sec:external}{{6.9}{12}{External Comparison}{subsection.6.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{12}{section.7}\protected@file@percent }
+\newlabel{sec:discussion}{{7}{12}{Discussion}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Which Decisions Actually Matter}{12}{subsection.7.1}\protected@file@percent }
+\citation{hoang2023vihos}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Threats to Validity}{13}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:threats}{{7.2}{13}{Threats to Validity}{subsection.7.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Implications}{13}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{13}{section.8}\protected@file@percent }
+\newlabel{sec:conclusion}{{8}{13}{Conclusion}{section.8}{}}
+\bibstyle{splncs04}
+\bibdata{references}
+\bibcite{bengio2009curriculum}{1}
+\bibcite{conneau2020xlmr}{2}
+\bibcite{cui2019classbalanced}{3}
+\bibcite{devlin2019bert}{4}
+\bibcite{he2023debertav3}{5}
+\bibcite{he2021deberta}{6}
+\bibcite{hoang2023vihos}{7}
+\@writefile{toc}{\contentsline {paragraph}{Future Work.}{14}{section*.5}\protected@file@percent }
+\bibcite{howard2018ulmfit}{8}
+\bibcite{lin2017focal}{9}
+\bibcite{loshchilov2019adamw}{10}
+\bibcite{luu2021vihsd}{11}
+\bibcite{liu2024mdeberta}{12}
+\bibcite{nguyen2020phobert}{13}
+\bibcite{nguyen2021victsd}{14}
+\bibcite{nguyen2023visobert}{15}
+\bibcite{nguyen2022smtce}{16}
+\bibcite{nguyen2024vihatet5}{17}
+\bibcite{saito2015precision}{18}
+\bibcite{tran2023videberta}{19}
+\bibcite{tran2022phobertcnn}{20}
+\bibcite{vu2020hsdvlsp}{21}
+\bibcite{wolf2020transformers}{22}
+\gdef \@abspage@last{15}
