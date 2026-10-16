@@ -31,8 +31,28 @@ logs/
 # ---- OS ----
 Thumbs.db
 .DS_Store
-outputs/
 *.pt
 *.pt.tmp
 *.safetensors
 *.bin
+
+
+# ---- AI model weights ----
+checkpoints/
+*.pt
+*.pt.tmp
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# ---- Large training artifacts ----
+**/best_model/
+**/last_model/
+**/checkpoint-*/
+**/optimizer_state/
+**/last_training_state*
+
+# ---- Logs ----
+*.log
+logs/

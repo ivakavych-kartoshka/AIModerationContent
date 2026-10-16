@@ -1,0 +1,70 @@
+[
+  {
+    "event": "stage_begin",
+    "global_epoch": 0,
+    "stage": "stage_1_ext",
+    "index": 1,
+    "spec": {
+      "name": "stage_1_ext",
+      "description": "Continue from the epoch-15 checkpoint of sensitiveai-vi-customdlr2stage run_001 stage_1 using the identical stage_1 recipe (DLR + class-weighted cross-entropy) for another 15 epochs.",
+      "epochs": 15,
+      "focus_label": null,
+      "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_001\\stage_checkpoints\\stage_1",
+      "save_checkpoint": true,
+      "training": {
+        "batch_size": 16,
+        "eval_batch_size": 32,
+        "gradient_accumulation": 2,
+        "learning_rate": 2e-05,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.1,
+        "optimizer": "adamw_torch",
+        "max_grad_norm": 1.0,
+        "scheduler": "linear",
+        "precision": "bf16",
+        "label_smoothing": 0.0
+      },
+      "dlr": {
+        "enabled": true,
+        "encoder_lr": 1e-05,
+        "layer_lr": 2e-05,
+        "head_lr": 0.0001,
+        "embedding_lr": 5e-06,
+        "layer_split": 0.5,
+        "layer_decay": 1.0
+      },
+      "loss": {
+        "type": "cross_entropy",
+        "use_class_weight": true,
+        "class_weight": "inverse_sqrt_frequency",
+        "class_weight_beta": 0.999,
+        "focal": {
+          "gamma": 2.0,
+          "alpha": {
+            "HATE": 0.5,
+            "OFFENSIVE": 0.25,
+            "CLEAN": 0.25
+          }
+        },
+        "label_smoothing": 0.0
+      },
+      "global_epoch_start": 1,
+      "global_epoch_end": 15
+    }
+  },
+  {
+    "event": "stage_end",
+    "global_epoch": 15,
+    "stage": "stage_1_ext",
+    "index": 1,
+    "epochs_run": 15,
+    "last_global_epoch": 15,
+    "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage-ext\\run_002\\stage_checkpoints\\stage_1_ext"
+  },
+  {
+    "event": "train_end",
+    "global_epoch": 15,
+    "reason": "completed",
+    "epochs_run": 15
+  }
+]

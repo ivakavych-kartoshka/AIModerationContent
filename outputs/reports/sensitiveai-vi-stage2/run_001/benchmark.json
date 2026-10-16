@@ -1,0 +1,20 @@
+{
+  "batch_size": 32,
+  "num_batches": 50,
+  "num_samples": 1600,
+  "latency_ms_per_batch": 370.6574,
+  "latency_ms_per_sample": 11.583,
+  "latency_p50_ms_per_batch": 370.6609,
+  "latency_p95_ms_per_batch": 371.7875,
+  "throughput_samples_per_second": 86.333,
+  "fps": 86.333,
+  "num_classes": 3,
+  "max_length": 256,
+  "precision": "fp32",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "peak_gpu_memory_mb": 2148.24,
+  "warmup_batches": 10,
+  "timed_batches": 50,
+  "note": "Tokenisation excluded; identical tokenizer/max_length/dtype for all four models."
+}

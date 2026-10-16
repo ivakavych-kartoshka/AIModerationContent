@@ -1,0 +1,11 @@
+Confusion matrix (rows = actual, cols = predicted)
+                          HATE  OFFENSIVE      CLEAN
+HATE               369         64        255
+OFFENSIVE           87        169        188
+CLEAN              119        100       5329
+
+Row-normalised
+                          HATE  OFFENSIVE      CLEAN
+HATE            0.5363     0.0930     0.3706
+OFFENSIVE       0.1959     0.3806     0.4234
+CLEAN           0.0214     0.0180     0.9605

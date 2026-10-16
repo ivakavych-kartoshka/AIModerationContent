@@ -34,6 +34,10 @@ PAPER_DIR = OUTPUTS_DIR / "paper"
 VIHSD_RAW_DIR = RAW_DIR / "vihsd"
 VIHSD_PROCESSED_DIR = PROCESSED_DIR / "vihsd"
 
+#: Sensitive-word lexicons (raw downloads + extracted word lists).
+LEXICON_RAW_DIR = RAW_DIR / "lexicon"
+LEXICON_PROCESSED_DIR = PROCESSED_DIR / "lexicon"
+
 # --------------------------------------------------------------------------- #
 # Labels  (plan section 2.1 - FIXED, do not change)
 # --------------------------------------------------------------------------- #

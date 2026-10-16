@@ -170,6 +170,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("03_compare_models.py", "Gộp kết quả 4 model thành bảng CSV/Markdown, biểu đồ, và file LaTeX cho paper."),
                 ("04_check_setup.py", "Kiểm tra môi trường, split, config, và forward pass. **Không** train."),
                 ("05_document_folders.py", "Sinh lại `explain.md` cho toàn bộ cây thư mục + bảng liệt kê các run."),
+                ("12_build_lexicon.py", "Tải 2 từ điển từ ngữ nhạy cảm từ GitHub về `data/raw/lexicon/` rồi trích xuất danh sách từ đã chuẩn hoá vào `data/processed/lexicon/`."),
                 ("README.md", "Hướng dẫn dùng từng script."),
                 ("explain.md", "File này."),
             ),
@@ -228,6 +229,7 @@ def _specs() -> Dict[str, FolderDoc]:
             produced_by="Không sinh ra - mã nguồn. Kết quả của nó nằm ở `data/` (thư mục dữ liệu).",
             contents=(
                 ("download.py", "Tải `uitnlp/vihsd` từ Hugging Face về `data/raw/vihsd/`."),
+                ("lexicon.py", "Tải 2 lexicon GitHub về `data/raw/lexicon/`, chuẩn hoá (NFC, hạ chữ, `_`→space) và ghi danh sách từ nhạy cảm + `lexicon_report.json` (SHA-256) vào `data/processed/lexicon/`."),
                 ("preprocess.py", "Làm sạch + remap nhãn canonical + ghi `preprocessing_report.json`."),
                 ("split.py", "Tạo split, tính SHA-256 từng file, kiểm tra toàn vẹn, ghi `split_manifest.json`."),
                 ("dataset.py", "Tokenize `train/validation/test`, `TokenizedTextDataset`, `collate_fn` an toàn Windows (num_workers>0)."),
@@ -338,7 +340,10 @@ def _specs() -> Dict[str, FolderDoc]:
             title="data/raw - dữ liệu tải về",
             purpose="Chỗ tải ViHSD về lần đầu. Giữ nguyên để có thể chạy lại tiền xử lý từ đầu.",
             produced_by="`python scripts/00_prepare_data.py --stage download`",
-            children=(("vihsd/", "3 file CSV gốc của ViHSD: `train.csv`, `dev.csv`, `test.csv`."),),
+            children=(
+                ("vihsd/", "3 file CSV gốc của ViHSD: `train.csv`, `dev.csv`, `test.csv`."),
+                ("lexicon/", "2 bộ từ điển từ ngữ nhạy cảm tải từ GitHub (không sửa)."),
+            ),
             keep_policy="**BẤT BIẾN.** Được xem là dữ liệu đầu vào gốc. Không sửa tay, không ghi đè bằng bản đã làm sạch.",
         ),
         "data/raw/vihsd": FolderDoc(
@@ -353,11 +358,38 @@ def _specs() -> Dict[str, FolderDoc]:
             ),
             keep_policy="**BẤT BIẾN - KHÔNG BAO GIỜ SỬA.** Đây là mốc đối chiếu để chứng minh tiền xử lý không làm mất dữ liệu.",
         ),
+        "data/raw/lexicon": FolderDoc(
+            title="data/raw/lexicon - từ điển từ nhạy cảm nguyên bản",
+            purpose=(
+                "2 bộ lexicon tiếng Việt tải từ GitHub, giữ nguyên từng byte để có thể trích xuất lại từ đầu: "
+                "profanity + teencode + từ nhạy cảm chính trị (behitek) và offensive words có biến thể "
+                "không dấu / teencode (blue-eyes-vn)."
+            ),
+            produced_by="`python scripts/12_build_lexicon.py --stage download`",
+            children=(
+                ("behitek-vietnam-sensitive-words/", "`bad_words.json`, `bad_words_22082018.json`, `hide.txt` từ github.com/behitek/vietnam-sensitive-words."),
+                ("blue-eyes-vn-vietnamese-offensive-words/", "`vn_offensive_words.txt` (+ bản copy định dạng array, README, LICENSE) từ github.com/blue-eyes-vn/vietnamese-offensive-words."),
+            ),
+            keep_policy="**BẤT BIẾN.** Dữ liệu đầu vào gốc - không sửa tay, không ghi đè.",
+        ),
+        "data/raw/lexicon/*": FolderDoc(
+            title="data/raw/lexicon/<nguồn> - file lexicon gốc",
+            purpose="Các file lexicon tải trực tiếp từ repo GitHub tương ứng, không qua xử lý.",
+            produced_by="`python scripts/12_build_lexicon.py --stage download`",
+            reading_guide=(
+                "Không đọc file này để dùng từ điển - hãy dùng bản đã chuẩn hoá ở `data/processed/lexicon/`.",
+                "Muốn xác minh nguồn: đối chiếu SHA-256 trong `data/processed/lexicon/lexicon_report.json`.",
+            ),
+            keep_policy="**BẤT BIẾN.** Nguyên bản từ upstream.",
+        ),
         "data/processed": FolderDoc(
             title="data/processed - dữ liệu sau tiền xử lý",
             purpose="Kết quả làm sạch + remap nhãn canonical. Phục vụ kiểm tra, không phải nơi mô hình đọc.",
             produced_by="`python scripts/00_prepare_data.py --stage preprocess`",
-            children=(("vihsd/", "CSV đã làm sạch + báo cáo tiền xử lý."),),
+            children=(
+                ("vihsd/", "CSV đã làm sạch + báo cáo tiền xử lý."),
+                ("lexicon/", "Danh sách từ nhạy cảm đã chuẩn hoá + báo cáo trích xuất."),
+            ),
         ),
         "data/processed/vihsd": FolderDoc(
             title="data/processed/vihsd - CSV đã làm sạch",
@@ -374,6 +406,28 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("explain.md", "File này."),
             ),
             keep_policy="**Sinh lại được** từ `data/raw/vihsd`, nhưng nên giữ lại để đối chiếu.",
+        ),
+        "data/processed/lexicon": FolderDoc(
+            title="data/processed/lexicon - danh sách từ nhạy cảm đã chuẩn hoá",
+            purpose=(
+                "Kết quả trích xuất từ 2 lexicon nguồn: mỗi file một từ/cụm từ trên một dòng, UTF-8, "
+                "đã NFC + hạ chữ + `_`→space + gộp space, sắp xếp và khử trùng lặp. "
+                "`sensitive_words_combined.txt` là danh sách gộp để dùng khi lọc văn bản."
+            ),
+            produced_by="`python scripts/12_build_lexicon.py --stage extract`",
+            contents=(
+                ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị)."),
+                ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode)."),
+                ("sensitive_words_combined.txt", "Gộp 2 nguồn, khử trùng lặp - file nên dùng để quét văn bản."),
+                ("lexicon_report.json", "Số từ từng nguồn, phần giao, số cụm từ nhiều chữ, SHA-256 từng file output và từng file nguồn."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Muốn biết có bao nhiêu từ: `lexicon_report.json`, khoá `counts`.",
+                "Nghi ngờ file bị đổi: so SHA-256 trong `lexicon_report.json` với file trên đĩa.",
+                "Muốn lọc văn bản: đọc `sensitive_words_combined.txt`, mỗi dòng một cụm từ (lowercase).",
+            ),
+            keep_policy="**Sinh lại được** từ `data/raw/lexicon`, nhưng nên giữ lại để đối chiếu SHA-256.",
         ),
         "data/splits": FolderDoc(
             title="data/splits - split cố định dùng chung",
