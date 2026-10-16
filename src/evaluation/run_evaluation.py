@@ -55,6 +55,7 @@ from ..common.paths import (
     find_best_report_dir,
     per_model_eval_dir,
     project_path,
+    project_relative,
 )
 from ..common.seeding import seed_everything
 from ..data.dataset import build_datasets, make_dataloader
@@ -131,6 +132,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--force-argmax", action="store_true", help="Ignore thresholds even if thresholds.json exists.")
     p.add_argument("--max-eval-samples", type=int, default=None, help="Debug: cap the split size.")
     p.add_argument("--device", default=None, help="Force 'cuda' or 'cpu'.")
+    p.add_argument("--eval-dir", default=None, help="Override base evaluation directory (e.g. evaluation_smoke).")
     return p
 
 
@@ -188,6 +190,20 @@ def append_evaluation_log(row: Dict[str, Any], path: Optional[Path] = None) -> P
     frame.to_csv(out, mode="a", header=write_header, index=False, encoding="utf-8")
     LOGGER.info("[eval] evaluation log -> %s", out)
     return out
+
+
+def _manifest_size(manifest: Dict[str, Any], split: str, fallback: int) -> int:
+    """Full size of ``split`` as recorded in ``split_manifest.json``.
+
+    The manifest nests the counts under ``splits.<name>.num_samples``; there is
+    no flat ``num_<name>`` key, so a flat lookup silently falls back to
+    ``fallback`` - which is 0 for train because evaluation never tokenizes it.
+    """
+    entry = (manifest.get("splits") or {}).get(split) or {}
+    for value in (entry.get("num_samples"), manifest.get(f"num_{split}")):
+        if isinstance(value, int) and not isinstance(value, bool):
+            return value
+    return int(fallback)
 
 
 def _frozen_class_weights(report_path: Path) -> Optional[Dict[str, float]]:
@@ -270,6 +286,11 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     tokenizer_dir = checkpoint if (checkpoint / "tokenizer_config.json").is_file() else None
     tokenizer = AutoTokenizer.from_pretrained(str(tokenizer_dir or cfg["base_model"]), use_fast=True)
 
+    # Evaluation always runs on the *full* split for accuracy.
+    # dataset.max_eval_samples in config.yaml is intentionally ignored here -
+    # it is only a training-time speedup (fast validation epochs during --smoke-test)
+    # and must never cap the final scored pass.
+    # Use the CLI --max-eval-samples only when explicitly supplied.
     bundle = build_datasets(
         tokenizer=tokenizer,
         splits_dir=splits_dir,
@@ -358,7 +379,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
             "run_id": run_id,
             "split": args.split,
             "decision_rule": decision_rule,
-            "checkpoint": str(checkpoint),
+            "checkpoint": project_relative(checkpoint),
             "num_test_samples": int(len(y_true)),
         }
     )
@@ -473,12 +494,14 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
         parameters=parameters,
         dataset={
             "name": cfg.get("dataset", {}).get("name"),
-            "splits_dir": str(splits_dir),
+            "splits_dir": project_relative(splits_dir),
             # sizes come from the manifest so the report shows the *full* split,
-            # not the tokenized (possibly capped) subsets
-            "num_train": int(split_manifest.get("num_train", len(bundle.train))),
-            "num_validation": int(split_manifest.get("num_validation", len(bundle.validation))),
-            "num_test": int(split_manifest.get("num_test", len(bundle.test))),
+            # not the tokenized (possibly capped) subsets.  Evaluation only
+            # tokenizes validation/test, so `bundle.train` is empty here and
+            # must not be used as the source of truth for the train size.
+            "num_train": _manifest_size(split_manifest, "train", len(bundle.train)),
+            "num_validation": _manifest_size(split_manifest, "validation", len(bundle.validation)),
+            "num_test": _manifest_size(split_manifest, "test", len(bundle.test)),
             "max_length": bundle.max_length,
         },
         training=training_summary.get("training", {}),
@@ -507,20 +530,25 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     evaluation_payload = {
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "model": args.model,
-        "run_id": run_id,
-        "checkpoint": str(checkpoint),
+"run_id": run_id,
+        "checkpoint": project_relative(checkpoint),
         "split": args.split,
         "decision_rule": decision_rule,
-        "thresholds_file": str(report_path / "thresholds.json") if thresholds_payload else None,
-        "metrics_file": str(report_path / "metrics.json"),
-        "report_dir": str(report_path),
+        "thresholds_file": project_relative(report_path / "thresholds.json") if thresholds_payload else None,
+        "metrics_file": project_relative(report_path / "metrics.json"),
+        "report_dir": project_relative(report_path),
         "benchmark": benchmark,
         "environment": collect_environment(),
     }
     dump_json(evaluation_payload, report_path / "evaluation.json")
 
     # ---- evaluation/per_model mirror ------------------------------------ #
-    mirror = ensure_dir(per_model_eval_dir(args.model))
+    eval_root = (
+        Path(args.eval_dir)
+        if getattr(args, "eval_dir", None)
+        else (Path("evaluation_smoke") if (reports_root and "smoke" in str(reports_root).lower()) else None)
+    )
+    mirror = ensure_dir(per_model_eval_dir(args.model, root=(eval_root / "per_model") if eval_root else None))
     for name in (
         "metrics.json", "model_summary.txt", "classification_report.txt",
         "Best_model_classification_report.txt", "confusion_matrix.png",
@@ -543,7 +571,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
             "timestamp": evaluation_payload["timestamp"],
             "model": args.model,
             "run_id": run_id,
-            "checkpoint": str(checkpoint),
+            "checkpoint": project_relative(checkpoint),
             "dataset": cfg.get("dataset", {}).get("name", ""),
             "split": args.split,
             "decision_rule": decision_rule,
@@ -562,7 +590,8 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
             "fps": (benchmark or {}).get("fps", ""),
             "parameters": parameters.get("total_parameters", ""),
             "best_epoch": training_summary.get("training", {}).get("best_epoch", ""),
-        }
+        },
+        path=evaluation_log_path(root=eval_root) if eval_root else None,
     )
 
     LOGGER.info("-" * 78)

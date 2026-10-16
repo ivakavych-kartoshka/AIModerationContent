@@ -1,0 +1,85 @@
+{
+  "models_compared": [
+    "sensitiveai-vi",
+    "sensitiveai-vi-custom",
+    "sensitiveai-vi-customdlr2stage",
+    "sensitiveai-vi-custom-curriculum"
+  ],
+  "num_models": 4,
+  "table_file": "outputs_smoke\\evaluation_smoke\\comparison\\model_comparison.csv",
+  "markdown_file": "outputs_smoke\\evaluation_smoke\\comparison\\model_comparison.md",
+  "figures": {
+    "pr_curve_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\pr_hate_all_models.png",
+    "roc_hate_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\roc_hate_all_models.png",
+    "pr_offensive_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\pr_offensive_all_models.png",
+    "roc_offensive_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\roc_offensive_all_models.png",
+    "pr_clean_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\pr_clean_all_models.png",
+    "roc_clean_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\roc_clean_all_models.png",
+    "validation_accuracy_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\validation_loss_all_models.png",
+    "macro_f1_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\macro_f1_all_models.png",
+    "accuracy_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\accuracy_all_models.png",
+    "per_class_f1_all_models.png": "outputs_smoke\\evaluation_smoke\\comparison\\per_class_f1_all_models.png"
+  },
+  "latex_tables": {
+    "model_comparison": "outputs_smoke\\paper_smoke\\tables\\model_comparison.tex",
+    "classification_results": "outputs_smoke\\paper_smoke\\tables\\classification_results.tex",
+    "ablation_results": "outputs_smoke\\paper_smoke\\tables\\ablation_results.tex"
+  },
+  "paper_figures": {
+    "validation_accuracy_all_models.png": "outputs_smoke\\paper_smoke\\figures\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "outputs_smoke\\paper_smoke\\figures\\validation_loss_all_models.png",
+    "pr_curve_all_models.png": "outputs_smoke\\paper_smoke\\figures\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "outputs_smoke\\paper_smoke\\figures\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "outputs_smoke\\paper_smoke\\figures\\pr_hate_all_models.png",
+    "pr_offensive_all_models.png": "outputs_smoke\\paper_smoke\\figures\\pr_offensive_all_models.png",
+    "pr_clean_all_models.png": "outputs_smoke\\paper_smoke\\figures\\pr_clean_all_models.png",
+    "roc_hate_all_models.png": "outputs_smoke\\paper_smoke\\figures\\roc_hate_all_models.png",
+    "roc_offensive_all_models.png": "outputs_smoke\\paper_smoke\\figures\\roc_offensive_all_models.png",
+    "roc_clean_all_models.png": "outputs_smoke\\paper_smoke\\figures\\roc_clean_all_models.png",
+    "macro_f1_all_models.png": "outputs_smoke\\paper_smoke\\figures\\macro_f1_all_models.png",
+    "per_class_f1_all_models.png": "outputs_smoke\\paper_smoke\\figures\\per_class_f1_all_models.png"
+  },
+  "best_macro_f1_model": "sensitiveai-vi-customdlr2stage",
+  "best_macro_f1": 0.6649692074278585,
+  "metrics": {
+    "sensitiveai-vi": {
+      "accuracy": 0.857934131736527,
+      "macro_f1": 0.5664668475207734,
+      "weighted_f1": 0.8444673775149449,
+      "macro_roc_auc": 0.8762736736717023,
+      "macro_average_precision": 0.6063721890585231,
+      "decision_rule": "argmax",
+      "report_dir": "outputs_smoke\\reports_smoke\\sensitiveai-vi\\run_002"
+    },
+    "sensitiveai-vi-custom": {
+      "accuracy": 0.8736526946107784,
+      "macro_f1": 0.6611538672154554,
+      "weighted_f1": 0.87123801462739,
+      "macro_roc_auc": 0.9025827081607618,
+      "macro_average_precision": 0.6772465136291524,
+      "decision_rule": "argmax",
+      "report_dir": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom\\run_002"
+    },
+    "sensitiveai-vi-customdlr2stage": {
+      "accuracy": 0.8715568862275449,
+      "macro_f1": 0.6649692074278585,
+      "weighted_f1": 0.8720755621923968,
+      "macro_roc_auc": 0.8971344739606443,
+      "macro_average_precision": 0.6706234645018485,
+      "decision_rule": "thresholds",
+      "report_dir": "outputs_smoke\\reports_smoke\\sensitiveai-vi-customdlr2stage\\run_002"
+    },
+    "sensitiveai-vi-custom-curriculum": {
+      "accuracy": 0.8767964071856288,
+      "macro_f1": 0.6627057412402374,
+      "weighted_f1": 0.8742887188354256,
+      "macro_roc_auc": 0.8975704488102,
+      "macro_average_precision": 0.6726465100295981,
+      "decision_rule": "thresholds",
+      "report_dir": "outputs_smoke\\reports_smoke\\sensitiveai-vi-custom-curriculum\\run_002"
+    }
+  }
+}

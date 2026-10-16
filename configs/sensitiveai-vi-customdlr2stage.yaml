@@ -21,7 +21,8 @@ head: custom
 seed: 42
 deterministic: true
 
-encoder_checkpoint: null       # pre-trained encoder (stage 1 starts from scratch)
+encoder_checkpoint: outputs/reports/sensitiveai-vi-custom/run_001/best_model
+       # pre-trained encoder (stage 1 starts from scratch)
 
 head_options:
   head_hidden_size: 512
@@ -49,12 +50,13 @@ training:
   batch_size: 16
   eval_batch_size: 32
   gradient_accumulation: 2
-  epochs: 4
+  epochs: 30
   learning_rate: 2.0e-5
   weight_decay: 0.01
   warmup_ratio: 0.1
   optimizer: adamw_torch
   scheduler: linear
+  min_lr_ratio: 0.01
   max_grad_norm: 1.0
   precision: bf16
   gradient_checkpointing: true
@@ -89,7 +91,7 @@ stages:
     description: >-
       Stabilise the pre-trained representation. Cross-entropy with class weights
       computed on the TRAIN split only.
-    epochs: 4
+    epochs: 15
     save_checkpoint: true
     training:
       learning_rate: 2.0e-5
@@ -104,7 +106,7 @@ stages:
       Continue from the stage 1 checkpoint with lower learning rates, focal loss
       and label-specific alpha so that hard / rare HATE samples dominate the
       gradient.
-    epochs: 3
+    epochs: 15
     save_checkpoint: true
     init_from: "stage:stage_1"
     training:
@@ -138,7 +140,7 @@ early_stopping:
   enabled: true
   metric: macro_f1
   mode: max
-  patience: 3
+  patience: 6
   min_delta: 0.0
 
 evaluation:

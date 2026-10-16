@@ -59,6 +59,7 @@ class EarlyStoppingCallback(Callback):
         self.best_epoch: Optional[int] = None
         self.num_bad_epochs = 0
         self.should_stop = False
+        self.stage_resets: list[Dict[str, Any]] = []
         self.history: list[Dict[str, Any]] = []
 
     def observe(self, epoch: int, value: float) -> bool:
@@ -74,6 +75,38 @@ class EarlyStoppingCallback(Callback):
             self.num_bad_epochs += 1
         self.history.append({"epoch": epoch, "value": float(value), "is_best": bool(improved)})
         return improved and self.best_epoch == epoch
+
+    def on_stage_begin(self, trainer: Any = None, stage: Any = None, **_: Any) -> None:
+        """Give the new stage its own plateau budget.
+
+        Every stage is a different optimisation problem - the loss may change
+        (cross-entropy -> focal, concept OFFENSIVE -> concept HATE) and the
+        learning rates are usually lowered - so the first epochs of a stage
+        legitimately score below the best value of the *previous* stage.  The
+        ``num_bad_epochs`` counter is therefore reset here instead of being
+        inherited, otherwise a plateau that started before the transition would
+        stop the whole run and the later stages would never execute.
+
+        ``best_value`` is deliberately *not* reset: it still tracks the best
+        epoch of the entire run, which is what ``best_model/`` must contain.
+        """
+        if not self.enabled:
+            return
+        if self.num_bad_epochs:
+            LOGGER.info(
+                "[early-stop] %s carries a %d-epoch plateau into the next stage - "
+                "counter reset, %d more allowed",
+                self.metric, self.num_bad_epochs, self.patience,
+            )
+            self.stage_resets.append(
+                {
+                    "stage": getattr(stage, "name", None),
+                    "epoch": getattr(stage, "global_epoch_start", None),
+                    "bad_epochs_carried": self.num_bad_epochs,
+                }
+            )
+        self.num_bad_epochs = 0
+        self.should_stop = False
 
     def on_epoch_end(self, trainer: Any = None, epoch: int = 0, metrics: Dict[str, Any] | None = None,
                      stage: Any = None, **_: Any) -> None:
@@ -110,6 +143,7 @@ class EarlyStoppingCallback(Callback):
             "best_epoch": self.best_epoch,
             "num_bad_epochs": self.num_bad_epochs,
             "stopped_early": bool(self.should_stop),
+            "stage_resets": self.stage_resets,
             "history": self.history,
         }
 

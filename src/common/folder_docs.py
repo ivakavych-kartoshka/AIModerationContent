@@ -128,16 +128,14 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("src/", "Mã nguồn Python (43 module)."),
                 ("scripts/", "5 entry point chạy theo thứ tự 00 -> 05."),
                 ("data/", "Dữ liệu ViHSD: raw, processed, splits."),
-                ("reports/", "Log + artifact của mỗi lần train/evaluate. **Nơu cần tìm log.**"),
-                ("experiments/", "Checkpoint từng stage của mỗi lần train."),
+                ("outputs/", "Toàn bộ kết quả chính thức: reports, experiments, evaluation, paper."),
+                ("outputs_smoke/", "Toàn bộ kết quả smoke test (nếu gom vào thư mục con)."),
                 ("checkpoints/", "Kho checkpoint dự trữ."),
-                ("evaluation/", "Log đánh giá tổng hợp + bảng/biểu đồ so sánh 4 model."),
-                ("paper/", "Khung bài báo: main.tex, references.bib, sections, tables, figures."),
             ),
             reading_guide=(
                 "Người mới bắt đầu: đọc `README.md` mục 1 và mục 9.",
                 "Muốn hiểu code: `src/` (mỗi subfolder có `explain.md` riêng).",
-                "Muốn xem log train: `reports/<model>/run_XXX/explain.md`.",
+                "Muốn xem log train: `outputs/reports/<model>/run_XXX/explain.md`.",
             ),
             keep_policy="Thư mục gốc không được xóa. Các thư mục con sinh ra khi chạy có quy tắc giữ riêng.",
         ),
@@ -519,6 +517,37 @@ def _specs() -> Dict[str, FolderDoc]:
             ),
             keep_policy=KEEP_POLICY,
         ),
+        "outputs": FolderDoc(
+            title="outputs - kết quả huấn luyện & đánh giá chính thức",
+            purpose=(
+                "Thư mục chứa toàn bộ kết quả chính thức: `reports/` (chi tiết từng run của từng model), "
+                "`experiments/` (trạng thái huấn luyện và checkpoints trung gian), `evaluation/` (đánh giá tổng hợp "
+                "và so sánh 4 model), và `paper/` (bảng số liệu, biểu đồ cho bài báo)."
+            ),
+            produced_by="Các pipeline huấn luyện chính thức (scripts 01 -> 03).",
+            children=(
+                ("reports/", "Báo cáo chi tiết, log và checkpoint `best_model` của từng model theo run."),
+                ("experiments/", "Checkpoints trung gian giữa các stage của mô hình đa giai đoạn."),
+                ("evaluation/", "Log chấm điểm tổng hợp và bảng/biểu đồ so sánh 4 model."),
+                ("paper/", "Bảng LaTeX và hình vẽ dùng cho bài báo."),
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "outputs_smoke": FolderDoc(
+            title="outputs_smoke - kết quả chạy kiểm thử nhanh (smoke test)",
+            purpose=(
+                "Thư mục chứa toàn bộ kết quả của các lần chạy smoke test kiểm thử pipeline: "
+                "`reports/`, `experiments/`, `evaluation/`, và `paper/`."
+            ),
+            produced_by="Các lệnh chạy với cờ `--smoke-test` hoặc trỏ `--reports-dir outputs_smoke/reports`.",
+            children=(
+                ("reports/", "Báo cáo chi tiết các lần chạy smoke test."),
+                ("experiments/", "Trạng thái checkpoint smoke test."),
+                ("evaluation/", "Đánh giá tổng hợp smoke test."),
+                ("paper/", "Bảng số liệu smoke test."),
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
         "checkpoints": FolderDoc(
             title="checkpoints - kho trọng số dự trữ",
             purpose=(
@@ -721,6 +750,24 @@ def spec_for(rel_path: str) -> Optional[FolderDoc]:
     doc = _match(normalised, specs)
     if doc is not None:
         return doc
+    if normalised.startswith("outputs/"):
+        stripped = normalised[len("outputs/"):].strip("/")
+        doc = _match(stripped, specs)
+        if doc is not None:
+            return doc
+        if "_smoke" in stripped:
+            doc = _match(stripped.replace("_smoke", ""), specs)
+            if doc is not None:
+                return doc
+    if normalised.startswith("outputs_smoke/"):
+        stripped = normalised[len("outputs_smoke/"):].strip("/")
+        doc = _match(stripped, specs)
+        if doc is not None:
+            return doc
+        if "_smoke" in stripped:
+            doc = _match(stripped.replace("_smoke", ""), specs)
+            if doc is not None:
+                return doc
     if "_smoke" in normalised:
         return _match(normalised.replace("_smoke", ""), specs)
     return None

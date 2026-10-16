@@ -115,8 +115,8 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     },
 
     "output": {
-        "experiments_dir": "experiments",
-        "reports_dir": "reports",
+        "experiments_dir": "outputs/experiments",
+        "reports_dir": "outputs/reports",
         "checkpoints_dir": "checkpoints",
         "save_checkpoints": True,
         "save_last_checkpoint": True,

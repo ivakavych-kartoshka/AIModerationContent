@@ -1,0 +1,66 @@
+==========================================================================
+Model summary - sensitiveai-vi-custom
+==========================================================================
+
+[Model]
+Model Name                        : sensitiveai-vi-custom
+Base Model                        : microsoft/mdeberta-v3-base
+Classification Head               : custom
+Training Stages                   : 1 stage(s)
+  stage single                    : epochs 1-1
+
+[Parameters]
+Total Parameters                  : 279,406,083
+Trainable Parameters              : 279,406,083
+Non-trainable Parameters          : 0
+Estimated Parameter Memory        : 1065.85 MB (fp32 weights)
+  head parameters                 : 1,187,331
+
+[Dataset]
+Dataset                           : uitnlp/vihsd
+Split directory                   : C:\AI\AIModerationContent\data\splits
+Label Mapping                     : HATE=0, OFFENSIVE=1, CLEAN=2
+Training Samples                  : 0
+Validation Samples                : 2,672
+Test Samples                      : 6,680
+Max sequence length               : 256
+
+[Training]
+Best Metric                       : macro_f1
+Best Value                        : 0.680415
+Best Epoch                        : 1
+Best Stage                        : single
+Epochs Run                        : 1 / 1
+Training Time                     : 00:16:50 (h:mm:ss)
+Early Stopped                     : False
+
+[Inference Benchmark]
+Benchmark                         : not run
+
+[Test Results]  (decision rule: argmax)
+Accuracy                          : 0.8737
+Macro Precision                   : 0.6716
+Macro Recall                      : 0.6525
+Macro F1                          : 0.6612
+Weighted F1                       : 0.8712
+Macro ROC-AUC                     : 0.9026
+Macro Average Precision           : 0.6772
+
+Class          Precision      Recall          F1     Support
+HATE              0.6105      0.6105      0.6105         688
+OFFENSIVE         0.4711      0.4032      0.4345         444
+CLEAN             0.9332      0.9439      0.9385        5548
+
+[Hardware / Software]
+GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU
+GPU Memory (GB)                   : 8.0
+CUDA Version (torch)              : 12.6
+cuDNN Version                     : 91002
+NVIDIA Driver                     : 617.14
+PyTorch Version                   : 2.13.0+cu126
+Transformers Version              : 5.14.1
+scikit-learn Version              : 1.8.0
+Python Version                    : 3.11.9
+Platform                          : Windows-10-10.0.26300-SP0
+
+==========================================================================

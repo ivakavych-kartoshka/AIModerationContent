@@ -1,0 +1,132 @@
+[
+  {
+    "event": "stage_begin",
+    "global_epoch": 0,
+    "stage": "stage_1",
+    "index": 1,
+    "spec": {
+      "name": "stage_1",
+      "description": "Stabilise the pre-trained representation. Cross-entropy with class weights computed on the TRAIN split only.",
+      "epochs": 1,
+      "focus_label": null,
+      "init_from": null,
+      "save_checkpoint": true,
+      "training": {
+        "batch_size": 4,
+        "eval_batch_size": 8,
+        "gradient_accumulation": 2,
+        "learning_rate": 2e-05,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.1,
+        "optimizer": "adamw_torch",
+        "max_grad_norm": 1.0,
+        "scheduler": "linear",
+        "precision": "bf16",
+        "label_smoothing": 0.0
+      },
+      "dlr": {
+        "enabled": true,
+        "encoder_lr": 1e-05,
+        "layer_lr": 2e-05,
+        "head_lr": 0.0001,
+        "embedding_lr": 5e-06,
+        "layer_split": 0.5,
+        "layer_decay": 1.0
+      },
+      "loss": {
+        "type": "cross_entropy",
+        "use_class_weight": true,
+        "class_weight": "inverse_sqrt_frequency",
+        "class_weight_beta": 0.999,
+        "focal": {
+          "gamma": 2.0,
+          "alpha": {
+            "HATE": 0.5,
+            "OFFENSIVE": 0.25,
+            "CLEAN": 0.25
+          }
+        },
+        "label_smoothing": 0.0
+      },
+      "global_epoch_start": 1,
+      "global_epoch_end": 1
+    }
+  },
+  {
+    "event": "stage_end",
+    "global_epoch": 1,
+    "stage": "stage_1",
+    "index": 1,
+    "epochs_run": 1,
+    "last_global_epoch": 1,
+    "checkpoint": "outputs_smoke\\experiments_smoke\\sensitiveai-vi-customdlr2stage\\run_002\\stage_checkpoints\\stage_1"
+  },
+  {
+    "event": "stage_begin",
+    "global_epoch": 1,
+    "stage": "stage_2",
+    "index": 2,
+    "spec": {
+      "name": "stage_2",
+      "description": "Continue from the stage 1 checkpoint with lower learning rates, focal loss and label-specific alpha so that hard / rare HATE samples dominate the gradient.",
+      "epochs": 1,
+      "focus_label": null,
+      "init_from": "outputs_smoke\\experiments_smoke\\sensitiveai-vi-customdlr2stage\\run_002\\stage_checkpoints\\stage_1",
+      "save_checkpoint": true,
+      "training": {
+        "batch_size": 4,
+        "eval_batch_size": 8,
+        "gradient_accumulation": 2,
+        "learning_rate": 1e-05,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.05,
+        "optimizer": "adamw_torch",
+        "max_grad_norm": 1.0,
+        "scheduler": "linear",
+        "precision": "bf16",
+        "label_smoothing": 0.0
+      },
+      "dlr": {
+        "enabled": true,
+        "encoder_lr": 5e-06,
+        "layer_lr": 1e-05,
+        "head_lr": 5e-05,
+        "embedding_lr": 2.5e-06,
+        "layer_split": 0.5,
+        "layer_decay": 1.0
+      },
+      "loss": {
+        "type": "focal",
+        "use_class_weight": true,
+        "class_weight": "inverse_sqrt_frequency",
+        "class_weight_beta": 0.999,
+        "focal": {
+          "gamma": 2.0,
+          "alpha": {
+            "HATE": 0.5,
+            "OFFENSIVE": 0.25,
+            "CLEAN": 0.25
+          }
+        },
+        "label_smoothing": 0.0
+      },
+      "global_epoch_start": 2,
+      "global_epoch_end": 2
+    }
+  },
+  {
+    "event": "stage_end",
+    "global_epoch": 2,
+    "stage": "stage_2",
+    "index": 2,
+    "epochs_run": 1,
+    "last_global_epoch": 2,
+    "checkpoint": "outputs_smoke\\experiments_smoke\\sensitiveai-vi-customdlr2stage\\run_002\\stage_checkpoints\\stage_2"
+  },
+  {
+    "event": "train_end",
+    "global_epoch": 2,
+    "reason": "completed",
+    "epochs_run": 2
+  }
+]

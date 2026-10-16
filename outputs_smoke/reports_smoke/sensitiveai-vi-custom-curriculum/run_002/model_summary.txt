@@ -1,0 +1,74 @@
+==========================================================================
+Model summary - sensitiveai-vi-custom-curriculum
+==========================================================================
+
+[Model]
+Model Name                        : sensitiveai-vi-custom-curriculum
+Base Model                        : microsoft/mdeberta-v3-base
+Classification Head               : custom
+Training Stages                   : 3 stage(s)
+  stage stage_1                   : epochs 1-1, focus=OFFENSIVE
+  stage stage_2                   : epochs 2-2, focus=HATE
+  stage stage_3                   : epochs 3-3
+
+[Parameters]
+Total Parameters                  : 279,406,083
+Trainable Parameters              : 279,406,083
+Non-trainable Parameters          : 0
+Estimated Parameter Memory        : 1065.85 MB (fp32 weights)
+  head parameters                 : 1,187,331
+
+[Dataset]
+Dataset                           : uitnlp/vihsd
+Split directory                   : C:\AI\AIModerationContent\data\splits
+Label Mapping                     : HATE=0, OFFENSIVE=1, CLEAN=2
+Training Samples                  : 0
+Validation Samples                : 2,672
+Test Samples                      : 6,680
+Max sequence length               : 256
+
+[Training]
+Best Metric                       : macro_f1
+Best Value                        : 0.674541
+Best Epoch                        : 3
+Best Stage                        : stage_3
+Epochs Run                        : 3 / 3
+Training Time                     : 00:49:56 (h:mm:ss)
+Early Stopped                     : False
+
+[Inference Benchmark]
+Benchmark                         : not run
+
+[Test Results]  (decision rule: thresholds)
+Accuracy                          : 0.8768
+Macro Precision                   : 0.6725
+Macro Recall                      : 0.6559
+Macro F1                          : 0.6627
+Weighted F1                       : 0.8743
+Macro ROC-AUC                     : 0.8976
+Macro Average Precision           : 0.6726
+
+Class          Precision      Recall          F1     Support
+HATE              0.6179      0.6439      0.6306         688
+OFFENSIVE         0.4628      0.3784      0.4164         444
+CLEAN             0.9368      0.9456      0.9412        5548
+
+[Label-specific Thresholds]  (searched on VALIDATION only)
+threshold HATE                    : 0.5
+threshold OFFENSIVE               : 0.5
+threshold CLEAN                   : 0.5
+objective before -> after         : 0.674541 -> 0.674541
+
+[Hardware / Software]
+GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU
+GPU Memory (GB)                   : 8.0
+CUDA Version (torch)              : 12.6
+cuDNN Version                     : 91002
+NVIDIA Driver                     : 617.14
+PyTorch Version                   : 2.13.0+cu126
+Transformers Version              : 5.14.1
+scikit-learn Version              : 1.8.0
+Python Version                    : 3.11.9
+Platform                          : Windows-10-10.0.26300-SP0
+
+==========================================================================

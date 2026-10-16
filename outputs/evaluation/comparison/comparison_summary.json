@@ -1,0 +1,85 @@
+{
+  "models_compared": [
+    "sensitiveai-vi",
+    "sensitiveai-vi-custom",
+    "sensitiveai-vi-customdlr2stage",
+    "sensitiveai-vi-custom-curriculum"
+  ],
+  "num_models": 4,
+  "table_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.csv",
+  "markdown_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.md",
+  "figures": {
+    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\pr_hate_all_models.png",
+    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\roc_hate_all_models.png",
+    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\pr_offensive_all_models.png",
+    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\roc_offensive_all_models.png",
+    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\pr_clean_all_models.png",
+    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\roc_clean_all_models.png",
+    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\validation_loss_all_models.png",
+    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\macro_f1_all_models.png",
+    "accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\accuracy_all_models.png",
+    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\per_class_f1_all_models.png"
+  },
+  "latex_tables": {
+    "model_comparison": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\model_comparison.tex",
+    "classification_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\classification_results.tex",
+    "ablation_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\ablation_results.tex"
+  },
+  "paper_figures": {
+    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_loss_all_models.png",
+    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_hate_all_models.png",
+    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_offensive_all_models.png",
+    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_clean_all_models.png",
+    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_hate_all_models.png",
+    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_offensive_all_models.png",
+    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_clean_all_models.png",
+    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\macro_f1_all_models.png",
+    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\per_class_f1_all_models.png"
+  },
+  "best_macro_f1_model": "sensitiveai-vi-customdlr2stage",
+  "best_macro_f1": 0.6637600346663973,
+  "metrics": {
+    "sensitiveai-vi": {
+      "accuracy": 0.8733532934131737,
+      "macro_f1": 0.6545246554135017,
+      "weighted_f1": 0.8705202895057186,
+      "macro_roc_auc": 0.8873048606954345,
+      "macro_average_precision": 0.6599470675928379,
+      "decision_rule": "argmax",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi\\run_001"
+    },
+    "sensitiveai-vi-custom": {
+      "accuracy": 0.8761976047904192,
+      "macro_f1": 0.6575258588726859,
+      "weighted_f1": 0.8708633780212699,
+      "macro_roc_auc": 0.8841738491763579,
+      "macro_average_precision": 0.6484148252127984,
+      "decision_rule": "argmax",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom\\run_001"
+    },
+    "sensitiveai-vi-customdlr2stage": {
+      "accuracy": 0.8754491017964072,
+      "macro_f1": 0.6637600346663973,
+      "weighted_f1": 0.872954621217101,
+      "macro_roc_auc": 0.8594258663811232,
+      "macro_average_precision": 0.625442480897972,
+      "decision_rule": "thresholds",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage\\run_001"
+    },
+    "sensitiveai-vi-custom-curriculum": {
+      "accuracy": 0.8730538922155688,
+      "macro_f1": 0.6590104447581234,
+      "weighted_f1": 0.8701239034392981,
+      "macro_roc_auc": 0.8500229360003478,
+      "macro_average_precision": 0.6367033254502207,
+      "decision_rule": "thresholds",
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_001"
+    }
+  }
+}

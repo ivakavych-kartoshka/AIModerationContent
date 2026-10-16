@@ -25,6 +25,12 @@ python scripts/01_train_all.py --dry-run                    # in kế hoạch, k
 
 Kết quả: `reports/<model>/run_00N/` và `experiments/<model>/run_00N/`.
 
+Model 3 và 4 nối tiếp từ checkpoint của model trước (`encoder_checkpoint` trong
+config). Đường dẫn ghi trong config thuộc về một run cụ thể, nên nếu không còn thì
+`src/common/paths.py:resolve_encoder_checkpoint` tự lấy **run mới nhất** của model
+đó — train từng model riêng lẻ vẫn chạy được, chỉ cần model trước đã có ít nhất
+một run hoàn tất.
+
 ## 2. `02_evaluate_all.py` — chấm test
 
 ```powershell

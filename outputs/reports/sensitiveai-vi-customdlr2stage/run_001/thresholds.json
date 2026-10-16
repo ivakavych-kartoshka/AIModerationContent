@@ -1,0 +1,52 @@
+{
+  "objective": "macro_f1",
+  "search_space": {
+    "min": 0.0,
+    "max": 1.0,
+    "grid_size": 101
+  },
+  "coordinate_rounds": 3,
+  "initial_threshold": 0.5,
+  "thresholds": {
+    "HATE": 0.5,
+    "OFFENSIVE": 0.5,
+    "CLEAN": 0.5
+  },
+  "threshold_list": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "objective_before": 0.708903,
+  "objective_after": 0.708903,
+  "validation_macro_f1_with_thresholds": 0.7089029356048524,
+  "validation_accuracy_with_thresholds": 0.8843562874251497,
+  "validation_macro_f1_with_argmax": 0.7089029356048524,
+  "trace": [
+    {
+      "round": 0,
+      "label": "init",
+      "threshold": 0.5,
+      "objective": 0.7089029356048524
+    },
+    {
+      "round": 1,
+      "label": "HATE",
+      "threshold": 0.5,
+      "objective": 0.7089029356048524
+    },
+    {
+      "round": 1,
+      "label": "OFFENSIVE",
+      "threshold": 0.5,
+      "objective": 0.7089029356048524
+    },
+    {
+      "round": 1,
+      "label": "CLEAN",
+      "threshold": 0.5,
+      "objective": 0.7089029356048524
+    }
+  ],
+  "note": "Optimised on the validation split only; frozen before test evaluation."
+}

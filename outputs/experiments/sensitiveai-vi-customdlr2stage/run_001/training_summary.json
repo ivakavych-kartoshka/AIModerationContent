@@ -1,0 +1,579 @@
+{
+  "run_id": "run_001",
+  "model_name": "sensitiveai-vi-customdlr2stage",
+  "base_model": "microsoft/mdeberta-v3-base",
+  "head": "custom",
+  "config_file": "configs/sensitiveai-vi-customdlr2stage.yaml",
+  "report_dir": "outputs/reports/sensitiveai-vi-customdlr2stage/run_001",
+  "experiment_dir": "outputs/experiments/sensitiveai-vi-customdlr2stage/run_001",
+  "dataset": {
+    "name": "uitnlp/vihsd",
+    "splits_dir": "data/splits",
+    "fingerprints": {
+      "train": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244",
+      "validation": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353",
+      "test": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b"
+    },
+    "num_train": 24046,
+    "num_validation": 2672,
+    "num_test": 6680,
+    "max_length": 256
+  },
+  "class_weights": {
+    "estimated_on": "train split only",
+    "train_label_counts": {
+      "HATE": 2556,
+      "OFFENSIVE": 1605,
+      "CLEAN": 19885
+    },
+    "per_stage": {
+      "stage_1": {
+        "HATE": 1.14483,
+        "OFFENSIVE": 1.444721,
+        "CLEAN": 0.410449
+      },
+      "stage_2": {
+        "HATE": 1.14483,
+        "OFFENSIVE": 1.444721,
+        "CLEAN": 0.410449
+      }
+    },
+    "primary": {
+      "HATE": 1.14483,
+      "OFFENSIVE": 1.444721,
+      "CLEAN": 0.410449
+    },
+    "table": "Class weights (estimated on TRAIN only)\n----------------------------------------------\nHATE       n=   2556  weight=1.1448\nOFFENSIVE  n=   1605  weight=1.4447\nCLEAN      n=  19885  weight=0.4104"
+  },
+  "parameters": {
+    "total_parameters": 279406083,
+    "trainable_parameters": 279406083,
+    "non_trainable_parameters": 0,
+    "estimated_parameter_memory_mb": 1065.85,
+    "head_only": {
+      "total_parameters": 1187331,
+      "trainable_parameters": 1187331,
+      "non_trainable_parameters": 0
+    }
+  },
+  "training": {
+    "model_name": "sensitiveai-vi-customdlr2stage",
+    "best_metric": "macro_f1",
+    "best_value": 0.7089029356048524,
+    "best_epoch": 15,
+    "best_stage": "stage_1",
+    "epochs_run": 21,
+    "total_epochs_planned": 30,
+    "training_seconds": 14206.967,
+    "training_time_hms": "03:56:46",
+    "stopped_early": true,
+    "early_stopping": {
+      "metric": "macro_f1",
+      "mode": "max",
+      "patience": 6,
+      "min_delta": 0.0,
+      "best_value": 0.7089029356048524,
+      "best_epoch": 15,
+      "num_bad_epochs": 6,
+      "stopped_early": true,
+      "stage_resets": [],
+      "history": [
+        {
+          "epoch": 1,
+          "value": 0.6822622223461576,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "value": 0.6803848211735363,
+          "is_best": false
+        },
+        {
+          "epoch": 3,
+          "value": 0.6926722530232675,
+          "is_best": true
+        },
+        {
+          "epoch": 4,
+          "value": 0.6918150755071663,
+          "is_best": false
+        },
+        {
+          "epoch": 5,
+          "value": 0.6943996239909046,
+          "is_best": true
+        },
+        {
+          "epoch": 6,
+          "value": 0.6812965966635414,
+          "is_best": false
+        },
+        {
+          "epoch": 7,
+          "value": 0.6846693494558113,
+          "is_best": false
+        },
+        {
+          "epoch": 8,
+          "value": 0.6882859100531514,
+          "is_best": false
+        },
+        {
+          "epoch": 9,
+          "value": 0.7020040250594514,
+          "is_best": true
+        },
+        {
+          "epoch": 10,
+          "value": 0.7008892997589954,
+          "is_best": false
+        },
+        {
+          "epoch": 11,
+          "value": 0.6917374138338829,
+          "is_best": false
+        },
+        {
+          "epoch": 12,
+          "value": 0.7051064626637146,
+          "is_best": true
+        },
+        {
+          "epoch": 13,
+          "value": 0.7017562203072937,
+          "is_best": false
+        },
+        {
+          "epoch": 14,
+          "value": 0.7069925860282026,
+          "is_best": true
+        },
+        {
+          "epoch": 15,
+          "value": 0.7089029356048524,
+          "is_best": true
+        },
+        {
+          "epoch": 16,
+          "value": 0.6928681149879307,
+          "is_best": false
+        },
+        {
+          "epoch": 17,
+          "value": 0.6890071425490426,
+          "is_best": false
+        },
+        {
+          "epoch": 18,
+          "value": 0.6933818162253597,
+          "is_best": false
+        },
+        {
+          "epoch": 19,
+          "value": 0.6974850592009929,
+          "is_best": false
+        },
+        {
+          "epoch": 20,
+          "value": 0.6957585787602586,
+          "is_best": false
+        },
+        {
+          "epoch": 21,
+          "value": 0.6874869717599688,
+          "is_best": false
+        }
+      ]
+    },
+    "best_checkpoint": {
+      "metric": "macro_f1",
+      "mode": "max",
+      "best_value": 0.7089029356048524,
+      "best_epoch": 15,
+      "best_stage": "stage_1",
+      "saved_to": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage\\run_001\\best_model",
+      "history": [
+        {
+          "epoch": 1,
+          "value": 0.6822622223461576,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "value": 0.6803848211735363,
+          "is_best": false
+        },
+        {
+          "epoch": 3,
+          "value": 0.6926722530232675,
+          "is_best": true
+        },
+        {
+          "epoch": 4,
+          "value": 0.6918150755071663,
+          "is_best": false
+        },
+        {
+          "epoch": 5,
+          "value": 0.6943996239909046,
+          "is_best": true
+        },
+        {
+          "epoch": 6,
+          "value": 0.6812965966635414,
+          "is_best": false
+        },
+        {
+          "epoch": 7,
+          "value": 0.6846693494558113,
+          "is_best": false
+        },
+        {
+          "epoch": 8,
+          "value": 0.6882859100531514,
+          "is_best": false
+        },
+        {
+          "epoch": 9,
+          "value": 0.7020040250594514,
+          "is_best": true
+        },
+        {
+          "epoch": 10,
+          "value": 0.7008892997589954,
+          "is_best": false
+        },
+        {
+          "epoch": 11,
+          "value": 0.6917374138338829,
+          "is_best": false
+        },
+        {
+          "epoch": 12,
+          "value": 0.7051064626637146,
+          "is_best": true
+        },
+        {
+          "epoch": 13,
+          "value": 0.7017562203072937,
+          "is_best": false
+        },
+        {
+          "epoch": 14,
+          "value": 0.7069925860282026,
+          "is_best": true
+        },
+        {
+          "epoch": 15,
+          "value": 0.7089029356048524,
+          "is_best": true
+        },
+        {
+          "epoch": 16,
+          "value": 0.6928681149879307,
+          "is_best": false
+        },
+        {
+          "epoch": 17,
+          "value": 0.6890071425490426,
+          "is_best": false
+        },
+        {
+          "epoch": 18,
+          "value": 0.6933818162253597,
+          "is_best": false
+        },
+        {
+          "epoch": 19,
+          "value": 0.6974850592009929,
+          "is_best": false
+        },
+        {
+          "epoch": 20,
+          "value": 0.6957585787602586,
+          "is_best": false
+        },
+        {
+          "epoch": 21,
+          "value": 0.6874869717599688,
+          "is_best": false
+        }
+      ]
+    },
+    "stages": {
+      "num_stages": 2,
+      "total_epochs_planned": 30,
+      "epochs_run": 21,
+      "stages": [
+        {
+          "name": "stage_1",
+          "description": "Stabilise the pre-trained representation. Cross-entropy with class weights computed on the TRAIN split only.",
+          "focus_label": null,
+          "epochs": 15,
+          "global_epoch_start": 1,
+          "global_epoch_end": 15,
+          "init_from": null,
+          "save_checkpoint": true,
+          "training": {
+            "batch_size": 16,
+            "eval_batch_size": 32,
+            "gradient_accumulation": 2,
+            "learning_rate": 2e-05,
+            "weight_decay": 0.01,
+            "warmup_ratio": 0.1,
+            "optimizer": "adamw_torch",
+            "max_grad_norm": 1.0,
+            "scheduler": "linear",
+            "precision": "bf16",
+            "label_smoothing": 0.0
+          },
+          "dlr": {
+            "enabled": true,
+            "encoder_lr": 1e-05,
+            "layer_lr": 2e-05,
+            "head_lr": 0.0001,
+            "embedding_lr": 5e-06,
+            "layer_split": 0.5,
+            "layer_decay": 1.0
+          },
+          "loss": {
+            "type": "cross_entropy",
+            "use_class_weight": true,
+            "class_weight": "inverse_sqrt_frequency",
+            "class_weight_beta": 0.999,
+            "focal": {
+              "gamma": 2.0,
+              "alpha": {
+                "HATE": 0.5,
+                "OFFENSIVE": 0.25,
+                "CLEAN": 0.25
+              }
+            },
+            "label_smoothing": 0.0
+          }
+        },
+        {
+          "name": "stage_2",
+          "description": "Continue from the stage 1 checkpoint with lower learning rates, focal loss and label-specific alpha so that hard / rare HATE samples dominate the gradient.",
+          "focus_label": null,
+          "epochs": 15,
+          "global_epoch_start": 16,
+          "global_epoch_end": 30,
+          "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_001\\stage_checkpoints\\stage_1",
+          "save_checkpoint": true,
+          "training": {
+            "batch_size": 16,
+            "eval_batch_size": 32,
+            "gradient_accumulation": 2,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "warmup_ratio": 0.05,
+            "optimizer": "adamw_torch",
+            "max_grad_norm": 1.0,
+            "scheduler": "linear",
+            "precision": "bf16",
+            "label_smoothing": 0.0
+          },
+          "dlr": {
+            "enabled": true,
+            "encoder_lr": 5e-06,
+            "layer_lr": 1e-05,
+            "head_lr": 5e-05,
+            "embedding_lr": 2.5e-06,
+            "layer_split": 0.5,
+            "layer_decay": 1.0
+          },
+          "loss": {
+            "type": "focal",
+            "use_class_weight": true,
+            "class_weight": "inverse_sqrt_frequency",
+            "class_weight_beta": 0.999,
+            "focal": {
+              "gamma": 2.0,
+              "alpha": {
+                "HATE": 0.5,
+                "OFFENSIVE": 0.25,
+                "CLEAN": 0.25
+              }
+            },
+            "label_smoothing": 0.0
+          }
+        }
+      ],
+      "transitions": [
+        {
+          "event": "stage_begin",
+          "global_epoch": 0,
+          "stage": "stage_1",
+          "index": 1,
+          "spec": {
+            "name": "stage_1",
+            "description": "Stabilise the pre-trained representation. Cross-entropy with class weights computed on the TRAIN split only.",
+            "epochs": 15,
+            "focus_label": null,
+            "init_from": null,
+            "save_checkpoint": true,
+            "training": {
+              "batch_size": 16,
+              "eval_batch_size": 32,
+              "gradient_accumulation": 2,
+              "learning_rate": 2e-05,
+              "weight_decay": 0.01,
+              "warmup_ratio": 0.1,
+              "optimizer": "adamw_torch",
+              "max_grad_norm": 1.0,
+              "scheduler": "linear",
+              "precision": "bf16",
+              "label_smoothing": 0.0
+            },
+            "dlr": {
+              "enabled": true,
+              "encoder_lr": 1e-05,
+              "layer_lr": 2e-05,
+              "head_lr": 0.0001,
+              "embedding_lr": 5e-06,
+              "layer_split": 0.5,
+              "layer_decay": 1.0
+            },
+            "loss": {
+              "type": "cross_entropy",
+              "use_class_weight": true,
+              "class_weight": "inverse_sqrt_frequency",
+              "class_weight_beta": 0.999,
+              "focal": {
+                "gamma": 2.0,
+                "alpha": {
+                  "HATE": 0.5,
+                  "OFFENSIVE": 0.25,
+                  "CLEAN": 0.25
+                }
+              },
+              "label_smoothing": 0.0
+            },
+            "global_epoch_start": 1,
+            "global_epoch_end": 15
+          }
+        },
+        {
+          "event": "stage_end",
+          "global_epoch": 15,
+          "stage": "stage_1",
+          "index": 1,
+          "epochs_run": 15,
+          "last_global_epoch": 15,
+          "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_001\\stage_checkpoints\\stage_1"
+        },
+        {
+          "event": "stage_begin",
+          "global_epoch": 15,
+          "stage": "stage_2",
+          "index": 2,
+          "spec": {
+            "name": "stage_2",
+            "description": "Continue from the stage 1 checkpoint with lower learning rates, focal loss and label-specific alpha so that hard / rare HATE samples dominate the gradient.",
+            "epochs": 15,
+            "focus_label": null,
+            "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_001\\stage_checkpoints\\stage_1",
+            "save_checkpoint": true,
+            "training": {
+              "batch_size": 16,
+              "eval_batch_size": 32,
+              "gradient_accumulation": 2,
+              "learning_rate": 1e-05,
+              "weight_decay": 0.01,
+              "warmup_ratio": 0.05,
+              "optimizer": "adamw_torch",
+              "max_grad_norm": 1.0,
+              "scheduler": "linear",
+              "precision": "bf16",
+              "label_smoothing": 0.0
+            },
+            "dlr": {
+              "enabled": true,
+              "encoder_lr": 5e-06,
+              "layer_lr": 1e-05,
+              "head_lr": 5e-05,
+              "embedding_lr": 2.5e-06,
+              "layer_split": 0.5,
+              "layer_decay": 1.0
+            },
+            "loss": {
+              "type": "focal",
+              "use_class_weight": true,
+              "class_weight": "inverse_sqrt_frequency",
+              "class_weight_beta": 0.999,
+              "focal": {
+                "gamma": 2.0,
+                "alpha": {
+                  "HATE": 0.5,
+                  "OFFENSIVE": 0.25,
+                  "CLEAN": 0.25
+                }
+              },
+              "label_smoothing": 0.0
+            },
+            "global_epoch_start": 16,
+            "global_epoch_end": 30
+          }
+        },
+        {
+          "event": "stage_end",
+          "global_epoch": 21,
+          "stage": "stage_2",
+          "index": 2,
+          "epochs_run": 6,
+          "last_global_epoch": 21,
+          "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_001\\stage_checkpoints\\stage_2"
+        },
+        {
+          "event": "train_end",
+          "global_epoch": 21,
+          "reason": "early_stopping",
+          "epochs_run": 21
+        }
+      ]
+    },
+    "lr_by_group": {
+      "stage_1": {
+        "discriminative": true,
+        "encoder_lr": 1e-05,
+        "layer_lr": 2e-05,
+        "head_lr": 0.0001,
+        "learning_rate": 2e-05,
+        "steps_per_epoch": 752,
+        "total_steps": 11280
+      },
+      "stage_2": {
+        "discriminative": true,
+        "encoder_lr": 5e-06,
+        "layer_lr": 1e-05,
+        "head_lr": 5e-05,
+        "learning_rate": 1e-05,
+        "steps_per_epoch": 752,
+        "total_steps": 11280
+      }
+    },
+    "wall_clock_seconds": 14218.395
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "torch": "2.13.0+cu126",
+    "transformers": "5.14.1",
+    "tokenizers": "0.22.2",
+    "datasets": "5.0.0",
+    "sklearn": "1.8.0",
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.1",
+    "cuda_available": true,
+    "cuda_version": "12.6",
+    "cudnn_version": "91002",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_memory_gb": 8.0,
+    "gpu_count": 1,
+    "nvidia_driver": "617.14"
+  },
+  "finished_at": "2026-10-07 03:48:42"
+}
