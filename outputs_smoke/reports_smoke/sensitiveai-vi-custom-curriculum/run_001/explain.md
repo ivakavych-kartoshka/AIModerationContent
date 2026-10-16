@@ -16,13 +16,14 @@
 | `run_pointer.txt` | Tên thư mục của lần chạy mới nhất. |
 | `explain.md` | File này, kèm bảng liệt kê các lần chạy. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `class_weights.json` | file | 725 B · 2026-10-04 12:47:42 |
 | `config.yaml` | file | 3.9 KB · 2026-10-04 12:47:42 |
-| `explain.md` | file | 2.4 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.0 KB · 2026-10-04 13:00:00 |
 | `split_manifest_used.json` | file | 423 B · 2026-10-04 12:47:42 |
 | `stage_transitions.json` | file | 3.5 KB · 2026-10-04 12:47:54 |
 | `train.log` | file | 2.3 KB · 2026-10-04 12:47:42 |
@@ -34,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

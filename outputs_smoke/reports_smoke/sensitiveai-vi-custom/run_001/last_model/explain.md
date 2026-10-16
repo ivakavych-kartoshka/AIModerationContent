@@ -16,12 +16,13 @@
 | `run_pointer.txt` | Tên thư mục của lần chạy mới nhất. |
 | `explain.md` | File này, kèm bảng liệt kê các lần chạy. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `encoder` | thư mục | 3 file, 1.0 GB |
-| `explain.md` | file | 2.3 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.0 KB · 2026-10-04 13:00:00 |
 | `head.safetensors` | file | 4.5 MB · 2026-10-04 12:47:05 |
 | `sensitiveai_config.json` | file | 318 B · 2026-10-04 12:47:05 |
 | `tokenizer.json` | file | 15.3 MB · 2026-10-04 12:47:05 |
@@ -33,4 +34,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

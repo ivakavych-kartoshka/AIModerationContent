@@ -27,23 +27,24 @@
 | `evaluation/` | Chỉ số, đường cong, tìm threshold, benchmark tốc độ, biểu đồ, CLI đánh giá. |
 | `comparison/` | Gộp 4 model và sinh bảng + LaTeX cho paper. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `__pycache__` | thư mục | 1 file, 272 B |
-| `callbacks` | thư mục | 11 file, 63.4 KB |
-| `common` | thư mục | 17 file, 190.4 KB |
-| `comparison` | thư mục | 5 file, 71.3 KB |
-| `data` | thư mục | 13 file, 98.4 KB |
-| `evaluation` | thư mục | 17 file, 199.5 KB |
+| `callbacks` | thư mục | 11 file, 67.1 KB |
+| `common` | thư mục | 17 file, 216.3 KB |
+| `comparison` | thư mục | 5 file, 77.5 KB |
+| `data` | thư mục | 15 file, 135.0 KB |
+| `evaluation` | thư mục | 19 file, 246.0 KB |
 | `losses` | thư mục | 11 file, 59.4 KB |
-| `models` | thư mục | 7 file, 58.5 KB |
+| `models` | thư mục | 7 file, 58.8 KB |
 | `preprocessing` | thư mục | 5 file, 21.1 KB |
-| `training` | thư mục | 11 file, 141.1 KB |
+| `training` | thư mục | 11 file, 164.8 KB |
 | `__init__.py` | file | 111 B · 2026-10-04 10:36:17 |
-| `explain.md` | file | 2.4 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.4 KB · 2026-10-04 13:00:00 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

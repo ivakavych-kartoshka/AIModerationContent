@@ -16,15 +16,18 @@
 | `sensitiveai-vi-customdlr2stage/` | Model 3 (2 stage). |
 | `sensitiveai-vi-custom-curriculum/` | Model 4 (3 stage). |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `sensitiveai-vi` | thư mục | 9 file, 14.6 KB |
-| `sensitiveai-vi-custom` | thư mục | 5 file, 8.6 KB |
-| `sensitiveai-vi-custom-curriculum` | thư mục | 5 file, 11.8 KB |
-| `sensitiveai-vi-customdlr2stage` | thư mục | 5 file, 10.7 KB |
-| `explain.md` | file | 1.9 KB · 2026-10-04 12:58:19 |
+| `sensitiveai-vi` | thư mục | 4 file, 15.1 KB |
+| `sensitiveai-vi-custom` | thư mục | 4 file, 16.3 KB |
+| `sensitiveai-vi-custom-curriculum` | thư mục | 20 file, 3.1 GB |
+| `sensitiveai-vi-customdlr2stage` | thư mục | 33 file, 4.2 GB |
+| `sensitiveai-vi-customdlr2stage-ext` | thư mục | 12 file, 1.0 GB |
+| `sensitiveai-vi-stage2` | thư mục | 23 file, 2.1 GB |
+| `explain.md` | file | 1.9 KB · 2026-10-04 13:00:00 |
 
 ## Cách đọc
 
@@ -33,4 +36,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

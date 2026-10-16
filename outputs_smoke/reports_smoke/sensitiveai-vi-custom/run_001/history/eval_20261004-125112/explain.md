@@ -16,6 +16,7 @@
 | `run_pointer.txt` | Tên thư mục của lần chạy mới nhất. |
 | `explain.md` | File này, kèm bảng liệt kê các lần chạy. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
@@ -26,7 +27,7 @@
 | `confusion_matrix.txt` | file | 452 B · 2026-10-04 12:48:22 |
 | `confusion_matrix_normalized.png` | file | 57.2 KB · 2026-10-04 12:48:22 |
 | `confusion_matrix_raw.png` | file | 53.0 KB · 2026-10-04 12:48:22 |
-| `explain.md` | file | 2.8 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.5 KB · 2026-10-04 13:00:00 |
 | `per_class_f1.png` | file | 40.5 KB · 2026-10-04 12:48:22 |
 | `pr_curve.png` | file | 105.1 KB · 2026-10-04 12:48:22 |
 | `pr_curve_data.json` | file | 31.5 KB · 2026-10-04 12:48:22 |
@@ -40,4 +41,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

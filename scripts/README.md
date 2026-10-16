@@ -85,6 +85,25 @@ Train PhoBERT (`vinai/phobert-base-v2`) và ViSoBERT (`uitnlp/visobert`) bằng
 đúng công thức baseline (standard head, cross-entropy không weight, argmax) trên
 cùng split đã cố định. Kết quả trong `outputs/baselines/monolingual_summary.{json,md}`.
 
+## 7. `12_build_lexicon.py` — từ điển từ ngữ nhạy cảm
+
+```powershell
+python scripts/12_build_lexicon.py                      # tải + trích xuất + tổng kết
+python scripts/12_build_lexicon.py --stage download     # chỉ tải 2 lexicon GitHub
+python scripts/12_build_lexicon.py --stage extract summary --show-terms 10
+python scripts/12_build_lexicon.py --force-download     # tải lại file gốc
+```
+
+Tải 2 lexicon tiếng Việt từ GitHub về `data/raw/lexicon/` (giữ nguyên, bất biến):
+
+- `behitek/vietnam-sensitive-words` — profanity, teencode, từ nhạy cảm chính trị
+- `blue-eyes-vn/vietnamese-offensive-words` — offensive words + biến thể không dấu / teencode
+
+Rồi chuẩn hoá (NFC, hạ chữ, `_`→space, gộp space), khử trùng lặp và ghi vào
+`data/processed/lexicon/`: `behitek_sensitive_words.txt`,
+`blueeyes_offensive_words.txt`, `sensitive_words_combined.txt` (danh sách gộp
+dùng để quét văn bản) và `lexicon_report.json` (số từ, phần giao, SHA-256).
+
 ## Module-level (chạy từng bước)
 
 ```powershell

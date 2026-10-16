@@ -9,6 +9,15 @@
 
 > ⚠️ **Đây là output của SMOKE TEST** (dữ liệu cắn nhỏ, 1 epoch, checkpoint tắt). Dùng để kiểm tra code chạy được hay không - **không phải kết quả nghiên cứu**, không được trích dẫn. Giữ lại để đối chiếu khi code thay đổi.
 
+
+## Nội dung hiện có trên đĩa
+
+| Tên | Loại | Kích thước · sửa lần cuối |
+|---|---|---|
+| `config.yaml` | file | 2.2 KB · 2026-10-04 22:58:18 |
+| `explain.md` | file | 1.0 KB · 2026-10-04 22:58:06 |
+| `training_summary.json` | file | 6.8 KB · 2026-10-04 23:15:10 |
+
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 22:58:06. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

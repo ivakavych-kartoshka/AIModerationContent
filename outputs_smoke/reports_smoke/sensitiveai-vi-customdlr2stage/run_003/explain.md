@@ -21,7 +21,15 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `train.log` | file | 0 B · 2026-10-06 23:49:35 |
+| `last_model` | thư mục | 6 file, 1.1 GB |
+| `class_weights.json` | file | 673 B · 2026-10-06 23:49:39 |
+| `config.yaml` | file | 3.5 KB · 2026-10-06 23:49:39 |
+| `explain.md` | file | 1.6 KB · 2026-10-06 23:49:35 |
+| `split_manifest_used.json` | file | 393 B · 2026-10-06 23:49:39 |
+| `stage_transitions.json` | file | 3.6 KB · 2026-10-06 23:50:27 |
+| `train.log` | file | 3.5 KB · 2026-10-06 23:50:29 |
+| `training_log.csv` | file | 815 B · 2026-10-06 23:50:26 |
+| `training_summary.json` | file | 11.9 KB · 2026-10-06 23:50:29 |
 
 ## Cách đọc
 
@@ -29,4 +37,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-06 23:49:35. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -14,12 +14,13 @@
 | `folder_index.md` | Chỉ mục toàn bộ thư mục: tên, đường dẫn `explain.md`, kích thước, số file. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 1.4 KB · 2026-10-04 12:58:19 |
-| `folder_index.md` | file | 23.8 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 1.4 KB · 2026-10-04 13:00:00 |
+| `folder_index.md` | file | 23.8 KB · 2026-10-04 13:00:01 |
 
 ## Cách đọc
 
@@ -28,4 +29,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

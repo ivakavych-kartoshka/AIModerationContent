@@ -17,18 +17,19 @@
 | `base.py` | Giao diện callback chung. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `__pycache__` | thư mục | 5 file, 37.7 KB |
+| `__pycache__` | thư mục | 5 file, 39.5 KB |
 | `__init__.py` | file | 638 B · 2026-10-04 10:40:30 |
 | `base.py` | file | 3.9 KB · 2026-10-04 10:39:47 |
-| `csv_logger.py` | file | 6.4 KB · 2026-10-04 10:40:02 |
-| `explain.md` | file | 1.9 KB · 2026-10-04 12:58:19 |
-| `monitoring.py` | file | 6.3 KB · 2026-10-04 11:05:29 |
+| `csv_logger.py` | file | 6.6 KB · 2026-10-11 13:15:44 |
+| `explain.md` | file | 1.9 KB · 2026-10-04 13:00:00 |
+| `monitoring.py` | file | 8.0 KB · 2026-10-11 12:01:11 |
 | `stage_controller.py` | file | 6.6 KB · 2026-10-04 12:38:57 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

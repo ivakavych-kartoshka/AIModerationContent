@@ -17,11 +17,12 @@
 | `split_manifest.json` | Số mẫu, phân bố nhãn và SHA-256 của từng split + metadata (chiến lược, seed, tỉ lệ). |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 2.1 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.1 KB · 2026-10-04 13:00:01 |
 | `split_manifest.json` | file | 1.5 KB · 2026-10-04 10:48:01 |
 | `test.csv` | file | 533.4 KB · 2026-10-04 10:48:01 |
 | `train.csv` | file | 1.9 MB · 2026-10-04 10:48:01 |
@@ -34,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:01. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

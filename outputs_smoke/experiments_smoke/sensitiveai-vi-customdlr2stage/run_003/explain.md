@@ -9,6 +9,16 @@
 
 > ⚠️ **Đây là output của SMOKE TEST** (dữ liệu cắn nhỏ, 1 epoch, checkpoint tắt). Dùng để kiểm tra code chạy được hay không - **không phải kết quả nghiên cứu**, không được trích dẫn. Giữ lại để đối chiếu khi code thay đổi.
 
+
+## Nội dung hiện có trên đĩa
+
+| Tên | Loại | Kích thước · sửa lần cuối |
+|---|---|---|
+| `stage_checkpoints` | thư mục | 11 file, 2.1 GB |
+| `config.yaml` | file | 3.5 KB · 2026-10-06 23:49:39 |
+| `explain.md` | file | 1.0 KB · 2026-10-06 23:49:35 |
+| `training_summary.json` | file | 11.9 KB · 2026-10-06 23:50:29 |
+
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-06 23:49:35. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -18,17 +18,22 @@
 | `sensitiveai-vi-custom-curriculum.yaml` | Model 4 - custom head + DLR + curriculum 3 stage (OFFENSIVE -> HATE -> CE) + class weight manual + threshold, 10 epoch. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `data_split.yaml` | file | 2.0 KB · 2026-10-04 10:45:52 |
-| `explain.md` | file | 2.1 KB · 2026-10-04 12:58:19 |
-| `sensitiveai-vi-custom-curriculum.yaml` | file | 4.2 KB · 2026-10-04 10:45:46 |
-| `sensitiveai-vi-custom.yaml` | file | 2.4 KB · 2026-10-04 10:45:25 |
-| `sensitiveai-vi-customdlr2stage.yaml` | file | 4.2 KB · 2026-10-04 10:45:34 |
-| `sensitiveai-vi.yaml` | file | 1.9 KB · 2026-10-04 10:45:18 |
+| `explain.md` | file | 2.1 KB · 2026-10-04 13:00:00 |
+| `phobert-base.yaml` | file | 2.0 KB · 2026-10-15 15:32:13 |
+| `sensitiveai-vi-custom-curriculum.yaml` | file | 4.4 KB · 2026-10-06 22:25:01 |
+| `sensitiveai-vi-custom.yaml` | file | 2.5 KB · 2026-10-05 22:08:16 |
+| `sensitiveai-vi-customdlr2stage-ext.yaml` | file | 3.4 KB · 2026-10-11 12:14:46 |
+| `sensitiveai-vi-customdlr2stage.yaml` | file | 4.5 KB · 2026-10-11 12:00:40 |
+| `sensitiveai-vi-stage2.yaml` | file | 2.9 KB · 2026-10-13 14:30:37 |
+| `sensitiveai-vi.yaml` | file | 1.9 KB · 2026-10-05 22:07:41 |
+| `visobert-base.yaml` | file | 2.0 KB · 2026-10-15 15:32:24 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

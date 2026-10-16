@@ -18,15 +18,16 @@
 | `ablation_results.tex` | Bảng ablation: biến thể, head, DLR, số stage, loss - trả lời đóng góp của từng kỹ thuật. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `ablation_results.tex` | file | 776 B · 2026-10-04 12:55:20 |
-| `classification_results.tex` | file | 1.2 KB · 2026-10-04 12:55:20 |
-| `explain.md` | file | 1.8 KB · 2026-10-04 12:58:19 |
-| `model_comparison.tex` | file | 1.1 KB · 2026-10-04 12:55:20 |
+| `ablation_results.tex` | file | 776 B · 2026-10-05 07:20:32 |
+| `classification_results.tex` | file | 1.0 KB · 2026-10-05 07:20:32 |
+| `explain.md` | file | 1.8 KB · 2026-10-04 13:00:01 |
+| `model_comparison.tex` | file | 1008 B · 2026-10-05 07:20:32 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:01. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

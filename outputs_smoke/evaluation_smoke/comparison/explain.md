@@ -31,27 +31,28 @@
 | `per_class_f1_all_models.png` | F1 theo từng lớp của 4 model. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `accuracy_all_models.png` | file | 65.2 KB · 2026-10-04 12:55:20 |
-| `comparison_summary.json` | file | 4.3 KB · 2026-10-04 12:55:20 |
-| `explain.md` | file | 4.1 KB · 2026-10-04 12:58:19 |
-| `macro_f1_all_models.png` | file | 62.4 KB · 2026-10-04 12:55:20 |
-| `model_comparison.csv` | file | 1.8 KB · 2026-10-04 12:55:19 |
-| `model_comparison.md` | file | 4.4 KB · 2026-10-04 12:55:19 |
-| `per_class_f1_all_models.png` | file | 58.5 KB · 2026-10-04 12:55:20 |
-| `pr_clean_all_models.png` | file | 93.4 KB · 2026-10-04 12:55:19 |
-| `pr_curve_all_models.png` | file | 118.4 KB · 2026-10-04 12:55:19 |
-| `pr_hate_all_models.png` | file | 98.1 KB · 2026-10-04 12:55:19 |
-| `pr_offensive_all_models.png` | file | 84.6 KB · 2026-10-04 12:55:19 |
-| `roc_clean_all_models.png` | file | 90.3 KB · 2026-10-04 12:55:20 |
-| `roc_curve_all_models.png` | file | 125.8 KB · 2026-10-04 12:55:19 |
-| `roc_hate_all_models.png` | file | 86.6 KB · 2026-10-04 12:55:19 |
-| `roc_offensive_all_models.png` | file | 86.8 KB · 2026-10-04 12:55:19 |
-| `validation_accuracy_all_models.png` | file | 90.9 KB · 2026-10-04 12:55:20 |
-| `validation_loss_all_models.png` | file | 101.3 KB · 2026-10-04 12:55:20 |
+| `accuracy_all_models.png` | file | 67.8 KB · 2026-10-05 07:20:32 |
+| `comparison_summary.json` | file | 4.9 KB · 2026-10-05 07:20:32 |
+| `explain.md` | file | 4.1 KB · 2026-10-04 13:00:01 |
+| `macro_f1_all_models.png` | file | 72.8 KB · 2026-10-05 07:20:32 |
+| `model_comparison.csv` | file | 2.3 KB · 2026-10-05 07:20:30 |
+| `model_comparison.md` | file | 4.4 KB · 2026-10-05 07:20:30 |
+| `per_class_f1_all_models.png` | file | 58.7 KB · 2026-10-05 07:20:32 |
+| `pr_clean_all_models.png` | file | 78.7 KB · 2026-10-05 07:20:31 |
+| `pr_curve_all_models.png` | file | 124.9 KB · 2026-10-05 07:20:31 |
+| `pr_hate_all_models.png` | file | 133.1 KB · 2026-10-05 07:20:31 |
+| `pr_offensive_all_models.png` | file | 128.7 KB · 2026-10-05 07:20:31 |
+| `roc_clean_all_models.png` | file | 109.1 KB · 2026-10-05 07:20:31 |
+| `roc_curve_all_models.png` | file | 126.5 KB · 2026-10-05 07:20:31 |
+| `roc_hate_all_models.png` | file | 112.3 KB · 2026-10-05 07:20:31 |
+| `roc_offensive_all_models.png` | file | 117.4 KB · 2026-10-05 07:20:31 |
+| `validation_accuracy_all_models.png` | file | 91.5 KB · 2026-10-05 07:20:31 |
+| `validation_loss_all_models.png` | file | 96.3 KB · 2026-10-05 07:20:32 |
 
 ## Cách đọc
 
@@ -60,4 +61,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:01. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

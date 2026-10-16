@@ -7,6 +7,15 @@
 
 > **Quy tắc giữ lại:** **KHÔNG XÓA.** Mọi lần chạy đều tạo một thư mục riêng (`run_XXX` hoặc thư mục được `--reports-dir`/`--experiments-dir` trỏ tới), nên không lần chạy nào ghi đè lần trước. Muốn dọn dung lượng thì copy ra nơi khác rồi mới xóa - không xóa tại chỗ.
 
+
+## Nội dung hiện có trên đĩa
+
+| Tên | Loại | Kích thước · sửa lần cuối |
+|---|---|---|
+| `config.yaml` | file | 2.2 KB · 2026-10-05 22:32:04 |
+| `explain.md` | file | 774 B · 2026-10-05 22:31:49 |
+| `training_summary.json` | file | 10.0 KB · 2026-10-06 01:22:14 |
+
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-05 22:31:49. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:29. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

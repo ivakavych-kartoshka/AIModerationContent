@@ -21,7 +21,35 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `train.log` | file | 0 B · 2026-10-05 16:14:58 |
+| `last_model` | thư mục | 6 file, 1.1 GB |
+| `Best_model_classification_report.txt` | file | 389 B · 2026-10-05 16:35:11 |
+| `class_weights.json` | file | 418 B · 2026-10-05 16:15:10 |
+| `classification_report.txt` | file | 389 B · 2026-10-05 16:35:11 |
+| `config.yaml` | file | 2.4 KB · 2026-10-05 16:15:10 |
+| `confusion_matrix.png` | file | 54.8 KB · 2026-10-05 16:35:12 |
+| `confusion_matrix.txt` | file | 452 B · 2026-10-05 16:35:11 |
+| `confusion_matrix_normalized.png` | file | 61.6 KB · 2026-10-05 16:35:12 |
+| `confusion_matrix_raw.png` | file | 55.9 KB · 2026-10-05 16:35:12 |
+| `detail_log_terminal.txt` | file | 0 B · 2026-10-05 17:03:10 |
+| `evaluate.log` | file | 3.0 KB · 2026-10-05 16:35:13 |
+| `evaluation.json` | file | 1.0 KB · 2026-10-05 16:35:13 |
+| `explain.md` | file | 1.6 KB · 2026-10-05 16:14:58 |
+| `metrics.json` | file | 6.5 KB · 2026-10-05 16:35:13 |
+| `model_summary.txt` | file | 2.6 KB · 2026-10-05 16:35:13 |
+| `per_class_f1.png` | file | 44.1 KB · 2026-10-05 16:35:12 |
+| `pr_curve.png` | file | 132.0 KB · 2026-10-05 16:35:12 |
+| `pr_curve_data.json` | file | 1001.3 KB · 2026-10-05 16:35:12 |
+| `roc_curve.png` | file | 127.6 KB · 2026-10-05 16:35:12 |
+| `roc_curve_data.json` | file | 315.1 KB · 2026-10-05 16:35:12 |
+| `split_manifest_used.json` | file | 397 B · 2026-10-05 16:15:10 |
+| `stage_transitions.json` | file | 1.5 KB · 2026-10-05 16:31:33 |
+| `test_predictions.csv` | file | 795.3 KB · 2026-10-05 16:35:13 |
+| `train.log` | file | 3.3 KB · 2026-10-05 16:31:35 |
+| `train_loss_curve.png` | file | 45.3 KB · 2026-10-05 16:35:13 |
+| `training_log.csv` | file | 594 B · 2026-10-05 16:31:33 |
+| `training_summary.json` | file | 6.8 KB · 2026-10-05 16:31:35 |
+| `val_accuracy_curve.png` | file | 49.6 KB · 2026-10-05 16:35:12 |
+| `val_loss_curve.png` | file | 47.3 KB · 2026-10-05 16:35:13 |
 
 ## Cách đọc
 
@@ -29,4 +57,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-05 16:14:58. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

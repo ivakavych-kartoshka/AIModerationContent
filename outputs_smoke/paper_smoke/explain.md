@@ -25,14 +25,15 @@
 | `tables/` | Bảng LaTeX **sinh tự động**. Sửa tay sẽ bị ghi đè lần `03` kế tiếp. |
 | `figures/` | Hình PNG **copy tự động** từ `evaluation/comparison/`. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `figures` | thư mục | 13 file, 1.1 MB |
-| `tables` | thư mục | 4 file, 4.8 KB |
-| `explain.md` | file | 2.0 KB · 2026-10-04 12:58:19 |
+| `figures` | thư mục | 13 file, 1.2 MB |
+| `tables` | thư mục | 4 file, 4.6 KB |
+| `explain.md` | file | 2.0 KB · 2026-10-04 13:00:00 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

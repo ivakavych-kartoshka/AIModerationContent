@@ -15,9 +15,10 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `encoder` | thư mục | 2 file, 1.0 GB |
+| `explain.md` | file | 1.3 KB · 2026-10-04 23:53:22 |
 | `head.safetensors` | file | 4.5 MB · 2026-10-04 23:53:22 |
 | `sensitiveai_config.json` | file | 345 B · 2026-10-04 23:53:22 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 23:53:22. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

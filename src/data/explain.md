@@ -12,25 +12,28 @@
 | File / thư mục | Ý nghĩa |
 |---|---|
 | `download.py` | Tải `uitnlp/vihsd` từ Hugging Face về `data/raw/vihsd/`. |
+| `lexicon.py` | Tải 2 lexicon GitHub về `data/raw/lexicon/`, chuẩn hoá (NFC, hạ chữ, `_`→space) và ghi danh sách từ nhạy cảm + `lexicon_report.json` (SHA-256) vào `data/processed/lexicon/`. |
 | `preprocess.py` | Làm sạch + remap nhãn canonical + ghi `preprocessing_report.json`. |
 | `split.py` | Tạo split, tính SHA-256 từng file, kiểm tra toàn vẹn, ghi `split_manifest.json`. |
 | `dataset.py` | Tokenize `train/validation/test`, `TokenizedTextDataset`, `collate_fn` an toàn Windows (num_workers>0). |
 | `prepare_data.py` | CLI cho `scripts/00_prepare_data.py`. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `__pycache__` | thư mục | 6 file, 59.5 KB |
+| `__pycache__` | thư mục | 7 file, 81.4 KB |
 | `__init__.py` | file | 850 B · 2026-10-04 11:21:12 |
 | `dataset.py` | file | 8.4 KB · 2026-10-04 11:21:49 |
 | `download.py` | file | 2.9 KB · 2026-10-04 10:35:16 |
-| `explain.md` | file | 2.0 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.0 KB · 2026-10-04 13:00:00 |
+| `lexicon.py` | file | 14.7 KB · 2026-10-16 16:00:32 |
 | `prepare_data.py` | file | 6.0 KB · 2026-10-04 11:40:09 |
 | `preprocess.py` | file | 5.9 KB · 2026-10-04 10:35:29 |
 | `split.py` | file | 12.8 KB · 2026-10-04 10:35:57 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

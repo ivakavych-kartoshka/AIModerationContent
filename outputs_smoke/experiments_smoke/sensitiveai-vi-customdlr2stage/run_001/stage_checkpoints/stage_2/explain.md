@@ -9,15 +9,16 @@
 
 > ⚠️ **Đây là output của SMOKE TEST** (dữ liệu cắn nhỏ, 1 epoch, checkpoint tắt). Dùng để kiểm tra code chạy được hay không - **không phải kết quả nghiên cứu**, không được trích dẫn. Giữ lại để đối chiếu khi code thay đổi.
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `encoder` | thư mục | 3 file, 1.0 GB |
-| `explain.md` | file | 1.4 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 1.4 KB · 2026-10-04 13:00:01 |
 | `head.safetensors` | file | 4.5 MB · 2026-10-04 12:47:35 |
 | `sensitiveai_config.json` | file | 318 B · 2026-10-04 12:47:35 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:01. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

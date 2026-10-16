@@ -21,7 +21,36 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `train.log` | file | 0 B · 2026-10-04 23:32:13 |
+| `last_model` | thư mục | 6 file, 1.1 GB |
+| `Best_model_classification_report.txt` | file | 389 B · 2026-10-05 07:17:47 |
+| `class_weights.json` | file | 682 B · 2026-10-04 23:32:20 |
+| `classification_report.txt` | file | 389 B · 2026-10-05 07:17:47 |
+| `config.yaml` | file | 3.5 KB · 2026-10-04 23:32:20 |
+| `confusion_matrix.png` | file | 56.9 KB · 2026-10-05 07:17:47 |
+| `confusion_matrix.txt` | file | 452 B · 2026-10-05 07:17:47 |
+| `confusion_matrix_normalized.png` | file | 65.0 KB · 2026-10-05 07:17:47 |
+| `confusion_matrix_raw.png` | file | 57.9 KB · 2026-10-05 07:17:47 |
+| `evaluate.log` | file | 7.6 KB · 2026-10-05 07:18:42 |
+| `evaluation.json` | file | 1.2 KB · 2026-10-05 07:17:48 |
+| `explain.md` | file | 1.6 KB · 2026-10-04 23:32:13 |
+| `metrics.json` | file | 6.5 KB · 2026-10-05 07:17:48 |
+| `model_summary.txt` | file | 2.9 KB · 2026-10-05 07:17:48 |
+| `per_class_f1.png` | file | 47.3 KB · 2026-10-05 07:17:48 |
+| `pr_curve.png` | file | 131.9 KB · 2026-10-05 07:17:47 |
+| `pr_curve_data.json` | file | 1.1 MB · 2026-10-05 07:17:47 |
+| `roc_curve.png` | file | 127.6 KB · 2026-10-05 07:17:47 |
+| `roc_curve_data.json` | file | 214.4 KB · 2026-10-05 07:17:47 |
+| `split_manifest_used.json` | file | 427 B · 2026-10-04 23:32:20 |
+| `stage_transitions.json` | file | 3.6 KB · 2026-10-05 00:10:01 |
+| `test_predictions.csv` | file | 787.1 KB · 2026-10-05 07:17:48 |
+| `thresholds.json` | file | 1.9 KB · 2026-10-05 07:17:13 |
+| `thresholds.txt` | file | 318 B · 2026-10-05 07:17:13 |
+| `train.log` | file | 7.3 KB · 2026-10-05 01:00:09 |
+| `train_loss_curve.png` | file | 80.1 KB · 2026-10-05 07:17:48 |
+| `training_log.csv` | file | 830 B · 2026-10-05 00:10:00 |
+| `training_summary.json` | file | 11.9 KB · 2026-10-05 00:10:02 |
+| `val_accuracy_curve.png` | file | 95.3 KB · 2026-10-05 07:17:48 |
+| `val_loss_curve.png` | file | 83.7 KB · 2026-10-05 07:17:48 |
 
 ## Cách đọc
 
@@ -29,4 +58,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 23:32:13. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

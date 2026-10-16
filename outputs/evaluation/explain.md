@@ -15,13 +15,16 @@
 | `per_model/` | Bản sao số liệu chính của từng model, gom lại một chỗ. |
 | `comparison/` | Bảng và biểu đồ so sánh 4 model. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `logs` | thư mục | 2 file, 3.0 KB |
-| `per_model` | thư mục | 75 file, 2.3 MB |
-| `explain.md` | file | 1.8 KB · 2026-10-04 12:58:19 |
+| `analysis` | thư mục | 6 file, 72.4 KB |
+| `comparison` | thư mục | 34 file, 2.9 MB |
+| `logs` | thư mục | 2 file, 3.7 KB |
+| `per_model` | thư mục | 113 file, 13.8 MB |
+| `explain.md` | file | 1.8 KB · 2026-10-04 13:00:00 |
 
 ## Cách đọc
 
@@ -30,4 +33,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

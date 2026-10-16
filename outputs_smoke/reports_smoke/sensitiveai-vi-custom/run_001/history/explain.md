@@ -16,12 +16,13 @@
 | `run_pointer.txt` | Tên thư mục của lần chạy mới nhất. |
 | `explain.md` | File này, kèm bảng liệt kê các lần chạy. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `eval_20261004-125112` | thư mục | 13 file, 512.3 KB |
-| `explain.md` | file | 2.1 KB · 2026-10-04 12:58:19 |
+| `eval_20261004-125112` | thư mục | 13 file, 512.0 KB |
+| `explain.md` | file | 1.7 KB · 2026-10-04 13:00:00 |
 
 ## Cách đọc
 
@@ -29,4 +30,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

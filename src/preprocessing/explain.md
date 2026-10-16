@@ -14,15 +14,16 @@
 | `text_cleaning.py` | 12 bước: hạ chữ Unicode, NFC, giải thực thể HTML, bỏ ký tự vô hình, bỏ thẻ HTML, chuẩn hoá space, sửa khoảng trắng quanh dấu câu, gộp space, cắt đầu/cuối. Chỉ loại dòng mà **không còn ký tự nhìn thấy nào**. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `__pycache__` | thư mục | 2 file, 11.1 KB |
 | `__init__.py` | file | 380 B · 2026-10-04 10:35:08 |
-| `explain.md` | file | 1.7 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 1.7 KB · 2026-10-04 13:00:00 |
 | `text_cleaning.py` | file | 7.9 KB · 2026-10-04 10:47:54 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-16 16:02:28. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
