@@ -89,6 +89,16 @@ OUTPUT_BLUEEYES = "blueeyes_offensive_words.txt"
 OUTPUT_COMBINED = "sensitive_words_combined.txt"
 OUTPUT_REPORT = "lexicon_report.json"
 
+#: Sub-folder (under a lexicon ``output_dir``) holding every raw word list.
+#: Step 12/15 write their extracted lists there; readers (steps 15/16/22) look
+#: there too, so a regenerated pipeline never scatters files at the lexicon root.
+SOURCES_SUBDIR = "sources"
+
+
+def sources_dir(output_dir: str | Path) -> Path:
+    """``<output_dir>/sources`` - home of the extracted word lists."""
+    return Path(output_dir) / SOURCES_SUBDIR
+
 #: Order applied by :func:`normalize_term` (recorded in the report).
 NORMALIZATION_STEPS = ("NFC", "lowercase", "underscore_to_space", "collapse_whitespace", "strip_edges")
 
@@ -278,12 +288,13 @@ def build_lexicons(
     overlap = behitek_terms & blueeyes_terms
 
     outputs: Dict[str, Any] = {}
+    word_lists = sources_dir(output_dir)
     for name, terms in (
         (OUTPUT_BEHITEK, behitek_terms),
         (OUTPUT_BLUEEYES, blueeyes_terms),
         (OUTPUT_COMBINED, combined),
     ):
-        outputs[name] = _write_word_list(output_dir / name, terms)
+        outputs[name] = _write_word_list(word_lists / name, terms)
         LOGGER.info("[lexicon] wrote %s (%d terms)", name, outputs[name]["terms"])
 
     report: Dict[str, Any] = {
@@ -370,7 +381,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             report = json.loads(report_path.read_text(encoding="utf-8"))
         print_summary(report)
         if args.show_terms > 0:
-            combined = output_dir / OUTPUT_COMBINED
+            combined = sources_dir(output_dir) / OUTPUT_COMBINED
             if combined.is_file():
                 terms = combined.read_text(encoding="utf-8").splitlines()[: args.show_terms]
                 for term in terms:

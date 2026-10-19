@@ -24,7 +24,7 @@
 | `last_model` | thư mục | 8 file, 1.1 GB |
 | `class_weights.json` | file | 673 B · 2026-10-06 23:49:39 |
 | `config.yaml` | file | 3.5 KB · 2026-10-06 23:49:39 |
-| `explain.md` | file | 2.1 KB · 2026-10-17 00:09:27 |
+| `explain.md` | file | 2.1 KB · 2026-10-19 15:06:20 |
 | `split_manifest_used.json` | file | 393 B · 2026-10-06 23:49:39 |
 | `stage_transitions.json` | file | 3.6 KB · 2026-10-06 23:50:27 |
 | `train.log` | file | 3.5 KB · 2026-10-06 23:50:29 |
@@ -37,4 +37,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

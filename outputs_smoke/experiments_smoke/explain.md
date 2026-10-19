@@ -27,7 +27,7 @@
 | `sensitiveai-vi-custom` | thư mục | 10 file, 33.8 KB |
 | `sensitiveai-vi-custom-curriculum` | thư mục | 29 file, 4.2 GB |
 | `sensitiveai-vi-customdlr2stage` | thư mục | 45 file, 6.2 GB |
-| `explain.md` | file | 2.2 KB · 2026-10-17 00:09:27 |
+| `explain.md` | file | 2.2 KB · 2026-10-19 15:06:20 |
 
 ## Cách đọc
 
@@ -36,4 +36,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

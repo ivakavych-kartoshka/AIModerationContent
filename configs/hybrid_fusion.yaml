@@ -1,0 +1,55 @@
+# Hybrid fusion (Rule Engine + AI) - Rule_Engine_Plan.md sections 40-41.
+#
+# Protocol (plan section 44): alpha / thresholds / meta-classifier are fit on the
+# VALIDATION split and frozen before the single TEST pass.  The test split is
+# never used to choose a parameter.
+
+# Rule-engine evaluation directory that carries the frozen per-split scores:
+#   <rule_eval_dir>/rule_scores.csv        (validation)
+#   <rule_eval_dir>/test/rule_scores.csv   (test)
+# Default is the best rule configuration from the rule-engine sweep.
+# (rule_engine_tuned, lexicon 668 entry: validation macro-F1 0.5481, test 0.5335 -
+#  values from scripts/27 + 17 with the frozen thresholds.)
+# NOTE (measured, test n=6680): the fusion gain over AI-only (frozen thresholds)
+# stays inside the noise band for 5/6 models (Delta macro-F1 in [-0.0085, +0.0034]).
+# Only sensitiveai-vi-custom-curriculum is significant, and it is POSITIVE
+# (+0.0057, p=0.033 / McNemar p=0.0005); sensitiveai-vi-stage2 is worse (-0.0085)
+# but not significant.  So: no consistent evidence of a gain - see
+# outputs/evaluation/fusion/significance_report.md.
+rule_eval_dir: outputs/evaluation/rule_engine_tuned
+
+# Where fusion artefacts are written (one sub-folder per AI model + a summary).
+out_dir: outputs/evaluation/fusion
+
+# AI-checkpoint source (reports/<model>/run_XXX/best_model).  Override with
+# --reports-dir / --run-id on the CLI when a non-default run should be used.
+reports_dir: outputs/reports
+
+# Grid of mixing weights swept on validation (1.0 = AI only, 0.0 = rule only).
+alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0]
+
+# Decision refinement at the selected alpha.
+thresholds:
+  enabled: true
+  objective: macro_f1      # macro_f1 | f1 | accuracy
+  grid_size: 101
+  coordinate_rounds: 3
+
+# Per-channel alpha: a separate AI weight for [HATE, OFFENSIVE, CLEAN], found by
+# coordinate ascent on validation.  Lets the rule engine contribute strongly on
+# HATE (where it is precise) while being down-weighted on OFFENSIVE (where it is
+# weak).  The single-alpha fusion above is kept as a baseline.
+per_channel:
+  enabled: true
+  rounds: 3
+
+# Logistic-regression meta-classifier over the six rule/AI scores.
+meta_classifier:
+  enabled: true
+  C: 1.0
+  max_iter: 1000
+  class_weight: balanced
+
+# AI models to fuse.  Empty list = every model that has both a trained run and
+# an evaluated test_predictions.csv under outputs/evaluation/per_model/.
+models: []

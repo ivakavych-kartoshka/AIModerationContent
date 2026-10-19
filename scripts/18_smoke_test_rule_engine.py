@@ -93,6 +93,8 @@ def main(argv: List[str] | None = None) -> int:
     write_outputs = "--no-write" not in args
 
     config_path = Path("configs/rule_engine.yaml")
+    if "--config" in args:
+        config_path = Path(args[args.index("--config") + 1])
 
     global OUT_DIR, WRITE_OUTPUTS
     OUT_DIR = out_dir

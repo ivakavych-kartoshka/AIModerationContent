@@ -1,8 +1,20 @@
 <!-- AUTO-GENERATED: src/common/folder_docs.py -->
-# `outputs/evaluation/comparison/vi_vs_stage2`
+# evaluation/comparison/vi_vs_stage2 - so hai run cùng model, khác cấu hình
 
-> Folder này **không có** mô tả trong registry `src/common/folder_docs.py`.
-> Nhiều khả năng là thư mục sinh ra ngoài dự kiến - hãy thêm mô tả vào registry.
+> **Dùng để làm gì:** So sánh riêng cặp `sensitiveai-vi` (run 1 tầng) với `sensitiveai-vi-stage2` (2 tầng): bảng metric trên validation + các hình PR/ROC/learning curve của **mọi** model để làm phụ lục.
+
+> **Sinh ra bởi:** `python scripts/03_compare_models.py`
+
+> **Quy tắc giữ lại:** **KHÔNG XÓA.** Mọi lần chạy đều tạo một thư mục riêng (`run_XXX` hoặc thư mục được `--reports-dir`/`--experiments-dir` trỏ tới), nên không lần chạy nào ghi đè lần trước. Muốn dọn dung lượng thì copy ra nơi khác rồi mới xóa - không xóa tại chỗ.
+
+## File cố định của folder này
+
+| File / thư mục | Ý nghĩa |
+|---|---|
+| `model_comparison.csv / .md` | Bảng metric validation của hai run được so (accuracy, macro-F1, per-class F1). |
+| `comparison_summary.json` | Cùng số liệu ở dạng máy đọc. |
+| `*_all_models.png` | Hình so mọi model: accuracy, macro-F1, per-class F1, PR/ROC theo từng nhãn, validation loss/accuracy. |
+| `explain.md` | File này. |
 
 
 ## Nội dung hiện có trên đĩa
@@ -11,7 +23,7 @@
 |---|---|---|
 | `accuracy_all_models.png` | file | 51.5 KB · 2026-10-13 12:36:16 |
 | `comparison_summary.json` | file | 4.3 KB · 2026-10-13 12:36:16 |
-| `explain.md` | file | 1.8 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 2.9 KB · 2026-10-19 15:06:22 |
 | `macro_f1_all_models.png` | file | 47.0 KB · 2026-10-13 12:36:16 |
 | `model_comparison.csv` | file | 1.4 KB · 2026-10-13 12:36:15 |
 | `model_comparison.md` | file | 2.9 KB · 2026-10-13 12:36:15 |
@@ -27,6 +39,11 @@
 | `validation_accuracy_all_models.png` | file | 131.4 KB · 2026-10-13 12:36:16 |
 | `validation_loss_all_models.png` | file | 88.2 KB · 2026-10-13 12:36:16 |
 
+## Cách đọc
+
+1. Dùng khi cần trả lời '2 tầng có hơn 1 tầng không?': so cột macro-F1 giữa hai run trong `model_comparison.md`.
+2. Đây là số **validation**, không phải test.
+
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

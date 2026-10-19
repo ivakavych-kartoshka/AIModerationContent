@@ -27,7 +27,7 @@
 | `confusion_matrix_normalized.png` | file | 62.9 KB · 2026-10-13 12:01:29 |
 | `confusion_matrix_raw.png` | file | 56.6 KB · 2026-10-13 12:01:28 |
 | `evaluation.json` | file | 1.7 KB · 2026-10-13 12:01:56 |
-| `explain.md` | file | 2.7 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 2.7 KB · 2026-10-19 15:06:21 |
 | `metrics.json` | file | 6.5 KB · 2026-10-13 12:01:56 |
 | `model_summary.txt` | file | 3.2 KB · 2026-10-13 12:01:56 |
 | `per_class_f1.png` | file | 45.8 KB · 2026-10-13 12:01:30 |
@@ -48,4 +48,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

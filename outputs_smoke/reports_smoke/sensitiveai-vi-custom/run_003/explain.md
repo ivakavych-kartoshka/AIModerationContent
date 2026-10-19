@@ -33,7 +33,7 @@
 | `detail_log_terminal.txt` | file | 0 B · 2026-10-05 17:03:10 |
 | `evaluate.log` | file | 3.0 KB · 2026-10-05 16:35:13 |
 | `evaluation.json` | file | 1.0 KB · 2026-10-05 16:35:13 |
-| `explain.md` | file | 3.5 KB · 2026-10-17 00:09:27 |
+| `explain.md` | file | 3.5 KB · 2026-10-19 15:06:20 |
 | `metrics.json` | file | 6.5 KB · 2026-10-05 16:35:13 |
 | `model_summary.txt` | file | 2.6 KB · 2026-10-05 16:35:13 |
 | `per_class_f1.png` | file | 44.1 KB · 2026-10-05 16:35:12 |
@@ -57,4 +57,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T00:31:13",
+  "generated_at": "2026-10-19T14:29:26",
   "passed": true,
   "n_checks": 24,
   "n_failed": 0,
@@ -7,19 +7,19 @@
   "meta": {
     "config_path": "configs\\rule_engine.yaml",
     "split": "validation",
-    "limit": 0,
-    "lexicon_entries": 2564,
+    "limit": 60,
+    "lexicon_entries": 668,
     "lexicon_path": "data/processed/lexicon/verified_lexicon.csv"
   },
   "eval": {
     "validation": {
-      "rows": 2672,
-      "macro_f1": 0.36123520629297046,
-      "accuracy": 0.6163922155688623,
-      "hate_f1": 0.2995319812792512,
-      "offensive_f1": 0.02575107296137339,
-      "clean_f1": 0.7584225646382867,
-      "ms_per_row": 0.5182027320362628
+      "rows": 60,
+      "macro_f1": 0.3045267489711934,
+      "accuracy": 0.5333333333333333,
+      "hate_f1": 0.2222222222222222,
+      "offensive_f1": 0.0,
+      "clean_f1": 0.691358024691358,
+      "ms_per_row": 0.2958066666906234
     }
   },
   "checks": [
@@ -31,7 +31,7 @@
     {
       "label": "lexicon loads",
       "ok": true,
-      "detail": "2564 entries"
+      "detail": "668 entries"
     },
     {
       "label": "engine builds",
@@ -139,9 +139,9 @@
       "detail": "n_matches=200 truncated=True"
     },
     {
-      "label": "eval validation (2672 rows)",
+      "label": "eval validation (60 rows)",
       "ok": true,
-      "detail": "macro_f1=0.3612 acc=0.6164 HATE_f1=0.2995 OFF_f1=0.0258 (0.52 ms/row)"
+      "detail": "macro_f1=0.3045 acc=0.5333 HATE_f1=0.2222 OFF_f1=0.0000 (0.30 ms/row)"
     }
   ]
 }

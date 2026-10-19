@@ -26,16 +26,16 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `__pycache__` | thư mục | 8 file, 74.7 KB |
-| `__init__.py` | file | 1.3 KB · 2026-10-16 23:35:32 |
-| `config.py` | file | 5.7 KB · 2026-10-16 23:31:56 |
-| `engine.py` | file | 4.2 KB · 2026-10-16 23:53:01 |
-| `explain.md` | file | 3.3 KB · 2026-10-17 00:09:27 |
-| `lexical_classifier.py` | file | 4.5 KB · 2026-10-16 23:33:53 |
-| `matcher.py` | file | 13.2 KB · 2026-10-16 23:53:06 |
-| `normalize.py` | file | 5.2 KB · 2026-10-16 23:33:04 |
-| `obfuscation.py` | file | 8.8 KB · 2026-10-16 23:39:47 |
-| `scoring.py` | file | 6.2 KB · 2026-10-16 23:35:07 |
+| `__init__.py` | file | 1.4 KB · 2026-10-17 01:00:08 |
+| `config.py` | file | 5.9 KB · 2026-10-17 01:00:08 |
+| `engine.py` | file | 4.3 KB · 2026-10-17 01:00:08 |
+| `explain.md` | file | 3.3 KB · 2026-10-19 15:06:20 |
+| `lexical_classifier.py` | file | 4.6 KB · 2026-10-17 01:00:08 |
+| `matcher.py` | file | 13.5 KB · 2026-10-17 01:00:08 |
+| `normalize.py` | file | 5.4 KB · 2026-10-17 01:00:08 |
+| `obfuscation.py` | file | 9.0 KB · 2026-10-17 01:00:08 |
+| `scoring.py` | file | 6.3 KB · 2026-10-17 01:00:08 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

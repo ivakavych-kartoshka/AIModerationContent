@@ -5,7 +5,7 @@
     python scripts/16_label_lexicon.py --validate-only
 
 Scans the three TRAIN splits (ViHSD / ViCM / bontori), counts per-label
-evidence for every candidate of data/processed/lexicon/sensitive_words_from_datasets.txt
+evidence for every candidate of data/processed/lexicon/sources/sensitive_words_from_datasets.txt
 and writes candidates_train.csv, verified_lexicon.csv, review_queue.csv,
 label_mapping.yaml and provenance.json into data/processed/lexicon/.
 """

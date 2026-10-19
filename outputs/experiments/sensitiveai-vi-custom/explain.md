@@ -13,7 +13,7 @@ Cột **Trạng thái**: `đã chấm test` = có `metrics.json` · `đã train`
 
 | Run | Sửa lần cuối | Số epoch đã log | Best val macro F1 | Trạng thái |
 |---|---|---:|---|---|
-| `run_001` | 2026-10-06 07:43:46 | 20 | 0.6957 | đã train |
+| `run_001` | 2026-10-17 01:00:08 | 20 | 0.6957 | đã train |
 
 Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - dùng để biết lần chạy nào mới nhất.
 
@@ -24,8 +24,8 @@ Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `run_001` | thư mục | 3 file, 14.6 KB |
-| `explain.md` | file | 1.8 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 1.8 KB · 2026-10-19 15:06:21 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

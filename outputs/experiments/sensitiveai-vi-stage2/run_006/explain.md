@@ -13,8 +13,8 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `config.yaml` | file | 2.5 KB · 2026-10-13 14:47:39 |
-| `explain.md` | file | 1006 B · 2026-10-17 00:09:28 |
+| `explain.md` | file | 1006 B · 2026-10-19 15:06:21 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

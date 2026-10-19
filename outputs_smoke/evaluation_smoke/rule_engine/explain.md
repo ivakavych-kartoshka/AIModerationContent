@@ -1,9 +1,9 @@
 <!-- AUTO-GENERATED: src/common/folder_docs.py -->
-# evaluation/rule_engine - đánh giá rule engine
+# outputs_smoke/evaluation_smoke/rule_engine - smoke test rule engine
 
-> **Dùng để làm gì:** Kết quả chấm riêng cho rule engine từ vựng (không dùng model AI). Threshold quyết định được tune **trên validation** rồi đóng băng vào `thresholds.json`; test chỉ được chấm một lần với threshold đã đóng băng (plan §44).
+> **Dùng để làm gì:** Kết quả **smoke test** nhanh cho rule engine từ vựng (không cần GPU, chạy vài giây). Chỉ kiểm tra code chạy đúng (offset map, giữ dấu, khớp exact, phân loại biến đổi, xử lý text rỗng/rất dài) và chạy end-to-end trên một phần hoặc **toàn bộ ViHSD** bằng **argmax trực tiếp, KHÔNG tune threshold** nên số liệu thấp hơn `evaluation/rule_engine/` (nơi có tune threshold).
 
-> **Sinh ra bởi:** `python scripts/17_evaluate_rule_engine.py`
+> **Sinh ra bởi:** `python scripts/18_smoke_test_rule_engine.py --split all --limit 0`
 
 > **Quy tắc giữ lại:** **KHÔNG XÓA.** Mọi lần chạy đều tạo một thư mục riêng (`run_XXX` hoặc thư mục được `--reports-dir`/`--experiments-dir` trỏ tới), nên không lần chạy nào ghi đè lần trước. Muốn dọn dung lượng thì copy ra nơi khác rồi mới xóa - không xóa tại chỗ.
 
@@ -13,17 +13,8 @@
 
 | File / thư mục | Ý nghĩa |
 |---|---|
-| `thresholds.json` | Ngưỡng riêng từng nhãn tối ưu trên validation + vết tìm kiếm; đóng băng trước khi chấm test. |
-| `metrics.json` | Bộ chỉ số đầy đủ: accuracy, macro/weighted F1, per-class P/R/F1, ROC-AUC/AP, confusion matrix. |
-| `per_class_metrics.csv` | Precision/recall/F1/support/AUC/AP theo từng nhãn và dòng MACRO. |
-| `confusion_matrix.csv` | Ma trận nhầm lẫn dạng CSV (hàng = nhãn thật). |
-| `confusion_matrix.txt` | Ma trận nhầm lẫn và bản chuẩn hoá theo hàng, in tên nhãn. |
-| `classification_report.txt` | Báo cáo phân loại đầy đủ của sklearn (tên nhãn, không dùng id). |
-| `false_positive_analysis.csv` | Các câu CLEAN bị báo nhầm kèm bằng chứng khớp mạnh nhất. |
-| `false_negative_analysis.csv` | Các câu HATE/OFFENSIVE bị bỏ sót. |
-| `latency.json` | Latency (mean/p50/p95/max) và throughput mỗi câu. |
-| `robustness.json` | Tỉ lệ phát hiện trên mẫu bị làm nhiễu (leet/spaced/no_accent/repeat) nếu chạy `--robustness`. |
-| `test/` | Kết quả chấm **test một lần** với threshold đã đóng băng (nằm riêng để không ghi đè kết quả validation). |
+| `smoke_test.json` | Kết quả đầy đủ dạng JSON: danh sách check (label/ok/detail), metrics end-to-end theo từng split + combined, meta (config, lexicon, split, limit) và cờ `passed`. |
+| `smoke_test.md` | Bản báo cáo Markdown của cùng nội dung (bảng check + bảng metrics) để đọc nhanh. |
 | `explain.md` | File này. |
 
 
@@ -31,15 +22,16 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `smoke_test.json` | file | 4.5 KB · 2026-10-17 00:20:05 |
-| `smoke_test.md` | file | 2.5 KB · 2026-10-17 00:20:05 |
+| `explain.md` | file | 2.5 KB · 2026-10-19 15:06:21 |
+| `smoke_test.json` | file | 3.4 KB · 2026-10-19 14:29:26 |
+| `smoke_test.md` | file | 2.1 KB · 2026-10-19 14:29:26 |
 
 ## Cách đọc
 
-1. Số liệu chính: `metrics.json` (macro F1) và `per_class_metrics.csv`.
-2. Xem vì sao báo nhầm: `false_positive_analysis.csv` (cột `top_matches`).
-3. So sánh AUC/AP giữa các lớp: cột `roc_auc`, `average_precision` trong `per_class_metrics.csv`.
+1. Xem nhanh: `smoke_test.md` (bảng check và bảng macro-F1/accuracy theo split).
+2. Muốn trích xuất: đọc `smoke_test.json` (khóa `passed`, `eval`, `checks`).
+3. Số liệu chính thức (có tune threshold): dùng `evaluation/rule_engine/`, không dùng folder này.
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

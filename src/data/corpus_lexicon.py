@@ -45,7 +45,8 @@ from ..common.constants import (
     RAW_DIR,
 )
 from ..common.logging_utils import get_logger
-from .lexicon import OUTPUT_COMBINED, OUTPUT_REPORT, _sha256, normalize_term
+from .lexicon import OUTPUT_COMBINED, OUTPUT_REPORT, _sha256, normalize_term, sources_dir
+from .tfidf_filter import TfidfConfig, combined_tfidf, evaluate as tfidf_evaluate
 
 LOGGER = get_logger("sensitiveai.corpus_lexicon")
 
@@ -88,12 +89,13 @@ def tokenize_row(text: str) -> List[str]:
 def _existing_lexicon(output_dir: Path) -> Set[str]:
     from .lexicon import OUTPUT_BEHITEK, OUTPUT_BLUEEYES
 
+    word_dir = sources_dir(output_dir)
     terms: Set[str] = set()
     for name in (OUTPUT_BEHITEK, OUTPUT_BLUEEYES):
-        path = output_dir / name
+        path = word_dir / name
         if path.is_file():
             terms.update(line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
-    combined = output_dir / OUTPUT_COMBINED
+    combined = word_dir / OUTPUT_COMBINED
     if not terms and combined.is_file():
         terms.update(line.strip() for line in combined.read_text(encoding="utf-8").splitlines() if line.strip())
     return terms
@@ -217,11 +219,14 @@ def _extract_terms_from_rows(
     pattern: Optional[re.Pattern[str]],
     min_toxic_df: int,
     max_clean_df: int,
-) -> Tuple[Set[str], Counter, Counter, Counter, Counter]:
+    tfidf_cfg: Optional[TfidfConfig] = None,
+) -> Tuple[Set[str], Counter, Counter, Counter, Counter, Counter]:
+    tfidf_cfg = tfidf_cfg or TfidfConfig()
     toxic_df: Counter = Counter()
     clean_df: Counter = Counter()
     rows_by_label: Counter = Counter()
     rows_with_lexicon_hit: Counter = Counter()
+    rejected: Counter = Counter()
     for text, lab in rows:
         key = lab.upper()
         if key == "HATE":
@@ -247,6 +252,8 @@ def _extract_terms_from_rows(
         elif lidk == "CLEAN":
             clean_df.update(unique_unigrams)
             clean_df.update(unique_bigrams)
+    n_toxic = rows_by_label.get("HATE", 0) + rows_by_label.get("OFFENSIVE", 0)
+    n_clean = rows_by_label.get("CLEAN", 0)
     candidates_uni: Set[str] = set()
     candidates_bi: Set[str] = set()
     for term, dfv in toxic_df.items():
@@ -254,11 +261,18 @@ def _extract_terms_from_rows(
             continue
         if term in existing or len(term) < 2:
             continue
+        # TF-IDF noise gate (plan 36): drop terms that are common in the corpus
+        # or dominated by CLEAN usage before they ever become candidates.
+        stats = combined_tfidf(dfv, clean_df.get(term, 0), n_toxic, n_clean, tfidf_cfg)
+        kept, reason = tfidf_evaluate(stats.tfidf_toxic, stats.ratio, stats.score, tfidf_cfg)
+        if not kept:
+            rejected[reason] += 1
+            continue
         if " " in term:
             candidates_bi.add(term)
         else:
             candidates_uni.add(term)
-    return candidates_uni | candidates_bi, rows_by_label, rows_with_lexicon_hit, candidates_uni, candidates_bi
+    return candidates_uni | candidates_bi, rows_by_label, rows_with_lexicon_hit, candidates_uni, candidates_bi, rejected
 
 
 def _write_terms(path: Path, terms: Set[str]) -> None:
@@ -273,8 +287,24 @@ def extract_all(
     min_toxic_df: int = 5,
     max_clean_df: int = 1,
     include_bontori_vihsd: bool = True,
+    tfidf_cfg: Optional[TfidfConfig] = None,
+    splits: Sequence[str] = DEFAULT_SPLITS_VIHSD,
 ) -> Dict[str, Any]:
+    tfidf_cfg = tfidf_cfg or TfidfConfig()
     output_dir = Path(output_dir)
+    # extracted word lists live in the sources/ sub-folder; only the JSON report
+    # stays at the lexicon root.
+    word_dir = sources_dir(output_dir)
+    word_dir.mkdir(parents=True, exist_ok=True)
+    splits = tuple(splits)
+    # Plan section 36.1: candidate discovery must be train-only, otherwise the
+    # dev/test labels leak into the dictionary. `--splits train` scans exactly
+    # the three files the labeller also uses, so discovery and labelling share
+    # one corpus. The legacy three-split run keeps its original file list
+    # (forum_data.csv included) so old reproductions stay byte-comparable.
+    legacy = splits == DEFAULT_SPLITS_VIHSD
+    vicm_files: Sequence[str] = DEFAULT_FILES_VICM if legacy else tuple(f"{s}.xlsx" for s in splits)
+    bontori_files: Sequence[str] = DEFAULT_FILES_BONTORI if legacy else tuple(f"tdtu_{s}.parquet" for s in splits)
     existing = _existing_lexicon(output_dir)
     pattern = _lexicon_hit_pattern(existing)
 
@@ -283,58 +313,67 @@ def extract_all(
 
     # ViHSD
     vihsd_dir = PROCESSED_DIR / "vihsd"
-    vihsd_rows = _load_rows_vihsd(vihsd_dir, DEFAULT_SPLITS_VIHSD)
-    vihsd_terms, vihsd_rb, vihsd_rh, vihsd_cu, vihsd_cb = _extract_terms_from_rows(vihsd_rows, existing, pattern, min_toxic_df, max_clean_df)
+    vihsd_rows = _load_rows_vihsd(vihsd_dir, splits)
+    vihsd_terms, vihsd_rb, vihsd_rh, vihsd_cu, vihsd_cb, vihsd_rej = _extract_terms_from_rows(
+        vihsd_rows, existing, pattern, min_toxic_df, max_clean_df, tfidf_cfg
+    )
     if vihsd_terms:
-        _write_terms(output_dir / VIHSD_OUTPUT, vihsd_terms)
+        _write_terms(word_dir / VIHSD_OUTPUT, vihsd_terms)
     corpus_section["vihsd"] = {
         "output": VIHSD_OUTPUT,
         "rows_scanned": len(vihsd_rows),
         "rows_by_label": dict(sorted(vihsd_rb.items())),
         "rows_with_existing_lexicon_hit": dict(sorted(vihsd_rh.items())),
         "candidates": {"unigrams": len(vihsd_cu), "bigrams": len(vihsd_cb), "total": len(vihsd_terms)},
-        "sha256": _sha256(output_dir / VIHSD_OUTPUT) if (output_dir / VIHSD_OUTPUT).is_file() else None,
+        "tfidf_rejected": dict(sorted(vihsd_rej.items())),
+        "sha256": _sha256(word_dir / VIHSD_OUTPUT) if (word_dir / VIHSD_OUTPUT).is_file() else None,
     }
     all_new.update(vihsd_terms)
 
     # ViCM
     vicm_base = RAW_DIR / "additional" / "vicm-code-mixed"
-    vicm_rows = _load_rows_vicm(vicm_base, DEFAULT_FILES_VICM)
-    vicm_terms, vicm_rb, vicm_rh, vicm_cu, vicm_cb = _extract_terms_from_rows(vicm_rows, existing | all_new, pattern, min_toxic_df, max_clean_df)
+    vicm_rows = _load_rows_vicm(vicm_base, vicm_files)
+    vicm_terms, vicm_rb, vicm_rh, vicm_cu, vicm_cb, vicm_rej = _extract_terms_from_rows(
+        vicm_rows, existing | all_new, pattern, min_toxic_df, max_clean_df, tfidf_cfg
+    )
     if vicm_terms:
-        _write_terms(output_dir / VICM_OUTPUT, vicm_terms)
+        _write_terms(word_dir / VICM_OUTPUT, vicm_terms)
     corpus_section["vicm"] = {
         "output": VICM_OUTPUT,
         "rows_scanned": len(vicm_rows),
         "rows_by_label": dict(sorted(vicm_rb.items())),
         "rows_with_existing_lexicon_hit": dict(sorted(vicm_rh.items())),
         "candidates": {"unigrams": len(vicm_cu), "bigrams": len(vicm_cb), "total": len(vicm_terms)},
-        "sha256": _sha256(output_dir / VICM_OUTPUT) if (output_dir / VICM_OUTPUT).is_file() else None,
+        "tfidf_rejected": dict(sorted(vicm_rej.items())),
+        "sha256": _sha256(word_dir / VICM_OUTPUT) if (word_dir / VICM_OUTPUT).is_file() else None,
     }
     all_new.update(vicm_terms)
 
     # bontori
     bontori_base = RAW_DIR / "additional" / "bontori-vietnamese-hsd-cleaned"
-    bontori_rows_all = _load_rows_bontori(bontori_base, DEFAULT_FILES_BONTORI)
+    bontori_rows_all = _load_rows_bontori(bontori_base, bontori_files)
     if not include_bontori_vihsd:
         bontori_rows = [(t, l) for t, l in bontori_rows_all]
     else:
         bontori_rows = list(bontori_rows_all)
-    bontori_terms, bontori_rb, bontori_rh, bontori_cu, bontori_cb = _extract_terms_from_rows(bontori_rows, existing | all_new, pattern, min_toxic_df, max_clean_df)
+    bontori_terms, bontori_rb, bontori_rh, bontori_cu, bontori_cb, bontori_rej = _extract_terms_from_rows(
+        bontori_rows, existing | all_new, pattern, min_toxic_df, max_clean_df, tfidf_cfg
+    )
     if bontori_terms:
-        _write_terms(output_dir / BONTORI_OUTPUT, bontori_terms)
+        _write_terms(word_dir / BONTORI_OUTPUT, bontori_terms)
     corpus_section["bontori"] = {
         "output": BONTORI_OUTPUT,
         "rows_scanned": len(bontori_rows),
         "rows_by_label": dict(sorted(bontori_rb.items())),
         "rows_with_existing_lexicon_hit": dict(sorted(bontori_rh.items())),
         "candidates": {"unigrams": len(bontori_cu), "bigrams": len(bontori_cb), "total": len(bontori_terms)},
-        "sha256": _sha256(output_dir / BONTORI_OUTPUT) if (output_dir / BONTORI_OUTPUT).is_file() else None,
+        "tfidf_rejected": dict(sorted(bontori_rej.items())),
+        "sha256": _sha256(word_dir / BONTORI_OUTPUT) if (word_dir / BONTORI_OUTPUT).is_file() else None,
     }
     all_new.update(bontori_terms)
 
     combined = existing | all_new
-    combined_path = output_dir / OUTPUT_COMBINED
+    combined_path = word_dir / OUTPUT_COMBINED
     with combined_path.open("w", encoding="utf-8", newline="\n") as fh:
         for term in sorted(combined):
             fh.write(term + "\n")
@@ -363,7 +402,12 @@ def extract_all(
     counts["corpus_extracted_total"] = len(all_new)
     counts["combined"] = len(combined)
     report["corpus_extraction"] = {
-        "parameters": {"min_toxic_df": min_toxic_df, "max_clean_df": max_clean_df},
+        "parameters": {
+            "min_toxic_df": min_toxic_df,
+            "max_clean_df": max_clean_df,
+            "tfidf": tfidf_cfg.to_dict(),
+            "splits_scanned": list(splits),
+        },
         "sources": corpus_section,
     }
     with report_path.open("w", encoding="utf-8", newline="\n") as fh:
@@ -382,21 +426,47 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--output-dir", default=None, help="Override the lexicon output directory.")
     p.add_argument("--min-toxic-df", type=int, default=5, help="Minimum toxic document frequency.")
     p.add_argument("--max-clean-df", type=int, default=1, help="Maximum clean document frequency.")
+    p.add_argument("--no-tfidf", action="store_true", help="Disable the TF-IDF noise gate.")
+    p.add_argument("--tfidf-min-ratio", type=float, default=0.60, help="Minimum toxic TF-IDF share.")
+    p.add_argument("--tfidf-min-score", type=float, default=0.004, help="Minimum IDF-weighted separation.")
+    p.add_argument("--tfidf-smoothing", type=float, default=1.0, help="Add-k smoothing inside the IDF.")
     p.add_argument("--show-terms", type=int, default=0, help="Print N sample new terms (0 = none).")
+    p.add_argument(
+        "--splits",
+        default="train,dev,test",
+        help="Comma-separated corpus splits to scan. Use 'train' for leakage-free "
+             "candidate discovery (plan section 36.1); it matches the labeller corpus.",
+    )
     p.add_argument("--exclude-bontori-vihsd", action="store_true", help="(not used) placeholder")
     return p
 
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = build_parser().parse_args(argv)
+    splits = tuple(s.strip() for s in args.splits.split(",") if s.strip())
+    unknown = sorted(set(splits) - {"train", "dev", "test"})
+    if not splits or unknown:
+        LOGGER.error(
+            "[corpus-lexicon] invalid --splits=%r (choose train, dev, test)", args.splits
+        )
+        return 2
+    LOGGER.info("[corpus-lexicon] scanning splits: %s", ", ".join(splits))
+    tfidf_cfg = TfidfConfig(
+        enabled=not args.no_tfidf,
+        min_ratio=args.tfidf_min_ratio,
+        min_score=args.tfidf_min_score,
+        smoothing=args.tfidf_smoothing,
+    )
     report = extract_all(
         output_dir=Path(args.output_dir) if args.output_dir else LEXICON_PROCESSED_DIR,
         min_toxic_df=args.min_toxic_df,
         max_clean_df=args.max_clean_df,
+        tfidf_cfg=tfidf_cfg,
+        splits=splits,
     )
     LOGGER.info("[corpus-lexicon] extracted total new terms: %d; combined now %d", report["counts"].get("corpus_extracted_total", 0), report["counts"]["combined"])
     if args.show_terms > 0:
-        outd = Path(args.output_dir or LEXICON_PROCESSED_DIR)
+        outd = sources_dir(Path(args.output_dir) if args.output_dir else LEXICON_PROCESSED_DIR)
         for name in (VIHSD_OUTPUT, VICM_OUTPUT, BONTORI_OUTPUT):
             p = outd / name
             if p.is_file():

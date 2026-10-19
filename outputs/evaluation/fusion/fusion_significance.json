@@ -1,0 +1,109 @@
+{
+  "models": [
+    "sensitiveai-vi",
+    "sensitiveai-vi-custom",
+    "sensitiveai-vi-custom-curriculum",
+    "sensitiveai-vi-customdlr2stage",
+    "sensitiveai-vi-customdlr2stage-ext",
+    "sensitiveai-vi-stage2"
+  ],
+  "n_samples": 6680,
+  "results": {
+    "sensitiveai-vi": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": 0.0034,
+        "delta_ci_low": -0.0038,
+        "delta_ci_high": 0.0105,
+        "p": 0.3694,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 52,
+        "c": 41,
+        "n": 93,
+        "exact_p": 0.299732,
+        "chi2_p": 0.299758
+      }
+    },
+    "sensitiveai-vi-custom": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": -0.0029,
+        "delta_ci_low": -0.008,
+        "delta_ci_high": 0.0025,
+        "p": 0.2872,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 13,
+        "c": 22,
+        "n": 35,
+        "exact_p": 0.175465,
+        "chi2_p": 0.176296
+      }
+    },
+    "sensitiveai-vi-custom-curriculum": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": -0.0057,
+        "delta_ci_low": -0.0113,
+        "delta_ci_high": -0.0004,
+        "p": 0.033,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 14,
+        "c": 40,
+        "n": 54,
+        "exact_p": 0.000535,
+        "chi2_p": 0.000669
+      }
+    },
+    "sensitiveai-vi-customdlr2stage": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": 0.0001,
+        "delta_ci_low": -0.0022,
+        "delta_ci_high": 0.0025,
+        "p": 0.9802,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 3,
+        "c": 3,
+        "n": 6,
+        "exact_p": 1.0,
+        "chi2_p": 0.683091
+      }
+    },
+    "sensitiveai-vi-customdlr2stage-ext": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": 0.0,
+        "delta_ci_low": 0.0,
+        "delta_ci_high": 0.0,
+        "p": 1.0,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 0,
+        "c": 0,
+        "n": 0,
+        "exact_p": 1.0,
+        "chi2_p": 1.0
+      }
+    },
+    "sensitiveai-vi-stage2": {
+      "paired_bootstrap_macro_f1": {
+        "delta(A_minus_B)": 0.0085,
+        "delta_ci_low": -0.003,
+        "delta_ci_high": 0.0196,
+        "p": 0.147,
+        "n_boot": 10000
+      },
+      "mcnemar": {
+        "b": 94,
+        "c": 124,
+        "n": 218,
+        "exact_p": 0.049266,
+        "chi2_p": 0.049515
+      }
+    }
+  }
+}

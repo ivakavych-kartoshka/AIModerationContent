@@ -19,7 +19,7 @@
 | `confusion_matrix.png` | file | 56.1 KB · 2026-10-07 12:44:00 |
 | `confusion_matrix_normalized.png` | file | 64.2 KB · 2026-10-07 12:44:00 |
 | `confusion_matrix_raw.png` | file | 57.2 KB · 2026-10-07 12:44:00 |
-| `explain.md` | file | 2.2 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 2.3 KB · 2026-10-19 15:06:21 |
 | `metrics.json` | file | 6.5 KB · 2026-10-07 12:44:00 |
 | `model_summary.txt` | file | 3.3 KB · 2026-10-07 12:44:00 |
 | `pr_curve.png` | file | 133.5 KB · 2026-10-07 12:44:00 |
@@ -32,7 +32,8 @@
 | `training_summary.json` | file | 21.8 KB · 2026-10-07 12:44:00 |
 | `val_accuracy_curve.png` | file | 126.4 KB · 2026-10-07 12:44:00 |
 | `val_loss_curve.png` | file | 97.2 KB · 2026-10-07 12:44:00 |
+| `validation_predictions.csv` | file | 297.0 KB · 2026-10-19 07:00:24 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -35,18 +35,19 @@
 |---|---|---|
 | `__pycache__` | thư mục | 1 file, 272 B |
 | `callbacks` | thư mục | 11 file, 67.1 KB |
-| `common` | thư mục | 17 file, 238.4 KB |
+| `common` | thư mục | 17 file, 346.7 KB |
 | `comparison` | thư mục | 5 file, 77.5 KB |
-| `data` | thư mục | 23 file, 364.1 KB |
-| `evaluation` | thư mục | 19 file, 246.0 KB |
+| `data` | thư mục | 29 file, 481.9 KB |
+| `evaluation` | thư mục | 21 file, 275.0 KB |
+| `fusion` | thư mục | 7 file, 106.0 KB |
 | `losses` | thư mục | 11 file, 59.4 KB |
 | `models` | thư mục | 7 file, 58.8 KB |
 | `preprocessing` | thư mục | 5 file, 21.1 KB |
-| `rule_engine` | thư mục | 17 file, 127.3 KB |
+| `rule_engine` | thư mục | 17 file, 128.6 KB |
 | `training` | thư mục | 11 file, 164.8 KB |
 | `__init__.py` | file | 111 B · 2026-10-04 10:36:17 |
-| `explain.md` | file | 2.6 KB · 2026-10-17 00:09:27 |
+| `explain.md` | file | 2.7 KB · 2026-10-19 15:06:20 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

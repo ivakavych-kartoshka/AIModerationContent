@@ -81,18 +81,34 @@ import yaml
 from ..common.constants import (
     LABELS,
     LEXICON_PROCESSED_DIR,
+    LEXICON_SOURCES_DIR,
+    LEXICON_SUBDIRS,
     PROCESSED_DIR,
     RAW_DIR,
 )
 from ..common.logging_utils import get_logger
 from .corpus_lexicon import _map_bontori_label, _map_vicm_label, tokenize_row
 from .lexicon import OUTPUT_REPORT, _sha256, normalize_term
+from .tfidf_filter import TfidfConfig, TermTfidf, term_tfidf
+from .tfidf_filter import passes as tfidf_passes
 
 LOGGER = get_logger("sensitiveai.lexical_labeler")
 
 # --------------------------------------------------------------------------- #
 # Output files (section 42 naming, placed in the existing processed lexicon dir)
 # --------------------------------------------------------------------------- #
+# The ACTIVE dictionary (verified_lexicon.csv), label_mapping.yaml and
+# provenance.json stay at the lexicon root - configs/rule_engine.yaml points at
+# verified_lexicon.csv. The two heavy intermediates (evidence table + review
+# queue) go to the labeling/ sub-folder so the root stays readable.
+LABELING_SUBDIR = LEXICON_SUBDIRS["labeling"]
+
+
+def labeling_dir(output_dir: str | Path) -> Path:
+    """``<lexicon dir>/labeling`` - home of the labelling intermediates."""
+    return Path(output_dir) / LABELING_SUBDIR
+
+
 CANDIDATES_INPUT = "sensitive_words_from_datasets.txt"
 OUTPUT_CANDIDATES = "candidates_train.csv"
 OUTPUT_VERIFIED = "verified_lexicon.csv"
@@ -132,6 +148,8 @@ class LabelingConfig:
     confidence_full_evidence: float = 10.0
     confidence_lift_cap: float = 100.0
     dictionary_version: str = DICTIONARY_VERSION_DEFAULT
+    #: TF-IDF noise gate (section 36) - drops terms dominated by CLEAN usage
+    tfidf: TfidfConfig = field(default_factory=TfidfConfig)
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -148,6 +166,7 @@ class LabelingConfig:
             "confidence_full_evidence": self.confidence_full_evidence,
             "confidence_lift_cap": self.confidence_lift_cap,
             "dictionary_version": self.dictionary_version,
+            "tfidf": self.tfidf.to_dict(),
         }
 
 
@@ -241,7 +260,9 @@ def collect_evidence(
     """Count, per candidate, the training rows that contain it.
 
     Returns ``(per-term label counts, per-term dataset set, rows per label,
-    rows per dataset and label)``.
+    rows per dataset and label)``. The per-term counter is a document
+    frequency: each row votes at most once, which is also the ``tf`` input of
+    the TF-IDF noise gate.
     """
     candidate_set = set(candidates)
     evidence: Dict[str, Counter] = defaultdict(Counter)
@@ -322,6 +343,21 @@ def label_term(
     lift_off = _lift(r_off)
     lift_toxic = _lift(toxic_rate)
 
+    # --- TF-IDF evidence (section 36 noise filter) ------------------------ #
+    # TF is the per-class document frequency (one row votes once); IDF is over
+    # all training rows. Normalising TF by the class size makes the weights of
+    # the two toxic classes comparable to CLEAN despite the class imbalance.
+    tfidf_stats: TermTfidf = term_tfidf(
+        tf_hate=n_hate,
+        tf_offensive=n_off,
+        tf_clean=n_clean,
+        df_total=total_toxic + n_clean,
+        n_hate=n_hate_rows,
+        n_offensive=n_off_rows,
+        n_clean=n_clean_rows,
+        cfg=cfg.tfidf,
+    )
+
     record: Dict[str, Any] = {
         "term": term,
         "n_hate": n_hate,
@@ -343,6 +379,7 @@ def label_term(
         "review_status": "rejected",
         "reason": "",
     }
+    record.update(tfidf_stats.to_row())
 
     # --- weak / absent evidence ------------------------------------------ #
     if total_toxic == 0:
@@ -351,6 +388,13 @@ def label_term(
     if total_toxic < cfg.min_evidence:
         record["review_status"] = "needs_review"
         record["reason"] = "weak_evidence"
+        return record
+
+    # --- TF-IDF gate: drop terms dominated by CLEAN usage ----------------- #
+    kept, tfidf_reason = tfidf_passes(tfidf_stats, cfg.tfidf)
+    if not kept:
+        record["review_status"] = "rejected"
+        record["reason"] = tfidf_reason
         return record
 
     # --- votes ------------------------------------------------------------- #
@@ -560,6 +604,16 @@ def _write_candidates_csv(path: Path, records: Sequence[Dict[str, Any]]) -> None
         "lift_hate",
         "lift_offensive",
         "lift_toxic",
+        "tf_hate",
+        "tf_offensive",
+        "tf_clean",
+        "idf",
+        "tfidf_hate",
+        "tfidf_offensive",
+        "tfidf_clean",
+        "tfidf_toxic",
+        "tfidf_ratio",
+        "tfidf_score",
         "source_datasets",
         "review_status",
         "reason",
@@ -652,7 +706,7 @@ def _input_fingerprints() -> Dict[str, Any]:
     from .corpus_lexicon import DEFAULT_FILES_BONTORI, DEFAULT_FILES_VICM
 
     files: Dict[str, Any] = {}
-    candidates_path = LEXICON_PROCESSED_DIR / CANDIDATES_INPUT
+    candidates_path = LEXICON_SOURCES_DIR / CANDIDATES_INPUT
     if candidates_path.is_file():
         files[str(candidates_path.relative_to(PROCESSED_DIR.parent.parent))] = _sha256(candidates_path)
     vihsd = PROCESSED_DIR / "vihsd" / "train.csv"
@@ -669,6 +723,37 @@ def _input_fingerprints() -> Dict[str, Any]:
     return files
 
 
+def _discovery_deviations(output_dir: Path) -> List[str]:
+    """Flag candidate discovery that did not follow the train-only rule (plan 36.1).
+
+    ``scripts/15_extract_corpus_words.py --splits train`` records the splits it
+    scanned in ``lexicon_report.json``. Anything other than ``train`` means dev/test
+    labels reached candidate discovery, so the dictionary must be re-extracted
+    before it is frozen - the reviewer sees it here instead of in an extraction log.
+    """
+    report_path = output_dir / "lexicon_report.json"
+    splits: List[str] = []
+    if report_path.is_file():
+        try:
+            payload = json.loads(report_path.read_text(encoding="utf-8"))
+            splits = list(payload.get("corpus_extraction", {}).get("parameters", {}).get("splits_scanned", []))
+        except (json.JSONDecodeError, OSError):
+            splits = []
+    if not splits:
+        return [
+            "Candidate discovery did not record its scanned splits; plan section 36.1 requires "
+            "train-only extraction - re-run 'python scripts/15_extract_corpus_words.py "
+            "--splits train' before the dictionary is frozen.",
+        ]
+    if splits == ["train"]:
+        return []
+    return [
+        f"Candidate discovery scanned splits {splits} while plan section 36.1 requires train-only "
+        "extraction (the labels below are still computed on train rows only). Re-run "
+        "'python scripts/15_extract_corpus_words.py --splits train' before the dictionary is frozen.",
+    ]
+
+
 def _write_provenance(
     path: Path,
     cfg: LabelingConfig,
@@ -680,7 +765,11 @@ def _write_provenance(
 ) -> None:
     outputs: Dict[str, Any] = {}
     for name in (OUTPUT_CANDIDATES, OUTPUT_VERIFIED, OUTPUT_REVIEW_QUEUE, OUTPUT_LABEL_MAPPING):
-        target = output_dir / name
+        # candidates / review queue live in labeling/, the dictionary itself and
+        # its metadata stay at the lexicon root.
+        target = labeling_dir(output_dir) / name
+        if not target.is_file():
+            target = output_dir / name
         if target.is_file():
             outputs[name] = {"sha256": _sha256(target), "bytes": target.stat().st_size}
 
@@ -709,11 +798,7 @@ def _write_provenance(
             "terms": sorted(overrides.keys()) if overrides else [],
         },
         "outputs": outputs,
-        "deviations": [
-            "Candidate discovery (scripts/15_extract_corpus_words.py) scanned train+dev+test of every "
-            "dataset; plan section 36.1 asks for train-only extraction. Labels below are computed on "
-            "train rows only - re-extraction from train is a follow-up before the dictionary is frozen.",
-        ],
+        "deviations": _discovery_deviations(output_dir),
     }
     with path.open("w", encoding="utf-8", newline="\n") as fh:
         json.dump(provenance, fh, ensure_ascii=False, indent=2)
@@ -722,7 +807,7 @@ def _write_provenance(
 
 
 def run_labeling(
-    candidates_path: str | Path = LEXICON_PROCESSED_DIR / CANDIDATES_INPUT,
+    candidates_path: str | Path = LEXICON_SOURCES_DIR / CANDIDATES_INPUT,
     output_dir: str | Path = LEXICON_PROCESSED_DIR,
     cfg: Optional[LabelingConfig] = None,
     overrides_path: Optional[str | Path] = None,
@@ -743,9 +828,11 @@ def run_labeling(
     overrides = load_overrides(overrides_file)
     apply_overrides(records, overrides, cfg)
 
-    _write_candidates_csv(output_dir / OUTPUT_CANDIDATES, records)
+    inter_dir = labeling_dir(output_dir)
+    inter_dir.mkdir(parents=True, exist_ok=True)
+    _write_candidates_csv(inter_dir / OUTPUT_CANDIDATES, records)
     _write_verified_csv(output_dir / OUTPUT_VERIFIED, records)
-    queue_size = _write_review_queue(output_dir / OUTPUT_REVIEW_QUEUE, records)
+    queue_size = _write_review_queue(inter_dir / OUTPUT_REVIEW_QUEUE, records)
     _write_label_mapping(output_dir / OUTPUT_LABEL_MAPPING)
     _write_provenance(
         output_dir / OUTPUT_PROVENANCE, cfg, records, rows_by_label, rows_by_dataset_label, output_dir, overrides
@@ -754,12 +841,16 @@ def run_labeling(
     validation = validate_lexicon(output_dir)
 
     labelled = [r for r in records if r["lexical_labels"]]
+    tfidf_reasons = Counter(
+        r["reason"] for r in records if r["reason"].startswith("tfidf_")
+    )
     summary = {
         "candidates": len(records),
         "labelled": len(labelled),
         "review_queue": queue_size,
         "status_counts": dict(Counter(r["review_status"] for r in records)),
         "label_sets": dict(Counter(";".join(r["lexical_labels"]) for r in labelled)),
+        "tfidf_filtered": dict(tfidf_reasons),
         "validation": validation,
     }
     LOGGER.info("[labeler] summary: %s", {k: v for k, v in summary.items() if k != "validation"})
@@ -775,7 +866,7 @@ def build_parser() -> argparse.ArgumentParser:
         description="Label the extracted candidates with lexical HATE / OFFENSIVE labels (plan section 36).",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    p.add_argument("--candidates", default=str(LEXICON_PROCESSED_DIR / CANDIDATES_INPUT), help="Input candidate list.")
+    p.add_argument("--candidates", default=str(LEXICON_SOURCES_DIR / CANDIDATES_INPUT), help="Input candidate list.")
     p.add_argument("--output-dir", default=str(LEXICON_PROCESSED_DIR), help="Where the lexicon files are written.")
     p.add_argument("--min-evidence", type=int, default=3, help="Minimum toxic rows before a label is assigned.")
     p.add_argument("--share-threshold", type=float, default=0.6, help="Dominant-class share needed for a single label.")
@@ -787,6 +878,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--verified-evidence", type=int, default=10, help="Evidence needed for review_status=verified.")
     p.add_argument("--auto-confidence", type=float, default=0.4, help="Confidence floor for auto labelling.")
     p.add_argument("--dictionary-version", default=DICTIONARY_VERSION_DEFAULT, help="Dictionary version stamp.")
+    p.add_argument("--no-tfidf", action="store_true", help="Disable the TF-IDF noise gate (section 36).")
+    p.add_argument("--tfidf-min-ratio", type=float, default=0.6, help="Minimum toxic share of TF-IDF weight to keep a term.")
+    p.add_argument("--tfidf-min-score", type=float, default=0.004, help="Minimum IDF-weighted toxic-vs-clean separation.")
+    p.add_argument("--tfidf-smoothing", type=float, default=1.0, help="Add-k smoothing inside the IDF.")
     p.add_argument("--validate-only", action="store_true", help="Only validate the existing outputs.")
     p.add_argument("--show-terms", type=int, default=15, help="Print N sample labelled entries (0 = none).")
     return p
@@ -821,6 +916,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         verified_evidence=args.verified_evidence,
         auto_confidence=args.auto_confidence,
         dictionary_version=args.dictionary_version,
+        tfidf=TfidfConfig(
+            enabled=not args.no_tfidf,
+            min_ratio=args.tfidf_min_ratio,
+            min_score=args.tfidf_min_score,
+            smoothing=args.tfidf_smoothing,
+        ),
     )
     summary = run_labeling(Path(args.candidates), output_dir, cfg, overrides_path=args.overrides)
 
@@ -830,6 +931,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         summary["labelled"],
         summary["review_queue"],
     )
+    if summary["tfidf_filtered"]:
+        LOGGER.info("[labeler] tfidf gate dropped: %s", summary["tfidf_filtered"])
     if args.show_terms > 0:
         path = output_dir / OUTPUT_VERIFIED
         with path.open(encoding="utf-8", newline="") as fh:

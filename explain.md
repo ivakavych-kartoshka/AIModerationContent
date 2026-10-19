@@ -22,7 +22,7 @@
 
 | Thư mục con | Vai trò |
 |---|---|
-| `configs/` | 5 file YAML: data split + 4 cấu hình model. |
+| `configs/` | YAML: data split + 4 cấu hình model + 2 cấu hình rule engine. |
 | `src/` | Mã nguồn Python (43 module). |
 | `scripts/` | 5 entry point chạy theo thứ tự 00 -> 05. |
 | `data/` | Dữ liệu ViHSD: raw, processed, splits. |
@@ -36,24 +36,31 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `.freebuff` | thư mục | 1 file, 37 B |
-| `.git` | thư mục | 1830 file, 691.6 MB |
+| `.git` | thư mục | 2981 file, 699.6 MB |
+| `.kilo` | thư mục | 2 file, 1.5 KB |
 | `checkpoints` | thư mục | 1 file, 1.3 KB |
-| `configs` | thư mục | 11 file, 30.5 KB |
-| `data` | thư mục | 75 file, 31.1 MB |
-| `docs` | thư mục | 2 file, 25.2 KB |
-| `outputs` | thư mục | 688 file, 57.5 GB |
-| `outputs_smoke` | thư mục | 619 file, 19.9 GB |
-| `papers` | thư mục | 144 file, 14.1 MB |
-| `scripts` | thư mục | 24 file, 208.4 KB |
-| `src` | thư mục | 129 file, 1.4 MB |
-| `.gitignore` | file | 857 B · 2026-10-16 20:32:49 |
-| `explain.md` | file | 3.2 KB · 2026-10-17 00:09:27 |
-| `fix.txt` | file | 15 B · 2026-10-15 19:35:21 |
-| `plan.md` | file | 20.1 KB · 2026-10-04 13:04:21 |
+| `configs` | thư mục | 17 file, 48.3 KB |
+| `data` | thư mục | 73 file, 18.5 MB |
+| `docs` | thư mục | 4 file, 59.1 KB |
+| `outputs` | thư mục | 815 file, 57.5 GB |
+| `outputs_smoke` | thư mục | 620 file, 19.9 GB |
+| `papers` | thư mục | 148 file, 14.2 MB |
+| `scripts` | thư mục | 41 file, 457.6 KB |
+| `src` | thư mục | 144 file, 1.7 MB |
+| `.gitignore` | file | 857 B · 2026-10-19 07:42:22 |
+| `explain.md` | file | 3.6 KB · 2026-10-19 15:06:19 |
+| `plan.md` | file | 20.1 KB · 2026-10-19 14:15:48 |
 | `README.md` | file | 48.7 KB · 2026-10-05 22:28:54 |
 | `requirements.txt` | file | 517 B · 2026-10-04 11:31:24 |
-| `Rule_Engine_Plan.md` | file | 11.5 KB · 2026-10-16 22:44:58 |
-| `texput.log` | file | 744 B · 2026-10-15 21:33:57 |
+| `Rule_Engine_Plan.md` | file | 11.7 KB · 2026-10-17 01:00:08 |
+| `tmp_ablation_table.py` | file | 1.3 KB · 2026-10-19 10:17:11 |
+| `tmp_context_fp.py` | file | 2.7 KB · 2026-10-19 13:08:02 |
+| `tmp_hashes.py` | file | 1.8 KB · 2026-10-19 12:37:36 |
+| `tmp_labelmix.py` | file | 835 B · 2026-10-19 12:37:51 |
+| `tmp_make_configs.py` | file | 1.2 KB · 2026-10-19 12:37:51 |
+| `tmp_prune_sweep.py` | file | 2.1 KB · 2026-10-19 12:37:36 |
+| `tmp_report_lexicon.py` | file | 1.0 KB · 2026-10-19 09:18:55 |
+| `tmp_summarize17.py` | file | 1.8 KB · 2026-10-19 09:48:08 |
 
 ## Cách đọc
 
@@ -63,4 +70,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

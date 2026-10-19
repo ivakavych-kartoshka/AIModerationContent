@@ -49,6 +49,8 @@ class FolderDoc:
     reading_guide: Sequence[str] = field(default_factory=tuple)
     keep_policy: str = KEEP_POLICY
     extra_notes: Sequence[str] = field(default_factory=tuple)
+    #: free-form markdown blocks rendered verbatim under "## Chi tiết"
+    details: Sequence[str] = field(default_factory=tuple)
 
 
 # --------------------------------------------------------------------------- #
@@ -104,6 +106,57 @@ _RUN_READING_GUIDE: Tuple[str, ...] = (
 )
 
 
+_CONFIDENCE_DETAIL: Tuple[str, ...] = (
+    "### Cách tính `confidence` - độ chắc chắn của một entry từ điển",
+    "",
+    "Cột `confidence` trong `verified_lexicon.csv` trả lời câu hỏi *\"term này chắc chắn là từ độc hại đến đâu\"* "
+    "- **không** phải tần suất xuất hiện thô. Nó do `lexical_labeler._confidence()` tính từ bằng chứng "
+    "**chỉ trên train split** (plan §36.1).",
+    "",
+    "**Bước 1 - đếm bằng chứng (train-only).** Quét từng câu train của 3 bộ (ViHSD / ViCM / bontori), đếm "
+    "document frequency theo nhãn (mỗi câu chỉ bầu một lần):",
+    "",
+    "- `n_hate`, `n_offensive`, `n_clean`: số câu mỗi lớp chứa term;",
+    "- `r_hate = n_hate / (số câu HATE)`, tương tự `r_offensive`, `r_clean` - **chuẩn hoá theo kích thước lớp** "
+    "nên lớp CLEAN đông không lấn át;",
+    "- `share_hate = r_hate / (r_hate + r_offensive)`: term nghiêng về lớp độc hại nào;",
+    "- `lift_hate = r_hate / r_clean` (và `lift_offensive`): term xuất hiện ở HATE nhiều hơn CLEAN bao nhiêu lần.",
+    "",
+    "**Bước 2 - công thức.** `confidence` là trung bình có trọng số của **3 tín hiệu**, mỗi tín hiệu đã được "
+    "chuẩn hoá về `[0, 1]`:",
+    "",
+    "```",
+    "value      = 0.4 * ev + 0.3 * margin + 0.3 * lift_score",
+    "confidence = clip(value, 0.05, 0.99)",
+    "```",
+    "",
+    "| Thành phần | Công thức | Ý nghĩa | Khoảng |",
+    "|---|---|---|---|",
+    "| `ev` (evidence) | `min(1, total_toxic / 10)` với `total_toxic = n_hate + n_offensive` | càng nhiều câu độc hại chứa term càng chắc; đủ 10 câu là bão hoà | 0-1 |",
+    "| `margin` | `abs(share_hate - 0.5) * 2` | nghiêng hẳn về một lớp -> chắc; `share = 0.5` (lưỡng lự) -> 0 | 0-1 |",
+    "| `lift_score` | `log1p(min(lift, 100)) / log1p(100)` | lift càng lớn càng chắc nhưng nén bằng log, trần 100 | 0-1 |",
+    "",
+    "Trọng số `0.4 / 0.3 / 0.3` (`confidence_weights`) và các mốc `10` / `100` đều đổi được trong `LabelingConfig`.",
+    "",
+    "**Ví dụ.** Term có `n_hate = 12`, `n_offensive = 2`, `n_clean = 1` (`total_toxic = 14`), `share_hate ~ 0.9`, "
+    "`lift ~ 40`:",
+    "",
+    "- `ev = min(1, 14/10) = 1.000` -> `0.4 * 1.000 = 0.400`",
+    "- `margin = |0.9 - 0.5| * 2 = 0.800` -> `0.3 * 0.800 = 0.240`",
+    "- `lift_score = log1p(40) / log1p(100) = 0.805` -> `0.3 * 0.805 = 0.242`",
+    "- `value = 0.400 + 0.240 + 0.242 = 0.881` -> **`confidence = 0.881`**",
+    "",
+    "**Bước 3 - dùng ở đâu.**",
+    "",
+    "- Vào `match_score` của rule engine: `severity x confidence x match_factor x context_factor` (plan §39);",
+    "- Xếp loại entry (`review_status`): `confidence >= 0.7` **và** `total_toxic >= 10` -> `verified`; "
+    "`>= 0.4` -> `auto`; còn lại -> `needs_review`.",
+    "",
+    "Lưu ý: `severity` **không** tính từ dữ liệu - đây là bảng cố định theo nhãn (`HATE = 0.90`, "
+    "`OFFENSIVE = 0.60`); chỉ `confidence` mới suy ra từ bằng chứng train.",
+)
+
+
 def _specs() -> Dict[str, FolderDoc]:
     """Return the folder registry (built once, kept as a plain dict)."""
     return {
@@ -124,7 +177,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("explain.md", "File này."),
             ),
             children=(
-                ("configs/", "5 file YAML: data split + 4 cấu hình model."),
+                ("configs/", "YAML: data split + 4 cấu hình model + 2 cấu hình rule engine."),
                 ("src/", "Mã nguồn Python (43 module)."),
                 ("scripts/", "5 entry point chạy theo thứ tự 00 -> 05."),
                 ("data/", "Dữ liệu ViHSD: raw, processed, splits."),
@@ -152,7 +205,8 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("sensitiveai-vi-custom.yaml", "Model 2 - giống baseline, **chỉ thay head** bằng multi-view pooling, 6 epoch."),
                 ("sensitiveai-vi-customdlr2stage.yaml", "Model 3 - custom head + DLR 4 nhóm + 2 stage (CE -> focal) + class weight + threshold, 7 epoch."),
                 ("sensitiveai-vi-custom-curriculum.yaml", "Model 4 - custom head + DLR + curriculum 3 stage (OFFENSIVE -> HATE -> CE) + class weight manual + threshold, 10 epoch."),
-                ("rule_engine.yaml", "Cấu hình rule engine: chuẩn hoá, view chống ngụy trang, ngưỡng khớp và trọng số điểm (plan §37-39). Mọi trọng số là giả thuyết ban đầu, tune trên validation."),
+                ("rule_engine.yaml", "Cấu hình rule engine: chuẩn hoá, view chống ngụy trang, ngưỡng khớp và trọng số điểm (plan §37-39). Mọi trọng số là giả thuyết ban đầu, tune trên validation. Baseline hiện tại với lexicon 668 entry: validation macro-F1 0.4555 (thresholds [0.85, 0.0, 0.41]) -> test 0.4536 (đo 1 lần)."),
+                ("rule_engine_tuned.yaml", "Bản tune của rule engine (plan §38-39, §44) do `scripts/27_tune_rule_weights.py` sinh: coordinate descent 155 trial trên **validation** với lexicon 668 entry, đổi 3 trọng số - `match_factors.accentless_alias` 0.90 -> 0.00 (view không dấu khớp nhầm âm tiết phổ biến, plan §38), `match_factors.obfuscated_combined` 0.60 -> 0.45, `negation_factor` 0.50 -> 1.00. Validation macro-F1 0.4555 -> 0.5481; test chấm một lần: 0.5335. Đánh đổi: recall `no_accent` 0.530 -> 0.3625. Không ghi đè bản gốc."),
                 ("explain.md", "File này."),
             ),
             keep_policy="**KHÔNG SỬA** sau khi đã chạy thật. Muốn thử biến thể mới thì copy sang file mới.",
@@ -174,10 +228,18 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("12_build_lexicon.py", "Tải 2 từ điển từ ngữ nhạy cảm từ GitHub về `data/raw/lexicon/` rồi trích xuất danh sách từ đã chuẩn hoá vào `data/processed/lexicon/`."),
                 ("13_extract_vihsd_words.py", "Quét ViHSD, trích từ/cụm từ xuất hiện nhiều ở HATE+OFFENSIVE và gần như không ở CLEAN, gộp vào lexicon."),
                 ("14_fetch_additional_datasets.py", "Tải 5 dataset tiếng Việt cùng nhãn CLEAN/OFFENSIVE/HATE về `data/raw/additional/` + file giải thích nhãn `NOTES.md` (ViCM tải từ GitHub, VLSP2019 ký form rồi tự chép file vào)."),
-                ("15_extract_corpus_words.py", "Quét cả 3 dataset (ViHSD/ViCM/bontori), trích ứng viên từ/cụm từ nhạy cảm ra `data/processed/lexicon/sensitive_words_from_datasets.txt`."),
-                ("16_label_lexicon.py", "Gán nhãn HATE/OFFENSIVE cho từng ứng viên dựa bằng chứng trên **train split**, ghi `verified_lexicon.csv`, `review_queue.csv`, `label_mapping.yaml`, `provenance.json` (plan §36)."),
+                ("15_extract_corpus_words.py", "Quét cả 3 dataset (ViHSD/ViCM/bontori), trích ứng viên từ/cụm từ nhạy cảm ra `data/processed/lexicon/sources/sensitive_words_from_datasets.txt`."),
+                ("16_label_lexicon.py", "Gán nhãn HATE/OFFENSIVE cho từng ứng viên dựa bằng chứng trên **train split** và áp cổng lọc nhiễu TF-IDF, ghi `verified_lexicon.csv`, `label_mapping.yaml`, `provenance.json` (gốc) + `labeling/candidates_train.csv`, `labeling/review_queue.csv` (plan §36)."),
                 ("17_evaluate_rule_engine.py", "Chấm rule engine trên validation (tune threshold) / test (threshold đóng băng), xuất metrics, confusion matrix, phân tích FP/FN, latency, robustness (plan §39, §44)."),
-                ("18_smoke_test_rule_engine.py", "Smoke test nhanh rule engine (không cần GPU): nạp config/lexicon, kiểm tra offset map + giữ dấu, khớp exact, phân loại biến đổi, xử lý text rỗng/None/rất dài. `--split` (validation/test/train/all) và `--limit 0` chạy end-to-end trên một phần hoặc toàn bộ ViHSD (argmax, không tune threshold); ghi kết quả vào `outputs_smoke/evaluation_smoke/rule_engine/`."),
+                ("18_smoke_test_rule_engine.py", "Smoke test nhanh rule engine (không cần GPU): nạp config/lexicon, kiểm tra offset map + giữ dấu, khớp exact, phân loại biến đổi, xử lý text rỗng/None/rất dài. `--config` (mặc định `configs/rule_engine.yaml`) để chọn từ điển, `--split` (validation/test/train/all) và `--limit 0` chạy end-to-end trên một phần hoặc toàn bộ ViHSD (argmax, không tune threshold); ghi kết quả vào `outputs_smoke/evaluation_smoke/rule_engine/`."),
+                ("19_plot_rule_engine.py", "Trực quan hoá kết quả rule engine (plan §39, §44): đọc artifact của script 17, chấm lại bằng threshold đã đóng băng (không tune) và vẽ confusion matrix (thô + chuẩn hoá), per-class F1, PR/ROC, đường tune threshold, robustness (thêm baseline `clean` + mức giảm), histogram latency; thêm `rule_scores.csv` per-sample cho bước fusion. Ghi PNG vào `outputs/evaluation/rule_engine/` và `.../test/`."),
+                ("20_prune_lexicon.py", "Chấm lại **toàn bộ** từ điển đã đóng băng bằng cổng TF-IDF trên train split và ghi bản đã lọc `pruning/verified_lexicon_pruned.csv` + audit từng entry `pruning/lexicon_prune_audit.csv`; tách thêm bản theo từng dataset (`pruning/verified_lexicon_pruned_<dataset>.csv`, hợp của chúng = file gộp); `--in-place` ghi đè `verified_lexicon.csv` (backup ở `pruning/verified_lexicon_preprune.csv`). Dùng để loại nốt nhiễu lọt qua lúc gán nhãn (plan §36)."),
+                ("21_sweep_tfidf.py", "Quét lưới ngưỡng TF-IDF (`min_ratio`, `min_score`) trên **validation**: mỗi điểm dựng lexicon đã lọc rồi chấm rule engine và ghi macro-F1 vào `outputs/evaluation/rule_engine_tfidf_sweep/`; không bao giờ dùng test để tune (plan §36, §44)."),
+                ("22_relabel_lexicon.py", "**Phân nhãn lại** tập đã lọc: đọc `pruning/verified_lexicon_pruned.csv`, chạy lại thuật toán gán nhãn (share/lift/confidence, bằng chứng gộp mọi train split) trên đúng các term đó, ghi từ điển mới `relabeling/verified_lexicon_relabeled.csv` + bản theo từng dataset `relabeling/verified_lexicon_relabeled_<dataset>.csv` + audit trước/sau `relabeling/lexicon_relabel_changes.csv`; cập nhật mục `relabeling` trong `lexicon_report.json` (plan §36)."),
+                ("26_rule_significance.py", "**Kiểm định chênh lệch giữa 2 lần chạy rule engine** trên cùng test split: paired bootstrap (macro-F1/accuracy, CI 95%, p hai phía) + McNemar đúng/sai từng mẫu, so hàng theo `index` + `y_true` (không khớp là dừng). Input là `predictions.csv` đã chấm sẵn nên **không** tạo lần đo test mới; ghi JSON qua `--out` (mặc định `outputs/evaluation/rule_significance.json`) + bảng LaTeX `papers/tables/rule_significance.tex` (plan §43-44)."),
+                ("27_tune_rule_weights.py", "**Tune trọng số scoring của rule engine** (`severity`, `match_factors`, `negation/quote/context_required_factor`, `aggregation_cap`) bằng coordinate descent trên **validation**; mỗi ứng viên tune lại threshold (macro-F1), mọi trial ghi vào `outputs/evaluation/rule_engine_tune/trials.csv`, cấu hình thắng ghi `configs/rule_engine_tuned.yaml`. Không bao giờ đọc test (plan §39, §44)."),
+                ("28_compare_rule_engines.py", "**So sánh 2 rule engine đã đóng băng** (baseline vs tuned): đọc `metrics.json`/`robustness.json`/`latency.json`/`thresholds.json` của cả hai run ở validation + test, diff cấu hình từ YAML, ghép báo kiểm định của script 26; ghi `outputs/evaluation/comparison/rule_engine/rule_engine_baseline_vs_tuned.md` + 3 hình (macro-F1, per-class F1, robustness). Không chấm lại split nào (plan §44)."),
+                ("29_plot_fusion_comparison.py", "**Hình so sánh fusion với AI-only**: đọc `metrics.json` từng model + `fusion_significance.json` đã có và sinh 4 hình vào `outputs/evaluation/fusion/` (macro-F1 + Δ, forest plot CI paired bootstrap, Δ của 4 biến thể fusion, F1 từng lớp). Chỉ đọc artifact đóng băng, không chấm lại split nào (plan §44)."),
                 ("README.md", "Hướng dẫn dùng từng script."),
                 ("explain.md", "File này."),
             ),
@@ -243,9 +305,15 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("preprocess.py", "Làm sạch + remap nhãn canonical + ghi `preprocessing_report.json`."),
                 ("split.py", "Tạo split, tính SHA-256 từng file, kiểm tra toàn vẹn, ghi `split_manifest.json`."),
                 ("dataset.py", "Tokenize `train/validation/test`, `TokenizedTextDataset`, `collate_fn` an toàn Windows (num_workers>0)."),
+                ("corpus_lexicon.py", "Trích ứng viên từ vựng từ các split train (ViHSD/ViCM/bontori), đếm document frequency toxic/clean, ghi `sources/sensitive_words_from_datasets.txt` đầu vào cho bộ gán nhãn."),
+                ("lexical_labeler.py", "Gán nhãn HATE/OFFENSIVE cho từng ứng viên dựa bằng chứng train-only (share/lift/confidence), áp cổng lọc nhiễu TF-IDF, ghi `verified_lexicon.csv`, `label_mapping.yaml`, `provenance.json` (gốc) + `labeling/candidates_train.csv`, `labeling/review_queue.csv` (plan §36)."),
+                ("tfidf_filter.py", "Bộ lọc nhiễu TF-IDF thuần (không I/O) cho ứng viên lexicon: IDF làm mượt, trọng số TF-IDF theo lớp, tỉ lệ toxic và điểm tách toxic-vs-clean; quyết định giữ/loại (plan §36)."),
+                ("lexicon_pruner.py", "Chấm lại **từ điển đã đóng băng** bằng cổng TF-IDF trên train split, ghi `pruning/verified_lexicon_pruned.csv` (gộp) + bản theo từng dataset `pruning/verified_lexicon_pruned_<dataset>.csv` + audit `pruning/lexicon_prune_audit.csv` và cập nhật `lexicon_report.json`; CLI cho `scripts/20_prune_lexicon.py` (plan §36)."),
+                ("lexicon_relabeler.py", "**Phân nhãn lại** tập đã lọc: chạy lại thuật toán gán nhãn (share/lift/confidence, bằng chứng gộp train split) trên `pruning/verified_lexicon_pruned.csv`, ghi `relabeling/verified_lexicon_relabeled.csv` (gộp) + bản theo từng dataset `relabeling/verified_lexicon_relabeled_<dataset>.csv` + audit trước/sau `relabeling/lexicon_relabel_changes.csv`, cập nhật mục `relabeling` của `lexicon_report.json`; CLI cho `scripts/22_relabel_lexicon.py` (plan §36)."),
                 ("prepare_data.py", "CLI cho `scripts/00_prepare_data.py`."),
                 ("explain.md", "File này."),
             ),
+            details=_CONFIDENCE_DETAIL,
         ),
         "src/models": FolderDoc(
             title="models - kiến trúc mô hình",
@@ -311,6 +379,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("benchmark.py", "Đo latency (ms/sample) và throughput (samples/s) với warmup, không tính thời gian warmup vào kết quả."),
                 ("curves.py", "Chuỗi dữ liệu cho PR/ROC curve."),
                 ("plots.py", "Vẽ ma trận nhầm lẫn, PR/ROC, per-class F1, đường cong validation theo epoch."),
+                ("tfidf_sweep.py", "Quét lưới ngưỡng TF-IDF trên validation: chấm lại lexicon cho từng `(min_ratio, min_score)`, tune threshold, ghi macro-F1 và chọn cấu hình tốt nhất (plan §36, §44); CLI cho `scripts/21_sweep_tfidf.py`."),
                 ("report.py", "`model_summary.txt` và khối thông tin môi trường để tái lập."),
                 ("run_evaluation.py", "CLI đánh giá một model; **lưu trữ** kết quả cũ vào `history/` thay vì xóa."),
                 ("explain.md", "File này."),
@@ -334,6 +403,25 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("scoring.py", "Điểm `severity x confidence x match_factor x context_factor` (phủ định, trích dẫn, `context_required`) rồi gộp mỗi nhãn bằng `1 - prod(1 - s_i)` (plan §39)."),
                 ("engine.py", "`RuleEngine.analyze()` gom toàn bộ pipeline và trả về evidence dict; `from_config` / `from_lexicon` để dựng nhanh."),
                 ("explain.md", "File này."),
+            ),
+        ),
+        "src/fusion": FolderDoc(
+            title="src/fusion - mã nguồn hybrid fusion (rule engine + AI)",
+            purpose=(
+                "Ghép điểm rule engine với xác suất AI (plan §40-41): quét `alpha` (trọng số AI), per-channel alpha, "
+                "tune threshold và huấn luyện meta-classifier - **tất cả trên validation**, đóng băng rồi chấm test một "
+                "lần (plan §44). Không tự chứa tham số: đọc `configs/hybrid_fusion.yaml`."
+            ),
+            produced_by="Không sinh ra - mã nguồn. Chạy qua `python scripts/23_evaluate_fusion.py`; kết quả ở `evaluation/fusion/`.",
+            contents=(
+                ("run_fusion.py", "Điều phối toàn bộ: tìm run/checkpoint AI, dùng lại `per_model/<model>/{validation,test}_predictions.csv`, ghép với `rule_scores.csv`, chọn alpha/threshold/meta trên validation, ghi báo cáo + `fusion_significance` bước sau."),
+                ("weighted_fusion.py", "Hàm thuần: `score_alpha_grid`, per-channel alpha, `tune_thresholds_at_alpha(s)`, `MetaFusion` (logistic regression trên 6 điểm rule/AI)."),
+                ("__init__.py", "Export công khai của package."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Muốn hiểu 'alpha' ảnh hưởng gì: đọc `score_alpha_grid` trong `weighted_fusion.py` (1.0 = chỉ AI, 0.0 = chỉ rule).",
+                "Kết quả và kiểm định: `evaluation/fusion/significance_report.md`.",
             ),
         ),
         "src/comparison": FolderDoc(
@@ -481,28 +569,165 @@ def _specs() -> Dict[str, FolderDoc]:
                 "+ `_`→space + gộp space, sắp xếp và khử trùng lặp), cùng **từ điển đã gán nhãn HATE/OFFENSIVE** mà rule "
                 "engine dùng để khớp (plan §36)."
             ),
-            produced_by="`python scripts/12_build_lexicon.py --stage extract`, `scripts/15_extract_corpus_words.py`, `scripts/16_label_lexicon.py`",
+            produced_by="`python scripts/12_build_lexicon.py --stage extract`, `scripts/15_extract_corpus_words.py`, `scripts/16_label_lexicon.py`, `scripts/20_prune_lexicon.py`, `scripts/22_relabel_lexicon.py`",
             contents=(
-                ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị)."),
-                ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode)."),
-                ("sensitive_words_combined.txt", "Gộp 2 nguồn, khử trùng lặp - file nên dùng để quét văn bản."),
-                ("sensitive_words_from_datasets.txt", "Ứng viên từ/cụm từ trích từ 3 dataset (ViHSD/ViCM/bontori) - đầu vào của bước gán nhãn."),
-                ("verified_lexicon.csv", "**Từ điển đã gán nhãn** (plan §36.2): `entry_id, term, canonical_form, lexical_labels, severity, confidence, context_required, source_datasets, source_split, review_status, dictionary_version`. Đầu vào của rule engine."),
-                ("candidates_train.csv", "Toàn bộ ứng viên kèm bằng chứng đếm được trên train split (số lần xuất hiện theo từng nhãn)."),
-                ("review_queue.csv", "Các ứng viên còn mơ hồ cần người duyệt tay."),
-                ("label_mapping.yaml", "Ánh xạ nhãn từ khóa -> id chuẩn và mô tả quy tắc gán nhãn đã dùng."),
-                ("provenance.json", "Dấu vết tái lập: tham số, SHA-256 file nguồn/đầu ra, phân bố nhãn và các sai lệch so với kế hoạch (deviation)."),
+                ("verified_lexicon.csv", "**Từ điển đang dùng** (plan §36.2): `entry_id, term, canonical_form, lexical_labels, severity, confidence, context_required, source_datasets, source_split, review_status, dictionary_version`. Đây là file `configs/rule_engine.yaml` trỏ tới - chỉ entry `verified`/`auto` được khớp."),
+                ("label_mapping.yaml", "Ánh xạ nhãn từ khóa -> id chuẩn (HATE=0, OFFENSIVE=1, CLEAN=2) và mô tả quy tắc gán nhãn đã dùng."),
+                ("provenance.json", "Dấu vết tái lập của từ điển: tham số gán nhãn, SHA-256 file nguồn/đầu ra, phân bố nhãn và các sai lệch so với kế hoạch (deviation)."),
                 ("manual_review.csv", "**Tùy chọn** - quyết định duyệt tay, merge sau khi gán nhãn tự động nếu tồn tại."),
-                ("lexicon_report.json", "Số từ từng nguồn, phần giao, số cụm từ nhiều chữ, SHA-256 từng file output và từng file nguồn."),
+                ("lexicon_report.json", "Báo cáo tổng hợp **của cả pipeline**: số từ từng nguồn, kết quả trích xuất, mục `tfidf_pruning` và `relabeling`, SHA-256 từng file output."),
                 ("explain.md", "File này."),
+            ),
+            children=(
+                ("sources/", "Từ vựng thô trích ra từ 2 repo GitHub + 3 dataset (đầu vào của bước gán nhãn)."),
+                ("labeling/", "Bằng chứng trung gian của bước gán nhãn: bảng đếm `candidates_train.csv` + hàng chờ duyệt tay `review_queue.csv`."),
+                ("pruning/", "Kết quả lọc TF-IDF: từ điển đã lọc, bản theo từng dataset, audit từng entry, backup trước khi ghi đè."),
+                ("relabeling/", "Kết quả phân nhãn lại: từ điển mới, bản theo từng dataset, bảng so sánh trước/sau."),
+                ("sweeps/", "Thí nghiệm quét ngưỡng TF-IDF (`pruned_scoreXXX/`) - mỗi folder một mức ngưỡng, không phải từ điển chính."),
             ),
             reading_guide=(
                 "Muốn biết có bao nhiêu từ: `lexicon_report.json`, khoá `counts`.",
                 "Nghi ngờ file bị đổi: so SHA-256 trong `lexicon_report.json` / `provenance.json` với file trên đĩa.",
-                "Muốn lọc văn bản: đọc `sensitive_words_combined.txt`, mỗi dòng một cụm từ (lowercase).",
-                "Muốn xem từ điển rule engine thực dùng: `verified_lexicon.csv` (chỉ entry `verified`/`auto` được khớp mặc định).",
+                "Muốn lọc văn bản: đọc `sources/sensitive_words_combined.txt`, mỗi dòng một cụm từ (lowercase).",
+                "Muốn xem từ điển rule engine thực dùng: `verified_lexicon.csv` (file này nằm ở gốc, không nằm trong thư mục con).",
+                "Muốn biết đã lọc/phân nhãn lại những gì: vào `pruning/lexicon_prune_audit.csv` và `relabeling/lexicon_relabel_changes.csv`.",
+            ),
+            extra_notes=(
+                "Cột `confidence` của `verified_lexicon.csv` được tính thế nào (bằng chứng train, share/lift, công thức): "
+                "xem mục **Chi tiết** trong `src/data/explain.md`.",
             ),
             keep_policy="**Sinh lại được** từ `data/raw/lexicon` + 3 dataset, nhưng nên giữ lại để đối chiếu SHA-256.",
+        ),
+        "data/processed/lexicon/sources": FolderDoc(
+            title="data/processed/lexicon/sources - từ vựng thô (đầu vào pipeline)",
+            purpose=(
+                "Mọi danh sách từ **chưa gán nhãn**, mỗi dòng một cụm từ, UTF-8, đã NFC + hạ chữ + gộp space, "
+                "sắp xếp và khử trùng lặp. Đây là đầu vào của bước gán nhãn (step 16) và của bước quét corpus "
+                "(step 15). Không file nào ở đây chứa nhãn HATE/OFFENSIVE."
+            ),
+            produced_by="`python scripts/12_build_lexicon.py --stage extract`, `python scripts/15_extract_corpus_words.py`",
+            contents=(
+                ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị). Chỉ có khi step 12 chạy extract."),
+                ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode). Chỉ có khi step 12 chạy extract."),
+                ("sensitive_words_combined.txt", "Gộp 2 repo nguồn, khử trùng lặp - file nên dùng để quét văn bản."),
+                ("vihsd_extracted_words.txt", "Ứng viên unigram/bigram trích từ ViHSD (đếm df toxic/clean trên train)."),
+                ("vicm_extracted_words.txt", "Ứng viên trích từ ViCM (code-mixed)."),
+                ("bontori_extracted_words.txt", "Ứng viên trích từ bontori (TDTU)."),
+                ("sensitive_words_from_datasets.txt", "Gộp ứng viên từ 3 dataset - **đầu vào trực tiếp** của `16_label_lexicon.py`."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Chỉ muốn lọc văn bản thô: đọc `sensitive_words_combined.txt`.",
+                "Muốn xem vì sao một từ lọt vào từ điển: tìm nó trong `../labeling/candidates_train.csv`.",
+            ),
+            keep_policy="**Sinh lại được** từ `data/raw/` (2 repo lexicon + 3 dataset). Giữ lại để đối chiếu SHA-256 trong `lexicon_report.json`.",
+        ),
+        "data/processed/lexicon/labeling": FolderDoc(
+            title="data/processed/lexicon/labeling - bằng chứng trung gian của bước gán nhãn",
+            purpose=(
+                "Lưu **bằng chứng** mà thuật toán gán nhãn dùng, để người đọc kiểm chứng được từng quyết định "
+                "gán nhãn mà không phải chạy lại pipeline. Không file nào ở đây là từ điển chính - "
+                "`verified_lexicon.csv` nằm ở thư mục cha."
+            ),
+            produced_by="`python scripts/16_label_lexicon.py`",
+            contents=(
+                ("candidates_train.csv", "Một dòng cho mỗi ứng viên: số câu train chứa từ theo từng nhãn (`n_hate/n_offensive/n_clean`) + cột TF-IDF (`tf_*`, `idf`, `tfidf_*`, `tfidf_ratio`, `tfidf_score`) - chính là dữ liệu đầu vào của cổng lọc nhiễu."),
+                ("review_queue.csv", "Ứng viên yếu / mơ hồ / bị cổng TF-IDF loại, kèm cột `reason` - danh sách cần người duyệt tay."),
+                ("manual_review.csv", "**Tùy chọn** - quyết định duyệt tay; nếu có thì được merge vào từ điển khi step 16 chạy."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Tại sao từ X bị loại? Tìm X trong `review_queue.csv`, đọc cột `reason`.",
+                "Tại sao từ X được gán HATE? Đọc bằng chứng trong `candidates_train.csv` rồi so với quy tắc ở `src/data/explain.md`.",
+            ),
+            keep_policy="**Sinh lại được** khi chạy lại step 16, nhưng là hồ sơ chứng minh - giữ lại.",
+        ),
+        "data/processed/lexicon/pruning": FolderDoc(
+            title="data/processed/lexicon/pruning - kết quả lọc TF-IDF",
+            purpose=(
+                "Chấm lại **toàn bộ** từ điển đã đóng băng bằng cổng TF-IDF trên train split (plan §36), "
+                "loại từ do CLEAN dùng nhiều / quá yếu để tách độc hại khỏi sạch. Kèm audit từng entry và "
+                "bản sao theo từng dataset."
+            ),
+            produced_by="`python scripts/20_prune_lexicon.py` (thêm `--in-place` để ghi đè từ điển chính)",
+            contents=(
+                ("verified_lexicon_pruned.csv", "Từ điển sau khi lọc - file gộp, cùng schema với `verified_lexicon.csv`. Đây là input của step 22."),
+                ("verified_lexicon_pruned_vihsd.csv", "Bản lọc chỉ gồm entry có `source_datasets` chứa `vihsd`."),
+                ("verified_lexicon_pruned_vicm.csv", "Bản lọc chỉ gồm entry có `source_datasets` chứa `vicm`."),
+                ("verified_lexicon_pruned_bontori.csv", "Bản lọc chỉ gồm entry có `source_datasets` chứa `bontori`. Hợp 3 file per-dataset = file gộp."),
+                ("lexicon_prune_audit.csv", "Audit từng entry: số đếm theo nhãn, `idf`, các cột `tfidf_*`, quyết định `kept`/`dropped` và `reason`."),
+                ("verified_lexicon_preprune.csv", "Backup từ điển **trước** khi `--in-place` ghi đè `../verified_lexicon.csv` - dùng để hoàn nguyên."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Tại sao từ X bị lọc? Tìm X trong `lexicon_prune_audit.csv`, đọc `decision` + `reason`.",
+                "Muốn hoàn nguyên từ điển: copy `verified_lexicon_preprune.csv` thành `../verified_lexicon.csv`.",
+            ),
+            keep_policy="**Không xóa** - audit là hồ sơ của quyết định lọc; backup là đường hoàn nguyên duy nhất.",
+        ),
+        "data/processed/lexicon/relabeling": FolderDoc(
+            title="data/processed/lexicon/relabeling - kết quả phân nhãn lại",
+            purpose=(
+                "Chạy lại thuật toán gán nhãn (share / lift / confidence, bằng chứng gộp mọi train split) "
+                "trên đúng tập đã lọc, rồi ghi bảng so sánh trước/sau cho từng term (plan §36)."
+            ),
+            produced_by="`python scripts/22_relabel_lexicon.py`",
+            contents=(
+                ("verified_lexicon_relabeled.csv", "Từ điển sau phân nhãn lại - file gộp, cùng schema với `../verified_lexicon.csv`."),
+                ("verified_lexicon_relabeled_vihsd.csv", "Bản chỉ gồm entry có `source_datasets` chứa `vihsd`."),
+                ("verified_lexicon_relabeled_vicm.csv", "Bản chỉ gồm entry có `source_datasets` chứa `vicm`."),
+                ("verified_lexicon_relabeled_bontori.csv", "Bản chỉ gồm entry có `source_datasets` chứa `bontori`. Hợp 3 file = file gộp."),
+                ("lexicon_relabel_changes.csv", "Mỗi dòng một term: nhãn / `review_status` / `confidence` / `severity` **cũ và mới** + cờ `changed` + `reason`. Muốn biết thuật toán đổi gì, đọc file này."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Thuật toán có đổi nhãn gì không? Đếm cột `changed` = `true` trong `lexicon_relabel_changes.csv`.",
+                "Muốn đưa từ điển này vào dùng: copy `verified_lexicon_relabeled.csv` thành `../verified_lexicon.csv`.",
+            ),
+            keep_policy="**Không xóa** - bảng before/after là hồ sơ chứng minh của bước phân nhãn lại.",
+        ),
+        "data/processed/lexicon/sweeps": FolderDoc(
+            title="data/processed/lexicon/sweeps - thí nghiệm quét ngưỡng TF-IDF",
+            purpose=(
+                "Mỗi thư mục con là **một mức ngưỡng `tfidf_min_score`** (0.008 / 0.010 / 0.015), chứa bản từ điển "
+                "lọc ở mức đó. Dùng để so sánh kích thước từ điển và chỉ số rule engine theo ngưỡng. "
+                "**Không phải từ điển chính** - `configs/rule_engine.yaml` không trỏ vào đây."
+            ),
+            produced_by="`python tmp_prune_sweep.py` (script thí nghiệm, tạo bộ `pruned_scoreXXX/`)",
+            children=(
+                ("pruned_score008/", "Ngưỡng 0.008 - giữ nhiều từ nhất (~691 entry)."),
+                ("pruned_score010/", "Ngưỡng 0.010 - trung gian (~576 entry)."),
+                ("pruned_score015/", "Ngưỡng 0.015 - chặt nhất (~324 entry)."),
+            ),
+            contents=(
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Muốn so ngưỡng: mở `lexicon_report.json` của từng thư mục con, hoặc chạy `configs/rule_engine_tuned_p0XX.yaml`.",
+                "Muốn tái lập một mức ngưỡng: `python scripts/20_prune_lexicon.py --tfidf-min-score 0.010 --output-dir data/processed/lexicon/sweeps/pruned_score010`.",
+                "Số liệu sweep của lần đo trước nằm trong `outputs/evaluation/rule_engine_tuned_pruning_ablation_val.json` + `docs/bao_cao_tfidf_prune_ablation.md` (folder `outputs/evaluation/rule_engine_tuned_p0XX` đã được dọn ngày 19/10).",
+            ),
+            keep_policy="**Tùy** - các folder kết quả evaluation tương ứng (`outputs/evaluation/rule_engine_tuned_p0XX/`) đã được dọn; giữ nếu muốn tái lập ablation, xóa được nếu chỉ cần bảng số trong JSON + báo cáo.",
+        ),
+        "data/processed/lexicon/sweeps/pruned_score*": FolderDoc(
+            title="data/processed/lexicon/sweeps/pruned_scoreXXX - một mức ngưỡng TF-IDF",
+            purpose=(
+                "Bản từ điển lọc ở **một mức `tfidf_min_score` cụ thể** (số trong tên folder = ngưỡng × 1000), "
+                "cùng audit và báo cáo của riêng mức đó. Dùng để so sánh kích thước từ điển / chỉ số rule engine "
+                "theo ngưỡng. **Không phải từ điển chính.**"
+            ),
+            produced_by="`python tmp_prune_sweep.py` (script thí nghiệm) hoặc `scripts/20_prune_lexicon.py --tfidf-min-score <ngưỡng> --output-dir <folder này>`",
+            contents=(
+                ("verified_lexicon_pruned.csv", "Từ điển lọc ở mức ngưỡng của folder này (cùng schema với `../../verified_lexicon.csv`)."),
+                ("lexicon_prune_audit.csv", "Audit từng entry của lần lọc này: số đếm theo nhãn, `tfidf_score`, `tfidf_ratio`, `decision`, `reason`."),
+                ("lexicon_report.json", "Báo cáo thu nhỏ của lần lọc này (tham số + số entry giữ/bỏ)."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "So các ngưỡng: mở `lexicon_report.json` của từng folder con trong `sweeps/` rồi so `kept`.",
+                "Muốn chấm một biến thể: dùng config `configs/rule_engine_tuned_p0XX.yaml` (đã trỏ sẵn `lexicon_path` vào folder này).",
+            ),
+            keep_policy="**Không xóa** khi còn file kết quả `outputs/evaluation/rule_engine_tuned_p0XX/` tương ứng - xóa thì không tái lập được số liệu đó.",
         ),
         "data/splits": FolderDoc(
             title="data/splits - split cố định dùng chung",
@@ -699,8 +924,11 @@ def _specs() -> Dict[str, FolderDoc]:
             children=(
                 ("logs/", "Nhật ký CSV của **mọi** lần chấm điểm - nối các lần chạy lại thành một dòng thời gian."),
                 ("per_model/", "Bản sao số liệu chính của từng model, gom lại một chỗ."),
-                ("comparison/", "Bảng và biểu đồ so sánh 4 model."),
+                ("comparison/", "Bảng và biểu đồ so sánh 4 model + so sánh 2 rule engine."),
+                ("analysis/", "Ba báo cáo phân tích hậu nghiệm: chống trùng lặp giữa các split, kiểm định thống kê 4 model, supplementary (calibration/MCC)."),
                 ("rule_engine/", "Kết quả đánh giá rule engine từ vựng độc lập (plan §39, §44)."),
+                ("rule_engine_tuned/", "Rule engine với cấu hình đã tune (`configs/rule_engine_tuned.yaml`) - bản tốt nhất, kèm hồ sơ tune (`tuning_trials.csv`, `tuning_report.json`)."),
+                ("fusion/", "Ghép điểm rule engine với xác suất của từng model AI (plan §40-41)."),
             ),
             reading_guide=(
                 "Muốn xem toàn bộ lịch sử chấm điểm: `evaluation/logs/evaluation_log.csv`.",
@@ -735,9 +963,13 @@ def _specs() -> Dict[str, FolderDoc]:
             title="evaluation/comparison - bảng và biểu đồ so sánh",
             purpose=(
                 "Nơi dễ dễ nhất để đọc kết quả so sánh: một bảng tất cả chỉ số của 4 model (CSV và Markdown), "
-                "cùng các biểu đồ PR/ROC/validation dùng cho bài báo."
+                "cùng các biểu đồ PR/ROC/validation dùng cho bài báo. Hai thư mục con: `rule_engine/` (so sánh "
+                "baseline vs tuned) và `vi_vs_stage2/` (so 2 run cùng model)."
             ),
-            produced_by="`python scripts/03_compare_models.py`",
+            produced_by=(
+                "`python scripts/03_compare_models.py` (4 model); "
+                "bộ so sánh 2 rule engine do scripts 26 + 28 ghi vào thư mục con `rule_engine/`"
+            ),
             contents=(
                 ("model_comparison.csv", "Bảng tổng hợp tất cả chỉ số của 4 model."),
                 ("model_comparison.md", "Cùng bảng dạng Markdown, dễ đọc và dán vào bài báo."),
@@ -758,8 +990,37 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("explain.md", "File này."),
             ),
             reading_guide=(
-                "Bảng quan trọng nhất: `model_comparison.md` (macro F1, weighted F1, per-class F1, latency).",
+                "Muốn so 2 rule engine (baseline vs tuned): đọc `rule_engine/rule_engine_baseline_vs_tuned.md` - đủ bảng số, hình kèm và kết luận kiểm định.",
+                "Bảng quan trọng nhất của 4 model: `model_comparison.md` (macro F1, weighted F1, per-class F1, latency).",
                 "Giải thích vì sao accuracy không phải số liệu chính: xem mục 2.2 của `README.md`.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/analysis": FolderDoc(
+            title="evaluation/analysis - báo cáo phân tích hậu nghiệm",
+            purpose=(
+                "Ba báo cáo phân tích đọc từ **test predictions đã đóng băng** của 4 model (không huấn luyện, "
+                "không tune gì thêm): (1) chống trùng lặp giữa các split - `leakage_report`; (2) kiểm định thống "
+                "kê post-hoc - CI bootstrap 95% từng model, so cặp trên test - `significance_report`; "
+                "(3) supplementary (calibration ECE/Brier/NLL, MCC...) - `supplementary_report`, được "
+                "`papers/supplementary/main.tex` trỏ tới."
+            ),
+            produced_by=(
+                "`python scripts/08_check_leakage.py` (leakage), `python scripts/06_analyze_significance.py` "
+                "(significance), `python scripts/11_supplementary_analyses.py` (supplementary)"
+            ),
+            contents=(
+                ("leakage_report.md / .json", "Trùng lặp giữa train/validation/test (895/6.680 comment test trùng train/val = 13.4%) + tập de-leaked 5.785 mẫu."),
+                ("significance_report.md", "CI bootstrap accuracy/macro-F1 từng model + so cặp - nguồn cho mọi tuyên bố 'model nào hơn' trên test."),
+                ("significance_summary.json", "Cùng nội dung ở dạng máy-đọc (CI, pairwise delta, p-value)."),
+                ("supplementary_report.md", "Calibration (ECE/Brier/NLL), MCC... dạng Markdown cho bài báo."),
+                ("supplementary_summary.json", "Dữ liệu của supplementary ở dạng máy-đọc."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Nghi ngờ leakage: đọc `leakage_report.md` trước - số trùng test/train quyết định mức độ tin số test.",
+                "Muốn tuyên bố model A hơn model B: mở `significance_report.md`, xem CI của Δ và p - không đọc p từ bảng metric.",
+                "Bài supplementary trỏ thẳng vào `supplementary_report.md` - đừng đổi tên file này.",
             ),
             keep_policy=KEEP_POLICY,
         ),
@@ -770,7 +1031,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 "**trên validation** rồi đóng băng vào `thresholds.json`; test chỉ được chấm một lần với threshold đã "
                 "đóng băng (plan §44)."
             ),
-            produced_by="`python scripts/17_evaluate_rule_engine.py`",
+            produced_by="`python scripts/17_evaluate_rule_engine.py` và `python scripts/19_plot_rule_engine.py`",
             contents=(
                 ("thresholds.json", "Ngưỡng riêng từng nhãn tối ưu trên validation + vết tìm kiếm; đóng băng trước khi chấm test."),
                 ("metrics.json", "Bộ chỉ số đầy đủ: accuracy, macro/weighted F1, per-class P/R/F1, ROC-AUC/AP, confusion matrix."),
@@ -781,14 +1042,247 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("false_positive_analysis.csv", "Các câu CLEAN bị báo nhầm kèm bằng chứng khớp mạnh nhất."),
                 ("false_negative_analysis.csv", "Các câu HATE/OFFENSIVE bị bỏ sót."),
                 ("latency.json", "Latency (mean/p50/p95/max) và throughput mỗi câu."),
-                ("robustness.json", "Tỉ lệ phát hiện trên mẫu bị làm nhiễu (leet/spaced/no_accent/repeat) nếu chạy `--robustness`."),
-                ("test/", "Kết quả chấm **test một lần** với threshold đã đóng băng (nằm riêng để không ghi đè kết quả validation)."),
+                ("robustness.json", "Tỉ lệ phát hiện trên mẫu bị làm nhiễu (clean/leet/spaced/no_accent/repeat) kèm `detection_drop_vs_clean` (do script 19 bổ sung dòng baseline `clean`)."),
+                ("rule_scores.csv", "Điểm `rule_hate_score`/`rule_offensive_score` và nhãn dự đoán per-sample; đầu vào cho bước fusion (script 19 sinh)."),
+                ("confusion_matrix.png", "Hình ma trận nhầm lẫn thô (script 19)."),
+                ("confusion_matrix_normalized.png", "Hình ma trận nhầm lẫn chuẩn hoá theo hàng (script 19)."),
+                ("per_class_f1.png", "Cột F1 theo từng lớp (script 19)."),
+                ("pr_curve.png", "Đường Precision-Recall one-vs-rest + macro (script 19)."),
+                ("roc_curve.png", "Đường ROC one-vs-rest + macro (script 19)."),
+                ("threshold_sweep.png", "macro-F1 theo từng bước tune threshold trên validation (script 19)."),
+                ("robustness_detection.png", "Cột detection rate theo biến đổi, gồm baseline `clean` (script 19)."),
+                ("latency_distribution.png", "Histogram latency mỗi câu + p50/p95/mean (script 19)."),
+                ("test/", "Kết quả chấm **test một lần** với threshold đã đóng băng, gồm cả PNG và `rule_scores.csv` (nằm riêng để không ghi đè kết quả validation)."),
                 ("explain.md", "File này."),
             ),
             reading_guide=(
+                "Số liệu chính (lexicon 668 entry): validation macro-F1 **0.4555** (HATE 0.3677, OFFENSIVE 0.1686, acc 0.7021), thresholds [0.85, 0.0, 0.41].",
+                "`test/metrics.json` = **0.4536** (acc 0.7070, HATE 0.3717, OFFENSIVE 0.1546) - đây là baseline để so với bản tuned 0.5335 (**+0.0799 macro-F1**).",
                 "Số liệu chính: `metrics.json` (macro F1) và `per_class_metrics.csv`.",
                 "Xem vì sao báo nhầm: `false_positive_analysis.csv` (cột `top_matches`).",
                 "So sánh AUC/AP giữa các lớp: cột `roc_auc`, `average_precision` trong `per_class_metrics.csv`.",
+                "Xem hình: `confusion_matrix*.png`, `per_class_f1.png`, `pr_curve.png`, `roc_curve.png`, `robustness_detection.png`, `latency_distribution.png`.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_engine/test": FolderDoc(
+            title="evaluation/rule_engine/test - chấm test một lần cho rule engine",
+            purpose=(
+                "Cùng bộ artifact như `evaluation/rule_engine/` nhưng cho **test split**, chấm đúng một lần với "
+                "threshold đã đóng băng từ validation (plan §44). Nằm riêng để không bao giờ ghi đè kết quả validation "
+                "đã dùng để tune."
+            ),
+            produced_by="`python scripts/17_evaluate_rule_engine.py --split test` và `python scripts/19_plot_rule_engine.py --split test`",
+            contents=(
+                ("metrics.json", "Chỉ số test với threshold đóng băng (dùng cho ablation §43)."),
+                ("per_class_metrics.csv", "Precision/recall/F1/support/AUC/AP theo lớp trên test."),
+                ("confusion_matrix.csv / .txt", "Ma trận nhầm lẫn thô và chuẩn hoá theo hàng."),
+                ("classification_report.txt", "Báo cáo phân loại sklearn trên test."),
+                ("false_positive_analysis.csv / false_negative_analysis.csv", "Phân tích lỗi kèm bằng chứng khớp mạnh nhất."),
+                ("latency.json", "Latency/throughput trên test."),
+                ("robustness.json", "Detection rate theo biến đổi + baseline `clean` và `detection_drop_vs_clean`."),
+                ("rule_scores.csv", "Điểm rule per-sample trên test; đầu vào cho bước fusion."),
+                ("*.png", "Confusion matrix, per-class F1, PR/ROC, threshold sweep, robustness, latency."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Đây là con số **test cuối cùng** của rule engine baseline: macro-F1 **0.4536**, acc 0.7070, HATE 0.3717, OFFENSIVE 0.1546 (lexicon 668 entry, thresholds đóng băng [0.85, 0.0, 0.41]); không tune lại sau khi có kết quả này.",
+                "So với `evaluation/rule_engine_tuned/test/metrics.json` (0.5335): chênh lệch **+0.0799 macro-F1** đến từ tune trọng số, không phải từ điển hay ngưỡng khác.",
+                "Bản test cũ chạy trên lexicon 922 entry (macro-F1 0.4667) được lưu ở `test_legacy922/` để không ghi đè lịch sử.",
+                "Robustness test (400 mẫu nhiễu): clean 0.555, leet 0.440, spaced 0.4725, no_accent 0.540, repeat 0.3775.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_engine/test_legacy922": FolderDoc(
+            title="evaluation/rule_engine/test_legacy922 - số test của phiên bản lexicon 922 entry (lưu trữ)",
+            purpose=(
+                "Kết quả chấm test **bản cũ** của rule engine baseline khi `verified_lexicon.csv` còn 922 entry "
+                "(macro-F1 0.4667). Khi hệ thống được dựng lại với lexicon 668 entry, thư mục `test/` phải chấm lại "
+                "một lần nên bản cũ được chuyển vào đây để không mất lịch sử (plan §44)."
+            ),
+            produced_by="Kết quả của lần chạy cũ, chỉ được **di chuyển** (không sinh lại được).",
+            contents=(
+                ("metrics.json", "Chỉ số test bản lexicon 922: macro-F1 0.4667, acc 0.7201."),
+                ("thresholds.json", "Ngưỡng đóng băng thời điểm đó (khác với ngưỡng hiện tại [0.85, 0.0, 0.41])."),
+                ("*.csv / *.txt", "Confusion matrix, per-class, FP/FN, latency bản cũ."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "**Chỉ dùng để đối chiếu lịch sử**, không dùng làm baseline cho kết quả hiện tại - baseline hiện tại là `evaluation/rule_engine/test/` (lexicon 668, macro-F1 0.4536).",
+            ),
+            keep_policy="**KHÔNG XÓA, KHÔNG CHẠY LẠI** - đây là lịch sử đo lường (mỗi lần đo test chỉ hợp lệ một lần).",
+        ),
+        "evaluation/rule_engine_tuned": FolderDoc(
+            title="evaluation/rule_engine_tuned - rule engine đã tune trọng số",
+            purpose=(
+                "Cùng bộ artifact như `evaluation/rule_engine/` nhưng dùng **`configs/rule_engine_tuned.yaml`**: các trọng số "
+                "`scoring.*` được tune bằng coordinate descent trên **validation** (`scripts/27_tune_rule_weights.py`, "
+                "hồ sơ từng trial ở `tuning_trials.csv` của chính folder này). Ba tham số đổi so với bản gốc: "
+                "`match_factors.accentless_alias` 0.90 -> 0.00 (view không dấu là tín hiệu phụ nhưng lại khớp nhầm âm tiết phổ biến, plan §38), "
+                "`match_factors.obfuscated_combined` 0.60 -> 0.45, `negation_factor` 0.50 -> 1.00. "
+                "Threshold tune trên validation rồi đóng băng cho test (plan §44). Đây là cấu hình rule engine tốt nhất, không ghi đè baseline."
+            ),
+            produced_by="`python scripts/17_evaluate_rule_engine.py --config configs/rule_engine_tuned.yaml --out outputs/evaluation/rule_engine_tuned` (và `--split test` cho bản test) + `python scripts/19_plot_rule_engine.py --config configs/rule_engine_tuned.yaml --out outputs/evaluation/rule_engine_tuned`",
+            contents=(
+                ("thresholds.json", "Ngưỡng tune trên validation với trọng số đã tune; đóng băng trước khi chấm test."),
+                ("metrics.json", "Chỉ số validation của cấu hình tuned (macro-F1 0.5481)."),
+                ("rule_scores.csv", "Điểm rule per-sample (script 19) - đầu vào của bước fusion."),
+                ("tuning_trials.csv", "155 trial của coordinate descent (script 27) - bằng chứng trọng số được tune trên **validation** (plan §44). Đây là bản sao lưu từ nhật ký tune gốc; sau khi dọn cây (chỉ giữ baseline + tuned) đây là nơi duy nhất còn `trials.csv`."),
+                ("tuning_report.json", "Tóm tắt phiên tune: baseline 0.4555 -> 0.5481, các trọng số đã đổi (`changed`), SHA-256 từ điển."),
+                ("test/", "Chấm **test một lần** với threshold đóng băng (macro-F1 0.5335), gồm metrics, confusion, per-class, FP/FN, latency, robustness."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "So `metrics.json` (validation) với `evaluation/rule_engine/metrics.json` (baseline accentless=0.90): macro-F1 0.5481 vs 0.4555, HATE 0.4967 vs 0.3677, OFFENSIVE 0.2310 vs 0.1686.",
+                "`test/metrics.json` là con số test cuối: macro-F1 **0.5335**, accuracy 0.8398, HATE 0.4323, OFFENSIVE 0.2418 (val 0.5481 -> test 0.5335, gap lành mạnh) - so baseline cùng lexicon 668 `evaluation/rule_engine/test/metrics.json` = 0.4536 (**+0.0799**).",
+                "Đánh đổi phải nhớ (`robustness.json`, 400 mẫu nhiễu): `no_accent` giảm - validation 0.3625 (baseline 0.530), test 0.325 (baseline 0.540) - vì `accentless_alias = 0`; bù lại leet/spaced/repeat **tốt hơn** baseline (test: 0.460/0.605/0.5425 vs 0.440/0.4725/0.3775).",
+                "Bộ artifact chi tiết giống hệt `evaluation/rule_engine/` (confusion matrix, per-class, PR/ROC, robustness...).",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_engine_tuned/test": FolderDoc(
+            title="evaluation/rule_engine_tuned/test - test một lần cho rule engine đã tune",
+            purpose=(
+                "Test split của rule engine dùng cấu hình tuned (`scratch 27`: accentless 0.0, obfuscated_combined 0.45, "
+                "negation 1.0), chấm đúng một lần với threshold đã đóng băng từ validation (plan §44). "
+                "Lần đo này thuộc **phiên bản lexicon 668 entry** (bản cũ 1828 entry từng cho macro-F1 0.4927)."
+            ),
+            produced_by="`python scripts/17_evaluate_rule_engine.py --config configs/rule_engine_tuned.yaml --split test --out outputs/evaluation/rule_engine_tuned`",
+            contents=(
+                ("metrics.json", "Chỉ số test với cấu hình tuned và threshold đóng băng (macro-F1 0.5335)."),
+                ("*.csv / *.txt / *.json", "Confusion matrix, per-class, FP/FN, latency, robustness như baseline."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "So sánh với `evaluation/rule_engine_tuned/metrics.json` (validation 0.5481) để thấy gap validation -> test.",
+                "Đánh đổi robustness (`robustness.json`): no_accent giảm vì accentless_alias = 0; leet/spaced/repeat tăng nhờ threshold HATE thấp hơn (0.64).",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_engine_tune": FolderDoc(
+            title="evaluation/rule_engine_tune - nhật ký tune trọng số rule engine",
+            purpose=(
+                "Hồ sơ của **mọi ứng viên trọng số** mà `scripts/27_tune_rule_weights.py` thử trên validation: "
+                "mỗi dòng trong `trials.csv` là một trial (tham số, giá trị, macro-F1, per-class F1, threshold, "
+                "có được chấp nhận hay không), `tuning_report.json` chốt lại cấu hình thắng. Đây là **hồ sơ "
+                "quyết định**, không phải artifact chấm chính thức - số liệu chính thức nằm ở "
+                "`evaluation/rule_engine_tuned/`. Cây đã được dọn ngày 19/10 (chỉ giữ baseline + tuned) nên folder "
+                "này hiện **không tồn tại**: chạy lại `scripts/27_tune_rule_weights.py` sẽ tái tạo nó, còn bản sao "
+                "của lần tune thắng đang giữ ở `evaluation/rule_engine_tuned/tuning_trials.csv`."
+            ),
+            produced_by="`python scripts/27_tune_rule_weights.py` (plan §39, §44)",
+            contents=(
+                ("trials.csv", "Một dòng / trial: `round, trial, param, value, macro_f1, accuracy, HATE_f1, OFFENSIVE_f1, CLEAN_f1, th_*, accepted, seconds` - dùng để vẽ đường tìm kiếm hoặc kiểm chứng không có gian lận test."),
+                ("tuning_report.json", "Chốt kết quả: baseline vs best, các tham số đã đổi, SHA-256 từ điển, số dòng, giao thức (validation-only, threshold tune lại từng trial)."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Muốn biết vì sao trọng số X ra giá trị Y: lọc `trials.csv` theo cột `param = X`, so các dòng `accepted = True`.",
+                "Muốn biết cấu hình thắng thay đổi gì so với config gốc: `tuning_report.json` -> khoá `changed`.",
+                "Muốn tái lập: chạy lại `python scripts/27_tune_rule_weights.py` (cùng from điển + cùng split thì ra cùng kết quả).",
+            ),
+            keep_policy="**Không xóa** - đây là hồ sơ chứng minh trọng số được tune trên validation chứ không phải trên test.",
+        ),
+        "evaluation/fusion": FolderDoc(
+            title="evaluation/fusion - hybrid fusion (rule engine + AI)",
+            purpose=(
+                "Kết quả ghép điểm rule engine với xác suất AI (plan §40-41): `alpha` (trọng số AI), threshold và "
+                "meta-classifier đều tune trên **validation**, đóng băng rồi chấm test **một lần** (plan §44). "
+                "Mỗi model AI một thư mục con, `comparison.md` là bảng tổng hợp. Kết luận hiện tại (lexicon 668 entry, "
+                "rule engine test macro-F1 0.5335 so với AI-only 0.65+): chênh lệch fusion - AI nằm trong dải nhiễu "
+                "với 5/6 model (Δ macro-F1 từ -0.0085 đến +0.0034); riêng `sensitiveai-vi-custom-curriculum` fusion "
+                "**tốt hơn có ý nghĩa** (+0.0057, p=0.033, McNemar p=0.0005) còn `sensitiveai-vi-stage2` kém hơn "
+                "(-0.0085) nhưng không có ý nghĩa. Chưa đủ bằng chứng khẳng định fusion cải thiện nhất quán - "
+                "xem `significance_report.md`."
+            ),
+            produced_by=(
+                "`python scripts/23_evaluate_fusion.py` rồi `python scripts/25_fusion_significance.py` (plan §43-44); "
+                "hình so sánh: `python scripts/29_plot_fusion_comparison.py`"
+            ),
+            contents=(
+                ("comparison.md", "Bảng tổng hợp: alpha tốt nhất trên validation, macro-F1 test của AI-only vs các biến thể fusion, biến thể `primary` và Δ so với AI-only cho từng model."),
+                ("fusion_ai_vs_fusion.png", "Hình 1: thanh so macro-F1 test của AI-only vs fusion primary từng model (kèm đường đứt nét rule engine 0.5335) + panel phải là Δ zoom quanh 0."),
+                ("fusion_delta_ci.png", "Hình 2 (forest plot): Δ = fusion − AI kèm CI 95% paired bootstrap - thanh nào cắt trục 0 là không kết luận được; ngôi sao = có ý nghĩa thống kê."),
+                ("fusion_variants_delta.png", "Hình 3: Δ so với AI-only của cả 4 biến thể fusion (argmax/thresholds/per-channel/meta) cho từng model."),
+                ("fusion_per_class_f1.png", "Hình 4: F1 từng lớp (HATE/OFFENSIVE/CLEAN) của AI-only vs fusion primary."),
+                ("fusion_significance.json", "Kiểm định đầy đủ: paired bootstrap (macro-F1) + McNemar (độ đúng) giữa AI-only và fusion `primary`."),
+                ("significance_report.md", "Bản Markdown của cùng kết quả - đọc file này để biết chênh lệch có ý nghĩa hay không."),
+                ("<model>/fusion_report.md", "Báo cáo từng model: alpha, per-channel alpha, threshold đóng băng + bảng metric test của 6 hệ thống (AI-only, rule-only, fusion argmax/thresholds/per-channel/meta)."),
+                ("<model>/metrics.json", "Chỉ số đầy đủ của từng biến thể fusion (validation + test) - nguồn dữ liệu của script 29."),
+                ("<model>/fusion_predictions.csv", "Dự đoán per-sample của biến thể `primary` (nhãn ghi bằng **tên** `HATE/OFFENSIVE/CLEAN`) - đầu vào của script 25."),
+                ("fusion.log", "Log chạy fusion: device, checkpoint, alpha và threshold đã chọn."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Hình trực quan nhất: `fusion_delta_ci.png` (model nào khác AI thật sự?) rồi `fusion_ai_vs_fusion.png` (số tuyệt đối).",
+                "Đọc nhanh: `significance_report.md` (chênh lệch có ý nghĩa không?) rồi `comparison.md` (bảng theo model).",
+                "Δ = AI-only - fusion: Δ dương nghĩa là fusion **kém hơn**; CI chứa 0 = không kết luận được. (Trên hình script 29 đổi chiều: Δ = fusion − AI.)",
+                "`fusion.log` có dòng `best alpha on validation` và `frozen thresholds` - bằng chứng tham số không lấy từ test.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/fusion/*": FolderDoc(
+            title="evaluation/fusion/<model> - fusion cho một model AI",
+            purpose=(
+                "Một thư mục cho mỗi model AI: alpha/threshold đã đóng băng trên validation + metric test của 6 hệ "
+                "thống (AI-only argmax, rule-only, fusion argmax/thresholds/per-channel/meta)."
+            ),
+            produced_by="`python scripts/23_evaluate_fusion.py --model <model>`",
+            contents=(
+                ("fusion_report.md", "Bảng so sánh test của các hệ thống + tham số đã đóng băng."),
+                ("metrics.json", "Chỉ số đầy đủ từng biến thể (validation + test)."),
+                ("fusion_predictions.csv", "Dự đoán per-sample của biến thể `primary`."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Cột `macro-F1` trong `fusion_report.md`: so `ai_only_argmax` với biến thể `primary`.",
+                "`primary` chọn theo macro-F1 **validation**, nên đôi khi kém hơn một biến thể khác trên test - hệ quả của việc chọn tham số trên validation, không phải lỗi.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/comparison/rule_engine": FolderDoc(
+            title="evaluation/comparison/rule_engine - so sánh 2 rule engine",
+            purpose=(
+                "Bộ so sánh baseline (`rule_engine`) với bản thắng tune (`rule_engine_tuned`): báo Markdown 8 mục "
+                "(khác biệt cấu hình + ngưỡng đóng băng, metric validation/test, chi tiết per-class, robustness "
+                "theo mode nhiễu, độ trễ, kiểm định paired bootstrap + McNemar, kết luận) kèm 3 hình và số kiểm định. "
+                "Tất cả đều đọc artifact đã đóng băng - không chấm lại split nào (plan §44)."
+            ),
+            produced_by=(
+                "`python scripts/26_rule_significance.py --a outputs/evaluation/rule_engine_tuned/test/predictions.csv "
+                "--b outputs/evaluation/rule_engine/test/predictions.csv --out .../rule_engine_significance.json` "
+                "rồi `python scripts/28_compare_rule_engines.py` (plan §43-44)"
+            ),
+            contents=(
+                ("rule_engine_baseline_vs_tuned.md", "Báo chính 8 mục - từ khác biệt cấu hình đến kết luận có kiểm định; nhúng 3 hình bên dưới."),
+                ("rule_engine_significance.json", "Số kiểm định Δ trên test (CI 95%, p, McNemar) do `scripts/26` sinh - nguồn cho mục 7 của báo cáo."),
+                ("rule_engine_macro_f1.png", "Thanh so macro-F1 và accuracy của 2 hệ thống, validation và test."),
+                ("rule_engine_per_class_f1.png", "F1 từng lớp (HATE/OFFENSIVE/CLEAN) của 2 hệ thống, validation và test."),
+                ("rule_engine_robustness.png", "Tỉ lệ phát hiện theo 5 chế độ nhiễu của 2 hệ thống, validation và test."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Đọc `rule_engine_baseline_vs_tuned.md` từ đầu đến cuối là đủ cho báo cáo; hình đã nhúng theo từng mục.",
+                "Mục 7-8 (kiểm định + kết luận) là phần cần trích khi mentor hỏi 'cải thiện có thật không'.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/comparison/vi_vs_stage2": FolderDoc(
+            title="evaluation/comparison/vi_vs_stage2 - so hai run cùng model, khác cấu hình",
+            purpose=(
+                "So sánh riêng cặp `sensitiveai-vi` (run 1 tầng) với `sensitiveai-vi-stage2` (2 tầng): "
+                "bảng metric trên validation + các hình PR/ROC/learning curve của **mọi** model để làm phụ lục."
+            ),
+            produced_by="`python scripts/03_compare_models.py`",
+            contents=(
+                ("model_comparison.csv / .md", "Bảng metric validation của hai run được so (accuracy, macro-F1, per-class F1)."),
+                ("comparison_summary.json", "Cùng số liệu ở dạng máy đọc."),
+                ("*_all_models.png", "Hình so mọi model: accuracy, macro-F1, per-class F1, PR/ROC theo từng nhãn, validation loss/accuracy."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Dùng khi cần trả lời '2 tầng có hơn 1 tầng không?': so cột macro-F1 giữa hai run trong `model_comparison.md`.",
+                "Đây là số **validation**, không phải test.",
             ),
             keep_policy=KEEP_POLICY,
         ),
@@ -814,7 +1308,122 @@ def _specs() -> Dict[str, FolderDoc]:
             keep_policy=KEEP_POLICY,
         ),
         # ---------------- paper ---------------- #
-        "paper": FolderDoc(
+        "papers/figures": FolderDoc(
+            title="papers/figures - hình chính của bài báo",
+            purpose="Hình PNG **copy tự động** từ `outputs/evaluation/comparison/` để `main.tex` chèn được, không vẽ tay.",
+            produced_by="`python scripts/03_compare_models.py`",
+            contents=(
+                ("macro_f1_all_models.png / accuracy_all_models.png", "So sánh tổng hợp giữa các model."),
+                ("per_class_f1_all_models.png / f1_summary_all_models.png", "F1 theo từng lớp."),
+                ("confusion_matrices.png", "Lưới confusion matrix của các model."),
+                ("pr_*.png / roc_*.png", "Đường PR/ROC theo từng nhãn và macro."),
+                ("validation_loss_all_models.png / validation_accuracy_all_models.png", "Learning curve trên validation."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("File ở đây là **bản copy**; số liệu gốc nằm ở `outputs/evaluation/comparison/`.",),
+            keep_policy="Sinh lại mỗi lần chạy `03_compare_models.py`; sửa tay sẽ bị ghi đè.",
+        ),
+        "papers/template": FolderDoc(
+            title="papers/template - template LaTeX LNCS của hội nghị",
+            purpose="Bộ file template LNCS (Springer) dùng để build `papers/main.tex` và bài phụ lục.",
+            produced_by="Tải về từ trang hội nghị; **không** script nào ghi vào đây.",
+            contents=(
+                ("llncs.cls / splncs04.bst", "Class file và style bibliography của LNCS."),
+                ("samplepaper.tex / llncsdoc.pdf / readme.txt / history.txt", "Bài mẫu và tài liệu của template."),
+                ("fig1.eps", "Hình minh hoạ của bài mẫu."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("Chỉ cần khi biên dịch bài; không chứa kết quả thực nghiệm.",),
+            keep_policy="**KHÔNG SỬA** - giữ template gốc để build không lệ thuộc chỉnh sửa cục bộ.",
+        ),
+        "papers/supplementary": FolderDoc(
+            title="papers/supplementary - bài phụ lục (supplementary material)",
+            purpose=(
+                "Bản supplementary riêng: bảng/hình chi tiết không đưa vào bài chính (calibration, confusion counts, "
+                "per-class, thứ hạng model, chồng lấn lỗi...)."
+            ),
+            produced_by="`main.tex` viết tay; bảng/hình do `python scripts/11_supplementary_analyses.py` và `python scripts/03_compare_models.py` sinh.",
+            contents=(
+                ("tables/", "Bảng LaTeX sinh tự động (calibration, confusion counts, error overlap, hyperparameters, per-class, ranking...)."),
+                ("figures/", "Hình sinh tự động (reliability, error overlap, confusion grid, và bản copy theo model)."),
+                ("sections/", "Các mục LaTeX của bài phụ lục."),
+                ("main.tex / llncs.cls", "Khung bài phụ lục, dùng template LNCS."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("Số liệu chi tiết cho phản biện: xem `tables/` trước, rồi `figures/`.",),
+            keep_policy="Giữ `main.tex` và `sections/`; `tables/` + `figures/` sinh lại được.",
+        ),
+        "papers/supplementary/figures": FolderDoc(
+            title="papers/supplementary/figures - hình của bài phụ lục",
+            purpose="Hình cho bài phụ lục: độ tin cậy (reliability), chồng lấn lỗi giữa các hệ thống, confusion grid, threshold sweep, và bản copy hình so sánh.",
+            produced_by="`python scripts/11_supplementary_analyses.py` (+ copy từ `outputs/evaluation/comparison/`)",
+            contents=(
+                ("reliability.png", "Biểu đồ độ tin cậy (calibration) theo bin."),
+                ("error_overlap.png", "Mức chồng lấn lỗi giữa các model."),
+                ("confusion_grid.png", "Lưới confusion matrix."),
+                ("threshold_sweep.png", "macro-F1 theo ngưỡng."),
+                ("comparison/", "Bản copy hình so sánh giữa các model."),
+                ("per_model/", "Hình riêng từng model (M1..M6)."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("`reliability.png` + `error_overlap.png` là phần bổ sung quan trọng khi phản biện về hiệu chuẩn và mức giống nhau giữa các model.",),
+            keep_policy="Sinh lại được; không sửa tay.",
+        ),
+        "papers/supplementary/figures/*": FolderDoc(
+            title="papers/supplementary/figures/<nhóm> - hình phụ lục theo nhóm",
+            purpose="Thư mục con của hình phụ lục: `comparison/` (so giữa các model) và `per_model/` (từng model).",
+            produced_by="`python scripts/03_compare_models.py` / `python scripts/11_supplementary_analyses.py`",
+            contents=(
+                ("*.png", "Hình cần cho bài phụ lục (macro-F1, per-class F1, PR/ROC, learning curve, confusion matrix)."),
+                ("per_model/M*/", "Mỗi model một thư mục con (M1..M6)."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("Tên file nói rõ nội dung; số liệu gốc nằm trong `outputs/evaluation/`.",),
+            keep_policy="Sinh lại được; không sửa tay.",
+        ),
+        "papers/supplementary/figures/per_model/*": FolderDoc(
+            title="papers/supplementary/figures/per_model/MX - hình của một model",
+            purpose="Hình riêng cho từng model AI (M1..M6): confusion matrix chuẩn hoá, PR/ROC và learning curve.",
+            produced_by="`python scripts/11_supplementary_analyses.py`",
+            contents=(
+                ("confusion_matrix_normalized.png", "Confusion matrix chuẩn hoá theo hàng."),
+                ("pr_curve.png / roc_curve.png", "Đường PR/ROC theo từng nhãn."),
+                ("val_loss_curve.png / val_accuracy_curve.png", "Learning curve trên validation."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("So `val_loss_curve.png` giữa các model để thấy model nào hội tụ sớm/muộn.",),
+            keep_policy="Sinh lại được; không sửa tay.",
+        ),
+        "papers/supplementary/sections": FolderDoc(
+            title="papers/supplementary/sections - các mục LaTeX của bài phụ lục",
+            purpose="Nội dung bài phụ lục tách thành file nhỏ, chủ yếu `\\input` các bảng/hình đã sinh.",
+            produced_by="Viết tay.",
+            contents=(
+                ("comparison_figures.tex", "Mục so sánh giữa các model."),
+                ("per_system_figures.tex", "Mục trình bày từng hệ thống."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("Sửa nội dung chữ ở đây; số liệu lấy từ `papers/supplementary/tables/`.",),
+            keep_policy="**KHÔNG XÓA** - tên file phải khớp lệnh `\\input` trong `papers/supplementary/main.tex`.",
+        ),
+        "papers/supplementary/tables": FolderDoc(
+            title="papers/supplementary/tables - bảng LaTeX sinh tự động của bài phụ lục",
+            purpose="Bảng chi tiết cho phản biện: calibration, confusion counts, error overlap, hyperparameters, per-class, thứ hạng model, kiểm định từng cặp.",
+            produced_by="`python scripts/11_supplementary_analyses.py` (+ `python scripts/06_analyze_significance.py`)",
+            contents=(
+                ("calibration.tex", "Sai số hiệu chuẩn (ECE...) theo model."),
+                ("confusion_counts.tex", "Số lượng trong confusion matrix."),
+                ("error_overlap.tex", "Mức chồng lấn lỗi giữa các model."),
+                ("hyperparameters.tex", "Hyperparameter của các run."),
+                ("per_class.tex", "P/R/F1 theo từng lớp cho mọi model."),
+                ("ranking.tex", "Xếp hạng model theo macro-F1."),
+                ("pairs_all.tex", "Kiểm định từng cặp model."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=("Số cho phần 'phân tích bổ sung' của bài chính: `per_class.tex`, `pairs_all.tex`.",),
+            keep_policy="Sinh lại mỗi lần chạy script; sửa tay sẽ bị ghi đè.",
+        ),
+        "papers": FolderDoc(
             title="paper - khung bài báo",
             purpose="Khung bài báo LaTeX. Bảng và hình được **sinh tự động** từ kết quả thực nghiệm, không gõ tay.",
             produced_by="`python scripts/03_compare_models.py` (sinh bảng + hình); `main.tex` và `references.bib` viết tay.",
@@ -833,7 +1442,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 "được sinh lại mỗi lần chạy `03_compare_models.py`."
             ),
         ),
-        "paper/sections": FolderDoc(
+        "papers/sections": FolderDoc(
             title="paper/sections - các mục bài báo",
             purpose="Mỗi mục của bài báo nằm trong một file riêng để `main.tex` gọn và dễ sửa từng phần.",
             produced_by="Chỉnh tay. Không có script nào ghi vào thư mục này.",
@@ -856,7 +1465,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 "thêm mục mới thì thêm cả file `.tex` và lệnh `\\input` tương ứng."
             ),
         ),
-        "paper/tables": FolderDoc(
+        "papers/tables": FolderDoc(
             title="paper/tables - bảng LaTeX sinh tự động",
             purpose="Ba bảng cho bài báo, sinh từ kết quả thực nghiệm nên **không bao giờ có sai số nhập tay**.",
             produced_by="`python scripts/03_compare_models.py`",
@@ -870,18 +1479,6 @@ def _specs() -> Dict[str, FolderDoc]:
                 "**NỘI DUNG ĐƯỢC GHI ĐÈ MỖI LẦN CHẠY `03`.** Muốn chỉnh bảng, hãy sửa "
                 "`src/comparison/compare_models.py` chứ đừng sửa file trong này."
             ),
-        ),
-"paper/figures": FolderDoc(
-            title="paper/figures - hình cho bài báo",
-            purpose="Bản sao PNG của các biểu đồ so sánh, đặt đúng tên để `main.tex` `\\includegraphics` được.",
-            produced_by="`python scripts/03_compare_models.py` (copy từ `evaluation/comparison/`)",
-            keep_policy="**NỘI DUNG ĐƯỢC GHI ĐÈ MỖI LẦN CHẠY `03`.** Bản gốc còn nguyên ở `evaluation/comparison/`.",
-        ),
-        "paper/supplementary": FolderDoc(
-            title="paper/supplementary - tài liệu bổ sung",
-            purpose="Chỗ để các tài liệu đi kèm bài báo: bảng chi tiết hơn, log đầy đủ, và thông tin tái lập.",
-            produced_by="Chỉnh tay. Không có script nào ghi vào thư mục này.",
-            keep_policy="**KHÔNG XÓA.** Trỏ tới đây từ `paper/main.tex` nếu dùng đến.",
         ),
         # ---------------- docs ---------------- #
         "docs": FolderDoc(
@@ -1112,6 +1709,12 @@ def render_explain(folder: Path, rel_path: str) -> str:
     if doc and doc.reading_guide:
         lines += ["## Cách đọc", ""]
         lines += [f"{i}. {step}" for i, step in enumerate(doc.reading_guide, start=1)]
+        lines += [""]
+
+    if doc and doc.details:
+        lines += ["## Chi tiết", ""]
+        for block in doc.details:
+            lines.append(block)
         lines += [""]
 
     if doc and doc.extra_notes:

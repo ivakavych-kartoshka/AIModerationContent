@@ -341,7 +341,12 @@ def plot_roc_curve(roc_data: Mapping[str, Any], path: str | Path, model_name: st
 # --------------------------------------------------------------------------- #
 # extras
 # --------------------------------------------------------------------------- #
-def plot_per_class_f1_bars(metrics: Mapping[str, Any], path: str | Path, model_name: str = "") -> Path:
+def plot_per_class_f1_bars(
+    metrics: Mapping[str, Any],
+    path: str | Path,
+    model_name: str = "",
+    title: Optional[str] = None,
+) -> Path:
     setup_style()
     names = list(CLASS_NAMES)
     values = [float(metrics.get(f"{n}_f1", float("nan"))) for n in names]
@@ -352,7 +357,7 @@ def plot_per_class_f1_bars(metrics: Mapping[str, Any], path: str | Path, model_n
                 f"{value:.4f}", ha="center", va="bottom", fontsize=9)
     ax.set_ylim(0, 1.05)
     ax.set_ylabel("F1-score")
-    ax.set_title(f"Per-class F1 on the test set\n{model_name}")
+    ax.set_title(title or f"Per-class F1 on the test set\n{model_name}")
     fig.tight_layout()
     return _save(fig, path)
 

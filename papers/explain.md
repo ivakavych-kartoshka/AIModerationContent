@@ -1,20 +1,39 @@
 <!-- AUTO-GENERATED: src/common/folder_docs.py -->
-# `papers`
+# paper - khung bài báo
 
-> Folder này **không có** mô tả trong registry `src/common/folder_docs.py`.
-> Nhiều khả năng là thư mục sinh ra ngoài dự kiến - hãy thêm mô tả vào registry.
+> **Dùng để làm gì:** Khung bài báo LaTeX. Bảng và hình được **sinh tự động** từ kết quả thực nghiệm, không gõ tay.
+
+> **Sinh ra bởi:** `python scripts/03_compare_models.py` (sinh bảng + hình); `main.tex` và `references.bib` viết tay.
+
+> **Quy tắc giữ lại:** **GIỮ NGUYÊN `main.tex`, `references.bib` và `sections/`.** Riêng `tables/` và `figures/` được sinh lại mỗi lần chạy `03_compare_models.py`.
+
+## File cố định của folder này
+
+| File / thư mục | Ý nghĩa |
+|---|---|
+| `main.tex` | File chính: tiêu đề, tác giả, abstract, các mục, và lệnh `\input` các bảng/hình đã sinh. |
+| `references.bib` | 13 tài liệu tham khảo (ViHSD, mDeBERTa-v3, focal loss, curriculum, PR vs ROC, ...). |
+| `explain.md` | File này. |
+
+## Thư mục con và vai trò
+
+| Thư mục con | Vai trò |
+|---|---|
+| `sections/` | Các mục của bài báo - hiện là placeholder, cần điền sau khi có kết quả thật. |
+| `tables/` | Bảng LaTeX **sinh tự động**. Sửa tay sẽ bị ghi đè lần `03` kế tiếp. |
+| `figures/` | Hình PNG **copy tự động** từ `evaluation/comparison/`. |
 
 
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `figures` | thư mục | 16 file, 1.9 MB |
-| `sections` | thư mục | 11 file, 35.0 KB |
+| `figures` | thư mục | 17 file, 1.9 MB |
+| `sections` | thư mục | 11 file, 36.1 KB |
 | `supplementary` | thư mục | 87 file, 10.8 MB |
-| `tables` | thư mục | 8 file, 9.0 KB |
-| `template` | thư mục | 8 file, 666.1 KB |
-| `explain.md` | file | 1.6 KB · 2026-10-17 00:09:27 |
+| `tables` | thư mục | 11 file, 12.9 KB |
+| `template` | thư mục | 8 file, 666.8 KB |
+| `explain.md` | file | 2.6 KB · 2026-10-19 15:06:20 |
 | `main.aux` | file | 16.2 KB · 2026-10-15 23:05:26 |
 | `main.bbl` | file | 5.7 KB · 2026-10-15 23:05:25 |
 | `main.blg` | file | 1.0 KB · 2026-10-15 23:05:25 |
@@ -31,4 +50,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -36,7 +36,6 @@ from src.common.constants import (  # noqa: E402
     EVALUATION_DIR,
     ID2LABEL,
     LABELS,
-    LEXICON_PROCESSED_DIR,
     NUM_LABELS,
     SPLITS_DIR,
 )
@@ -336,7 +335,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         **metrics,
         "split": args.split,
         "config": str(args.config),
-        "lexicon": str(LEXICON_PROCESSED_DIR / "verified_lexicon.csv"),
+        "lexicon": str(config.lexicon_path),
         "dictionary_version": engine.lexicon.dictionary_version,
         "thresholds": {ID2LABEL[i]: thresholds[i] for i in range(NUM_LABELS)},
         "objective": args.objective if args.split == "validation" else "frozen",
@@ -357,6 +356,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         per_class_rows(metrics),
     )
     write_confusion_csv(artifacts_dir / "confusion_matrix.csv", metrics)
+    # Per-sample predictions: the paired bootstrap / McNemar test (step 26) needs
+    # one row per test comment, aligned by index across runs.
+    write_csv(
+        artifacts_dir / "predictions.csv",
+        ["index", "y_true", "y_pred"] + [f"p_{ID2LABEL[i]}" for i in range(NUM_LABELS)] + ["text"],
+        [
+            (
+                row_idx,
+                int(truth),
+                int(pred),
+                *[float(scores[k]) for k in range(NUM_LABELS)],
+                txt,
+            )
+            for row_idx, (truth, pred, scores, txt) in enumerate(zip(y_true_arr, y_pred, proba, texts))
+        ],
+    )
     write_error_analysis(
         artifacts_dir / "false_positive_analysis.csv", texts, y_true, y_pred, proba, results, positive=False
     )

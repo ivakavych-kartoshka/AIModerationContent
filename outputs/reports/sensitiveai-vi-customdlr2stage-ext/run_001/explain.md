@@ -23,7 +23,7 @@
 | `best_training_state.pt` | file | 2.1 GB · 2026-10-11 13:00:38 |
 | `class_weights.json` | file | 581 B · 2026-10-11 12:26:51 |
 | `config.yaml` | file | 3.1 KB · 2026-10-11 12:26:51 |
-| `explain.md` | file | 1.9 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 1.9 KB · 2026-10-19 15:06:21 |
 | `split_manifest_used.json` | file | 397 B · 2026-10-11 12:26:51 |
 | `stage_transitions.json` | file | 1.6 KB · 2026-10-11 12:26:52 |
 | `train.log` | file | 2.3 KB · 2026-10-11 13:50:47 |
@@ -35,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

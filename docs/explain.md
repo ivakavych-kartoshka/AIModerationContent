@@ -19,8 +19,10 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 1.4 KB · 2026-10-17 00:09:27 |
+| `bao_cao_tfidf_prune_ablation.md` | file | 20.7 KB · 2026-10-19 14:06:07 |
+| `explain.md` | file | 1.6 KB · 2026-10-19 15:06:19 |
 | `folder_index.md` | file | 23.8 KB · 2026-10-04 13:00:01 |
+| `lexicon_and_rule_engine_explained.md` | file | 13.0 KB · 2026-10-19 14:05:50 |
 
 ## Cách đọc
 
@@ -29,4 +31,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:20. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

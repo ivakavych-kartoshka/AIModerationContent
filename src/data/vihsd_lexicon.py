@@ -50,7 +50,7 @@ from ..common.constants import (
     VIHSD_PROCESSED_DIR,
 )
 from ..common.logging_utils import get_logger
-from .lexicon import OUTPUT_COMBINED, OUTPUT_REPORT, _sha256, normalize_term
+from .lexicon import OUTPUT_COMBINED, OUTPUT_REPORT, _sha256, normalize_term, sources_dir
 
 LOGGER = get_logger("sensitiveai.vihsd_lexicon")
 
@@ -109,12 +109,13 @@ def _existing_lexicon(output_dir: Path) -> Set[str]:
     rebuilds the combined list from scratch instead of accumulating stale terms)."""
     from .lexicon import OUTPUT_BEHITEK, OUTPUT_BLUEEYES
 
+    word_dir = sources_dir(output_dir)
     terms: Set[str] = set()
     for name in (OUTPUT_BEHITEK, OUTPUT_BLUEEYES):
-        path = output_dir / name
+        path = word_dir / name
         if path.is_file():
             terms.update(line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
-    combined = output_dir / OUTPUT_COMBINED
+    combined = word_dir / OUTPUT_COMBINED
     if not terms and combined.is_file():
         terms.update(line.strip() for line in combined.read_text(encoding="utf-8").splitlines() if line.strip())
     return terms
@@ -177,7 +178,8 @@ def extract(
         (candidates_bi if " " in term else candidates_uni).add(term)
 
     new_terms = candidates_uni | candidates_bi
-    out_path = output_dir / VIHSD_OUTPUT
+    word_dir = sources_dir(output_dir)
+    out_path = word_dir / VIHSD_OUTPUT
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8", newline="\n") as fh:
         for term in sorted(new_terms):
@@ -185,7 +187,7 @@ def extract(
     LOGGER.info("[vihsd-lexicon] wrote %s (+%d new terms)", out_path, len(new_terms))
 
     combined = existing | new_terms
-    combined_path = output_dir / OUTPUT_COMBINED
+    combined_path = word_dir / OUTPUT_COMBINED
     with combined_path.open("w", encoding="utf-8", newline="\n") as fh:
         for term in sorted(combined):
             fh.write(term + "\n")
@@ -231,11 +233,11 @@ def _update_report(
         "unigram_terms": len(candidates_uni),
         "bigram_terms": len(candidates_bi),
         "multiword_terms": len(candidates_bi),
-        "sha256": _sha256(output_dir / VIHSD_OUTPUT),
+        "sha256": _sha256(sources_dir(output_dir) / VIHSD_OUTPUT),
     }
     outputs[OUTPUT_COMBINED] = {
         "terms": combined_total,
-        "sha256": _sha256(output_dir / OUTPUT_COMBINED),
+        "sha256": _sha256(sources_dir(output_dir) / OUTPUT_COMBINED),
     }
     counts = report.setdefault("counts", {})
     counts["vihsd_extracted"] = len(candidates_uni) + len(candidates_bi)
@@ -302,7 +304,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         report["counts"]["combined"],
     )
     if args.show_terms > 0:
-        path = Path(args.output_dir or LEXICON_PROCESSED_DIR) / VIHSD_OUTPUT
+        path = sources_dir(Path(args.output_dir) if args.output_dir else LEXICON_PROCESSED_DIR) / VIHSD_OUTPUT
         for term in path.read_text(encoding="utf-8").splitlines()[: args.show_terms]:
             LOGGER.info("[vihsd-lexicon]   sample: %s", term)
     LOGGER.info("[vihsd-lexicon] done.")

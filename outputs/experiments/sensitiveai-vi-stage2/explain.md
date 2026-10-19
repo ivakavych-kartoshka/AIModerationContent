@@ -13,12 +13,12 @@ Cột **Trạng thái**: `đã chấm test` = có `metrics.json` · `đã train`
 
 | Run | Sửa lần cuối | Số epoch đã log | Best val macro F1 | Trạng thái |
 |---|---|---:|---|---|
-| `run_001` | 2026-10-11 23:37:30 | 11 | 0.6886 | đã train |
-| `run_002` | 2026-10-13 19:21:00 | 15 | 0.6928 | đã train |
-| `run_003` | 2026-10-13 14:28:39 | - | - | chỉ dry-run |
-| `run_004` | 2026-10-13 14:32:10 | - | - | chỉ dry-run |
-| `run_005` | 2026-10-13 14:35:01 | - | - | chỉ dry-run |
-| `run_006` | 2026-10-13 14:47:39 | - | - | chỉ dry-run |
+| `run_001` | 2026-10-17 01:00:08 | 11 | 0.6886 | đã train |
+| `run_002` | 2026-10-17 01:00:08 | 15 | 0.6928 | đã train |
+| `run_003` | 2026-10-17 01:00:08 | - | - | chỉ dry-run |
+| `run_004` | 2026-10-17 01:00:08 | - | - | chỉ dry-run |
+| `run_005` | 2026-10-17 01:00:08 | - | - | chỉ dry-run |
+| `run_006` | 2026-10-17 01:00:08 | - | - | chỉ dry-run |
 
 Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - dùng để biết lần chạy nào mới nhất.
 
@@ -34,8 +34,8 @@ Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - 
 | `run_004` | thư mục | 2 file, 3.5 KB |
 | `run_005` | thư mục | 2 file, 3.5 KB |
 | `run_006` | thư mục | 2 file, 3.5 KB |
-| `explain.md` | file | 2.4 KB · 2026-10-17 00:09:28 |
+| `explain.md` | file | 2.4 KB · 2026-10-19 15:06:21 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-17 00:20:21. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

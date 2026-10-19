@@ -1,0 +1,77 @@
+# =============================================================================
+# Rule engine configuration - TUNED on the validation split (plan sections 39, 44)
+#
+#   python scripts/27_tune_rule_weights.py       # produced this file
+#   python scripts/17_evaluate_rule_engine.py --config configs/rule_engine_tuned.yaml
+#
+# Protocol: greedy coordinate descent over `scoring.*` only; every candidate
+# re-optimises the decision thresholds on the VALIDATION split (macro-F1).
+# The TEST split is never loaded during the search (section 44).
+# Generated: 2026-10-19T06:06:04+00:00
+# Base config : configs\rule_engine.yaml
+# Lexicon     : data/processed/lexicon/verified_lexicon.csv (sha256=f4f11775b68869da, 668 entries)
+# Validation  : 2672 rows
+# macro-F1    : 0.4555 -> 0.5481  (HATE 0.3677 -> 0.4967, OFFENSIVE 0.1686 -> 0.2310, CLEAN 0.8301 -> 0.9165)
+#
+# Changed weights:
+#   match_factors.accentless_alias: 0.9 -> 0.0
+#   match_factors.obfuscated_combined: 0.3 -> 0.45
+#   negation_factor: 0.7 -> 1.0
+#
+# History: an earlier tuning pass on an older 1828-entry lexicon lowered
+# match_factors.accentless_alias 0.90 -> 0.15 for the same reason (section 38:
+# the accentless view is an auxiliary signal). This search re-derives every
+# weight from scratch on the current lexicon.
+# Every weight is still a heuristic hypothesis, not a calibrated probability.
+# =============================================================================
+
+lexicon_path: data/processed/lexicon/verified_lexicon.csv
+dictionary_version: v1
+
+# --- section 37: input normalization -------------------------------------- #
+normalize:
+  unicode_form: NFC
+  lowercase: true
+  remove_invisible: true
+  collapse_whitespace: true
+  max_repeat_char: 3        # "nguuuu" -> "nguu"; 0 disables the cap
+  max_text_chars: 20000
+
+# --- section 38: anti-obfuscation matching views -------------------------- #
+obfuscation:
+  enabled: true
+  accentless: true           # "con cho"  (auxiliary signal only)
+  leet: true                 # "c0n ch0"
+  collapse_repeats: true         # "nguuu" -> "ngu"
+  separator_stripping: true  # "n g u"
+  min_compact_term_len: 3
+  max_variant_chars: 40000
+
+# --- dictionary matching --------------------------------------------------- #
+matcher:
+  min_term_len: 2
+  fuzzy_enabled: true
+  fuzzy_max_distance: 1
+  fuzzy_min_term_len: 6
+  max_matches: 200
+
+# --- section 39: scoring (TUNED, see header) ------------------------------ #
+scoring:
+  severity:                  # label severity, section 39 table
+    HATE: 0.9
+    OFFENSIVE: 0.6
+  match_factors:             # confidence of each match type (TUNED)
+    exact: 1
+    accentless_alias: 0
+    leet: 0.8
+    repeat_collapsed: 0.75
+    separator_inserted: 0.8
+    obfuscated_combined: 0.45
+    fuzzy: 0.6
+  negation_factor: 1      # slur preceded by "không / chẳng / ..."
+  quote_factor: 0.6         # slur inside quotation marks
+  context_required_factor: 0.85
+  aggregation_cap: 10        # max matches per label in 1 - prod(1 - s_i)
+  min_review_statuses:       # which lexicon entries may match
+    - verified
+    - auto
