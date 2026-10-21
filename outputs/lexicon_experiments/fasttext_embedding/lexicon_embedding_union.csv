@@ -1,0 +1,1273 @@
+entry_id,term,canonical_form,lexical_labels,severity,confidence,context_required,source_datasets,source_split,review_status,dictionary_version
+lex_0001,ad ngu,ad ngu,HATE,0.9,0.9764,True,bontori;vihsd,train,verified,v1
+lex_0002,ad này,ad này,HATE,0.9,0.9106,True,bontori;vihsd,train,verified,v1
+lex_0003,ad page,ad page,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0004,asshole,asshole,HATE,0.9,0.7348,True,bontori;vicm,train,auto,v1
+lex_0005,assmin,assmin,HATE,0.9,0.8904,True,bontori;vihsd,train,verified,v1
+lex_0006,ba que,ba que,HATE;OFFENSIVE,0.9,0.6297,True,bontori;vihsd,train,auto,v1
+lex_0007,bait,bait,HATE,0.9,0.7237,True,bontori;vicm;vihsd,train,verified,v1
+lex_0008,bake,bake,HATE,0.9,0.765,False,bontori;vicm;vihsd,train,verified,v1
+lex_0009,bitch,bitch,HATE,0.9,0.8808,True,bontori;vicm;vihsd,train,verified,v1
+lex_0010,biết cc,biết cc,HATE,0.9,0.9799,True,bontori;vicm;vihsd,train,verified,v1
+lex_0011,biết con,biết con,HATE,0.9,0.7286,True,bontori;vicm;vihsd,train,verified,v1
+lex_0012,biết mày,biết mày,HATE,0.9,0.966,False,bontori;vicm;vihsd,train,verified,v1
+lex_0013,biết nhục,biết nhục,HATE,0.9,0.9315,False,bontori;vihsd,train,verified,v1
+lex_0014,brain,brain,HATE,0.9,0.6616,True,bontori;vicm;vihsd,train,auto,v1
+lex_0015,brainwash,brainwash,HATE,0.9,0.6536,False,vicm,train,auto,v1
+lex_0016,bull,bull,HATE,0.9,0.7513,True,bontori;vicm,train,verified,v1
+lex_0017,bày đặt,bày đặt,HATE;OFFENSIVE,0.9,0.6192,True,bontori;vicm;vihsd,train,auto,v1
+lex_0018,bên mĩ,bên mĩ,HATE,0.9,0.7268,True,bontori;vicm;vihsd,train,verified,v1
+lex_0019,bò vàng,bò vàng,HATE;OFFENSIVE,0.9,0.5726,True,bontori;vicm,train,auto,v1
+lex_0020,bò đỏ,bò đỏ,HATE,0.9,0.8473,True,bontori;vicm;vihsd,train,verified,v1
+lex_0021,bóng dơ,bóng dơ,HATE,0.9,0.9216,False,bontori;vihsd,train,verified,v1
+lex_0022,bóng già,bóng già,HATE,0.9,0.9323,True,bontori;vihsd,train,verified,v1
+lex_0023,búa liềm,búa liềm,HATE,0.9,0.9768,True,bontori;vicm;vihsd,train,verified,v1
+lex_0024,bưng bô,bưng bô,HATE,0.9,0.8237,True,bontori;vicm;vihsd,train,verified,v1
+lex_0025,bẩn tính,bẩn tính,HATE,0.9,0.8539,False,bontori;vicm,train,verified,v1
+lex_0026,bẩn để,bẩn để,HATE;OFFENSIVE,0.9,0.7449,True,bontori,train,verified,v1
+lex_0027,bắc kì,bắc kì,HATE,0.9,0.6673,True,bontori;vicm;vihsd,train,auto,v1
+lex_0028,bắc kỳ,bắc kỳ,HATE,0.9,0.7503,True,bontori;vicm;vihsd,train,verified,v1
+lex_0029,bị bọn,bị bọn,HATE,0.9,0.7728,True,bontori;vicm;vihsd,train,verified,v1
+lex_0030,bị dắt,bị dắt,OFFENSIVE,0.6,0.7342,True,bontori;vicm,train,verified,v1
+lex_0031,bị giết,bị giết,HATE,0.9,0.7143,True,bontori,train,verified,v1
+lex_0032,bị khùng,bị khùng,HATE;OFFENSIVE,0.9,0.7285,True,bontori;vihsd,train,verified,v1
+lex_0033,bị nhồi,bị nhồi,HATE,0.9,0.7231,True,bontori;vicm;vihsd,train,verified,v1
+lex_0034,bị điên,bị điên,HATE,0.9,0.7477,True,bontori;vicm;vihsd,train,verified,v1
+lex_0035,bọn bò,bọn bò,HATE,0.9,0.9783,False,bontori;vicm;vihsd,train,verified,v1
+lex_0036,bọn chó,bọn chó,HATE,0.9,0.9315,True,bontori;vihsd,train,verified,v1
+lex_0037,bọn fan,bọn fan,OFFENSIVE,0.6,0.9044,True,bontori;vicm,train,verified,v1
+lex_0038,bọn m,bọn m,HATE,0.9,0.8007,True,bontori;vicm,train,verified,v1
+lex_0039,bọn mày,bọn mày,HATE,0.9,0.8176,True,bontori;vicm;vihsd,train,verified,v1
+lex_0040,bọn mỹ,bọn mỹ,HATE,0.9,0.6889,True,bontori;vicm;vihsd,train,auto,v1
+lex_0041,bọn ngu,bọn ngu,HATE,0.9,0.8864,True,bontori;vicm;vihsd,train,verified,v1
+lex_0042,bọn phản,bọn phản,HATE,0.9,0.8188,True,bontori;vihsd,train,verified,v1
+lex_0043,bọn tư,bọn tư,HATE,0.9,0.9216,True,bontori;vicm;vihsd,train,verified,v1
+lex_0044,bọn việt,bọn việt,HATE,0.9,0.9611,False,bontori;vicm;vihsd,train,verified,v1
+lex_0045,bỏ con,bỏ con,HATE,0.9,0.7477,True,bontori,train,verified,v1
+lex_0046,bỏ học,bỏ học,HATE,0.9,0.6769,True,bontori;vicm;vihsd,train,auto,v1
+lex_0047,bố láo,bố láo,HATE,0.9,0.8778,True,bontori;vicm;vihsd,train,verified,v1
+lex_0048,bố m,bố m,HATE,0.9,0.7388,True,bontori;vicm;vihsd,train,verified,v1
+lex_0049,bố mày,bố mày,HATE,0.9,0.8062,True,bontori;vicm;vihsd,train,verified,v1
+lex_0050,bố mỹ,bố mỹ,HATE,0.9,0.8218,True,bontori,train,verified,v1
+lex_0051,bố này,bố này,HATE;OFFENSIVE,0.9,0.7566,True,bontori,train,verified,v1
+lex_0052,bố thằng,bố thằng,HATE,0.9,0.8461,True,bontori;vicm;vihsd,train,verified,v1
+lex_0053,bụm chúa,bụm chúa,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0054,bủm chúa,bủm chúa,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0055,cave,cave,HATE,0.9,0.9527,True,bontori;vicm;vihsd,train,verified,v1
+lex_0056,cc,cc,HATE,0.9,0.7268,True,bontori;vicm;vihsd,train,verified,v1
+lex_0057,cc gì,cc gì,HATE,0.9,0.8083,True,bontori;vicm;vihsd,train,verified,v1
+lex_0058,cc j,cc j,HATE,0.9,0.841,False,bontori;vicm;vihsd,train,verified,v1
+lex_0059,ccc,ccc,HATE,0.9,0.8256,False,bontori;vicm;vihsd,train,verified,v1
+lex_0060,cdm,cdm,HATE,0.9,0.6991,True,bontori;vihsd,train,auto,v1
+lex_0061,cha chúng,cha chúng,HATE,0.9,0.9157,True,bontori;vihsd,train,verified,v1
+lex_0062,cha mày,cha mày,HATE,0.9,0.9316,True,bontori;vicm;vihsd,train,verified,v1
+lex_0063,chet me,chet me,HATE,0.9,0.9504,False,bontori;vihsd,train,verified,v1
+lex_0064,cho lũ,cho lũ,HATE,0.9,0.7304,True,bontori;vihsd,train,verified,v1
+lex_0065,cho mày,cho mày,HATE,0.9,0.943,True,bontori;vicm;vihsd,train,verified,v1
+lex_0066,cháo đá,cháo đá,HATE;OFFENSIVE,0.9,0.7426,True,bontori;vicm;vihsd,train,verified,v1
+lex_0067,chính kiến,chính kiến,HATE,0.9,0.7268,True,bontori;vicm;vihsd,train,verified,v1
+lex_0068,chó,chó,HATE,0.9,0.8321,True,bontori;vicm;vihsd,train,verified,v1
+lex_0069,chó ad,chó ad,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0070,chó cao,chó cao,HATE;OFFENSIVE,0.9,0.7275,True,bontori,train,verified,v1
+lex_0071,chó hùa,chó hùa,HATE,0.9,0.8284,False,bontori;vicm;vihsd,train,verified,v1
+lex_0072,chó săn,chó săn,HATE,0.9,0.8328,False,bontori;vihsd,train,verified,v1
+lex_0073,chó sủa,chó sủa,HATE,0.9,0.8957,True,bontori;vicm;vihsd,train,verified,v1
+lex_0074,chó thì,chó thì,HATE,0.9,0.7862,True,bontori;vicm;vihsd,train,verified,v1
+lex_0075,chúng mày,chúng mày,HATE,0.9,0.8205,True,bontori;vicm;vihsd,train,verified,v1
+lex_0076,chậm cái,chậm cái,HATE,0.9,0.9216,False,bontori;vihsd,train,verified,v1
+lex_0077,chật đất,chật đất,HATE;OFFENSIVE,0.9,0.5768,True,bontori;vicm;vihsd,train,auto,v1
+lex_0078,chết cdm,chết cdm,HATE,0.9,0.8614,False,bontori;vihsd,train,verified,v1
+lex_0079,chết của,chết của,HATE,0.9,0.8638,True,bontori,train,verified,v1
+lex_0080,chết mẹ,chết mẹ,HATE,0.9,0.678,True,bontori;vicm;vihsd,train,auto,v1
+lex_0081,chịch,chịch,HATE;OFFENSIVE,0.9,0.5626,True,bontori;vicm;vihsd,train,auto,v1
+lex_0082,chứ tao,chứ tao,HATE,0.9,0.7115,True,bontori;vicm;vihsd,train,auto,v1
+lex_0083,chứ đéo,chứ đéo,HATE,0.9,0.7833,True,bontori;vicm;vihsd,train,verified,v1
+lex_0084,chửi thì,chửi thì,HATE,0.9,0.6803,True,bontori;vicm;vihsd,train,auto,v1
+lex_0085,clm,clm,HATE;OFFENSIVE,0.9,0.6326,True,bontori;vicm;vihsd,train,auto,v1
+lex_0086,cmm,cmm,HATE;OFFENSIVE,0.9,0.7368,True,bontori;vicm;vihsd,train,verified,v1
+lex_0087,con bò,con bò,HATE,0.9,0.8007,True,bontori;vicm;vihsd,train,verified,v1
+lex_0088,con c,con c,HATE,0.9,0.8994,True,bontori;vicm;vihsd,train,verified,v1
+lex_0089,con chó,con chó,HATE,0.9,0.8606,True,bontori;vicm;vihsd,train,verified,v1
+lex_0090,con cu,con cu,HATE,0.9,0.8004,True,bontori;vicm;vihsd,train,verified,v1
+lex_0091,con cặc,con cặc,HATE,0.9,0.8821,False,bontori;vicm;vihsd,train,verified,v1
+lex_0092,con dog,con dog,HATE,0.9,0.8416,False,bontori;vicm,train,auto,v1
+lex_0093,con mơ,con mơ,HATE;OFFENSIVE,0.9,0.7131,True,bontori,train,verified,v1
+lex_0094,con mẹ,con mẹ,HATE,0.9,0.8433,True,bontori;vicm;vihsd,train,verified,v1
+lex_0095,con mụ,con mụ,HATE,0.9,0.9611,False,bontori;vicm;vihsd,train,verified,v1
+lex_0096,con rối,con rối,HATE;OFFENSIVE,0.9,0.6973,True,bontori;vihsd,train,auto,v1
+lex_0097,con đàn,con đàn,HATE,0.9,0.9151,True,bontori;vihsd,train,verified,v1
+lex_0098,con đĩ,con đĩ,HATE,0.9,0.8822,True,bontori;vicm;vihsd,train,verified,v1
+lex_0099,con đỉ,con đỉ,HATE,0.9,0.9741,False,bontori;vihsd,train,verified,v1
+lex_0100,critical,critical,HATE,0.9,0.6187,True,bontori;vicm,train,auto,v1
+lex_0101,critical thinking,critical thinking,HATE,0.9,0.5329,True,bontori;vicm,train,auto,v1
+lex_0102,csvn,csvn,HATE,0.9,0.8901,True,bontori;vihsd,train,verified,v1
+lex_0103,cung co,cung co,HATE,0.9,0.8461,True,bontori;vihsd,train,verified,v1
+lex_0104,cào phím,cào phím,HATE,0.9,0.65,True,bontori;vicm,train,auto,v1
+lex_0105,các đảng,các đảng,HATE,0.9,0.8804,True,bontori;vihsd,train,verified,v1
+lex_0106,cái bài,cái bài,HATE,0.9,0.6432,True,bontori;vicm;vihsd,train,auto,v1
+lex_0107,cái cc,cái cc,HATE,0.9,0.8218,True,bontori;vicm;vihsd,train,verified,v1
+lex_0108,cái comment,cái comment,HATE;OFFENSIVE,0.9,0.6092,True,bontori;vicm,train,auto,v1
+lex_0109,cái con,cái con,HATE,0.9,0.809,True,bontori;vicm;vihsd,train,verified,v1
+lex_0110,cái củ,cái củ,HATE,0.9,0.7807,True,bontori;vicm;vihsd,train,verified,v1
+lex_0111,cái l,cái l,HATE,0.9,0.8631,True,bontori;vicm;vihsd,train,verified,v1
+lex_0112,cái lol,cái lol,HATE,0.9,0.8462,False,bontori;vicm;vihsd,train,verified,v1
+lex_0113,cái loz,cái loz,HATE,0.9,0.9168,False,bontori;vicm;vihsd,train,verified,v1
+lex_0114,cái loại,cái loại,HATE,0.9,0.8136,True,bontori;vicm;vihsd,train,verified,v1
+lex_0115,cái lũ,cái lũ,HATE,0.9,0.775,True,bontori;vicm;vihsd,train,verified,v1
+lex_0116,cái lồn,cái lồn,HATE,0.9,0.8337,True,bontori;vicm;vihsd,train,verified,v1
+lex_0117,cái lỗ,cái lỗ,HATE,0.9,0.7717,True,bontori;vicm;vihsd,train,verified,v1
+lex_0118,cái máu,cái máu,HATE;OFFENSIVE,0.9,0.6396,True,bontori;vihsd,train,auto,v1
+lex_0119,cái ngu,cái ngu,HATE,0.9,0.8362,True,bontori;vicm;vihsd,train,verified,v1
+lex_0120,cái não,cái não,HATE,0.9,0.8681,True,bontori;vicm;vihsd,train,verified,v1
+lex_0121,cái post,cái post,HATE,0.9,0.7589,True,bontori;vicm,train,auto,v1
+lex_0122,cái qq,cái qq,HATE;OFFENSIVE,0.9,0.6423,True,bontori;vihsd,train,auto,v1
+lex_0123,cái sub,cái sub,HATE,0.9,0.8897,False,vicm,train,verified,v1
+lex_0124,cái thumbnail,cái thumbnail,OFFENSIVE,0.6,0.8452,True,bontori,train,verified,v1
+lex_0125,cái thằng,cái thằng,HATE,0.9,0.8011,True,bontori;vicm;vihsd,train,verified,v1
+lex_0126,cái trò,cái trò,HATE,0.9,0.6975,True,bontori;vicm;vihsd,train,auto,v1
+lex_0127,cái văn,cái văn,HATE,0.9,0.7161,True,bontori;vicm,train,verified,v1
+lex_0128,cái đ,cái đ,OFFENSIVE,0.6,0.8048,True,bontori;vicm;vihsd,train,verified,v1
+lex_0129,cái đb,cái đb,HATE;OFFENSIVE,0.9,0.7106,True,bontori;vicm;vihsd,train,verified,v1
+lex_0130,cái đách,cái đách,HATE,0.9,0.9294,True,bontori;vihsd,train,verified,v1
+lex_0131,cái đéo,cái đéo,HATE,0.9,0.7418,True,bontori;vicm;vihsd,train,verified,v1
+lex_0132,cái địt,cái địt,HATE,0.9,0.9603,True,bontori;vicm;vihsd,train,verified,v1
+lex_0133,câm,câm,HATE,0.9,0.9356,True,bontori;vicm;vihsd,train,verified,v1
+lex_0134,câm mẹ,câm mẹ,HATE,0.9,0.966,False,bontori;vicm;vihsd,train,verified,v1
+lex_0135,còn mày,còn mày,HATE,0.9,0.9051,True,bontori;vicm;vihsd,train,verified,v1
+lex_0136,còn đéo,còn đéo,HATE,0.9,0.7617,True,bontori;vicm;vihsd,train,verified,v1
+lex_0137,có cc,có cc,HATE,0.9,0.8301,True,bontori;vicm;vihsd,train,verified,v1
+lex_0138,có não,có não,HATE,0.9,0.861,True,bontori;vicm;vihsd,train,verified,v1
+lex_0139,cũng rảnh,cũng rảnh,HATE,0.9,0.5528,True,bontori;vicm;vihsd,train,auto,v1
+lex_0140,cũng đéo,cũng đéo,HATE,0.9,0.7426,True,bontori;vicm;vihsd,train,verified,v1
+lex_0141,cơm sườn,cơm sườn,HATE,0.9,0.8365,True,bontori;vicm;vihsd,train,verified,v1
+lex_0142,cả lò,cả lò,HATE,0.9,0.7981,False,bontori;vicm;vihsd,train,verified,v1
+lex_0143,cả thằng,cả thằng,HATE,0.9,0.7461,True,bontori;vicm;vihsd,train,verified,v1
+lex_0144,cấp mà,cấp mà,HATE,0.9,0.7357,True,bontori;vicm;vihsd,train,verified,v1
+lex_0145,cắp chất,cắp chất,OFFENSIVE,0.6,0.9023,True,bontori;vicm,train,verified,v1
+lex_0146,cắp content,cắp content,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0147,cặc,cặc,HATE,0.9,0.8761,False,bontori;vicm;vihsd,train,verified,v1
+lex_0148,cặc gì,cặc gì,HATE,0.9,0.9155,False,bontori;vicm;vihsd,train,verified,v1
+lex_0149,cặn,cặn,HATE,0.9,0.8583,True,bontori;vicm;vihsd,train,verified,v1
+lex_0150,cặn bã,cặn bã,HATE,0.9,0.9147,True,bontori;vicm;vihsd,train,verified,v1
+lex_0151,cộng nó,cộng nó,HATE,0.9,0.9741,False,bontori;vihsd,train,verified,v1
+lex_0152,cộng sản,cộng sản,HATE,0.9,0.6495,True,bontori;vicm;vihsd,train,auto,v1
+lex_0153,cờ hó,cờ hó,HATE,0.9,0.8248,True,bontori;vihsd,train,verified,v1
+lex_0154,của diệm,của diệm,HATE;OFFENSIVE,0.9,0.6731,True,bontori,train,auto,v1
+lex_0155,của huy,của huy,OFFENSIVE,0.6,0.8309,True,bontori,train,verified,v1
+lex_0156,của mày,của mày,HATE,0.9,0.8631,True,bontori;vicm;vihsd,train,verified,v1
+lex_0157,cứ thích,cứ thích,HATE,0.9,0.6624,True,bontori;vicm;vihsd,train,auto,v1
+lex_0158,cức,cức,HATE,0.9,0.8336,True,bontori;vicm;vihsd,train,verified,v1
+lex_0159,da đen,da đen,HATE,0.9,0.7686,True,bontori;vicm;vihsd,train,verified,v1
+lex_0160,damm,damm,HATE,0.9,0.7297,False,bontori;vicm,train,auto,v1
+lex_0161,damn,damn,HATE,0.9,0.7751,True,bontori;vicm,train,verified,v1
+lex_0162,damn it,damn it,HATE,0.9,0.96,False,vicm,train,auto,v1
+lex_0163,dcm,dcm,HATE;OFFENSIVE,0.9,0.6048,True,bontori;vicm;vihsd,train,auto,v1
+lex_0164,dick,dick,HATE,0.9,0.7904,False,vicm,train,auto,v1
+lex_0165,dit,dit,HATE,0.9,0.9392,False,bontori;vihsd,train,verified,v1
+lex_0166,diệm chỉ,diệm chỉ,HATE,0.9,0.8484,False,bontori,train,verified,v1
+lex_0167,diệm mà,diệm mà,HATE,0.9,0.7329,True,bontori,train,verified,v1
+lex_0168,diệm nhu,diệm nhu,HATE;OFFENSIVE,0.9,0.6866,True,bontori,train,auto,v1
+lex_0169,diệt chủng,diệt chủng,HATE,0.9,0.9698,False,bontori;vicm;vihsd,train,verified,v1
+lex_0170,do ngôn,do ngôn,HATE,0.9,0.7047,True,bontori;vicm;vihsd,train,verified,v1
+lex_0171,dog bắc,dog bắc,HATE,0.9,0.6536,False,vicm,train,auto,v1
+lex_0172,downvote,downvote,HATE,0.9,0.9764,False,vicm,train,verified,v1
+lex_0173,du kích,du kích,HATE,0.9,0.8292,True,bontori;vicm;vihsd,train,verified,v1
+lex_0174,du mục,du mục,HATE;OFFENSIVE,0.9,0.6835,True,bontori,train,auto,v1
+lex_0175,duoi,duoi,HATE,0.9,0.9464,True,bontori;vihsd,train,verified,v1
+lex_0176,dâm,dâm,HATE,0.9,0.8106,True,bontori;vicm;vihsd,train,verified,v1
+lex_0177,dâm loạn,dâm loạn,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0178,dâm tinh,dâm tinh,HATE,0.9,0.9133,False,bontori;vicm;vihsd,train,verified,v1
+lex_0179,dân ngu,dân ngu,HATE,0.9,0.9698,False,bontori;vicm;vihsd,train,verified,v1
+lex_0180,dân như,dân như,HATE,0.9,0.8176,True,bontori;vicm;vihsd,train,verified,v1
+lex_0181,dân nó,dân nó,HATE,0.9,0.7624,True,bontori;vicm;vihsd,train,verified,v1
+lex_0182,dân thường,dân thường,HATE,0.9,0.6181,True,bontori;vicm;vihsd,train,auto,v1
+lex_0183,dùng não,dùng não,HATE,0.9,0.7807,True,bontori;vicm;vihsd,train,verified,v1
+lex_0184,dắt mũi,dắt mũi,HATE;OFFENSIVE,0.9,0.6208,True,bontori;vicm;vihsd,train,auto,v1
+lex_0185,dột từ,dột từ,HATE;OFFENSIVE,0.9,0.6478,True,bontori,train,auto,v1
+lex_0186,eq,eq,HATE,0.9,0.6976,True,bontori;vicm,train,auto,v1
+lex_0187,exploit,exploit,HATE,0.9,0.8,False,vicm,train,auto,v1
+lex_0188,fan nó,fan nó,OFFENSIVE,0.6,0.8016,True,bontori;vicm;vihsd,train,verified,v1
+lex_0189,fat,fat,HATE,0.9,0.809,True,bontori;vicm;vihsd,train,auto,v1
+lex_0190,fuck,fuck,HATE,0.9,0.9151,True,bontori;vicm;vihsd,train,verified,v1
+lex_0191,fuck off,fuck off,HATE,0.9,0.7392,False,vicm,train,auto,v1
+lex_0192,fucking,fucking,HATE,0.9,0.6932,True,bontori;vicm;vihsd,train,auto,v1
+lex_0193,ghét thằng,ghét thằng,HATE,0.9,0.8007,True,bontori,train,verified,v1
+lex_0194,ghê tởm,ghê tởm,HATE,0.9,0.7981,False,bontori;vihsd,train,verified,v1
+lex_0195,giãy,giãy,HATE,0.9,0.6469,True,bontori;vicm;vihsd,train,auto,v1
+lex_0196,giãy chết,giãy chết,HATE,0.9,0.8193,True,bontori;vihsd,train,verified,v1
+lex_0197,giả gái,giả gái,OFFENSIVE,0.6,0.9459,True,bontori,train,verified,v1
+lex_0198,giấu đầu,giấu đầu,OFFENSIVE,0.6,0.9514,True,bontori,train,verified,v1
+lex_0199,giờ tao,giờ tao,HATE,0.9,0.8044,True,bontori;vicm;vihsd,train,verified,v1
+lex_0200,giờ thống,giờ thống,OFFENSIVE,0.6,0.7734,True,bontori,train,verified,v1
+lex_0201,growoldwiththetrans,growoldwiththetrans,OFFENSIVE,0.6,0.7554,True,bontori,train,verified,v1
+lex_0202,gì bọn,gì bọn,HATE,0.9,0.8248,True,bontori;vicm;vihsd,train,verified,v1
+lex_0203,gì mày,gì mày,HATE,0.9,0.9799,True,bontori;vicm;vihsd,train,verified,v1
+lex_0204,gì tao,gì tao,HATE,0.9,0.65,True,bontori;vicm;vihsd,train,auto,v1
+lex_0205,hãm,hãm,HATE,0.9,0.7721,True,bontori;vicm;vihsd,train,verified,v1
+lex_0206,hèn hạ,hèn hạ,HATE,0.9,0.841,False,bontori;vicm;vihsd,train,verified,v1
+lex_0207,hòn dái,hòn dái,HATE,0.9,0.8443,False,bontori;vicm;vihsd,train,verified,v1
+lex_0208,hó,hó,HATE,0.9,0.7429,True,bontori;vihsd,train,verified,v1
+lex_0209,hù,hù,HATE,0.9,0.7508,True,bontori;vicm;vihsd,train,verified,v1
+lex_0210,hùa,hùa,HATE;OFFENSIVE,0.9,0.5781,True,bontori;vicm;vihsd,train,auto,v1
+lex_0211,hạ đẳng,hạ đẳng,HATE,0.9,0.9168,True,bontori;vicm;vihsd,train,verified,v1
+lex_0212,hại dân,hại dân,HATE,0.9,0.8912,True,bontori;vicm;vihsd,train,verified,v1
+lex_0213,hả thằng,hả thằng,HATE,0.9,0.9603,True,bontori;vicm;vihsd,train,verified,v1
+lex_0214,hằng du,hằng du,OFFENSIVE,0.6,0.869,True,bontori,train,verified,v1
+lex_0215,hết bọn,hết bọn,HATE,0.9,0.8897,True,bontori;vicm;vihsd,train,verified,v1
+lex_0216,jerk,jerk,HATE,0.9,0.8,False,vicm,train,auto,v1
+lex_0217,k ưa,k ưa,HATE,0.9,0.7639,True,bontori;vicm;vihsd,train,verified,v1
+lex_0218,kasim,kasim,OFFENSIVE,0.6,0.7894,True,bontori,train,verified,v1
+lex_0219,khuyết,khuyết,HATE,0.9,0.7158,True,bontori;vicm;vihsd,train,verified,v1
+lex_0220,khuyết tật,khuyết tật,HATE,0.9,0.8239,True,bontori;vicm;vihsd,train,verified,v1
+lex_0221,khác nó,khác nó,HATE,0.9,0.6363,True,bontori;vicm;vihsd,train,auto,v1
+lex_0222,khác đéo,khác đéo,HATE,0.9,0.8331,True,bontori;vicm;vihsd,train,verified,v1
+lex_0223,không nữa,không nữa,HATE,0.9,0.6676,True,bontori;vicm;vihsd,train,auto,v1
+lex_0224,khắp miền,khắp miền,HATE;OFFENSIVE,0.9,0.6677,True,bontori;vicm,train,auto,v1
+lex_0225,kinh tởm,kinh tởm,HATE;OFFENSIVE,0.9,0.7447,True,bontori;vicm;vihsd,train,verified,v1
+lex_0226,kl7,kl7,OFFENSIVE,0.6,0.8038,True,bontori,train,verified,v1
+lex_0227,kênh rác,kênh rác,OFFENSIVE,0.6,0.7001,True,bontori,train,verified,v1
+lex_0228,kệ con,kệ con,HATE,0.9,0.9435,False,bontori;vicm;vihsd,train,verified,v1
+lex_0229,kệ mẹ,kệ mẹ,HATE,0.9,0.7061,True,bontori;vicm;vihsd,train,verified,v1
+lex_0230,kỳ chó,kỳ chó,HATE,0.9,0.7336,False,bontori;vicm,train,auto,v1
+lex_0231,kỳ thị,kỳ thị,HATE,0.9,0.6554,True,bontori;vicm;vihsd,train,auto,v1
+lex_0232,lazy,lazy,HATE,0.9,0.8381,False,vicm,train,auto,v1
+lex_0233,liềm,liềm,HATE,0.9,0.9414,True,bontori;vicm;vihsd,train,verified,v1
+lex_0234,lol gì,lol gì,HATE,0.9,0.8552,True,bontori;vicm;vihsd,train,verified,v1
+lex_0235,lone,lone,HATE,0.9,0.6773,True,bontori;vihsd,train,auto,v1
+lex_0236,loser,loser,HATE,0.9,0.8393,True,bontori;vicm,train,verified,v1
+lex_0237,loz,loz,HATE,0.9,0.8772,True,bontori;vicm;vihsd,train,verified,v1
+lex_0238,loạn viên,loạn viên,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0239,luận viên,luận viên,HATE,0.9,0.8505,True,bontori;vicm;vihsd,train,verified,v1
+lex_0240,là bò,là bò,HATE,0.9,0.7981,False,bontori;vicm;vihsd,train,verified,v1
+lex_0241,là bù,là bù,HATE;OFFENSIVE,0.9,0.6046,True,bontori;vihsd,train,auto,v1
+lex_0242,là bắc,là bắc,HATE;OFFENSIVE,0.9,0.5444,True,bontori;vicm;vihsd,train,auto,v1
+lex_0243,là lũ,là lũ,HATE,0.9,0.9241,True,bontori;vicm;vihsd,train,verified,v1
+lex_0244,là m,là m,HATE,0.9,0.7316,True,bontori;vicm;vihsd,train,verified,v1
+lex_0245,là mày,là mày,HATE,0.9,0.8301,True,bontori;vicm;vihsd,train,verified,v1
+lex_0246,là ngô,là ngô,HATE,0.9,0.845,True,bontori,train,verified,v1
+lex_0247,là rác,là rác,HATE;OFFENSIVE,0.9,0.6777,True,bontori;vicm,train,auto,v1
+lex_0248,là tao,là tao,HATE,0.9,0.6405,True,bontori;vicm;vihsd,train,auto,v1
+lex_0249,là tt,là tt,HATE;OFFENSIVE,0.9,0.6866,True,bontori;vihsd,train,auto,v1
+lex_0250,làm cc,làm cc,HATE,0.9,0.9354,True,bontori;vicm;vihsd,train,verified,v1
+lex_0251,làm chó,làm chó,HATE,0.9,0.8038,True,bontori;vicm;vihsd,train,verified,v1
+lex_0252,làm lãnh,làm lãnh,HATE,0.9,0.9561,True,bontori;vicm;vihsd,train,verified,v1
+lex_0253,làm đéo,làm đéo,HATE;OFFENSIVE,0.9,0.6735,True,bontori;vicm;vihsd,train,auto,v1
+lex_0254,láo,láo,HATE,0.9,0.7768,True,bontori;vicm;vihsd,train,verified,v1
+lex_0255,lên reddit,lên reddit,HATE,0.9,0.7558,True,bontori;vicm,train,auto,v1
+lex_0256,lòn,lòn,HATE,0.9,0.8202,True,bontori;vicm;vihsd,train,verified,v1
+lex_0257,lý luận,lý luận,HATE;OFFENSIVE,0.9,0.542,True,bontori;vicm;vihsd,train,auto,v1
+lex_0258,lũ,lũ,HATE,0.9,0.8069,True,bontori;vicm;vihsd,train,verified,v1
+lex_0259,lũ bán,lũ bán,HATE,0.9,0.9741,False,bontori;vihsd,train,verified,v1
+lex_0260,lũ chó,lũ chó,HATE,0.9,0.9369,False,bontori;vicm;vihsd,train,verified,v1
+lex_0261,lũ ngu,lũ ngu,HATE,0.9,0.8284,False,bontori;vihsd,train,verified,v1
+lex_0262,lưu manh,lưu manh,HATE,0.9,0.9485,True,bontori;vicm;vihsd,train,verified,v1
+lex_0263,lật đổ,lật đổ,HATE,0.9,0.7391,True,bontori;vicm;vihsd,train,verified,v1
+lex_0264,lắm tiền,lắm tiền,HATE,0.9,0.7439,True,bontori;vihsd,train,verified,v1
+lex_0265,lắm vào,lắm vào,HATE,0.9,0.5579,True,bontori;vicm;vihsd,train,auto,v1
+lex_0266,lẹo,lẹo,HATE,0.9,0.5943,True,bontori;vicm;vihsd,train,auto,v1
+lex_0267,lố lăng,lố lăng,OFFENSIVE,0.6,0.7554,True,bontori;vicm,train,verified,v1
+lex_0268,lồn,lồn,HATE,0.9,0.8941,True,bontori;vicm;vihsd,train,verified,v1
+lex_0269,lồn gì,lồn gì,HATE,0.9,0.9216,False,bontori;vicm;vihsd,train,verified,v1
+lex_0270,lồn nào,lồn nào,HATE,0.9,0.8897,False,bontori;vicm;vihsd,train,verified,v1
+lex_0271,lồn quá,lồn quá,HATE,0.9,0.9611,False,bontori;vicm;vihsd,train,verified,v1
+lex_0272,lồn à,lồn à,HATE,0.9,0.928,False,vicm,train,auto,v1
+lex_0273,lỗ đít,lỗ đít,HATE;OFFENSIVE,0.9,0.6623,True,bontori;vicm;vihsd,train,auto,v1
+lex_0274,lộc nó,lộc nó,OFFENSIVE,0.6,0.8156,False,bontori,train,verified,v1
+lex_0275,lủ,lủ,HATE,0.9,0.962,False,bontori;vihsd,train,verified,v1
+lex_0276,m ko,m ko,HATE,0.9,0.6592,True,bontori;vicm;vihsd,train,auto,v1
+lex_0277,m làm,m làm,HATE,0.9,0.7332,True,bontori;vicm;vihsd,train,verified,v1
+lex_0278,m mà,m mà,HATE,0.9,0.5928,True,bontori;vicm;vihsd,train,auto,v1
+lex_0279,m ngu,m ngu,HATE,0.9,0.9051,True,bontori;vicm;vihsd,train,verified,v1
+lex_0280,m nói,m nói,HATE,0.9,0.789,True,bontori;vicm;vihsd,train,verified,v1
+lex_0281,m thì,m thì,HATE,0.9,0.6443,True,bontori;vicm;vihsd,train,auto,v1
+lex_0282,m đang,m đang,HATE,0.9,0.7038,True,bontori;vicm,train,auto,v1
+lex_0283,m đéo,m đéo,HATE,0.9,0.8999,False,bontori;vicm;vihsd,train,verified,v1
+lex_0284,m113,m113,HATE,0.9,0.8136,False,bontori,train,verified,v1
+lex_0285,mat dai,mat dai,HATE,0.9,0.9504,False,bontori;vihsd,train,verified,v1
+lex_0286,mat day,mat day,HATE,0.9,0.9315,False,bontori;vihsd,train,verified,v1
+lex_0287,ml,ml,HATE,0.9,0.8685,True,bontori;vicm;vihsd,train,verified,v1
+lex_0288,moron,moron,HATE,0.9,0.8837,False,vicm,train,auto,v1
+lex_0289,muôn đời,muôn đời,HATE,0.9,0.7389,True,bontori;vicm;vihsd,train,verified,v1
+lex_0290,mà m,mà m,HATE,0.9,0.7219,True,bontori;vicm;vihsd,train,verified,v1
+lex_0291,mà mày,mà mày,HATE,0.9,0.8711,True,bontori;vicm;vihsd,train,verified,v1
+lex_0292,mà ngu,mà ngu,HATE,0.9,0.8838,True,bontori;vicm;vihsd,train,verified,v1
+lex_0293,mà tao,mà tao,HATE,0.9,0.7371,True,bontori;vicm;vihsd,train,verified,v1
+lex_0294,mà tưởng,mà tưởng,HATE,0.9,0.8196,True,bontori;vicm;vihsd,train,verified,v1
+lex_0295,mà ý,mà ý,HATE,0.9,0.6357,True,bontori;vihsd,train,auto,v1
+lex_0296,màn lên,màn lên,OFFENSIVE,0.6,0.9565,True,bontori,train,verified,v1
+lex_0297,mày biết,mày biết,HATE,0.9,0.7533,True,bontori;vicm;vihsd,train,verified,v1
+lex_0298,mày bảo,mày bảo,HATE,0.9,0.9216,False,bontori;vicm,train,verified,v1
+lex_0299,mày bị,mày bị,HATE,0.9,0.8895,True,bontori;vicm;vihsd,train,verified,v1
+lex_0300,mày chắc,mày chắc,HATE,0.9,0.8999,False,bontori;vicm;vihsd,train,verified,v1
+lex_0301,mày còn,mày còn,HATE,0.9,0.7329,True,bontori;vicm;vihsd,train,verified,v1
+lex_0302,mày có,mày có,HATE,0.9,0.8376,True,bontori;vicm;vihsd,train,verified,v1
+lex_0303,mày cũng,mày cũng,HATE,0.9,0.7763,True,bontori;vicm;vihsd,train,verified,v1
+lex_0304,mày cứ,mày cứ,HATE,0.9,0.8477,True,bontori;vicm;vihsd,train,verified,v1
+lex_0305,mày không,mày không,HATE,0.9,0.8419,True,bontori;vicm;vihsd,train,verified,v1
+lex_0306,mày ko,mày ko,HATE,0.9,0.7925,True,bontori;vicm;vihsd,train,verified,v1
+lex_0307,mày là,mày là,HATE,0.9,0.9333,True,bontori;vicm;vihsd,train,verified,v1
+lex_0308,mày làm,mày làm,HATE,0.9,0.8261,True,bontori;vicm;vihsd,train,verified,v1
+lex_0309,mày lên,mày lên,HATE,0.9,0.9343,False,bontori;vicm;vihsd,train,verified,v1
+lex_0310,mày lại,mày lại,HATE,0.9,0.8973,True,bontori;vicm;vihsd,train,verified,v1
+lex_0311,mày muốn,mày muốn,HATE,0.9,0.9097,True,bontori;vicm;vihsd,train,verified,v1
+lex_0312,mày mà,mày mà,HATE,0.9,0.9158,True,bontori;vicm;vihsd,train,verified,v1
+lex_0313,mày mới,mày mới,HATE,0.9,0.9361,True,bontori;vicm;vihsd,train,verified,v1
+lex_0314,mày nghe,mày nghe,HATE,0.9,0.7348,True,bontori;vicm,train,auto,v1
+lex_0315,mày nghĩ,mày nghĩ,HATE,0.9,0.7027,True,bontori;vicm;vihsd,train,verified,v1
+lex_0316,mày ngu,mày ngu,HATE,0.9,0.99,True,bontori;vicm;vihsd,train,verified,v1
+lex_0317,mày như,mày như,HATE,0.9,0.8603,True,bontori;vicm;vihsd,train,auto,v1
+lex_0318,mày nên,mày nên,HATE,0.9,0.8322,True,bontori;vicm;vihsd,train,verified,v1
+lex_0319,mày nói,mày nói,HATE,0.9,0.8581,True,bontori;vicm;vihsd,train,verified,v1
+lex_0320,mày tao,mày tao,HATE,0.9,0.7821,True,bontori;vicm;vihsd,train,verified,v1
+lex_0321,mày thì,mày thì,HATE,0.9,0.8845,True,bontori;vicm;vihsd,train,verified,v1
+lex_0322,mày thích,mày thích,HATE,0.9,0.9472,True,bontori;vicm,train,verified,v1
+lex_0323,mày thôi,mày thôi,HATE,0.9,0.84,False,bontori;vicm,train,auto,v1
+lex_0324,mày đi,mày đi,HATE,0.9,0.8274,True,bontori;vicm;vihsd,train,verified,v1
+lex_0325,mày đâu,mày đâu,HATE,0.9,0.9741,False,bontori;vicm;vihsd,train,verified,v1
+lex_0326,mày đéo,mày đéo,HATE,0.9,0.9472,False,bontori;vicm;vihsd,train,verified,v1
+lex_0327,mày đúng,mày đúng,HATE,0.9,0.7884,False,bontori;vicm,train,auto,v1
+lex_0328,máu lồn,máu lồn,HATE;OFFENSIVE,0.9,0.758,True,bontori;vihsd,train,verified,v1
+lex_0329,méo mó,méo mó,OFFENSIVE,0.6,0.7001,True,bontori,train,verified,v1
+lex_0330,mả,mả,HATE,0.9,0.8427,True,bontori;vicm;vihsd,train,verified,v1
+lex_0331,mả cha,mả cha,HATE,0.9,0.9454,False,bontori;vicm;vihsd,train,verified,v1
+lex_0332,mấy nước,mấy nước,HATE,0.9,0.7759,True,bontori;vicm;vihsd,train,verified,v1
+lex_0333,mấy thg,mấy thg,HATE;OFFENSIVE,0.9,0.6728,True,bontori;vicm;vihsd,train,auto,v1
+lex_0334,mấy thằng,mấy thằng,HATE,0.9,0.7914,True,bontori;vicm;vihsd,train,verified,v1
+lex_0335,mầy,mầy,HATE,0.9,0.8358,True,bontori;vicm;vihsd,train,verified,v1
+lex_0336,mắc ói,mắc ói,OFFENSIVE,0.6,0.8251,True,bontori,train,verified,v1
+lex_0337,mặt heo,mặt heo,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0338,mẹ chúng,mẹ chúng,HATE,0.9,0.9147,True,bontori;vicm;vihsd,train,verified,v1
+lex_0339,mẹ m,mẹ m,HATE,0.9,0.8632,True,bontori;vicm;vihsd,train,verified,v1
+lex_0340,mẹ mày,mẹ mày,HATE,0.9,0.973,True,bontori;vicm;vihsd,train,verified,v1
+lex_0341,mẹ người,mẹ người,HATE,0.9,0.8984,True,bontori;vicm;vihsd,train,verified,v1
+lex_0342,mẹ thầy,mẹ thầy,HATE,0.9,0.9764,False,bontori;vihsd,train,verified,v1
+lex_0343,mẹ thằng,mẹ thằng,HATE,0.9,0.9019,True,bontori;vicm;vihsd,train,verified,v1
+lex_0344,mẹ tụi,mẹ tụi,HATE,0.9,0.9312,True,bontori;vihsd,train,verified,v1
+lex_0345,mỉa,mỉa,HATE;OFFENSIVE,0.9,0.5886,True,bontori;vicm;vihsd,train,auto,v1
+lex_0346,mọi rợ,mọi rợ,HATE,0.9,0.9216,False,bontori;vicm;vihsd,train,verified,v1
+lex_0347,mồm ra,mồm ra,HATE,0.9,0.8423,True,bontori;vicm;vihsd,train,verified,v1
+lex_0348,một lũ,một lũ,HATE,0.9,0.9043,True,bontori;vicm;vihsd,train,verified,v1
+lex_0349,mở mồm,mở mồm,HATE,0.9,0.789,True,bontori;vicm;vihsd,train,verified,v1
+lex_0350,mỹ bỏ,mỹ bỏ,HATE;OFFENSIVE,0.9,0.7021,True,bontori,train,verified,v1
+lex_0351,mỹ họ,mỹ họ,OFFENSIVE,0.6,0.8452,True,bontori,train,verified,v1
+lex_0352,mỹ lập,mỹ lập,HATE;OFFENSIVE,0.9,0.6677,True,bontori,train,auto,v1
+lex_0353,mỹ đưa,mỹ đưa,HATE;OFFENSIVE,0.9,0.7354,True,bontori,train,verified,v1
+lex_0354,nam kỳ,nam kỳ,HATE,0.9,0.7334,True,bontori;vicm;vihsd,train,verified,v1
+lex_0355,nam vn,nam vn,OFFENSIVE,0.6,0.7374,True,bontori,train,verified,v1
+lex_0356,nam à,nam à,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0357,nato,nato,HATE,0.9,0.7907,True,bontori;vicm,train,verified,v1
+lex_0358,nghễ,nghễ,HATE,0.9,0.7679,True,bontori;vicm;vihsd,train,verified,v1
+lex_0359,ngu,ngu,HATE,0.9,0.7918,True,bontori;vicm;vihsd,train,verified,v1
+lex_0360,ngu còn,ngu còn,HATE,0.9,0.8867,True,bontori;vicm;vihsd,train,verified,v1
+lex_0361,ngu dốt,ngu dốt,HATE,0.9,0.7645,True,bontori;vicm;vihsd,train,verified,v1
+lex_0362,ngu hay,ngu hay,HATE,0.9,0.9532,True,bontori;vicm;vihsd,train,verified,v1
+lex_0363,ngu hơn,ngu hơn,HATE,0.9,0.909,True,bontori;vicm;vihsd,train,verified,v1
+lex_0364,ngu lol,ngu lol,HATE,0.9,0.8915,False,bontori;vicm;vihsd,train,auto,v1
+lex_0365,ngu lồn,ngu lồn,HATE,0.9,0.8328,False,bontori;vicm;vihsd,train,verified,v1
+lex_0366,ngu mà,ngu mà,HATE,0.9,0.8797,True,bontori;vicm;vihsd,train,verified,v1
+lex_0367,ngu người,ngu người,HATE,0.9,0.6463,True,bontori;vihsd,train,auto,v1
+lex_0368,ngu như,ngu như,HATE,0.9,0.9057,True,bontori;vicm;vihsd,train,verified,v1
+lex_0369,ngu quá,ngu quá,HATE,0.9,0.8654,True,bontori;vicm;vihsd,train,verified,v1
+lex_0370,ngu thì,ngu thì,HATE,0.9,0.6765,True,bontori;vicm;vihsd,train,auto,v1
+lex_0371,ngu thế,ngu thế,HATE,0.9,0.8335,True,bontori;vicm;vihsd,train,verified,v1
+lex_0372,ngu vl,ngu vl,HATE,0.9,0.76,True,bontori;vicm;vihsd,train,verified,v1
+lex_0373,ngu vãi,ngu vãi,HATE,0.9,0.9124,True,bontori;vicm;vihsd,train,verified,v1
+lex_0374,ngu vậy,ngu vậy,HATE,0.9,0.9392,True,bontori;vicm;vihsd,train,verified,v1
+lex_0375,ngu à,ngu à,HATE,0.9,0.8431,True,bontori;vicm;vihsd,train,verified,v1
+lex_0376,ngu ạ,ngu ạ,HATE,0.9,0.9581,False,bontori;vihsd,train,verified,v1
+lex_0377,ngóc,ngóc,HATE,0.9,0.7829,True,bontori;vicm;vihsd,train,verified,v1
+lex_0378,ngôn luận,ngôn luận,HATE,0.9,0.7672,True,bontori;vicm;vihsd,train,verified,v1
+lex_0379,người di,người di,HATE;OFFENSIVE,0.9,0.695,True,bontori,train,auto,v1
+lex_0380,người ngu,người ngu,HATE,0.9,0.8136,False,bontori;vicm;vihsd,train,verified,v1
+lex_0381,ngạo,ngạo,HATE,0.9,0.5905,True,bontori;vicm;vihsd,train,auto,v1
+lex_0382,ngạo nghễ,ngạo nghễ,HATE,0.9,0.744,True,bontori;vicm,train,verified,v1
+lex_0383,ngụy,ngụy,HATE,0.9,0.6593,True,bontori;vicm;vihsd,train,auto,v1
+lex_0384,nhai lại,nhai lại,HATE,0.9,0.7982,True,bontori;vicm;vihsd,train,verified,v1
+lex_0385,nhai đi,nhai đi,HATE,0.9,0.7899,True,bontori;vicm;vihsd,train,verified,v1
+lex_0386,nhu cai,nhu cai,HATE,0.9,0.9392,False,bontori;vihsd,train,verified,v1
+lex_0387,nhà m,nhà m,HATE,0.9,0.7259,True,bontori;vicm;vihsd,train,verified,v1
+lex_0388,nhà mày,nhà mày,HATE,0.9,0.8997,True,bontori;vicm;vihsd,train,verified,v1
+lex_0389,nhà tao,nhà tao,HATE,0.9,0.8611,True,bontori;vicm;vihsd,train,verified,v1
+lex_0390,như bò,như bò,HATE,0.9,0.8449,True,bontori;vicm;vihsd,train,verified,v1
+lex_0391,như cc,như cc,HATE,0.9,0.8186,True,bontori;vicm;vihsd,train,verified,v1
+lex_0392,như chó,như chó,HATE,0.9,0.8342,True,bontori;vicm;vihsd,train,verified,v1
+lex_0393,như l,như l,HATE,0.9,0.7149,True,bontori;vicm;vihsd,train,verified,v1
+lex_0394,như lol,như lol,HATE,0.9,0.9168,True,bontori;vicm;vihsd,train,verified,v1
+lex_0395,như lồn,như lồn,HATE,0.9,0.8663,False,bontori;vicm;vihsd,train,verified,v1
+lex_0396,như m,như m,HATE,0.9,0.7835,True,bontori;vicm;vihsd,train,verified,v1
+lex_0397,như mày,như mày,HATE,0.9,0.9392,True,bontori;vicm;vihsd,train,verified,v1
+lex_0398,như nó,như nó,HATE,0.9,0.6786,True,bontori;vicm;vihsd,train,auto,v1
+lex_0399,như shit,như shit,HATE;OFFENSIVE,0.9,0.6677,True,bontori;vicm,train,auto,v1
+lex_0400,như thằng,như thằng,HATE,0.9,0.8009,True,bontori;vicm;vihsd,train,verified,v1
+lex_0401,như đầu,như đầu,HATE,0.9,0.6634,True,bontori;vicm;vihsd,train,auto,v1
+lex_0402,nhưng đéo,nhưng đéo,HATE;OFFENSIVE,0.9,0.5867,True,bontori;vicm;vihsd,train,auto,v1
+lex_0403,nhồi sọ,nhồi sọ,HATE,0.9,0.7215,True,bontori;vihsd,train,verified,v1
+lex_0404,nhục mặt,nhục mặt,HATE,0.9,0.8446,True,bontori;vihsd,train,verified,v1
+lex_0405,nhức đau,nhức đau,HATE,0.9,0.99,False,bontori,train,verified,v1
+lex_0406,những kẻ,những kẻ,HATE,0.9,0.7252,True,bontori;vihsd,train,verified,v1
+lex_0407,những thằng,những thằng,HATE,0.9,0.8219,True,bontori;vicm;vihsd,train,verified,v1
+lex_0408,nuke,nuke,HATE,0.9,0.7542,True,bontori;vicm,train,auto,v1
+lex_0409,này bệnh,này bệnh,HATE;OFFENSIVE,0.9,0.678,True,bontori;vicm;vihsd,train,auto,v1
+lex_0410,này tao,này tao,HATE,0.9,0.7179,True,bontori;vicm;vihsd,train,verified,v1
+lex_0411,não chó,não chó,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0412,não của,não của,HATE;OFFENSIVE,0.9,0.6623,True,bontori;vicm;vihsd,train,auto,v1
+lex_0413,não tàn,não tàn,HATE,0.9,0.7894,False,bontori,train,verified,v1
+lex_0414,nãy giờ,nãy giờ,HATE,0.9,0.7636,True,bontori;vicm;vihsd,train,verified,v1
+lex_0415,nên tao,nên tao,HATE,0.9,0.7368,True,bontori;vicm,train,auto,v1
+lex_0416,nó ngu,nó ngu,HATE,0.9,0.8688,True,bontori;vicm;vihsd,train,verified,v1
+lex_0417,nó đéo,nó đéo,HATE,0.9,0.7254,True,bontori;vicm;vihsd,train,verified,v1
+lex_0418,nói láo,nói láo,HATE,0.9,0.8219,True,bontori;vicm;vihsd,train,verified,v1
+lex_0419,nói ngu,nói ngu,HATE,0.9,0.8136,False,bontori;vicm;vihsd,train,verified,v1
+lex_0420,nói xàm,nói xàm,HATE,0.9,0.9161,True,bontori;vihsd,train,verified,v1
+lex_0421,nô lệ,nô lệ,HATE,0.9,0.775,True,bontori;vicm;vihsd,train,verified,v1
+lex_0422,nước cộng,nước cộng,HATE,0.9,0.7375,True,bontori;vicm,train,verified,v1
+lex_0423,nước hại,nước hại,HATE,0.9,0.99,False,bontori;vicm;vihsd,train,verified,v1
+lex_0424,nếu chúng,nếu chúng,HATE;OFFENSIVE,0.9,0.6353,True,bontori;vicm,train,auto,v1
+lex_0425,nếu m,nếu m,HATE,0.9,0.7638,True,bontori;vicm,train,auto,v1
+lex_0426,nếu mày,nếu mày,HATE,0.9,0.8633,True,bontori;vicm;vihsd,train,verified,v1
+lex_0427,nể mấy,nể mấy,OFFENSIVE,0.6,0.8279,True,bontori;vihsd,train,verified,v1
+lex_0428,nứng nứng,nứng nứng,OFFENSIVE,0.6,0.8964,True,bontori;vihsd,train,verified,v1
+lex_0429,nữ quyền,nữ quyền,HATE,0.9,0.7567,True,bontori;vicm,train,verified,v1
+lex_0430,op,op,HATE,0.9,0.907,True,bontori;vicm,train,verified,v1
+lex_0431,pbvm,pbvm,HATE,0.9,0.729,True,bontori;vicm;vihsd,train,verified,v1
+lex_0432,phong sát,phong sát,HATE;OFFENSIVE,0.9,0.7237,True,bontori,train,verified,v1
+lex_0433,phò,phò,HATE,0.9,0.8059,True,bontori;vicm;vihsd,train,verified,v1
+lex_0434,phụ hồ,phụ hồ,HATE,0.9,0.6874,True,bontori;vicm;vihsd,train,auto,v1
+lex_0435,phục cái,phục cái,HATE,0.9,0.8187,True,bontori;vihsd,train,verified,v1
+lex_0436,pussy,pussy,HATE,0.9,0.7884,False,vicm,train,auto,v1
+lex_0437,qq,qq,HATE;OFFENSIVE,0.9,0.6323,True,bontori;vicm;vihsd,train,auto,v1
+lex_0438,qq gì,qq gì,OFFENSIVE,0.6,0.704,True,bontori;vihsd,train,verified,v1
+lex_0439,quan lệch,quan lệch,OFFENSIVE,0.6,0.8019,False,bontori,train,verified,v1
+lex_0440,quyền tay,quyền tay,HATE,0.9,0.9084,False,bontori,train,verified,v1
+lex_0441,quân cờ,quân cờ,HATE;OFFENSIVE,0.9,0.6477,True,bontori;vihsd,train,auto,v1
+lex_0442,què gì,què gì,HATE;OFFENSIVE,0.9,0.7354,True,bontori;vicm;vihsd,train,verified,v1
+lex_0443,ra mày,ra mày,HATE,0.9,0.9205,True,bontori;vicm;vihsd,train,verified,v1
+lex_0444,ra vẻ,ra vẻ,HATE,0.9,0.7682,True,bontori;vicm,train,verified,v1
+lex_0445,ra đấy,ra đấy,HATE,0.9,0.6982,True,bontori;vicm;vihsd,train,auto,v1
+lex_0446,red bull,red bull,HATE;OFFENSIVE,0.9,0.6677,True,vicm,train,auto,v1
+lex_0447,reddit,reddit,HATE,0.9,0.7727,True,bontori;vicm,train,verified,v1
+lex_0448,retard,retard,HATE,0.9,0.7368,True,bontori;vicm,train,auto,v1
+lex_0449,rác rưởi,rác rưởi,HATE;OFFENSIVE,0.9,0.7314,True,bontori;vicm;vihsd,train,verified,v1
+lex_0450,rưởi,rưởi,HATE;OFFENSIVE,0.9,0.6673,True,bontori;vicm;vihsd,train,auto,v1
+lex_0451,rảnh háng,rảnh háng,HATE,0.9,0.8314,True,bontori;vicm;vihsd,train,verified,v1
+lex_0452,rồi mày,rồi mày,HATE,0.9,0.834,True,bontori;vicm,train,verified,v1
+lex_0453,rợ,rợ,HATE,0.9,0.9343,True,bontori;vicm;vihsd,train,verified,v1
+lex_0454,sai khiến,sai khiến,HATE,0.9,0.9193,True,bontori;vicm,train,verified,v1
+lex_0455,sao lon,sao lon,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0456,sao tao,sao tao,HATE,0.9,0.7887,True,bontori;vicm;vihsd,train,verified,v1
+lex_0457,sex,sex,HATE,0.9,0.7387,True,bontori;vicm;vihsd,train,verified,v1
+lex_0458,shut,shut,HATE,0.9,0.9392,False,bontori;vicm,train,verified,v1
+lex_0459,shut up,shut up,HATE,0.9,0.8416,False,bontori;vicm,train,auto,v1
+lex_0460,sida,sida,HATE,0.9,0.6855,True,bontori;vicm;vihsd,train,auto,v1
+lex_0461,simp,simp,HATE,0.9,0.9444,True,bontori;vicm,train,verified,v1
+lex_0462,skinship,skinship,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0463,snowflake,snowflake,HATE,0.9,0.5756,True,bontori;vicm,train,auto,v1
+lex_0464,sua,sua,HATE,0.9,0.6823,True,bontori;vihsd,train,auto,v1
+lex_0465,sub này,sub này,HATE,0.9,0.9364,False,vicm,train,verified,v1
+lex_0466,suck,suck,HATE,0.9,0.6614,False,vicm,train,auto,v1
+lex_0467,suy đồi,suy đồi,HATE,0.9,0.79,True,bontori;vicm;vihsd,train,verified,v1
+lex_0468,súc sinh,súc sinh,HATE,0.9,0.9653,True,bontori;vicm;vihsd,train,verified,v1
+lex_0469,súc vật,súc vật,HATE,0.9,0.9181,True,bontori;vicm;vihsd,train,verified,v1
+lex_0470,sạo,sạo,HATE,0.9,0.8193,True,bontori;vicm;vihsd,train,verified,v1
+lex_0471,sủa,sủa,HATE,0.9,0.8891,True,bontori;vicm;vihsd,train,verified,v1
+lex_0472,t chỉ,t chỉ,HATE;OFFENSIVE,0.9,0.5515,True,bontori;vicm;vihsd,train,auto,v1
+lex_0473,t nể,t nể,OFFENSIVE,0.6,0.99,False,bontori,train,verified,v1
+lex_0474,tam quan,tam quan,OFFENSIVE,0.6,0.7817,True,bontori,train,verified,v1
+lex_0475,tao biết,tao biết,HATE,0.9,0.9124,True,bontori;vicm;vihsd,train,verified,v1
+lex_0476,tao chỉ,tao chỉ,HATE,0.9,0.7772,True,bontori;vicm;vihsd,train,verified,v1
+lex_0477,tao chửi,tao chửi,HATE,0.9,0.9315,False,bontori;vicm;vihsd,train,verified,v1
+lex_0478,tao còn,tao còn,HATE,0.9,0.7388,True,bontori;vicm;vihsd,train,verified,v1
+lex_0479,tao ghét,tao ghét,HATE,0.9,0.796,False,bontori;vicm,train,verified,v1
+lex_0480,tao hay,tao hay,HATE,0.9,0.7392,False,vicm,train,auto,v1
+lex_0481,tao hỏi,tao hỏi,HATE,0.9,0.8633,True,bontori;vicm;vihsd,train,verified,v1
+lex_0482,tao không,tao không,HATE,0.9,0.6293,True,bontori;vicm;vihsd,train,auto,v1
+lex_0483,tao là,tao là,HATE,0.9,0.7254,True,bontori;vicm;vihsd,train,verified,v1
+lex_0484,tao làm,tao làm,HATE,0.9,0.8053,True,bontori;vicm;vihsd,train,verified,v1
+lex_0485,tao muốn,tao muốn,HATE,0.9,0.9032,True,bontori;vicm;vihsd,train,verified,v1
+lex_0486,tao mà,tao mà,HATE,0.9,0.6357,True,bontori;vicm;vihsd,train,auto,v1
+lex_0487,tao mới,tao mới,HATE,0.9,0.8455,True,bontori;vicm;vihsd,train,verified,v1
+lex_0488,tao nghe,tao nghe,HATE,0.9,0.6757,True,bontori;vicm;vihsd,train,auto,v1
+lex_0489,tao nói,tao nói,HATE,0.9,0.7824,True,bontori;vicm;vihsd,train,verified,v1
+lex_0490,tao sẽ,tao sẽ,HATE,0.9,0.7128,True,bontori;vicm;vihsd,train,verified,v1
+lex_0491,tao vào,tao vào,HATE,0.9,0.907,True,bontori;vicm;vihsd,train,verified,v1
+lex_0492,tao đéo,tao đéo,HATE,0.9,0.8159,True,bontori;vicm;vihsd,train,verified,v1
+lex_0493,tay sai,tay sai,HATE,0.9,0.7899,True,bontori;vicm;vihsd,train,verified,v1
+lex_0494,tham ô,tham ô,HATE,0.9,0.8919,True,bontori;vihsd,train,verified,v1
+lex_0495,thinking,thinking,HATE,0.9,0.5456,True,bontori;vicm,train,auto,v1
+lex_0496,thiếu ý,thiếu ý,HATE,0.9,0.9268,True,bontori;vihsd,train,verified,v1
+lex_0497,thiểu năng,thiểu năng,HATE,0.9,0.7851,True,bontori;vicm;vihsd,train,verified,v1
+lex_0498,thua cả,thua cả,HATE,0.9,0.6612,True,bontori;vicm;vihsd,train,auto,v1
+lex_0499,thuốc chữa,thuốc chữa,HATE,0.9,0.8292,True,bontori;vicm;vihsd,train,verified,v1
+lex_0500,thân mỹ,thân mỹ,HATE;OFFENSIVE,0.9,0.662,True,bontori,train,auto,v1
+lex_0501,thêm thằng,thêm thằng,HATE,0.9,0.8361,True,bontori;vicm;vihsd,train,verified,v1
+lex_0502,thì hàn,thì hàn,OFFENSIVE,0.6,0.9459,True,bontori,train,verified,v1
+lex_0503,thì m,thì m,HATE,0.9,0.6724,True,bontori;vicm;vihsd,train,auto,v1
+lex_0504,thì mày,thì mày,HATE,0.9,0.8647,True,bontori;vicm;vihsd,train,verified,v1
+lex_0505,thì tội,thì tội,HATE,0.9,0.6295,True,bontori;vicm;vihsd,train,auto,v1
+lex_0506,thôi mày,thôi mày,HATE,0.9,0.8968,True,bontori;vicm;vihsd,train,verified,v1
+lex_0507,thù năm,thù năm,OFFENSIVE,0.6,0.9307,False,bontori,train,verified,v1
+lex_0508,thượng đẳng,thượng đẳng,HATE,0.9,0.7783,True,bontori;vicm;vihsd,train,verified,v1
+lex_0509,thấy bọn,thấy bọn,HATE,0.9,0.7879,True,bontori;vicm;vihsd,train,verified,v1
+lex_0510,thấy m,thấy m,HATE,0.9,0.7439,True,bontori;vicm;vihsd,train,verified,v1
+lex_0511,thấy thằng,thấy thằng,HATE,0.9,0.6727,True,bontori;vicm;vihsd,train,auto,v1
+lex_0512,thấy tởm,thấy tởm,HATE;OFFENSIVE,0.9,0.7449,True,bontori,train,verified,v1
+lex_0513,thầy lol,thầy lol,HATE,0.9,0.9464,True,bontori;vihsd,train,verified,v1
+lex_0514,thằg,thằg,HATE,0.9,0.8443,False,bontori;vicm;vihsd,train,verified,v1
+lex_0515,thằng bắc,thằng bắc,HATE,0.9,0.8004,True,bontori;vicm;vihsd,train,verified,v1
+lex_0516,thằng chó,thằng chó,HATE,0.9,0.9701,False,bontori;vicm;vihsd,train,verified,v1
+lex_0517,thằng diệm,thằng diệm,OFFENSIVE,0.6,0.8556,False,bontori,train,verified,v1
+lex_0518,thằng già,thằng già,HATE,0.9,0.9133,False,bontori;vicm;vihsd,train,verified,v1
+lex_0519,thằng loser,thằng loser,HATE,0.9,0.9227,True,bontori;vicm,train,verified,v1
+lex_0520,thằng lồn,thằng lồn,HATE,0.9,0.9637,False,bontori;vicm;vihsd,train,verified,v1
+lex_0521,thằng lộc,thằng lộc,OFFENSIVE,0.6,0.8428,False,bontori,train,verified,v1
+lex_0522,thằng mặt,thằng mặt,HATE,0.9,0.99,False,bontori;vicm;vihsd,train,verified,v1
+lex_0523,thằng nam,thằng nam,HATE,0.9,0.7038,True,bontori;vicm;vihsd,train,auto,v1
+lex_0524,thằng ngu,thằng ngu,HATE,0.9,0.9529,True,bontori;vicm;vihsd,train,verified,v1
+lex_0525,thằng như,thằng như,HATE,0.9,0.7688,True,bontori;vicm,train,verified,v1
+lex_0526,thằng op,thằng op,HATE,0.9,0.7904,False,vicm,train,auto,v1
+lex_0527,thằng thành,thằng thành,HATE;OFFENSIVE,0.9,0.7354,True,bontori,train,verified,v1
+lex_0528,thằng trấn,thằng trấn,OFFENSIVE,0.6,0.8156,False,bontori,train,verified,v1
+lex_0529,thằng óc,thằng óc,HATE,0.9,0.9216,False,bontori;vicm;vihsd,train,verified,v1
+lex_0530,thằng ăn,thằng ăn,HATE,0.9,0.689,True,bontori;vihsd,train,auto,v1
+lex_0531,thằng điên,thằng điên,HATE,0.9,0.9012,False,bontori;vicm;vihsd,train,verified,v1
+lex_0532,thằng đó,thằng đó,HATE,0.9,0.7406,True,bontori;vicm,train,verified,v1
+lex_0533,thối nát,thối nát,HATE,0.9,0.8574,True,bontori;vihsd,train,verified,v1
+lex_0534,thủ dâm,thủ dâm,HATE,0.9,0.8876,True,bontori;vicm;vihsd,train,verified,v1
+lex_0535,tiên sẽ,tiên sẽ,HATE;OFFENSIVE,0.9,0.6245,True,bontori;vicm,train,auto,v1
+lex_0536,tiên thống,tiên thống,HATE;OFFENSIVE,0.9,0.7106,True,bontori,train,verified,v1
+lex_0537,tml,tml,HATE,0.9,0.87,True,bontori;vicm;vihsd,train,verified,v1
+lex_0538,toàn bọn,toàn bọn,HATE,0.9,0.7457,True,bontori;vicm;vihsd,train,verified,v1
+lex_0539,tranh du,tranh du,HATE,0.9,0.7884,False,bontori;vicm,train,auto,v1
+lex_0540,trung cộng,trung cộng,HATE,0.9,0.8837,True,bontori;vihsd,train,verified,v1
+lex_0541,trí khôn,trí khôn,HATE,0.9,0.9411,True,bontori,train,verified,v1
+lex_0542,trấn lột,trấn lột,HATE;OFFENSIVE,0.9,0.695,True,bontori,train,auto,v1
+lex_0543,trẩu,trẩu,HATE,0.9,0.7596,True,bontori;vihsd,train,verified,v1
+lex_0544,trộm cướp,trộm cướp,HATE,0.9,0.8219,True,bontori;vihsd,train,verified,v1
+lex_0545,tt cũng,tt cũng,OFFENSIVE,0.6,0.8019,False,bontori,train,verified,v1
+lex_0546,tuc,tuc,HATE,0.9,0.7962,True,bontori;vihsd,train,verified,v1
+lex_0547,tuyên giáo,tuyên giáo,HATE,0.9,0.8776,True,bontori;vicm;vihsd,train,verified,v1
+lex_0548,tài phiệt,tài phiệt,HATE,0.9,0.8248,True,bontori;vicm,train,verified,v1
+lex_0549,tàn sát,tàn sát,HATE,0.9,0.8011,True,bontori;vihsd,train,verified,v1
+lex_0550,tàu cộng,tàu cộng,HATE,0.9,0.9315,False,bontori;vihsd,train,verified,v1
+lex_0551,tâm nhưng,tâm nhưng,HATE,0.9,0.6449,True,bontori;vicm,train,auto,v1
+lex_0552,tôn sùng,tôn sùng,OFFENSIVE,0.6,0.8067,False,bontori;vicm,train,verified,v1
+lex_0553,tưởng mình,tưởng mình,HATE,0.9,0.7544,True,bontori;vicm;vihsd,train,verified,v1
+lex_0554,tưởng đâu,tưởng đâu,HATE,0.9,0.5887,True,bontori;vicm;vihsd,train,auto,v1
+lex_0555,tầm ảnh,tầm ảnh,HATE;OFFENSIVE,0.9,0.6478,True,bontori;vicm,train,auto,v1
+lex_0556,tổ cha,tổ cha,HATE,0.9,0.8532,True,bontori;vihsd,train,verified,v1
+lex_0557,tổ sư,tổ sư,HATE,0.9,0.8968,True,bontori;vihsd,train,verified,v1
+lex_0558,tội đồ,tội đồ,HATE,0.9,0.9312,True,bontori;vihsd,train,verified,v1
+lex_0559,tởm,tởm,HATE;OFFENSIVE,0.9,0.6882,True,bontori;vicm;vihsd,train,auto,v1
+lex_0560,tởm vl,tởm vl,OFFENSIVE,0.6,0.9179,False,bontori,train,verified,v1
+lex_0561,tử trả,tử trả,OFFENSIVE,0.6,0.9269,False,bontori,train,verified,v1
+lex_0562,tự nhục,tự nhục,HATE;OFFENSIVE,0.9,0.6294,True,bontori;vicm;vihsd,train,auto,v1
+lex_0563,ugly,ugly,HATE,0.9,0.88,False,vicm,train,auto,v1
+lex_0564,upvote,upvote,HATE,0.9,0.7336,False,vicm,train,auto,v1
+lex_0565,va vớ,va vớ,HATE,0.9,0.7894,False,bontori,train,verified,v1
+lex_0566,van hoa,van hoa,HATE,0.9,0.8548,True,bontori;vihsd,train,verified,v1
+lex_0567,viết cái,viết cái,HATE,0.9,0.7426,True,bontori;vicm;vihsd,train,verified,v1
+lex_0568,việt cộng,việt cộng,HATE,0.9,0.7822,True,bontori;vicm;vihsd,train,verified,v1
+lex_0569,vnch thì,vnch thì,HATE;OFFENSIVE,0.9,0.6046,True,bontori;vihsd,train,auto,v1
+lex_0570,và sống,và sống,HATE,0.9,0.6548,True,bontori;vicm;vihsd,train,auto,v1
+lex_0571,vào mỹ,vào mỹ,HATE;OFFENSIVE,0.9,0.6353,True,bontori;vicm,train,auto,v1
+lex_0572,vào sủa,vào sủa,HATE,0.9,0.9392,False,bontori;vicm;vihsd,train,verified,v1
+lex_0573,vãi lồn,vãi lồn,HATE,0.9,0.7121,True,bontori;vicm;vihsd,train,verified,v1
+lex_0574,vô chửi,vô chửi,HATE;OFFENSIVE,0.9,0.6477,True,bontori;vihsd,train,auto,v1
+lex_0575,vô duyên,vô duyên,HATE;OFFENSIVE,0.9,0.5782,True,bontori;vicm;vihsd,train,auto,v1
+lex_0576,vô học,vô học,HATE,0.9,0.8892,True,bontori;vicm;vihsd,train,verified,v1
+lex_0577,vô đạo,vô đạo,HATE,0.9,0.8362,False,bontori,train,verified,v1
+lex_0578,vậy mày,vậy mày,HATE,0.9,0.8554,True,bontori;vicm;vihsd,train,verified,v1
+lex_0579,về rác,về rác,OFFENSIVE,0.6,0.9514,True,bontori,train,verified,v1
+lex_0580,vện,vện,OFFENSIVE,0.6,0.8578,True,bontori,train,verified,v1
+lex_0581,vớ va,vớ va,HATE,0.9,0.7894,False,bontori,train,verified,v1
+lex_0582,với cộng,với cộng,HATE,0.9,0.6607,True,bontori;vicm;vihsd,train,auto,v1
+lex_0583,với m,với m,HATE,0.9,0.7439,True,bontori;vicm;vihsd,train,auto,v1
+lex_0584,với tao,với tao,HATE,0.9,0.8851,True,bontori;vicm,train,verified,v1
+lex_0585,woke,woke,HATE,0.9,0.6889,True,bontori;vicm,train,auto,v1
+lex_0586,xuẩn,xuẩn,HATE,0.9,0.8248,True,bontori;vicm;vihsd,train,verified,v1
+lex_0587,xàm,xàm,HATE,0.9,0.7491,True,bontori;vicm;vihsd,train,verified,v1
+lex_0588,xàm l,xàm l,HATE,0.9,0.7404,True,bontori;vicm,train,verified,v1
+lex_0589,xàm lol,xàm lol,HATE,0.9,0.8039,False,bontori;vihsd,train,verified,v1
+lex_0590,xàm loz,xàm loz,HATE,0.9,0.9783,True,bontori;vicm;vihsd,train,verified,v1
+lex_0591,xàm lồn,xàm lồn,HATE,0.9,0.9692,True,bontori;vicm;vihsd,train,verified,v1
+lex_0592,xạo,xạo,HATE,0.9,0.8483,True,bontori;vicm;vihsd,train,verified,v1
+lex_0593,xạo lol,xạo lol,HATE,0.9,0.8548,True,bontori;vicm;vihsd,train,verified,v1
+lex_0594,xạo loz,xạo loz,HATE,0.9,0.784,True,bontori;vicm;vihsd,train,verified,v1
+lex_0595,xạo lồn,xạo lồn,HATE,0.9,0.9382,True,bontori;vicm;vihsd,train,verified,v1
+lex_0596,xấu hổ,xấu hổ,HATE,0.9,0.6008,True,bontori;vicm;vihsd,train,auto,v1
+lex_0597,xỏ,xỏ,HATE,0.9,0.7421,True,bontori;vicm;vihsd,train,verified,v1
+lex_0598,xỏ lá,xỏ lá,HATE,0.9,0.9392,False,bontori;vihsd,train,verified,v1
+lex_0599,ác của,ác của,HATE;OFFENSIVE,0.9,0.6722,True,bontori;vihsd,train,auto,v1
+lex_0600,áp tôn,áp tôn,HATE,0.9,0.7745,True,bontori,train,verified,v1
+lex_0601,óc chó,óc chó,HATE,0.9,0.9674,True,bontori;vicm;vihsd,train,verified,v1
+lex_0602,ói,ói,OFFENSIVE,0.6,0.6398,True,bontori;vicm;vihsd,train,auto,v1
+lex_0603,ông hồ,ông hồ,HATE;OFFENSIVE,0.9,0.7063,True,bontori;vihsd,train,verified,v1
+lex_0604,ông im,ông im,HATE,0.9,0.8194,True,bontori;vihsd,train,verified,v1
+lex_0605,ăn bám,ăn bám,HATE,0.9,0.8141,True,bontori;vicm;vihsd,train,verified,v1
+lex_0606,ăn chửi,ăn chửi,HATE,0.9,0.6459,True,bontori;vicm;vihsd,train,auto,v1
+lex_0607,ăn cứt,ăn cứt,HATE,0.9,0.8299,True,bontori;vicm;vihsd,train,verified,v1
+lex_0608,ăn shit,ăn shit,HATE,0.9,0.7284,False,bontori;vicm,train,auto,v1
+lex_0609,đ gì,đ gì,HATE;OFFENSIVE,0.9,0.6341,True,bontori;vicm;vihsd,train,auto,v1
+lex_0610,đ*o,đ*o,OFFENSIVE,0.6,0.8993,False,bontori;vihsd,train,verified,v1
+lex_0611,đb,đb,HATE;OFFENSIVE,0.9,0.6061,True,bontori;vicm;vihsd,train,auto,v1
+lex_0612,đcm,đcm,HATE,0.9,0.7181,True,bontori;vicm;vihsd,train,verified,v1
+lex_0613,đi nhai,đi nhai,HATE,0.9,0.8159,True,bontori;vicm;vihsd,train,verified,v1
+lex_0614,đi thằng,đi thằng,HATE,0.9,0.9269,True,bontori;vicm;vihsd,train,verified,v1
+lex_0615,đkm,đkm,HATE,0.9,0.8023,True,bontori;vicm;vihsd,train,verified,v1
+lex_0616,đm,đm,HATE,0.9,0.7231,True,bontori;vicm;vihsd,train,verified,v1
+lex_0617,đm ad,đm ad,HATE,0.9,0.9464,True,bontori;vihsd,train,verified,v1
+lex_0618,đu càng,đu càng,HATE,0.9,0.8897,False,bontori;vihsd,train,verified,v1
+lex_0619,đàn bà,đàn bà,HATE,0.9,0.7207,True,bontori;vicm;vihsd,train,verified,v1
+lex_0620,đá bát,đá bát,HATE;OFFENSIVE,0.9,0.7156,True,bontori;vicm;vihsd,train,verified,v1
+lex_0621,đách,đách,HATE,0.9,0.8808,True,bontori;vihsd,train,verified,v1
+lex_0622,đám bò,đám bò,HATE,0.9,0.9799,False,bontori;vicm;vihsd,train,verified,v1
+lex_0623,đánh du,đánh du,HATE,0.9,0.7131,True,bontori;vicm;vihsd,train,auto,v1
+lex_0624,đánh pháp,đánh pháp,HATE;OFFENSIVE,0.9,0.7527,True,bontori,train,verified,v1
+lex_0625,đéo,đéo,HATE,0.9,0.7013,True,bontori;vicm;vihsd,train,verified,v1
+lex_0626,đéo ai,đéo ai,HATE,0.9,0.7294,True,bontori;vicm;vihsd,train,verified,v1
+lex_0627,đéo biết,đéo biết,HATE,0.9,0.7235,True,bontori;vicm;vihsd,train,verified,v1
+lex_0628,đéo chịu,đéo chịu,HATE,0.9,0.7779,True,bontori;vicm;vihsd,train,verified,v1
+lex_0629,đéo còn,đéo còn,HATE,0.9,0.7981,False,bontori;vicm;vihsd,train,verified,v1
+lex_0630,đéo có,đéo có,HATE,0.9,0.7469,True,bontori;vicm;vihsd,train,verified,v1
+lex_0631,đéo cần,đéo cần,HATE,0.9,0.7765,True,bontori;vicm;vihsd,train,verified,v1
+lex_0632,đéo gì,đéo gì,HATE,0.9,0.7487,True,bontori;vicm;vihsd,train,verified,v1
+lex_0633,đéo hiểu,đéo hiểu,HATE,0.9,0.7194,True,bontori;vicm;vihsd,train,verified,v1
+lex_0634,đéo làm,đéo làm,HATE,0.9,0.8356,True,bontori;vicm;vihsd,train,verified,v1
+lex_0635,đéo phải,đéo phải,HATE,0.9,0.7429,True,bontori;vicm;vihsd,train,verified,v1
+lex_0636,đéo quan,đéo quan,HATE;OFFENSIVE,0.9,0.6,True,bontori;vicm;vihsd,train,auto,v1
+lex_0637,đéo thích,đéo thích,HATE;OFFENSIVE,0.9,0.7076,True,bontori;vicm;vihsd,train,verified,v1
+lex_0638,đéo thấy,đéo thấy,HATE;OFFENSIVE,0.9,0.7344,True,bontori;vicm;vihsd,train,verified,v1
+lex_0639,đéo đâu,đéo đâu,HATE,0.9,0.6812,True,bontori;vicm;vihsd,train,auto,v1
+lex_0640,đéo được,đéo được,HATE,0.9,0.773,True,bontori;vicm;vihsd,train,verified,v1
+lex_0641,đúng hơn,đúng hơn,HATE;OFFENSIVE,0.9,0.5255,True,bontori;vicm;vihsd,train,auto,v1
+lex_0642,đĩ,đĩ,HATE,0.9,0.8759,True,bontori;vicm;vihsd,train,verified,v1
+lex_0643,đĩ mẹ,đĩ mẹ,HATE,0.9,0.9526,True,bontori;vicm;vihsd,train,verified,v1
+lex_0644,đũa,đũa,HATE,0.9,0.7498,True,bontori;vicm;vihsd,train,verified,v1
+lex_0645,đường lưỡi,đường lưỡi,OFFENSIVE,0.6,0.7629,True,bontori;vicm;vihsd,train,verified,v1
+lex_0646,đảng viên,đảng viên,HATE,0.9,0.8362,True,bontori;vicm;vihsd,train,verified,v1
+lex_0647,đấm chết,đấm chết,OFFENSIVE,0.6,0.9064,False,bontori,train,verified,v1
+lex_0648,đầu buồi,đầu buồi,HATE,0.9,0.8897,False,bontori;vicm;vihsd,train,verified,v1
+lex_0649,đầu bùi,đầu bùi,HATE,0.9,0.99,False,bontori;vihsd,train,verified,v1
+lex_0650,đầu hở,đầu hở,OFFENSIVE,0.6,0.9565,True,bontori,train,verified,v1
+lex_0651,đầu thai,đầu thai,HATE,0.9,0.8778,True,bontori;vicm;vihsd,train,verified,v1
+lex_0652,đỉ,đỉ,HATE,0.9,0.9853,False,bontori;vihsd,train,verified,v1
+lex_0653,định lật,định lật,OFFENSIVE,0.6,0.8156,False,bontori,train,verified,v1
+lex_0654,địt,địt,HATE,0.9,0.8781,True,bontori;vicm;vihsd,train,verified,v1
+lex_0655,địt con,địt con,HATE,0.9,0.8539,False,bontori;vicm;vihsd,train,verified,v1
+lex_0656,địt cụ,địt cụ,HATE,0.9,0.9079,True,bontori;vicm;vihsd,train,verified,v1
+lex_0657,địt mẹ,địt mẹ,HATE,0.9,0.8967,True,bontori;vicm;vihsd,train,verified,v1
+lex_0658,đọc hiểu,đọc hiểu,HATE,0.9,0.7451,True,bontori;vicm;vihsd,train,verified,v1
+lex_0659,đổng,đổng,HATE,0.9,0.7932,True,bontori;vicm;vihsd,train,verified,v1
+lex_0660,độc tài,độc tài,HATE,0.9,0.7117,True,bontori;vicm;vihsd,train,verified,v1
+lex_0661,độc đảng,độc đảng,HATE,0.9,0.9799,False,bontori;vihsd,train,verified,v1
+lex_0662,động vật,động vật,HATE,0.9,0.7725,True,bontori;vicm;vihsd,train,verified,v1
+lex_0663,đụ,đụ,HATE,0.9,0.7533,True,bontori;vicm;vihsd,train,verified,v1
+lex_0664,đụ má,đụ má,HATE;OFFENSIVE,0.9,0.7285,True,bontori;vicm;vihsd,train,verified,v1
+lex_0665,đụ mẹ,đụ mẹ,HATE,0.9,0.9421,True,bontori;vicm;vihsd,train,verified,v1
+lex_0666,đức giả,đức giả,HATE,0.9,0.8743,False,bontori;vicm;vihsd,train,verified,v1
+lex_0667,ấu,ấu,HATE,0.9,0.776,True,bontori;vicm;vihsd,train,verified,v1
+lex_0668,ổng thì,ổng thì,HATE,0.9,0.7679,False,bontori,train,verified,v1
+emb-00603,ad lại,ad lại,OFFENSIVE,0.6,0.7003,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00604,ad nó,ad nó,HATE,0.9,0.719,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00605,ad óc,ad óc,HATE,0.9,0.7447,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00606,banh xac,banh xac,HATE,0.9,0.6419,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00607,biến thái,biến thái,OFFENSIVE,0.6,0.7229,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00608,bá dơ,bá dơ,HATE,0.9,0.6271,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00609,bán nước hại,bán nước hại,HATE,0.9,0.7423,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00610,bóc lột,bóc lột,HATE,0.9,0.8183,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00611,bưng,bưng,HATE,0.9,0.7839,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00612,bản chất của,bản chất của,OFFENSIVE,0.6,0.6852,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00613,bắn chết,bắn chết,HATE,0.9,0.7676,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00614,bệnh tâm thần,bệnh tâm thần,HATE,0.9,0.7197,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00615,bị ngu,bị ngu,HATE,0.9,0.8938,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00616,bọn dlv,bọn dlv,HATE,0.9,0.8742,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00617,bụng phệ,bụng phệ,HATE,0.9,0.6502,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00618,cha chúng mày,cha chúng mày,HATE,0.9,0.8528,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00619,cho nó biết,cho nó biết,HATE,0.9,0.6694,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00620,chó nó,chó nó,HATE,0.9,0.7911,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00621,chó vàng,chó vàng,HATE,0.9,0.7419,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00622,chó đẻ,chó đẻ,HATE,0.9,0.8177,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00623,chóp bu,chóp bu,HATE,0.9,0.8081,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00624,chùi,chùi,HATE,0.9,0.7863,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00625,chùi lol,chùi lol,HATE,0.9,0.8168,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00626,chất độc,chất độc,HATE,0.9,0.7363,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00627,chết con,chết con,HATE,0.9,0.762,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00628,chết mẹ nó,chết mẹ nó,HATE,0.9,0.7985,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00629,chết sớm,chết sớm,HATE,0.9,0.7315,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00630,chị ba có,chị ba có,HATE,0.9,0.6861,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00631,clmm,clmm,HATE,0.9,0.6582,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00632,con chó này,con chó này,HATE,0.9,0.6914,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00633,con mẹ mày,con mẹ mày,HATE,0.9,0.8147,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00634,con mẹ nó,con mẹ nó,HATE,0.9,0.6657,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00635,con đàn bà,con đàn bà,HATE,0.9,0.7611,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00636,con đĩ mẹ,con đĩ mẹ,HATE,0.9,0.6484,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00637,cu đen,cu đen,HATE,0.9,0.6608,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00638,càng nói,càng nói,OFFENSIVE,0.6,0.8062,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00639,cái chế độ,cái chế độ,HATE,0.9,0.6381,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00640,cái lồn gì,cái lồn gì,HATE,0.9,0.7798,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00641,cái lồn má,cái lồn má,HATE,0.9,0.8348,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00642,cái lồn mẹ,cái lồn mẹ,HATE,0.9,0.7395,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00643,cái máu lồn,cái máu lồn,HATE,0.9,0.867,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00644,cái thể loại,cái thể loại,HATE,0.9,0.7906,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00645,cái đám,cái đám,HATE,0.9,0.6935,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00646,cái đéo gì,cái đéo gì,HATE,0.9,0.8085,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00647,cái đất nước,cái đất nước,HATE,0.9,0.7626,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00648,cái đầu buồi,cái đầu buồi,HATE,0.9,0.7987,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00649,cái địt mẹ,cái địt mẹ,HATE,0.9,0.7302,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00650,còn dân,còn dân,HATE,0.9,0.7979,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00651,cô hồn,cô hồn,HATE,0.9,0.7675,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00652,cụ mày,cụ mày,HATE,0.9,0.8653,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00653,củ cặc,củ cặc,HATE,0.9,0.7031,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00654,của chúng,của chúng,HATE,0.9,0.8097,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00655,của người khác,của người khác,OFFENSIVE,0.6,0.7298,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00656,của đảng và,của đảng và,HATE,0.9,0.8382,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00657,dm thằng,dm thằng,HATE,0.9,0.8311,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00658,dmcs,dmcs,HATE,0.9,0.822,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00659,du ma,du ma,HATE,0.9,0.7009,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00660,duma,duma,OFFENSIVE,0.6,0.7753,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00661,dân trí thấp lại,dân trí thấp lại,HATE,0.9,0.8061,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00662,dơ vcl,dơ vcl,HATE,0.9,0.7945,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00663,dạy quá,dạy quá,OFFENSIVE,0.6,0.7689,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00664,hay gì á,hay gì á,OFFENSIVE,0.6,0.651,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00665,hiếp,hiếp,HATE,0.9,0.7984,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00666,hiểu kiểu,hiểu kiểu,OFFENSIVE,0.6,0.7974,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00667,hiểu kiểu gì,hiểu kiểu gì,OFFENSIVE,0.6,0.8007,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00668,hút máu,hút máu,HATE,0.9,0.7721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00669,hết của,hết của,HATE,0.9,0.807,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00670,họng,họng,HATE,0.9,0.8233,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00671,im mẹ mồm,im mẹ mồm,OFFENSIVE,0.6,0.8594,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00672,ko có não,ko có não,HATE,0.9,0.8091,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00673,lam gi,lam gi,HATE,0.9,0.6555,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00674,lozz,lozz,HATE,0.9,0.8704,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00675,là luật,là luật,HATE,0.9,0.7742,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00676,làm cc gì,làm cc gì,HATE,0.9,0.6736,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00677,làm lãnh đạo,làm lãnh đạo,HATE,0.9,0.752,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00678,làm nô lệ,làm nô lệ,HATE,0.9,0.7434,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00679,lùm,lùm,HATE,0.9,0.8054,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00680,lại sủa,lại sủa,HATE,0.9,0.794,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00681,lối sống,lối sống,HATE,0.9,0.7384,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00682,lồn má,lồn má,HATE,0.9,0.8202,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00683,lồn mẹ,lồn mẹ,HATE,0.9,0.7498,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00684,lợn viên,lợn viên,HATE,0.9,0.683,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00685,mà dơ,mà dơ,HATE,0.9,0.7533,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00686,mà ko biết,mà ko biết,OFFENSIVE,0.6,0.6907,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00687,mà sủa,mà sủa,HATE,0.9,0.8258,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00688,mất dạy quá,mất dạy quá,OFFENSIVE,0.6,0.7416,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00689,mấy con chó,mấy con chó,HATE,0.9,0.7096,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00690,mấy thằng ngu,mấy thằng ngu,HATE,0.9,0.8852,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00691,mặt con,mặt con,HATE,0.9,0.6911,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00692,mặt là,mặt là,OFFENSIVE,0.6,0.6756,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00693,mẹ chúng mày,mẹ chúng mày,HATE,0.9,0.8623,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00694,mẹ mấy thằng,mẹ mấy thằng,HATE,0.9,0.7281,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00695,mẹ mồm đi,mẹ mồm đi,HATE,0.9,0.8128,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00696,mị dân,mị dân,HATE,0.9,0.816,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00697,mồ tổ,mồ tổ,HATE,0.9,0.869,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00698,mở mồm ra,mở mồm ra,HATE,0.9,0.6868,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00699,mục đích của,mục đích của,OFFENSIVE,0.6,0.677,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00700,nghiệp quật,nghiệp quật,HATE,0.9,0.6785,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00701,ngu dân,ngu dân,HATE,0.9,0.8405,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00702,ngu lắm,ngu lắm,HATE,0.9,0.8008,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00703,ngu như chó,ngu như chó,HATE,0.9,0.8601,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00704,ngu si,ngu si,HATE,0.9,0.805,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00705,ngu v,ngu v,HATE,0.9,0.8255,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00706,nhai đi nhai lại,nhai đi nhai lại,HATE,0.9,0.7292,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00707,nhìn như con,nhìn như con,OFFENSIVE,0.6,0.7441,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00708,như con chó,như con chó,HATE,0.9,0.7346,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00709,như cái đách,như cái đách,HATE,0.9,0.765,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00710,này bọn,này bọn,HATE,0.9,0.732,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00711,nó chứ,nó chứ,OFFENSIVE,0.6,0.7976,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00712,nó nghĩ,nó nghĩ,OFFENSIVE,0.6,0.7329,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00713,nó đăng,nó đăng,HATE,0.9,0.7274,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00714,nói đến,nói đến,OFFENSIVE,0.6,0.7981,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00715,nước hại dân,nước hại dân,HATE,0.9,0.8038,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00716,nước nó,nước nó,HATE,0.9,0.748,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00717,nếu nó,nếu nó,OFFENSIVE,0.6,0.6692,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00718,nền giáo dục,nền giáo dục,OFFENSIVE,0.6,0.8029,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00719,phệ,phệ,HATE,0.9,0.7282,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00720,quần què gì,quần què gì,HATE,0.9,0.6721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00721,sạo lồn,sạo lồn,HATE,0.9,0.848,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00722,tham quan,tham quan,HATE,0.9,0.7513,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00723,thì kệ mẹ,thì kệ mẹ,HATE,0.9,0.6883,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00724,thì đâu,thì đâu,HATE,0.9,0.6688,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00725,thôn,thôn,HATE,0.9,0.6787,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00726,thúi,thúi,HATE,0.9,0.7872,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00727,thấp lại,thấp lại,OFFENSIVE,0.6,0.7294,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00728,thấp lại tự ái,thấp lại tự ái,OFFENSIVE,0.6,0.6987,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00729,thầy ngu,thầy ngu,HATE,0.9,0.7537,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00730,thầy xạo,thầy xạo,HATE,0.9,0.6757,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00731,thầy xạo lol,thầy xạo lol,HATE,0.9,0.6982,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00732,thằng ad này,thằng ad này,HATE,0.9,0.8505,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00733,thằng chó ad,thằng chó ad,HATE,0.9,0.8396,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00734,thằng mặt heo,thằng mặt heo,HATE,0.9,0.8307,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00735,thủ đoạn,thủ đoạn,OFFENSIVE,0.6,0.6667,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00736,tinh trùng khuyết tật,tinh trùng khuyết tật,HATE,0.9,0.6486,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00737,tiền của dân,tiền của dân,HATE,0.9,0.7389,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00738,tài tình,tài tình,HATE,0.9,0.7446,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00739,tài tình của,tài tình của,HATE,0.9,0.7628,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00740,và bọn,và bọn,HATE,0.9,0.75,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00741,vẹo,vẹo,HATE,0.9,0.8595,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00742,xạo l,xạo l,HATE,0.9,0.7574,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00743,xạo lồn quá,xạo lồn quá,HATE,0.9,0.814,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00744,ông im mẹ,ông im mẹ,OFFENSIVE,0.6,0.7799,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00745,ăn cức,ăn cức,HATE,0.9,0.8098,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00746,ăn mặc như,ăn mặc như,HATE,0.9,0.7643,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00747,đm nó,đm nó,HATE,0.9,0.8478,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00748,đm thằng,đm thằng,HATE,0.9,0.8362,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00749,đmcs,đmcs,HATE,0.9,0.7605,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00750,đmm,đmm,HATE,0.9,0.8679,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00751,đàn bò,đàn bò,HATE,0.9,0.8207,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00752,đánh chết mẹ,đánh chết mẹ,HATE,0.9,0.7809,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00753,đéo hiểu kiểu,đéo hiểu kiểu,HATE,0.9,0.8877,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00754,đéo hiểu sao,đéo hiểu sao,HATE,0.9,0.8919,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00755,đéo thể,đéo thể,HATE,0.9,0.863,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00756,đạo nhái,đạo nhái,OFFENSIVE,0.6,0.8083,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00757,địt con mẹ,địt con mẹ,HATE,0.9,0.676,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00758,địt mẹ mày,địt mẹ mày,HATE,0.9,0.8714,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00759,ẳng,ẳng,HATE,0.9,0.8355,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00760,a jerk,a jerk,HATE,0.9,0.7454,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00761,ai thèm,ai thèm,HATE,0.9,0.7589,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00762,bias,bias,HATE,0.9,0.7514,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00763,bla,bla,HATE,0.9,0.7201,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00764,bla bla,bla bla,HATE,0.9,0.7136,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00765,bot,bot,HATE,0.9,0.7669,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00766,buồi,buồi,HATE,0.9,0.7649,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00767,bài của,bài của,OFFENSIVE,0.6,0.7774,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00768,bên này,bên này,HATE,0.9,0.7288,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00769,bóng chó,bóng chó,HATE,0.9,0.6958,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00770,bú đá,bú đá,HATE,0.9,0.7611,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00771,bảo tao,bảo tao,HATE,0.9,0.7214,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00772,bất mãn,bất mãn,OFFENSIVE,0.6,0.799,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00773,bất tài,bất tài,HATE,0.9,0.7866,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00774,bắc kỳ chó,bắc kỳ chó,HATE,0.9,0.8413,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00775,bệnh hoạn,bệnh hoạn,HATE,0.9,0.7928,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00776,bị downvote,bị downvote,HATE,0.9,0.7346,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00777,bị dắt mũi,bị dắt mũi,HATE,0.9,0.7728,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00778,bị ghét,bị ghét,OFFENSIVE,0.6,0.8521,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00779,bọn tao,bọn tao,HATE,0.9,0.8584,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00780,bọn tàu,bọn tàu,HATE,0.9,0.7538,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00781,cay cú,cay cú,HATE,0.9,0.7748,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00782,chiến tranh du kích,chiến tranh du kích,OFFENSIVE,0.6,0.7622,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00783,cho chúng nó,cho chúng nó,HATE,0.9,0.8056,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00784,cho lắm vào,cho lắm vào,HATE,0.9,0.6865,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00785,cho thằng,cho thằng,HATE,0.9,0.777,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00786,cho xã hội,cho xã hội,HATE,0.9,0.6802,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00787,cho đúng,cho đúng,HATE,0.9,0.7584,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00788,chán ghê,chán ghê,OFFENSIVE,0.6,0.6604,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00789,chính quy,chính quy,OFFENSIVE,0.6,0.7362,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00790,chó chết,chó chết,HATE,0.9,0.7873,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00791,chó ngu,chó ngu,HATE,0.9,0.8765,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00792,chúng nó có,chúng nó có,HATE,0.9,0.7856,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00793,chả khác,chả khác,HATE,0.9,0.7199,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00794,chắc mày,chắc mày,HATE,0.9,0.8133,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00795,chẳng qua,chẳng qua,OFFENSIVE,0.6,0.7035,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00796,chỉ nói,chỉ nói,OFFENSIVE,0.6,0.7849,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00797,chịu tìm hiểu,chịu tìm hiểu,OFFENSIVE,0.6,0.7604,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00798,chống cộng,chống cộng,HATE,0.9,0.8543,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00799,chứ m,chứ m,HATE,0.9,0.759,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00800,chứ đi,chứ đi,HATE,0.9,0.7752,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00801,chứ đéo phải,chứ đéo phải,HATE,0.9,0.7409,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00802,chứ ở,chứ ở,HATE,0.9,0.7592,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00803,chứng tỏ,chứng tỏ,OFFENSIVE,0.6,0.7038,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00804,chửi là,chửi là,HATE,0.9,0.8573,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00805,chửi mày,chửi mày,HATE,0.9,0.9018,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00806,chửi mấy,chửi mấy,HATE,0.9,0.8365,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00807,chửi mấy thằng,chửi mấy thằng,HATE,0.9,0.8579,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00808,chửi người,chửi người,HATE,0.9,0.8595,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00809,chửi nó,chửi nó,HATE,0.9,0.8727,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00810,chửi tao,chửi tao,HATE,0.9,0.8731,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00811,cmn,cmn,HATE,0.9,0.7255,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00812,coin,coin,HATE,0.9,0.6427,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00813,con bò đỏ,con bò đỏ,HATE,0.9,0.6819,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00814,con cặc gì,con cặc gì,HATE,0.9,0.6787,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00815,con dân,con dân,HATE,0.9,0.778,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00816,content,content,OFFENSIVE,0.6,0.7754,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00817,culi,culi,HATE,0.9,0.7754,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00818,các nước,các nước,OFFENSIVE,0.6,0.6708,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00819,cái khác,cái khác,OFFENSIVE,0.6,0.7151,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00820,cái này là,cái này là,HATE,0.9,0.6721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00821,cái nết,cái nết,HATE,0.9,0.7966,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00822,cái thời,cái thời,OFFENSIVE,0.6,0.7084,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00823,cái thứ,cái thứ,OFFENSIVE,0.6,0.8118,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00824,cãi nhau,cãi nhau,HATE,0.9,0.7488,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00825,còn cái,còn cái,HATE,0.9,0.6938,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00826,còn tao,còn tao,HATE,0.9,0.7793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00827,có cách,có cách,OFFENSIVE,0.6,0.7188,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00828,công kích,công kích,HATE,0.9,0.7826,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00829,cũng chả,cũng chả,OFFENSIVE,0.6,0.7142,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00830,cũng chửi,cũng chửi,HATE,0.9,0.8414,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00831,cũng hiểu,cũng hiểu,OFFENSIVE,0.6,0.7689,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00832,cũng k,cũng k,OFFENSIVE,0.6,0.6914,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00833,cũng thế,cũng thế,OFFENSIVE,0.6,0.717,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00834,cũng đúng,cũng đúng,OFFENSIVE,0.6,0.7853,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00835,cười ỉa,cười ỉa,HATE,0.9,0.7706,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00836,cả cái,cả cái,OFFENSIVE,0.6,0.7317,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00837,cả đời,cả đời,OFFENSIVE,0.6,0.7212,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00838,cụ,cụ,OFFENSIVE,0.6,0.723,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00839,của bọn mày,của bọn mày,HATE,0.9,0.8956,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00840,của một thằng,của một thằng,HATE,0.9,0.7898,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00841,của đảng,của đảng,HATE,0.9,0.8028,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00842,damm it,damm it,HATE,0.9,0.7115,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00843,dickhead,dickhead,HATE,0.9,0.8645,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00844,dm,dm,HATE,0.9,0.7793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00845,do mày,do mày,HATE,0.9,0.8739,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00846,doctrine,doctrine,HATE,0.9,0.773,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00847,dân bắc,dân bắc,HATE,0.9,0.8199,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00848,dân miền,dân miền,HATE,0.9,0.8583,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00849,dân số,dân số,HATE,0.9,0.8436,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00850,dân thì,dân thì,HATE,0.9,0.8213,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00851,dơ,dơ,HATE,0.9,0.8145,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00852,dạy đời,dạy đời,OFFENSIVE,0.6,0.7289,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00853,dẩm,dẩm,OFFENSIVE,0.6,0.7915,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00854,dẹp,dẹp,HATE,0.9,0.6768,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00855,dở,dở,OFFENSIVE,0.6,0.7409,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00856,dở ẹc,dở ẹc,HATE,0.9,0.6567,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00857,edgy,edgy,OFFENSIVE,0.6,0.6818,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00858,fame,fame,OFFENSIVE,0.6,0.7765,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00859,farm,farm,OFFENSIVE,0.6,0.6929,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00860,fat ugly,fat ugly,HATE,0.9,0.6493,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00861,flair,flair,HATE,0.9,0.7403,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00862,fuck cái,fuck cái,HATE,0.9,0.8002,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00863,gay,gay,HATE,0.9,0.8448,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00864,gì con,gì con,HATE,0.9,0.6684,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00865,gì cũng được,gì cũng được,OFFENSIVE,0.6,0.6595,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00866,gì ko,gì ko,HATE,0.9,0.7158,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00867,gốc gác,gốc gác,HATE,0.9,0.793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00868,haters,haters,HATE,0.9,0.6786,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00869,hay gì mà,hay gì mà,OFFENSIVE,0.6,0.6911,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00870,hay mày,hay mày,HATE,0.9,0.8616,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00871,hay sao mà,hay sao mà,OFFENSIVE,0.6,0.772,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00872,hiểu biết,hiểu biết,OFFENSIVE,0.6,0.7462,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00873,hiểu mày,hiểu mày,HATE,0.9,0.8774,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00874,hài vcl,hài vcl,OFFENSIVE,0.6,0.7294,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00875,hèn,hèn,HATE,0.9,0.8964,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00876,hại,hại,HATE,0.9,0.7915,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00877,hả con,hả con,HATE,0.9,0.6656,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00878,hả mày,hả mày,HATE,0.9,0.8667,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00879,hồn,hồn,HATE,0.9,0.7825,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00880,hộ tao,hộ tao,HATE,0.9,0.73,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00881,khi nó,khi nó,HATE,0.9,0.8007,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00882,khi stream,khi stream,OFFENSIVE,0.6,0.6623,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00883,khi stream chán vl,khi stream chán vl,OFFENSIVE,0.6,0.6206,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00884,khác đi,khác đi,OFFENSIVE,0.6,0.6911,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00885,khác đéo gì,khác đéo gì,OFFENSIVE,0.6,0.7403,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00886,khái niệm,khái niệm,OFFENSIVE,0.6,0.7709,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00887,khôn,khôn,HATE,0.9,0.802,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00888,khốn nạn,khốn nạn,HATE,0.9,0.82,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00889,khựa,khựa,HATE,0.9,0.8527,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00890,kia nó,kia nó,HATE,0.9,0.7162,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00891,ko thì,ko thì,OFFENSIVE,0.6,0.6605,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00892,kì thị,kì thị,HATE,0.9,0.7207,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00893,kìa,kìa,HATE,0.9,0.6921,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00894,kẹc,kẹc,HATE,0.9,0.7728,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00895,kệ mẹ mày,kệ mẹ mày,HATE,0.9,0.886,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00896,kệ nó,kệ nó,HATE,0.9,0.7826,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00897,les,les,HATE,0.9,0.7416,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00898,lesor,lesor,HATE,0.9,0.7563,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00899,lm,lm,OFFENSIVE,0.6,0.6982,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00900,lmao,lmao,OFFENSIVE,0.6,0.8206,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00901,loz gì,loz gì,HATE,0.9,0.7877,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00902,loại ngu,loại ngu,HATE,0.9,0.7946,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00903,lung tung,lung tung,HATE,0.9,0.653,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00904,luận điểm,luận điểm,OFFENSIVE,0.6,0.7264,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00905,là chửi,là chửi,HATE,0.9,0.8501,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00906,là cái đéo,là cái đéo,HATE,0.9,0.8385,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00907,là dân,là dân,HATE,0.9,0.7996,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00908,là một thằng,là một thằng,HATE,0.9,0.7803,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00909,là ngu,là ngu,HATE,0.9,0.8714,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00910,là người việt,là người việt,HATE,0.9,0.7597,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00911,là sai,là sai,HATE,0.9,0.8586,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00912,là tụi,là tụi,HATE,0.9,0.7667,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00913,là vừa,là vừa,HATE,0.9,0.6836,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00914,là đúng rồi,là đúng rồi,OFFENSIVE,0.6,0.6622,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00915,làm giàu,làm giàu,HATE,0.9,0.8025,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00916,làm gì có,làm gì có,HATE,0.9,0.6916,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00917,làm j,làm j,HATE,0.9,0.6831,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00918,làm như,làm như,HATE,0.9,0.7326,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00919,làm thì,làm thì,OFFENSIVE,0.6,0.6497,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00920,làm đéo gì,làm đéo gì,HATE,0.9,0.8178,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00921,lên làm,lên làm,OFFENSIVE,0.6,0.6499,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00922,lôi ra,lôi ra,OFFENSIVE,0.6,0.8014,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00923,lông,lông,HATE,0.9,0.7016,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00924,lùa,lùa,HATE,0.9,0.7394,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00925,lúc nó,lúc nó,HATE,0.9,0.6658,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00926,lũ bò,lũ bò,HATE,0.9,0.635,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00927,lươn lẹo,lươn lẹo,HATE,0.9,0.779,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00928,lấy vợ,lấy vợ,OFFENSIVE,0.6,0.6997,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00929,lồn mà,lồn mà,HATE,0.9,0.8053,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00930,lồn này,lồn này,HATE,0.9,0.7767,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00931,m cứ,m cứ,HATE,0.9,0.7447,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00932,m muốn,m muốn,OFFENSIVE,0.6,0.6454,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00933,m quá,m quá,OFFENSIVE,0.6,0.781,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00934,m đi,m đi,HATE,0.9,0.8927,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00935,m đọc,m đọc,OFFENSIVE,0.6,0.7498,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00936,musk,musk,HATE,0.9,0.7543,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00937,mà nghe,mà nghe,OFFENSIVE,0.6,0.7461,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00938,mà sống,mà sống,HATE,0.9,0.7627,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00939,mà t,mà t,HATE,0.9,0.7403,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00940,mà tưởng mình,mà tưởng mình,OFFENSIVE,0.6,0.7104,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00941,mà tưởng đâu,mà tưởng đâu,OFFENSIVE,0.6,0.749,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00942,mài,mài,HATE,0.9,0.7666,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00943,mày con,mày con,HATE,0.9,0.8034,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00944,mày cái,mày cái,HATE,0.9,0.8319,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00945,mày là thằng,mày là thằng,HATE,0.9,0.8599,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00946,mày phải,mày phải,HATE,0.9,0.7455,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00947,mày ra,mày ra,HATE,0.9,0.7867,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00948,mày rồi,mày rồi,HATE,0.9,0.7599,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00949,mày về,mày về,HATE,0.9,0.8553,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00950,mày à,mày à,HATE,0.9,0.8233,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00951,mày đang,mày đang,HATE,0.9,0.7586,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00952,mày đã,mày đã,HATE,0.9,0.8796,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00953,mày đấy,mày đấy,HATE,0.9,0.8309,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00954,mõm vào,mõm vào,HATE,0.9,0.7451,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00955,mĩ,mĩ,HATE,0.9,0.7641,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00956,mũi,mũi,OFFENSIVE,0.6,0.7112,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00957,mất dạy,mất dạy,OFFENSIVE,0.6,0.6954,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00958,mấy thằng loser,mấy thằng loser,HATE,0.9,0.8209,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00959,mấy thằng lồn,mấy thằng lồn,HATE,0.9,0.8702,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00960,mấy thằng này,mấy thằng này,HATE,0.9,0.8059,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00961,mẹ bọn,mẹ bọn,HATE,0.9,0.7094,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00962,mẹ tao,mẹ tao,HATE,0.9,0.7234,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00963,mồm ra là,mồm ra là,HATE,0.9,0.7616,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00964,nch,nch,OFFENSIVE,0.6,0.688,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00965,ng việt,ng việt,HATE,0.9,0.7578,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00966,nga,nga,HATE,0.9,0.7653,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00967,ngu của,ngu của,HATE,0.9,0.8414,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00968,ngu học,ngu học,HATE,0.9,0.7776,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00969,ngu như mày,ngu như mày,HATE,0.9,0.892,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00970,ngành giáo dục,ngành giáo dục,OFFENSIVE,0.6,0.7362,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00971,ngáo,ngáo,HATE,0.9,0.8194,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00972,người bắc,người bắc,HATE,0.9,0.7103,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00973,người miền,người miền,HATE,0.9,0.7768,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00974,người miền nam,người miền nam,HATE,0.9,0.7862,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00975,người vn,người vn,HATE,0.9,0.7133,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00976,ngụy biện,ngụy biện,OFFENSIVE,0.6,0.8393,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00977,ngửi,ngửi,HATE,0.9,0.7899,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00978,nhu cầu,nhu cầu,HATE,0.9,0.6894,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00979,nhà nó,nhà nó,HATE,0.9,0.674,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00980,nhé con,nhé con,HATE,0.9,0.6566,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00981,nhìn nhận,nhìn nhận,OFFENSIVE,0.6,0.7119,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00982,như ai,như ai,OFFENSIVE,0.6,0.7515,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00983,như bọn,như bọn,HATE,0.9,0.7738,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00984,như cặc,như cặc,HATE,0.9,0.8175,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00985,như mày nói,như mày nói,HATE,0.9,0.8659,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00986,như mày thì,như mày thì,OFFENSIVE,0.6,0.8046,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00987,như mình,như mình,OFFENSIVE,0.6,0.6387,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00988,như mấy thằng,như mấy thằng,HATE,0.9,0.7757,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00989,như tao,như tao,HATE,0.9,0.7927,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00990,nhưng bọn,nhưng bọn,OFFENSIVE,0.6,0.6588,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00991,nhỏ này,nhỏ này,OFFENSIVE,0.6,0.6583,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00992,nhục,nhục,HATE,0.9,0.8497,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00993,nào tao,nào tao,HATE,0.9,0.7041,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00994,này như,này như,OFFENSIVE,0.6,0.6697,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00995,này đéo,này đéo,HATE,0.9,0.8168,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00996,nên nghĩ,nên nghĩ,HATE,0.9,0.6713,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00997,nó cứ,nó cứ,OFFENSIVE,0.6,0.7311,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00998,nó khác,nó khác,OFFENSIVE,0.6,0.7502,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-00999,nói chuyện như,nói chuyện như,OFFENSIVE,0.6,0.7122,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01000,nói rồi,nói rồi,OFFENSIVE,0.6,0.7943,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01001,nói tao,nói tao,HATE,0.9,0.851,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01002,nết,nết,HATE,0.9,0.8074,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01003,nữa tao,nữa tao,HATE,0.9,0.7422,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01004,op có,op có,HATE,0.9,0.6301,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01005,opinion,opinion,HATE,0.9,0.7449,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01006,pedo,pedo,HATE,0.9,0.8254,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01007,phí tiền,phí tiền,HATE,0.9,0.7143,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01008,phản đối,phản đối,OFFENSIVE,0.6,0.8118,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01009,phụ thuộc,phụ thuộc,OFFENSIVE,0.6,0.6906,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01010,politic,politic,HATE,0.9,0.7575,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01011,porn,porn,HATE,0.9,0.6679,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01012,quy chụp,quy chụp,HATE,0.9,0.716,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01013,quán cf,quán cf,HATE,0.9,0.6629,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01014,ra mấy cái,ra mấy cái,HATE,0.9,0.6626,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01015,ra ở,ra ở,HATE,0.9,0.6944,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01016,ranh,ranh,HATE,0.9,0.834,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01017,retarded,retarded,HATE,0.9,0.6909,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01018,riết,riết,HATE,0.9,0.7606,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01019,roast,roast,HATE,0.9,0.7762,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01020,rác,rác,OFFENSIVE,0.6,0.7746,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01021,rốt cuộc,rốt cuộc,OFFENSIVE,0.6,0.744,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01022,rồi thằng,rồi thằng,HATE,0.9,0.7942,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01023,sao mày,sao mày,HATE,0.9,0.8782,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01024,sao nó,sao nó,HATE,0.9,0.7913,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01025,scam,scam,HATE,0.9,0.7728,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01026,shithead,shithead,HATE,0.9,0.7392,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01027,social,social,OFFENSIVE,0.6,0.7046,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01028,stfu,stfu,HATE,0.9,0.7276,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01029,subreddit,subreddit,HATE,0.9,0.7653,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01030,such,such,HATE,0.9,0.7904,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01031,suy luận,suy luận,OFFENSIVE,0.6,0.793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01032,sướng mồm,sướng mồm,HATE,0.9,0.7323,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01033,t chửi,t chửi,HATE,0.9,0.8533,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01034,t ghét,t ghét,OFFENSIVE,0.6,0.8596,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01035,t lại,t lại,OFFENSIVE,0.6,0.7225,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01036,t nghĩ,t nghĩ,OFFENSIVE,0.6,0.7336,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01037,t đi,t đi,OFFENSIVE,0.6,0.7993,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01038,t đéo,t đéo,HATE,0.9,0.8509,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01039,tao cái,tao cái,HATE,0.9,0.7085,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01040,tao gặp,tao gặp,HATE,0.9,0.6562,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01041,tao ko,tao ko,HATE,0.9,0.7127,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01042,tao lại,tao lại,HATE,0.9,0.7179,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01043,tao ngu,tao ngu,HATE,0.9,0.8454,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01044,tao tao,tao tao,HATE,0.9,0.7711,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01045,tao thì,tao thì,HATE,0.9,0.6573,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01046,tao đang,tao đang,HATE,0.9,0.6431,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01047,tao đã,tao đã,HATE,0.9,0.6995,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01048,tg,tg,OFFENSIVE,0.6,0.7365,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01049,tham nhũng,tham nhũng,HATE,0.9,0.835,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01050,thà,thà,OFFENSIVE,0.6,0.7281,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01051,thì chết,thì chết,HATE,0.9,0.7524,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01052,thì cút,thì cút,HATE,0.9,0.7406,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01053,thì cũng là,thì cũng là,OFFENSIVE,0.6,0.6906,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01054,thì dễ,thì dễ,HATE,0.9,0.6838,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01055,thì lên,thì lên,OFFENSIVE,0.6,0.692,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01056,thì mấy,thì mấy,OFFENSIVE,0.6,0.6612,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01057,thì đúng hơn,thì đúng hơn,OFFENSIVE,0.6,0.6768,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01058,thích đi,thích đi,OFFENSIVE,0.6,0.6725,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01059,thôi cái,thôi cái,HATE,0.9,0.676,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01060,thảo,thảo,HATE,0.9,0.657,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01061,thất học,thất học,HATE,0.9,0.7501,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01062,thấy mày,thấy mày,HATE,0.9,0.8515,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01063,thấy mấy,thấy mấy,OFFENSIVE,0.6,0.6575,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01064,thật nhưng,thật nhưng,OFFENSIVE,0.6,0.6403,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01065,thằng cha,thằng cha,HATE,0.9,0.8559,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01066,thằng trên,thằng trên,HATE,0.9,0.8397,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01067,thằng ở,thằng ở,HATE,0.9,0.8747,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01068,thế mày,thế mày,HATE,0.9,0.8763,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01069,thế tao,thế tao,HATE,0.9,0.8036,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01070,thề,thề,OFFENSIVE,0.6,0.7632,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01071,thờ,thờ,HATE,0.9,0.7841,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01072,thủ dâm tinh thần,thủ dâm tinh thần,HATE,0.9,0.6769,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01073,toàn mấy thằng,toàn mấy thằng,HATE,0.9,0.7084,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01074,trà trộn,trà trộn,HATE,0.9,0.6925,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01075,trả tiền,trả tiền,HATE,0.9,0.707,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01076,tàu khựa,tàu khựa,HATE,0.9,0.8384,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01077,tôn,tôn,HATE,0.9,0.706,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01078,tù,tù,HATE,0.9,0.7105,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01079,tưởng mình là,tưởng mình là,OFFENSIVE,0.6,0.6886,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01080,tẩy,tẩy,HATE,0.9,0.8418,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01081,tỏ,tỏ,OFFENSIVE,0.6,0.7428,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01082,tốt nhất là,tốt nhất là,OFFENSIVE,0.6,0.7057,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01083,tổ tiên,tổ tiên,HATE,0.9,0.7345,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01084,tổng thống,tổng thống,HATE,0.9,0.6902,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01085,tụi m,tụi m,HATE,0.9,0.8742,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01086,từ đâu,từ đâu,HATE,0.9,0.7089,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01087,tử tế,tử tế,HATE,0.9,0.7311,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01088,tự do ngôn luận,tự do ngôn luận,OFFENSIVE,0.6,0.8192,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01089,việt nam thì,việt nam thì,OFFENSIVE,0.6,0.7809,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01090,vì chúng mày,vì chúng mày,HATE,0.9,0.8793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01091,vì mày,vì mày,HATE,0.9,0.8959,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01092,vùng miền,vùng miền,HATE,0.9,0.765,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01093,vơ đũa,vơ đũa,HATE,0.9,0.8701,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01094,vậy m,vậy m,HATE,0.9,0.6715,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01095,vậy thằng,vậy thằng,HATE,0.9,0.7548,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01096,về vn,về vn,HATE,0.9,0.7249,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01097,với bọn,với bọn,HATE,0.9,0.7552,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01098,với lại,với lại,OFFENSIVE,0.6,0.7017,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01099,với mày,với mày,HATE,0.9,0.8721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01100,với mấy thằng,với mấy thằng,HATE,0.9,0.7589,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01101,với nó,với nó,HATE,0.9,0.721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01102,wibu,wibu,HATE,0.9,0.6983,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01103,xl,xl,OFFENSIVE,0.6,0.7341,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01104,xu hướng,xu hướng,OFFENSIVE,0.6,0.6793,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01105,you’re,you’re,HATE,0.9,0.739,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01106,you’re such,you’re such,HATE,0.9,0.7521,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01107,ông nói,ông nói,HATE,0.9,0.7682,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01108,ăn thịt chó,ăn thịt chó,HATE,0.9,0.8246,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01109,đa phần,đa phần,OFFENSIVE,0.6,0.6865,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01110,đang nói,đang nói,OFFENSIVE,0.6,0.6584,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01111,đc k,đc k,HATE,0.9,0.826,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01112,đi cháu,đi cháu,HATE,0.9,0.7821,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01113,đi mà,đi mà,OFFENSIVE,0.6,0.7053,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01114,đi nói,đi nói,HATE,0.9,0.8247,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01115,đi sống,đi sống,HATE,0.9,0.7552,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01116,đánh du kích,đánh du kích,HATE,0.9,0.8204,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01117,đánh tráo,đánh tráo,OFFENSIVE,0.6,0.8463,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01118,đéo có cái,đéo có cái,HATE,0.9,0.8679,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01119,đéo làm được,đéo làm được,HATE,0.9,0.8496,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01120,đéo nghe,đéo nghe,HATE,0.9,0.8507,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01121,đéo nói,đéo nói,HATE,0.9,0.8961,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01122,đéo quan tâm,đéo quan tâm,HATE,0.9,0.6663,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01123,đéo thèm,đéo thèm,HATE,0.9,0.8494,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01124,đê bóng,đê bóng,HATE,0.9,0.6985,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01125,đê bóng chó,đê bóng chó,HATE,0.9,0.7428,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01126,đó chứ,đó chứ,OFFENSIVE,0.6,0.7965,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01127,đó nó,đó nó,HATE,0.9,0.7566,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01128,đú,đú,HATE,0.9,0.7361,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01129,đúng như,đúng như,OFFENSIVE,0.6,0.785,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01130,đĩ mẹ mày,đĩ mẹ mày,HATE,0.9,0.8768,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01131,đương nhiên,đương nhiên,OFFENSIVE,0.6,0.6721,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01132,được mày,được mày,HATE,0.9,0.8022,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01133,đảng,đảng,HATE,0.9,0.7727,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01134,đất nước này,đất nước này,HATE,0.9,0.7753,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01135,đấy để,đấy để,OFFENSIVE,0.6,0.8165,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01136,đầu ngành giáo dục,đầu ngành giáo dục,OFFENSIVE,0.6,0.7368,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01137,đến cái,đến cái,OFFENSIVE,0.6,0.7274,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01138,để mà,để mà,OFFENSIVE,0.6,0.716,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01139,để nó,để nó,HATE,0.9,0.7618,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01140,để nói,để nói,OFFENSIVE,0.6,0.83,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01141,đểu,đểu,OFFENSIVE,0.6,0.7857,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01142,địt mẹ thằng,địt mẹ thằng,HATE,0.9,0.8242,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01143,đỏ là,đỏ là,OFFENSIVE,0.6,0.7054,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01144,đớp,đớp,HATE,0.9,0.6905,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01145,ấu dâm,ấu dâm,HATE,0.9,0.8048,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01146,ở miền,ở miền,HATE,0.9,0.8139,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01147,ở mỹ,ở mỹ,HATE,0.9,0.8161,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01148,ở nước ngoài,ở nước ngoài,HATE,0.9,0.6751,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01149,bao giờ thống nhất,bao giờ thống nhất,HATE,0.9,0.8207,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01150,bị mỹ,bị mỹ,HATE,0.9,0.8126,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01151,bị tẩy não,bị tẩy não,HATE,0.9,0.8609,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01152,bố con nhà này,bố con nhà này,OFFENSIVE,0.6,0.6826,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01153,cho mấy thằng,cho mấy thằng,HATE,0.9,0.7618,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01154,cho mỹ,cho mỹ,HATE,0.9,0.7526,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01155,chính quyền tay sai,chính quyền tay sai,OFFENSIVE,0.6,0.8202,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01156,chết thì được,chết thì được,HATE,0.9,0.7407,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01157,cái chết của,cái chết của,HATE,0.9,0.8094,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01158,cái đ gì,cái đ gì,HATE,0.9,0.6995,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01159,có tài mà,có tài mà,OFFENSIVE,0.6,0.7372,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01160,của cộng sản,của cộng sản,HATE,0.9,0.78,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01161,diệm có,diệm có,HATE,0.9,0.7947,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01162,diệm thì,diệm thì,HATE,0.9,0.7813,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01163,dân hàn,dân hàn,HATE,0.9,0.8294,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01164,ghét trấn thành,ghét trấn thành,OFFENSIVE,0.6,0.7988,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01165,gia đình này nó,gia đình này nó,HATE,0.9,0.7116,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01166,không công nhận,không công nhận,OFFENSIVE,0.6,0.7399,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01167,là bù nhìn,là bù nhìn,OFFENSIVE,0.6,0.7712,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01168,là tay sai,là tay sai,HATE,0.9,0.8112,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01169,là tay sai của,là tay sai của,HATE,0.9,0.7867,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01170,làm cách mạng màu,làm cách mạng màu,OFFENSIVE,0.6,0.7496,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01171,làm tay sai,làm tay sai,HATE,0.9,0.7958,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01172,lật sử à,lật sử à,HATE,0.9,0.8277,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01173,lệ con,lệ con,HATE,0.9,0.705,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01174,mang tư tưởng,mang tư tưởng,HATE,0.9,0.7164,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01175,miền nam vn,miền nam vn,HATE,0.9,0.774,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01176,mấy đứa fan,mấy đứa fan,OFFENSIVE,0.6,0.6791,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01177,ngáo quyền lực,ngáo quyền lực,HATE,0.9,0.8099,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01178,người di cư,người di cư,HATE,0.9,0.6718,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01179,ngụy quyền,ngụy quyền,HATE,0.9,0.8463,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01180,npc,npc,HATE,0.9,0.843,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01181,nó nổi tiếng,nó nổi tiếng,OFFENSIVE,0.6,0.7818,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01182,quân tử trả thù,quân tử trả thù,HATE,0.9,0.824,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01183,quân tử trả thù năm,quân tử trả thù năm,HATE,0.9,0.7759,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01184,theo pháp,theo pháp,OFFENSIVE,0.6,0.6582,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01185,thùy tiên,thùy tiên,HATE,0.9,0.7312,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01186,thằng trấn thành,thằng trấn thành,HATE,0.9,0.8415,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01187,thằng đàn bà,thằng đàn bà,HATE,0.9,0.8766,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01188,thống nhất làm,thống nhất làm,HATE,0.9,0.8184,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01189,triều tiên không,triều tiên không,HATE,0.9,0.8478,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01190,triều tiên thống nhất,triều tiên thống nhất,HATE,0.9,0.8513,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01191,trả thù năm,trả thù năm,HATE,0.9,0.6673,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01192,trấn thành có,trấn thành có,OFFENSIVE,0.6,0.8011,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01193,trấn thành thì,trấn thành thì,OFFENSIVE,0.6,0.7925,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01194,tài mà,tài mà,OFFENSIVE,0.6,0.7738,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01195,tội ác của,tội ác của,HATE,0.9,0.8694,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01196,ăn cháo đá,ăn cháo đá,HATE,0.9,0.6916,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01197,ăn cắp content,ăn cắp content,OFFENSIVE,0.6,0.7755,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01198,đau nhức đau khổ,đau nhức đau khổ,HATE,0.9,0.7081,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01199,đi fan,đi fan,OFFENSIVE,0.6,0.7189,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01200,đi ăn cắp,đi ăn cắp,OFFENSIVE,0.6,0.7145,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01201,đàn áp tôn giáo,đàn áp tôn giáo,HATE,0.9,0.8427,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01202,đá đểu,đá đểu,HATE,0.9,0.7898,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01203,đường lưỡi bò,đường lưỡi bò,HATE,0.9,0.6634,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01204,đạo đức giả,đạo đức giả,OFFENSIVE,0.6,0.786,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01205,đấm chết thì,đấm chết thì,HATE,0.9,0.7733,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20
+emb-01206,đếch gì,đếch gì,HATE,0.9,0.7738,False,vihsd;vicm;bontori,train,auto,fasttext-embedding-2026-10-20

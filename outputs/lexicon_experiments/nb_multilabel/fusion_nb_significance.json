@@ -1,0 +1,29 @@
+{
+  "n": 6680,
+  "sota_macro_f1": 0.664663,
+  "nb_macro_f1": 0.667704,
+  "delta": 0.003041,
+  "ci": [
+    -0.00349,
+    0.009379
+  ],
+  "p_value": 0.3508,
+  "mcnemar": {
+    "nb_right_sota_wrong": 29,
+    "nb_wrong_sota_right": 25,
+    "p_value": 0.683489
+  },
+  "significant_95": false,
+  "per_class": {
+    "SOTA": {
+      "HATE": 0.592013,
+      "OFFENSIVE": 0.461176,
+      "CLEAN": 0.940799
+    },
+    "fusion_nb": {
+      "HATE": 0.608434,
+      "OFFENSIVE": 0.453461,
+      "CLEAN": 0.941219
+    }
+  }
+}

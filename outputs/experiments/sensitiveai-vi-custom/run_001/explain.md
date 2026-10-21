@@ -13,9 +13,9 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `config.yaml` | file | 2.4 KB · 2026-10-06 03:52:43 |
-| `explain.md` | file | 1.0 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 1.0 KB · 2026-10-20 07:13:20 |
 | `training_summary.json` | file | 11.2 KB · 2026-10-06 07:43:46 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:44. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

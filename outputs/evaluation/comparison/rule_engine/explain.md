@@ -23,7 +23,7 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 977 B · 2026-10-19 15:06:22 |
+| `explain.md` | file | 3.0 KB · 2026-10-20 07:13:20 |
 | `rule_engine_baseline_vs_tuned.md` | file | 5.0 KB · 2026-10-19 15:09:36 |
 | `rule_engine_macro_f1.png` | file | 45.5 KB · 2026-10-19 15:09:35 |
 | `rule_engine_per_class_f1.png` | file | 51.9 KB · 2026-10-19 15:09:35 |
@@ -37,4 +37,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

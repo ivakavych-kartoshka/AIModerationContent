@@ -31,7 +31,7 @@
 | `analysis.py` | file | 17.1 KB · 2026-10-15 00:29:04 |
 | `benchmark.py` | file | 5.4 KB · 2026-10-04 10:43:04 |
 | `curves.py` | file | 5.3 KB · 2026-10-04 11:40:09 |
-| `explain.md` | file | 2.9 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.9 KB · 2026-10-20 07:13:19 |
 | `metrics.py` | file | 12.6 KB · 2026-10-04 11:12:26 |
 | `plots.py` | file | 13.5 KB · 2026-10-17 10:30:31 |
 | `report.py` | file | 8.3 KB · 2026-10-04 11:39:41 |
@@ -41,4 +41,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

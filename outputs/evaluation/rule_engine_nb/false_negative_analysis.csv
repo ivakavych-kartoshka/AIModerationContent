@@ -1,0 +1,299 @@
+text,true_label,pred_label,rule_hate_score,rule_offensive_score,n_matches,top_matches
+óc chó. ngu do luyện tập hay bẩm sinh. cái loại ăn cức lựa cục bự nói chuyện ngu đek tả nỗi. 500tr của riêng phan anh đọc đek thông rồi chu mõm lên sủa,OFFENSIVE,HATE,0.9944,0.3607,10,óc chó(HATE:exact:0.7028) | sủa(HATE:exact:0.6209) | cái loại(HATE:exact:0.5541) | ăn cức(HATE:exact:0.5411) | ngu(HATE:exact:0.5066)
+sủa sủa sủa 🐕,OFFENSIVE,HATE,0.9455,0.0,3,sủa(HATE:exact:0.6209) | sủa(HATE:exact:0.6209) | sủa(HATE:exact:0.6209)
+thà bây giờ câm mẹ cho rồi. càng nói càng lộ cái ngu bị dân chửi thêm chứ làm được gì,OFFENSIVE,HATE,0.9205,0.5242,7,câm mẹ(HATE:exact:0.7218) | cái ngu(HATE:exact:0.4831) | càng nói(HATE:exact:0.4473) | cái ngu(OFFENSIVE:exact:0.3221) | càng nói(OFFENSIVE:exact:0.2982)
+xạo lồn hông có gì vui nên chúng ta hông nên xạo lồn,OFFENSIVE,HATE,0.8855,0.0,2,xạo lồn(HATE:exact:0.6616) | xạo lồn(HATE:exact:0.6616)
+suy diễn như cái cc.đi so sánh khập khiễng vkl.thử đứng ra kêu gọi đc cả đống tiền như ngta k mà ngồi rảnh lồn đi phán:))),OFFENSIVE,HATE,0.8565,0.3479,10,lồn(HATE:exact:0.565) | cái cc(HATE:exact:0.5218) | cái cc(OFFENSIVE:exact:0.3479) | nhu cai(HATE:obfuscated_combined:0.31) | đĩ(HATE:accentless_alias:0.0)
+làm đéo j có vụ đó. địt mẹ ăn hết rùi chả lại vậy là song ak,OFFENSIVE,HATE,0.8456,0.3059,5,địt mẹ(HATE:exact:0.7146) | làm đéo(HATE:exact:0.4589) | làm đéo(OFFENSIVE:exact:0.3059) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+thế mày nghĩ nó quan tâm đến việc mày vội hay ko vội à. ngu v k l:v,OFFENSIVE,HATE,0.8294,0.0,3,thế mày(HATE:exact:0.5969) | ngu v(HATE:exact:0.5767) | mầy(HATE:accentless_alias:0.0)
+"có những thằng bắc cụ đang dùng cái óc toàn bắc của nó mà suy cho dân nam chúng tao. xin lỗi chứ,từ thời các chúa thì nam bắc đã khác nhau hoàn toàn, đừng đem cái xuất thân ra nhé. chúng tao là dân sg,và chúng tao là dân tộc thiểu số! hahaha.",OFFENSIVE,HATE,0.8206,0.0,8,những thằng(HATE:exact:0.5373) | tao là(HATE:exact:0.3774) | tao là(HATE:exact:0.3774) | đảng(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+ngu na noi tren troi duoi dat k,OFFENSIVE,HATE,0.8187,0.0,2,duoi(HATE:exact:0.6325) | ngu(HATE:exact:0.5066)
+đức mạnh cứng clmm,OFFENSIVE,HATE,0.8151,0.0,2,clmm(HATE:exact:0.643) | clmm(HATE:repeat_collapsed:0.4822)
+chậm clmm,OFFENSIVE,HATE,0.8151,0.0,2,clmm(HATE:exact:0.643) | clmm(HATE:repeat_collapsed:0.4822)
+trần nhật 🙂 m đọc lại cmt xem t ns đúng hay sai mà m ns t như con bò ở quê m,OFFENSIVE,HATE,0.8071,0.2979,4,con bò(HATE:exact:0.4469) | mà m(HATE:exact:0.4347) | m đọc(HATE:exact:0.383) | con bò(OFFENSIVE:exact:0.2979)
+dlv dlv dlv 1 ổ kinh tởm thối tha hèn hạ dm nó khoá cmt k thì zô chửi cm nó r,HATE,OFFENSIVE,0.7682,0.7722,8,hèn hạ(HATE:exact:0.5653) | hèn hạ(OFFENSIVE:exact:0.3769) | kinh tởm(OFFENSIVE:exact:0.3429) | cmm(HATE:repeat_collapsed:0.3412) | dm(OFFENSIVE:exact:0.2798)
+cứ mỗi mùa đại hội đảng gần kề là lại thi nhau sủa:)))))),OFFENSIVE,HATE,0.7478,0.0,2,sủa(HATE:exact:0.6209) | đảng(HATE:exact:0.3347)
+nguyễn trọng hiệp đm óc cức à bạn trẻ...,HATE,OFFENSIVE,0.7423,0.2728,4,cức(HATE:exact:0.5638) | đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728) | hiếp(HATE:accentless_alias:0.0)
+đúng mệt: v mà em cũng mệt với bọn sống nhanh chậm vãi cả lồn =))),OFFENSIVE,HATE,0.7367,0.0,4,lồn(HATE:exact:0.565) | với bọn(HATE:exact:0.3947) | mả(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0)
+"cơ mà cũng phải nể mấy ông cầm cờ thật, dù rất dở hơi nhưng cũng phải nể vì đã tạo nên hình ảnh gây mâu thuẫn tới cấp độ quốc gia (khủng bố chống khủng bố, rốt cục đéo biết đâu là khủng bố thực sự)",HATE,OFFENSIVE,0.4023,0.729,11,nể mấy(OFFENSIVE:exact:0.4631) | đéo biết(HATE:exact:0.4023) | dở hơi(OFFENSIVE:exact:0.3103) | đéo biết(OFFENSIVE:exact:0.2682) | mả(HATE:accentless_alias:0.0)
+dcm ăn pải lốp lái thì giết con nhà ng ta ah chó đẻ,HATE,OFFENSIVE,0.7112,0.393,3,chó đẻ(HATE:exact:0.7112) | dcm(OFFENSIVE:exact:0.393) | đcm(HATE:accentless_alias:0.0)
+lũ chó đói,OFFENSIVE,HATE,0.6982,0.0,1,lũ chó(HATE:exact:0.6982)
+xàm lồn,OFFENSIVE,HATE,0.6939,0.0,1,xàm lồn(HATE:exact:0.6939)
+biển nhiễm độc! giờ trâu bò lợn gà lũ cuốn luôn! miền trung tụi em cạp đất ăn zần rồi ạ! nhờ ơn đảng!,OFFENSIVE,HATE,0.6878,0.0,6,lũ(HATE:exact:0.5307) | đảng(HATE:exact:0.3347) | trẩu(HATE:accentless_alias:0.0) | trẩu(OFFENSIVE:accentless_alias:0.0) | lòn(HATE:accentless_alias:0.0)
+xạo lồn sương sương,OFFENSIVE,HATE,0.6616,0.0,1,xạo lồn(HATE:exact:0.6616)
+đụ mẹ chị witch của tao =)))),OFFENSIVE,HATE,0.6475,0.0,1,đụ mẹ(HATE:exact:0.6475)
+hiếu lư cmm,HATE,OFFENSIVE,0.6409,0.4618,5,cmm(HATE:exact:0.4549) | cmm(HATE:repeat_collapsed:0.3412) | cmm(OFFENSIVE:exact:0.3033) | cmm(OFFENSIVE:repeat_collapsed:0.2275) | lũ(HATE:accentless_alias:0.0)
+k rãnh loz làm gì lên xem abe,OFFENSIVE,HATE,0.6343,0.2352,4,loz(HATE:exact:0.5569) | lozz(OFFENSIVE:repeat_collapsed:0.2352) | lam gi(HATE:obfuscated_combined:0.1747) | ranh(HATE:accentless_alias:0.0)
+nay toàn lấy cơ chơi lễ trung thu để đi địt nhau thôi anh ạ:))),OFFENSIVE,HATE,0.6151,0.0,2,địt(HATE:exact:0.6151) | đĩ(HATE:accentless_alias:0.0)
+xàm quá có tiền mới tới đó được chứ làm ko,OFFENSIVE,HATE,0.6073,0.0,2,xàm(HATE:exact:0.4511) | tội đồ(HATE:obfuscated_combined:0.2846)
+trong khi đó chủ tịch thủ đô đang trân tráo khư khư ôm lấy dòng sông tô lịch thơ mộng! quyết bảo vệ nó khỏi bàn tay sạch sẽ của bọn nhật bổn tư bản! bắc kỳ lạ lắm thay... người nam méo hiểu được!,HATE,OFFENSIVE,0.6051,0.3044,10,bắc kỳ(HATE:exact:0.4566) | bắc kỳ(OFFENSIVE:exact:0.3044) | bọn tư(HATE:obfuscated_combined:0.2733) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+"các bạn bò đỏ đã thấy tởm chưa, là một công dân thết nghĩ một chế độ tốt, là lo được an sinh xã hội, y tế, giáo dục tốt. con cái các bạn xinh ra được miễn phí đến khi vào đại học, các bạn bị tai nạn vào viện không phải ứng tiền trước. thì đó là một chế độ tốt, không một thế lực thù địch nào làm nguy hại đến tổ quốc chúng ta",HATE,OFFENSIVE,0.5892,0.4629,15,bò đỏ(HATE:exact:0.5892) | thấy tởm(OFFENSIVE:exact:0.3997) | đỏ là(OFFENSIVE:obfuscated_combined:0.1052) | cặc(HATE:accentless_alias:0.0) | cặc(OFFENSIVE:accentless_alias:0.0)
+nguyễn kỳ phước tụi nước ngoài bắt nhịp chậm vại lòn 😤,HATE,OFFENSIVE,0.5693,0.3984,4,lòn(HATE:exact:0.4757) | lòn(OFFENSIVE:exact:0.3172) | vãi lồn(HATE:obfuscated_combined:0.1784) | vãi lồn(OFFENSIVE:obfuscated_combined:0.1189)
+vãi cả lồn,OFFENSIVE,HATE,0.565,0.0,2,lồn(HATE:exact:0.565) | lòn(OFFENSIVE:accentless_alias:0.0)
+vãi thị lồn,OFFENSIVE,HATE,0.565,0.0,2,lồn(HATE:exact:0.565) | lòn(OFFENSIVE:accentless_alias:0.0)
+đmm ghi rõ nguồn vd ra nhé ad,OFFENSIVE,HATE,0.5581,0.0,4,đmm(HATE:exact:0.5581) | đmm(HATE:accentless_alias:0.0) | dm(OFFENSIVE:accentless_alias:0.0) | rợ(HATE:accentless_alias:0.0)
+k chơi mấy trò này chó lấy j nuôi bụng bầu?,OFFENSIVE,HATE,0.554,0.0,3,chó(HATE:exact:0.554) | mầy(HATE:accentless_alias:0.0) | bưng(HATE:accentless_alias:0.0)
+"một đám dlv tư chịch vs nhau, tởm vkl",HATE,OFFENSIVE,0.4172,0.5536,4,chịch(HATE:exact:0.4172) | tởm(OFFENSIVE:exact:0.3816) | chịch(OFFENSIVE:exact:0.2781) | damm(HATE:accentless_alias:0.0)
+cuộc sống kbt còn cái j ngu hơn cái này ko😌 bất lực😌,OFFENSIVE,HATE,0.5518,0.0,1,ngu hơn(HATE:exact:0.5518)
+"mục đích của bolsa tv khi phỏng vấn trần dần là gì? lập trường của người phỏng vấn khi phỏng vấn ông dần là gì? khi phỏng vấn người khác ít nhất cũng mang một tư thái tôn trọng khách khí với đối tượng được phỏng vấn. đằng này ngoài mặt nói lời nhẹ nhàng khách sáo nhưng sâu bên trong lại là mỉa mai trào phúng, thậm chí đôi khi cắt lời ngưòi ta, tỏ ra thiếu tôn trọng. nếu không có nhẫn nại để nghe ngưòi ta nói thì đừng làm cuộc phỏng vấn đó. xem mấy clip kiểu này của bolsa, thấy tội nghiệp cho ông dần già cả, tiếp nhận phỏng vấn mà còn bị ông đầu trọc xoay vòng vòng như con rối.",HATE,OFFENSIVE,0.0,0.5445,11,con rối(OFFENSIVE:exact:0.4013) | mỉa(OFFENSIVE:exact:0.2392) | đảng(HATE:accentless_alias:0.0) | sạo(HATE:accentless_alias:0.0) | cat(HATE:accentless_alias:0.0)
+"những thằng nói đạo lí,thường sống như l^**",HATE,OFFENSIVE,0.5373,0.3662,2,những thằng(HATE:exact:0.5373) | như l(OFFENSIVE:exact:0.3662)
+ây long bùi => lông buồi,OFFENSIVE,HATE,0.5367,0.0,1,buồi(HATE:exact:0.5367)
+điệp thương buồi a mày,OFFENSIVE,HATE,0.5367,0.0,2,buồi(HATE:exact:0.5367) | mầy(HATE:accentless_alias:0.0)
+quất chết mẹ nó,HATE,OFFENSIVE,0.5361,0.3574,2,chết mẹ nó(HATE:exact:0.5361) | chết mẹ nó(OFFENSIVE:exact:0.3574)
+địtmẹ bọn dân đen như các ông thì làm gì...đau đầu thực sự:))),HATE,OFFENSIVE,0.5301,0.3005,5,ổng thì(HATE:obfuscated_combined:0.2478) | như cặc(HATE:obfuscated_combined:0.2431) | lam gi(HATE:obfuscated_combined:0.1747) | ổng thì(OFFENSIVE:obfuscated_combined:0.1652) | như cặc(OFFENSIVE:obfuscated_combined:0.1621)
+như thằng điên,OFFENSIVE,HATE,0.501,0.0,1,như thằng(HATE:exact:0.501)
+cái bệnh tâm thần phân liệt thể hoang tưởng tiến triển ngày càng nặng.,OFFENSIVE,HATE,0.5004,0.0,2,bệnh tâm thần(HATE:exact:0.5004) | thề(OFFENSIVE:accentless_alias:0.0)
+2 anh nầy nói chuyện như 2 anh ngáo đá,HATE,OFFENSIVE,0.4198,0.4965,3,nói chuyện như(HATE:exact:0.4198) | ngáo(OFFENSIVE:exact:0.3008) | nói chuyện như(OFFENSIVE:exact:0.2798)
+thằng hùng đụ bà tư nha nín thở,OFFENSIVE,CLEAN,0.4916,0.0,1,đụ(HATE:exact:0.4916)
+nếu không chiếm mn thì cs bake sẽ chết đói ở ngoài vĩ tuyến 17 như là bắc hàn hiện tại bây giờ. nên khi chiếm được mn rồi thì cs sẽ thu tiền thuế nhiều như là chiến phí giải phòng mn!,HATE,OFFENSIVE,0.4817,0.489,3,bake(HATE:exact:0.4817) | bake(OFFENSIVE:exact:0.3211) | là bắc(OFFENSIVE:exact:0.2473)
+sạo lol quá,OFFENSIVE,CLEAN,0.4836,0.0,1,sạo(HATE:exact:0.4836)
+1 chính quyền thối nát. ngậm miệng ăn tiền thì nói được gì nữa😡,HATE,OFFENSIVE,0.479,0.3193,2,thối nát(HATE:exact:0.479) | thối nát(OFFENSIVE:exact:0.3193)
+"nguyễn đình hảo được bài hồng nhan trên 100tr view còn bài bp với sg chẳng lẽ k cần beat, jack nó kết hợp với hoaprox đéo nghe đc gì",HATE,CLEAN,0.4783,0.0,2,đéo nghe(HATE:exact:0.4783) | cặn(HATE:accentless_alias:0.0)
+nghĩa le sân si hả má?? ko thích coi thì cút xéo đi,HATE,CLEAN,0.4756,0.0,3,thì cút(HATE:exact:0.4756) | mả(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0)
+êh... thằng đó nó dịu dàng vậy nó phẫu thuật xong tui bede cái chuyển tiếp thành moi đợt nữa hay gì,HATE,CLEAN,0.4753,0.0,2,thằng đó(HATE:exact:0.4753) | đảng(HATE:accentless_alias:0.0)
+abe mua áo như này là chet con di me sela rồi =)),HATE,CLEAN,0.4717,0.0,2,đĩ mẹ(HATE:obfuscated_combined:0.2943) | chết con(HATE:obfuscated_combined:0.2514)
+"may cha h o an tro. cap. ranh c. di ngoi le. nhieu chuyen. do cai thu, do tam than",HATE,CLEAN,0.4625,0.0,8,ranh(HATE:exact:0.3453) | cái thứ(HATE:obfuscated_combined:0.1789) | mầy(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0)
+sự kiện cc gì đc 2 tuần,OFFENSIVE,CLEAN,0.4619,0.0,1,cc gì(HATE:exact:0.4619)
+chị giàu chị nói cc gì chả đúng..,HATE,CLEAN,0.4619,0.0,1,cc gì(HATE:exact:0.4619)
+giày fake giày real cũng là giày đều mang vào chân đều đạp đất hên xui đạp cứt có gì đâu mà cứ phải phân biệt này nọ đã vậy k biết có tiền mua nổi đôi dép k ở đó mà tỏ ra thượng đẳng phân biệt fake & real,OFFENSIVE,CLEAN,0.4607,0.0,14,thượng đẳng(HATE:exact:0.4607) | giãy(HATE:accentless_alias:0.0) | giãy(OFFENSIVE:accentless_alias:0.0) | giãy(HATE:accentless_alias:0.0) | giãy(OFFENSIVE:accentless_alias:0.0)
+nhỉnh mặt là thấy ác quỷ rồi,OFFENSIVE,CLEAN,0.4579,0.0,1,mặt là(HATE:exact:0.4579)
+hô + môi dầy + thất học + vô văn hóa = linh cá lóc cóc 💩💩,HATE,CLEAN,0.4474,0.0,3,thất học(HATE:exact:0.4474) | hó(HATE:accentless_alias:0.0) | van hoa(HATE:accentless_alias:0.0)
+an dau buoi...an cut,OFFENSIVE,CLEAN,0.4342,0.165,3,ăn cứt(HATE:obfuscated_combined:0.2481) | đầu buồi(HATE:obfuscated_combined:0.2475) | đầu buồi(OFFENSIVE:obfuscated_combined:0.165)
+đm chúng nó chứ,HATE,OFFENSIVE,0.4092,0.4289,3,đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728) | nó chứ(OFFENSIVE:exact:0.2146)
+cc abe,HATE,OFFENSIVE,0.4287,0.2858,2,cc(HATE:exact:0.4287) | cc(OFFENSIVE:exact:0.2858)
+kêu ca cc -_- đấy là đặc sản nhân dịp tri ân khách hàng của thp đấy:->,HATE,OFFENSIVE,0.4287,0.2858,2,cc(HATE:exact:0.4287) | cc(OFFENSIVE:exact:0.2858)
+tôn nữ khiêm cung bạn thật sáng suốt. đó là nghề của nó. nói vậy chứ khi nó cmt nó cũng nhục lắm. bán lương tâm vài đồng cũng khổ,HATE,CLEAN,0.4262,0.1052,4,nhục(HATE:exact:0.4261) | đỏ là(OFFENSIVE:obfuscated_combined:0.1052) | nghễ(HATE:accentless_alias:0.0) | đổng(HATE:accentless_alias:0.0)
+"tao ngại phải dùng cái từ này nhưng mà ko nói ko được:' óc chó""",OFFENSIVE,CLEAN,0.4217,0.0,2,óc chó(HATE:exact:0.4217) | mả(HATE:accentless_alias:0.0)
+chai sting vô đầu nhá thầy cô lập cl à,HATE,OFFENSIVE,0.4139,0.2759,2,cl(HATE:exact:0.4139) | cl(OFFENSIVE:exact:0.2759)
+nhìn cái mặt đã thấy biến thái rồi,HATE,OFFENSIVE,0.4132,0.2755,2,biến thái(HATE:exact:0.4132) | biến thái(OFFENSIVE:exact:0.2755)
+"thằng mặc váy, bởi vậy hơn thua với đàn bà ra mặt 😂😂😂😂😂",HATE,CLEAN,0.4103,0.0,1,đàn bà(HATE:exact:0.4103)
+thinh hoang may là izakaya ở nhật chứ ở houston chết mẹ t:)),HATE,OFFENSIVE,0.4096,0.2731,3,chết mẹ(HATE:exact:0.4096) | chết mẹ(OFFENSIVE:exact:0.2731) | mày là(HATE:accentless_alias:0.0)
+đm nhái thg đây rồi...hình này năm nào mnguyễn tâm,HATE,OFFENSIVE,0.4092,0.2728,2,đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728)
+đm thầy🙂,HATE,OFFENSIVE,0.4092,0.2728,2,đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728)
+"đạt hồ thành đây đm, báo vs chí",HATE,OFFENSIVE,0.4092,0.2728,3,đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728) | hó(HATE:accentless_alias:0.0)
+kim thanh đm thanh nhé,HATE,OFFENSIVE,0.4092,0.2728,2,đm(HATE:exact:0.4092) | đm(OFFENSIVE:exact:0.2728)
+vâng chỉ có ở vn.... 1 đất nước tự do ngôn luận là thứ xa sĩ.... vãi vn...,HATE,CLEAN,0.4072,0.0,1,do ngôn(HATE:exact:0.4072)
+ngu thì làm mất kệ cmn,HATE,OFFENSIVE,0.3489,0.4067,3,ngu thì(HATE:exact:0.3489) | ngu thì(OFFENSIVE:exact:0.2326) | cmn(OFFENSIVE:exact:0.2269)
+bo chj ba cung co lon nua ha,HATE,CLEAN,0.4063,0.0,3,cung co(HATE:exact:0.4063) | lòn(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0)
+minh hoàng lần này bọn thái vẽ bo vc ra. lúc nào cũng tâm bo. 😞,OFFENSIVE,CLEAN,0.4058,0.0,1,này bọn(HATE:exact:0.4058)
+có lon đâu mà chùi.kkkk,OFFENSIVE,CLEAN,0.4012,0.0,4,chùi(HATE:exact:0.4012) | lòn(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+kien ne bố jack cmay mới nổi đc năm thằng thánh nện kia n nổi lâu rồi k có cty thì tuổi cẹc mà nổi đc như giời ngồi mà lo tr thế giới lo mà ăn vào mồm cho no ấy,HATE,CLEAN,0.3966,0.1441,7,chó nó(HATE:obfuscated_combined:0.2302) | thằng thành(HATE:obfuscated_combined:0.2162) | thằng thành(OFFENSIVE:obfuscated_combined:0.1441) | mả(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+"đa số bố mẹ lao vào kiếm tiền bất chấp cả gian dối, tham nhũng thì con nó cũng bất chấp vì tiền. thay bằng kiếm tiền xứng đáng và giành thời gian tình cảm cho con thì con nó cũng vì bố mẹ.... cha nào con lấy. công bằng thôi chỉ là khôn dại đồng tiền loá mắt",HATE,CLEAN,0.3938,0.0,6,tham nhũng(HATE:exact:0.3938) | láo(HATE:accentless_alias:0.0) | đảng(HATE:accentless_alias:0.0) | câm(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+mini tae dơ vcl,HATE,OFFENSIVE,0.0,0.3909,1,dơ vcl(OFFENSIVE:exact:0.3909)
+nước có màu cũng la không màu cũng la. nhờ ơn cộng sản mới đc vầy,HATE,OFFENSIVE,0.3885,0.259,2,cộng sản(HATE:exact:0.3885) | cộng sản(OFFENSIVE:exact:0.259)
+cả ngàn đại biểu qh qua 6 năm vẫn không thông nổi cái luật biểu tình dù nó có sờ sờ trong hiến pháp 2013! trong khi đó lại vung tiền làm trò mèo hù doạ nhân dân!,OFFENSIVE,CLEAN,0.375,0.0,4,hù(HATE:exact:0.375) | đụ(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+đế quốc tư bản ngoại bang thì muốn gắn 2 cái đảo đó vào việt nam! còn lãnh đạo đông lào thì lại muốn gắn cả việt nam vào dưới đít trung qq!!! thật oan nghiệt,HATE,OFFENSIVE,0.0,0.3736,7,qq(OFFENSIVE:exact:0.3736) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | đổng(HATE:accentless_alias:0.0) | láo(HATE:accentless_alias:0.0)
+máy con điên nầy sao không ai nhốt lại để loạn hết,HATE,CLEAN,0.3715,0.1331,3,mày con(HATE:obfuscated_combined:0.3715) | mày còn(OFFENSIVE:obfuscated_combined:0.1331) | sạo(HATE:accentless_alias:0.0)
+bạn đó đang nói móc con cháu thằng hồ nói miền nam vn lúc trc đó sao có nhiều người ngây thơ ghê.,HATE,OFFENSIVE,0.0,0.3596,8,miền nam vn(OFFENSIVE:exact:0.3596) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | đảng(HATE:accentless_alias:0.0) | hó(HATE:accentless_alias:0.0)
+game cu lon nay=))),OFFENSIVE,CLEAN,0.3595,0.0,1,lồn này(HATE:obfuscated_combined:0.3595)
+miệng con này còn thúi hơn cái hầm cầu,HATE,CLEAN,0.357,0.0,2,thúi(HATE:exact:0.357) | hãm(HATE:accentless_alias:0.0)
+"qua việc này anh em đừng kinh thường 1 con ruồi, dù nó đã chết nó cũng có thể làm cho 1 người đàn ông đi tù 7 năm. sức mạnh của 1 con ruồi chết ở đâu khủng thế???",OFFENSIVE,CLEAN,0.355,0.0,8,làm chó(HATE:obfuscated_combined:0.2107) | cung co(HATE:obfuscated_combined:0.1828) | rưởi(OFFENSIVE:accentless_alias:0.0) | đụ(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+bọn chống cộng đã già còn sợ chết,HATE,CLEAN,0.3543,0.0,1,chống cộng(HATE:exact:0.3543)
+ad càng ngày thấy càng ngu thì fải,HATE,CLEAN,0.3489,0.2326,2,ngu thì(HATE:exact:0.3489) | ngu thì(OFFENSIVE:exact:0.2326)
+"con này nói chuyện thì biết 0 có học,bit đường sống của nó là đúng, đó cũng là thay trời hành đạo",HATE,CLEAN,0.3406,0.0,3,của nó là(HATE:exact:0.3406) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+"ông này nói bậy nhiều lần, máy năm về trước tiên đoán cs sẻ giải thể để cho họ đào lên thế vậy mà bây giờ cũng còn dám bố nữa. chắc dịch bệnh nhiều quá quần lót khan hiếm khó mua cho nên không thấy ông ta trùm cái mặt lại",HATE,CLEAN,0.34,0.0,8,đám bò(HATE:obfuscated_combined:0.34) | mầy(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | hó(HATE:accentless_alias:0.0)
+minh luc co cai cam nhin vo la biet sua. nhung xau qua nhon. nhin la biet cam gia. xau. qua.,OFFENSIVE,CLEAN,0.3376,0.0,3,sua(HATE:exact:0.3376) | câm(HATE:accentless_alias:0.0) | câm(HATE:accentless_alias:0.0)
+dân việt chỉ cần clip xxx và bóng đá vn là đủ.còn mọi việc bán đất bán biển cứ để đảng và chính phủ lo.,HATE,CLEAN,0.3347,0.2274,4,đảng(HATE:exact:0.3347) | vn là(OFFENSIVE:exact:0.2274) | cặn(HATE:accentless_alias:0.0) | đụ(HATE:accentless_alias:0.0)
+tuyên truyền sao hiệu quả bằng mấy cái băng rôn giăng kín lối ở xứ thiên đường kaka. ca còn uống rượu lái xe rồi gây tai nạn làm gương nửa kia,HATE,CLEAN,0.3248,0.0,3,mày cái(HATE:obfuscated_combined:0.3248) | sạo(HATE:accentless_alias:0.0) | gay(HATE:accentless_alias:0.0)
+deo vang bong khg vay me bong bu cat cho,HATE,CLEAN,0.3228,0.0,4,cat(HATE:exact:0.3228) | đéo(HATE:accentless_alias:0.0) | đéo(OFFENSIVE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+con cat bu chan,OFFENSIVE,CLEAN,0.3228,0.0,1,cat(HATE:exact:0.3228)
+đôi khi quảng cáo với cái đầu ngắn nên bị tổ trác. thay vì hòa đồng thì cứ thích tỏ vẻ bố thiên hạ. chán ông vin fet,HATE,CLEAN,0.3181,0.0,2,cứ thích(HATE:exact:0.3181) | đổng(HATE:accentless_alias:0.0)
+"già rồi bà già. bớt cái mồn lại tính chuyện đất đai nằm ở đâu và đi về đâu đi bà già. trẻ trâu làm gì nó làm, mình già quất cần cẩu rồi mà tào lao.",HATE,CLEAN,0.3007,0.0,8,lam gi(HATE:obfuscated_combined:0.1747) | mà tao(HATE:obfuscated_combined:0.1527) | đĩ(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0) | trẩu(HATE:accentless_alias:0.0)
+đù mé,OFFENSIVE,CLEAN,0.2914,0.0,1,đụ mẹ(HATE:obfuscated_combined:0.2914)
+"thằng bê nầy nổ quá, cái miệng nầy tạo nghiệp, bê ng ta coi đc bê nầy khó coi quá",HATE,CLEAN,0.2908,0.0,2,nó qua(HATE:obfuscated_combined:0.1658) | này tao(HATE:obfuscated_combined:0.1499)
+công nghệ đức của nhà máy nước sông đuống đây:)) hoá ra là đức chung:)),HATE,CLEAN,0.2888,0.0,2,nhà mày(HATE:obfuscated_combined:0.2888) | nghễ(HATE:accentless_alias:0.0)
+dm ông can!,HATE,OFFENSIVE,0.2511,0.2798,3,dm(OFFENSIVE:exact:0.2798) | đmm(HATE:obfuscated_combined:0.2511) | cặn(HATE:accentless_alias:0.0)
+nhìn mặt xanh xao mà thương bác thật sự... nhắc đến lại dm nhung,HATE,OFFENSIVE,0.2511,0.2798,4,dm(OFFENSIVE:exact:0.2798) | đmm(HATE:obfuscated_combined:0.2511) | xạo(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+"t thề là nếu như dịch bệnh mà hết và con nhung này ra viện thì chắc là ai nhìn thấy nó thì cũng muốn lao vào xé xác nó ra ấy, thế có mà nó sợ tụt lờ k dám đi đâu đâu =)))))",HATE,CLEAN,0.0,0.2697,7,thề(OFFENSIVE:exact:0.2697) | mả(HATE:accentless_alias:0.0) | láo(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+"đjt mẹ dẹp dẹp hết, yêu đương lon gì h này đau đầu vlon",OFFENSIVE,CLEAN,0.2674,0.0,1,lồn gì(HATE:obfuscated_combined:0.2674)
+tội cho má nó...nghe nó nói vầy đau l... phải biết!,HATE,CLEAN,0.0,0.2631,3,nghe nó(OFFENSIVE:exact:0.2631) | chó(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+cánh hoa gì lạ l.o.n zị nè nguyễn mỹ diễm,HATE,CLEAN,0.2543,0.1427,2,lồn(HATE:obfuscated_combined:0.2543) | lòn(OFFENSIVE:obfuscated_combined:0.1427)
+"con, này, ăn,cuc, cả,thoi, giới",HATE,CLEAN,0.2435,0.1623,3,ăn cức(HATE:obfuscated_combined:0.2435) | ăn cức(OFFENSIVE:obfuscated_combined:0.1623) | cức(HATE:accentless_alias:0.0)
+hầu như các ca nhiễm bệnh toàn đi từ nước ngoài về nhỉ??? lúc mọi người về có nghĩ đến an toàn của bản thân cũng như mọi người ko nhỉ?? hay não bị vi rút ăn hết cmnr,HATE,CLEAN,0.2431,0.1621,3,như cặc(HATE:obfuscated_combined:0.2431) | như cặc(OFFENSIVE:obfuscated_combined:0.1621) | đĩ(HATE:accentless_alias:0.0)
+ở mỹ mà nhìn như ăn mài nhìn ghê quá,OFFENSIVE,CLEAN,0.0,0.2431,2,ở mỹ(OFFENSIVE:exact:0.2431) | mả(HATE:accentless_alias:0.0)
+giầu thế mà kg đi thẩm mỹ. cho nó xinh đi để tiền làm cái gì sấu như con quỷ,OFFENSIVE,CLEAN,0.2302,0.0,5,chó nó(HATE:obfuscated_combined:0.2302) | thề(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0)
+âm tính với covid là đúng rồi. nhưng dương tính với bệnh thần kinh. cách li nhầm cmn chỗ,OFFENSIVE,CLEAN,0.0,0.2269,2,cmn(OFFENSIVE:exact:0.2269) | chó(HATE:accentless_alias:0.0)
+"tôi không xem đâu mọi người ơi. chỉ bình luận thôi có được không. nói thật ông trần dần này (tôi cố tình không viết hoa để thể hiện sự tôn trọng với ông ấy). một con người đáng khinh. ảo tưởng không tự nhận ra mình là ai một thầy mo đúng nghĩa, chỉ có thể lừa bịp được những người dân tộc mà thôi. nói đến ông ta ai mà không tức cười 😂😂😂😂😂😄😁😁😃😂😂😃",HATE,CLEAN,0.0,0.214,8,nói đến(OFFENSIVE:exact:0.214) | ói(OFFENSIVE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0) | đảng(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+bởi dừa lờ t lắm cho chừa cái tật chơi dọng cha dọng mẹ rồi bị chặt:)))))),OFFENSIVE,CLEAN,0.2107,0.0,4,làm chó(HATE:obfuscated_combined:0.2107) | đũa(HATE:accentless_alias:0.0) | đổng(HATE:accentless_alias:0.0) | đổng(HATE:accentless_alias:0.0)
+tốt nhất không nên du nhập vào việt nam chúng ta phải giữ lấy thuần phong mỹ tục 😌 tôi thiết nghĩ nên chế tạo ra vòng đeo cho cái bọn không chửi bậy mà nhân cách sống như lon ý,OFFENSIVE,CLEAN,0.2087,0.1391,9,như lồn(HATE:obfuscated_combined:0.2087) | như lồn(OFFENSIVE:obfuscated_combined:0.1391) | đụ(HATE:accentless_alias:0.0) | tuc(HATE:accentless_alias:0.0) | đéo(HATE:accentless_alias:0.0)
+con thắm.m dí l vào hộ cái,HATE,CLEAN,0.1951,0.0,2,m đi(HATE:obfuscated_combined:0.1951) | hó(HATE:accentless_alias:0.0)
+loại này tử hình luôn cách ly làm gì cho tốn mỳ tôm 😁,HATE,CLEAN,0.1747,0.0,3,lam gi(HATE:obfuscated_combined:0.1747) | chó(HATE:accentless_alias:0.0) | tởm(OFFENSIVE:accentless_alias:0.0)
+bệnh dịch corona cuvid 19 lai tạo.con giặc corona cuvid 20 lai tạo. 2 loại này thuột dạng báo đời,OFFENSIVE,CLEAN,0.1743,0.0,2,tao còn(HATE:obfuscated_combined:0.1743) | đảng(HATE:accentless_alias:0.0)
+chưi cho nhiêu vô ơ đai loan nhiêu ngươi băc lăm đo con no đên cho may 1 trân ko cân quy lay đâu nha,HATE,CLEAN,0.0,0.1537,7,người bắc(OFFENSIVE:obfuscated_combined:0.1537) | chùi(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+hàn quốc không có dãy trường sơn và các láng giềng chết tiệt đó là một may mắn cho nam hàn! nếu không thì nam hàn đã bị bắc hàn thôn tính và cùng trở thành cộng hòa xã hội chủ nghĩa trung hoa!,OFFENSIVE,CLEAN,0.0,0.1052,5,đỏ là(OFFENSIVE:obfuscated_combined:0.1052) | cặc(HATE:accentless_alias:0.0) | cặc(OFFENSIVE:accentless_alias:0.0) | mầy(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+sao anh bảo là người ta viết điêu cho anh. đó là hiểu hiện của sự lươn lẹo dồi,HATE,CLEAN,0.0,0.1052,3,đỏ là(OFFENSIVE:obfuscated_combined:0.1052) | sạo(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+tôi chẳng hiểu gì cả.!!! có lẽ đó là câu... nói thật đầu tiên trong cuộc đời của chúng.!!!,HATE,CLEAN,0.0,0.1052,1,đỏ là(OFFENSIVE:obfuscated_combined:0.1052)
+"dân trả nợ, chứ các lãnh đạo đâu trả? nên vay cho lún lun?",HATE,CLEAN,0.0,0.0966,4,nó chứ(OFFENSIVE:obfuscated_combined:0.0966) | cặc(HATE:accentless_alias:0.0) | cặc(OFFENSIVE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+cứ phải chửi cho mới chịu im:))),OFFENSIVE,CLEAN,0.0,0.0,2,chùi(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+nghe giọng lứng quá,OFFENSIVE,CLEAN,0.0,0.0,1,nghễ(HATE:accentless_alias:0.0)
+lol này cây vô đầu nó mới sợ:),OFFENSIVE,CLEAN,0.0,0.0,0,
+thầy cởi quần thịt luôn,OFFENSIVE,CLEAN,0.0,0.0,0,
+"giá xăng rẻ hơn vài ngàn đồng, thu nhập cá nhân thì thấp hơn vài ngàn đô, thiên đường xhcn",HATE,CLEAN,0.0,0.0,3,đổng(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+"thật ra rất thích cái quần nhưng nay nó chật tiếc ko bỏ nên mặc tạo thành mẫu quần độc lạ, nhưng độc lạ đâu ko thấy chỉ thấy chỉ thấy lố",OFFENSIVE,CLEAN,0.0,0.0,0,
+chắc hít dạ hương xong lú cmnr,OFFENSIVE,CLEAN,0.0,0.0,1,lũ(HATE:accentless_alias:0.0)
+bú mạnh,OFFENSIVE,CLEAN,0.0,0.0,0,
+âm binh 🙂,OFFENSIVE,CLEAN,0.0,0.0,0,
+xa hoi tồi tệ,OFFENSIVE,CLEAN,0.0,0.0,0,
+sl,OFFENSIVE,CLEAN,0.0,0.0,0,
+tuy hơi ác nhưng tử hình mới dừa lòng t ý thức như b***,OFFENSIVE,CLEAN,0.0,0.0,1,đũa(HATE:accentless_alias:0.0)
+12 con giáp không dóng còn nào🤔,OFFENSIVE,CLEAN,0.0,0.0,1,đổng(HATE:accentless_alias:0.0)
+"thien binh trang \"" bạn lịch sự- admin lịch sự, b cục súc, - admin dí l vào mặt b luôn \"" =)))",OFFENSIVE,CLEAN,0.0,0.0,2,cức(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0)
+"thực dân pháp rất ác đè đầu cởi cổ thu trăm thư thuế, bây giờ dân tự nguyện đóng nghìn thứ thuế",OFFENSIVE,CLEAN,0.0,0.0,1,đổng(HATE:accentless_alias:0.0)
+nguyễn xuân bắc trend nhảm vl,OFFENSIVE,CLEAN,0.0,0.0,2,xuẩn(HATE:accentless_alias:0.0) | xuẩn(OFFENSIVE:accentless_alias:0.0)
+học tập và làm theo...đến tẩu hỏa nhập ma luôn,OFFENSIVE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+quânanh dogy chứ,HATE,CLEAN,0.0,0.0,0,
+nhờ ơn chị nhung cả nước hoang mang =.=,HATE,CLEAN,0.0,0.0,0,
+cút luôn hộ cái:)),OFFENSIVE,CLEAN,0.0,0.0,1,hó(HATE:accentless_alias:0.0)
+con này nó chửi cho đã rồi lên khóc lóc xin lỗi sao như bánh tráng mặt lật dữ vậy ta,HATE,CLEAN,0.0,0.0,4,chùi(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | sạo(HATE:accentless_alias:0.0) | đụ(HATE:accentless_alias:0.0)
+con nay no khung con hon con linh ca loc nua,HATE,CLEAN,0.0,0.0,0,
+nguyễn thuận k hay thì bảo k hay? căng clgb,HATE,CLEAN,0.0,0.0,0,
+"kéo khoá sợ ""ngột ngạt""",OFFENSIVE,CLEAN,0.0,0.0,0,
+gắt vãi đái ra nhé. cô giáo mà nt à 😆😆😂,HATE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+cà khịa vãi nồi. báo chí dạo này lắm phản động ah nha =)))),OFFENSIVE,CLEAN,0.0,0.0,1,đổng(HATE:accentless_alias:0.0)
+"má đi du lịch ở nước ngoài về, thì tự khai báo cach li di chứ,sao có loại người i thức kém vậy trời",HATE,CLEAN,0.0,0.0,5,mả(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0) | đụ(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0) | sạo(HATE:accentless_alias:0.0)
+đậu má thằng xuất bản,HATE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+thằng xamlol. m k dùng hay dùng thì t care à,HATE,CLEAN,0.0,0.0,0,
+con này hổn như gấu có gì mà ngưỡng mộ,HATE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+khoá việt-tiệp đây ạ.khắc việt khoá mõm khắc tiệp mại dô mại dô 😂😂😂,HATE,CLEAN,0.0,0.0,4,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+có tìn mua cuốn này về đốt,OFFENSIVE,CLEAN,0.0,0.0,0,
+ông này bị không bình thường hả mọi ngừi 🤧,HATE,CLEAN,0.0,0.0,0,
+khá bẩn=))),OFFENSIVE,CLEAN,0.0,0.0,0,
+quả báo đó con,HATE,CLEAN,0.0,0.0,2,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+ủa bê đê có lol hả ta??😂😂😂,OFFENSIVE,CLEAN,0.0,0.0,0,
+clgv abe!,HATE,CLEAN,0.0,0.0,0,
+ảo tưởng vãi lồnn,OFFENSIVE,CLEAN,0.0,0.0,0,
+"vff đang bận công chuyện rồi, thiết nghĩ năm nay mà bóng đá nữ mà giành vàng thì chớ có cho mấy lão vff đi nhờ chuyên cơ để ăn hôi như kỳ seagames trước =))",HATE,CLEAN,0.0,0.0,7,đảng(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | cho mày(HATE:accentless_alias:0.0)
+vl 😂,OFFENSIVE,CLEAN,0.0,0.0,0,
+thằng này nó chơi với tiến bịp hay sao mà nó lại k xanh chín thế ông nhỉ:)),HATE,CLEAN,0.0,0.0,3,sạo(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+éo cần nhé! cứ đè bọn dân ra là có tiền:)),OFFENSIVE,CLEAN,0.0,0.0,1,cặn(HATE:accentless_alias:0.0)
+tr ơi nhìn thầy giống con póng quá à.,HATE,CLEAN,0.0,0.0,1,ói(OFFENSIVE:accentless_alias:0.0)
+nát từ trên xuống. hỏi ai ra cái quyết định không được trinh sát đó?,OFFENSIVE,CLEAN,0.0,0.0,2,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+vài năm nữa đi ỉa chúng nó cũng bắt xin phép,OFFENSIVE,CLEAN,0.0,0.0,1,đĩ(HATE:accentless_alias:0.0)
+vc,OFFENSIVE,CLEAN,0.0,0.0,0,
+trông thầy giống bê đê vcl:))),HATE,CLEAN,0.0,0.0,0,
+vl anh tôi cà khịa căng thế,OFFENSIVE,CLEAN,0.0,0.0,1,thề(OFFENSIVE:accentless_alias:0.0)
+ý thức của chị nhung còn thua điểm lí của em,HATE,CLEAN,0.0,0.0,0,
+chẳng ra gì?,OFFENSIVE,CLEAN,0.0,0.0,0,
+con này hết thuốt chửa rồi.,HATE,CLEAN,0.0,0.0,0,
+tức vl,OFFENSIVE,CLEAN,0.0,0.0,1,tuc(HATE:accentless_alias:0.0)
+pr vc tộc trưởng ạ,OFFENSIVE,CLEAN,0.0,0.0,0,
+nguyễn long con bệnh,HATE,CLEAN,0.0,0.0,0,
+bích đú...,OFFENSIVE,CLEAN,0.0,0.0,1,đụ(HATE:accentless_alias:0.0)
+tưởng được quẩy như bên nước họ chứ:'(,HATE,CLEAN,0.0,0.0,1,hó(HATE:accentless_alias:0.0)
+luật pháp vn thật hài,HATE,CLEAN,0.0,0.0,0,
+chi ba bi ngao đa ha chi 3,HATE,CLEAN,0.0,0.0,1,ngạo(OFFENSIVE:accentless_alias:0.0)
+người nhật mà còn có thể loại ko não này thì bảo sao vn lại ko..chán dell muốn nói,HATE,CLEAN,0.0,0.0,3,mả(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0) | sạo(HATE:accentless_alias:0.0)
+"bố nó làm to, mẹ nó làm bự",OFFENSIVE,CLEAN,0.0,0.0,1,me no(HATE:accentless_alias:0.0)
+sam lon la nhieu,OFFENSIVE,CLEAN,0.0,0.0,2,lòn(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0)
+"trời ăn nói vậy mà giàu thì đâu có giá trị, bà ơi giàu có bị già chết ko? ngã mạng thấy sợ quá.",HATE,CLEAN,0.0,0.0,2,mả(HATE:accentless_alias:0.0) | ói(OFFENSIVE:accentless_alias:0.0)
+nhựt minh xóa đi quơi 😡,HATE,CLEAN,0.0,0.0,1,đĩ(HATE:accentless_alias:0.0)
+méo biết hát cái h,OFFENSIVE,CLEAN,0.0,0.0,0,
+cuoiis cùng ko ra cái méo gì vợ táng cho sml,OFFENSIVE,CLEAN,0.0,0.0,1,chó(HATE:accentless_alias:0.0)
+sắp tuyệt chủng rồi.,OFFENSIVE,CLEAN,0.0,0.0,0,
+cái đệch nó nhét tiền cho lòi họng rồi,OFFENSIVE,CLEAN,0.0,0.0,1,chó(HATE:accentless_alias:0.0)
+con nhỏ đả kích nick face nó là hoàng lệ.. thêm vô chữ xồn cho nó đẹp đó mà..kaka,HATE,CLEAN,0.0,0.0,4,chó nó(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+vn mjnh qua nhjeu luat an tien dan...😪,HATE,CLEAN,0.0,0.0,0,
+dug la con lih cho do lam tu cach kho ua va,HATE,CLEAN,0.0,0.0,3,chó(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+ăn nhiều rồi lú nó không có phúc đâu đời cha ăn mặn đời con khát nước,HATE,CLEAN,0.0,0.0,1,lũ(HATE:accentless_alias:0.0)
+hoi nao noi tot nguoi ta bay gio chac an kg duoc nua nen xoay qua chi tui la nguoi kg biet ai het nhung xem ba thay ghet qua ba hieu oi lat qua lat lai cung la ba mot cung chi ba hai cung chi ba bay gio chui tan nat ba la loai gi vay ba hieu be de nghe ma thay ghet,HATE,CLEAN,0.0,0.0,4,ói(OFFENSIVE:accentless_alias:0.0) | chùi(HATE:accentless_alias:0.0) | nghễ(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+"nói chứ nó rẫy chết mà tại chưa thấy thôi, nó giấu đó, một thanh niên cuồng cộng cho biết:))",OFFENSIVE,CLEAN,0.0,0.0,4,mả(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+"thêm bọn ko não nữa, nó còn trùm hơn cả phụ nữ",HATE,CLEAN,0.0,0.0,0,
+abe bucu,HATE,CLEAN,0.0,0.0,0,
+mưa gió nhhir dell họp,OFFENSIVE,CLEAN,0.0,0.0,0,
+ảo tưởng vãi lồnn,OFFENSIVE,CLEAN,0.0,0.0,0,
+con này hỗn quá.,HATE,CLEAN,0.0,0.0,0,
+"vcl!!! nat, nát",OFFENSIVE,CLEAN,0.0,0.0,0,
+vlòn.,OFFENSIVE,CLEAN,0.0,0.0,0,
+dan khung ma ten tri gi dau,HATE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+🌝 tôi lại ngỡ là do việt tân chạy chiếc xe đó đó chớ,HATE,CLEAN,0.0,0.0,7,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0)
+phản động là nói lên sự thật,OFFENSIVE,CLEAN,0.0,0.0,1,đổng(HATE:accentless_alias:0.0)
+giàu thì nói gì cũng được chị ơi,OFFENSIVE,CLEAN,0.0,0.0,1,ói(OFFENSIVE:accentless_alias:0.0)
+bán nam bán nữ,OFFENSIVE,CLEAN,0.0,0.0,0,
+đỷ mẹ,OFFENSIVE,CLEAN,0.0,0.0,0,
+tất cả cũng chỉ vì chữ tiền:),OFFENSIVE,CLEAN,0.0,0.0,0,
+vô chính phủ mà,HATE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+chuẩn mẹ rồi. mạng vô ko đc đúng ức chế,OFFENSIVE,CLEAN,0.0,0.0,0,
+nhac nhu lông lon thế chả bi hạch 😌😌,OFFENSIVE,CLEAN,0.0,0.0,3,lòn(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+tao chịu status này đó ad tụi dlv nghe nhột ko tụi bây kaka,HATE,CLEAN,0.0,0.0,3,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | nghễ(HATE:accentless_alias:0.0)
+chẳng khác nào hoa lài cặm bãi shit trâu:))),OFFENSIVE,CLEAN,0.0,0.0,3,câm(HATE:accentless_alias:0.0) | trẩu(HATE:accentless_alias:0.0) | trẩu(OFFENSIVE:accentless_alias:0.0)
+nhìn con này thấy gê quá,HATE,CLEAN,0.0,0.0,0,
+nào chưa có vợ thì sao dỗi vl,OFFENSIVE,CLEAN,0.0,0.0,1,sạo(HATE:accentless_alias:0.0)
+gái còn trinh mà cây đinh đứng xững,OFFENSIVE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+tương lai thanh niên bến tre đổi qua nghề ' trộm ' hết.,OFFENSIVE,CLEAN,0.0,0.0,1,nghễ(HATE:accentless_alias:0.0)
+mạng nguoi rẻ bèo,OFFENSIVE,CLEAN,0.0,0.0,0,
+dell hiểu cười méo j,OFFENSIVE,CLEAN,0.0,0.0,0,
+uyên uyên sao nó k chết thay ng khác nhỉ. khôn thế quê tao mồ xanh cỏ cả rồi,OFFENSIVE,CLEAN,0.0,0.0,2,sạo(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+ủa cái này trend bên vn thời sửu nhi 9x mà ta 🙄,OFFENSIVE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+cô my cho ăn chai sting vô đầu nha thầy,HATE,CLEAN,0.0,0.0,1,chó(HATE:accentless_alias:0.0)
+thứ thần kinh,HATE,CLEAN,0.0,0.0,0,
+sena ám bỏ mẹ,HATE,CLEAN,0.0,0.0,0,
+còn bạn giúp người bằng bàn phím,OFFENSIVE,CLEAN,0.0,0.0,0,
+đc ván hay ông giáo gáy khét vc=)) 🥰,OFFENSIVE,CLEAN,0.0,0.0,1,gay(HATE:accentless_alias:0.0)
+sì tai củ l gì thế này??,OFFENSIVE,CLEAN,0.0,0.0,1,thề(OFFENSIVE:accentless_alias:0.0)
+thủng từ nóc rùi,OFFENSIVE,CLEAN,0.0,0.0,0,
+2 con đien...,HATE,CLEAN,0.0,0.0,0,
+đù nhìn giống ba tam kê đội tóc giả vl,OFFENSIVE,CLEAN,0.0,0.0,1,đụ(HATE:accentless_alias:0.0)
+"với tình trạng người dân dọn dẹp nhà cửa trước tết đang leo thang. tôi đề nghị các ban ngành, cơ quan hữu quan phải có biện pháp cải thiện tình trạng bằng một số hình thức như tuyên truyền, răn đe, thu thuế môi trường thật nặng cho những ai dọn nhà cửa nhân dịp tết đến xuân về",OFFENSIVE,CLEAN,0.0,0.0,7,đảng(HATE:accentless_alias:0.0) | cặc(HATE:accentless_alias:0.0) | cặc(OFFENSIVE:accentless_alias:0.0) | hù(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+"cứ mỗi ngày lại có thêm ca nhiễm:)) mong chị nhung sớm khoẻ, mặc áo kẻ vào tù ăn thịt nướng rắc muối cho sang miệng 🖕🏻",HATE,CLEAN,0.0,0.0,2,rác(OFFENSIVE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0)
+vcl,OFFENSIVE,CLEAN,0.0,0.0,0,
+mượn song được thông ass không,OFFENSIVE,CLEAN,0.0,0.0,0,
+hqa mới ngửi mùi của sena nên nghiện mùi đit. hả thầy=))),HATE,CLEAN,0.0,0.0,1,dit(HATE:accentless_alias:0.0)
+có cứt,OFFENSIVE,CLEAN,0.0,0.0,0,
+thân lăm bây giò lại căn buôi nhau,OFFENSIVE,CLEAN,0.0,0.0,2,cặn(HATE:accentless_alias:0.0) | buồi(HATE:accentless_alias:0.0)
+đume lấy tiền đô đi đường quyền nó cô 💵💵💵,OFFENSIVE,CLEAN,0.0,0.0,3,dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0)
+ba khung,HATE,CLEAN,0.0,0.0,0,
+óc...,OFFENSIVE,CLEAN,0.0,0.0,0,
+doanh nghiệp thì cũng là dân. nói chính xác là lấy đất của người này giao cho người khác. và quan chức được hưởng lợi từ chênh lệch giá đất cực khủng. đó chính xác là sự cướp bóc.,HATE,CLEAN,0.0,0.0,4,chó(HATE:accentless_alias:0.0) | cức(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+biết bao nhiêu vụ chết người bị ém ko thể tả nổi..ở vn khủng bố ko phải là đánh bom mà là giết ng giấu tay,HATE,CLEAN,0.0,0.0,3,thề(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | tẩy(OFFENSIVE:accentless_alias:0.0)
+con yêu nghiệt ở đâu trồi lên dậy,OFFENSIVE,CLEAN,0.0,0.0,0,
+chỉ sợ cu ló ra,OFFENSIVE,CLEAN,0.0,0.0,0,
+"cai mon vo.5 ong luc to,hoc vao tau hoa nhap ma,cam sung ban ko dung dich,cam giao chat cung ko dut.ong tran dan nay,tap vo khi cong khoe den noi bay gan het rang.",HATE,CLEAN,0.0,0.0,3,mả(HATE:accentless_alias:0.0) | câm(HATE:accentless_alias:0.0) | câm(HATE:accentless_alias:0.0)
+nghe mà giận tím người,OFFENSIVE,CLEAN,0.0,0.0,2,nghễ(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+"chỉ có dân đen là chịu mọi sự bất công ở xứ sở này,tội nghiệp cho cháu hải 12 năm chưa được xét xử cho đúng, tôi theo dõi thấy nhiều việc mờ ám do con người cố tình tạo ra",OFFENSIVE,CLEAN,0.0,0.0,4,chó(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+má này chưa thấy quan tài chưa đổ lệ nè vậy mà còn chưa xấu mặt sao mà còn lên mạng chửi ta hoài thứ gì đâu á,HATE,CLEAN,0.0,0.0,7,mả(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | sạo(HATE:accentless_alias:0.0)
+nguyễn minh bo cua ngọc trinh corona,HATE,CLEAN,0.0,0.0,1,ngóc(HATE:accentless_alias:0.0)
+clg v,OFFENSIVE,CLEAN,0.0,0.0,0,
+"bác trọng: ""uy tín việt nam trên trường quốc tế lên cao, được nể trọng và có tiếng nói trên trường quốc tế"" =))) lol",OFFENSIVE,CLEAN,0.0,0.0,0,
+looks like lon,OFFENSIVE,CLEAN,0.0,0.0,2,lòn(HATE:accentless_alias:0.0) | lòn(OFFENSIVE:accentless_alias:0.0)
+vcl nghỉ me,OFFENSIVE,CLEAN,0.0,0.0,0,
+lam giong bede ws,OFFENSIVE,CLEAN,0.0,0.0,0,
+t đang nhìn clgv 🙂,OFFENSIVE,CLEAN,0.0,0.0,1,đảng(HATE:accentless_alias:0.0)
+hô hào tuyên truyền quyết tâm phòng dịch nhiều rồi một số người vẫn cố tình kô tuân thủ cách li ô phải dùng tới nắm đấm thôi.....,HATE,CLEAN,0.0,0.0,2,hó(HATE:accentless_alias:0.0) | damm(HATE:accentless_alias:0.0)
+bây h so hay sam gì nhìn cũng đ dám ăn 😢,OFFENSIVE,CLEAN,0.0,0.0,1,damm(HATE:accentless_alias:0.0)
+phang mẹ nhau đi,OFFENSIVE,CLEAN,0.0,0.0,1,đĩ(HATE:accentless_alias:0.0)
+giông giống con tâm thân,OFFENSIVE,CLEAN,0.0,0.0,0,
+"tội nghiệp con nhỏ, khùng lâu năm",HATE,CLEAN,0.0,0.0,0,
+thu hít trẻ trâu,HATE,CLEAN,0.0,0.0,2,trẩu(HATE:accentless_alias:0.0) | trẩu(OFFENSIVE:accentless_alias:0.0)
+xinh vaicalon y kien gi,OFFENSIVE,CLEAN,0.0,0.0,0,
+dân việt mình chịu chơi lắm!nợ trả góp có sao đâu...!nợ vay nóng còn chơi ok mà!nợ công cũng ko ngoại lẹ nhá!,HATE,CLEAN,0.0,0.0,2,sạo(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0)
+dell còn gì để nói:3,OFFENSIVE,CLEAN,0.0,0.0,0,
+như 💩,OFFENSIVE,CLEAN,0.0,0.0,0,
+thành cương nghĩ ló chán đmmmm,OFFENSIVE,CLEAN,0.0,0.0,2,đmm(HATE:accentless_alias:0.0) | dm(OFFENSIVE:accentless_alias:0.0)
+maria ozabe thời còn chơi bê đê,HATE,CLEAN,0.0,0.0,0,
+ngoc pham đệch,OFFENSIVE,CLEAN,0.0,0.0,1,ngóc(HATE:accentless_alias:0.0)
+link em gái ngon ngọt nước nè bao phê luôn,OFFENSIVE,CLEAN,0.0,0.0,1,phệ(HATE:accentless_alias:0.0)
+đẹp chỗ nào thế,OFFENSIVE,CLEAN,0.0,0.0,2,chó(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+thân hoài thương lại thêm 1 đứa tai trâu:)),HATE,CLEAN,0.0,0.0,3,đũa(HATE:accentless_alias:0.0) | trẩu(HATE:accentless_alias:0.0) | trẩu(OFFENSIVE:accentless_alias:0.0)
+giang hồ bần,HATE,CLEAN,0.0,0.0,1,hó(HATE:accentless_alias:0.0)
+vãi...,OFFENSIVE,CLEAN,0.0,0.0,0,
+bớt sống ảo giùm,OFFENSIVE,CLEAN,0.0,0.0,0,
+quyên phạm mịe:))),HATE,CLEAN,0.0,0.0,0,
+nên kết nạp lảo ta vào đcs vn để làm chủ tịch nước hay thủ tướng để lèo lái vn trở nên hùng mạnh như nam hàn để không còn ai trốn qua đó làm công hay ở đợ nữa!,HATE,CLEAN,0.0,0.0,5,láo(HATE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0) | dơ(HATE:accentless_alias:0.0) | dở(OFFENSIVE:accentless_alias:0.0)
+chui du da chi khau nghiep nhe cho rui ke le rui chui ha,HATE,CLEAN,0.0,0.0,4,chùi(HATE:accentless_alias:0.0) | đụ(HATE:accentless_alias:0.0) | chó(HATE:accentless_alias:0.0) | chùi(HATE:accentless_alias:0.0)
+"cs hô hào, thậm chí còn khủng khiếp hơn để tiến lên thiên đường, giờ tiến mãi mà chưa lên đến. rất ủng hộ tinh thần của quý vị, quý vị đã đạt được 60% sự thành công, 40% cần phải thể hiện. đôi khi hô to chưa chắc đã khỏe.",HATE,CLEAN,0.0,0.0,6,hó(HATE:accentless_alias:0.0) | mả(HATE:accentless_alias:0.0) | hó(HATE:accentless_alias:0.0) | cặn(HATE:accentless_alias:0.0) | thề(OFFENSIVE:accentless_alias:0.0)
+rô nói vậy chắc người việt không có ý thức bằng bọn nhật,HATE,CLEAN,0.0,0.0,1,rợ(HATE:accentless_alias:0.0)
+đúng là nhật cái gì cũng xịn ý thức rách cũng cho xịn hơn vn:)),HATE,CLEAN,0.0,0.0,1,chó(HATE:accentless_alias:0.0)
+bắc hàn là nghèo bền thật sự,HATE,CLEAN,0.0,0.0,0,
+cspccc mới là đc nhuần nhuyễn chứ csgt chuyên môn mẹ gì mà đòi kĩ lăng dập lửa. tự chửi mình đi.,HATE,CLEAN,0.0,0.0,3,mả(HATE:accentless_alias:0.0) | chùi(HATE:accentless_alias:0.0) | đĩ(HATE:accentless_alias:0.0)
+đúng là tay nhanh hơn não.,OFFENSIVE,CLEAN,0.0,0.0,1,tẩy(OFFENSIVE:accentless_alias:0.0)
+tuổi trẻ chưa trải sự đời...😂...phong cách quần què j v...😛,OFFENSIVE,CLEAN,0.0,0.0,0,
+mất mẹ fan cứng mặc dù vẫn tương tác đen vl,OFFENSIVE,CLEAN,0.0,0.0,1,đụ(HATE:accentless_alias:0.0)
+mixi mixi mixigaming - đitconme vô lý,OFFENSIVE,CLEAN,0.0,0.0,0,
+ngứa dái chưa kkkkk,OFFENSIVE,CLEAN,0.0,0.0,0,
+thời trang mà dell ra gì.,OFFENSIVE,CLEAN,0.0,0.0,1,mả(HATE:accentless_alias:0.0)
+nhảm,OFFENSIVE,CLEAN,0.0,0.0,0,
+chị pa nhận kiếm cu để bú,HATE,CLEAN,0.0,0.0,0,
+con ni bị bệnh nặng rồi,HATE,CLEAN,0.0,0.0,0,
+gia bảo bắt chước nhạt vl,OFFENSIVE,CLEAN,0.0,0.0,0,
+loại nghiện game + săm trổ k có tương lai đâu nha,HATE,CLEAN,0.0,0.0,0,
+ba nay rah wa luc nao thay chui ng ta hoai khug,HATE,CLEAN,0.0,0.0,1,chùi(HATE:accentless_alias:0.0)

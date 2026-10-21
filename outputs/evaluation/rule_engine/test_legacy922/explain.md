@@ -24,7 +24,7 @@
 | `classification_report.txt` | file | 389 B · 2026-10-19 09:47:22 |
 | `confusion_matrix.csv` | file | 120 B · 2026-10-19 09:47:22 |
 | `confusion_matrix.txt` | file | 452 B · 2026-10-19 09:47:22 |
-| `explain.md` | file | 2.3 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 2.3 KB · 2026-10-20 07:13:20 |
 | `false_negative_analysis.csv` | file | 56.7 KB · 2026-10-19 09:47:22 |
 | `false_positive_analysis.csv` | file | 92.4 KB · 2026-10-19 09:47:22 |
 | `latency.json` | file | 137 B · 2026-10-19 09:47:22 |
@@ -37,4 +37,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

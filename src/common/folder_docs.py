@@ -240,6 +240,9 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("27_tune_rule_weights.py", "**Tune trọng số scoring của rule engine** (`severity`, `match_factors`, `negation/quote/context_required_factor`, `aggregation_cap`) bằng coordinate descent trên **validation**; mỗi ứng viên tune lại threshold (macro-F1), mọi trial ghi vào `outputs/evaluation/rule_engine_tune/trials.csv`, cấu hình thắng ghi `configs/rule_engine_tuned.yaml`. Không bao giờ đọc test (plan §39, §44)."),
                 ("28_compare_rule_engines.py", "**So sánh 2 rule engine đã đóng băng** (baseline vs tuned): đọc `metrics.json`/`robustness.json`/`latency.json`/`thresholds.json` của cả hai run ở validation + test, diff cấu hình từ YAML, ghép báo kiểm định của script 26; ghi `outputs/evaluation/comparison/rule_engine/rule_engine_baseline_vs_tuned.md` + 3 hình (macro-F1, per-class F1, robustness). Không chấm lại split nào (plan §44)."),
                 ("29_plot_fusion_comparison.py", "**Hình so sánh fusion với AI-only**: đọc `metrics.json` từng model + `fusion_significance.json` đã có và sinh 4 hình vào `outputs/evaluation/fusion/` (macro-F1 + Δ, forest plot CI paired bootstrap, Δ của 4 biến thể fusion, F1 từng lớp). Chỉ đọc artifact đóng băng, không chấm lại split nào (plan §44)."),
+                ("30_plot_system_architecture.py", "**Sơ đồ kiến trúc toàn hệ thống** cho bài báo: vẽ nhánh AI (mDeBERTa-v3-base + multi-view head → xác suất) + nhánh rule (normalise → lexicon 668 term → điểm rule) hợp nhất bằng fusion `p' = p + β·r` (AI giữ trọng số 1, rule hạ trọng số β) rồi ngưỡng per-channel đóng băng; ghi `papers/figures/system_architecture.png`. Chỉ vẽ, không đọc dữ liệu thực nghiệm nào."),
+                ("31_ensemble_experiment.py", "**Thí nghiệm ensemble**: trung bình xác suất của 3 model đa dạng (`ens3`) hoặc cả 6 (`ens6`), có/không cộng `beta·rule_scores`; β và ngưỡng chọn trên **validation**, 4 ứng viên đóng băng rồi chấm test **một lần**; kiểm định paired bootstrap + McNemar của ứng viên chính (chọn theo val) và phần post-hoc cho ens6; ghi `outputs/evaluation/ensemble/` (plan §43-44)."),
+                ("32_plot_ensemble_comparison.py", "**Hình so sánh ensemble**: đọc `ensemble_metrics.json` + `significance.json` + số liệu 2 hệ thống tham chiếu (curriculum fusion, dlr2stage) và sinh 4 hình vào `outputs/evaluation/ensemble/` (bar test macro-F1, val vs test đảo chiều, forest plot CI paired bootstrap, F1 từng lớp). Chỉ đọc artifact đóng băng, không chấm lại split nào (plan §44)."),
                 ("README.md", "Hướng dẫn dùng từng script."),
                 ("explain.md", "File này."),
             ),
@@ -1307,20 +1310,57 @@ def _specs() -> Dict[str, FolderDoc]:
             ),
             keep_policy=KEEP_POLICY,
         ),
+        "evaluation/ensemble": FolderDoc(
+            title="evaluation/ensemble - thí nghiệm ensemble 6 model AI (+ cộng điểm rule)",
+            purpose=(
+                "Bốn ứng viên ensemble **đóng băng trên validation** rồi chấm test **một lần** (plan §44): "
+                "`ens3` (trung bình đều 3 model đầu ra/recipe đa dạng: base + customdlr2stage-ext + stage2), "
+                "`ens6` (cả 6 model), `ens3_rule`/`ens6_rule` (cộng `beta·rule_scores`, AI giữ trọng số 1). "
+                "β chọn trên validation từ {0.05, 0.11, 0.25, 0.5} cùng với ngưỡng per-class (101 điểm, 3 vòng "
+                "coordinate ascent). Ứng viên chính = có val macro-F1 cao nhất (`ens3_rule`, val 0.7280). "
+                "Kết quả test: ens3 0.6609, ens6 0.6685, ens3_rule 0.6614, ens6_rule 0.6669 so với SOTA cũ "
+                "(curriculum + fusion) 0.6647 và model đơn tốt nhất 0.6638. Ứng viên chính KHÔNG cải thiện "
+                "(-0.0033, CI [-0.0172, +0.0107], p=0.65); ens6 cao nhất (+0.0038) nhưng CI cũng chứa 0 "
+                "([-0.0066, +0.0143], p=0.48) và là lựa chọn post-hoc theo test."
+            ),
+            produced_by="`python scripts/31_ensemble_experiment.py` (plan §43-44); hình so sánh: `python scripts/32_plot_ensemble_comparison.py`",
+            contents=(
+                ("ensemble_report.md", "Báo chính: protocol đóng băng, bảng val/test của 4 ứng viên + 2 tham chiếu, kiểm định paired bootstrap + McNemar, kết luận."),
+                ("ensemble_metrics.json", "Toàn bộ số liệu val/test của từng ứng viên + tham chiếu ở dạng máy đọc."),
+                ("thresholds.json", "β và ngưỡng per-class đã đóng băng cho từng ứng viên (chỉ ghi nguồn từ validation)."),
+                ("ensemble_predictions.csv", "Dự đoán per-sample trên test của ứng viên chính (index, text, xác suất 3 lớp)."),
+                ("significance.json", "Kiểm định paired bootstrap (10.000 lần) + McNemar: ứng viên chính vs SOTA cũ và vs model đơn tốt nhất; kèm phần post-hoc cho ens6."),
+                ("ensemble_test_macro_f1.png", "Hình 1: thanh so macro-F1 test của 4 ứng viên + SOTA cũ + model đơn tốt nhất (kèm đường đứt nét rule engine) + panel phải Δ zoom so SOTA."),
+                ("ensemble_val_vs_test.png", "Hình 2: val vs test từng ứng viên - minh họa thứ hạng đảo chiều (val chọn ens3_rule, test thích ens6)."),
+                ("ensemble_delta_ci.png", "Hình 3 (forest plot): Δ = ứng viên − SOTA kèm CI 95% paired bootstrap; ứng viên chính và ens6 có CI, ens3/ens6_rule chỉ điểm ước lượng."),
+                ("ensemble_per_class_f1.png", "Hình 4: F1 từng lớp (HATE/OFFENSIVE/CLEAN) của 4 ứng viên + 2 tham chiếu."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Đọc `ensemble_report.md` để trả lời 'ensemble có cải thiện không?'.",
+                "Hình trực quan nhất: `ensemble_delta_ci.png` (CI có chứa 0 không?) rồi `ensemble_test_macro_f1.png` (số tuyệt đối).",
+                "Số liệu chính: ứng viên chính (chọn theo val) không cải thiện có ý nghĩa; ens6 (+0.0038) chỉ là dấu hiệu post-hoc.",
+                "Muốn trích vào báo cáo: dùng `ensemble_metrics.json` + `significance.json` (không cần đọc lại CSV).",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
         # ---------------- paper ---------------- #
         "papers/figures": FolderDoc(
             title="papers/figures - hình chính của bài báo",
-            purpose="Hình PNG **copy tự động** từ `outputs/evaluation/comparison/` để `main.tex` chèn được, không vẽ tay.",
-            produced_by="`python scripts/03_compare_models.py`",
+            purpose="Hình PNG của bài báo: phần lớn **copy tự động** từ `outputs/evaluation/comparison/` (script 03) để `main.tex` chèn được; riêng `system_architecture.png` do script 30 vẽ trực tiếp. Không vẽ tay.",
+            produced_by="`python scripts/03_compare_models.py` (hình so sánh model); `python scripts/30_plot_system_architecture.py` (sơ đồ kiến trúc toàn hệ thống)",
             contents=(
                 ("macro_f1_all_models.png / accuracy_all_models.png", "So sánh tổng hợp giữa các model."),
                 ("per_class_f1_all_models.png / f1_summary_all_models.png", "F1 theo từng lớp."),
                 ("confusion_matrices.png", "Lưới confusion matrix của các model."),
                 ("pr_*.png / roc_*.png", "Đường PR/ROC theo từng nhãn và macro."),
                 ("validation_loss_all_models.png / validation_accuracy_all_models.png", "Learning curve trên validation."),
+                ("system_architecture.png", "Sơ đồ kiến trúc toàn hệ thống: 2 nhánh (AI mDeBERTa-v3 + multi-view head + rule engine lexicon 668 term) hợp nhất qua fusion p'=p+βr (AI trọng số 1, rule hạ trọng số β) rồi ngưỡng đóng băng - dành cho mục Methodology của bài báo."),
                 ("explain.md", "File này."),
             ),
-            reading_guide=("File ở đây là **bản copy**; số liệu gốc nằm ở `outputs/evaluation/comparison/`.",),
+            reading_guide=(
+                "File ở đây là **bản copy**; số liệu gốc nằm ở `outputs/evaluation/comparison/` (riêng `system_architecture.png` do script 30 sinh trực tiếp).",
+            ),
             keep_policy="Sinh lại mỗi lần chạy `03_compare_models.py`; sửa tay sẽ bị ghi đè.",
         ),
         "papers/template": FolderDoc(

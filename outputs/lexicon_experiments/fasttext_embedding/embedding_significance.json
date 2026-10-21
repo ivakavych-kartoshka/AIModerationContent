@@ -1,0 +1,30 @@
+{
+  "embedding only": {
+    "delta": -0.000979,
+    "ci": [
+      -0.024489,
+      0.02324
+    ],
+    "p_value": 0.9338,
+    "mcnemar": {
+      "new_right_old_wrong": 236,
+      "new_wrong_old_right": 232,
+      "p_value": 0.889726
+    },
+    "significant_95": false
+  },
+  "current + embedding": {
+    "delta": 0.003036,
+    "ci": [
+      -0.019606,
+      0.026266
+    ],
+    "p_value": 0.811,
+    "mcnemar": {
+      "new_right_old_wrong": 269,
+      "new_wrong_old_right": 214,
+      "p_value": 0.013924
+    },
+    "significant_95": false
+  }
+}

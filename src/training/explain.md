@@ -24,7 +24,7 @@
 |---|---|---|
 | `__pycache__` | thư mục | 5 file, 93.8 KB |
 | `__init__.py` | file | 575 B · 2026-10-04 10:41:56 |
-| `explain.md` | file | 2.1 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.1 KB · 2026-10-20 07:13:19 |
 | `optim.py` | file | 10.7 KB · 2026-10-04 11:39:41 |
 | `run_experiment.py` | file | 18.9 KB · 2026-10-11 13:28:17 |
 | `stages.py` | file | 6.8 KB · 2026-10-11 12:01:16 |
@@ -32,4 +32,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

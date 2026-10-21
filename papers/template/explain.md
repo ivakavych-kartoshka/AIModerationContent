@@ -21,7 +21,7 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 1.7 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 1.7 KB · 2026-10-20 07:13:19 |
 | `fig1.eps` | file | 349.2 KB · 2026-09-07 00:28:37 |
 | `history.txt` | file | 8.2 KB · 2026-09-07 00:28:37 |
 | `llncs.cls` | file | 42.4 KB · 2026-09-07 00:28:37 |
@@ -36,4 +36,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

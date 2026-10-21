@@ -36,7 +36,7 @@
 | `sensitiveai-vi-customdlr2stage-ext` | thư mục | 4 file, 1.1 MB |
 | `sensitiveai-vi-stage2` | thư mục | 4 file, 1.2 MB |
 | `comparison.md` | file | 1.3 KB · 2026-10-19 13:14:33 |
-| `explain.md` | file | 5.2 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 5.2 KB · 2026-10-20 07:13:20 |
 | `fusion.log` | file | 12.8 KB · 2026-10-19 13:14:33 |
 | `fusion_ai_vs_fusion.png` | file | 90.0 KB · 2026-10-19 15:04:54 |
 | `fusion_delta_ci.png` | file | 68.3 KB · 2026-10-19 15:04:55 |
@@ -54,4 +54,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -1,0 +1,19 @@
+{
+  "corpus_rows": 135238,
+  "vocab": 2801185,
+  "smoothing": 1.0,
+  "min_prob": 0.25,
+  "candidates_scored": 1428,
+  "top_label_distribution": {
+    "HATE": 804,
+    "CLEAN": 329,
+    "OFFENSIVE": 295
+  },
+  "kept_entries": 1308,
+  "multi_label_entries": 585,
+  "splits": [
+    "train",
+    "dev",
+    "test"
+  ]
+}

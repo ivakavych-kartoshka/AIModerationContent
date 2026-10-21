@@ -26,12 +26,13 @@
 |---|---|---|
 | `analysis` | thư mục | 7 file, 75.3 KB |
 | `comparison` | thư mục | 42 file, 3.1 MB |
+| `ensemble` | thư mục | 10 file, 1.2 MB |
 | `fusion` | thư mục | 33 file, 7.5 MB |
 | `logs` | thư mục | 2 file, 3.7 KB |
 | `per_model` | thư mục | 125 file, 15.6 MB |
 | `rule_engine` | thư mục | 50 file, 2.7 MB |
 | `rule_engine_tuned` | thư mục | 43 file, 2.5 MB |
-| `explain.md` | file | 2.7 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 2.8 KB · 2026-10-20 07:13:19 |
 | `rule_engine_tuned_pruning_ablation_val.json` | file | 1.5 KB · 2026-10-19 10:17:39 |
 
 ## Cách đọc
@@ -41,4 +42,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:44. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

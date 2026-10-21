@@ -21,7 +21,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `accuracy_all_models.png` | file | 61.6 KB · 2026-10-15 21:20:16 |
-| `explain.md` | file | 2.3 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.3 KB · 2026-10-20 07:13:19 |
 | `f1_summary_all_models.png` | file | 67.1 KB · 2026-10-15 21:20:16 |
 | `macro_f1_all_models.png` | file | 62.8 KB · 2026-10-15 21:20:16 |
 | `per_class_f1_all_models.png` | file | 54.9 KB · 2026-10-15 21:20:16 |
@@ -43,4 +43,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

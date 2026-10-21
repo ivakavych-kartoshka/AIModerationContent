@@ -30,7 +30,7 @@
 | `logs` | thư mục | 2 file, 4.1 KB |
 | `per_model` | thư mục | 75 file, 10.3 MB |
 | `rule_engine` | thư mục | 3 file, 8.0 KB |
-| `explain.md` | file | 2.8 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.8 KB · 2026-10-20 07:13:19 |
 
 ## Cách đọc
 
@@ -39,4 +39,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

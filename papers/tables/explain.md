@@ -24,7 +24,7 @@
 | `ablation_results.tex` | file | 788 B · 2026-10-14 23:56:09 |
 | `classification_results.tex` | file | 1.1 KB · 2026-10-14 23:56:09 |
 | `duplicate_free.tex` | file | 958 B · 2026-10-15 18:48:29 |
-| `explain.md` | file | 2.0 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.0 KB · 2026-10-20 07:13:19 |
 | `fusion_significance.tex` | file | 1.2 KB · 2026-10-19 13:26:05 |
 | `model_comparison.tex` | file | 1.1 KB · 2026-10-15 00:50:35 |
 | `robustness.tex` | file | 773 B · 2026-10-19 08:30:43 |
@@ -35,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

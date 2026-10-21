@@ -22,7 +22,7 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 2.5 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 2.5 KB · 2026-10-20 07:13:19 |
 | `smoke_test.json` | file | 3.4 KB · 2026-10-19 14:29:26 |
 | `smoke_test.md` | file | 2.1 KB · 2026-10-19 14:29:26 |
 
@@ -34,4 +34,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:44. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

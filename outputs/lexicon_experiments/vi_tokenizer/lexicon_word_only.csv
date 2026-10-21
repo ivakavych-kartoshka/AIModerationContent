@@ -1,0 +1,262 @@
+entry_id,term,canonical_form,lexical_labels,severity,confidence,context_required,source_datasets,source_split,review_status,dictionary_version
+exp-vi-00001,a jerk,a jerk,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00002,ad lại,ad lại,HATE,0.9,0.7387,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00003,ad nó,ad nó,HATE,0.9,0.8381,false,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00004,ad óc,ad óc,HATE,0.9,0.92,false,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00007,banh xac,banh xac,HATE,0.9,0.8039,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00010,bias,bias,HATE,0.9,0.6607,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00011,biến thái,biến thái,HATE;OFFENSIVE,0.9,0.6423,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00015,buồi,buồi,HATE,0.9,0.8204,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00018,bá dơ,bá dơ,HATE,0.9,0.8643,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00021,bóc lột,bóc lột,HATE,0.9,0.8098,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00022,bóng chó,bóng chó,HATE,0.9,0.84,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00023,bú đá,bú đá,HATE,0.9,0.7787,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00027,bảo tao,bảo tao,HATE,0.9,0.7348,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00028,bất mãn,bất mãn,HATE,0.9,0.7328,true,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00029,bất tài,bất tài,HATE,0.9,0.8423,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00031,bắn chết,bắn chết,HATE,0.9,0.8638,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00032,bệnh hoạn,bệnh hoạn,HATE;OFFENSIVE,0.9,0.6991,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00036,bị ghét,bị ghét,HATE,0.9,0.6541,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00037,bị mỹ,bị mỹ,OFFENSIVE,0.6,0.7456,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00038,bị ngu,bị ngu,HATE,0.9,0.7381,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00040,bọn dlv,bọn dlv,HATE,0.9,0.7523,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00041,bọn tao,bọn tao,HATE,0.9,0.6357,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00042,bọn tàu,bọn tàu,HATE,0.9,0.8723,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00045,bụng phệ,bụng phệ,HATE,0.9,0.6187,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00049,cat,cat,HATE,0.9,0.6038,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00057,cho mỹ,cho mỹ,HATE,0.9,0.7562,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00062,chán ghê,chán ghê,HATE,0.9,0.5528,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00067,chó chết,chó chết,HATE,0.9,0.7923,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00068,chó ngu,chó ngu,HATE,0.9,0.88,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00069,chó nó,chó nó,HATE,0.9,0.8414,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00070,chó vàng,chó vàng,HATE,0.9,0.928,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00071,chó đẻ,chó đẻ,HATE,0.9,0.9472,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00072,chóp bu,chóp bu,HATE,0.9,0.8897,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00073,chùi,chùi,HATE,0.9,0.7109,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00080,chất độc,chất độc,HATE,0.9,0.8006,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00083,chắc m,chắc m,HATE,0.9,0.8362,false,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00084,chắc mày,chắc mày,HATE,0.9,0.8,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00086,chết con,chết con,HATE,0.9,0.8584,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00088,chết sớm,chết sớm,HATE,0.9,0.8713,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00093,chống cộng,chống cộng,HATE,0.9,0.6571,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00094,chụp mũ,chụp mũ,HATE,0.9,0.6019,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00102,chửi mấy,chửi mấy,HATE;OFFENSIVE,0.9,0.6677,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00104,chửi người,chửi người,HATE,0.9,0.7421,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00105,chửi nó,chửi nó,HATE,0.9,0.6976,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00106,chửi tao,chửi tao,HATE,0.9,0.7756,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00108,clmm,clmm,HATE,0.9,0.96,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00111,comment của,comment của,OFFENSIVE,0.6,0.6052,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00116,con dân,con dân,HATE,0.9,0.7767,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00125,cu đen,cu đen,HATE,0.9,0.99,false,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00127,càng nói,càng nói,HATE,0.9,0.6784,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00141,cái nết,cái nết,HATE,0.9,0.6226,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00148,cái đám,cái đám,HATE,0.9,0.739,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00155,còn dân,còn dân,HATE,0.9,0.7128,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00157,có cl,có cl,HATE,0.9,0.7716,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00160,có lời,có lời,HATE,0.9,0.6301,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00165,cô hồn,cô hồn,HATE,0.9,0.8268,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00166,côn đồ,côn đồ,HATE,0.9,0.4845,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00169,cũng chửi,cũng chửi,HATE,0.9,0.7572,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00179,cụ mày,cụ mày,HATE,0.9,0.8381,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00180,củ cặc,củ cặc,HATE,0.9,0.8497,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00192,diệm có,diệm có,OFFENSIVE,0.6,0.7218,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00193,diệm thì,diệm thì,OFFENSIVE,0.6,0.6529,true,bontori,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00195,dm thằng,dm thằng,HATE,0.9,0.8479,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00196,dmcs,dmcs,HATE,0.9,0.798,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00199,du ma,du ma,HATE,0.9,0.8077,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00200,duma,duma,HATE;OFFENSIVE,0.9,0.5279,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00201,dân bắc,dân bắc,HATE;OFFENSIVE,0.9,0.6596,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00202,dân hàn,dân hàn,HATE;OFFENSIVE,0.9,0.672,true,bontori,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00203,dân miền,dân miền,HATE;OFFENSIVE,0.9,0.5604,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00208,dơ vcl,dơ vcl,HATE;OFFENSIVE,0.9,0.5302,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00209,dạy quá,dạy quá,HATE,0.9,0.6379,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00210,dạy đời,dạy đời,HATE;OFFENSIVE,0.9,0.5861,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00211,dẩm,dẩm,HATE,0.9,0.7513,true,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00215,dở hơi,dở hơi,HATE;OFFENSIVE,0.9,0.5489,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00221,fat ugly,fat ugly,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00222,flair,flair,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00229,giải tỏa,giải tỏa,HATE,0.9,0.6515,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00230,go away,go away,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00235,gốc gác,gốc gác,HATE,0.9,0.4733,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00239,hay mày,hay mày,HATE,0.9,0.8136,false,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00241,hiếp,hiếp,HATE,0.9,0.729,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00243,hiểu kiểu,hiểu kiểu,OFFENSIVE,0.6,0.6402,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00245,hiểu mày,hiểu mày,HATE,0.9,0.6187,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00246,hài vcl,hài vcl,HATE,0.9,0.6081,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00248,hút máu,hút máu,HATE,0.9,0.7847,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00251,hả con,hả con,HATE,0.9,0.9133,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00252,hả mày,hả mày,HATE,0.9,0.8915,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00254,hết của,hết của,HATE,0.9,0.8479,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00257,hộ tao,hộ tao,HATE,0.9,0.84,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00267,khốn nạn,khốn nạn,HATE,0.9,0.8267,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00268,khựa,khựa,HATE,0.9,0.7925,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00275,kẹc,kẹc,HATE,0.9,0.73,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00278,lam gi,lam gi,HATE,0.9,0.7325,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00279,les,les,HATE,0.9,0.88,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00285,loz gì,loz gì,HATE,0.9,0.9133,false,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00286,lozz,lozz,HATE;OFFENSIVE,0.9,0.647,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00287,loại ngu,loại ngu,HATE,0.9,0.8381,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00290,lz,lz,HATE,0.9,0.7547,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00293,là chửi,là chửi,HATE,0.9,0.6313,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00297,là luật,là luật,HATE,0.9,0.714,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00300,là ngu,là ngu,HATE,0.9,0.7872,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00305,là tụi,là tụi,HATE,0.9,0.6497,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00330,lùm,lùm,OFFENSIVE,0.6,0.5908,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00332,lũ bò,lũ bò,HATE,0.9,0.88,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00333,lươn lẹo,lươn lẹo,HATE;OFFENSIVE,0.9,0.5043,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00334,lại sủa,lại sủa,HATE,0.9,0.944,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00338,lệ con,lệ con,OFFENSIVE,0.6,0.7607,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00342,lồn má,lồn má,HATE;OFFENSIVE,0.9,0.6756,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00343,lồn mẹ,lồn mẹ,HATE,0.9,0.958,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00344,lồn này,lồn này,HATE,0.9,0.96,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00345,lợn viên,lợn viên,HATE,0.9,0.7638,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00346,m cứ,m cứ,OFFENSIVE,0.6,0.5306,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00347,m muốn,m muốn,HATE,0.9,0.7204,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00351,m đi,m đi,HATE,0.9,0.7356,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00354,me no,me no,HATE,0.9,0.7542,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00356,musk,musk,HATE,0.9,0.5209,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00357,mà dơ,mà dơ,HATE;OFFENSIVE,0.9,0.5063,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00362,mà sủa,mà sủa,HATE,0.9,0.9032,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00368,mày con,mày con,HATE,0.9,0.928,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00369,mày cái,mày cái,HATE,0.9,0.9044,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00371,mày phải,mày phải,HATE,0.9,0.9052,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00372,mày ra,mày ra,HATE,0.9,0.8169,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00373,mày rồi,mày rồi,HATE,0.9,0.7638,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00374,mày về,mày về,HATE,0.9,0.6037,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00375,mày à,mày à,HATE,0.9,0.8808,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00376,mày đang,mày đang,HATE,0.9,0.8209,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00377,mày đã,mày đã,HATE,0.9,0.5867,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00378,mày đấy,mày đấy,HATE,0.9,0.9741,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00380,mõm vào,mõm vào,HATE,0.9,0.7884,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00383,mất dạy,mất dạy,HATE,0.9,0.8177,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00393,mặt con,mặt con,HATE,0.9,0.7582,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00394,mặt là,mặt là,HATE,0.9,0.6418,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00395,mẹ bọn,mẹ bọn,HATE,0.9,0.9454,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00397,mẹ cái,mẹ cái,HATE,0.9,0.7195,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00398,mẹ j,mẹ j,HATE,0.9,0.8136,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00400,mẹ mấy,mẹ mấy,HATE,0.9,0.8176,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00404,mẹ nhà,mẹ nhà,HATE,0.9,0.5912,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00406,mẹ r,mẹ r,HATE;OFFENSIVE,0.9,0.577,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00407,mẹ tao,mẹ tao,HATE,0.9,0.5022,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00408,mị dân,mị dân,HATE,0.9,0.7765,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00409,mỏ như,mỏ như,HATE,0.9,0.8497,false,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00410,mồ tổ,mồ tổ,HATE,0.9,0.84,false,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00416,mụ này,mụ này,HATE,0.9,0.8416,false,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00421,ng việt,ng việt,HATE;OFFENSIVE,0.9,0.6253,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00424,nghiệp quật,nghiệp quật,HATE;OFFENSIVE,0.9,0.6514,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00426,ngu của,ngu của,HATE,0.9,0.8179,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00427,ngu dân,ngu dân,HATE,0.9,0.8248,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00428,ngu học,ngu học,HATE,0.9,0.7344,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00429,ngu lắm,ngu lắm,HATE,0.9,0.8112,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00432,ngu si,ngu si,HATE,0.9,0.8808,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00433,ngu v,ngu v,HATE,0.9,0.8915,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00438,người bắc,người bắc,OFFENSIVE,0.6,0.6342,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00444,ngụy biện,ngụy biện,HATE;OFFENSIVE,0.9,0.5783,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00445,ngụy quyền,ngụy quyền,OFFENSIVE,0.6,0.6446,true,bontori,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00452,nhé con,nhé con,HATE,0.9,0.8377,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00456,như bọn,như bọn,HATE,0.9,0.7344,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00459,như cặc,như cặc,HATE,0.9,0.6536,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00464,như tao,như tao,HATE,0.9,0.6709,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00465,nhưng bọn,nhưng bọn,HATE;OFFENSIVE,0.9,0.5489,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00466,nhận mình,nhận mình,HATE,0.9,0.6411,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00469,nhục,nhục,HATE,0.9,0.7355,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00470,npc,npc,OFFENSIVE,0.6,0.7607,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00474,này bọn,này bọn,HATE,0.9,0.776,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00477,này đéo,này đéo,HATE,0.9,0.7278,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00483,nó nghĩ,nó nghĩ,HATE,0.9,0.7702,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00486,nó qua,nó qua,HATE,0.9,0.7052,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00488,nó đăng,nó đăng,HATE,0.9,0.811,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00491,nói tao,nói tao,HATE,0.9,0.7822,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00496,nết,nết,HATE,0.9,0.7036,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00499,nứng,nứng,HATE;OFFENSIVE,0.9,0.6751,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00500,nữa tao,nữa tao,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00502,opinion,opinion,HATE,0.9,0.5678,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00507,phệ,phệ,HATE,0.9,0.5642,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00512,porn,porn,HATE,0.9,0.6923,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00513,post bài,post bài,HATE,0.9,0.6584,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00518,quy chụp,quy chụp,HATE;OFFENSIVE,0.9,0.5041,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00519,quán cf,quán cf,HATE,0.9,0.4733,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00527,retarded,retarded,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00530,roast,roast,HATE,0.9,0.7392,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00535,rồi thằng,rồi thằng,HATE,0.9,0.6856,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00536,sao mày,sao mày,HATE,0.9,0.795,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00538,scam,scam,HATE;OFFENSIVE,0.9,0.542,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00539,shithead,shithead,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00541,stfu,stfu,HATE,0.9,0.76,false,vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00543,subreddit,subreddit,HATE,0.9,0.7392,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00546,suy luận,suy luận,HATE;OFFENSIVE,0.9,0.5829,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00547,sướng mồm,sướng mồm,HATE,0.9,0.6489,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00548,sạo lồn,sạo lồn,HATE,0.9,0.8381,false,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00551,t chửi,t chửi,HATE,0.9,0.8176,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00552,t ghét,t ghét,HATE;OFFENSIVE,0.9,0.6354,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00556,t đéo,t đéo,HATE;OFFENSIVE,0.9,0.6903,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00557,ta rồi,ta rồi,HATE,0.9,0.6133,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00558,ta đây,ta đây,HATE,0.9,0.6856,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00560,tao bảo,tao bảo,HATE,0.9,0.5867,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00561,tao cái,tao cái,HATE,0.9,0.7646,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00562,tao gặp,tao gặp,HATE,0.9,0.6283,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00563,tao ko,tao ko,HATE,0.9,0.7842,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00566,tao tao,tao tao,HATE,0.9,0.7607,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00567,tao thì,tao thì,HATE,0.9,0.873,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00568,tao đang,tao đang,HATE,0.9,0.7387,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00570,tay ra,tay ra,HATE,0.9,0.6048,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00574,tham quan,tham quan,HATE,0.9,0.6949,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00577,theo pháp,theo pháp,OFFENSIVE,0.6,0.7143,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00582,thì cút,thì cút,HATE,0.9,0.6482,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00597,thùy tiên,thùy tiên,OFFENSIVE,0.6,0.7298,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00598,thúi,thúi,HATE,0.9,0.6793,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00601,thấp lại,thấp lại,HATE;OFFENSIVE,0.9,0.5413,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00603,thất học,thất học,HATE,0.9,0.7352,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00604,thấy mày,thấy mày,HATE,0.9,0.8712,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00606,thầy ngu,thầy ngu,HATE,0.9,0.649,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00607,thầy xạo,thầy xạo,HATE,0.9,0.7542,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00611,thằng cha,thằng cha,HATE,0.9,0.7026,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00614,thằng trên,thằng trên,HATE,0.9,0.6224,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00617,thằng ở,thằng ở,HATE,0.9,0.7644,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00618,thế mày,thế mày,HATE,0.9,0.8797,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00620,thế tao,thế tao,HATE,0.9,0.649,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00624,thở ra,thở ra,HATE,0.9,0.7435,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00626,thủ đoạn,thủ đoạn,HATE,0.9,0.7479,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00646,tài mà,tài mà,HATE;OFFENSIVE,0.9,0.6441,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00647,tài tình,tài tình,HATE,0.9,0.6998,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00649,tàu khựa,tàu khựa,HATE,0.9,0.7577,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00657,tổ tiên,tổ tiên,HATE,0.9,0.7413,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00661,tụi m,tụi m,HATE,0.9,0.6514,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00666,vn còn,vn còn,HATE;OFFENSIVE,0.9,0.5633,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00670,và bọn,và bọn,HATE,0.9,0.8575,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00672,vì mày,vì mày,HATE,0.9,0.5678,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00674,vơ đũa,vơ đũa,HATE,0.9,0.7245,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00676,vậy m,vậy m,HATE;OFFENSIVE,0.9,0.6054,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00677,vậy thằng,vậy thằng,HATE,0.9,0.4555,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00678,vẹo,vẹo,HATE,0.9,0.7408,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00683,với mày,với mày,HATE,0.9,0.8034,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00686,vừa thôi,vừa thôi,HATE;OFFENSIVE,0.9,0.5544,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00687,wibu,wibu,HATE;OFFENSIVE,0.9,0.5413,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00692,xạo l,xạo l,HATE,0.9,0.8539,false,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00704,ăn cức,ăn cức,HATE,0.9,0.9133,false,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00707,đa cấp,đa cấp,HATE,0.9,0.7502,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00713,đi cháu,đi cháu,HATE,0.9,0.7539,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00714,đi fan,đi fan,OFFENSIVE,0.6,0.8365,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00716,đi nói,đi nói,OFFENSIVE,0.6,0.6589,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00720,đm nó,đm nó,HATE,0.9,0.7374,true,bontori;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00721,đm thằng,đm thằng,HATE,0.9,0.8868,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00722,đmcs,đmcs,HATE,0.9,0.8997,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00723,đmm,đmm,HATE,0.9,0.8803,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00724,đàn bò,đàn bò,HATE,0.9,0.8516,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00726,đá đểu,đá đểu,OFFENSIVE,0.6,0.9173,true,bontori,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00727,đám này,đám này,HATE,0.9,0.5887,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00731,đánh tráo,đánh tráo,OFFENSIVE,0.6,0.6887,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00736,đéo nghe,đéo nghe,HATE,0.9,0.6082,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00737,đéo nói,đéo nói,HATE,0.9,0.7328,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00739,đéo thèm,đéo thèm,HATE,0.9,0.76,true,bontori;vicm,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00740,đéo thể,đéo thể,HATE;OFFENSIVE,0.9,0.6041,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00741,đê bóng,đê bóng,HATE,0.9,0.76,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00752,được mày,được mày,HATE,0.9,0.7904,false,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00753,đạo nhái,đạo nhái,HATE;OFFENSIVE,0.9,0.6157,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00761,đếch gì,đếch gì,HATE,0.9,0.6823,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00772,đỏ là,đỏ là,HATE;OFFENSIVE,0.9,0.4523,true,bontori;vicm,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00774,đỡ chật,đỡ chật,HATE;OFFENSIVE,0.9,0.4523,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00777,đợi đợi,đợi đợi,OFFENSIVE,0.6,0.8499,true,bontori;vihsd,train,auto,corpus-vocab-expansion-2026-10-20
+exp-vi-00780,ấu dâm,ấu dâm,HATE,0.9,0.871,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00781,ẳng,ẳng,HATE,0.9,0.8291,true,bontori;vicm;vihsd,train,verified,corpus-vocab-expansion-2026-10-20
+exp-vi-00782,ỉa ra,ỉa ra,HATE,0.9,0.6717,true,bontori;vicm;vihsd,train,auto,corpus-vocab-expansion-2026-10-20

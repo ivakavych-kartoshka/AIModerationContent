@@ -23,7 +23,7 @@
 |---|---|---|
 | `__pycache__` | thư mục | 3 file, 61.4 KB |
 | `__init__.py` | file | 824 B · 2026-10-19 07:09:20 |
-| `explain.md` | file | 2.4 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.4 KB · 2026-10-20 07:13:19 |
 | `run_fusion.py` | file | 29.5 KB · 2026-10-19 07:10:33 |
 | `weighted_fusion.py` | file | 11.9 KB · 2026-10-19 07:09:11 |
 
@@ -34,4 +34,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

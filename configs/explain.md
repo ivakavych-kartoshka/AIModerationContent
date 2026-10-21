@@ -26,7 +26,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `data_split.yaml` | file | 2.0 KB · 2026-10-04 10:45:52 |
-| `explain.md` | file | 3.8 KB · 2026-10-19 15:06:19 |
+| `explain.md` | file | 3.8 KB · 2026-10-20 07:13:19 |
 | `hybrid_fusion.yaml` | file | 2.4 KB · 2026-10-19 13:34:35 |
 | `phobert-base.yaml` | file | 2.0 KB · 2026-10-15 15:32:13 |
 | `rule_engine.yaml` | file | 2.1 KB · 2026-10-17 01:00:08 |
@@ -45,4 +45,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

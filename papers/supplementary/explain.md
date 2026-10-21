@@ -25,7 +25,7 @@
 | `figures` | thư mục | 58 file, 5.6 MB |
 | `sections` | thư mục | 3 file, 15.2 KB |
 | `tables` | thư mục | 12 file, 14.8 KB |
-| `explain.md` | file | 2.4 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.4 KB · 2026-10-20 07:13:19 |
 | `llncs.cls` | file | 42.4 KB · 2026-09-07 00:28:37 |
 | `main.aux` | file | 24.8 KB · 2026-10-15 23:05:13 |
 | `main.bbl` | file | 1.3 KB · 2026-10-15 23:05:08 |
@@ -46,4 +46,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

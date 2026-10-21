@@ -28,7 +28,7 @@
 | `per_model` | thư mục | 37 file, 3.2 MB |
 | `confusion_grid.png` | file | 156.2 KB · 2026-10-15 21:20:15 |
 | `error_overlap.png` | file | 51.3 KB · 2026-10-15 21:20:16 |
-| `explain.md` | file | 1.9 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 1.9 KB · 2026-10-20 07:13:19 |
 | `reliability.png` | file | 224.0 KB · 2026-10-15 21:20:16 |
 | `threshold_sweep.png` | file | 127.3 KB · 2026-10-15 21:20:16 |
 
@@ -38,4 +38,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

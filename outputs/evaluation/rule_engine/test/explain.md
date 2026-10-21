@@ -32,7 +32,7 @@
 | `confusion_matrix.png` | file | 57.1 KB · 2026-10-19 13:38:37 |
 | `confusion_matrix.txt` | file | 452 B · 2026-10-19 13:38:30 |
 | `confusion_matrix_normalized.png` | file | 59.6 KB · 2026-10-19 13:38:37 |
-| `explain.md` | file | 4.1 KB · 2026-10-19 15:06:21 |
+| `explain.md` | file | 4.1 KB · 2026-10-20 07:13:20 |
 | `false_negative_analysis.csv` | file | 55.9 KB · 2026-10-19 13:38:30 |
 | `false_positive_analysis.csv` | file | 93.9 KB · 2026-10-19 13:38:30 |
 | `latency.json` | file | 135 B · 2026-10-19 13:38:30 |
@@ -57,4 +57,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -22,8 +22,8 @@
 | `__pycache__` | thư mục | 2 file, 45.9 KB |
 | `__init__.py` | file | 199 B · 2026-10-04 10:44:49 |
 | `compare_models.py` | file | 29.8 KB · 2026-10-15 00:50:19 |
-| `explain.md` | file | 1.7 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 1.7 KB · 2026-10-20 07:13:19 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

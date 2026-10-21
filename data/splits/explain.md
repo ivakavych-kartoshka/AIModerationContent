@@ -22,7 +22,7 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 2.1 KB · 2026-10-19 15:06:22 |
+| `explain.md` | file | 2.1 KB · 2026-10-20 07:13:20 |
 | `split_manifest.json` | file | 1.5 KB · 2026-10-04 10:48:01 |
 | `test.csv` | file | 533.4 KB · 2026-10-04 10:48:01 |
 | `train.csv` | file | 1.9 MB · 2026-10-04 10:48:01 |
@@ -35,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

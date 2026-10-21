@@ -22,7 +22,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `encoder` | thư mục | 3 file, 1.0 GB |
-| `explain.md` | file | 2.0 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.0 KB · 2026-10-20 07:13:19 |
 | `head.safetensors` | file | 4.5 MB · 2026-10-04 12:47:05 |
 | `sensitiveai_config.json` | file | 318 B · 2026-10-04 12:47:05 |
 | `tokenizer.json` | file | 15.3 MB · 2026-10-04 12:47:05 |
@@ -34,4 +34,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

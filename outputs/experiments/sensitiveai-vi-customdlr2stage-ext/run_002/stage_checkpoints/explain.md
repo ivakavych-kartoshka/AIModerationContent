@@ -13,8 +13,8 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `stage_1_ext` | thư mục | 5 file, 1.0 GB |
-| `explain.md` | file | 996 B · 2026-10-19 15:06:21 |
+| `explain.md` | file | 996 B · 2026-10-20 07:13:20 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:44. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

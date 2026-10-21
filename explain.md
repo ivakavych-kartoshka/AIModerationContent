@@ -36,19 +36,19 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `.freebuff` | thư mục | 1 file, 37 B |
-| `.git` | thư mục | 2981 file, 699.6 MB |
+| `.git` | thư mục | 3520 file, 707.2 MB |
 | `.kilo` | thư mục | 2 file, 1.5 KB |
 | `checkpoints` | thư mục | 1 file, 1.3 KB |
 | `configs` | thư mục | 17 file, 48.3 KB |
 | `data` | thư mục | 73 file, 18.5 MB |
 | `docs` | thư mục | 4 file, 59.1 KB |
-| `outputs` | thư mục | 815 file, 57.5 GB |
+| `outputs` | thư mục | 825 file, 57.5 GB |
 | `outputs_smoke` | thư mục | 620 file, 19.9 GB |
-| `papers` | thư mục | 148 file, 14.2 MB |
-| `scripts` | thư mục | 41 file, 457.6 KB |
-| `src` | thư mục | 144 file, 1.7 MB |
+| `papers` | thư mục | 150 file, 15.8 MB |
+| `scripts` | thư mục | 44 file, 506.0 KB |
+| `src` | thư mục | 144 file, 1.8 MB |
 | `.gitignore` | file | 857 B · 2026-10-19 07:42:22 |
-| `explain.md` | file | 3.6 KB · 2026-10-19 15:06:19 |
+| `explain.md` | file | 3.6 KB · 2026-10-20 07:13:19 |
 | `plan.md` | file | 20.1 KB · 2026-10-19 14:15:48 |
 | `README.md` | file | 48.7 KB · 2026-10-05 22:28:54 |
 | `requirements.txt` | file | 517 B · 2026-10-04 11:31:24 |
@@ -70,4 +70,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

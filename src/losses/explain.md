@@ -27,9 +27,9 @@
 | `builder.py` | file | 6.7 KB · 2026-10-04 11:39:41 |
 | `class_weights.py` | file | 4.6 KB · 2026-10-04 10:55:45 |
 | `curriculum.py` | file | 5.9 KB · 2026-10-04 11:39:41 |
-| `explain.md` | file | 2.0 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.0 KB · 2026-10-20 07:13:19 |
 | `focal.py` | file | 4.6 KB · 2026-10-04 10:37:48 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

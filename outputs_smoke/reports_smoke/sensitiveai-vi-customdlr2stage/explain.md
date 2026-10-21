@@ -37,7 +37,7 @@ Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - 
 | `run_001` | thư mục | 37 file, 1.1 GB |
 | `run_002` | thư mục | 37 file, 1.1 GB |
 | `run_003` | thư mục | 16 file, 1.1 GB |
-| `explain.md` | file | 2.9 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 2.9 KB · 2026-10-20 07:13:19 |
 | `run_pointer.txt` | file | 7 B · 2026-10-06 23:50:29 |
 
 ## Cách đọc
@@ -46,4 +46,4 @@ Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - 
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

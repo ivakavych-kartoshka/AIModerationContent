@@ -21,11 +21,11 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `evaluation` | thư mục | 304 file, 31.5 MB |
+| `evaluation` | thư mục | 314 file, 32.7 MB |
 | `experiments` | thư mục | 97 file, 10.4 GB |
 | `reports` | thư mục | 413 file, 47.1 GB |
-| `explain.md` | file | 1.8 KB · 2026-10-19 15:06:19 |
+| `explain.md` | file | 1.8 KB · 2026-10-20 07:13:19 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

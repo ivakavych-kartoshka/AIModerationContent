@@ -1,0 +1,98 @@
+{
+  "split": "validation",
+  "n": 2672,
+  "n_boot": 10000,
+  "seed": 42,
+  "point_estimates": {
+    "current": {
+      "macro_f1": 0.455467,
+      "entries": 668,
+      "thresholds": [
+        0.85,
+        0.0,
+        0.41
+      ]
+    },
+    "current_plus_word": {
+      "macro_f1": 0.46283,
+      "entries": 929,
+      "thresholds": [
+        0.85,
+        0.0,
+        0.41
+      ]
+    },
+    "word_only": {
+      "macro_f1": 0.446534,
+      "entries": 261,
+      "thresholds": [
+        0.77,
+        0.01,
+        0.84
+      ]
+    }
+  },
+  "comparisons": {
+    "current_plus_word": {
+      "vs": "current",
+      "paired_bootstrap": {
+        "delta": 0.007363,
+        "ci_low": -0.004469,
+        "ci_high": 0.01924,
+        "p_value": 0.2174,
+        "n_boot": 10000.0
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 24.0,
+        "a_wrong_b_correct": 36.0,
+        "discordant": 60.0,
+        "p_value": 0.155002,
+        "p_value_chi2": 0.15558,
+        "odds_ratio": 0.666667
+      },
+      "significant_95": false
+    },
+    "word_only": {
+      "vs": "current",
+      "paired_bootstrap": {
+        "delta": -0.008933,
+        "ci_low": -0.040863,
+        "ci_high": 0.022772,
+        "p_value": 0.586,
+        "n_boot": 10000.0
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 463.0,
+        "a_wrong_b_correct": 154.0,
+        "discordant": 617.0,
+        "p_value": 0.0,
+        "p_value_chi2": 0.0,
+        "odds_ratio": 3.006494
+      },
+      "significant_95": false
+    }
+  },
+  "absolute_ci": {
+    "current": {
+      "point": 0.455467,
+      "ci_low": 0.432095,
+      "ci_high": 0.478473,
+      "std": 0.011771,
+      "n_boot": 10000.0
+    },
+    "current_plus_word": {
+      "point": 0.46283,
+      "ci_low": 0.439974,
+      "ci_high": 0.485634,
+      "std": 0.011676,
+      "n_boot": 10000.0
+    },
+    "word_only": {
+      "point": 0.446534,
+      "ci_low": 0.421235,
+      "ci_high": 0.473198,
+      "std": 0.013242,
+      "n_boot": 10000.0
+    }
+  }
+}

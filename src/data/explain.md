@@ -37,7 +37,7 @@
 | `corpus_lexicon.py` | file | 19.8 KB · 2026-10-19 12:25:11 |
 | `dataset.py` | file | 8.4 KB · 2026-10-04 11:21:49 |
 | `download.py` | file | 2.9 KB · 2026-10-04 10:35:16 |
-| `explain.md` | file | 7.7 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 7.7 KB · 2026-10-20 07:13:19 |
 | `lexical_labeler.py` | file | 40.4 KB · 2026-10-19 12:26:46 |
 | `lexicon.py` | file | 15.2 KB · 2026-10-19 12:24:19 |
 | `lexicon_pruner.py` | file | 15.9 KB · 2026-10-19 12:27:24 |
@@ -92,4 +92,4 @@ Lưu ý: `severity` **không** tính từ dữ liệu - đây là bảng cố đ
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

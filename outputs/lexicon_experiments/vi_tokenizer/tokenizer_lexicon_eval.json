@@ -1,0 +1,44 @@
+{
+  "current (verified_lexicon.csv)": {
+    "entries": 668,
+    "thresholds": [
+      0.85,
+      0.0,
+      0.41
+    ],
+    "macro_f1_argmax": 0.343829,
+    "macro_f1": 0.455467,
+    "accuracy": 0.702096,
+    "HATE_f1": 0.36767,
+    "OFFENSIVE_f1": 0.168634,
+    "CLEAN_f1": 0.830097
+  },
+  "current + word terms": {
+    "entries": 929,
+    "thresholds": [
+      0.85,
+      0.0,
+      0.41
+    ],
+    "macro_f1_argmax": 0.343631,
+    "macro_f1": 0.46283,
+    "accuracy": 0.697605,
+    "HATE_f1": 0.382979,
+    "OFFENSIVE_f1": 0.178282,
+    "CLEAN_f1": 0.82723
+  },
+  "word-mode terms only": {
+    "entries": 261,
+    "thresholds": [
+      0.77,
+      0.01,
+      0.84
+    ],
+    "macro_f1_argmax": 0.41448,
+    "macro_f1": 0.446534,
+    "accuracy": 0.81774,
+    "HATE_f1": 0.343115,
+    "OFFENSIVE_f1": 0.093385,
+    "CLEAN_f1": 0.903101
+  }
+}

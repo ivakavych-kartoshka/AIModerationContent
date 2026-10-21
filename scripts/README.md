@@ -324,6 +324,50 @@ sinh 4 hình vào `outputs/evaluation/fusion/`:
 Ký hiệu Δ trên hình là **fusion − AI** (dương = fusion hơn); số trong
 `significance_report.md` là chiều ngược lại (AI − fusion) — cùng một kiểm định.
 
+## 19. `30_plot_system_architecture.py` — sơ đồ kiến trúc toàn hệ thống
+
+```powershell
+python scripts/30_plot_system_architecture.py                    # papers/figures/system_architecture.png
+python scripts/30_plot_system_architecture.py --out <png>        # đường dẫn khác
+```
+
+Vẽ sơ đồ cho mục Methodology của bài báo: 2 nhánh song song (encoder
+**mDeBERTa-v3-base** + multi-view head sinh xác suất `p` / rule engine lexicon
+668 term sinh điểm `r`) hợp
+nhất qua fusion `p'_c = p_c + β·r_c` (AI giữ trọng số 1, β = (1−α)/α tune trên
+validation) rồi tầng ngưỡng per-channel đóng
+băng trên validation → nhãn cuối. Chú thích kèm protocol §44 và 3 số macro-F1
+headline (rule 0.5335 / AI 0.6590 / fusion 0.6647). Chỉ vẽ, không chấm lại gì.
+
+## 20. `31_ensemble_experiment.py` — thí nghiệm ensemble 6 model AI (+ rule)
+
+```powershell
+python scripts/31_ensemble_experiment.py                     # outputs/evaluation/ensemble/
+python scripts/31_ensemble_experiment.py --out-dir <dir>     # thư mục khác
+```
+
+Trung bình xác suất của 3 model đa dạng (`ens3` = base + customdlr2stage-ext +
+stage2) hoặc cả 6 (`ens6`), có/không cộng `beta·rule_scores` (AI giữ trọng số 1).
+β chọn trên validation từ {0.05, 0.11, 0.25, 0.5} cùng ngưỡng per-class (101
+điểm, 3 vòng coordinate ascent). 4 ứng viên đóng băng trên validation rồi chấm
+test **một lần** duy nhất (plan §44); ứng viên chính = val cao nhất
+(`ens3_rule`). Kiểm định paired bootstrap (10.000 lần) + McNemar so với SOTA cũ
+(curriculum + fusion, 0.6647) và model đơn tốt nhất (dlr2stage, 0.6638).
+Kết quả: ens6 cao nhất nhưng CI chứa 0 — chưa đủ bằng chứng cải thiện.
+
+## 21. `32_plot_ensemble_comparison.py` — hình so sánh ensemble
+
+```powershell
+python scripts/32_plot_ensemble_comparison.py                   # 4 hình vào outputs/evaluation/ensemble/
+python scripts/32_plot_ensemble_comparison.py --ensemble-dir <dir>
+```
+
+Đọc `ensemble_metrics.json` + `significance.json` + số liệu 2 hệ thống
+tham chiếu (curriculum fusion primary, dlr2stage) và sinh 4 hình: bar test
+macro-F1 (4 ứng viên + SOTA + model đơn), val vs test (đảo chiều), forest
+plot Δ kèm CI 95% paired bootstrap, F1 từng lớp. Chỉ đọc artifact đóng băng,
+không chấm lại split nào (plan §44).
+
 ## Module-level (chạy từng bước)
 
 ```powershell

@@ -29,7 +29,7 @@
 | `__init__.py` | file | 1.4 KB · 2026-10-17 01:00:08 |
 | `config.py` | file | 5.9 KB · 2026-10-17 01:00:08 |
 | `engine.py` | file | 4.3 KB · 2026-10-17 01:00:08 |
-| `explain.md` | file | 3.3 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 3.3 KB · 2026-10-20 07:13:19 |
 | `lexical_classifier.py` | file | 4.6 KB · 2026-10-17 01:00:08 |
 | `matcher.py` | file | 13.5 KB · 2026-10-17 01:00:08 |
 | `normalize.py` | file | 5.4 KB · 2026-10-17 01:00:08 |
@@ -38,4 +38,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:39. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

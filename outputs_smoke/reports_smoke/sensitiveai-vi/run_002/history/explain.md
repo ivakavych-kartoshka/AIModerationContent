@@ -22,7 +22,7 @@
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `eval_20261005-071503` | thư mục | 19 file, 2.5 MB |
-| `explain.md` | file | 1.7 KB · 2026-10-19 15:06:20 |
+| `explain.md` | file | 1.7 KB · 2026-10-20 07:13:19 |
 
 ## Cách đọc
 
@@ -30,4 +30,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-19 15:09:40. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
