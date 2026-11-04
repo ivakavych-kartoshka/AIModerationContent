@@ -1,73 +1,73 @@
 {
-  "accuracy": 0.7020958083832335,
-  "HATE_precision": 0.32132963988919666,
-  "HATE_recall": 0.42962962962962964,
-  "HATE_f1": 0.3676703645007924,
+  "accuracy": 0.5883233532934131,
+  "HATE_precision": 0.18268398268398267,
+  "HATE_recall": 0.7814814814814814,
+  "HATE_f1": 0.296140350877193,
   "HATE_support": 270,
-  "OFFENSIVE_precision": 0.13123359580052493,
-  "OFFENSIVE_recall": 0.2358490566037736,
-  "OFFENSIVE_f1": 0.16863406408094436,
+  "OFFENSIVE_precision": 0.0,
+  "OFFENSIVE_recall": 0.0,
+  "OFFENSIVE_f1": 0.0,
   "OFFENSIVE_support": 212,
-  "CLEAN_precision": 0.8860103626943006,
-  "CLEAN_recall": 0.7808219178082192,
-  "CLEAN_f1": 0.8300970873786407,
+  "CLEAN_precision": 0.8995373430270985,
+  "CLEAN_recall": 0.6214611872146119,
+  "CLEAN_f1": 0.7350796651363759,
   "CLEAN_support": 2190,
-  "macro_precision": 0.4461911994613407,
-  "macro_recall": 0.4821002013472075,
-  "macro_f1": 0.4554671719867925,
-  "weighted_f1": 0.7308884885327834,
+  "macro_precision": 0.36074044190369375,
+  "macro_recall": 0.4676475562320311,
+  "macro_f1": 0.3437400053378563,
+  "weighted_f1": 0.6324035783628388,
   "confusion_matrix": [
     [
-      116,
-      65,
-      89
+      211,
+      0,
+      59
     ],
     [
-      31,
-      50,
-      131
+      119,
+      0,
+      93
     ],
     [
-      214,
-      266,
-      1710
+      825,
+      4,
+      1361
     ]
   ],
   "confusion_matrix_normalized": [
     [
-      0.42962962962962964,
-      0.24074074074074073,
-      0.3296296296296296
+      0.7814814814814814,
+      0.0,
+      0.21851851851851853
     ],
     [
-      0.14622641509433962,
-      0.2358490566037736,
-      0.6179245283018868
+      0.5613207547169812,
+      0.0,
+      0.4386792452830189
     ],
     [
-      0.09771689497716896,
-      0.12146118721461187,
-      0.7808219178082192
+      0.3767123287671233,
+      0.0018264840182648401,
+      0.6214611872146119
     ]
   ],
-  "HATE_roc_auc": 0.7658926203472415,
-  "HATE_average_precision": 0.32185155069811155,
-  "OFFENSIVE_roc_auc": 0.5036757938334101,
-  "OFFENSIVE_average_precision": 0.08762677844828096,
-  "CLEAN_roc_auc": 0.7010070293109001,
-  "CLEAN_average_precision": 0.8953132286466132,
-  "macro_roc_auc": 0.6568584811638506,
-  "macro_average_precision": 0.4349305192643353,
-  "micro_roc_auc": 0.8378757081645094,
-  "micro_average_precision": 0.7314467518994819,
+  "HATE_roc_auc": 0.764382304869399,
+  "HATE_average_precision": 0.3178394626501766,
+  "OFFENSIVE_roc_auc": 0.4931872219665593,
+  "OFFENSIVE_average_precision": 0.08176831141398447,
+  "CLEAN_roc_auc": 0.6995803255082513,
+  "CLEAN_average_precision": 0.8949874897201474,
+  "macro_roc_auc": 0.6523832841147365,
+  "macro_average_precision": 0.43153175459476945,
+  "micro_roc_auc": 0.8381431957380149,
+  "micro_average_precision": 0.7316738243125176,
   "split": "validation",
-  "config": "configs/rule_engine.yaml",
+  "config": "configs\\rule_engine.yaml",
   "lexicon": "data/processed/lexicon/verified_lexicon.csv",
   "dictionary_version": "v1",
   "thresholds": {
-    "HATE": 0.85,
-    "OFFENSIVE": 0.0,
-    "CLEAN": 0.41
+    "HATE": 0.5,
+    "OFFENSIVE": 0.5,
+    "CLEAN": 0.5
   },
   "objective": "macro_f1",
   "n_lexicon_entries": 668

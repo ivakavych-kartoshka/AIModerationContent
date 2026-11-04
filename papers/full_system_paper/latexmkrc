@@ -1,0 +1,9 @@
+$pdf_mode = 5;
+$xelatex = 'xelatex -interaction=nonstopmode -halt-on-error';
+$bibtex = 'bibtex -interaction=nonstopmode';
+$biber = 'biber';
+$bibtex_use = 1;
+$xelatex_engines = 'xelatex';
+$german = 'ngerman';
+$italian = 'italian';
+$nohyperref = 0;

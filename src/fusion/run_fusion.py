@@ -28,7 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
 
@@ -89,13 +89,16 @@ class AlignedSplit:
     p_ai: np.ndarray
     rule_hate: np.ndarray
     rule_offensive: np.ndarray
-    rule_pred: Optional[np.ndarray]
-    texts: List[str]
+    rule_clean: Optional[np.ndarray] = None
+    rule_pred: Optional[np.ndarray] = None
+    texts: List[str] = field(default_factory=list)
 
     def __len__(self) -> int:
         return int(self.y.shape[0])
 
     def rule_proba(self) -> np.ndarray:
+        if self.rule_clean is not None:
+            return rule_pseudo_proba(self.rule_hate, self.rule_offensive, self.rule_clean)
         return rule_pseudo_proba(self.rule_hate, self.rule_offensive)
 
 
@@ -122,6 +125,9 @@ def load_rule_scores(path: Path) -> pd.DataFrame:
     missing = required - set(df.columns)
     if missing:
         raise ValueError(f"{path} is missing columns {sorted(missing)}")
+    # Ensure rule_clean_score exists for new rule engine outputs
+    if "rule_clean_score" not in df.columns:
+        df["rule_clean_score"] = np.clip(1.0 - np.maximum(df["rule_hate_score"], df["rule_offensive_score"]), 0.0, 1.0)
     return df
 
 
@@ -145,6 +151,7 @@ def align(ai_df: pd.DataFrame, rule_df: pd.DataFrame, name: str) -> AlignedSplit
         if column in merged.columns:
             rule_pred = merged[column].map(LABEL2ID).astype(int).to_numpy()
             break
+    rule_clean = merged["rule_clean_score"].to_numpy(dtype=float) if "rule_clean_score" in merged.columns else None
     return AlignedSplit(
         name=name,
         index=merged["index"].to_numpy(),
@@ -152,6 +159,7 @@ def align(ai_df: pd.DataFrame, rule_df: pd.DataFrame, name: str) -> AlignedSplit
         p_ai=merged[list(PROB_COLUMNS)].to_numpy(dtype=float),
         rule_hate=merged["rule_hate_score"].to_numpy(dtype=float),
         rule_offensive=merged["rule_offensive_score"].to_numpy(dtype=float),
+        rule_clean=rule_clean,
         rule_pred=rule_pred,
         texts=merged["text"].astype(str).tolist() if "text" in merged.columns else [""] * len(merged),
     )
@@ -376,8 +384,8 @@ def run_model_fusion(
             )
 
     # ---- test systems (test is scored, never tuned on) ------------------ #
-    val_scores = fuse_scores(val.p_ai, val.rule_hate, val.rule_offensive, best_alpha)
-    test_scores = fuse_scores(test.p_ai, test.rule_hate, test.rule_offensive, best_alpha)
+    val_scores = fuse_scores(val.p_ai, val.rule_hate, val.rule_offensive, best_alpha, val.rule_clean)
+    test_scores = fuse_scores(test.p_ai, test.rule_hate, test.rule_offensive, best_alpha, test.rule_clean)
 
     systems: Dict[str, Dict[str, object]] = {}
     systems["ai_only_argmax"] = _metrics_for(test.y, test.p_ai.argmax(axis=1), test.p_ai)
@@ -606,7 +614,29 @@ def discover_models(reports_root: Path, per_model_root: Path) -> List[str]:
     return names
 
 
-def write_summary(out_root: Path, payloads: Sequence[Dict[str, object]]) -> Path:
+def _load_frozen_payload(out_root: Path, model: str) -> Optional[Dict[str, object]]:
+    """``metrics.json`` of a model fused by an earlier invocation (frozen)."""
+    path = out_root / model / "metrics.json"
+    if not path.is_file():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:  # pragma: no cover - defensive
+        return None
+
+
+def write_summary(
+    out_root: Path,
+    payloads: Sequence[Dict[str, object]],
+    models: Optional[Sequence[str]] = None,
+) -> Path:
+    """Cross-model summary.
+
+    Every model of the run keeps exactly one row: when a model was fused by an
+    earlier invocation (``--model`` called once per shell, or a failure in this
+    run) its frozen ``metrics.json`` is read back, so the comparison table never
+    shrinks to the subset that happened to run last.
+    """
     header = (
         "| model | alpha | AI macro-F1 | rule macro-F1 | fusion(argmax) | "
         "fusion(thresholds) | fusion(per-channel) | fusion(meta) | primary (val-chosen) | Δ vs AI |"
@@ -623,8 +653,20 @@ def write_summary(out_root: Path, payloads: Sequence[Dict[str, object]]) -> Path
         header,
         sep,
     ]
+    fresh = {str(payload["model"]): payload for payload in payloads}
+    ordered = list(models) if models else sorted(fresh)
+    resolved: List[Dict[str, object]] = []
+    for model in ordered:
+        payload = fresh.get(model)
+        if payload is None:
+            payload = _load_frozen_payload(out_root, model)
+            if payload is None:
+                continue
+            LOGGER.info("[fusion] %s: reusing frozen metrics.json from an earlier run", model)
+        resolved.append(payload)
+
     rows = []
-    for payload in payloads:
+    for payload in resolved:
         test = payload["test"]
 
         def macro(name: str) -> object:
@@ -719,7 +761,7 @@ def run(args: argparse.Namespace) -> int:
             LOGGER.error("[fusion] %s failed: %s", model, exc, exc_info=True)
 
     if payloads:
-        summary = write_summary(out_root, payloads)
+        summary = write_summary(out_root, payloads, models)
         LOGGER.info("[fusion] summary -> %s", summary)
         for payload in payloads:
             test = payload["test"]
@@ -742,3 +784,4 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":  # pragma: no cover
     sys.exit(main())
+

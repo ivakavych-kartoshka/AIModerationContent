@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{The lexical rule engine on the test split. \emph{Panel A}: standalone
+classification (frozen thresholds HATE $=0.81$, OFFENSIVE $=0.00$, CLEAN
+$=0.64$). \emph{Panel B}: behaviour of the rule channel exactly as consumed by
+fusion, i.e.\ a comment counts as ``fired'' when $\max(r_{\hate},
+r_{\off})>0.01$. Precision is computed over fired comments, so $1-$precision is
+the false-alarm share among them.}
+\label{tab:rule-channel}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\multicolumn{2}{@{}l}{\emph{Panel A: standalone classifier}} \\
+\midrule
+Accuracy                        & 0.8421 \\
+Macro-F1                        & 0.5258 \\
+F1 \hate{} / \off{} / \clean    & 0.4102 / 0.2389 / 0.9284 \\
+\addlinespace
+\multicolumn{2}{@{}l}{\emph{Panel B: rule channel as seen by fusion}} \\
+\midrule
+Fires on                        & 1{,}052 / 6{,}680 (15.75\%) \\
+Precision on fired comments     & 58.75\% \\
+Recall on non-\clean{} comments & 54.59\% \\
+False alarms on \clean{}        & 7.82\% \\
+Median $r_{\hate}$ on corrected \hate{} & 0.7652 \\
+\bottomrule
+\end{tabular}
+\end{table}

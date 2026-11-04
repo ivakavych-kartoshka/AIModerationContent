@@ -1,0 +1,26 @@
+{
+  "estimated_on": "train split only",
+  "train_label_counts": {
+    "HATE": 1144,
+    "OFFENSIVE": 15342,
+    "CLEAN": 3330
+  },
+  "per_stage": {
+    "stage_1": {
+      "HATE": 1.613602,
+      "OFFENSIVE": 0.440624,
+      "CLEAN": 0.945774
+    },
+    "stage_2": {
+      "HATE": 1.613602,
+      "OFFENSIVE": 0.440624,
+      "CLEAN": 0.945774
+    }
+  },
+  "primary": {
+    "HATE": 1.613602,
+    "OFFENSIVE": 0.440624,
+    "CLEAN": 0.945774
+  },
+  "table": "Class weights (estimated on TRAIN only)\n----------------------------------------------\nHATE       n=   1144  weight=1.6136\nOFFENSIVE  n=  15342  weight=0.4406\nCLEAN      n=   3330  weight=0.9458"
+}

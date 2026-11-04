@@ -125,7 +125,8 @@ class Matcher:
         self.cfg = matcher_cfg or MatcherConfig()
         self.obf = obfuscation_cfg or ObfuscationConfig()
         self.factors = match_factors or {}
-        self.severity_by_label = severity_by_label or {"HATE": 0.9, "OFFENSIVE": 0.6}
+        # Do NOT hardcode label severities; derive from lexicon entry certainty.
+        self.severity_by_label = severity_by_label or {}
         self._build_indexes()
 
     # ------------------------------------------------------------------ #
@@ -185,14 +186,57 @@ class Matcher:
         ambiguous: bool = False,
     ) -> Match:
         raw_start, raw_end = base.index_map[base_start], base.index_map[base_end - 1] + 1
+        label_up = str(label).upper()
+        # Derive severity from label map if explicitly provided, else from entry
+        # per-label maps, else from entry certainty. Never fall back to hardcoded 0.9/0.6.
+        severity = self.severity_by_label.get(label) or self.severity_by_label.get(label_up)
+        if severity is None and getattr(entry, "label_severity", None):
+            try:
+                severity = entry.label_severity.get(label_up) or entry.label_severity.get(label)
+            except Exception:
+                severity = None
+        if severity is None:
+            entry_sev = getattr(entry, "severity", None)
+            if entry_sev is not None:
+                try:
+                    severity = float(entry_sev)
+                except (TypeError, ValueError):
+                    severity = None
+        if severity is None:
+            try:
+                severity = float(getattr(entry, "confidence", 0.5))
+            except (TypeError, ValueError):
+                severity = 0.5
+        # entry confidence per label if available
+        entry_conf = None
+        if getattr(entry, "label_confidence", None):
+            try:
+                entry_conf = entry.label_confidence.get(label_up) or entry.label_confidence.get(label)
+            except Exception:
+                entry_conf = None
+        if entry_conf is None:
+            try:
+                entry_conf = float(getattr(entry, "confidence", severity))
+            except (TypeError, ValueError):
+                entry_conf = float(severity)
+        # Keep in a sensible range; scaling is handled elsewhere
+        if severity < 0.0:
+            severity = 0.0
+        if severity > 1.0:
+            severity = 1.0
+        if entry_conf < 0.0:
+            entry_conf = 0.0
+        if entry_conf > 1.0:
+            entry_conf = 1.0
+
         return Match(
             entry_id=entry.entry_id,
             term=entry.term,
-            label=label,
+            label=label_up,
             match_type=match_type,
             match_factor=float(self.factors.get(match_type, self.factors.get("obfuscated_combined", 0.6))),
-            severity=float(self.severity_by_label.get(label, 0.5)),
-            entry_confidence=float(entry.confidence),
+            severity=float(severity),
+            entry_confidence=float(entry_conf),
             start=raw_start,
             end=raw_end,
             normalized_span=base.text[base_start:base_end],

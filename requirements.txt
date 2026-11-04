@@ -21,6 +21,10 @@ seaborn>=0.12
 # markdown tables in the comparison report (pandas .to_markdown)
 tabulate>=0.9
 
+# optional: statistical language identification (vi/en) for the language router.
+# Without it, src.langid falls back to its dependency-free heuristics.
+langid>=1.1.6
+
 # optional: memory-efficient 8-bit optimizer (recommended for 8 GB GPUs)
 # bitsandbytes>=0.43
 

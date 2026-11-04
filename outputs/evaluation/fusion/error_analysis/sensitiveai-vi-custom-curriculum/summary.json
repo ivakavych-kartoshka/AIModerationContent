@@ -1,0 +1,12 @@
+{
+  "model": "sensitiveai-vi-custom-curriculum",
+  "primary": "fusion_per_channel_thresholds",
+  "n": 6680,
+  "ai_correct": 5839,
+  "fuse_correct": 5858,
+  "ai_wrong_fuse_right": 32,
+  "ai_right_fuse_wrong": 13,
+  "net_gain": 19,
+  "both_wrong": 809,
+  "both_right": 5826
+}

@@ -1,8 +1,8 @@
 {
   "n": 6680,
-  "mean_ms": 0.2353,
-  "p50_ms": 0.156,
-  "p95_ms": 0.597,
-  "max_ms": 87.0463,
-  "throughput_per_sec": 4249.47
+  "mean_ms": 0.5211,
+  "p50_ms": 0.3588,
+  "p95_ms": 1.3737,
+  "max_ms": 123.4992,
+  "throughput_per_sec": 1919.15
 }

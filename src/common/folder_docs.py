@@ -582,7 +582,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("explain.md", "File này."),
             ),
             children=(
-                ("sources/", "Từ vựng thô trích ra từ 2 repo GitHub + 3 dataset (đầu vào của bước gán nhãn)."),
+                ("sources/", "Từ vựng thô trích từ 3 dataset train (ViHSD, ViCM, bontori/R-ViHSD) - đầu vào của bước gán nhãn."),
                 ("labeling/", "Bằng chứng trung gian của bước gán nhãn: bảng đếm `candidates_train.csv` + hàng chờ duyệt tay `review_queue.csv`."),
                 ("pruning/", "Kết quả lọc TF-IDF: từ điển đã lọc, bản theo từng dataset, audit từng entry, backup trước khi ghi đè."),
                 ("relabeling/", "Kết quả phân nhãn lại: từ điển mới, bản theo từng dataset, bảng so sánh trước/sau."),
@@ -608,22 +608,23 @@ def _specs() -> Dict[str, FolderDoc]:
                 "sắp xếp và khử trùng lặp. Đây là đầu vào của bước gán nhãn (step 16) và của bước quét corpus "
                 "(step 15). Không file nào ở đây chứa nhãn HATE/OFFENSIVE."
             ),
-            produced_by="`python scripts/12_build_lexicon.py --stage extract`, `python scripts/15_extract_corpus_words.py`",
+            produced_by="`python scripts/15_extract_corpus_words.py` (bản hiện tại); `python scripts/12_build_lexicon.py --stage extract` chỉ dùng khi muốn ghép thêm từ điển GitHub.",
             contents=(
-                ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị). Chỉ có khi step 12 chạy extract."),
-                ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode). Chỉ có khi step 12 chạy extract."),
-                ("sensitive_words_combined.txt", "Gộp 2 repo nguồn, khử trùng lặp - file nên dùng để quét văn bản."),
-                ("vihsd_extracted_words.txt", "Ứng viên unigram/bigram trích từ ViHSD (đếm df toxic/clean trên train)."),
-                ("vicm_extracted_words.txt", "Ứng viên trích từ ViCM (code-mixed)."),
-                ("bontori_extracted_words.txt", "Ứng viên trích từ bontori (TDTU)."),
-                ("sensitive_words_from_datasets.txt", "Gộp ứng viên từ 3 dataset - **đầu vào trực tiếp** của `16_label_lexicon.py`."),
+                ("behitek_sensitive_words.txt", "Từ của `behitek/vietnam-sensitive-words` (profanity, teencode, từ nhạy cảm chính trị). **Không có** trong bản build hiện tại: chỉ xuất hiện khi chạy step 12 --stage extract."),
+                ("blueeyes_offensive_words.txt", "Từ của `blue-eyes-vn/vietnamese-offensive-words` (gồm biến thể không dấu / teencode). **Không có** trong bản build hiện tại: chỉ xuất hiện khi chạy step 12 --stage extract."),
+                ("sensitive_words_combined.txt", "Bản gộp cuối cùng dùng để quét văn bản; trong bản build hiện tại trùng byte-by-byte với `sensitive_words_from_datasets.txt` (chưa ghép từ điển GitHub nào)."),
+                ("vihsd_extracted_words.txt", "Ứng viên unigram/bigram trích từ **train** ViHSD (đếm df toxic/clean)."),
+                ("vicm_extracted_words.txt", "Ứng viên trích từ **train** ViCM (code-mixed)."),
+                ("bontori_extracted_words.txt", "Ứng viên trích từ **train** bontori/R-ViHSD (TDTU YouTube + voz)."),
+                ("sensitive_words_from_datasets.txt", "Hợp **rời nhau** của 3 file trên (257 + 665 + 140 = 1.062 ứng viên) - **đầu vào trực tiếp** của `16_label_lexicon.py`."),
                 ("explain.md", "File này."),
             ),
             reading_guide=(
                 "Chỉ muốn lọc văn bản thô: đọc `sensitive_words_combined.txt`.",
+                "Muốn biết một cụm từ đến từ dataset nào: so `sensitive_words_from_datasets.txt` với 3 file `*_extracted_words.txt` (chúng rời nhau theo nguồn).",
                 "Muốn xem vì sao một từ lọt vào từ điển: tìm nó trong `../labeling/candidates_train.csv`.",
             ),
-            keep_policy="**Sinh lại được** từ `data/raw/` (2 repo lexicon + 3 dataset). Giữ lại để đối chiếu SHA-256 trong `lexicon_report.json`.",
+            keep_policy="**Sinh lại được** từ `data/raw/` (train split của 3 dataset). Giữ lại để đối chiếu SHA-256 trong `lexicon_report.json`.",
         ),
         "data/processed/lexicon/labeling": FolderDoc(
             title="data/processed/lexicon/labeling - bằng chứng trung gian của bước gán nhãn",
@@ -932,6 +933,7 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("rule_engine/", "Kết quả đánh giá rule engine từ vựng độc lập (plan §39, §44)."),
                 ("rule_engine_tuned/", "Rule engine với cấu hình đã tune (`configs/rule_engine_tuned.yaml`) - bản tốt nhất, kèm hồ sơ tune (`tuning_trials.csv`, `tuning_report.json`)."),
                 ("fusion/", "Ghép điểm rule engine với xác suất của từng model AI (plan §40-41)."),
+                ("rule_ablations/", "Ablation từng thành phần rule engine (severity, confidence, context, view, fuzzy): mỗi biến thể re-score, re-tune fusion rồi chấm test một lần."),
             ),
             reading_guide=(
                 "Muốn xem toàn bộ lịch sử chấm điểm: `evaluation/logs/evaluation_log.csv`.",
@@ -1235,11 +1237,41 @@ def _specs() -> Dict[str, FolderDoc]:
                 ("fusion_report.md", "Bảng so sánh test của các hệ thống + tham số đã đóng băng."),
                 ("metrics.json", "Chỉ số đầy đủ từng biến thể (validation + test)."),
                 ("fusion_predictions.csv", "Dự đoán per-sample của biến thể `primary`."),
+                ("rule_silence.json", "Ablation quy ước `rule im lặng` (chỉ model chính): so cấu hình đã ship với biến thể `neutral` (rule im lặng thì cho điểm AI đi thẳng), kèm paired bootstrap + McNemar và bảng đối chiếu correction/regression."),
                 ("explain.md", "File này."),
             ),
             reading_guide=(
                 "Cột `macro-F1` trong `fusion_report.md`: so `ai_only_argmax` với biến thể `primary`.",
                 "`primary` chọn theo macro-F1 **validation**, nên đôi khi kém hơn một biến thể khác trên test - hệ quả của việc chọn tham số trên validation, không phải lỗi.",
+            ),
+            keep_policy=KEEP_POLICY,
+        ),
+        "evaluation/rule_ablations": FolderDoc(
+            title="evaluation/rule_ablations - ablation thành phần rule engine",
+            purpose=(
+                "Mỗi biến thể tắt **một** thành phần của rule engine (`no_severity`, `no_confidence`, "
+                "`no_context`, `no_views`, `no_fuzzy`) được chấm lại từ đầu: rule engine re-score validation + "
+                "test, fusion re-tune alpha và threshold trên **validation**, đóng băng, rồi chấm test **một lần** "
+                "(plan §44). Vì vậy mỗi biến thể có tham số riêng - câu hỏi là thành phần đó có đóng góp gì, "
+                "không phải tham số nào tốt hơn. Kết quả: chỉ `confidence` là quan trọng (rule-only macro-F1 "
+                "0.5258 -> 0.4914); các thành phần còn lại đều nằm trong nhiễu."
+            ),
+            produced_by="`python scripts/50_rule_component_ablations.py`",
+            children=(
+                ("full/", "Biến thể đầy đủ (đối chứng) - cũng là cấu hình đã ship, nên số ở đây trùng `evaluation/fusion/`."),
+                ("no_severity/", "Bỏ map severity (HATE/OFFENSIVE = 1.0): đổi 1.046/6.680 vector điểm rule nhưng hybrid không đổi quyết định nào."),
+                ("no_confidence/", "Đặt `entry_confidence = 1.0` cho mọi entry: thành phần duy nhất thật sự có đóng góp."),
+                ("no_context/", "Tắt cờ context-required."),
+                ("no_views/", "Tắt obfuscation views (chỉ exact + fuzzy): số comment bắn giảm 1.052 -> 779, precision/comment bắn 58.75% -> 69.58%."),
+                ("no_fuzzy/", "Tắt fuzzy match: không đổi gì vì fuzzy không khớp lần nào trên test."),
+                ("fusion/", "Thư mục fusion dùng tạm cho mỗi lần chạy (bị ghi đè giữa các biến thể; bản chốt nằm ở `results/`)."),
+                ("results/<variant>/", "Ảnh chụp `metrics.json` + `fusion_predictions.csv` của từng biến thể - nguồn số cho bài báo."),
+                ("ablation_summary.json", "Bảng tổng hợp mọi biến thể + kiểm định paired bootstrap và McNemar của từng biến thể so với `full`."),
+                ("explain.md", "File này."),
+            ),
+            reading_guide=(
+                "Đọc `ablation_summary.json`: khoá `variants.<tên>.vs_full` là phần kiểm định - CI chứa 0 nghĩa là thành phần đó không đóng góp gì đo được.",
+                "`precision_on_fired` chỉ so được giữa các biến thể, không so với AI: nó là tỉ lệ comment bị rule bắn mà nhãn vàng không phải CLEAN.",
             ),
             keep_policy=KEEP_POLICY,
         ),

@@ -264,6 +264,7 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate the lexical rule engine.")
     parser.add_argument("--config", default=str(DEFAULT_CONFIG), help="rule engine YAML config")
     parser.add_argument("--split", default="validation", choices=["validation", "test"])
+    parser.add_argument("--splits-dir", default=str(SPLITS_DIR), help="directory with validation.csv / test.csv")
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="output directory")
     parser.add_argument("--objective", default="macro_f1", help="threshold objective")
     parser.add_argument("--grid-size", type=int, default=101)
@@ -295,7 +296,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.text is not None:
         return _single_text(engine, args.text)
 
-    split_path = Path(SPLITS_DIR) / f"{args.split}.csv"
+    split_path = Path(args.splits_dir) / f"{args.split}.csv"
     texts, y_true = load_split(split_path, args.limit)
     LOGGER.info("[17] %s: %d rows", split_path.name, len(texts))
 

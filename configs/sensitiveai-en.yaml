@@ -1,0 +1,71 @@
+# =============================================================================
+# Model - sensitiveai-en
+#
+# Same backbone/head/loss as the Vietnamese reference, trained on the English
+# Davidson dataset with the ONE fixed split in data/splits_en/.
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-en.yaml
+# =============================================================================
+model_name: sensitiveai-en
+base_model: microsoft/mdeberta-v3-base
+head: standard
+seed: 42
+deterministic: true
+
+dataset:
+  name: tdavidson/hate_speech_offensive
+  splits_dir: data/splits_en
+  text_column: text
+  label_column: label
+  num_labels: 3          # HATE=0, OFFENSIVE=1, CLEAN=2 (canonical mapping)
+
+tokenizer:
+  max_length: 128
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 30
+  learning_rate: 3.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 0
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: false      # unweighted reference, same as the VI baseline
+
+dlr:
+  enabled: false
+
+thresholds:
+  enabled: false               # plain argmax
+
+early_stopping:
+  enabled: true
+  metric: macro_f1             # selected on VALIDATION only
+  mode: max
+  patience: 6
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: argmax
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

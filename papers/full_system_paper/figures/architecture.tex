@@ -1,0 +1,90 @@
+\begin{tikzpicture}[
+    >={Stealth[length=2.2mm,width=1.8mm]},
+    line width=0.8pt,
+    every node/.style={font=\sffamily\scriptsize},
+    base/.style={draw, rounded corners=4pt, align=center, inner sep=4pt,
+        minimum height=0.85cm, line width=0.7pt,
+        drop shadow={opacity=0.12, shadow xshift=0.5pt, shadow yshift=-0.5pt}},
+    proc/.style={base, fill=blue!8, draw=blue!65!black, text width=4.4cm},
+    route/.style={base, fill=orange!14, draw=orange!80!black, text width=4.4cm},
+    engine/.style={base, fill=green!10, draw=green!55!black, text width=2.1cm, minimum height=1.1cm},
+    model/.style={base, fill=purple!9, draw=purple!70!black, text width=2.1cm, minimum height=1.1cm},
+    fallback/.style={base, fill=gray!10, draw=gray!70, dashed, text width=1.6cm, minimum height=1.1cm},
+    fusion/.style={base, fill=red!9, draw=red!70!black, text width=6.4cm, minimum height=1.2cm},
+    decision/.style={base, fill=gray!15, draw=black!70, text width=4.4cm},
+    lane/.style={draw=#1!50, fill=#1!4, rounded corners=7pt, inner sep=6pt, line width=0.6pt},
+    chip/.style={base, text=white, font=\sffamily\scriptsize\bfseries, minimum width=2.3cm, drop shadow={opacity=0}},
+    badge/.style={circle, fill=black!70, text=white, font=\sffamily\bfseries\tiny,
+        inner sep=1.3pt, minimum size=11pt},
+    note/.style={font=\sffamily\tiny, text=black!60}
+]
+    % ---------- Main Flow ----------
+    \node (input)  [proc, fill=gray!12, draw=gray!70] at (0,0) {\textbf{Input Comment}};
+    \node (langid) [proc] at (0,-1.35) {\textbf{Language Detector}\\[-1pt]{\tiny heuristic + langid}};
+    \node (token)  [proc] at (0,-2.7)  {\textbf{Language-Aware Tokenizer}\\[-1pt]{\tiny token tagging}};
+    \node (router) [route] at (0,-4.05) {\textbf{Language Router}\\[-1pt]{\tiny vi / en / mix / other}};
+
+    % ---------- Parallel Paths ----------
+    \node (vititle) [font=\sffamily\tiny\bfseries, text=blue!60!black] at (-4.6,-5.85) {VI Path};
+    \node (entitle) [font=\sffamily\tiny\bfseries, text=red!60!black]  at (4.6,-5.85)  {EN Path};
+
+    \node (vi_rule) [engine] at (-5.9,-7.1) {\textbf{Rule Engine VI}\\[-1pt]{\tiny 668 entries $\rightarrow\mathbf r$}};
+    \node (vi_ai)   [model]  at (-3.3,-7.1) {\textbf{mDeBERTa-v3 VI}\\[-1pt]{\tiny custom head $\rightarrow\mathbf p_{\text{AI}}$}};
+    \node (fb)      [fallback] at (0,-7.1)  {\textbf{Fallback}\\[-1pt]{\tiny rule-only}};
+    \node (en_ai)   [model]  at (3.3,-7.1)  {\textbf{mDeBERTa-v3 EN}\\[-1pt]{\tiny standard $\rightarrow\mathbf p_{\text{AI}}$}};
+    \node (en_rule) [engine] at (5.9,-7.1)  {\textbf{Rule Engine EN}\\[-1pt]{\tiny 818 entries $\rightarrow\mathbf r$}};
+
+    \begin{scope}[on background layer]
+        \node [lane=blue]  [fit=(vititle)(vi_rule)(vi_ai)] {};
+        \node [lane=red]   [fit=(entitle)(en_ai)(en_rule)] {};
+    \end{scope}
+
+    % ---------- Fusion + Decision ----------
+    \coordinate (split) at (0,-5.2);
+    \coordinate (merge) at (0,-8.65);
+
+    \node (fusion) [fusion] at (0,-9.8)
+        {\textbf{Language-Aware Fusion}\\[2pt]{\footnotesize $\mathbf p_{\text{fused}}=\alpha\,\mathbf p_{\text{AI}}+(1-\alpha)\,\mathbf r,\quad \alpha=0.70$}};
+    \node (decision) [decision] at (0,-11.5) {\textbf{Final Decision}\\[-1pt]{\tiny argmax}};
+
+    \coordinate (osplit) at (0,-12.2);
+    \node (c_hate)  [chip, fill=red!70!black,    draw=red!50!black]    at (-2.8,-13.0) {HATE};
+    \node (c_off)   [chip, fill=orange!85!black, draw=orange!60!black] at (0,-13.0)    {OFFENSIVE};
+    \node (c_clean) [chip, fill=green!55!black,  draw=green!40!black]  at (2.8,-13.0)  {CLEAN};
+
+    % ---------- Labels ----------
+    \node [badge] at (langid.north west) {1};
+    \node [badge] at (token.north west)  {2};
+    \node [badge] at (router.north west) {3};
+    \node [badge] at (vi_rule.north west) {3};
+    \node [badge] at (en_rule.north west) {3};
+    \node [badge] at (vi_ai.north west)   {4};
+    \node [badge] at (en_ai.north west)   {4};
+    \node [badge] at (fusion.north west)  {5};
+
+    % ---------- Connections ----------
+    \draw [->] (input) -- (langid);
+    \draw [->] (langid) -- (token) node [midway, right=3pt, note] {label + confidence};
+    \draw [->] (token) -- (router) node [midway, right=3pt, note] {language spans};
+
+    \draw (router.south) -- (split);
+    \draw [->] (split) -| (vi_rule.north);
+    \draw [->] (split) -| (vi_ai.north);
+    \draw [->, dashed, gray!70!black] (split) -- (fb.north);
+    \draw [->] (split) -| (en_ai.north);
+    \draw [->] (split) -| (en_rule.north);
+
+    \draw (vi_rule.south) |- (merge);
+    \draw (vi_ai.south)   |- (merge);
+    \draw [dashed, gray!70!black] (fb.south) -- (merge);
+    \draw (en_ai.south)   |- (merge);
+    \draw (en_rule.south) |- (merge);
+    \fill (merge) circle (1.6pt);
+    \draw [->] (merge) -- (fusion.north);
+
+    \draw [->] (fusion) -- (decision);
+    \draw (decision.south) -- (osplit);
+    \draw [->] (osplit) -| (c_hate.north);
+    \draw [->] (osplit) -- (c_off.north);
+    \draw [->] (osplit) -| (c_clean.north);
+\end{tikzpicture}

@@ -276,6 +276,11 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     parser.add_argument("--config", default=str(DEFAULT_CONFIG), help="rule engine YAML config")
     parser.add_argument("--split", default="validation", choices=["validation", "test"])
     parser.add_argument("--out", default=str(DEFAULT_OUT), help="rule engine evaluation directory")
+    parser.add_argument(
+        "--splits-dir",
+        default=str(SPLITS_DIR),
+        help="directory holding validation.csv / test.csv (English uses data/splits_en)",
+    )
     parser.add_argument("--limit", type=int, default=None, help="cap the number of rows (debug)")
     return parser.parse_args(list(argv))
 
@@ -305,7 +310,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     config = load_rule_engine_config(args.config)
     engine = RuleEngine.from_lexicon(config.lexicon_path, config)
 
-    split_path = Path(SPLITS_DIR) / f"{args.split}.csv"
+    split_path = Path(args.splits_dir) / f"{args.split}.csv"
     texts, y_true = load_split(split_path, args.limit)
     LOGGER.info("[19] %s: %d rows", split_path.name, len(texts))
 

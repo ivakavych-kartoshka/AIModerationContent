@@ -1,0 +1,134 @@
+% !TEX program = xelatex
+% =============================================================================
+% Full System Paper - SensitiveAI end-to-end hate speech moderation
+%
+%   1.0 - Initial draft of the "whole system" paper covering language
+%        detection, both rule engines (EN/VN), both backbones (EN/VN), fusion
+%        and the mixed 1000-sample end-to-end evaluation.
+% =============================================================================
+\documentclass[runningheads]{llncs}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc, arrows.meta}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, fit, backgrounds, shadows}
+\usepackage{iftex}
+\ifPDFTeX
+  \PackageError{full_system_paper}{%
+    Build this paper with XeLaTeX, not pdfLaTeX.\MessageBreak
+    On Overleaf: Menu -> Compiler -> XeLaTeX.\MessageBreak
+    Locally: latexmk -xelatex main.tex}{%
+    Vietnamese tone marks do not exist in T1, so pdfLaTeX reports\MessageBreak
+    "Unicode character ... not set up for use with LaTeX" for every example,\MessageBreak
+    drops the letters, and needs 17 pages instead of the 15 allowed.}
+  \stop
+\else
+  \usepackage{fontspec}
+  \IfFontExistsTF{texgyretermes-regular.otf}
+    {\setmainfont{texgyretermes}[
+       Extension      = .otf,
+       UprightFont    = *-regular,
+       BoldFont       = *-bold,
+       ItalicFont     = *-italic,
+       BoldItalicFont = *-bolditalic]}
+    {\setmainfont{Latin Modern Roman}}
+  \usepackage{setspace} % spacing for Vietnamese text
+\fi
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, shadows}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+% The llncs class asks authors not to change the printing area or the caption
+% spacing (llncsdoc, Sect. 2.1).  Only the float-placement policy and the
+% separations around floats are relaxed here, so that five floats share the
+% pages with the text inside the 15-page ICCIES limit; text geometry, heading
+% and caption spacing keep the class defaults.
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.9}
+\setcounter{totalnumber}{6}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\model}[1]{\textsc{#1}}
+\newcommand{\hate}{\textsc{hate}}
+\newcommand{\off}{\textsc{offensive}}
+\newcommand{\clean}{\textsc{clean}}
+
+\begin{document}
+
+\title{An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for
+       Bilingual Hate Speech Detection: System Evaluation, Fusion and Latency}
+\titlerunning{Explainable Hybrid for Bilingual Hate Speech Detection}
+\author{Kha Vy Pham\inst{1}% \orcidID{0000-0000-0000-0000}
+ \and
+ Hong Nga Cao\inst{1}\textsuperscript{(*)}% \orcidID{0000-0000-0000-0000}
+}
+\authorrunning{K. V. Pham and H. N. Cao}
+\institute{
+ FPT University, Can Tho, Vietnam\\
+ \email{phamkhavycm2004@gmail.com}\\
+ \email{caohongnga@gmail.com}\\
+ \textsuperscript{(*)}Corresponding author
+}
+\maketitle
+
+\begin{abstract}
+Fine-tuned multilingual transformers dominate content moderation, yet they are
+opaque and brittle on the surface forms moderation sees: teencode, dropped
+diacritics, inserted separators and abbreviated profanity.  We present
+\textbf{SensitiveAI}, a bilingual language-aware pipeline that couples two
+lexicon-driven rule engines (Vietnamese and English) with per-language
+mDeBERTa-v3-base backbones through language detection, language-aware routing,
+pseudo-probability fusion and decision thresholds.  On the ViHSD test split the
+hybrid is macro-F1 neutral (0.6575 to 0.6602; bootstrap $p=0.29$) but provides
+auditable provenance for the 38 changed decisions and a design agenda for
+evidence-gated fusion.  Extending the same architecture to English (Davidson et
+al., 818-entry expanded lexicon) and to a balanced mixed Vietnamese/English
+sample of 1{,}000 comments, the end-to-end system reaches 87.00\% accuracy with
+macro-F1 0.7829, 11.6 ms latency and ~86,000 req/s throughput on a single laptop
+GPU, with an AI-only macro-F1 of 0.8027 on the 941 samples where a checkpoint is
+available.
+\end{abstract}
+\keywords{Hate speech \and multilingual transformers \and lexicon rules \and
+          hybrid fusion \and language-aware routing \and explainable AI.}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/data}
+\input{sections/architecture}
+\input{sections/methodology}
+\input{sections/setup}
+\input{sections/results}
+\input{sections/analysis}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{sections/limitations}
+\input{sections/ethics}
+
+\credits
+\subsubsection{\discintname}
+The authors have no competing interests to declare that are relevant to the
+content of this article.
+
+\bibliographystyle{splncs04}
+\bibliography{references}
+
+\end{document}

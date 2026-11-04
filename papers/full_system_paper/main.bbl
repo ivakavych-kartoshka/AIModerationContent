@@ -1,0 +1,100 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{ahn2022evidence}
+Ahn, H.W., Kim, H., Lee, J.H., Chung, H.: A study of explainability methods for
+  hate speech detection. In: Proceedings of the 2022 Conference on Empirical
+  Methods in Natural Language Processing (EMNLP). pp. 1121--1132 (2022)
+
+\bibitem{bengio2009curriculum}
+Bengio, Y., Louradour, J., Collobert, R., Weston, J.: Curriculum learning. In:
+  Proceedings of the 26th International Conference on Machine Learning (ICML).
+  pp. 41--48 (2009)
+
+\bibitem{bojchevski2020fusing}
+Bojchevski, A., Ren, Z., Krstic, M., Ghosh, S., Wang, Z., Schick, S., Hovy, D.:
+  Fusing multilingual bidirectional transformer models with rule-based matching
+  in hate speech detection. In: Proceedings of the 2020 Conference on Empirical
+  Methods in Natural Language Processing (EMNLP). pp. 10--20 (2020)
+
+\bibitem{bontoriTdtu}
+{BonTori}: {R-ViHSD}: {TDTU} {YouTube}/{voz} extension of {ViHSD} (cleaned)
+  \url{https://huggingface.co/datasets/BonTori/vietnamese-hsd-cleaned}
+
+\bibitem{conneau2020xlmr}
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzm{\'a}n,
+  F., Grave, E., Ott, M., Zettlemoyer, L., Stoyanov, V.: Unsupervised
+  cross-lingual representation learning at scale. Proceedings of the 58th
+  Annual Meeting of the Association for Computational Linguistics (ACL) pp.
+  8440--8451 (2020)
+
+\bibitem{danilevsky2020survey}
+Danilevsky, N., Anastasiya, A., Zhuravetskaya, E., Dobrov, S.: Explainable ai
+  for hate speech detection: A survey. In: Proceedings of the 2020 Conference
+  on Empirical Methods in Natural Language Processing and the 9th International
+  Joint Conference on Natural Language Processing (EMNLP-IJCNLP). pp. 1--12
+  (2020)
+
+\bibitem{davidson2017automated}
+Davidson, T., Warmsley, D., Macy, M., Weber, I.: Automated hate speech
+  detection and the problem of offensive language. In: Proceedings of the 11th
+  International AAAI Conference on Web and Social Media (ICWSM). pp. 512--515
+  (2017)
+
+\bibitem{efron1993bootstrap}
+Efron, B., Tibshirani, R.J.: An introduction to the bootstrap. Chapman \&
+  Hall/CRC  (1993)
+
+\bibitem{lui2012langid}
+Lui, M., Baldwin, T.: Part-of-speech tagging, word embeddings, and language
+  identification in english. In: Proceedings of the First Workshop on NLP for
+  Social Media (NLP4SM) (2012)
+
+\bibitem{luu2021vihsd}
+Luu, S.T., Nguyen, K.V., Nguyen, N.L.T.: A large-scale dataset for hate speech
+  detection on vietnamese social media texts. In: Advances and Trends in
+  Artificial Intelligence. Artificial Intelligence Practices (IEA/AIE). pp.
+  415--426. Lecture Notes in Computer Science, Springer (2021)
+
+\bibitem{macavaney2019hate}
+MacAvaney, S., Yao, H.R., Yang, E., Russell, K., Goharian, N., Frieder, O.:
+  Hate speech detection: Challenges and solutions. PLOS ONE  \textbf{14}(8),
+  e0221152 (2019)
+
+\bibitem{mcnemar1947note}
+McNemar, Q.: Note on the sampling error of the difference between correlated
+  proportions or percentages. Psychometrika  \textbf{12}(2),  153--157 (1947)
+
+\bibitem{nguyen2020phobert}
+Nguyen, D.Q., Nguyen, A.T.: {PhoBERT}: Pre-trained language models for
+  vietnamese. In: Findings of the Association for Computational Linguistics:
+  EMNLP 2020. pp. 1037--1042 (2020)
+
+\bibitem{nguyen2026vicm}
+Nguyen, T.M., Nguyen, T.M.N., Huynh, T.V., Nguyen, K.V.: An effective
+  convolutional cross-lingual language model for vietnamese online social media
+  mining. International Journal of Machine Learning and Cybernetics
+  \textbf{17}(2), ~69 (2026). \doi{10.1007/s13042-025-02904-6}
+
+\bibitem{pires2019multilingual}
+Pires, F., Martins, I., O'Connor, K., Ribeiro, M.T.: Multilingual modeling for
+  hate speech detection. In: Proceedings of the 2019 Conference on Empirical
+  Methods in Natural Language Processing and the 9th International Joint
+  Conference on Natural Language Processing (EMNLP-IJCNLP). pp. 10245--10256
+  (2019)
+
+\bibitem{vidgen2021directions}
+Vidgen, A., Bazan, A., Prins, A., Watkins, J., Hendricks, W., Barocas, H.,
+  Uminsky, D., Kiritchenko, S., Dredze, N.: Directions in controlled data:
+  Interpreting and mitigating information leakage in pre-trained language
+  models. In: Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP) (2021)
+
+\bibitem{waseem2016hateful}
+Waseem, Z., Hovy, D.: Hateful symbols or hateful people? predictive features
+  for hate speech detection on twitter. In: Proceedings of NAACL-HLT Student
+  Research Workshop. pp. 88--93 (2016)
+
+\end{thebibliography}

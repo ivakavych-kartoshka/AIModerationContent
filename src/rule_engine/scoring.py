@@ -66,15 +66,17 @@ class RuleResult:
     rule_score: float
     rule_hate_score: float
     rule_offensive_score: float
-    matches: List[ScoredMatch]
-    dictionary_version: str
+    rule_clean_score: float = 0.0
+    matches: List[ScoredMatch] = field(default_factory=list)
+    dictionary_version: str = ""
     meta: Dict[str, object] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, object]:
         return {
-            "rule_score": round(self.rule_score, 4),
-            "rule_hate_score": round(self.rule_hate_score, 4),
-            "rule_offensive_score": round(self.rule_offensive_score, 4),
+            "rule_score": round(float(self.rule_score), 4),
+            "rule_hate_score": round(float(self.rule_hate_score), 4),
+            "rule_offensive_score": round(float(self.rule_offensive_score), 4),
+            "rule_clean_score": round(float(self.rule_clean_score), 4),
             "matches": [scored.to_dict() for scored in self.matches],
             "dictionary_version": self.dictionary_version,
             "meta": self.meta,
@@ -163,30 +165,101 @@ def score_matches(
     for match in matches:
         factor, signals = compute_context_factor(normalized, match, cfg)
         score = match.base_score * factor
+        # Clamp score to [0,1] to avoid numerical drift
+        if score < 0.0:
+            score = 0.0
+        if score > 1.0:
+            score = 1.0
         scored.append(ScoredMatch(match=match, context_factor=factor, score=score, signals=signals))
 
     per_label = aggregate_label_scores(scored, cfg.aggregation_cap)
+
+    hate_score = float(per_label.get("HATE", 0.0))
+    off_score = float(per_label.get("OFFENSIVE", 0.0))
+    if hate_score < 0.0:
+        hate_score = 0.0
+    if hate_score > 1.0:
+        hate_score = 1.0
+    if off_score < 0.0:
+        off_score = 0.0
+    if off_score > 1.0:
+        off_score = 1.0
 
     # overall score: saturating sum over de-duplicated spans (best label wins)
     per_span: Dict[Tuple[int, int], float] = {}
     for item in scored:
         key = (item.match.start, item.match.end)
-        per_span[key] = max(per_span.get(key, 0.0), item.score)
+        if item.score > per_span.get(key, 0.0):
+            per_span[key] = float(item.score)
     top_spans = sorted(per_span.values(), reverse=True)[: cfg.aggregation_cap]
     product = 1.0
-    for score in top_spans:
-        product *= 1.0 - min(max(score, 0.0), 1.0)
+    for s in top_spans:
+        s_clamped = min(max(float(s), 0.0), 1.0)
+        product *= 1.0 - s_clamped
     overall = 1.0 - product
+    if overall < 0.0:
+        overall = 0.0
+    if overall > 1.0:
+        overall = 1.0
+
+    # Toxic evidence derived from actual matches/labels (no hardcoded 0.9/0.6)
+    s_toxic = 1.0 - (1.0 - hate_score) * (1.0 - off_score)
+    if s_toxic < 0.0:
+        s_toxic = 0.0
+    if s_toxic > 1.0:
+        s_toxic = 1.0
+
+    # Derive CLEAN from evidence certainty: reduce clean when there is
+    # strong/verified/quoted-context evidence. Factors come from matches.
+    rule_clean_score = 1.0 - s_toxic
+    if scored:
+        # Average match confidence weighted by match strength
+        total_w = 0.0
+        w_conf = 0.0
+        for item in scored:
+            w = float(item.score)
+            if w < 0.0:
+                w = 0.0
+            total_w += w
+            w_conf += w * float(getattr(item.match, "entry_confidence", 0.5))
+        if total_w > 0.0:
+            avg_conf = w_conf / total_w
+        else:
+            avg_conf = 0.0
+        # If evidence exists but confidence/context is weak (e.g. negated/quoted),
+        # keep more uncertainty -> higher clean probability.
+        neg_q = 0.0
+        for item in scored:
+            if "negated" in item.signals:
+                neg_q += 0.1
+            if "quoted" in item.signals:
+                neg_q += 0.05
+            if item.match.context_required and "context_required" in item.signals:
+                neg_q += 0.05
+        neg_q = min(neg_q, 0.25)
+        # High certainty toxic evidence -> push clean down; weak/uncertain -> keep higher
+        rule_clean_score = (1.0 - s_toxic) * (1.0 - 0.5 * avg_conf) + (1.0 - s_toxic) * neg_q
+        rule_clean_score = rule_clean_score + (1.0 - s_toxic) * 0.0  # placeholder for clarity
+    # Ensure clean is complementary in a reasonable range and does not ignore evidence
+    if rule_clean_score < 0.0:
+        rule_clean_score = 0.0
+    if rule_clean_score > 1.0:
+        rule_clean_score = 1.0
+    # If there is strong toxic evidence, clean should not dominate
+    if s_toxic >= 0.5 and rule_clean_score > (1.0 - s_toxic):
+        rule_clean_score = 1.0 - s_toxic
 
     return RuleResult(
         rule_score=overall,
-        rule_hate_score=per_label.get("HATE", 0.0),
-        rule_offensive_score=per_label.get("OFFENSIVE", 0.0),
+        rule_hate_score=hate_score,
+        rule_offensive_score=off_score,
+        rule_clean_score=rule_clean_score,
         matches=scored,
         dictionary_version=dictionary_version,
         meta={
             "n_matches": len(scored),
             "n_spans": len(per_span),
             "labels": sorted(per_label),
+            "s_toxic": round(float(s_toxic), 4),
         },
     )

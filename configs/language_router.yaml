@@ -1,0 +1,49 @@
+# =============================================================================
+# Language router + language-aware fusion configuration.
+#
+# Pipeline:
+#   text -> LanguageDetector (vi / en / mix / other)
+#        -> LanguageAwareTokenizer (per-token tags, per-segment spans)
+#        -> RuleEngine per language (vi / en lexicons)
+#        -> AI model per language (set from Python; not loaded here)
+#        -> weighted fusion with alpha per language
+#
+# This file does NOT affect training or evaluation.  It is consumed by
+#   src.langid            (detection/tokenization)
+#   src.routing           (rule-engine selection)
+#   src.fusion.lang_aware (score fusion)
+# =============================================================================
+
+# --- detection ------------------------------------------------------------- #
+detection:
+  backend: auto          # auto | langid | heuristic
+  min_confidence: 0.50
+  mix_floor: 0.12
+  mix_min_tokens: 3
+  heuristic_weight: 0.60
+  token_min_len: 2
+
+# --- lexicons / rule-engine configs --------------------------------------- #
+lexicon_paths:
+  vi: data/processed/lexicon/verified_lexicon.csv
+  en: data/processed/lexicon/verified_lexicon_en_combined.csv
+
+rule_config_paths:
+  vi: configs/rule_engine.yaml
+  en: configs/rule_engine_en.yaml
+
+# --- routing --------------------------------------------------------------- #
+# ``other`` language (or low confidence) falls back to ``multilingual``, which
+# keeps both rule engines active instead of silently skipping the scan.
+fallback_lang: multilingual
+use_both_for_mix: true       # run vi + en lexicons on code-mixed comments
+segment_by_language: true    # scan each language span with its own lexicon
+
+# --- fusion weights -------------------------------------------------------- #
+# alpha = AI weight; 1 - alpha = rule weight.  Tune on validation only.
+alphas:
+  vi: 0.70
+  en: 0.70
+  mix: 0.65
+  multilingual: 0.80
+  default: 0.70

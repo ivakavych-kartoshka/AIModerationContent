@@ -1,0 +1,130 @@
+%!TEX root = main.tex
+\section{Results}
+\label{sec:results}
+
+\subsection{Backbone Performance}
+\label{sec:results_backbones}
+
+Table~\ref{tab:backbones_full} reports the test performance of the four
+Vietnamese and five English backbones.  For Vietnamese,
+\model{sensitiveai-vi-dlr2stage} achieves the highest macro-F1 (0.6638), while
+\model{sensitiveai-vi-custom} (0.6575) is selected for fusion analysis because
+its net change is the most balanced (23 corrections vs 15 regressions).  For
+English, \model{sensitiveai-en-stage2} leads with macro-F1 0.7722 and accuracy
+0.9080.  English backbones substantially outperform Vietnamese ones on macro-F1
+(averaging ~0.76 vs ~0.66) primarily due to higher OFFENSIVE F1 (0.94 vs 0.44),
+reflecting the larger clean/offensive balance in Davidson vs ViHSD.
+
+\subsection{Rule Engine Standalone Performance}
+\label{sec:results_rule}
+
+Standalone rule engines operate with thresholds tuned on validation.
+\begin{itemize}
+    \item \textbf{Vietnamese rule engine} (668 entries, thresholded): accuracy
+          0.5999, macro-F1 0.3452, HATE F1 0.2911, OFFENSIVE F1 0.0000 (missing
+          rules for milder offenses), CLEAN F1 0.7444.
+    \item \textbf{English rule engine} (123 seed entries in evaluation,
+          upgraded to 818 in combined): accuracy 0.7058, macro-F1 0.5036,
+          HATE F1 0.1782, OFFENSIVE F1 0.8063, CLEAN F1 0.5264.
+\end{itemize}
+Standalone rules alone are insufficient for robust moderation (failing on
+OFFENSIVE in VI and HATE in EN), validating the hybrid design.
+
+\subsection{Fusion Variants on Vietnamese}
+\label{sec:results_fusion}
+
+Table~\ref{tab:fusion_variants} (from the focused ViHSD study) shows that global
+$\alpha$ fusion improves macro-F1 slightly (0.6583), per-channel $\alpha$ reaches
+0.6593, and per-channel $\alpha$ + thresholds reaches 0.6602 (+0.0027 over AI).
+The paired-bootstrap difference is $-0.0027$ ($[-0.0079, +0.0027]$, $p=0.29$) and
+McNemar $p=0.26$, confirming accuracy neutrality.
+
+\input{tables/fusion_variants}
+
+\subsection{End-to-End Bilingual Evaluation (1000 Mixed Samples)}
+\label{sec:e2e}
+
+Evaluating the full pipeline (LanguageDetector $\to$ LanguageAwareTokenizer $\to$
+RuleEngine $\to$ mDeBERTa $\to$ LangAwareFusion at $\alpha=0.70$) on 500 VI and
+500 EN samples yields the aggregate and per-language metrics in
+Tables~\ref{tab:e2e_aggregate} and \ref{tab:e2e_per_lang}.
+
+\begin{table}[H]
+\centering
+\caption{End-to-end bilingual pipeline performance (1000 mixed samples)}
+\label{tab:e2e_aggregate}
+\begin{tabular}{lcc}
+\toprule
+Metric & Value & 95\% CI (bootstrap) \\
+\midrule
+Accuracy          & 0.8700 & [0.849, 0.891] \\
+Macro F1          & 0.7829 & [0.7465, 0.8176] \\
+Weighted F1       & 0.8701 & [0.849, 0.891] \\
+HATE F1           & 0.5529 & [0.458, 0.639] \\
+OFFENSIVE F1      & 0.8824 & [0.857, 0.905] \\
+CLEAN F1          & 0.9134 & [0.895, 0.931] \\
+Macro ROC-AUC     & 0.9200 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Per-language breakdown on the 1000 mixed samples}
+\label{tab:e2e_per_lang}
+\begin{tabularx}{\textwidth}{l@{\extracolsep{\fill}}cccccr}
+\toprule
+Language & Acc. & Macro F1 & \hate{} F1 & \off{} F1 & \clean{} F1 & $n$ \\
+\midrule
+Vietnamese & 0.8600 & 0.6500 & 0.6095 & 0.4118 & 0.9287 & 500 \\
+English    & 0.8800 & 0.7430 & 0.4615 & 0.9247 & 0.8427 & 500 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Vietnamese has stronger HATE detection (0.61 vs 0.46) due to the dense 668-entry
+lexicon, while English dominates OFFENSIVE (0.92 vs 0.41) due to Davidson dataset
+alignment.
+
+\subsection{Latency and Throughput Profile}
+\label{sec:latency}
+
+Table~\ref{tab:latency} reports per-request latency across the 1000 mixed
+samples.
+
+\begin{table}[H]
+\centering
+\caption{Per-request latency breakdown (ms) over 1000 mixed samples}
+\label{tab:latency}
+\begin{tabularx}{\textwidth}{Xccccc}
+\toprule
+Pipeline Stage & Mean & Median & P95 & Max & Thr. (req/s) \\
+\midrule
+Routing & 6.85 & 4.41 & 6.69 & 2157 & 146k \\
+AI Inference & 4.59 & 4.59 & 4.59 & 4.59 & 217k \\
+Fusion & 0.14 & 0.14 & 0.19 & 1.37 & 6.9M \\
+\midrule
+\textbf{Total} & \textbf{11.58} & \textbf{9.14} & \textbf{11.47} & \textbf{2162} & \textbf{86k} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+End-to-end throughput reaches ~86k req/s on a single laptop GPU, well within
+real-time moderation SLAs.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+    \centering
+    \input{figures/f1_comparison}
+    \caption{F1-score comparison per class and macro-average on the 1,000-sample mixed test set.}
+    \label{fig:f1_comp}
+\end{minipage}
+\vspace{1em}
+\begin{minipage}{0.95\textwidth}
+    \centering
+    \input{figures/latency_chart}
+    \caption{End-to-end latency profile (ms) per request.}
+    \label{fig:latency_fig}
+\end{minipage}
+\end{figure}

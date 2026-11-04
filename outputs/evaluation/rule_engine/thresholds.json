@@ -8,83 +8,47 @@
   "coordinate_rounds": 3,
   "initial_threshold": 0.5,
   "thresholds": {
-    "HATE": 0.85,
-    "OFFENSIVE": 0.0,
-    "CLEAN": 0.41
+    "HATE": 0.5,
+    "OFFENSIVE": 0.5,
+    "CLEAN": 0.5
   },
   "threshold_list": [
-    0.85,
-    0.0,
-    0.41
+    0.5,
+    0.5,
+    0.5
   ],
-  "objective_before": 0.343829,
-  "objective_after": 0.455467,
-  "validation_macro_f1_with_thresholds": 0.4554671719867925,
-  "validation_accuracy_with_thresholds": 0.7020958083832335,
-  "validation_macro_f1_with_argmax": 0.34382899715151094,
+  "objective_before": 0.34374,
+  "objective_after": 0.34374,
+  "validation_macro_f1_with_thresholds": 0.3437400053378563,
+  "validation_accuracy_with_thresholds": 0.5883233532934131,
+  "validation_macro_f1_with_argmax": 0.3437400053378563,
   "trace": [
     {
       "round": 0,
       "label": "init",
       "threshold": 0.5,
-      "objective": 0.34382899715151094
+      "objective": 0.3437400053378563
     },
     {
       "round": 1,
       "label": "HATE",
-      "threshold": 0.75,
-      "objective": 0.3470253312629436
+      "threshold": 0.5,
+      "objective": 0.3437400053378563
     },
     {
       "round": 1,
       "label": "OFFENSIVE",
-      "threshold": 0.0,
-      "objective": 0.42132192790201745
+      "threshold": 0.5,
+      "objective": 0.3437400053378563
     },
     {
       "round": 1,
       "label": "CLEAN",
-      "threshold": 0.41000000000000003,
-      "objective": 0.4431010701364051
-    },
-    {
-      "round": 2,
-      "label": "HATE",
-      "threshold": 0.85,
-      "objective": 0.4554671719867925
-    },
-    {
-      "round": 2,
-      "label": "OFFENSIVE",
-      "threshold": 0.0,
-      "objective": 0.4554671719867925
-    },
-    {
-      "round": 2,
-      "label": "CLEAN",
-      "threshold": 0.41000000000000003,
-      "objective": 0.4554671719867925
-    },
-    {
-      "round": 3,
-      "label": "HATE",
-      "threshold": 0.85,
-      "objective": 0.4554671719867925
-    },
-    {
-      "round": 3,
-      "label": "OFFENSIVE",
-      "threshold": 0.0,
-      "objective": 0.4554671719867925
-    },
-    {
-      "round": 3,
-      "label": "CLEAN",
-      "threshold": 0.41000000000000003,
-      "objective": 0.4554671719867925
+      "threshold": 0.5,
+      "objective": 0.3437400053378563
     }
   ],
   "note": "Optimised on the validation split only; frozen before test evaluation.",
   "split": "validation",
-  "config": "configs/rule_engine.yaml"
+  "config": "configs\\rule_engine.yaml"
 }

@@ -52,12 +52,24 @@ COMPONENTS = (
 )
 
 
-def rule_pseudo_proba(hate: np.ndarray, offensive: np.ndarray) -> np.ndarray:
-    """``[HATE, OFFENSIVE, CLEAN]`` pseudo-probability from the two rule scores."""
-    hate = np.asarray(hate, dtype=float)
-    offensive = np.asarray(offensive, dtype=float)
-    clean = np.clip(1.0 - np.maximum(hate, offensive), 0.0, 1.0)
-    return np.stack([hate, offensive, clean], axis=1)
+def rule_pseudo_proba(hate: np.ndarray, offensive: np.ndarray, clean: np.ndarray | None = None) -> np.ndarray:
+    """``[HATE, OFFENSIVE, CLEAN]`` pseudo-probability from rule scores."""
+    hate_arr = np.asarray(hate, dtype=float)
+    offensive_arr = np.asarray(offensive, dtype=float)
+    if clean is None:
+        clean_arr = np.clip(1.0 - np.maximum(hate_arr, offensive_arr), 0.0, 1.0)
+    else:
+        clean_arr = np.asarray(clean, dtype=float)
+    clean_arr = np.clip(clean_arr, 0.0, 1.0)
+    # Renormalize softly to keep on reasonable scale for fusion
+    s = hate_arr + offensive_arr + clean_arr
+    # Avoid division by zero
+    mask = s > 1e-12
+    if np.any(mask):
+        hate_arr = np.where(mask, hate_arr / s, hate_arr)
+        offensive_arr = np.where(mask, offensive_arr / s, offensive_arr)
+        clean_arr = np.where(mask, clean_arr / s, clean_arr)
+    return np.stack([hate_arr, offensive_arr, clean_arr], axis=1)
 
 
 def fuse_scores(
@@ -65,6 +77,7 @@ def fuse_scores(
     rule_hate: np.ndarray,
     rule_offensive: np.ndarray,
     alpha: float,
+    rule_clean: np.ndarray | None = None,
 ) -> np.ndarray:
     """Convex combination of the AI probabilities and the rule pseudo-probabilities.
 
@@ -72,7 +85,7 @@ def fuse_scores(
     ``(N, 3)`` matrix in canonical ``[HATE, OFFENSIVE, CLEAN]`` order.
     """
     p_ai = np.asarray(p_ai, dtype=float)
-    rule = rule_pseudo_proba(rule_hate, rule_offensive)
+    rule = rule_pseudo_proba(rule_hate, rule_offensive, rule_clean)
     if p_ai.shape != rule.shape:
         raise ValueError(f"AI scores {p_ai.shape} and rule scores {rule.shape} do not match")
     a = float(alpha)

@@ -1,0 +1,301 @@
+text,true_label,pred_label,rule_hate_score,rule_offensive_score,n_matches,top_matches
+khi bạn muốn bợ đít ai đó nhưng bạn không có não. ngu như lợn nhưng vẫn làm báo đảng đĩ.,OFFENSIVE,HATE,0.9957,0.0,3,ngu như(HATE:exact:0.8604) | đĩ(HATE:exact:0.8321) | có não(HATE:exact:0.8179)
+"chán đến nỗi ct đéo cần lý do, đéo đau khổ và đéo rơi giọt nước mắt nào. có 1 kiểu ct gọi là hp vãi loz.",OFFENSIVE,HATE,0.9951,0.0,4,loz(HATE:exact:0.8333) | đéo cần(HATE:exact:0.7377) | đéo(HATE:exact:0.6662) | đéo(HATE:exact:0.6662)
+nhanh chậm cái con mẹ chúng mày =))),OFFENSIVE,HATE,0.9945,0.0,3,chậm cái(HATE:exact:0.8755) | con mẹ(HATE:exact:0.8011) | chúng mày(HATE:exact:0.7795)
+cường nguyễn bọn nó còn lấy cái ngón chỏ xỏ vào làm gì ý.mà xỏ xong cả lũ cười.đéo hiểu,OFFENSIVE,HATE,0.9936,0.0,4,lũ(HATE:exact:0.7666) | xỏ(HATE:exact:0.705) | xỏ(HATE:exact:0.705) | đéo hiểu(HATE:exact:0.6834)
+trên bờ: tao chửi đấy mày làm đéo gì được tao:v,OFFENSIVE,HATE,0.9928,0.0,3,tao chửi(HATE:exact:0.8849) | mày làm(HATE:exact:0.7848) | đéo gì(HATE:exact:0.7113)
+đm hết hình lựa hay sao mà lựa ngay quả ảnh hãm loz thật...,OFFENSIVE,HATE,0.9861,0.0,3,loz(HATE:exact:0.8333) | hãm(HATE:exact:0.7335) | đm(HATE:exact:0.6869)
+hèn gì chúng nó chỉ dám nói là ko có liên quan. cái địt mẹ mấy thằng lớn,OFFENSIVE,HATE,0.9782,0.0,2,cái địt(HATE:exact:0.9123) | mấy thằng(HATE:exact:0.7518)
+idol. viết vậy là chết con đĩ mẹ người ta rồi,OFFENSIVE,HATE,0.9763,0.0,2,mẹ người(HATE:exact:0.8535) | con đĩ(HATE:exact:0.8381)
+"nam đặng đời nó là thế,lồn mẹ dell thấy có cái lồn gì là vui cả",OFFENSIVE,HATE,0.9687,0.0,2,lồn(HATE:exact:0.8494) | cái lồn(HATE:exact:0.792)
+sạo lồn,OFFENSIVE,HATE,0.9666,0.0,2,lồn(HATE:exact:0.8494) | sạo(HATE:exact:0.7783)
+xạo lol hk có j vui chúg ta hk nên xạo lol,OFFENSIVE,HATE,0.9647,0.0,2,xạo lol(HATE:exact:0.8121) | xạo lol(HATE:exact:0.8121)
+gam thua cái củ cặc nhé!!,OFFENSIVE,HATE,0.9567,0.0,2,cặc(HATE:exact:0.8323) | cái củ(HATE:exact:0.7417)
+nguyễn minh ngọc đéo hiểu sao t nhìn ảnh nào cx thấy chữ lồn,OFFENSIVE,HATE,0.9523,0.0,2,lồn(HATE:exact:0.8494) | đéo hiểu(HATE:exact:0.6834)
+sau đó anh tôi chạy thẳng vào kho lấy ra cái búa từ đó đéo thấy anh tôi stream củ cặc gì nữa =)),OFFENSIVE,HATE,0.9507,0.0,2,cặc gì(HATE:exact:0.8697) | đéo thấy(HATE:exact:0.6217)
+like 10 năm chất liek bằng đầu bùi,OFFENSIVE,HATE,0.9405,0.0,1,đầu bùi(HATE:exact:0.9405)
+cho ra những tấm ảnh đầy tính ấu dâm,OFFENSIVE,HATE,0.9396,0.0,2,dâm(HATE:exact:0.7701) | ấu(HATE:exact:0.7372)
+"m lảm nhảm cái đéo gì thế, sai lè còn cãi, ở việt nam! cái hay nhất nhà chối tội đổ lỗi thanh minh, từ thằng quan tới thằng dân, sai lè thế kia mà còn lái đi đâu đâu để cãi, chúng mày vác cái đth sương chúng m, còn dân việt nam! bên đó với nhưng ng sau này sẽ qua thì sao?",OFFENSIVE,HATE,0.9349,0.0,2,chúng mày(HATE:exact:0.7795) | cái đéo(HATE:exact:0.7047)
+có học thức chỉ tiếc văn hoá quá kém...ý thức thua cả một con chó,OFFENSIVE,HATE,0.9322,0.0,2,con chó(HATE:exact:0.8176) | thua cả(HATE:exact:0.6281)
+"chửi vô tội vạ mà đéo biết báo từ đời nào rồi,và chỉ phạt các doanh nghiệp mua điện nhưng lại k sử dụng để tránh lãng phí thôi chứ dân dùng bằng nào thu bằng đấy,toàn những con bò",OFFENSIVE,HATE,0.9252,0.0,2,con bò(HATE:exact:0.7607) | đéo biết(HATE:exact:0.6873)
+"bộ nào mún ra quyết định là ra, đéo hỏi dân tiếng nào thì bố mày chống luôn!",OFFENSIVE,HATE,0.9219,0.0,2,bố mày(HATE:exact:0.7659) | đéo(HATE:exact:0.6662)
+"thằng dưới thì thấy thế này, chứ đm thằng ad mà làm quan to xem, thử mở mồm ra nói nghĩ cho dân xem nào:)) thanh niên gato",OFFENSIVE,HATE,0.9216,0.0,2,mở mồm(HATE:exact:0.7496) | đm(HATE:exact:0.6869)
+xàm lồn gay cấn,OFFENSIVE,HATE,0.9207,0.0,1,xàm lồn(HATE:exact:0.9207)
+óc chó,OFFENSIVE,HATE,0.919,0.0,1,óc chó(HATE:exact:0.919)
+óc chó hi hi,OFFENSIVE,HATE,0.919,0.0,1,óc chó(HATE:exact:0.919)
+tốt nhất là giết bỏ đi vài thành phần óc chó đó là vừa,OFFENSIVE,HATE,0.919,0.0,1,óc chó(HATE:exact:0.919)
+chỉ có óc chó mới nghe giặc tàu,OFFENSIVE,HATE,0.919,0.0,1,óc chó(HATE:exact:0.919)
+đình quang ê đẹp trai vll ra bảo xấu đcm đây mới xàm l nàyy,OFFENSIVE,HATE,0.9057,0.0,2,xàm l(HATE:exact:0.7034) | đcm(HATE:exact:0.6822)
+"biết bao nhiêu vụ đi bắt người bị quay xong bảo bắt bớ dân lành? thì đm bây giờ ca nó chờ đủ hết mọi thủ tục cần thiết nó mới dám bắt chứ không thì đm ""cư dân mạng"" chửi sml ra à?",OFFENSIVE,HATE,0.902,0.0,2,đm(HATE:exact:0.6869) | đm(HATE:exact:0.6869)
+"tôi vẫn chưa hiểu, tại sao saigon, một thành phố ""ngụy"" đói khổ, bị bọn mỹ ""ngụy"" đàn áp, bóc lột, cần chế độ cs ta giải phóng, cứu đói, mà lại nộp ngân sách nhiều thế! (bằng 55 tỉnh thành khác).",OFFENSIVE,HATE,0.8964,0.0,3,bị bọn(HATE:exact:0.7342) | ngụy(HATE:exact:0.3758) | ngụy(HATE:exact:0.3758)
+cái này tao đéo đồng ý,OFFENSIVE,HATE,0.8939,0.0,2,này tao(HATE:exact:0.682) | đéo(HATE:exact:0.6662)
+hết ẳng 🙂 câm mõm lại hết đi,OFFENSIVE,HATE,0.8888,0.0,1,câm(HATE:exact:0.8888)
+dm éo học thì làm cc gì biết chữ,OFFENSIVE,HATE,0.8886,0.0,1,làm cc(HATE:exact:0.8886)
+đây là fir:v đéo phả không phận:v ngu thì cũng vừa vừa phai phải thôi chứ:v,OFFENSIVE,HATE,0.8807,0.0,2,đéo(HATE:exact:0.6662) | ngu thì(HATE:exact:0.6427)
+nói làm lồn gì để rồi bị chửi =)),OFFENSIVE,HATE,0.8755,0.0,1,lồn gì(HATE:exact:0.8755)
+uh cần lồn gì phải lịch sự,OFFENSIVE,HATE,0.8755,0.0,1,lồn gì(HATE:exact:0.8755)
+súc vật,OFFENSIVE,HATE,0.8722,0.0,1,súc vật(HATE:exact:0.8722)
+có nghe tộc trưởng nói không.. đợi cái loz,OFFENSIVE,HATE,0.871,0.0,1,cái loz(HATE:exact:0.871)
+dkm cá chết là do k biết bơi nhá đỏ đo cái loz què̉,OFFENSIVE,HATE,0.871,0.0,1,cái loz(HATE:exact:0.871)
+"yên tâm về việt nam thành phế vật ngay ae ạ. nước ngoài nó chỉ có fuck you, oh shit... còn về việt nam thì k đc đmm thì đcmm hoặc độu má m... phế chắc chắn 🤣🤣🤣",OFFENSIVE,HATE,0.8693,0.0,1,fuck(HATE:exact:0.8693)
+nhìn mặt ngu hơn bò,OFFENSIVE,HATE,0.8636,0.0,1,ngu hơn(HATE:exact:0.8636)
+":)) nó chửi cho đúng:)) chứ k phải là nó chửi sai.nó chửi cho khôn ra chứ nó chửi k phải là để cho tụt hậu,cho đi xuống...tuy văn phong thô- tục nhưng nó thật...nên đéo thể cãi được,thấy xấu hổ thì phải thay đổi",OFFENSIVE,HATE,0.8567,0.0,2,đéo(HATE:exact:0.6662) | xấu hổ(HATE:exact:0.5708)
+bút hình con c,OFFENSIVE,HATE,0.8544,0.0,1,con c(HATE:exact:0.8544)
+thấy lồn là xĩu,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+việt nam thì nó lại là lồn các cậu ạ 🤦🤦,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+cái mỏ lồn,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+tuổi lồn sánh vai,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+lồn ba rọi,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+vĩ đại cái máu lồn =))),OFFENSIVE,HATE,0.8494,0.3838,2,lồn(HATE:exact:0.8494) | cái máu(OFFENSIVE:exact:0.3838)
+vĩ đại cái máu lồn =))),OFFENSIVE,HATE,0.8494,0.3838,2,lồn(HATE:exact:0.8494) | cái máu(OFFENSIVE:exact:0.3838)
+tóc đẹp lồn lộn vcl anh:))) đan xen từ ngữ chất vl,OFFENSIVE,HATE,0.8494,0.0,1,lồn(HATE:exact:0.8494)
+t đã kêu dán lỗ đít lại mà vẫn đéo hiểu:),OFFENSIVE,HATE,0.8465,0.0,2,đéo hiểu(HATE:exact:0.6834) | lỗ đít(HATE:exact:0.5152)
+lại sủa,OFFENSIVE,HATE,0.8446,0.0,1,sủa(HATE:exact:0.8446)
+mẹ làm cx nói k làm cx nói:)) mai đại hội r đấy sủa đi:)),OFFENSIVE,HATE,0.8446,0.0,1,sủa(HATE:exact:0.8446)
+đã ngu còn hay phát biểu,OFFENSIVE,HATE,0.8424,0.0,1,ngu còn(HATE:exact:0.8424)
+mình nói lớn mà ngu thì lại nói mình hỗn. ý thức như đachlone,OFFENSIVE,HATE,0.8396,0.0,1,mà ngu(HATE:exact:0.8396)
+quan điểm như con cặc!!,OFFENSIVE,HATE,0.838,0.0,1,con cặc(HATE:exact:0.838)
+đợi đợi đợi con cặc thích câu này v*l 😂,OFFENSIVE,HATE,0.838,0.0,1,con cặc(HATE:exact:0.838)
+chậm con cặc,OFFENSIVE,HATE,0.838,0.0,1,con cặc(HATE:exact:0.838)
+địt nhau,OFFENSIVE,HATE,0.8342,0.0,1,địt(HATE:exact:0.8342)
+chỗ này đit phải chỗ gạ địt nhé hahhahah.,OFFENSIVE,HATE,0.8342,0.0,1,địt(HATE:exact:0.8342)
+đợi cl thêm câu địt chị m độ said:v,OFFENSIVE,HATE,0.8342,0.0,1,địt(HATE:exact:0.8342)
+huyền khánh phùng nếu e không tiện thì tôi sẽ book vé vào hà nội làm người yêu em??? và tối nay chúng ta sẽ địt,OFFENSIVE,HATE,0.8342,0.0,1,địt(HATE:exact:0.8342)
+"khổ, làm ăn bố láo bị tẩy chay thì có mấy thành phần bợ đít chạy theo: ""người việt dùng hàng việt là yêu nước"", ""dn việt đóng ngàn tỷ tiền thuế bị dập"".",OFFENSIVE,HATE,0.8339,0.0,1,bố láo(HATE:exact:0.8339)
+tao lại dưới loz tao lại lên.kkk,OFFENSIVE,HATE,0.8333,0.0,1,loz(HATE:exact:0.8333)
+"chưa thử loz xách tay bao h,có thì ới 😂",OFFENSIVE,HATE,0.8333,0.0,1,loz(HATE:exact:0.8333)
+lâm anh vinn tui bảo rồi loz mẹ,OFFENSIVE,HATE,0.8333,0.0,1,loz(HATE:exact:0.8333)
+ngon! đeo tai nghe vào và sục cặc thôi!!,OFFENSIVE,HATE,0.8323,0.0,1,cặc(HATE:exact:0.8323)
+phuong trinh nhi nước hoa giống như nước lã vậy đó e có mua hai chay sài như lồn,OFFENSIVE,HATE,0.823,0.0,1,như lồn(HATE:exact:0.823)
+ở việt nam! nó là cái l đó,OFFENSIVE,HATE,0.8199,0.0,1,cái l(HATE:exact:0.8199)
+thối nát,OFFENSIVE,HATE,0.8145,0.0,1,thối nát(HATE:exact:0.8145)
+thối nát quá r!!!!!!!!!!!!,OFFENSIVE,HATE,0.8145,0.0,1,thối nát(HATE:exact:0.8145)
+emma nguyen vậy mà ca ngợi bên kia lắm... về làm lol gì,OFFENSIVE,HATE,0.8124,0.0,1,lol gì(HATE:exact:0.8124)
+best xạo lol ý,OFFENSIVE,HATE,0.8121,0.0,1,xạo lol(HATE:exact:0.8121)
+nhỏ này ranh con trong nhóm dư luận viên của nhà nước ấy mà.cứ ai đưa tin ji thì nó bay vào nói bất chấp đúng hay sai.ăn lương phải vậy bất chấp dân đói khổ.nó đâu đứng về phía công lí.nhóm tụi nó cả vào trăm đứa ăn lương vài triệu là để vậy.làm nhẹ dư luận khi ai đó đụng đến người chi lương nó...,HATE,OFFENSIVE,0.808,0.0,1,luận viên(HATE:exact:0.808)
+bốc sư tất nhiên là xạo quá ròi tất nhiên là súng bắn không tói ông nhưng tất nhiên rằng corona tất nhiên là sẽ tới thăm viếng bốc sư tất nhiên,HATE,OFFENSIVE,0.8059,0.0,1,xạo(HATE:exact:0.8059)
+lông ngông cuồng có chết cũng đâu có sao. hay! co thương nghi quỹ vừa lùn vừa trọc phỏng vấn là đúng rồi xạo ke,HATE,OFFENSIVE,0.8059,0.0,1,xạo(HATE:exact:0.8059)
+xạo l,HATE,OFFENSIVE,0.8059,0.0,1,xạo(HATE:exact:0.8059)
+chị ba xạo l**,HATE,OFFENSIVE,0.8059,0.0,1,xạo(HATE:exact:0.8059)
+"bò đỏ đâu ròi, cho tôi thấy cánh tay của các bạn nào:))",HATE,OFFENSIVE,0.8049,0.0,1,bò đỏ(HATE:exact:0.8049)
+con mẹ day làm răng giả ghê quá,HATE,OFFENSIVE,0.8011,0.0,1,con mẹ(HATE:exact:0.8011)
+quỳnhh hoa bị ngu à t vẫn mang quốc tịch vn và vẫn nói ngôn ngữ vn chữa trị ở đây vn chưa cấm m lên tiếng làm g? ai chê vn nghèo nàn suy bụng ta ra bụng người à? lo chuyện bao đồng,HATE,OFFENSIVE,0.8009,0.0,1,ngu à(HATE:exact:0.8009)
+đúng là con người mày không có ý thức dân việt nam chúng ta không bao giờ con cho cái?,HATE,OFFENSIVE,0.7998,0.0,1,mày không(HATE:exact:0.7998)
+sắp thành triều tiên của đông nam á cmnr nhờ sự lảnh đạo tài tình và sáng suốt của đảng cơm sườn.,HATE,OFFENSIVE,0.7947,0.0,1,cơm sườn(HATE:exact:0.7947)
+tập cận bình qua mĩ cũng bị dân tq bên đó treo băng rôn biểu tình chửi như chó =)),HATE,OFFENSIVE,0.7925,0.0,1,như chó(HATE:exact:0.7925)
+add là cái lồn gì,HATE,OFFENSIVE,0.792,0.0,1,cái lồn(HATE:exact:0.792)
+quang minh cái lồn má,HATE,OFFENSIVE,0.792,0.0,1,cái lồn(HATE:exact:0.792)
+minh công nói thật bây gio tui ghét bọn hàn như ghét cức,HATE,OFFENSIVE,0.7919,0.0,1,cức(HATE:exact:0.7919)
+mày nên nhớ là nguời trong nam ngoài bắc cỡ 70 triêu nguời mày chờ chết là vừa,HATE,OFFENSIVE,0.7906,0.0,1,mày nên(HATE:exact:0.7906)
+"nguyễn duy hưng con này mõm chó, anh để em",HATE,OFFENSIVE,0.7905,0.0,1,chó(HATE:exact:0.7905)
+tôi đã thấy chó cs trên đất dân.,HATE,OFFENSIVE,0.7905,0.0,1,chó(HATE:exact:0.7905)
+đi lang thang vu vơ mà cũng gặp nhà chó quyền:)))~ chịu thua,HATE,OFFENSIVE,0.7905,0.0,1,chó(HATE:exact:0.7905)
+lúc nó đi ngược chiều nó tông cho rồi kêu chó vàng giúp. quyền lợi thì muốn mà còn pháp luật thì k muốn tuân thủ,HATE,OFFENSIVE,0.7905,0.0,1,chó(HATE:exact:0.7905)
+"bả chửi người ta lên mạng câu like, bả mấy là người câu like đó, kêu người này người kia ủng hộ nhiều nhiều, đi mỹ chơi về cho mỗi đứa ngàn đô, nghe muốn đái ỉa ra một lượt cho bả coi, lên mạng ngồi bán từng chai dầu thơm kiếm lời mà nói chuyện chảnh chó.",HATE,OFFENSIVE,0.7905,0.0,1,chó(HATE:exact:0.7905)
+cô minh hiếu mà hết thời là mày cũng hết đường làm ăn luôn nha con bóng đồng tháp bán dồ giả,HATE,OFFENSIVE,0.7886,0.0,1,là mày(HATE:exact:0.7886)
+lúc hoạn nạn mới bt ai bạn ai thù nhưng mấy bn 3/// ăn cứt mĩ nhiều quá đ nhận ra rồi:)))),HATE,OFFENSIVE,0.7884,0.0,1,ăn cứt(HATE:exact:0.7884)
+"phobolsatv:bien me đi,phỏng vấn tao lao,may về phong van gia đình mày đi.nhin may nguoi gia ma con ko tha,phobolsa rất sam",HATE,OFFENSIVE,0.786,0.0,1,mày đi(HATE:exact:0.786)
+rồi sao mày làm đc củ c gì... hay viết đọc cho hay?,HATE,OFFENSIVE,0.7848,0.0,1,mày làm(HATE:exact:0.7848)
+"ở xứ thiên đường an sinh xã hội như ccc nên nghèo đói bệnh tật cũng phải lết đi làm đủ thứ nghề kiếm cơm k thì chết đói, trách ông này nhưng cũng đừng đổ hết trách nhiệm lên ng ta như vậy.",HATE,OFFENSIVE,0.7843,0.0,1,ccc(HATE:exact:0.7843)
+biết gì đâu con tinh trùng khuyết tật,HATE,OFFENSIVE,0.7827,0.0,1,khuyết tật(HATE:exact:0.7827)
+tao nghĩ con nhung nó ko những lây nhiễm virus mà nó còn lây nhiễm sự khuyết tật về não và ý thức như buồ.i,HATE,OFFENSIVE,0.7827,0.0,1,khuyết tật(HATE:exact:0.7827)
+không chú nào quỳ bố nó xuống nước cho ổng dẫm lên lưng bước qua...như vậy có thể mau lên chức hay sớm được chiếu cố hơn! quan nhà sản có khác...bị khuyết tật!,HATE,OFFENSIVE,0.7827,0.0,1,khuyết tật(HATE:exact:0.7827)
+"ông này tốt đẹp gì, đi đêm qua lại giữa mỹ và polpot, ông ta cứ xoay giữa hai trục mỹ và polpot, gió chiều nào ông ta ngã chiều đó, ngư ông đắc lợi...cái chết của hàng triệu người cam trong ít năm ngắn ngủi polpot cầm quyền có tội rất lớn của ông ta.",HATE,OFFENSIVE,0.7826,0.0,1,chết của(HATE:exact:0.7826)
+"ngoài ra bắn bỏ mẹ những thằng đeo biết lon j cũng đăng lung tung, khoá mõm lại",HATE,OFFENSIVE,0.7808,0.0,1,những thằng(HATE:exact:0.7808)
+trong khi tao đang đau đầu vì nợ nần thì chúng mày chỉ nghỉ đến việc đit nhau thôi à,HATE,OFFENSIVE,0.7795,0.0,1,chúng mày(HATE:exact:0.7795)
+sạo loxz quền của chị 3,HATE,OFFENSIVE,0.7783,0.0,1,sạo(HATE:exact:0.7783)
+"chúng nó bỏ chạy thế còn hơn nó quay lại đàn áp. trên sách vở lý thuyết thì chúng nó nghĩ chúng nó đang làm việc cao cả và kẻ trước mặt là bọn phản động, nhưng thực tế phũ phàng là trước mặt chúng nó toàn là bà con nông dân thử hỏi làm gì còn nhuệ khí mà đàn áp.",HATE,OFFENSIVE,0.7779,0.0,1,bọn phản(HATE:exact:0.7779)
+"bệnh viện anh như cc. đã có triệu chứng rõ ràng, khai cả tiền sử tiếp xúc vẫn ko cho xét nghiệm mà yêu cầu cách ly tại nhà 😔 ông bố điều mb bế về vn chữa là hợp lý",HATE,OFFENSIVE,0.7777,0.0,1,như cc(HATE:exact:0.7777)
+hiếu võ ộp pa như cc:)),HATE,OFFENSIVE,0.7777,0.0,1,như cc(HATE:exact:0.7777)
+trên đời này sao có cái loại con người như con nhỏ này....đúng là khẩu nghiệp,HATE,OFFENSIVE,0.7729,0.0,1,cái loại(HATE:exact:0.7729)
+"khī pacpo hôm nay đi bảo, ngày mai bán dâm nuôi đảng",HATE,OFFENSIVE,0.7701,0.0,1,dâm(HATE:exact:0.7701)
+"ở mỹ có xả súng,khủng bố,hiếp dâm,nghèo đói,thuế thừa kế 40%,bị cảnh sát đàn áp lạm quyền",HATE,OFFENSIVE,0.7701,0.0,1,dâm(HATE:exact:0.7701)
+hải yến bố cái con thái lọ,HATE,OFFENSIVE,0.7686,0.0,1,cái con(HATE:exact:0.7686)
+"ad tên thắm à, hehe, em lại nhớ tới cái con em học cùng cấp 1 cũng tên là thắm và em toàn trêu nó là \"" thắm mồm khắm như nước mắm \"" ad à:d",HATE,OFFENSIVE,0.7686,0.0,1,cái con(HATE:exact:0.7686)
+"kệ đi thớt, 1 lũ trẻ trâu",HATE,OFFENSIVE,0.7666,0.0,1,lũ(HATE:exact:0.7666)
+nó mỗi thế thôi 1 lũ lao vào chửi nó ko ra con người. vl thật bọn trẻ,HATE,OFFENSIVE,0.7666,0.0,1,lũ(HATE:exact:0.7666)
+":)) làm loạn không phải cách hay, giờ giả sử phá hết đó nó bắt đền bù ngược lại thì dân mình ko những còn ko đc đền bù mà còn chịu thiệt, hơn nữa mình tưởng những người công giáo sẽ ôn hòa chứ tức nước vỡ bờ thì cũng một ruột với lũ công an '' lỡ vuốt má '' à. cứ như buổi đầu của phong trào công nhân họ nghĩ họ chịu cực khổ vì do máy móc nên họ đập phá máy móc vậy",HATE,OFFENSIVE,0.7666,0.0,1,lũ(HATE:exact:0.7666)
+"có thể là do thế lực thù địch lợi dụng những hôm đêm tối đã ra đào bới bờ kè, khiến cho bờ kè bị sạt lở. đây là 1 trong những chiêu trò kích động người dân của bè lũ phản động.:3",HATE,OFFENSIVE,0.7666,0.0,1,lũ(HATE:exact:0.7666)
+hanh viet hết cái bọn cực kì thuyết phục bây giờ lại đến bọn: “ ở nhà giúp mẹ giúp cha.... “ xàm lol như nhau cả thôi,HATE,OFFENSIVE,0.7637,0.0,1,xàm lol(HATE:exact:0.7637)
+chửi cũng nể nang chứ. đkm tao báo công an bắt chết cụ mày. phạt mày 5 tr bây giờ. 😂😂😂😂😂😂,HATE,OFFENSIVE,0.7622,0.0,1,đkm(HATE:exact:0.7622)
+đkm đứa nào bảo idol trần dần t mắc covid đấy:v,HATE,OFFENSIVE,0.7622,0.0,1,đkm(HATE:exact:0.7622)
+phát thịnh thầy tui như thằng xì ke.,HATE,OFFENSIVE,0.7609,0.0,1,như thằng(HATE:exact:0.7609)
+phương thảo nom có như thằng trẻ trâu ở quê không,HATE,OFFENSIVE,0.7609,0.0,1,như thằng(HATE:exact:0.7609)
+hiền vinh sao trong clip như thằng tâm thần vậy,HATE,OFFENSIVE,0.7609,0.0,1,như thằng(HATE:exact:0.7609)
+thay ngu,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+"nó viết stt rõ ngu, ở đây ông pa và những người khác không được trả lương để đi từ thiện mà họ còn tự bỏ tiền túi cho những chi phí liên quan, còn mấy ông bộ đội cbcs này ăn lương nhà nước thì đây là trách nhiệm họ phải làm, xin nhấn mạnh là bắt buộc p",HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+"k cần giặt đánh, cứ để dân tự chết vì ngu thôi:v",HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+"hiếu ơi hiện có kênh con lisao chửi cả dân tộc việt nam ngu vì ăn mắm thúi, em lên dạy dỗ cho nó bài học đi em, bức xúc quá.cảm ơn em.",HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+"add còn viết tắt của address nữa, ngu!",HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+con quỷ ngọc hiếu.. cái thứ ngu ngục tù.. đou mẹ nó bị con minh hiếu chửi sắp mặt lozz.. giờ lại áp phe với con minh hiếu...ko biết sĩ diện...,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+các bạn bị ngu hả đây là style mà.?,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+tiên tri vũ trụ trần đần đại ngu.,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+noi tum lai hai thang đều ngu,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+đúng là ngu dân,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+việt nam cố gắng lên tất cả cùng chung sức thì dịch bệnh gì cũng sẽ vượt qua để cho bọn hàn quốc ngu ngục sướng mà không biết điều phải hối hận khi xem thường việt nam 💪💪💪🇲🇦🇲🇦🇲🇦,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+vậy mới thấy tri thức ngu tri thức hèn là như nào,HATE,OFFENSIVE,0.7522,0.0,1,ngu(HATE:exact:0.7522)
+gọi mấy thằng ca là phải dí thẳng tiền cho chúng nó.ko là đến già chúng nó cũng chả quan tâm,HATE,OFFENSIVE,0.7518,0.0,1,mấy thằng(HATE:exact:0.7518)
+sống chậm thôi mấy thằng lol,HATE,OFFENSIVE,0.7518,0.0,1,mấy thằng(HATE:exact:0.7518)
+dạo này không thấy bọn dlv vào chửi phản động nữa nhỉ. hay tiền lương thấp quá không đủ nên chuồn rồi.,HATE,OFFENSIVE,0.7485,0.0,1,thấy bọn(HATE:exact:0.7485)
+a3 oi a 3 no j nhu luu dan vay a3.giau qua troi jau la dan og muon lm phu nu vay s k bo tien ra di tham my.cai mat nhu qq ngta.o do no.nhin ng la biet co tien hay k tien roi.o do no sua nhu cho sua,HATE,OFFENSIVE,0.7462,0.3794,3,sua(HATE:exact:0.4962) | sua(HATE:exact:0.4962) | qq(OFFENSIVE:exact:0.3794)
+trân dân.mày vê vn tao sē công đâu mày....nhơ lơi tao nói...thương bé lăm,HATE,OFFENSIVE,0.7433,0.0,1,tao nói(HATE:exact:0.7433)
+anh nghị trẻ việt cộng😂🤣😅😄🤣😂,HATE,OFFENSIVE,0.7431,0.0,1,việt cộng(HATE:exact:0.7431)
+không có nên chửi người ta là bắt ky! hồn láo toét miệng lưỡi quá! khẩu nghiệp quả báo sớm lắm,HATE,OFFENSIVE,0.738,0.0,1,láo(HATE:exact:0.738)
+"loại này nên bắn, đéo cần bịnh hay không.",HATE,OFFENSIVE,0.7377,0.0,1,đéo cần(HATE:exact:0.7377)
+"anh mày thiếu nợ giang hồ hóc môn, mày cũng thiếu nợ không dám về việt nam, bày đặc làm banh",HATE,OFFENSIVE,0.7375,0.0,1,mày cũng(HATE:exact:0.7375)
+biết là nhật cũng có người này người kia nhưng chú bao nhiêu tuổi rồi mà hành động ấu trĩ như thế 😖😖😖,HATE,OFFENSIVE,0.7372,0.0,1,ấu(HATE:exact:0.7372)
+trong ảnh nhìn đẹp trai mà sao trong clip nhìn hãm loll vậy a,HATE,OFFENSIVE,0.7335,0.0,1,hãm(HATE:exact:0.7335)
+trần dần nói tro sướng cái lỗ mồm.hắn này về vn.thì phải tro ngay vào thường tín hà tây,HATE,OFFENSIVE,0.7331,0.0,1,cái lỗ(HATE:exact:0.7331)
+(y) page này ad nó kiến thức uyên sâu lắm từ xây dựng tài chính y tế cái j n cũng am hiểu =)))) ngu dốt + nhiệt tình = phá hoại k sai bh,HATE,OFFENSIVE,0.7263,0.0,1,ngu dốt(HATE:exact:0.7263)
+"dạo này mấy bố ts giấy phát biểu hơi nhiều, phần lớn cho thấy tư duy kiến thức quá lạc hậu, nhiệt tình cộng với sự ngu dốt thì sẽ thành phá hoại 😤",HATE,OFFENSIVE,0.7263,0.0,1,ngu dốt(HATE:exact:0.7263)
+covid-19 là cái gương chiếu yêu hay gì á:))) biết bao nhiêu bộ mặt ngu dốt lòi ra,HATE,OFFENSIVE,0.7263,0.0,1,ngu dốt(HATE:exact:0.7263)
+hồ nguyễn quốc phú suy nghĩ ko sạch sẽ v nó dơ chỗ nào?? bu lu bu la ở tội a thế đồ ấy hả 🤔 ngta cmt 1 dòng mà đi cmt lại 3 dòng hỉu rồi fans jack ko phân biệt độ tuổi có thể kết luận là trẩu,HATE,OFFENSIVE,0.7216,0.0,1,trẩu(HATE:exact:0.7216)
+bạn bè bên dai loan và bên nước việt nam mình kg tha thứ cho no cho nó một bài học cho nó biết thế nào la suc phạm dân tộc việt nam kg cho nó bài hoc nó kg sợ dau an nói tuc tĩu mất dạy quá,HATE,OFFENSIVE,0.7184,0.0,1,tuc(HATE:exact:0.7184)
+trấn thành đẹp trai đụ hariwon,HATE,OFFENSIVE,0.7156,0.0,1,đụ(HATE:exact:0.7156)
+"đinh nhật uy cho ra lò ""chuyện vui cuối tuần "" vui thật!! vì chỉ xin đi phụ bếp mà đòi phải biết 29 thứ tiếng thì gắt quá! chỉ có bác hù mới đủ thông minh để đáp ứng sự đòi hỏi này vì nghe nói bác củng biết 29 thứ tiếng,phải công nhận bác sáng suốt qu",HATE,OFFENSIVE,0.7133,0.0,1,hù(HATE:exact:0.7133)
+bắc kỳ theo cs đánh chiếm miền nam =))),HATE,OFFENSIVE,0.7128,0.0,1,bắc kỳ(HATE:exact:0.7128)
+thế nên cập nhập tình hình corona của việt nam thì tốt hơn. page xàm đế bỏ fl đi mọi người ơi,HATE,OFFENSIVE,0.7116,0.0,1,xàm(HATE:exact:0.7116)
+nguyễn phương linh sống thật đéo gì,HATE,OFFENSIVE,0.7113,0.0,1,đéo gì(HATE:exact:0.7113)
+tao thấy nhiễm covid này toàn bọn nhiều tiền và thích đi du lịch đấy..,HATE,OFFENSIVE,0.7084,0.0,1,toàn bọn(HATE:exact:0.7084)
+"thật là phiền phức, toàn bọn ăn ko ngồi rỗi nghĩ ra lắm trò hành dân??? ko biết bọn này có thuộc dạng nâng điểm vào ngành hay ko mà chả nghĩ gì đến hệ luỵ dân phải ôm theo nhiều giấy tờ phụ chứng nhận?? gọn nhẹ đâu ko thấy chỉ thấy thêm phiền phức mà thôi!",HATE,OFFENSIVE,0.7084,0.0,1,toàn bọn(HATE:exact:0.7084)
+"hợp đồng của dcs với tàu thôi nhá, đéo phải dân.",HATE,OFFENSIVE,0.7058,0.0,1,đéo phải(HATE:exact:0.7058)
+nguyễn nhật chuẩn cmnr. nhạc ko nhai nổi. đên bon fan cũng đéo thể yêu thương nổi luôn,HATE,OFFENSIVE,0.7055,0.0,1,cũng đéo(HATE:exact:0.7055)
+đồn ý kiến vs bác thớt.thằng đó tống tiền đích cmn thực r ấy chứ.cho vào tù nhanh hộ cái:)),HATE,OFFENSIVE,0.7036,0.0,1,thằng đó(HATE:exact:0.7036)
+"có rất nhiều kẻ vĩ cuồng, chúng dọn cho mình những cỗ quan tài đẹp nhất, những lăng mộ hàng ngàn hecta, lăng tẩm lộng lẫy. chúng quên rằng, chúng chỉ nhất thời, người đời phỉ nhổ vào chúng, con cháu dòng họ chúng mang nhục. tượng đài thực sự là những gì để lại muôn đời và do chính nhân dân dựng lên để kính nhớ.",HATE,OFFENSIVE,0.702,0.0,1,muôn đời(HATE:exact:0.702)
+trần vỹ nếu nó ko đạo nhái thì đâu có tiếng xấu muôn đời,HATE,OFFENSIVE,0.702,0.0,1,muôn đời(HATE:exact:0.702)
+đạt phạm dcu m đùa dai như tk bố m thế,HATE,OFFENSIVE,0.7019,0.0,1,bố m(HATE:exact:0.7019)
+bố m cũng đến chịu cách ăn mac khác người của nó!,HATE,OFFENSIVE,0.7019,0.0,1,bố m(HATE:exact:0.7019)
+tiến lê bố m thích đấy đạo đức cl,HATE,OFFENSIVE,0.7019,0.0,1,bố m(HATE:exact:0.7019)
+tu kim khoa im cmm đi🤫🤫,HATE,OFFENSIVE,0.7,0.0,1,cmm(HATE:exact:0.7)
+giờ mới biết con mẹ giựt nợ minh hiếu,HATE,OFFENSIVE,0.6922,0.0,1,biết con(HATE:exact:0.6922)
+đụ má...... con bede sấu nhất quả đất,HATE,OFFENSIVE,0.6921,0.0,1,đụ má(HATE:exact:0.6921)
+trần sang ổ cc,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+cc thầy eie,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+ba hard cc:)),HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+ba hard cc:)),HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+cuong ly dinh chửi cc,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+cc thầy eie,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+cc 3 m,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+bts cc,HATE,OFFENSIVE,0.6905,0.0,1,cc(HATE:exact:0.6905)
+ảnh hưởng đến công việc thì kệ cụ nhà m,HATE,OFFENSIVE,0.6896,0.0,1,nhà m(HATE:exact:0.6896)
+nguyễn đức ánh khôn hơn cả họ nhà m.,HATE,OFFENSIVE,0.6896,0.0,1,nhà m(HATE:exact:0.6896)
+đm ông điêu ít thôiii:))),HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+thanh trẻ trâu đm:)))),HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+đm. rẻ rách dlv,HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+bọn giàu mà mang thua người nghèo nửa đm chán quá,HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+đm crush:),HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+đm thầy nhớ thấy lol,HATE,OFFENSIVE,0.6869,0.0,1,đm(HATE:exact:0.6869)
+bàn tay em đẹp quá. nhìn chị là đàn bà mà xấu quá..,HATE,OFFENSIVE,0.6847,0.0,1,đàn bà(HATE:exact:0.6847)
+mỗi lần lên sóng là đeo vàng làm như giàu lắm hay sao mà khoe của thấy ghê.còn cái mặt mình nhìn chung ko có 1 chỗ nào thiện cảm hết.nhìn mặt là biết cái thứ đàn bà độc mồm độc miệng.hung dữ.nói tục chửi thề v...v tưởng z là hay lắm,HATE,OFFENSIVE,0.6847,0.0,1,đàn bà(HATE:exact:0.6847)
+chị ba trên dú dưới có con cu ai làm lại chị 3,HATE,OFFENSIVE,0.6844,0.0,1,con cu(HATE:exact:0.6844)
+nhìn anh như con cu ấy,HATE,OFFENSIVE,0.6844,0.0,1,con cu(HATE:exact:0.6844)
+"nhung pham ai chê nghèo ngta có tiền đi nước nào kệ mẹ người ta, nó vẫn mang qtich vn thì về vn chữa vn đã cấm đâu mà lên tiếng lm gì. ích kỷ",HATE,OFFENSIVE,0.6708,0.0,1,kệ mẹ(HATE:exact:0.6708)
+dm vô cách ly chứ có phải sống trong lâu đài đâu muốn dc sung sướng..ngta còn phải phục vụ cơm cho ăn tận miệng còn cà chớn..muốn m sống mới cách ly chứ muốn m chết đã kệ mẹ rồi m,HATE,OFFENSIVE,0.6708,0.0,1,kệ mẹ(HATE:exact:0.6708)
+dương =)) làm gì kệ mẹ bạn,HATE,OFFENSIVE,0.6708,0.0,1,kệ mẹ(HATE:exact:0.6708)
+kệ mẹ thầy,HATE,OFFENSIVE,0.6708,0.0,1,kệ mẹ(HATE:exact:0.6708)
+kệ mẹ thầy,HATE,OFFENSIVE,0.6708,0.0,1,kệ mẹ(HATE:exact:0.6708)
+cái quái gì nói lên sự thật về cái đất nước này cũg là phản động. tự do ngôn luật ko bao h có chỗ đứg ở cái đất vn.,HATE,OFFENSIVE,0.6695,0.0,1,do ngôn(HATE:exact:0.6695)
+cái phiếu phạt 20k này csgt đéo bao giờ nghi cái gì hết nha tao bị mấy tờ có cả 50k nữa chỉ là bọn nó tự nghi vào rồi làm màu thôi,HATE,OFFENSIVE,0.6662,0.0,1,đéo(HATE:exact:0.6662)
+phản động là gì vậy? auto đéo động não à,HATE,OFFENSIVE,0.6662,0.0,1,đéo(HATE:exact:0.6662)
+cô giàu có j kệ cô chứ nữa cô chết đéo người đội tan giàu cở nào cở alibaba chưa mà nói chuyện kinh người rồi 👎,HATE,OFFENSIVE,0.6662,0.0,1,đéo(HATE:exact:0.6662)
+"nhok lầy cái nick thì clone, avatar thì đéo dám để ảnh thật:v gáy cũng kinh đấy! thằng trẻ con vô văn hoá!",HATE,OFFENSIVE,0.6662,0.0,1,đéo(HATE:exact:0.6662)
+hải yến đéo care cmt ăn lốn màu à con điên,HATE,OFFENSIVE,0.6662,0.0,1,đéo(HATE:exact:0.6662)
+may ma ve vn.la cai mo may k con cai rang an chao voi cdm,HATE,OFFENSIVE,0.6641,0.0,1,cdm(HATE:exact:0.6641)
+lúc chửi thì to mòm giờ thì khóc lóc năn nỉ các thứ đứa con nik còn thấy nhục dùm,HATE,OFFENSIVE,0.6463,0.0,1,chửi thì(HATE:exact:0.6463)
+đi kiếm con linh nó đỏ sẫm do đánh chết mẹ nó đi rất um ho,HATE,OFFENSIVE,0.6441,0.0,1,chết mẹ(HATE:exact:0.6441)
+"bị nhiễm covit 19 sao ko ở bên anh mà chữa về vn làm đéo gì để lây nhiễm người khác tốn kém tiền nhà nước,bọn nhà giầu đú đỏn",HATE,OFFENSIVE,0.6398,0.0,1,làm đéo(HATE:exact:0.6398)
+dành cho lũ quan ngại,HATE,OFFENSIVE,0.6179,0.0,1,cho lũ(HATE:exact:0.6179)
+"phải rồi ông tổ của cộng sản thờ satan, rồi bác hồ yêu quý lại đem sản phẩm của satan đến với người dân vn và đó chính là tư tưởng mác-lê vô thần duy vật vô thần vô tôn giáo",HATE,OFFENSIVE,0.617,0.0,1,cộng sản(HATE:exact:0.617)
+"đất nước còn nhiều người khổ, rất khổ là nhờ ơn sự lãnh đạo của đám ngợm cộng sản đoảng và boác.",HATE,OFFENSIVE,0.617,0.0,1,cộng sản(HATE:exact:0.617)
+"có ai để ý rằng cái mẫu hình làm logo đại diện cho băng đảng của thằng vin ""vượn"" nó có nét tương đồng với cờ của đám giặc cộng sản trung quốc không?:v éo biết team designer tụi nó nghĩ cl gì nữa:3",HATE,OFFENSIVE,0.617,0.0,1,cộng sản(HATE:exact:0.617)
+"nkyn đừng promote mấy cái này quá, trẻ, phụ nữ, nghe có vẻ hay, bình đẳng, nhưng thực ra ko phải như vậy. quản trị quốc gia cần người có tầm nhìn, có phẩm chất vac năng lực, chứ ko phải thấy trẻ, phụ nữ, chọn vô như kiểu 1 biểu tượng mà làm việc ko ra gì thì toi rồi, nó khác gì cách đảng cs chọn người, hồng hơn chuyên. suy nghĩ kĩ đi. giải độc cộng sản đã khó, giải độc tư tưởng cánh tả còn khó hơn.",HATE,OFFENSIVE,0.617,0.0,1,cộng sản(HATE:exact:0.617)
+"đơn giản đó là người sg, chứ ko phải người tp.hcm(đa số bake)",HATE,OFFENSIVE,0.6128,0.0,1,bake(HATE:exact:0.6128)
+"tao phải qua phản đối bọn ba que indo nha, bác tao nhìn đẹp chai đoản hậu, lộn phúc hậu thế kia mà nó quất cặp môi như hai miếng thịt trâu là làm thao",HATE,OFFENSIVE,0.5982,0.0,1,ba que(HATE:exact:0.5982)
+tẩy cmn chay ngay và luôn cái dn khốn nạn và bọn toà án ăn hùa,HATE,OFFENSIVE,0.5492,0.0,1,hùa(HATE:exact:0.5492)
+quen lối sống hùa bầy đàng. mỗi người viet chúng ta trước khi làm việc gì hãy dùng cái đầu để suy nghĩ.,HATE,OFFENSIVE,0.5492,0.0,1,hùa(HATE:exact:0.5492)
+ở ngoài tao mà gặp kiểu này t bắt lại cho anh diệt đánh chết con cụ mày,HATE,OFFENSIVE,0.4899,0.0,1,tao mà(HATE:exact:0.4899)
+"hay, chính quyền vn rất có tính giải trí. nhưng ngặc một nỗi, sự độc ác của nó thì là thật và không giải trí tí nào cả.",HATE,OFFENSIVE,0.4866,0.0,1,ác của(HATE:exact:0.4866)
+cái ác của chế độ vc không có điểm dừng!,HATE,OFFENSIVE,0.4866,0.0,1,ác của(HATE:exact:0.4866)
+mày nghỉ luôn cũng được. phát ngôn tào lao fan nó unfollow hết bây giờ,HATE,OFFENSIVE,0.0,0.481,1,fan nó(OFFENSIVE:exact:0.481)
+phó chủ nhiệm ubkttp tân an(long an) không có bằng cấp 3 nhưng lý luận ct rất giỏi,HATE,OFFENSIVE,0.4769,0.0,1,lý luận(HATE:exact:0.4769)
+đ’ nói nhiều cái thằng quốc khánh,HATE,OFFENSIVE,0.4566,0.0,1,cái thằng(HATE:exact:0.4566)
+"thằng add chắc đầu mày toàn cứt ko á.! đúng là ""ngu có gia phả"" mà.!",HATE,OFFENSIVE,0.4513,0.0,1,ngu(HATE:exact:0.4513)
+con bé này nên xuống địa ngục quá tởm,HATE,OFFENSIVE,0.0,0.4129,1,tởm(OFFENSIVE:exact:0.4129)
+"dầu gì đi nữa t cũng là cháu của bá hộ ngọc lan, cháu bà ngũ thị đời mà chở vàng qua mỹ bỏ lại 2 cái villa ở sài gòn, cháu bà ba hoa viện kiểm sát tòa án nhân dân huyện hóc môn, mà cháu của cậu tỉnh làm công an huyện hóc môn,mà e của mỹ lộc có nhà đất mặt tiền!' nghe mắc ỉa ghê á! huỵch nợ cô minh hiếu mà cái miệng quang quang, t cho cái chày đâm tiêu vô đầu m à!",HATE,OFFENSIVE,0.0,0.3973,1,mỹ bỏ(OFFENSIVE:exact:0.3973)
+nguyễn bảo chấn clm,HATE,OFFENSIVE,0.0,0.3796,1,clm(OFFENSIVE:exact:0.3796)
+lại hợp sâm clm đến v thì /ff,HATE,OFFENSIVE,0.0,0.3796,1,clm(OFFENSIVE:exact:0.3796)
+đéo thích thì thôi cút mẹ đi =)),OFFENSIVE,CLEAN,0.0,0.3526,1,đéo thích(OFFENSIVE:exact:0.3526)
+chịch xã giao đêêêêê,OFFENSIVE,CLEAN,0.0,0.3376,1,chịch(OFFENSIVE:exact:0.3376)
+haizz. nthe này thì dân khổ quá,OFFENSIVE,CLEAN,0.0,0.0,0,
+coin card:3,OFFENSIVE,CLEAN,0.0,0.0,0,
+"đề nghị 17, 22,23,32 đến phà vài hơi vào mẹt tk này để nó đi cách ly thế giới hẳn đi.",HATE,CLEAN,0.0,0.0,0,
+trần linh dell hiểu kiểu gì:)),OFFENSIVE,CLEAN,0.0,0.0,0,
+"k nói thì tự kiêu,nói thì lại tự ái chứ í thức thế ai mà chịu nổi😡",OFFENSIVE,CLEAN,0.0,0.0,0,
+éo thích thì biến đi thọc con mắt chóng cái tai lên xem làm ghì,OFFENSIVE,CLEAN,0.0,0.0,0,
+"riết thằng ad chửi nhảm quá, cp1 gì thì chửi bệnh viện. lôi cả cái đất nước vào làm gì:))",HATE,CLEAN,0.0,0.0,0,
+đem ra bắn ngay cái thể loại ấy,HATE,CLEAN,0.0,0.0,0,
+"nó học cách của thằng anh nó đó, hèn, khốn nạn",HATE,CLEAN,0.0,0.0,0,
+vcl,OFFENSIVE,CLEAN,0.0,0.0,0,
+không có csgt nào tốt cả.,HATE,CLEAN,0.0,0.0,0,
+con nay chat kiep sau no moi thay doi tinh.no khong con thuoc chua roi.con corona virut cang no cho no benh chet di.dong ho ba doi nha no bi benh corona virut cho no biet the nao la dau kho.,HATE,CLEAN,0.0,0.0,0,
+lũlên mạng lừa đão,HATE,CLEAN,0.0,0.0,0,
+"con bóng đực kia cũng là dạng đầu trâu mặt ngựa, 2 mặt, nịnh bợ.",HATE,CLEAN,0.0,0.0,0,
+đậu rồi má hay đậu má rồi các bạn nhỏ???:))),OFFENSIVE,CLEAN,0.0,0.0,0,
+khốn nạn,OFFENSIVE,CLEAN,0.0,0.0,0,
+k có nghìn nào giúp dân thì nín đi!,HATE,CLEAN,0.0,0.0,0,
+bỏ măy con điếm đấy đi là thông minh đấy,HATE,CLEAN,0.0,0.0,0,
+"dân không có giàu nhé, chỉ nó nước mạnh thôi.",HATE,CLEAN,0.0,0.0,0,
+ko xin nó thì đái ra mà hết hạn hán nhé,HATE,CLEAN,0.0,0.0,0,
+nhìn nứng gkê ak abe ơi!!!,OFFENSIVE,CLEAN,0.0,0.0,0,
+nguc em hoi nho,OFFENSIVE,CLEAN,0.0,0.0,0,
+200.000 hộp thuốc giết người.,OFFENSIVE,CLEAN,0.0,0.0,0,
+cái mặt là nhìn dell ưa nổi với bị nứng lâu năm,HATE,CLEAN,0.0,0.0,0,
+có thằng thông thạo 29 thứ tiếng làm chủ tịch pắc pó,HATE,CLEAN,0.0,0.0,0,
+rãnh đít là đây.,OFFENSIVE,CLEAN,0.0,0.0,0,
+hiếp tao,OFFENSIVE,CLEAN,0.0,0.0,0,
+cay vl nhỉ kk,OFFENSIVE,CLEAN,0.0,0.0,0,
+du ma tu thg cho giu xe den thg suc vat chuyen hanh ly,HATE,CLEAN,0.0,0.0,0,
+bao giờ chết,OFFENSIVE,CLEAN,0.0,0.0,0,
+thật ra là quên kéo khóa quần ngoài lộ quần trong nên để lộ hẳn thành phong cách mới cho nó đỡ quê,OFFENSIVE,CLEAN,0.0,0.0,0,
+con di do noi doc giong con 3 vang ma!,HATE,CLEAN,0.0,0.0,0,
+dơ vcl,OFFENSIVE,CLEAN,0.0,0.0,0,
+90tr dân việt nam đang vả nhung nè,HATE,CLEAN,0.0,0.0,0,
+"thế là tự các ông suy ra chữ thiên đường, tự nhét chữ vào mồm chứ đảng ko nói đúng ko",HATE,CLEAN,0.0,0.0,0,
+"cs miệng và đít chúng là một chỗ. một chế độ thổ tả không còn sửa sai được nữa, mà phải thay đổi với một chế độ khác. sống với cs mà không biết gì về thủ đoạn của bọn chúng là không có cái đầu.",HATE,CLEAN,0.0,0.0,0,
+"lí do lí trấu, chắc tin😏:)))",OFFENSIVE,CLEAN,0.0,0.0,0,
+ai theo đạo râu xồm thì giơ tay? hãy theo minh giáo chủ sẽ được lên thiên đường xhcn!,HATE,CLEAN,0.0,0.0,0,
+hủy cái dmm:v,OFFENSIVE,CLEAN,0.0,0.0,0,
+"mọi người quá lịch sự với tên khốn này rồi, cha đứa bé bị đánh nên ra tay cho nó thành tật đi đừng hi vọng nhiều ở luật pháp.",HATE,CLEAN,0.0,0.0,0,
+bắn chet moe abe h,HATE,CLEAN,0.0,0.0,0,
+vailon:)),OFFENSIVE,CLEAN,0.0,0.0,0,
+tủnn tủnn đú vcl =)),OFFENSIVE,CLEAN,0.0,0.0,0,
+"có ai tự nhiên lên phường, rồi đi tự tử trên ấy không? giờ thằng nào con nào, muốn tự tự thì cứ việc lên phường cho nó gọn. đỡ bị mất tài sản, với lại người nhà cũng dễ tìm nhá. chứ đừng có ra cầu rồi nhảy nghe hôn.",OFFENSIVE,CLEAN,0.0,0.0,0,
+"chat la kiep truoc bi cam, 🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏toi ngiep cho mu nay qua ko biet kiep sao thanh loai gi nua 🙏🙏🙏🙏",HATE,CLEAN,0.0,0.0,0,
+kg phan dong may' chui vao trong nay lam gi?,OFFENSIVE,CLEAN,0.0,0.0,0,
+cái đờ cờ mờ nhà a,HATE,CLEAN,0.0,0.0,0,
+ma mày đau ma mày đau bóp cu ba may sung con cười muốn chết luôn co kim oi,HATE,CLEAN,0.0,0.0,0,
+cái miệng rộng qua đẻ con ra còn lọt,OFFENSIVE,CLEAN,0.0,0.0,0,
+cô ba có râu ha ha,HATE,CLEAN,0.0,0.0,0,
+túm lại: muốn giết người mà vẫn vô tội hoặc án gãi ghẻ thì phấn đấu làm cán bộ đi.,HATE,CLEAN,0.0,0.0,0,
+du me,OFFENSIVE,CLEAN,0.0,0.0,0,
+chi oi chi chua gap bac ky dau.chi ma gap roi chi khong con kip keu mot tieng troi dau chi ak.it nhat chi cung nghi den nguoi nha chi chu.chi o dai loan ma chi dang noi tieng viet ma.chi tu chui minh thoi.nguoi ta khong xem chi ra ji nen nguoi ta goi noi vay thay loi xi nhuc do.,HATE,CLEAN,0.0,0.0,0,
+thêm cái gì mà thêm. t đếch thèm qt đến vì chưa có thông báo nghĩ học 🙈,OFFENSIVE,CLEAN,0.0,0.0,0,
+mình nói người ta bê đê mình xem lai mình đi. mày la cũng loai bê đê co cây đinh chính giữ la may kkkk,HATE,CLEAN,0.0,0.0,0,
+không giống ai,OFFENSIVE,CLEAN,0.0,0.0,0,
+đã nói bao lần rồi các anh các chị có tiền đi du lịch vẫn đ** hiểu à😒,HATE,CLEAN,0.0,0.0,0,
+đẳng cấp đấy nhưng ý thức hơi kém,OFFENSIVE,CLEAN,0.0,0.0,0,
+t đang nhìn clgv 🙂,OFFENSIVE,CLEAN,0.0,0.0,0,
+trần dần là cộngg sản nằm vùng bên cali😂,HATE,CLEAN,0.0,0.0,0,
+"chuyển qua insta thì hack bằng lol,bằng niềm tin",OFFENSIVE,CLEAN,0.0,0.0,0,
+"tử hình luôn ko nói nhiều, ý thức như củ cải",OFFENSIVE,CLEAN,0.0,0.0,0,
+style khoe cu của mấy anh biến thái à 🙃,HATE,CLEAN,0.0,0.0,0,
+@chiến trần tao lao.,OFFENSIVE,CLEAN,0.0,0.0,0,
+toàn các cô gái ngồi xổm trym quệt đất ạ..,OFFENSIVE,CLEAN,0.0,0.0,0,
+tiên tri trần dần về việt nam ở nghĩa trang bình an,HATE,CLEAN,0.0,0.0,0,
+đáng nhẽ m k nên về nước 🙂,HATE,CLEAN,0.0,0.0,0,
+hoàng văn thuận nên xử bắn hed,OFFENSIVE,CLEAN,0.0,0.0,0,
+khi buồn mình chơi lớn đi nghĩa vụ và giờ muốn ra cx éo đc,OFFENSIVE,CLEAN,0.0,0.0,0,
+chuì lol là chui gi vaÿ?,OFFENSIVE,CLEAN,0.0,0.0,0,
+không khí đạt chất lượng như hôm nay cũng là nhờ sự tài tình của đảng ta! đó là mang những nhà máy nhiệt điện than cổ lổ sỉ từ người anh em phương bắc về phục vụ bà con! bà con cám ơn đảng và nhà nước chưa?,HATE,CLEAN,0.0,0.0,0,
+giàu mà ko biết chia chác cho tụi nó thì bầu kiên đã là một ví dụ.,HATE,CLEAN,0.0,0.0,0,
+"ông có tuổi rùi! cố giữ gìn sức khỏe, thỉnh thoảng tấu hài bà con coi là zui rùi! mà giác ngộ vầy là tốt rùi, chứ nhìu ông già 3/// cố chấp lắm",HATE,CLEAN,0.0,0.0,0,

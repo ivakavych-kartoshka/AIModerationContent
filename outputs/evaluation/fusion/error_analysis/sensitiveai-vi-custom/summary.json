@@ -1,0 +1,12 @@
+{
+  "model": "sensitiveai-vi-custom",
+  "primary": "fusion_per_channel_thresholds",
+  "n": 6680,
+  "ai_correct": 5853,
+  "fuse_correct": 5862,
+  "ai_wrong_fuse_right": 29,
+  "ai_right_fuse_wrong": 20,
+  "net_gain": 9,
+  "both_wrong": 798,
+  "both_right": 5833
+}

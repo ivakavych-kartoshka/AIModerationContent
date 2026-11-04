@@ -1,0 +1,74 @@
+{
+  "accuracy": 0.848502994011976,
+  "HATE_precision": 0.4671140939597315,
+  "HATE_recall": 0.5058139534883721,
+  "HATE_f1": 0.4856943475226797,
+  "HATE_support": 688,
+  "OFFENSIVE_precision": 0.26785714285714285,
+  "OFFENSIVE_recall": 0.033783783783783786,
+  "OFFENSIVE_f1": 0.06,
+  "OFFENSIVE_support": 444,
+  "CLEAN_precision": 0.9023643476781765,
+  "CLEAN_recall": 0.9562004325883201,
+  "CLEAN_f1": 0.9285026691170036,
+  "CLEAN_support": 5548,
+  "macro_precision": 0.5457785281650169,
+  "macro_recall": 0.498599389953492,
+  "macro_f1": 0.4913990055465611,
+  "weighted_f1": 0.8251692394246616,
+  "confusion_matrix": [
+    [
+      348,
+      22,
+      318
+    ],
+    [
+      173,
+      15,
+      256
+    ],
+    [
+      224,
+      19,
+      5305
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.5058139534883721,
+      0.03197674418604651,
+      0.4622093023255814
+    ],
+    [
+      0.38963963963963966,
+      0.033783783783783786,
+      0.5765765765765766
+    ],
+    [
+      0.04037490987743331,
+      0.003424657534246575,
+      0.9562004325883201
+    ]
+  ],
+  "HATE_roc_auc": 0.7522830828701834,
+  "HATE_average_precision": 0.3775699993958712,
+  "OFFENSIVE_roc_auc": 0.5160837754046541,
+  "OFFENSIVE_average_precision": 0.0838250943415614,
+  "CLEAN_roc_auc": 0.7432943078204733,
+  "CLEAN_average_precision": 0.9061663910796134,
+  "macro_roc_auc": 0.6705537220317703,
+  "macro_average_precision": 0.4558538282723486,
+  "micro_roc_auc": 0.9155097776004876,
+  "micro_average_precision": 0.8390086724449679,
+  "split": "test",
+  "config": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\rule_ablations\\no_confidence\\rule_config.yaml",
+  "lexicon": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\rule_ablations\\no_confidence\\lexicon_conf1.csv",
+  "dictionary_version": "v1",
+  "thresholds": {
+    "HATE": 0.95,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.52
+  },
+  "objective": "frozen",
+  "n_lexicon_entries": 668
+}

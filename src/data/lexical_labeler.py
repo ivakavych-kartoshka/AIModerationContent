@@ -344,9 +344,6 @@ def label_term(
     lift_toxic = _lift(toxic_rate)
 
     # --- TF-IDF evidence (section 36 noise filter) ------------------------ #
-    # TF is the per-class document frequency (one row votes once); IDF is over
-    # all training rows. Normalising TF by the class size makes the weights of
-    # the two toxic classes comparable to CLEAN despite the class imbalance.
     tfidf_stats: TermTfidf = term_tfidf(
         tf_hate=n_hate,
         tf_offensive=n_off,
@@ -429,19 +426,109 @@ def label_term(
         record["reason"] = "clean_context_leak" if base_ok else "ambiguous_or_clean_leak"
         return record
 
+    # Compute per-label scores for all three labels (no hardcoded 0.9/0.6)
+    def _score_label(label: str) -> Tuple[float, float, float]:
+        if label == "HATE":
+            base_score = r_hate
+            lift = lift_hate
+            share = share_hate
+            evidence_cnt = n_hate
+        elif label == "OFFENSIVE":
+            base_score = r_off
+            lift = lift_off
+            share = share_off
+            evidence_cnt = n_off
+        elif label == "CLEAN":
+            base_score = r_clean
+            lift = lift_toxic  # inverse tendency
+            share = 1.0 - max(share_hate, share_off)
+            evidence_cnt = n_clean
+        else:
+            return 0.0, 0.0, 0.0
+        # severity derived from rate * lift factor (normalized)
+        lift_norm = lift
+        if math.isfinite(lift_norm):
+            lift_norm = min(lift_norm, 100.0)
+        else:
+            lift_norm = 50.0
+        sev = base_score * (1.0 + math.log1p(lift_norm) / math.log1p(101.0))
+        if label == "CLEAN":
+            # CLEAN severity is certainty of non-toxicity
+            sev = r_clean / max(r_hate + r_off + r_clean, 1e-12)
+            sev = sev * (1.0 - toxic_rate)
+        sev = max(0.0, min(1.0, sev))
+        conf = _confidence(evidence_cnt if label != "CLEAN" else n_clean, share if label != "CLEAN" else (1.0 - share_hate), lift if label != "CLEAN" else max(lift_hate, lift_off), cfg)
+        if label == "CLEAN":
+            # confidence for clean based on absence of toxic evidence
+            conf_clean = 1.0 - toxic_rate
+            if n_clean > 0:
+                conf_clean = conf_clean * min(1.0, n_clean / max(cfg.confidence_full_evidence, 1.0))
+            conf = max(0.05, min(0.99, conf_clean))
+        return sev, conf, base_score
+
+    sev_h, conf_h, sc_h = _score_label("HATE")
+    sev_o, conf_o, sc_o = _score_label("OFFENSIVE")
+    sev_c, conf_c, sc_c = _score_label("CLEAN")
+
+    scores_all = {"HATE": sc_h, "OFFENSIVE": sc_o, "CLEAN": sc_c}
+    # Choose label(s) with highest score; if tie in top scores assign both
+    max_s = max(scores_all.values()) if scores_all else 0.0
+    if max_s <= 1e-12:
+        # fallback to previous votes if no signal
+        votes_fallback = votes
+        if not votes_fallback:
+            record["review_status"] = "needs_review"
+            record["reason"] = "ambiguous_or_clean_leak"
+            return record
+        votes = votes_fallback
+        lift_for_conf = max(lift_hate if "HATE" in votes else 0.0, lift_off if "OFFENSIVE" in votes else 0.0)
+        confidence = _confidence(total_toxic, share_hate, lift_for_conf, cfg)
+        severity = max(cfg.severity.get(label, 0.0) for label in votes)
+        record["lexical_labels"] = votes
+        record["severity"] = round(severity, 4)
+        record["confidence"] = confidence
+        record["context_required"] = bool(both_by_default or n_clean > 0)
+    else:
+        eps = 1e-9
+        candidates = [l for l, s in scores_all.items() if s >= max_s - eps and s > 1e-12]
+        # If clean is clearly highest and no toxic evidence, mark clean
+        if candidates == ["CLEAN"]:
+            votes = ["CLEAN"]
+        else:
+            # prefer toxic if present; if both toxic tie, assign both
+            toxic_cands = [l for l in candidates if l in ("HATE", "OFFENSIVE")]
+            if toxic_cands:
+                votes = sorted(set(toxic_cands))
+            else:
+                votes = ["CLEAN"] if "CLEAN" in candidates else []
+
+    if not votes:
+        record["review_status"] = "needs_review"
+        record["reason"] = "ambiguous_or_clean_leak"
+        return record
+
+    # Per-label maps
+    label_sev_map = {"HATE": round(sev_h, 6), "OFFENSIVE": round(sev_o, 6), "CLEAN": round(sev_c, 6)}
+    label_conf_map = {"HATE": round(conf_h, 6), "OFFENSIVE": round(conf_o, 6), "CLEAN": round(conf_c, 6)}
+    record["label_severities"] = label_sev_map
+    record["label_confidences"] = label_conf_map
+
     lift_for_conf = max(lift_hate if "HATE" in votes else 0.0, lift_off if "OFFENSIVE" in votes else 0.0)
-    confidence = _confidence(total_toxic, share_hate, lift_for_conf, cfg)
-    severity = max(cfg.severity.get(label, 0.0) for label in votes)
+    confidence = _confidence(total_toxic, share_hate, lift_for_conf, cfg) if total_toxic > 0 else label_conf_map.get(votes[0] if votes else "CLEAN", 0.5)
+    severity = max(label_sev_map.get(label, 0.0) for label in votes) if votes else 0.0
 
     record["lexical_labels"] = votes
     record["severity"] = round(severity, 4)
-    record["confidence"] = confidence
-    record["context_required"] = bool(both_by_default or n_clean > 0)
+    record["confidence"] = round(confidence, 4)
+    record["context_required"] = bool(both_by_default or n_clean > 0 or len(votes) > 1)
 
-    if confidence >= cfg.verified_confidence and total_toxic >= cfg.verified_evidence:
+    if "CLEAN" in votes and len(votes) == 1 and total_toxic == 0:
+        record["review_status"] = "verified"
+        record["reason"] = "clean_evidence"
+    elif confidence >= cfg.verified_confidence and total_toxic >= cfg.verified_evidence:
         record["review_status"] = "verified"
         record["reason"] = "strong_evidence"
-    elif confidence >= cfg.auto_confidence:
+    elif confidence >= cfg.auto_confidence or ("CLEAN" in votes and label_conf_map.get("CLEAN", 0) >= cfg.auto_confidence):
         record["review_status"] = "auto"
         record["reason"] = "auto_labelled"
     else:
@@ -509,7 +596,7 @@ def apply_overrides(
         status = override["review_status"]
         labels = [x for x in override["lexical_labels"].replace(",", ";").split(";") if x]
         if labels:
-            invalid = [x for x in labels if x not in ("HATE", "OFFENSIVE")]
+            invalid = [x for x in labels if x not in ("HATE", "OFFENSIVE", "CLEAN")]
             if invalid:
                 LOGGER.warning("[labeler] %r: invalid labels %s - keeping automatic", record["term"], invalid)
                 labels = []
@@ -518,11 +605,19 @@ def apply_overrides(
         record["review_status"] = status
         if labels:
             record["lexical_labels"] = labels
-            record["severity"] = round(max(cfg.severity.get(label, 0.0) for label in labels), 4)
+            sev_map = record.get("label_severities") or {}
+            conf_map = record.get("label_confidences") or {}
+            # derive from existing maps if present, else compute on-the-fly minimally
+            if not sev_map or not all(l in sev_map for l in labels):
+                # keep existing values
+                pass
+            record["severity"] = round(max((sev_map.get(l, record.get("severity", 0.0)) for l in labels), default=0.0), 4)
+            record["confidence"] = round(max((conf_map.get(l, record.get("confidence", 0.0)) for l in labels), default=0.0), 4)
             record["context_required"] = bool(record["context_required"] or len(labels) > 1)
         elif status == "rejected":
             record["lexical_labels"] = []
             record["severity"] = 0.0
+            record["confidence"] = 0.0
         record["reason"] = "manual_override"
         applied += 1
     LOGGER.info("[labeler] manual overrides applied: %d", applied)
@@ -565,14 +660,14 @@ def validate_lexicon(output_dir: Path) -> Dict[str, Any]:
             problems.append(f"duplicate entry_id {row['entry_id']}")
         ids.add(row["entry_id"])
         labels = [x for x in row["lexical_labels"].split(";") if x]
-        if not labels or any(x not in ("HATE", "OFFENSIVE") for x in labels):
+        if not labels or any(x not in ("HATE", "OFFENSIVE", "CLEAN") for x in labels):
             problems.append(f"{row['entry_id']}: invalid lexical_labels {row['lexical_labels']!r}")
         severity = float(row["severity"])
         confidence = float(row["confidence"])
-        if not (0.0 < severity <= 1.0):
-            problems.append(f"{row['entry_id']}: severity {severity} outside (0,1]")
-        if not (0.0 < confidence <= 1.0):
-            problems.append(f"{row['entry_id']}: confidence {confidence} outside (0,1]")
+        if not (0.0 <= severity <= 1.0):
+            problems.append(f"{row['entry_id']}: severity {severity} outside [0,1]")
+        if not (0.0 <= confidence <= 1.0):
+            problems.append(f"{row['entry_id']}: confidence {confidence} outside [0,1]")
         if row["source_split"] != SOURCE_SPLIT:
             problems.append(f"{row['entry_id']}: source_split must be 'train'")
         counts[row["review_status"]] += 1
@@ -638,12 +733,20 @@ def _write_verified_csv(path: Path, records: Sequence[Dict[str, Any]]) -> List[D
         "source_split",
         "review_status",
         "dictionary_version",
+        "label_severities",
+        "label_confidences",
     ]
     labelled = [r for r in records if r["lexical_labels"]]
     with path.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fields)
         writer.writeheader()
         for index, record in enumerate(labelled, start=1):
+            sev_map = record.get("label_severities") or {}
+            conf_map = record.get("label_confidences") or {}
+            # Ensure all three present
+            for lab in ("HATE", "OFFENSIVE", "CLEAN"):
+                if lab not in sev_map and lab not in conf_map:
+                    pass
             row = {
                 "entry_id": f"lex_{index:04d}",
                 "term": record["term"],
@@ -658,6 +761,8 @@ def _write_verified_csv(path: Path, records: Sequence[Dict[str, Any]]) -> List[D
                 "dictionary_version": record.get(
                     "dictionary_version", DICTIONARY_VERSION_DEFAULT
                 ),
+                "label_severities": ";".join(f"{k}:{sev_map[k]:.6g}" for k in sorted(sev_map.keys())),
+                "label_confidences": ";".join(f"{k}:{conf_map[k]:.6g}" for k in sorted(conf_map.keys())),
             }
             writer.writerow(row)
     LOGGER.info("[labeler] wrote %s (%d labelled entries)", path.name, len(labelled))

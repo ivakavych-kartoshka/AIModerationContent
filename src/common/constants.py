@@ -34,6 +34,11 @@ PAPER_DIR = OUTPUTS_DIR / "paper"
 VIHSD_RAW_DIR = RAW_DIR / "vihsd"
 VIHSD_PROCESSED_DIR = PROCESSED_DIR / "vihsd"
 
+#: English (Hate Speech & Offensive Language, Davidson et al. 2017)
+HATE_SPEECH_OFFENSIVE_RAW_DIR = RAW_DIR / "hate_speech_offensive"
+HATE_SPEECH_OFFENSIVE_PROCESSED_DIR = PROCESSED_DIR / "hate_speech_offensive"
+HATE_SPEECH_OFFENSIVE_SPLITS_DIR = DATA_DIR / "splits_en"
+
 #: Sensitive-word lexicons (raw downloads + extracted word lists).
 LEXICON_RAW_DIR = RAW_DIR / "lexicon"
 LEXICON_PROCESSED_DIR = PROCESSED_DIR / "lexicon"

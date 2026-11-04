@@ -1,0 +1,100 @@
+{
+  "generated_by": "python scripts/27_tune_rule_weights.py",
+  "generated_at": "2026-10-30T16:23:02+00:00",
+  "protocol": "plan sections 39/44: coordinate descent over scoring.* on the validation split only; thresholds re-optimised per candidate (objective=macro_f1); test never loaded; a change is accepted only when macro-F1 improves by more than 0.001",
+  "base_config": "configs\\rule_engine.yaml",
+  "split": "validation",
+  "n_rows": 2672,
+  "objective": "macro_f1",
+  "grid_size": 101,
+  "rounds_requested": 3,
+  "rounds_run": 3,
+  "n_trials": 157,
+  "wall_seconds": 257.0,
+  "lexicon": {
+    "path": "data\\processed\\lexicon\\verified_lexicon.csv",
+    "sha256": "b4c5edadb6c7a9e979d8dda92212ee67ccdb48ad649fdff065f346af8b210c3b",
+    "n_entries": 668
+  },
+  "baseline": {
+    "macro_f1": 0.3437400053378563,
+    "accuracy": 0.5883233532934131,
+    "HATE_f1": 0.296140350877193,
+    "OFFENSIVE_f1": 0.0,
+    "CLEAN_f1": 0.7350796651363759,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "n_lexicon_entries": 668
+  },
+  "best": {
+    "macro_f1": 0.5428295935969206,
+    "accuracy": 0.8342065868263473,
+    "HATE_f1": 0.4724770642201835,
+    "OFFENSIVE_f1": 0.23684210526315788,
+    "CLEAN_f1": 0.9191696113074205,
+    "thresholds": [
+      0.81,
+      0.0,
+      0.64
+    ],
+    "n_lexicon_entries": 668
+  },
+  "changed": {
+    "severity.HATE": [
+      0.85,
+      0.95
+    ],
+    "match_factors.accentless_alias": [
+      0.9,
+      0.0
+    ],
+    "match_factors.obfuscated_combined": [
+      0.6,
+      0.3
+    ],
+    "negation_factor": [
+      0.5,
+      1.0
+    ],
+    "context_required_factor": [
+      0.85,
+      1.0
+    ],
+    "match_factors.repeat_collapsed": [
+      0.75,
+      0.4
+    ]
+  },
+  "best_scoring": {
+    "severity": {
+      "HATE": 0.95,
+      "OFFENSIVE": 0.6
+    },
+    "match_factors": {
+      "exact": 1.0,
+      "accentless_alias": 0.0,
+      "leet": 0.8,
+      "repeat_collapsed": 0.4,
+      "separator_inserted": 0.8,
+      "obfuscated_combined": 0.3,
+      "fuzzy": 0.6
+    },
+    "negation_factor": 1.0,
+    "quote_factor": 0.6,
+    "context_required_factor": 1.0,
+    "aggregation_cap": 10,
+    "min_review_statuses": [
+      "verified",
+      "auto"
+    ]
+  },
+  "best_thresholds": {
+    "HATE": 0.81,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.64
+  },
+  "note": "Both baseline and best numbers are validation numbers with validation-optimised thresholds; they are optimistic by construction. Freeze thresholds with script 17 and score the test split once before any claim (plan section 44)."
+}

@@ -1,0 +1,55 @@
+\section{Introduction}
+\label{sec:intro}
+
+Vietnam has one of the fastest-growing social-media user bases in Southeast Asia and
+the volume of Vietnamese text platforms must moderate keeps rising. The language
+remains low-resource, and its social-media register is hard: writers abbreviate
+profanity into \emph{teencode} (\texttt{dm}, \texttt{cc}, \texttt{vl}), drop
+diacritics, stretch letters, insert separators inside words, and rely on irony or
+quotation to be hostile without writing a dictionary slur.
+
+The release of UIT-ViHSD \cite{luu2021vihsd}, roughly 33k comments labelled
+\clean{}, \off{} or \hate{}, made supervised transformer fine-tuning the default
+approach. Monolingual encoders such as PhoBERT \cite{nguyen2020phobert} and
+ViSoBERT \cite{nguyen2023visobert}, multilingual DeBERTa-v3 variants
+\cite{he2021deberta,he2023debertav3,liu2024mdeberta} and task-specific systems
+\cite{nguyen2024vihatet5} all perform well, yet on ViHSD strong encoders plateau:
+about 83\% of test comments are \clean{}, \hate{} and \off{} overlap in annotation,
+and their boundary is often a matter of intensity rather than lexical content.
+
+Two problems follow. The first is \emph{opacity}: a decision that removes a
+comment needs a reason a moderator or appeals reviewer can inspect, yet post-hoc
+attribution such as LIME \cite{ribeiro2016why} or SHAP \cite{lundberg2017shap}
+approximates the model rather than describing the decision procedure. The second is
+\emph{brittleness on surface form}: a transformer may never see \texttt{đm} written
+as \texttt{d.m}, \texttt{đ*m} or \texttt{địt mẹ}, while a lexicon can be written to
+match all of them explicitly.
+
+We ask a narrow question: \emph{can a lexicon-based rule engine be attached to a
+transformer as an evidence channel, so that every decision carries inspectable
+lexical support, without degrading accuracy?} We do not claim that the hybrid is
+more accurate: on the ViHSD test split the focused backbone improves by 0.0027
+macro-F1, a paired-bootstrap $p$ of 0.29, a net of eight comments out of 6{,}680. We
+claim something different and, for deployment, more useful: the small change is
+\emph{attributable}. Every one of the 23 corrections and 15 regressions traces to a
+specific mechanism, and the trace exposes a systematic failure that aggregate
+metrics hide.
+
+We fuse a 668-term Vietnamese hate-speech lexicon with four mDeBERTa-v3 backbones that
+differ only in their optimisation recipe. The rule engine normalises the comment, builds
+accent-less, leet, repeat-collapsed and separator-stripped views, scores each matched
+span by severity, entry confidence, match type and context, and aggregates matches per
+label; fusion mixes each channel and applies frozen per-channel thresholds.
+
+The rule channel fires on 15.75\% of test comments at 58.75\% precision, supports all
+23 corrections and drives all 10 rule-driven regressions; a further 132 \emph{missed
+corrections} show the rule pointing right while the \clean{} channel blocks the fix.
+
+The contributions are: (i) a frozen, reproducible hybrid protocol in which the rule
+engine is an independent, inspectable channel rather than a competing classifier;
+(ii) a per-decision provenance analysis assigning every changed decision to a
+rule-driven or threshold-driven mechanism; (iii) a behavioural audit of the rule
+channel with a multi-label cue taxonomy of the recovered \hate{} cases; (iv) the
+identification of 132 missed corrections, which motivates evidence-gated rather than
+score-averaged fusion; and (v) five case studies with matched spans and per-channel
+scores.

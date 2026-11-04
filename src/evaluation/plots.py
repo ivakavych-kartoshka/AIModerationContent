@@ -45,6 +45,14 @@ MODEL_COLORS = {
     "sensitiveai-vi-custom-curriculum": "#9467bd",
     "sensitiveai-vi-customdlr2stage-ext": "#17becf",
     "sensitiveai-vi-stage2": "#8c564b",
+    # English variants - registered explicitly so fallback hash-style lookup
+    # never collides (sensitiveai-en-custom-curriculum / dlr2stage used to share
+    # the same fallback colour).
+    "sensitiveai-en": "#3b6ea5",
+    "sensitiveai-en-custom": "#cc79a7",
+    "sensitiveai-en-custom-curriculum": "#b15928",
+    "sensitiveai-en-customdlr2stage": "#008c95",
+    "sensitiveai-en-stage2": "#6a3d9a",
 }
 MODEL_MARKERS = {
     "sensitiveai-vi": "o",
@@ -53,6 +61,11 @@ MODEL_MARKERS = {
     "sensitiveai-vi-custom-curriculum": "D",
     "sensitiveai-vi-customdlr2stage-ext": "P",
     "sensitiveai-vi-stage2": "v",
+    "sensitiveai-en": "o",
+    "sensitiveai-en-custom": "s",
+    "sensitiveai-en-custom-curriculum": "D",
+    "sensitiveai-en-customdlr2stage": "^",
+    "sensitiveai-en-stage2": "v",
 }
 #: Canonical ordering used in tables and legends (identical to the order the
 #: systems appear in the paper's comparison table).
@@ -123,6 +136,11 @@ def model_label(model_name: str) -> str:
         "sensitiveai-vi-custom-curriculum": "M4 curriculum",
         "sensitiveai-vi-customdlr2stage-ext": "M5 stage-1 ext.",
         "sensitiveai-vi-stage2": "M6 stage-2 only",
+        "sensitiveai-en": "EN baseline",
+        "sensitiveai-en-custom": "EN custom head",
+        "sensitiveai-en-custom-curriculum": "EN curriculum",
+        "sensitiveai-en-customdlr2stage": "EN DLR + 2-stage",
+        "sensitiveai-en-stage2": "EN stage-2 only",
     }.get(model_name, model_name)
 
 

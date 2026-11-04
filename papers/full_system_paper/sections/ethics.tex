@@ -1,0 +1,17 @@
+%!TEX root = main.tex
+\section{Ethics}
+\label{sec:ethics}
+
+The comments are public ViHSD and Davidson test comments and are masked as
+described in Sect.~\ref{sec:data}.  The system is decision support, not
+automatic sanctioning: the directional asymmetry, the bilingual gap and the
+political false positive show that automatic \hate{} labels from this pipeline
+should be reviewed before they affect a user.  The lexicon should be treated as
+a governed artefact with a change log, because its entries shape moderation
+outcomes.
+
+English and Vietnamese lexicons are not neutral: an entry's charged political
+expression can leak into moderation decisions at weight 0.8.  Deployments
+should separate \emph{profanity} from \emph{political} entries and weight them
+accordingly.  We release no user identifiers and reproduce only corpus text
+already public.

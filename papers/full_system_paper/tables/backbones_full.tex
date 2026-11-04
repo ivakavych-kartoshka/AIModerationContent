@@ -1,0 +1,22 @@
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{Backbone test performance. All backbones share \texttt{mDeBERTa-v3-base}. VI backbones: ViHSD test ($n=6{,}680$); EN backbones: Davidson test ($n=2{,}478$).}
+\label{tab:backbones_full}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{l*{5}{>{\centering\arraybackslash}X} X}
+\toprule
+Backbone & Acc. & Macro-F1 & \hate & \off & \clean & Notes / Source \\
+\midrule
+\model{vi-custom} & 0.8762 & 0.6575 & 0.5830 & 0.4493 & 0.9403 & Primary VI \\
+\model{vi-dlr2}   & 0.8754 & 0.6638 & 0.5943 & 0.4561 & 0.9409 & 2-stage DLR \\
+\model{vi-stage2} & 0.8690 & 0.6599 & 0.6091 & 0.4336 & 0.9372 & Stage-2 \\
+\midrule
+\model{en-stage2} & 0.9080 & \textbf{0.7722} & 0.4656 & \textbf{0.9440} & \textbf{0.9070} & Primary EN \\
+\model{en-std}    & 0.9031 & 0.7676 & 0.4554 & 0.9410 & 0.9063 & Standard \\
+\model{en-custom} & 0.9031 & 0.7587 & 0.4377 & 0.9404 & 0.8980 & Multi-pool \\
+\model{en-dlr2}   & 0.9108 & 0.7509 & 0.4048 & 0.9457 & 0.9024 & DLR \\
+\model{en-curr}   & 0.9072 & 0.7441 & 0.3908 & 0.9445 & 0.8970 & Curriculum \\
+\bottomrule
+\end{tabularx}
+\end{table}

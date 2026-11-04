@@ -1,0 +1,4 @@
+index,text,true_label,ai_pred,fuse_pred,ai_correct,fuse_correct,rule_hate,rule_offensive,rule_clean
+2026,"dân đen dân bẩn ai mà không biết, chỉ có người trong sạch đứng trong hàng ngũ của đ là không biết thôi.",HATE,HATE,CLEAN,True,False,0.8091,0.0,
+4646,tóc đẹp lồn lộn vcl anh:))) đan xen từ ngữ chất vl,OFFENSIVE,OFFENSIVE,CLEAN,True,False,0.9447,0.0,
+4723,vỡ nợ cmnđ! đập nát hết rồi xây lại còn hơn!,OFFENSIVE,OFFENSIVE,CLEAN,True,False,0.0,0.0,

@@ -63,7 +63,7 @@ class MatcherConfig:
 class ScoringConfig:
     """Rule scoring (section 39)."""
 
-    severity: Dict[str, float] = field(default_factory=lambda: {"HATE": 0.90, "OFFENSIVE": 0.60})
+    severity: Dict[str, float] = field(default_factory=dict)  # derived from lexicon entry certainty; no hardcoded values
     match_factors: Dict[str, float] = field(
         default_factory=lambda: {
             "exact": 1.00,

@@ -1,0 +1,84 @@
+%!TEX root = main.tex
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the Hybrid Is Good For}
+\label{sec:value}
+
+The result is better read as a successful audit: 38 of 6{,}680 decisions change,
+each described by a channel, a direction and a mechanism.  Moreover, the
+end-to-end bilingual evaluation demonstrates deployment viability (87.0\%
+accuracy, 11.6 ms latency, ~86k req/s), showing that a hybrid architecture can
+be both explainable and production-ready.
+
+\emph{Triage and accountability.}  A queue can sort comments by whether the
+decision was rule-supported: a \hate{} decision with a matched span and
+$r_H=0.8$ is easier to review than one with no lexical evidence, and the span,
+the entry and the arithmetic are what a platform can defend in policy terms.
+
+\emph{Editing and diagnosis.}  Adding a slur variant is a configuration change,
+not a retraining run, and an edit affects the \hate{} channel (weight 0.8) far
+more than the others.  The decomposition exists only because the channels are
+separate: a monolithic classifier improving by 0.0027 macro-F1 would give no
+handle on whether the change was lexical or neural.
+
+\subsection{Why Accuracy Does Not Move (Much)}
+\label{sec:why_neutral}
+
+First, \emph{coverage is low}: the rule fires on 15.75\% of comments, so a
+perfect rule channel could still only change decisions in that subset.  Second,
+\emph{the majority class dominates}: with 83\% \clean{}, only the 1{,}132 toxic
+comments can improve, and 38 changes is 3.4\% of that support---enough to matter
+operationally, too little to move a macro-average beyond its confidence
+interval.  Third, \emph{tuning is safety-oriented}: protecting \clean{} and
+gating \hate{} on lexical support produces both the de-flagging and the missed
+corrections.  Neutrality is a \emph{choice}, not an absence of signal.
+
+\subsection{The Bilingual Asymmetry}
+\label{sec:asymmetry_bilingual}
+
+The mixed evaluation reveals a clear language gap:
+\begin{itemize}
+    \item \textbf{HATE F1}: VI 0.61 vs EN 0.46.  The Vietnamese lexicon has 594
+          HATE-labelled entries; the English lexicon has 86.  The Davidson
+          training split contains only 5.8\% HATE documents, limiting extraction.
+    \item \textbf{OFFENSIVE F1}: EN 0.92 vs VI 0.41.  The English lexicon and
+          AI backbone are well aligned with Davidson's OFFENSIVE majority;
+          Vietnamese OFFENSIVE is comparatively harder because ViHSD has only
+          6.65\% OFFENSIVE.
+    \item \textbf{CLEAN F1}: both above 0.92, indicating a conservative
+          pipeline that rarely flags clean text as toxic.
+\end{itemize}
+This asymmetry is not a bug but a data characteristic: lexicon extraction from
+a corpus with a different class prior produces different coverage.  The
+practical remedy is either manual seed expansion for English HATE terms or
+additional corpora with more HATE examples.
+
+\subsection{Design Implications}
+\label{sec:implications_bilingual}
+
+Five changes follow:
+\begin{enumerate}
+    \item \textbf{Evidence-gated fusion}: when the rule fires strongly against
+          a high-confidence \clean{} prediction, abstain or escalate.
+    \item \textbf{Separate thresholds per mechanism}: requiring $r_H\ge0.5$
+          before the \hate{} channel can override would make the rule-driven
+          and threshold-driven paths separately tunable.
+    \item \textbf{Per-class calibration} of the \clean{} channel, which currently
+          blocks the missed corrections.
+    \item \textbf{Balanced English lexicon}: expand HATE entries by merging
+          HateXplain/Gab sources and retrain the English rule engine.
+    \item \textbf{Multilingual fallback checkpoint}: for \texttt{mix}/\texttt{multilingual}
+          samples (5.6\%), route to a multilingual mDeBERTa instead of rule-only.
+\end{enumerate}
+
+\subsection{Practical Deployment}
+\label{sec:deployment}
+
+The latency profile (11.6 ms mean, 9.1 ms median) supports synchronous
+moderation for text comments.  Routing dominates tail latency (max 2.1 s) due
+to first-call tokenizer initialization; this is a one-time cold-start cost that
+can be pre-warmed.  AI inference is stable under batching.  A production
+deployment should pre-load both checkpoints and the two rule engines at
+startup, cache tokenizer initialization, and set $\alpha$ per language from
+validation-frozen weights.

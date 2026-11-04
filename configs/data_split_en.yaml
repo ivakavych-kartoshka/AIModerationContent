@@ -1,0 +1,47 @@
+# =============================================================================
+# English dataset configuration (Davidson et al., ICWSM 2017).
+#
+#   python scripts/52_prepare_english_data.py
+#
+# Source: https://huggingface.co/datasets/tdavidson/hate_speech_offensive
+# Native labels: 0 = hate-speech, 1 = offensive-language, 2 = neither
+# Canonical:     0 = HATE,        1 = OFFENSIVE,          2 = CLEAN
+#
+# The dataset has no official split, so this pipeline creates ONE fixed
+# stratified 80/10/10 split under data/splits_en/ and fingerprints it exactly
+# like the Vietnamese split.  Never re-split per model.
+# =============================================================================
+
+raw_dir: data/raw/hate_speech_offensive
+processed_dir: data/processed/hate_speech_offensive
+splits_dir: data/splits_en
+
+strategy: stratified
+
+seed: 42
+
+ratios:
+  train: 0.8
+  validation: 0.1
+  test: 0.1
+
+overwrite: false
+
+# Same lossless cleaning defaults as the Vietnamese pipeline.  Everything that
+# deletes content stays OFF; ``clean_dataframe`` only drops rows without any
+# visible character.
+cleaning:
+  lowercase: true
+  normalize_unicode: NFC
+  unescape_html_entities: true
+  remove_invisible_chars: true
+  strip_tags: true
+  normalize_unicode_spaces: true
+  fix_punct_spacing: true
+  collapse_to_single_space: true
+  strip_edges: true
+  remove_urls: false
+  remove_mentions: false
+  remove_repeated_punctuation: false
+  max_repeat_char: 0
+  min_chars: 1

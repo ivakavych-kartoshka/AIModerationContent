@@ -1,0 +1,119 @@
+%!TEX root = main.tex
+\section{Analysis}
+\label{sec:analysis}
+
+\subsection{Provenance of the 38 Changes (ViHSD)}
+\label{sec:provenance}
+
+The aggregate result is neutral; the question is what the 38 changes consist of.
+Of the 23 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{})
+and 7 are \clean{} de-flagging cases (6 from \hate{}, 1 from \off{}).  All 16
+\hate{} recoveries have a rule firing with a \hate{} score above the \off{}
+score, i.e.\ the rule points in exactly the corrected direction.  The rule
+\hate{} score has median 0.7652 (mean 0.7507, range 0.2351--0.9939).
+
+All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$, so
+$\tilde{\mathbf r}=(0,0,1)$).  With $\alpha_H=0.2$ the rule term disappears from
+the \hate{} channel and $f_H=0.2\,p_H$, so a comment needs $p_H\ge0.70$ merely
+to reach $\tau_H=0.14$; one flagged \hate{} at $p_H\approx0.5$ ends at
+$f_H\approx0.10$ and the decision falls back to \clean{}.
+
+The 15 regressions split into 10 rule-driven and 5 threshold-driven cases, and
+the split aligns perfectly with direction: all 10 rule-driven cases
+(\off{}$\to$\hate{}, \clean{}$\to$\hate{}) have the rule firing in the \hate{}
+direction, so fusion trusts lexical \hate{} evidence over the neural label and
+the lexicon is wrong about intensity or target.  The \off{} cases are the
+expected failure of a phrase lexicon: profanity used as an intensifier rather
+than an attack.  The 5 threshold-driven regressions are the mirror image: the
+rule is silent, the fused \hate{} score is $0.2\,p_H$, and when $p_H$ falls
+below roughly 0.7 the \hate{} channel no longer wins; two miss by exactly
+0.001.
+
+\subsection{The Corrections Fusion Does Not Make}
+\label{sec:missed_corrections}
+
+Among the 827 AI errors on ViHSD, 148 non-\clean{} comments have the rule
+firing in the correct direction and 151 \clean{} comments have the rule
+correctly silent, so the rule agrees with the gold label on 299 errors.  Fusion
+acts on 23 of them (7.7\%).  The remaining \textbf{132 missed corrections} are
+non-\clean{} cases where the rule already points the right way and the hybrid
+is still wrong.  Their median rule \hate{} score is 0.7609 (quartiles 0.67--0.85),
+indistinguishable from the 0.7652 median of the corrected cases.  They are
+missed because the \clean{} channel keeps the full AI weight ($\alpha_C=1.0$),
+so a confidently wrong \clean{} cannot be outvoted: the median fused \clean{}
+score is 0.97 for missed cases versus 0.46 for corrected ones.
+
+\subsection{What the Rule Channel Responds To (Cue Taxonomy)}
+\label{sec:cue_taxonomy}
+
+We annotated the 16 \hate{} recoveries with a multi-label cue taxonomy: ten
+contain teencode or abbreviated profanity (\texttt{đ*o}, \texttt{dm},
+\texttt{cmnr}), five standard-spelling profanity or an animal slur, and eight
+derogatory wording without profanity (\emph{ngu}, \emph{thua}, \emph{nhục}).
+The categories overlap.  The channel is therefore not merely a profanity
+detector: much of its value comes from derogatory wording a slur list would
+miss, and teencode is its largest single category.
+
+\subsection{Component Ablation (Rule Engine Switches)}
+\label{sec:ablation}
+
+Re-tuning and re-freezing the fusion once per switch, only one switch matters:
+removing the per-entry confidence costs 0.034 standalone macro-F1 (0.5258 to
+0.4914), almost all of it on \off{} (F1 0.2389 to 0.0600), and no other
+switch moves the standalone engine by more than 0.008.  Rescaling severity
+rewrites 1{,}046 of 6{,}680 rule scores yet changes no hybrid decision
+($p=1.0$): $\alpha$ and $\tau$ re-tune.  Dropping the obfuscation views trades
+recall for precision (firings 1{,}052 $\to$ 779, precision on fired comments
+58.75\% $\to$ 69.58\%); fuzzy matching never fires (0 matches), and case-folding
+cannot be ablated because all 6{,}680 test comments are already lower-case.
+Inside the hybrid no switch leaves noise ($|\Delta|\le0.0012$): the channel
+helps as a channel, not through its weights.
+
+\subsection{Language Detection and Routing Quality}
+\label{sec:lang_quality}
+
+On the 1000 mixed sample the language detector yields the confusion matrix in
+Table~\ref{tab:lang_det}.  Overall per-language accuracy is 93.4\% for each
+language.  The 5.6\% (56/1000) fallback to \texttt{multilingual} is the main
+source of rule-only degradation (no AI checkpoint for \texttt{mix} or
+\texttt{multilingual}).
+
+\begin{table}[H]
+\centering
+\caption{Language detection confusion matrix (true $\times$ detected) on 1000 mixed samples}
+\label{tab:lang_det}
+\begin{tabular}{lccccc}
+\toprule
+True $\backslash$ Detected & en & mix & multilingual & vi & Total \\
+\midrule
+en                         & 467 & 1   & 30           & 2  & 500 \\
+vi                         & 5   & 2   & 26           & 467 & 500 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fusion Ablation on Mixed Sample}
+\label{sec:ablation_mixed}
+
+Table~\ref{tab:ablation_mixed} compares AI-only, rule-only and fused systems
+on the 1000 mixed sample.  On the 941 samples where an AI checkpoint is
+available, AI-only (argmax) slightly outperforms fusion at the default
+$\alpha=0.70$ (macro-F1 0.8027 vs 0.7937), consistent with the earlier finding
+that validation-tuned $\alpha$ converges to $\approx 1.0$ for English and only
+the HATE channel keeps a rule contribution ($\alpha_H\approx 0.8$).
+
+\begin{table}[H]
+\centering
+\caption{Component contributions on the mixed 1000-sample test}
+\label{tab:ablation_mixed}
+\begin{tabular}{lcccccc}
+\toprule
+System & $n$ & Accuracy & Macro F1 & HATE F1 & OFFENSIVE F1 & CLEAN F1 \\
+\midrule
+AI Only (argmax)        & 941  & 0.8884 & \textbf{0.8027} & 0.5750 & 0.9038 & 0.9292 \\
+Rule Only (argmax)      & 1000 & 0.6520 & 0.5837 & 0.2963 & 0.7707 & 0.6839 \\
+Fused ($\alpha=0.70$)   & 1000 & 0.8700 & 0.7829 & 0.5529 & 0.8824 & 0.9134 \\
+Fused ($\alpha=0.70$)   & 941  & 0.8799 & 0.7937 & 0.5660 & 0.8937 & 0.9214 \\
+\bottomrule
+\end{tabular}
+\end{table}

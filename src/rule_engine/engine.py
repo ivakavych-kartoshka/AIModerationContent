@@ -75,6 +75,7 @@ class RuleEngine:
                 rule_score=0.0,
                 rule_hate_score=0.0,
                 rule_offensive_score=0.0,
+                rule_clean_score=1.0,
                 matches=[],
                 dictionary_version=self.lexicon.dictionary_version,
                 meta={"n_matches": 0, "n_spans": 0, "labels": [], "empty": True},

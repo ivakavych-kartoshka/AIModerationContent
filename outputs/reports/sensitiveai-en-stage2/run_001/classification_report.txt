@@ -1,0 +1,9 @@
+              precision    recall  f1-score   support
+
+        HATE     0.4383    0.4965    0.4656       143
+   OFFENSIVE     0.9611    0.9275    0.9440      1918
+       CLEAN     0.8602    0.9592    0.9070       417
+
+    accuracy                         0.9080      2478
+   macro avg     0.7532    0.7944    0.7722      2478
+weighted avg     0.9140    0.9080    0.9102      2478

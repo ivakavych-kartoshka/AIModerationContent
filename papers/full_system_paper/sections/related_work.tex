@@ -1,0 +1,36 @@
+%!TEX root = main.tex
+\section{Related Work}
+\label{sec:related_work}
+
+\textbf{Vietnamese hate speech.}  The UIT-ViHSD corpus \cite{luu2021vihsd}
+established the three-class \hate{}/\off{}/\clean{} task.  Prior work has
+explored monolingual PhoBERT \cite{nguyen2020phobert}, multilingual mBERT/XLM-R
+\cite{conneau2020xlmr}, and data augmentation \cite{nguyen2026vicm}.
+Ensemble and curriculum learning \cite{bengio2009curriculum} raised macro-F1 to
+0.66--0.68, but the decision process remains a black box.
+
+\textbf{English hate speech.}  The Davidson et al. \cite{davidson2017automated}
+dataset (Hate Speech and Offensive Language) is the de facto benchmark for
+English \hate{}/\off{}/\clean{}.  Fine-tuned BERT/RoBERTa reach 0.77--0.81
+macro-F1; recent work uses multi-task learning and adversarial training
+\cite{macavaney2019hate}.
+
+\textbf{Hybrid rule + neural systems.}  Early hybrids concatenated lexical
+features to neural inputs \cite{waseem2016hateful}.  \cite{vidgen2021directions}
+argue for interpretable components.  \cite{bojchevski2020fusing} fuse rule
+scores with neural logits via learnable weights; \cite{ahn2022evidence}
+propose evidence channels.  Most approaches evaluate on a single language and
+do not provide span-level evidence or language-aware routing.
+
+\textbf{Language-aware routing.}  Mixed-language moderation is addressed by
+language identification \cite{lui2012langid} followed by per-language models
+\cite{pires2019multilingual}.  Code-mixed text (Vi-En) is handled by
+multilingual backbones or dedicated tokenizers \cite{nguyen2026vicm}.  Our
+design differs by keeping both rule engines active on \texttt{mix} and
+fallback segments, and by fusing per-language scores rather than training a
+single multilingual head.
+
+\textbf{Explainable moderation.}  Post-hoc explanations (LIME, SHAP,
+attention) are common \cite{danilevsky2020survey}.  Our approach provides
+\emph{intrinsic} evidence: matched lexicon spans, match types and arithmetic
+scores, which survive deployment without additional computation.

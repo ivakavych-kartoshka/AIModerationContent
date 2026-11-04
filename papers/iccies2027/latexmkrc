@@ -1,0 +1,8 @@
+# latexmk configuration for the ICCIES 2027 paper.
+#
+# The paper contains Vietnamese tone-marked letters that T1/pdflatex cannot
+# typeset, so the PDF must be built with XeLaTeX.  Setting $pdf_mode = 5 here
+# makes every latexmk invocation (including the bare `latexmk main.tex` that
+# editors run by default) produce the correct 15-page Times-like PDF
+# instead of a 17-page pdfLaTeX one with dropped characters.
+$pdf_mode = 5;

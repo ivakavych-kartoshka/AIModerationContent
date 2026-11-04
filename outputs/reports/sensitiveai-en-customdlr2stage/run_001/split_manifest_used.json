@@ -1,0 +1,13 @@
+{
+  "fingerprints": {
+    "train": "0ea612f9a9835d0ed02557662d7c56e0cf887ad209e267741dffe4a19f007369",
+    "validation": "305fd4bf217131053a71f672097f3dc663147f9592585cf241e48ad9fdebdfa5",
+    "test": "d234577ee4b9239c8e55495f3e12952d352843dbbc0473c00921e7d55f3cbb08"
+  },
+  "sizes": {
+    "train": 19816,
+    "validation": 2477,
+    "test": 2478
+  },
+  "splits_dir": "data/splits_en"
+}

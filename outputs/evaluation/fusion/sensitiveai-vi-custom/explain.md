@@ -14,6 +14,7 @@
 | `fusion_report.md` | Bảng so sánh test của các hệ thống + tham số đã đóng băng. |
 | `metrics.json` | Chỉ số đầy đủ từng biến thể (validation + test). |
 | `fusion_predictions.csv` | Dự đoán per-sample của biến thể `primary`. |
+| `rule_silence.json` | Ablation quy ước `rule im lặng` (chỉ model chính): so cấu hình đã ship với biến thể `neutral` (rule im lặng thì cho điểm AI đi thẳng), kèm paired bootstrap + McNemar và bảng đối chiếu correction/regression. |
 | `explain.md` | File này. |
 
 
@@ -21,10 +22,11 @@
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 2.0 KB · 2026-10-20 07:13:20 |
-| `fusion_predictions.csv` | file | 1.2 MB · 2026-10-19 13:14:20 |
-| `fusion_report.md` | file | 1.3 KB · 2026-10-19 13:14:20 |
-| `metrics.json` | file | 26.0 KB · 2026-10-19 13:14:20 |
+| `explain.md` | file | 2.0 KB · 2026-10-29 19:28:17 |
+| `fusion_predictions.csv` | file | 1.2 MB · 2026-11-01 12:51:20 |
+| `fusion_report.md` | file | 1.3 KB · 2026-11-01 12:51:20 |
+| `metrics.json` | file | 26.0 KB · 2026-11-01 12:51:20 |
+| `rule_silence.json` | file | 3.4 KB · 2026-11-01 12:53:53 |
 
 ## Cách đọc
 
@@ -33,4 +35,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:45. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-11-01 13:13:06. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

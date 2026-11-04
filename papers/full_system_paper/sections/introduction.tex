@@ -1,0 +1,59 @@
+%!TEX root = main.tex
+\section{Introduction}
+\label{sec:introduction}
+
+Content moderation at scale demands three properties that pure neural systems
+struggle to provide simultaneously: \emph{coverage} over the long tail of
+teencode and obfuscation, \emph{provenance} for audit and appeal, and
+\emph{latency} within real-time service-level agreements.  Multilingual
+transformers (mDeBERTa-v3-base, XLM-R, etc.) achieve strong macro-F1 on
+Vietnamese (\hate{}/\off{}/\clean{} 0.65–0.68) and English (0.77–0.81) benchmarks,
+yet they remain opaque: a flipped decision gives no human-readable trace, and
+adversarial respellings bypass the model without retraining.
+
+Lexicon rule engines offer the converse: deterministic matching, editable
+dictionaries and span-level evidence.  Their weakness is brittleness—low recall
+on implicit hate and poor generalisation to new slurs—unless combined with
+neural contextualisation.
+
+This paper presents \textbf{SensitiveAI}, a bilingual language-aware pipeline
+that treats a rule engine as an \emph{evidence channel} rather than a competing
+classifier.  The system consists of:
+\begin{enumerate}
+    \item a hybrid language detector (heuristics + langid backend) producing
+          \texttt{vi}/\texttt{en}/\texttt{mix}/\texttt{other} with confidence;
+    \item a language-aware tokenizer that segments each comment into
+          per-language spans;
+    \item two independent rule engines (668-entry Vietnamese lexicon
+          \texttt{v1}, 818-entry English lexicon \texttt{v1-en-combined})
+          with anti-obfuscation views (accentless, leet, repeat-collapsed,
+          separator-stripped);
+    \item per-language mDeBERTa-v3-base checkpoints (\model{sensitiveai-vi-custom}
+          and \model{sensitiveai-en-stage2});
+    \item a language-aware fusion module that blends AI probabilities and rule
+          pseudo-probabilities channel-wise with per-language weights
+          ($\alpha_{\text{VI}}=0.70$, $\alpha_{\text{EN}}=0.70$, $\alpha_{\text{mix}}=0.65$,
+          $\alpha_{\text{multilingual}}=0.80$) and per-class decision thresholds.
+\end{enumerate}
+
+We evaluate on three axes:
+\begin{itemize}
+    \item \textbf{Per-language backbone comparison}: four Vietnamese backbones
+          (differing only in head and curriculum) and three English backbones
+          on their respective held-out test sets.
+    \item \textbf{Rule engine standalone}: macro-F1 0.345 (VI) and 0.504 (EN)
+          with thresholded decisions.
+    \item \textbf{Fusion variants}: global $\alpha$, per-channel $\alpha$,
+          per-class thresholds, logistic meta-classifier—all tuned on
+          validation, frozen for test.
+    \item \textbf{End-to-end mixed evaluation}: 1{,}000 balanced comments
+          (500 VI / 500 EN) yielding 87.00\% accuracy, macro-F1 0.7829,
+          11.6 ms latency and ~86,000 req/s on a single RTX 4060 laptop GPU.
+\end{itemize}
+
+The headline finding is \emph{not} an accuracy breakthrough: on ViHSD the
+hybrid gains 0.0027 macro-F1 (8 comments, $p=0.29$).  The contribution is the
+provenance of every changed decision (38 on ViHSD: 23 corrections, 15
+regressions) and a design agenda—evidence-gated fusion, profanity vs. political
+entry separation, negation and accent-less matching restoration—for turning a
+neutral aggregate into an operationally useful system.

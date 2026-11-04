@@ -1,0 +1,90 @@
+{
+  "objective": "macro_f1",
+  "search_space": {
+    "min": 0.0,
+    "max": 1.0,
+    "grid_size": 101
+  },
+  "coordinate_rounds": 3,
+  "initial_threshold": 0.5,
+  "thresholds": {
+    "HATE": 0.81,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.64
+  },
+  "threshold_list": [
+    0.81,
+    0.0,
+    0.64
+  ],
+  "objective_before": 0.476215,
+  "objective_after": 0.543117,
+  "validation_macro_f1_with_thresholds": 0.5431174468611384,
+  "validation_accuracy_with_thresholds": 0.8345808383233533,
+  "validation_macro_f1_with_argmax": 0.4762152699288194,
+  "trace": [
+    {
+      "round": 0,
+      "label": "init",
+      "threshold": 0.5,
+      "objective": 0.4762152699288194
+    },
+    {
+      "round": 1,
+      "label": "HATE",
+      "threshold": 0.67,
+      "objective": 0.479593441524446
+    },
+    {
+      "round": 1,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5050155303337766
+    },
+    {
+      "round": 1,
+      "label": "CLEAN",
+      "threshold": 0.74,
+      "objective": 0.526095027435605
+    },
+    {
+      "round": 2,
+      "label": "HATE",
+      "threshold": 0.81,
+      "objective": 0.5419103798248347
+    },
+    {
+      "round": 2,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5419103798248347
+    },
+    {
+      "round": 2,
+      "label": "CLEAN",
+      "threshold": 0.64,
+      "objective": 0.5431174468611384
+    },
+    {
+      "round": 3,
+      "label": "HATE",
+      "threshold": 0.81,
+      "objective": 0.5431174468611384
+    },
+    {
+      "round": 3,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5431174468611384
+    },
+    {
+      "round": 3,
+      "label": "CLEAN",
+      "threshold": 0.64,
+      "objective": 0.5431174468611384
+    }
+  ],
+  "note": "Optimised on the validation split only; frozen before test evaluation.",
+  "split": "validation",
+  "config": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\rule_ablations\\no_fuzzy\\rule_config.yaml"
+}

@@ -1,0 +1,171 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\citation{luu2021vihsd}
+\citation{nguyen2020phobert}
+\citation{nguyen2023visobert}
+\citation{he2021deberta,he2023debertav3,liu2024mdeberta}
+\citation{nguyen2024vihatet5}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {title}{An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for Vietnamese Hate Speech Detection}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{ Kha Vy Pham\and Hong Nga Cao\textsuperscript  {(*)}}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{ribeiro2016why}
+\citation{lundberg2017shap}
+\citation{waseem2016hateful}
+\citation{gitari2015lexicon}
+\citation{wiegand2018inducing}
+\citation{schmidt2017survey}
+\citation{davidson2017automated}
+\citation{fortuna2018survey}
+\citation{luu2021vihsd}
+\citation{nguyen2021victsd}
+\citation{nguyen2026vicm}
+\citation{nguyen2020phobert}
+\citation{nguyen2023visobert}
+\citation{nguyen2024vihatet5}
+\citation{hoang2023vihos}
+\citation{nguyen2022smtce}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Lexicon-based detection.}{2}{section*.2}\protected@file@percent }
+\citation{devlin2019bert}
+\citation{conneau2020xlmr}
+\citation{he2021deberta}
+\citation{he2023debertav3}
+\citation{liu2024mdeberta}
+\citation{mathew2021hatexplain}
+\citation{ribeiro2016why}
+\citation{lundberg2017shap}
+\citation{luu2021vihsd}
+\citation{bontoriTdtu}
+\citation{nguyen2026vicm}
+\@writefile{toc}{\contentsline {paragraph}{Vietnamese resources and models.}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multilingual transformers.}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Explainability and hybrid systems.}{3}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data and Lexicon}{3}{section.3}\protected@file@percent }
+\newlabel{sec:data}{{3}{3}{Data and Lexicon}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The ViHSD corpus}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:vihsd}{{3.1}{3}{The ViHSD corpus}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}The hate-speech lexicon}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:lexicon}{{3.2}{4}{The hate-speech lexicon}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Ethics of examples.}{4}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Method}{4}{section.4}\protected@file@percent }
+\newlabel{sec:method}{{4}{4}{Method}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The lexical rule engine}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:rule-engine}{{4.1}{4}{The lexical rule engine}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Normalisation and views.}{4}{section*.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The hybrid. A comment enters two independent branches. The neural branch produces class probabilities; the rule branch produces per-label lexical scores and the spans that produced them. Fusion mixes each channel with its own weight $\alpha _c$, and frozen per-channel thresholds turn the three scores into a label. The evidence record is emitted with the decision and makes the lexical part of the decision inspectable. Weights and thresholds shown are the values selected on validation for the focused backbone.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:architecture}{{1}{5}{The hybrid. A comment enters two independent branches. The neural branch produces class probabilities; the rule branch produces per-label lexical scores and the spans that produced them. Fusion mixes each channel with its own weight $\alpha _c$, and frozen per-channel thresholds turn the three scores into a label. The evidence record is emitted with the decision and makes the lexical part of the decision inspectable. Weights and thresholds shown are the values selected on validation for the focused backbone}{figure.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Scoring.}{5}{section*.8}\protected@file@percent }
+\newlabel{eq:match}{{1}{5}{Scoring}{equation.1}{}}
+\newlabel{eq:aggregate}{{2}{5}{Scoring}{equation.2}{}}
+\newlabel{eq:pseudo}{{3}{5}{Scoring}{equation.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Tuning.}{5}{section*.9}\protected@file@percent }
+\citation{he2023debertav3,liu2024mdeberta}
+\citation{loshchilov2019adamw}
+\citation{lin2017focal}
+\citation{bengio2009curriculum}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}The neural branch}{6}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:neural}{{4.2}{6}{The neural branch}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Fusion and decision}{6}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:fusion}{{4.3}{6}{Fusion and decision}{subsection.4.3}{}}
+\newlabel{eq:fusion}{{4}{6}{Fusion and decision}{equation.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evidence record and protocol}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:evidence}{{4.4}{6}{Evidence record and protocol}{subsection.4.4}{}}
+\citation{efron1993bootstrap}
+\citation{mcnemar1947note}
+\citation{wolf2020transformers}
+\citation{saito2015precision}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Setup}{7}{section.5}\protected@file@percent }
+\newlabel{sec:setup}{{5}{7}{Experimental Setup}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Backbones and tuning}{7}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:backbones}{{5.1}{7}{Backbones and tuning}{subsection.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The four backbones and the paired tests between AI-only and the hybrid. All backbones share the encoder (\texttt  {microsoft/mdeberta-v3-base}), tokenizer, split and evaluation code and differ only in the optimisation recipe. $\Delta =\text  {AI}-\text  {hybrid}$ in macro-F1, so a negative value favours the hybrid; the 95\% interval is the paired-bootstrap percentile interval over 10{,}000 resamples. $b$ is the number of comments the AI gets right and the hybrid gets wrong, $c$ the reverse; the last column is the exact McNemar $p$.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:backbones}{{1}{7}{The four backbones and the paired tests between AI-only and the hybrid. All backbones share the encoder (\texttt {microsoft/mdeberta-v3-base}), tokenizer, split and evaluation code and differ only in the optimisation recipe. $\Delta =\text {AI}-\text {hybrid}$ in macro-F1, so a negative value favours the hybrid; the 95\% interval is the paired-bootstrap percentile interval over 10{,}000 resamples. $b$ is the number of comments the AI gets right and the hybrid gets wrong, $c$ the reverse; the last column is the exact McNemar $p$}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Metrics and implementation}{7}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:metrics}{{5.2}{7}{Metrics and implementation}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Reproducibility}{7}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:repro}{{5.3}{7}{Reproducibility}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{8}{section.6}\protected@file@percent }
+\newlabel{sec:results}{{6}{8}{Results}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The hybrid does not improve accuracy}{8}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:no-accuracy-gain}{{6.1}{8}{The hybrid does not improve accuracy}{subsection.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Decision-level variants for the focused backbone (\textsc  {sensitiveai-vi-custom}) on the test split. Every variant reads the same frozen scores; only the mixing and decision rule differ. The last row is the paper's primary system. \emph  {Per-class columns are F1}; the best macro-F1 is in bold. The two rule-only rows are scored inside the fusion pipeline on the renormalised rule scores; the standalone rule engine, with its own thresholds, is reported in the text.}}{8}{table.2}\protected@file@percent }
+\newlabel{tab:fusion-variants}{{2}{8}{Decision-level variants for the focused backbone (\model {sensitiveai-vi-custom}) on the test split. Every variant reads the same frozen scores; only the mixing and decision rule differ. The last row is the paper's primary system. \emph {Per-class columns are F1}; the best macro-F1 is in bold. The two rule-only rows are scored inside the fusion pipeline on the renormalised rule scores; the standalone rule engine, with its own thresholds, is reported in the text}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The difference is not distinguishable from zero}{8}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:significance-results}{{6.2}{8}{The difference is not distinguishable from zero}{subsection.6.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Quantitative summary for the focused backbone. (a)~Macro-F1 of every decision variant; the dotted line is AI-only and the green bar is the primary system. (b)~Provenance of the 38 changed decisions: the four correction types and the three regression types. (c)~Behaviour of the rule channel on the test split: coverage, precision when firing, recall on non-\textsc  {clean}{} comments, and false alarms on \textsc  {clean}{}. Values are percentages; raw counts are in the text and in panel~(b).}}{9}{figure.2}\protected@file@percent }
+\newlabel{fig:results}{{2}{9}{Quantitative summary for the focused backbone. (a)~Macro-F1 of every decision variant; the dotted line is AI-only and the green bar is the primary system. (b)~Provenance of the 38 changed decisions: the four correction types and the three regression types. (c)~Behaviour of the rule channel on the test split: coverage, precision when firing, recall on non-\clean {} comments, and false alarms on \clean {}. Values are percentages; raw counts are in the text and in panel~(b)}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}The rule channel is narrow and precise-ish}{9}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:rule-channel-results}{{6.3}{9}{The rule channel is narrow and precise-ish}{subsection.6.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Provenance and Error Analysis}{9}{section.7}\protected@file@percent }
+\newlabel{sec:analysis}{{7}{9}{Provenance and Error Analysis}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Corrections are rule-consistent}{9}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:corrections}{{7.1}{9}{Corrections are rule-consistent}{subsection.7.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Regressions are rule-driven and directional}{10}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:regressions}{{7.2}{10}{Regressions are rule-driven and directional}{subsection.7.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}The corrections fusion does not make}{10}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:missed}{{7.3}{10}{The corrections fusion does not make}{subsection.7.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}What the rule channel responds to}{11}{subsection.7.4}\protected@file@percent }
+\newlabel{sec:cue-taxonomy}{{7.4}{11}{What the rule channel responds to}{subsection.7.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Case studies}{11}{subsection.7.5}\protected@file@percent }
+\newlabel{sec:cases}{{7.5}{11}{Case studies}{subsection.7.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{11}{section.8}\protected@file@percent }
+\newlabel{sec:discussion}{{8}{11}{Discussion}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}What the hybrid is good for}{11}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:value}{{8.1}{11}{What the hybrid is good for}{subsection.8.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Case studies from the 38 changed decisions (\texttt  {*} masks profanity). $H/O/C$ are the fused channel scores, $\tau _c$ the frozen per-channel thresholds and $r_H$ the aggregated \textsc  {hate}{} rule score; the figure after each span is its per-match score. Rows 1--3 are corrections, 4--5 regressions.}}{12}{table.3}\protected@file@percent }
+\newlabel{tab:cases}{{3}{12}{Case studies from the 38 changed decisions (\texttt {*} masks profanity). $H/O/C$ are the fused channel scores, $\tau _c$ the frozen per-channel thresholds and $r_H$ the aggregated \hate {} rule score; the figure after each span is its per-match score. Rows 1--3 are corrections, 4--5 regressions}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Why accuracy does not move}{12}{subsection.8.2}\protected@file@percent }
+\newlabel{sec:why-neutral}{{8.2}{12}{Why accuracy does not move}{subsection.8.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}The directional asymmetry is a policy question}{12}{subsection.8.3}\protected@file@percent }
+\newlabel{sec:asymmetry}{{8.3}{12}{The directional asymmetry is a policy question}{subsection.8.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Design implications}{12}{subsection.8.4}\protected@file@percent }
+\newlabel{sec:implications}{{8.4}{12}{Design implications}{subsection.8.4}{}}
+\bibstyle{splncs04}
+\bibdata{references}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Limitations}{13}{subsection.8.5}\protected@file@percent }
+\newlabel{sec:limitations}{{8.5}{13}{Limitations}{subsection.8.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Single benchmark and language.}{13}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{One seed per backbone.}{13}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The rule engine is weaker than designed.}{13}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Explanations are not evaluated by humans.}{13}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Ethics}{13}{subsection.8.6}\protected@file@percent }
+\newlabel{sec:ethics}{{8.6}{13}{Ethics}{subsection.8.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{13}{section.9}\protected@file@percent }
+\newlabel{sec:conclusion}{{9}{13}{Conclusion}{section.9}{}}
+\bibcite{bengio2009curriculum}{1}
+\bibcite{bontoriTdtu}{2}
+\bibcite{conneau2020xlmr}{3}
+\bibcite{davidson2017automated}{4}
+\bibcite{devlin2019bert}{5}
+\bibcite{efron1993bootstrap}{6}
+\bibcite{fortuna2018survey}{7}
+\bibcite{gitari2015lexicon}{8}
+\bibcite{he2023debertav3}{9}
+\bibcite{he2021deberta}{10}
+\bibcite{hoang2023vihos}{11}
+\bibcite{lin2017focal}{12}
+\bibcite{loshchilov2019adamw}{13}
+\bibcite{lundberg2017shap}{14}
+\bibcite{luu2021vihsd}{15}
+\bibcite{mathew2021hatexplain}{16}
+\bibcite{mcnemar1947note}{17}
+\bibcite{liu2024mdeberta}{18}
+\bibcite{nguyen2020phobert}{19}
+\@writefile{toc}{\contentsline {subsubsection}{Disclosure of Interests.}{14}{section*.14}\protected@file@percent }
+\bibcite{nguyen2021victsd}{20}
+\bibcite{nguyen2023visobert}{21}
+\bibcite{nguyen2022smtce}{22}
+\bibcite{nguyen2024vihatet5}{23}
+\bibcite{nguyen2026vicm}{24}
+\bibcite{ribeiro2016why}{25}
+\bibcite{saito2015precision}{26}
+\bibcite{schmidt2017survey}{27}
+\bibcite{waseem2016hateful}{28}
+\bibcite{wiegand2018inducing}{29}
+\bibcite{wolf2020transformers}{30}
+\gdef \@abspage@last{15}

@@ -1,0 +1,94 @@
+%!TEX root = main.tex
+\section{System Architecture}
+\label{sec:architecture}
+
+The SensitiveAI pipeline follows a strict language-routing design (Fig.
+\ref{fig:pipeline}).  Each component is described below; configuration files
+are in \texttt{configs/} and code in \texttt{src/}.
+
+\begin{figure}[H]
+\centering
+\resizebox{0.8\textwidth}{!}{\input{figures/architecture}}
+\caption{SensitiveAI pipeline overview: language-aware routing and score fusion.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Language Detector}
+\label{sec:lang_detector}
+
+The detector (\texttt{src/langid/detector.py}) combines:
+\begin{itemize}
+    \item \textbf{Heuristics} (\texttt{heuristics.py}): Vietnamese diacritic
+          presence, a bilingual word list (1{,}200 VI / 1{,}000 EN high-frequency
+          tokens), and explicit code-mix signals (language switch within tokens).
+          Always runs, no third-party dependency.
+    \item \textbf{Statistical backend}: \texttt{langid.py} \cite{lui2012langid}
+          when installed; its votes are blended with heuristics (default weight
+          0.6 heuristic / 0.4 backend).
+\end{itemize}
+Outputs \texttt{vi}, \texttt{en}, \texttt{mix} (both languages above
+\texttt{mix\_floor}=0.12 evidence) or \texttt{other} (confidence $<$ 0.50).
+The \texttt{mix} verdict is \emph{not} a failure: it signals the router to
+keep both language pipelines active.
+
+\subsection{Language-Aware Tokenizer}
+\label{sec:tokenizer}
+
+The tokenizer (\texttt{src/langid/tokenizer.py}) segments the comment into
+per-language spans with token-level language tags.  For \texttt{mix} documents
+it produces alternating VI/EN spans, enabling span-wise rule-engine scanning
+so that an English insult inside a Vietnamese comment is still caught.
+
+\subsection{Language Router \& Rule Engines}
+\label{sec:router}
+
+The router (\texttt{src/routing/language\_router.py}) selects the appropriate
+\texttt{RuleEngine} per span:
+\begin{itemize}
+    \item \texttt{vi} $\to$ 668-entry Vietnamese lexicon (\texttt{v1},
+          \texttt{configs/rule\_engine.yaml})
+    \item \texttt{en} $\to$ 818-entry English lexicon (\texttt{v1-en-combined},
+          \texttt{configs/rule\_engine\_en.yaml})
+    \item \texttt{mix} $\to$ both engines (config \texttt{use\_both\_for\_mix=true})
+    \item \texttt{other}/\texttt{multilingual} $\to$ both engines (fallback)
+\end{itemize}
+
+Each engine applies the same normalisation pipeline (NFC, lowercase, invisible
+char removal, whitespace collapse, max repeat char 3) and four
+anti-obfuscation matching views: accentless alias, leet, repeat-collapsed,
+separator-stripped (fuzzy matching enabled with max distance 1 for terms
+$\ge$6 chars).  Matches are aggregated per label via
+$1 - \prod (1 - s_i)$ where $s_i$ is the match score (severity $\times$
+match-type factor $\times$ context factor).  Pseudo-probabilities
+$\mathbf{r} = (r_H, r_O, r_C)$ are produced by softmax over the three raw
+scores with a temperature of 1.0.
+
+\subsection{Per-Language Neural Checkpoints}
+\label{sec:checkpoints}
+
+\begin{itemize}
+    \item \textbf{VI}: \model{sensitiveai-vi-custom} (custom head, macro-F1
+          0.6590 on validation).  Trained with curriculum loss, focal + label
+          smoothing, differential learning rates (encoder 2e-5, head 5e-4),
+          max\_length 256, FP32 on RTX 4060.
+    \item \textbf{EN}: \model{sensitiveai-en-stage2} (standard head, macro-F1
+          0.7722 on validation).  Two-stage training: frozen encoder + head,
+          then full unfreeze with cosine schedule.  max\_length 128.
+\end{itemize}
+Inference runs in batched mode (batch size 32) on GPU.
+
+\subsection{Language-Aware Fusion}
+\label{sec:fusion}
+
+The fusion module (\texttt{src/fusion/lang\_aware\_fusion.py}) blends AI
+probabilities $\mathbf{p}_{\text{AI}}$ and rule pseudo-probabilities
+$\mathbf{r}$ channel-wise:
+\begin{equation}
+    \mathbf{p}_{\text{fused}} = \alpha \mathbf{p}_{\text{AI}} + (1-\alpha)
+    \mathbf{r},
+\end{equation}
+with $\alpha$ per language (VI/EN 0.70, MIX 0.65, MULTILINGUAL 0.80) and
+per-class decision thresholds $\tau_H, \tau_O, \tau_C$ tuned on validation
+macro-F1.  The meta-classifier (multinomial logistic on six features
+$[p_H,p_O,p_C,r_H,r_O,r_C]$) is also fitted on validation but found worse than
+simple fusion for EN (macro-F1 0.6513 vs 0.7722 AI-only on validation).

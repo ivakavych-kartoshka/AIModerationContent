@@ -1,0 +1,9 @@
+{
+  "model": "sensitiveai-vi-custom",
+  "total_test": 6680,
+  "samples_with_rule_match": 3437,
+  "rule_coverage_percent": 51.45,
+  "ai_wrong_fixed_total": 29,
+  "ai_wrong_fixed_with_rule_support": 26,
+  "ai_wrong_fixed_with_rule_support_percent": 89.66
+}

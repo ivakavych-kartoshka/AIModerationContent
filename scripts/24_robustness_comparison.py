@@ -51,7 +51,7 @@ import numpy as np  # noqa: E402
 import torch  # noqa: E402
 from torch.utils.data import DataLoader, Dataset  # noqa: E402
 
-from src.common.constants import LABELS, SPLITS_DIR  # noqa: E402
+from src.common.constants import LABELS, MODEL_NAMES, SPLITS_DIR  # noqa: E402
 from src.common.logging_utils import get_logger  # noqa: E402
 from src.common.paths import ensure_dir, per_model_eval_dir  # noqa: E402
 from src.evaluation.metrics import apply_decision_rule, compute_metrics, run_inference  # noqa: E402
@@ -74,7 +74,9 @@ CLEAN_ID = LABELS.index("CLEAN")
 
 DEFAULT_RULE_EVAL_DIR = Path("outputs/evaluation/rule_engine_tuned")
 DEFAULT_FUSION_ROOT = Path("outputs/evaluation/fusion")
-DEFAULT_MODELS = ("sensitiveai-vi-customdlr2stage", "sensitiveai-vi-stage2")
+#: The four systems of the paper (``src/common/constants.py:MODEL_NAMES``); each
+#: of them has a trained run and a frozen ``fusion/<model>/metrics.json``.
+DEFAULT_MODELS: Tuple[str, ...] = tuple(MODEL_NAMES)
 PAPER_DIR = Path(__file__).resolve().parent.parent / "papers"
 
 

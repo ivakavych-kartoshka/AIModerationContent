@@ -50,6 +50,15 @@ meta_classifier:
   max_iter: 1000
   class_weight: balanced
 
-# AI models to fuse.  Empty list = every model that has both a trained run and
-# an evaluated test_predictions.csv under outputs/evaluation/per_model/.
-models: []
+# AI models to fuse: the four systems of the paper
+# (``src/common/constants.py:MODEL_NAMES``).  List them explicitly so one default
+# run fuses all four and writes a four-row ``comparison.md``; extra experimental
+# models (sensitiveai-vi-customdlr2stage-ext, sensitiveai-vi-stage2) are only
+# fused when requested with ``--model``.  Empty list = every model that has both
+# a trained run and an evaluated test_predictions.csv under
+# outputs/evaluation/per_model/.
+models:
+  - sensitiveai-vi
+  - sensitiveai-vi-custom
+  - sensitiveai-vi-customdlr2stage
+  - sensitiveai-vi-custom-curriculum
