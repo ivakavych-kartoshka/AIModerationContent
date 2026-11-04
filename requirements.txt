@@ -30,3 +30,8 @@ langid>=1.1.6
 
 # optional: Weights & Biases logging
 # wandb>=0.16
+
+# API server for moderation endpoints
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.7
