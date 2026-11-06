@@ -1,0 +1,21 @@
+% Auto-generated from canonical E2E tuned benchmark
+\begin{table}[t]
+\centering
+\small
+\caption{Evaluation on the full test splits: backbone-only inference versus the full pipeline (language detection $\to$ routing $\to$ backbone $\to$ fusion). Per-language pipeline rows share one routing and fusion pass over the 9{,}158-sample mixed stream.}
+\label{tab:e2e_full_benchmark}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Mode} & \textbf{Language} & \textbf{Dataset} & \textbf{$N$} & \textbf{Accuracy} & \textbf{Macro-F1} \\
+\midrule
+\multirow{2}{*}{Backbone only}
+  & Vietnamese & ViHSD & 6{,}680 & 0.8713 & 0.6602 \\
+  & English & Davidson & 2{,}478 & 0.8717 & 0.7273 \\
+\midrule
+\multirow{3}{*}{Full pipeline}
+  & Vietnamese & ViHSD & 6{,}680 & 0.8732 & 0.6603 \\
+  & English & Davidson & 2{,}478 & 0.8717 & 0.7313 \\
+  & \textbf{Mixed} & \textbf{Both} & \textbf{9{,}158} & \textbf{0.8728} & \textbf{0.7787} \\
+\bottomrule
+\end{tabular}
+\end{table}

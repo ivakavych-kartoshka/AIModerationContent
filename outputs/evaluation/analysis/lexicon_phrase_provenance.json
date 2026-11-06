@@ -1,0 +1,684 @@
+{
+  "results": [
+    {
+      "language": "vi",
+      "lexicon_file": "data/processed/lexicon/verified_lexicon.csv",
+      "multiword_entries": 551,
+      "phrase_found_only_in_test": [
+        {
+          "term": "bọn fan",
+          "test": 1,
+          "validation": 1
+        },
+        {
+          "term": "chết của",
+          "test": 3,
+          "validation": 0
+        },
+        {
+          "term": "giấu đầu",
+          "test": 1,
+          "validation": 0
+        },
+        {
+          "term": "méo mó",
+          "test": 1,
+          "validation": 1
+        },
+        {
+          "term": "mắc ói",
+          "test": 1,
+          "validation": 0
+        },
+        {
+          "term": "sai khiến",
+          "test": 1,
+          "validation": 0
+        },
+        {
+          "term": "tao ghét",
+          "test": 1,
+          "validation": 0
+        }
+      ],
+      "phrase_never_found_in_train": [
+        {
+          "term": "bò vàng",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "bị dắt",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "bị giết",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "bọn fan",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 1
+          }
+        },
+        {
+          "term": "bố mỹ",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "bụm chúa",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "bủm chúa",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "chó cao",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "chết của",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 3
+          }
+        },
+        {
+          "term": "con dog",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "critical thinking",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cái comment",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cái sub",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cái thumbnail",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cắp chất",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cắp content",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "damn it",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "diệm chỉ",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "diệm mà",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "dog bắc",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "du mục",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "dột từ",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "fuck off",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "ghét thằng",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "giả gái",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "giấu đầu",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 1
+          }
+        },
+        {
+          "term": "giờ thống",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "khắp miền",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "kênh rác",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "kỳ chó",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "lên reddit",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "màn lên",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "méo mó",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 1
+          }
+        },
+        {
+          "term": "mắc ói",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 1
+          }
+        },
+        {
+          "term": "mỹ lập",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "mỹ đưa",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "nam vn",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "ngạo nghễ",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "như shit",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "nếu chúng",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "nữ quyền",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "phong sát",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "quan lệch",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "quyền tay",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "red bull",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "sai khiến",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 1
+          }
+        },
+        {
+          "term": "shut up",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "sub này",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tam quan",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "tao ghét",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 1
+          }
+        },
+        {
+          "term": "thằng diệm",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "thằng loser",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "thằng lộc",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "thằng op",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tiên thống",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tranh du",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "trấn lột",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tt cũng",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tài phiệt",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tôn sùng",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "tởm vl",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "vào mỹ",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "về rác",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "với tao",
+          "hits": {
+            "train": 0,
+            "validation": 1,
+            "test": 0
+          }
+        },
+        {
+          "term": "ăn shit",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "định lật",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        }
+      ],
+      "phrase_found_only_in_test_count": 7,
+      "phrase_never_found_in_train_count": 66
+    },
+    {
+      "language": "en",
+      "lexicon_file": "data/processed/lexicon/verified_lexicon_en_combined.csv",
+      "multiword_entries": 224,
+      "phrase_found_only_in_test": [],
+      "phrase_never_found_in_train": [
+        {
+          "term": "you're faggot",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "i'm bitch",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "give fuck",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "ain't bitch",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "ain't hoe",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "bitches thing",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "got type",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "beat pussy",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "that's bitch",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "cut bitch",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "massage park",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        },
+        {
+          "term": "planet apes",
+          "hits": {
+            "train": 0,
+            "validation": 0,
+            "test": 0
+          }
+        }
+      ],
+      "phrase_found_only_in_test_count": 0,
+      "phrase_never_found_in_train_count": 12
+    }
+  ]
+}

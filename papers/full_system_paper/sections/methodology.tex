@@ -7,7 +7,7 @@
 
 All backbones use \texttt{microsoft/mdeberta-v3-base}, the same tokenizer,
 data splits and evaluation code; they differ only in the classification head
-and optimisation recipe.  Table~\ref{tab:backbones} summarises the four
+and optimisation recipe.  Table~\ref{tab:backbones_full} summarises the four
 Vietnamese and three English configurations evaluated.
 
 \input{tables/backbones_full}
@@ -28,7 +28,7 @@ factor, aggregation cap), with the three decision thresholds re-optimised on
 validation macro-F1 over a 101-point grid at every candidate; the search never
 touches the lexicon.  The final frozen thresholds for VI are
 $\tau_H=0.50, \tau_O=0.50, \tau_C=0.50$ (argmax equivalent); for EN
-$\tau_H=0.82, \tau_O=0.39, \tau_C=0.59$ (Table~\ref{tab:rule_en_metrics}).
+$\tau_H=0.82, \tau_O=0.39, \tau_C=0.59$ (Sect.~\ref{sec:results_rule}).
 
 \subsection{Fusion Variants}
 \label{sec:fusion_variants}

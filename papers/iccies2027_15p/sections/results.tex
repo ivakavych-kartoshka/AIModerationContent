@@ -1,0 +1,129 @@
+%!TEX root = ../main.tex
+\section{Results and Analysis}
+\label{sec:results}
+
+\subsection{End-to-End Bilingual Evaluation}
+\label{sec:e2e}
+
+The complete production pipeline (LanguageDetector $\to$ LanguageAwareTokenizer $\to$
+RuleEngine $\to$ backbone inference $\to$ LangAwareFusion with per-language fusion
+weights and per-class decision thresholds) is evaluated
+on full test splits: Vietnamese ViHSD (6,680) and English Davidson (2,478), yielding
+9,158 mixed samples.  Key findings:
+
+\begin{itemize}
+    \item Per-language backbone accuracy 87.11\% (VI) and 90.84\% (EN); the
+          full hybrid pipeline reaches 87.28\% mixed accuracy (87.32\% VI, 87.17\% EN).
+    \item Paired bootstrap + exact McNemar show the hybrid change is not
+          significant ($\Delta$macro-F1 $-0.0004$, 95\% CI $[-0.0045,+0.0036]$, $p=0.84$;
+          McNemar $p=0.17$).
+    \item Language detection 94.11\% accuracy on bilingual stream (fallback 5.89\%).
+    \item Full pipeline latency 6.14 ms mean (P95 6.66 ms).
+\end{itemize}
+
+Vietnamese backbone macro-F1 0.6608 vs English 0.7676 reflect the ViHSD vs
+Davidson datasets rather than the systems; the EN backbone reaches higher
+macro-F1 because Davidson's OFFENSIVE class is far more prevalent (1,918/2,478
+samples) than ViHSD's HATE class (688/6,680).
+
+\input{tables/e2e_full_benchmark}
+\input{tables/global_benchmark}
+
+\subsection{Latency and Throughput Profile}
+\label{sec:latency}
+
+Per-request latency (serialised run) averages 6.14 ms per comment (routing $\approx$2.15 ms + AI inference $\approx$4.0 ms),
+P95 is 6.66 ms (P99 3.07 ms routing tail), so tail latency stays below 7 ms (Table~\ref{tab:latency}).
+Per-request percentiles are measured sequentially (each comment runs the full
+routing + inference pipeline); the stage P50/P95 values are summed per request,
+so the reported total is a conservative upper bound rather than a percentile
+of the per-stage latency distribution.
+The routing stage alone processes at 464.5 texts/s; the AI inference stage alone
+sustains $\approx$250 texts/s; fusion/decision cost is negligible within the routing pass.
+Backbone-only throughput is higher (EN: $\approx$409 texts/s, VI: $\approx$198 texts/s) without routing overhead.
+
+\begin{table}[H]
+\centering
+\caption{Per-request latency breakdown (ms) and throughput over the 9{,}158-sample bilingual test stream (serialised execution). Stage P50/P95 values are summed per request, so the total P95 conservatively sums stage P95s.}
+\label{tab:latency}
+\begin{tabularx}{\textwidth}{Xcccc}
+\toprule
+Pipeline Stage & Mean (ms) & P50 (ms) & P95 (ms) & Thr. (texts/s) \\
+\midrule
+Routing (langID) & 2.15 & 1.93 & 2.67 & 464.5 \\
+AI inference (backbone) & 3.99 & --- & --- & $\approx$250 \\
+\midrule
+\textbf{Total (serialised)} & \textbf{6.14} & --- & \textbf{6.66} & $\approx$163 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+End-to-end throughput on a single laptop GPU meets real-time moderation SLAs;
+in this run the AI backbone is the dominant latency component.
+
+\begin{figure}[H]
+\centering
+\resizebox{0.9\textwidth}{!}{\input{figures/f1_comparison}}
+\caption{F1-score comparison per class and macro-average on the 9,158-sample bilingual test splits (ViHSD 6,680 + Davidson 2,478). Backbone-only inference without routing/fusion.}
+\label{fig:f1_comp}
+\end{figure}
+
+\subsection{Calibration Diagnostics}
+\label{sec:calibration}
+
+Table~\ref{tab:hybrid-calibration} reports calibration diagnostics for AI-only and
+Hybrid variants on ViHSD test, alongside a uniform-mixing control ($\alpha=0.70$)
+where the rule channel is replaced by a constant $(1/3, 1/3, 1/3)$ distribution.
+While hybrid ECE (0.092) improves over AI-only (0.112), the uniform-mixing
+control reaches the same ECE (0.092) while mean confidence drops from 0.984
+to 0.939 and 0.791 respectively. This indicates that the apparent calibration
+gain is a confidence-shrinkage artefact rather than genuine calibration
+improvement from rule evidence. We do not claim calibration gains.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/hybrid_reliability.png}
+\caption{Reliability diagram (ECE) comparison between AI-only and Hybrid fusion on the ViHSD test set.}
+\label{fig:reliability}
+\end{figure}
+
+\input{tables/hybrid_calibration}
+
+\subsection{Robustness to Noisy Vietnamese Surface Forms}
+\label{sec:surface}
+
+Teencode, missing diacritics, and deliberate character repetition are pervasive in
+user-generated Vietnamese and are the main source of lexical mismatch between the
+rule lexicon and incoming text.  Table~\ref{tab:surface-forms} stratifies ViHSD test
+performance by surface form using regex detectors over the raw comment, reporting
+accuracy, macro-F1, and per-class recall.
+
+Performance degrades most on very long comments ($>500$ chars, macro-F1 0.568)
+and on teencode (0.630) and no-diacritics (0.634), which together cover 1,409 test
+comments (21.1\%); standard diacritics reach 0.656.  Leet-like repeat characters
+perform comparatively well (0.699), indicating that the subword tokenizer absorbs
+simple character elongation, whereas teencode and unaccented spellings degrade
+accuracy.  HATE recall stays highest on long comments (0.741) but OFFENSIVE recall
+collapses to 0.143 there, consistent with mixed hate-plus-offence long posts
+being absorbed into the HATE channel.  Short comments ($<20$ chars) obtain the best
+accuracy (0.924) and macro-F1 (0.709).
+
+\input{tables/surface_form_analysis}
+
+\subsection{Provenance of Changed Decisions (ViHSD)}
+\label{sec:provenance}
+
+On ViHSD, the hybrid changes 64 decisions (39 corrections, 25 regressions, net +14).
+Of the 39 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{})
+and 7 are \clean{} de-flagging cases.  All 16 \hate{} recoveries have a rule firing
+with a \hate{} score above the \off{} score, i.e., the rule points in exactly the
+corrected direction (median rule \hate{} score 0.765).  All 7 \clean{} de-flagging
+cases have a silent rule ($r_H=r_O=0$), so the rule term disappears from the \hate{}
+channel and the decision falls back to \clean{}.
+
+The 25 regressions split into 10 rule-driven and 15 threshold-driven cases.
+All 10 rule-driven cases (\off{}$\to$\hate{}, \clean{}$\to$\hate{}) have the rule
+firing in the \hate{} direction, so fusion trusts lexical \hate{} evidence over the
+neural label and the lexicon is wrong about intensity or target.  The 15 threshold-driven
+regressions occur when the rule is silent and the fused \hate{} score $0.2\,p_H$
+falls below the threshold.

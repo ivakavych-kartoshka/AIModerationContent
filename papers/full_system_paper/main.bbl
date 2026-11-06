@@ -20,7 +20,8 @@ Bojchevski, A., Ren, Z., Krstic, M., Ghosh, S., Wang, Z., Schick, S., Hovy, D.:
   Methods in Natural Language Processing (EMNLP). pp. 10--20 (2020)
 
 \bibitem{bontoriTdtu}
-{BonTori}: {R-ViHSD}: {TDTU} {YouTube}/{voz} extension of {ViHSD} (cleaned)
+{BonTori}: {R-ViHSD}: {TDTU} {YouTube}/{voz} extension of {ViHSD} (cleaned).
+  Hugging Face Datasets  (2025),
   \url{https://huggingface.co/datasets/BonTori/vietnamese-hsd-cleaned}
 
 \bibitem{conneau2020xlmr}

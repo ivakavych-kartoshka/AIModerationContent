@@ -46,9 +46,10 @@ We evaluate on three axes:
     \item \textbf{Fusion variants}: global $\alpha$, per-channel $\alpha$,
           per-class thresholds, logistic meta-classifier—all tuned on
           validation, frozen for test.
-    \item \textbf{End-to-end mixed evaluation}: 1{,}000 balanced comments
-          (500 VI / 500 EN) yielding 87.00\% accuracy, macro-F1 0.7829,
-          11.6 ms latency and ~86,000 req/s on a single RTX 4060 laptop GPU.
+    \item \textbf{End-to-end mixed evaluation}: 9{,}158 comments (6{,}680 Vietnamese
+          from ViHSD test + 2{,}478 English from Davidson test), yielding 87.10\%
+          accuracy, macro-F1 0.7781, 9.07 ms latency and 110.2 texts/s throughput
+          (serialised run, $\alpha=0.70$, P95 12.69 ms).
 \end{itemize}
 
 The headline finding is \emph{not} an accuracy breakthrough: on ViHSD the

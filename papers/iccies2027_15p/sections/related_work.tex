@@ -1,0 +1,36 @@
+%!TEX root = ../main.tex
+\section{Related Work}
+\label{sec:related_work}
+
+\textbf{Vietnamese hate speech.}  The UIT-ViHSD corpus \cite{luu2021vihsd}
+established the three-class \hate{}/\off{}/\clean{} task.  Prior work has
+explored monolingual PhoBERT \cite{nguyen2020phobert}, multilingual backbones
+such as mBERT and XLM-R \cite{conneau2020xlmr}, and data augmentation
+\cite{nguyen2026vicm}.  Many ViHSD models remain black-box classifiers with no
+rule-based audit trail.
+
+\textbf{English hate speech.}  The Davidson et al. \cite{davidson2017automated}
+dataset (Hate Speech and Offensive Language) is the de facto benchmark for
+English \hate{}/\off{}/\clean{}.  Fine-tuned transformer models achieve
+competitive results on Davidson; fine-grained macro-F1 varies with class
+balance (Davidson is 77\% OFFENSIVE), so pooled scores must be read with care
+and are not directly comparable across different class distributions.
+
+\textbf{Hybrid rule + neural systems.}  Early work combined lexical feature
+vectors with classifiers \cite{waseem2016hateful}.  Modern benchmarks such as
+HateXplain \cite{mathew2021hatexplain} provide span-level evidence and
+rationales, showing interest in interpretable moderation, yet most approaches
+evaluate on a single language and none reports language-aware routing between
+two dedicated rule engines.
+
+\textbf{Language-aware routing.}  Mixed-language moderation is addressed by
+language identification \cite{lui2012langid} followed by per-language models
+\cite{conneau2020xlmr}.  Code-mixed text is typically handled by multilingual
+backbones or dedicated tokenizers \cite{nguyen2026vicm}.  Our design differs
+by keeping both rule engines active on fallback segments and fusing
+per-language scores rather than training a single multilingual head.
+
+\textbf{Explainable moderation.}  Post-hoc explanations (LIME, SHAP,
+attention) are common \cite{danilevsky2020survey,mathew2021hatexplain}.  Our
+approach provides \emph{intrinsic} evidence: matched lexicon spans, match types
+and arithmetic scores, which survive deployment without additional computation.

@@ -1,0 +1,62 @@
+%!TEX root = ../main.tex
+\section{Introduction}
+\label{sec:introduction}
+
+Content moderation at scale demands three properties that pure neural systems
+struggle to provide simultaneously: \emph{coverage} over the long tail of
+teencode and obfuscation, \emph{provenance} for audit and appeal, and
+\emph{latency} within real-time service-level agreements.  Multilingual
+transformers such as mDeBERTa-v3 and XLM-R \cite{he2023debertav3,conneau2020xlmr}
+reach macro-F1 around 0.66 on Vietnamese and 0.77 on English benchmarks in our
+experiments, yet they remain opaque: a flipped decision gives no
+human-readable trace, and adversarial respellings bypass the model without
+retraining.
+
+Lexicon rule engines offer the converse: deterministic matching, editable
+dictionaries and span-level evidence.  Their weakness is brittleness—low recall
+on implicit hate and poor generalisation to new slurs—unless combined with
+neural contextualisation.  Prior hybrid and explainability work
+\cite{waseem2016hateful,mathew2021hatexplain} focuses on single-language
+pipelines; cross-lingual routing and language-aware fusion remain
+underexplored.
+
+This paper presents \textbf{SensitiveAI}, a bilingual language-aware pipeline
+that treats a rule engine as an \emph{evidence channel} rather than a competing
+classifier.  The system consists of:
+\begin{enumerate}
+    \item A hybrid language detector (heuristics + langid backend) producing
+          \texttt{vi}/\texttt{en}/\texttt{mix}/\texttt{other} with confidence.
+    \item A language-aware tokenizer that segments each comment into
+          per-language spans.
+    \item Two independent rule engines (668-entry Vietnamese lexicon
+          \texttt{v1}, 818-entry English lexicon \texttt{v1-en-combined})
+          with anti-obfuscation views (accentless, leet, repeat-collapsed,
+          separator-stripped).
+    \item Per-language mDeBERTa-v3-base checkpoints (\model{sensitiveai-vi-custom}
+          and \model{sensitiveai-en-stage2}).
+    \item A language-aware fusion module that blends AI probabilities and rule
+          pseudo-probabilities channel-wise with per-language weights
+          ($\alpha=0.70$ for VI/EN) and per-class decision thresholds.
+\end{enumerate}
+
+We evaluate the full production pipeline on complete test splits of ViHSD
+(6{,}680 Vietnamese comments) and Davidson (2{,}478 English comments), yielding
+9{,}158 mixed bilingual samples.  Key results:
+\begin{itemize}
+    \item Per-language backbone accuracy 87.11\% (VI) and 90.84\% (EN); the full
+          hybrid pipeline reaches 87.28\% mixed accuracy (87.32\% VI, 87.17\% EN)
+          at 6.14 ms mean latency (P95 6.66 ms) with 94.11\% language detection
+          accuracy.  The fusion change is small and not statistically significant
+          ($\Delta$macro-F1 $=-0.0004$, 95\% CI $[-0.0045,+0.0036]$, $p=0.84$;
+          exact McNemar $p=0.17$).
+    \item 6.14 ms mean latency (P95 6.66 ms), supporting real-time deployment.
+    \item 94.11\% language detection accuracy on the bilingual stream.
+    \item The rule channel changes 91 of 9{,}158 decisions (0.99\%) — 44
+          corrections and 31 regressions (net +13) — each with an inspectable
+          lexicon span and arithmetic score.
+\end{itemize}
+
+The contribution is not an accuracy breakthrough but the \emph{provenance} of
+the decisions the rule channel touches: rule-backed predictions are auditable,
+and the fusion design keeps the neural backbone dominant while exposing
+lexical evidence wherever the rule engine fires.

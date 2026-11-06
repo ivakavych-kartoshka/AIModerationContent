@@ -1,0 +1,36 @@
+{
+  "dataset": "Wortschatz Leipzig 2015 English News Corpus",
+  "source": "https://wortschatz.uni-leipzig.de/",
+  "lang": "en",
+  "total_rows": 29934,
+  "splits": {
+    "train": {
+      "n": 14967,
+      "avg_len": 74.46936593839781,
+      "median_len": 76.0,
+      "max_len": 188,
+      "min_len": 15,
+      "avg_words": 12.627513863833768,
+      "median_words": 13.0
+    },
+    "val": {
+      "n": 5088,
+      "avg_len": 130.4886006289308,
+      "median_len": 130.0,
+      "max_len": 203,
+      "min_len": 85,
+      "avg_words": 21.844732704402517,
+      "median_words": 22.0
+    },
+    "test": {
+      "n": 9879,
+      "avg_len": 185.95343658265006,
+      "median_len": 182.0,
+      "max_len": 255,
+      "min_len": 100,
+      "avg_words": 31.3402166211155,
+      "median_words": 30.0
+    }
+  },
+  "note": "Stratified by sentence length. No labels (use backbone predictions). News domain."
+}

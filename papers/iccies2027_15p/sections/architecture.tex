@@ -1,0 +1,60 @@
+%!TEX root = ../main.tex
+\section{System Architecture and Training}
+\label{sec:architecture}
+
+The SensitiveAI pipeline follows a strict language-routing design (Fig.~\ref{fig:pipeline}).
+Each component is described below.
+
+\begin{figure}[t]
+\centering
+\resizebox{0.8\textwidth}{!}{\input{figures/architecture}}
+\caption{SensitiveAI pipeline: language-aware routing and score fusion.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Language Detection and Routing}
+The detector combines heuristics (Vietnamese diacritic presence, bilingual word list)
+and statistical backend (langid.py \cite{lui2012langid}).  Outputs: \texttt{vi}, \texttt{en},
+\texttt{mix} (both languages above threshold), or \texttt{other} (confidence $<$ 0.50).
+The tokenizer segments comments into per-language spans with token-level language tags.
+
+The router selects the appropriate \texttt{RuleEngine} per span:
+\texttt{vi} $\to$ 668-entry Vietnamese lexicon;
+\texttt{en} $\to$ 818-entry English lexicon;
+\texttt{mix}/\texttt{other} $\to$ both engines.
+Each engine applies normalisation (NFC, lowercase, invisible char removal) and four
+anti-obfuscation matching views: accentless, leet, repeat-collapsed, separator-stripped.
+Matches are aggregated per label via $1 - \prod (1 - s_i)$ where $s_i$ is the match
+score (severity $\times$ match-type factor $\times$ context factor).  Pseudo-probabilities
+$\mathbf{r} = (r_H, r_O, r_C)$ are produced by linear normalisation of scores,
+$r_c = s_c / \sum_{j} s_j$ (not softmax).
+
+\subsection{Per-Language Neural Backbones}
+\begin{itemize}
+    \item \textbf{VI}: \model{sensitiveai-vi-custom-curriculum} (custom head, macro-F1 0.661 on test, 0.705 on validation with thresholds).
+          Trained with curriculum loss, focal + label smoothing, differential learning rates
+          (encoder 2e-5, head 5e-4), max\_length 256.
+    \item \textbf{EN}: \model{sensitiveai-en-stage2} (standard head, macro-F1 0.768 on test / 0.784 on validation with thresholds).
+          Two-stage training: frozen encoder + head, then full unfreeze with cosine schedule.
+          max\_length 128.
+\end{itemize}
+Both backbones use mDeBERTa-v3-base and run batched inference (batch size 32) on GPU.
+
+\subsection{Language-Aware Fusion}
+The fusion module blends AI probabilities $\mathbf{p}_{\text{AI}}$ and rule pseudo-probabilities
+$\mathbf{r}$ channel-wise:
+\begin{equation}
+    \mathbf{p}_{\text{fused}} = \alpha \mathbf{p}_{\text{AI}} + (1-\alpha) \mathbf{r},
+\end{equation}
+with $\alpha$ per class for Vietnamese $(\alpha_H=0.20,\alpha_O=0.80,\alpha_C=1.00)$ and per-class
+decision thresholds $\tau_H=0.17,\tau_O=0.67,\tau_C=0.16$ tuned on validation macro-F1.
+English uses $\alpha=1.0$ (AI-only) with $\tau_H=0.29,\tau_O=0.48,\tau_C=0.50$.
+The final decision takes $\arg\max_c$ among classes whose fused score meets $\tau_c$; falls back to
+plain argmax if no threshold is met.
+
+\subsection{Training Setup}
+Vietnamese backbone: 15–30 epochs with early stopping (patience 5), AdamW optimizer,
+cosine annealing with warmup (5\% steps).  English backbone: stage 1 (5 epochs, encoder frozen),
+stage 2 (15 epochs, full unfreeze).  All models trained on RTX 4060 (8GB) with FP32 precision.
+Validation sets used for hyperparameter tuning and $\alpha$/threshold selection; test sets
+held out until final evaluation.

@@ -1,0 +1,38 @@
+%!TEX root = ../main.tex
+\section{Data and Lexicons}
+\label{sec:data}
+
+\subsection{Vietnamese Corpus (ViHSD)}
+We use UIT-ViHSD \cite{luu2021vihsd}, a corpus of Vietnamese social-media
+comments annotated with three mutually exclusive labels: \clean{}, \off{}, and \hate{}.
+After cleaning, the corpus contains 33{,}398 comments with fixed splits: train 24{,}046,
+validation 2{,}672, test 6{,}680.  The test split is imbalanced: 83.05\% \clean{},
+10.30\% \hate{}, 6.65\% \off{}.  Macro-F1 is primary metric; per-class F1 is always reported.
+
+\subsection{English Corpus (Davidson et al.)}
+For English we use the Hate Speech and Offensive Language dataset
+\cite{davidson2017automated}.  The fixed split: train 19{,}816, validation 2{,}477,
+test 2{,}478.  The English test is also imbalanced but with a different profile:
+77.8\% \off{}, 5.8\% \hate{}, 16.4\% \clean{}.
+
+\subsection{Mixed Evaluation Sample}
+To evaluate the bilingual pipeline end-to-end we use the complete held-out test
+splits: 6{,}680 Vietnamese comments from ViHSD test and 2{,}478 English comments
+from Davidson test, yielding 9{,}158 mixed bilingual samples (Table~\ref{tab:mixed_composition}).
+This full-split evaluation preserves the per-language class priors.
+
+\input{tables/mixed_composition}
+
+\subsection{Vietnamese Lexicon (668 entries)}
+The Vietnamese rule engine uses a hate-speech lexicon of \textbf{668 entries},
+mined from training portions of ViHSD, R-ViHSD \cite{bontoriTdtu}, and ViCM
+\cite{nguyen2026vicm}.  Most entries (82.5\%) are multi-word constructions;
+78.4\% are context-required.  The lexicon contains 594 \hate{} and 74 \off{}
+terms, explaining why the rule engine is weak on \off{}.
+
+\subsection{English Lexicon (818 entries)}
+The English lexicon contains \textbf{818 entries} (86 \hate{}, 356 \off{}, 376 \clean{}),
+extracted from Davidson training split.  The English lexicon has far fewer HATE
+terms (86 vs. 594) because Davidson corpus has only 5.8\% HATE documents.  This
+asymmetry directly impacts the hybrid's HATE F1 (0.453 EN vs 0.610 VI) and is
+the highest-priority target for future lexicon expansion.

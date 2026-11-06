@@ -1,0 +1,13 @@
+\begin{table}[H]
+\centering
+\caption{Calibration diagnostics (ECE, Brier, NLL, mean confidence, macro‑F1) for AI‑only vs Hybrid on two datasets.}
+\label{tab:hybrid-calibration}
+\toprule
+Variant & Dataset & $n$ & ECE $\downarrow$ & Brier $\downarrow$ & NLL $\downarrow$ & mean conf. $\uparrow$ & Macro‑F1 $\uparrow$ \\
+\midrule
+AI‑only & ViHSD test (6 680) & 6680 & 0.111 & 0.2334 & 0.8382 & 0.987 & 0.6575 \\
+Hybrid & ViHSD test (6 680) & 6680 & 0.097 & 0.2273 & 0.7879 & 0.952 & 0.6593 \\
+AI‑only & Mixed 1000‑sample (941 AI‑only rows) & 941 & 0.096 & 0.2078 & 0.5627 & 0.896 & 0.8027 \\
+Hybrid & Mixed 1000‑sample (941 AI‑only rows) & 1000 & 0.085 & 0.2286 & 0.8086 & 0.824 & 0.7829 \\
+\bottomrule
+\end{table}

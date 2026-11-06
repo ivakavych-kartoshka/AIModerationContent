@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{bontoriTdtu}
+{BonTori}: {R-ViHSD}: {TDTU} {YouTube}/{voz} extension of {ViHSD} (cleaned).
+  Hugging Face Datasets  (2025),
+  \url{https://huggingface.co/datasets/BonTori/vietnamese-hsd-cleaned}
+
+\bibitem{conneau2020xlmr}
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzm{\'a}n,
+  F., Grave, E., Ott, M., Zettlemoyer, L., Stoyanov, V.: Unsupervised
+  cross-lingual representation learning at scale. Proceedings of the 58th
+  Annual Meeting of the Association for Computational Linguistics (ACL) pp.
+  8440--8451 (2020)
+
+\bibitem{danilevsky2020survey}
+Danilevsky, M., et~al.: A survey of the state of explainable ai for natural
+  language processing. In: Proceedings of AACL-IJCNLP. pp. 447--459 (2020)
+
+\bibitem{davidson2017automated}
+Davidson, T., Warmsley, D., Macy, M., Weber, I.: Automated hate speech
+  detection and the problem of offensive language. In: Proceedings of the 11th
+  International AAAI Conference on Web and Social Media (ICWSM). pp. 512--515
+  (2017)
+
+\bibitem{efron1993bootstrap}
+Efron, B., Tibshirani, R.J.: An introduction to the bootstrap. Chapman \&
+  Hall/CRC  (1993)
+
+\bibitem{he2023debertav3}
+He, P., Gao, J., Chen, W.: {DeBERTaV3}: Improving {DeBERTa} using
+  {ELECTRA}-style pre-training with gradient-disentangled embedding sharing.
+  In: International Conference on Learning Representations (ICLR) (2023)
+
+\bibitem{lui2012langid}
+Lui, M., Baldwin, T.: {langid.py}: An off-the-shelf language identification
+  tool. In: Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics (System Demonstrations). pp. 25--30 (2012)
+
+\bibitem{luu2021vihsd}
+Luu, S.T., Nguyen, K.V., Nguyen, N.L.T.: A large-scale dataset for hate speech
+  detection on vietnamese social media texts. In: Advances and Trends in
+  Artificial Intelligence. Artificial Intelligence Practices (IEA/AIE). pp.
+  415--426. Lecture Notes in Computer Science, Springer (2021)
+
+\bibitem{mathew2021hatexplain}
+Mathew, B., Saha, P., Yimam, S.M., Biemann, C., Gipp, B., Mukherjee, A.:
+  {HateXplain}: A benchmark dataset for explainable hate speech detection. In:
+  Proceedings of the AAAI Conference on Artificial Intelligence. vol.~35, pp.
+  14867--14875 (2021)
+
+\bibitem{mcnemar1947note}
+McNemar, Q.: Note on the sampling error of the difference between correlated
+  proportions or percentages. Psychometrika  \textbf{12}(2),  153--157 (1947)
+
+\bibitem{nguyen2020phobert}
+Nguyen, D.Q., Nguyen, A.T.: {PhoBERT}: Pre-trained language models for
+  vietnamese. In: Findings of the Association for Computational Linguistics:
+  EMNLP 2020. pp. 1037--1042 (2020)
+
+\bibitem{nguyen2026vicm}
+Nguyen, T.M., Nguyen, T.M.N., Huynh, T.V., Nguyen, K.V.: An effective
+  convolutional cross-lingual language model for vietnamese online social media
+  mining. International Journal of Machine Learning and Cybernetics
+  \textbf{17}(2), ~69 (2026). \doi{10.1007/s13042-025-02904-6}
+
+\bibitem{waseem2016hateful}
+Waseem, Z., Hovy, D.: Hateful symbols or hateful people? predictive features
+  for hate speech detection on twitter. In: Proceedings of NAACL-HLT Student
+  Research Workshop. pp. 88--93 (2016)
+
+\end{thebibliography}

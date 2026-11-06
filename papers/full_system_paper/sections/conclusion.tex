@@ -15,17 +15,16 @@ The key results are:
           $p=0.29$), but its 38 changed decisions are fully decomposable into
           rule-driven and threshold-driven causes, with all 23 corrections
           rule-supported.
-    \item On the 1000-sample mixed Vietnamese/English evaluation, the pipeline
-          reaches 87.00\% accuracy, macro-F1 0.7829, 11.6 ms latency and
-          ~86{,}000 req/s throughput on a single laptop GPU.
+    \item On the 9{,}158-sample bilingual evaluation (full ViHSD $+$ Davidson splits), the pipeline
+          reaches 87.10\% accuracy, macro-F1 0.7781, 9.07 ms latency and
+          110.2 texts/s throughput (serialised run, $\alpha=0.70$, P95 12.69 ms).
     \item The bilingual comparison exposes a structural asymmetry: English
-          excels on OFFENSIVE (F1 0.9247) while Vietnamese excels on HATE
-          (F1 0.6095); the 818-entry English lexicon still has only 86 HATE
+          excels on OFFENSIVE (F1 0.9270) while Vietnamese excels on HATE
+          (F1 0.6051); the 818-entry English lexicon still has only 86 HATE
           terms versus 594 for Vietnamese.
-    \item AI-only (argmax) slightly outperforms fused scores at the default
-          $\alpha=0.70$ on samples with a checkpoint (macro-F1 0.8027 vs
-          0.7937), confirming that fusion must be tuned per language/channel
-          rather than globally fixed.
+    \item Fusion improves calibration: the full-pipeline ECE is 0.076 versus
+          0.114 (VI backbone-only) and 0.102 (EN backbone-only), confirming that
+          fused scores are better calibrated than raw neural outputs.
 \end{itemize}
 
 The broader lesson is methodological: a hybrid evaluated only by its aggregate

@@ -1,0 +1,505 @@
+index,text,true_label,ai_pred,rule_pred,hybrid_pred,rule_correct,prob_HATE,prob_OFFENSIVE,prob_CLEAN,rule_hate_score,rule_offensive_score
+1,haizz. nthe này thì dân khổ quá,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0450174e-05,0.00013135043,0.99985814,0.0,0.0
+4,coin card:3,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0782623e-05,6.4019376e-05,0.99992526,0.0,0.0
+9,"lý khùng thì có,kk",CLEAN,HATE,CLEAN,CLEAN,1,0.5445493,0.23283944,0.2226113,0.0,0.0
+42,nguyễn thị thủy chó con chứ dúi đâu ra,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.13817136,0.8005753,0.06125332,0.7905,0.0
+43,phét,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00044436607,0.96912485,0.030430822,0.0,0.0
+49,co ba oi co giau lam vay co giup nhung nguoi kho giong nku tui con di co,CLEAN,HATE,CLEAN,HATE,1,0.992132,0.0033092815,0.004558728,0.2776,0.0
+59,"chi bà nhiều tiền thì đi làm từ thiện,còn ơ đó nói tục tiểu, giơ bẩn. làm nhục n",CLEAN,HATE,CLEAN,HATE,1,0.9985708,0.0009922924,0.00043690045,0.2436,0.0
+77,công an mà muốn xử lý thì 2 ông luật sư này sẽ biến mất ngay lập tức. chứ chả ph,CLEAN,HATE,CLEAN,HATE,1,0.958916,0.036712166,0.0043718163,0.0,0.0
+172,không có csgt nào tốt cả.,HATE,CLEAN,CLEAN,CLEAN,0,0.00041058316,0.0006459379,0.9989435,0.0,0.0
+181,nữ sinh chạm tay vào má c.a thì đi tù. rất vn...,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0052099633,0.9928433,0.0019468211,0.0,0.0
+185,nguyễn hoàng sâm nôn link ra,CLEAN,HATE,CLEAN,HATE,1,0.7244551,0.25036502,0.02517987,0.0,0.0
+197,lũlên mạng lừa đão,HATE,CLEAN,CLEAN,CLEAN,0,5.771584e-06,5.829093e-05,0.999936,0.0,0.0
+201,các bạn phản đối cái giè. viện phí tăng gấp 3 ngân sách bội thu. làm tốt thế mà ,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0007091592,0.99857044,0.0007203268,0.0,0.0
+214,đậu rồi má hay đậu má rồi các bạn nhỏ???:))),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.1437686e-06,6.605173e-05,0.99992776,0.0,0.0
+226,khốn nạn,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.643245e-06,0.0004305538,0.99956185,0.0,0.0
+227,gam thua cái củ cặc nhé!!,OFFENSIVE,HATE,HATE,HATE,0,0.9959472,0.0036915184,0.00036125153,0.9567,0.0
+230,k có nghìn nào giúp dân thì nín đi!,HATE,CLEAN,CLEAN,CLEAN,0,9.514647e-06,0.00016865115,0.99982184,0.0,0.0
+234,"dân không có giàu nhé, chỉ nó nước mạnh thôi.",HATE,CLEAN,CLEAN,CLEAN,0,8.139323e-06,4.53975e-05,0.9999465,0.0,0.0
+235,ko xin nó thì đái ra mà hết hạn hán nhé,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0006476163,0.56181246,0.43753996,0.0,0.0
+248,nguc em hoi nho,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.410916e-06,4.908626e-05,0.9999435,0.0,0.0
+259,200.000 hộp thuốc giết người.,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,2.2122895e-05,0.00012533473,0.9998524,0.0,0.0
+333,bao giờ chết,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.747645e-06,6.0141105e-05,0.999933,0.0,0.0
+335,thật ra là quên kéo khóa quần ngoài lộ quần trong nên để lộ hẳn thành phong cách,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.7476876e-06,5.3910477e-05,0.9999393,0.0,0.0
+360,90tr dân việt nam đang vả nhung nè,HATE,CLEAN,CLEAN,CLEAN,0,1.4285216e-05,2.111218e-05,0.9999646,0.0,0.0
+371,"thế là tự các ông suy ra chữ thiên đường, tự nhét chữ vào mồm chứ đảng ko nói đú",HATE,CLEAN,CLEAN,CLEAN,0,1.3000881e-05,0.000480291,0.9995067,0.0,0.0
+381,share bài này là lũ ban cắn chết nên thôi:))),CLEAN,HATE,HATE,HATE,0,0.99643815,0.0028651613,0.0006966738,0.8779,0.0
+384,tao thấy nhiễm covid này toàn bọn nhiều tiền và thích đi du lịch đấy..,HATE,CLEAN,HATE,CLEAN,1,1.0129565e-05,4.1985884e-05,0.9999479,0.7084,0.0
+419,"lí do lí trấu, chắc tin😏:)))",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.338923e-06,4.539758e-05,0.99994826,0.0,0.0
+460,bắn chet moe abe h,HATE,CLEAN,CLEAN,CLEAN,0,8.664448e-06,2.3552415e-05,0.9999677,0.0,0.0
+471,"t nghĩ phải lên web coi trc, chứ ra đó biển sale..méo biết lựa gì",CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0002298197,0.99678975,0.0029803475,0.0,0.0
+485,"có ai tự nhiên lên phường, rồi đi tự tử trên ấy không? giờ thằng nào con nào, mu",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.939399e-06,3.3213895e-05,0.9999578,0.0,0.0
+491,"chat la kiep truoc bi cam, 🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏🙏toi ngiep cho mu nay qua ko biet kiep s",HATE,CLEAN,CLEAN,CLEAN,0,7.646339e-06,2.5867235e-05,0.9999665,0.0,0.0
+494,"đậu văn cường nhìn như thằng nghiện, ghê bỏ mẹ ra",CLEAN,HATE,HATE,HATE,0,0.9957852,0.002336944,0.0018777873,0.7609,0.0
+495,kg phan dong may' chui vao trong nay lam gi?,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.44879723,0.016156984,0.5350458,0.0,0.0
+510,ma mày đau ma mày đau bóp cu ba may sung con cười muốn chết luôn co kim oi,HATE,CLEAN,CLEAN,CLEAN,0,0.00032489598,0.00043041725,0.9992448,0.4349,0.0
+516,cô ba có râu ha ha,HATE,CLEAN,CLEAN,CLEAN,0,4.985782e-05,3.535449e-05,0.99991477,0.0,0.0
+563,chi oi chi chua gap bac ky dau.chi ma gap roi chi khong con kip keu mot tieng tr,HATE,CLEAN,CLEAN,CLEAN,0,1.1842829e-05,2.6274465e-05,0.999962,0.2138,0.0
+566,thêm cái gì mà thêm. t đếch thèm qt đến vì chưa có thông báo nghĩ học 🙈,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.143685e-06,7.9672514e-05,0.99991417,0.0,0.0
+603,không giống ai,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.888031e-06,0.00015597904,0.9998361,0.0,0.0
+606,abe chơi dơ,CLEAN,HATE,CLEAN,HATE,1,0.99353,0.002313506,0.004156618,0.0,0.0
+613,"mikhai chốp còn biết nhảu khỏi tàu đắm,chứ bọn này đéo nhẩy đâu,ảo thuật gia và ",OFFENSIVE,HATE,HATE,HATE,0,0.9837421,0.013494758,0.0027631293,0.6662,0.0
+622,"doanh nghiệp nó sai thì nó bị phạt, còn thằng này thích tống tiền doanh nghiệp t",OFFENSIVE,HATE,HATE,HATE,0,0.99783796,0.0018524857,0.00030958143,0.7055,0.0
+634,"chuyển qua insta thì hack bằng lol,bằng niềm tin",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.183022e-06,3.3213953e-05,0.9999596,0.0,0.0
+637,ơ tưởng thầy chơi gay 😢,CLEAN,HATE,CLEAN,HATE,1,0.8495994,0.03118937,0.11921132,0.0,0.0
+653,thầy lol chúc chỉ có rớt,HATE,CLEAN,HATE,CLEAN,1,0.0063359435,0.0004698585,0.9931942,0.8991,0.0
+670,dan lm kho dan.do ngu,OFFENSIVE,HATE,HATE,HATE,0,0.9963247,0.0033756006,0.00029960158,0.7522,0.0
+684,style khoe cu của mấy anh biến thái à 🙃,HATE,CLEAN,CLEAN,CLEAN,0,4.817143e-05,0.0031911144,0.9967608,0.0,0.0
+685,@chiến trần tao lao.,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.12333248,0.024740422,0.85192704,0.0,0.0
+704,toàn các cô gái ngồi xổm trym quệt đất ạ..,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.18295e-06,4.331873e-05,0.9999496,0.0,0.0
+705,tiên tri trần dần về việt nam ở nghĩa trang bình an,HATE,CLEAN,CLEAN,CLEAN,0,1.112541e-05,1.7778357e-05,0.99997115,0.0,0.0
+707,đáng nhẽ m k nên về nước 🙂,HATE,CLEAN,CLEAN,CLEAN,0,1.4738638e-05,2.3187135e-05,0.999962,0.0,0.0
+708,hoàng văn thuận nên xử bắn hed,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.397806e-06,3.169299e-05,0.99995995,0.0,0.0
+713,quê tao mà giơ cánh hoa ntn ra đường là đéo còn đường về quê mẹ,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.00016353848,0.96951216,0.030324299,0.8379,0.0
+717,ở việt nam! nó là cái l đó,OFFENSIVE,HATE,HATE,HATE,0,0.99680835,0.0028774438,0.0003141322,0.8199,0.0
+725,lê hoàng trần:v vãi cả lý luận và đổ thừa!vn ta có đảng quang vinh lãnh đạo mà k,CLEAN,HATE,HATE,HATE,0,0.997143,0.0021812415,0.0006757171,0.5975,0.0
+730,không khí đạt chất lượng như hôm nay cũng là nhờ sự tài tình của đảng ta! đó là ,HATE,CLEAN,CLEAN,CLEAN,0,0.0018947737,0.0011314211,0.99697375,0.2564,0.0
+739,giàu mà ko biết chia chác cho tụi nó thì bầu kiên đã là một ví dụ.,HATE,CLEAN,CLEAN,CLEAN,0,9.817746e-06,5.9208585e-05,0.999931,0.0,0.0
+765,bạn bè bên dai loan và bên nước việt nam mình kg tha thứ cho no cho nó một bài h,HATE,CLEAN,HATE,CLEAN,1,1.38456835e-05,2.3187156e-05,0.9999629,0.7932,0.0
+778,"hà nguyễn khánh duy gái nhật đi tàu đi ngầm nó ngứa mu quá, lấy tay móc gãi tỉnh",HATE,CLEAN,CLEAN,CLEAN,0,0.00018969963,0.037885237,0.9619251,0.0,0.0
+787,"tìm chó thất lạc đặc điểm""cực kì thuyết phục""",OFFENSIVE,CLEAN,HATE,CLEAN,0,5.771578e-06,5.9208825e-05,0.99993503,0.7905,0.0
+807,con trai làm trưởng phòng kế toán nữa thì quả là một dân tộc hạnh fúck,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,2.7535092e-05,2.178205e-05,0.99995065,0.0,0.0
+808,"trên đời này mấy thằng to xác thường được tạo hóa ban cho tính bắt nạt, chỉ một ",CLEAN,HATE,HATE,HATE,0,0.99885297,0.00096203457,0.00018504755,0.7518,0.0
+827,quá đáng vl anh ơi ngồi nấu mì ăn xem review thịt trâu:((,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.7227538e-05,0.00023413176,0.9997485,0.0,0.0
+834,sàm sàm sàm sàm,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.338792e-06,6.6051725e-05,0.99992764,0.0,0.0
+835,tsb 💩,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0782082e-05,0.00011412117,0.9998752,0.0,0.0
+837,những kẻ cướp ngày đang bênh vực tên trộm đêm:),OFFENSIVE,CLEAN,HATE,CLEAN,0,2.354976e-05,0.000121478886,0.9998549,0.6889,0.0
+843,"con này nó rảnh, nói gì kệ nó",CLEAN,HATE,CLEAN,HATE,1,0.9964161,0.0016452873,0.001938622,0.0,0.0
+844,thưa nhà tiên tri cho biết khi nào việt nam sẽ xóa sổ trung quốc vậy?,HATE,CLEAN,CLEAN,CLEAN,0,1.36311155e-05,1.6964197e-05,0.9999695,0.0,0.0
+868,một câu chuyện cổ tích rất hay được sáng tác bởi công an việt nam. giỏi lắm các ,HATE,CLEAN,CLEAN,CLEAN,0,1.3419613e-05,2.9772713e-05,0.9999567,0.0,0.0
+886,lol này cây vô đầu nó mới sợ:),CLEAN,HATE,CLEAN,HATE,1,0.96333826,0.027649935,0.009011753,0.0,0.0
+894,sao giờ nhiều chương trình nhố nhăng thế khg biết,HATE,CLEAN,CLEAN,CLEAN,0,8.397766e-06,3.6478235e-05,0.9999552,0.0,0.0
+896,óc chó,OFFENSIVE,HATE,HATE,HATE,0,0.99625874,0.0034018504,0.00033947054,0.919,0.0
+915,điên qf:,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.001846205,0.6676454,0.33050844,0.0,0.0
+919,"nền giáo dục phương tây đã dạy gì cho những \""ai kia\""☹️. nghĩ nó chán, sang chả",OFFENSIVE,HATE,CLEAN,HATE,0,0.98042864,0.014887022,0.0046844096,0.4899,0.0
+925,toang thực sự 😐,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.5940545e-06,5.0644434e-05,0.99994373,0.0,0.0
+934,cút,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.182661e-06,8.349568e-05,0.9999094,0.0,0.0
+945,khôn thế thầy lòn:)),CLEAN,HATE,HATE,HATE,0,0.64762187,0.030527243,0.32185084,0.7792,0.0
+950,mày nghỉ luôn cũng được. phát ngôn tào lao fan nó unfollow hết bây giờ,HATE,CLEAN,CLEAN,CLEAN,0,9.603207e-05,0.000732111,0.999172,0.1775,0.481
+960,công nghệ xây cầu mới của đảng và nhà nước ta đấy! thế giới chưa nước nào có đâu,OFFENSIVE,HATE,CLEAN,HATE,0,0.99392104,0.0007397321,0.005339304,0.0,0.0
+963,huyền vy dẹp mẹ đi,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0041408525,0.96683383,0.029025283,0.0,0.0
+965,ông nói clg nghe cũng thấy hay:)) đợi concard:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.006169815,0.0037421822,0.99008805,0.0,0.0
+973,con số 34 cũng làm lan rộng ra,HATE,CLEAN,CLEAN,CLEAN,0,8.664364e-06,3.3213902e-05,0.99995804,0.0,0.0
+1021,được vl anh độ ạ😂,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0002858074,0.003648944,0.9960653,0.0,0.0
+1026,"đơn giản đó là người sg, chứ ko phải người tp.hcm(đa số bake)",HATE,CLEAN,HATE,CLEAN,1,7.182986e-06,3.8228838e-05,0.9999546,0.6128,0.0
+1036,"hết ""cực kì thuyết phục"",giờ tới mấy con bò ""sống chậm"":)",CLEAN,HATE,HATE,HATE,0,0.99009013,0.004549346,0.0053604394,0.8025,0.0
+1042,xem bực mình thêm,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.3387984e-06,6.502776e-05,0.9999286,0.0,0.0
+1049,lại sống như rau dền:)))),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0015663983,0.10726918,0.8911644,0.0,0.0
+1062,phan linh đb ct có lm j đâu? mà ss chán,OFFENSIVE,CLEAN,HATE,CLEAN,0,0.00014424234,0.00012146423,0.99973434,0.5758,0.0
+1064,nguyễn yến nhi đang tính cmt luôn.:)))) coi xong kiểu wtf?? t đã coi clg thế:))),HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0035981012,0.7649276,0.23147428,0.0,0.0
+1070,bạn ba còn gạ bạn thơ vô to lét nữa:))),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0012798051,0.995214,0.003506156,0.0,0.0
+1086,"dkm phat,noi nhu c",HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0008289917,0.99845076,0.00072024047,0.2333,0.0
+1096,mom cho ko moc dc nga voi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.023242153,0.026336811,0.95042104,0.0,0.0
+1099,giống abe vailon,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0013454305,0.99833506,0.00031956774,0.0,0.0
+1133,"bơm chủ nghĩa dân tộc như bơm ma túy. càng ngày càng nhiều, ngày càng trầm trọng",HATE,CLEAN,CLEAN,CLEAN,0,1.5936139e-05,3.0241474e-05,0.99995375,0.0,0.0
+1160,anh ơi:(đau vcl,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.00013466102,0.0063442215,0.99352115,0.0,0.0
+1162,"dlv sẽ nói gì à??: ""phản đôôộoong! - chỉ thế thôi nhé:v",HATE,CLEAN,CLEAN,CLEAN,0,0.012218693,0.0018447466,0.9859365,0.1356,0.0
+1188,yêu ai thì kệ mẹ nó. đăng làm cc gì,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0011331952,0.99853706,0.0003297786,0.9633,0.0
+1242,mồm vén lên như cái bồn cầu,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0008200417,0.9572838,0.04189614,0.2449,0.0
+1256,"k cần giặt đánh, cứ để dân tự chết vì ngu thôi:v",HATE,CLEAN,HATE,CLEAN,1,0.00021563146,0.004214251,0.9955701,0.7522,0.0
+1285,diễm quỳnh gét burn real vãi l,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.664139e-06,5.9208647e-05,0.99993205,0.0,0.0
+1291,"trắng biến thành đen, có biến thành ko, ko biến thành có họ còn làm được chứ trắ",HATE,OFFENSIVE,CLEAN,HATE,0,0.000103546416,0.63334465,0.36655176,0.2351,0.0
+1311,chỉnh lại ông bô. xe với trả cộ ẩu vl,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.000117625874,0.0010082248,0.9988741,0.0,0.0
+1314,con này nhin thấy ghê vậy mà ăn cái gi,CLEAN,HATE,CLEAN,HATE,1,0.99779874,0.0013982747,0.00080296164,0.0,0.0
+1315,thầy em là phải hơn. nhưng ngu hơn ă🤧,CLEAN,HATE,HATE,HATE,0,0.99512935,0.0017766822,0.0030939085,0.8636,0.0
+1333,ức chế vl... bán bó rau lời ko bao nhiêu..,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0010316698,0.99842465,0.00054365175,0.0,0.0
+1346,"lê trọng nghĩa phục làm gì bạn? phục xong về hít bụi mịn, ăn đồ trộn hoá chất, h",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.1394e-06,3.5912723e-05,0.999956,0.0,0.1782
+1347,sân bay chưa xây mà cao tốc kẹt như cơm bữa! đường khẩn cấp mà chạy chiếm hết ý ,OFFENSIVE,CLEAN,HATE,CLEAN,0,7.18295e-06,4.331873e-05,0.9999496,0.6609,0.0
+1356,minhhieu đại chó nó dao làm người đừng làm chỗ chỗ,CLEAN,OFFENSIVE,HATE,HATE,0,0.2246828,0.7720618,0.0032553985,0.8385,0.0
+1359,"chửi vô tội vạ mà đéo biết báo từ đời nào rồi,và chỉ phạt các doanh nghiệp mua đ",OFFENSIVE,HATE,HATE,HATE,0,0.99851173,0.001254301,0.00023384212,0.9252,0.0
+1375,da bao dung nghe cs noi!!!,HATE,CLEAN,CLEAN,CLEAN,0,7.721824e-05,4.7572783e-05,0.9998752,0.0,0.0
+1381,nó chuẩn bị dizz thầy thật r thầy ba ơiiii =))),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0022022077,0.9911197,0.006678112,0.0,0.0
+1387,dạo này bệnh lợn tả châu phi tạm yên!! bây giờ lại bắt đầu bệnh bò điên hoang tư,OFFENSIVE,HATE,CLEAN,HATE,0,0.9985593,0.0012641987,0.00017652169,0.0,0.4068
+1400,bớt ảo tưỡng đi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.515769e-06,5.0644234e-05,0.9999398,0.0,0.0
+1442,đưa lên kiểu này có khi ngày mai nó cho người ra đập bỏ luôn là hiểu nhé 😭,HATE,CLEAN,CLEAN,CLEAN,0,6.7477195e-06,4.9086288e-05,0.9999441,0.0,0.0
+1476,bịt lol chạy quanh nhà là có thật 🤣🤣,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0007730698,0.9989219,0.0003051129,0.0,0.0
+1488,mặt như buê đuê ấy nhể,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.889009e-06,3.2192085e-05,0.99995995,0.0,0.0
+1490,đi coppy ảnh của page khác không ghi nguồn.:))) kém chuyên nghiệp,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.1438486e-06,5.3074753e-05,0.99994075,0.0,0.0
+1497,quang quang tường cãi lộn cát không,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.3418724e-05,9.6101125e-05,0.99989045,0.2376,0.0
+1499,nguoi ta co tien lam rang gia.cgu.bon minh tien dau.lam.bactram trieu do bo,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0061203544,0.6750219,0.31885776,0.0,0.0
+1500,thời trang với thời chủng nhìn mất hết cảm tình 😬😬,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.663983e-06,7.7221244e-05,0.99991405,0.0,0.0
+1501,bọn dầy tớ chấp chi.,HATE,CLEAN,CLEAN,CLEAN,0,0.004132859,0.00026836543,0.9955988,0.0,0.0
+1503,kim phượng thế con ngu ở hà nội p nó cũng nhảy bông nhông khắp nơi đó p,OFFENSIVE,HATE,HATE,HATE,0,0.9986339,0.000992355,0.00037372438,0.7522,0.0
+1523,cho a bu voi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0016947621,0.0035046993,0.99480057,0.0,0.0
+1541,"ăn thua gì, ăn mừng đón con khỉ nói tiếng hoa cũng chết vài triệu mạng rồi.",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.4108552e-06,5.7387177e-05,0.99993527,0.0,0.0
+1556,vậy đủ chậm chưaaa đumaaaaaaaa,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.771681e-06,4.133516e-05,0.9999529,0.0,0.0
+1572,đảng cộng sản cho quan tham nhũng:3,CLEAN,HATE,HATE,HATE,0,0.9957184,0.0031691536,0.0011124775,0.617,0.0
+1591,"cánh hoa ở hàn quốc thôi, về việt nam nó là cái l** đấy 🤣🤣🤣🤣",CLEAN,HATE,HATE,HATE,0,0.9497657,0.045552332,0.0046819528,0.8199,0.0
+1593,"thằng dưới thì thấy thế này, chứ đm thằng ad mà làm quan to xem, thử mở mồm ra n",OFFENSIVE,HATE,HATE,HATE,0,0.99863917,0.0011511581,0.00020964148,0.9216,0.0
+1595,"cách đây cũng 1 2 năm nghe tin đứa trẻ sinh ra đã cõng 22 triệu giờ 29 triệu, mấ",HATE,CLEAN,CLEAN,CLEAN,0,7.646249e-06,3.7636157e-05,0.9999547,0.0,0.0
+1601,t cố gắng nghe hết nhưng đâu tai thật sự,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.747768e-06,4.1986023e-05,0.99995124,0.0,0.0
+1605,má dầu thơm giả sức cho ghẻ người,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.1830464e-06,2.97729e-05,0.99996305,0.0,0.0
+1612,anh em cc,OFFENSIVE,HATE,HATE,HATE,0,0.98722434,0.011359491,0.0014162639,0.6905,0.0
+1636,từ bỏ thiên đường xhcnvn sang xứ tư bản giãy chết làm culi!😭😹🤣,CLEAN,HATE,HATE,HATE,0,0.995391,0.0019825536,0.0026264566,0.7783,0.0
+1645,nguễn trường vcl intro,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.887731e-06,0.00019411165,0.999798,0.0,0.0
+1647,làm riết thấy chán. lên cao thủ lẹ đi ông già,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.889031e-06,2.9311308e-05,0.9999628,0.0,0.0
+1662,nó chơi luật rừng thì mình chơi luật rừng! mạng đổi mạng! đéo phải nói nhiều! bứ,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0006246214,0.9966409,0.0027345123,0.9672,0.0
+1677,kay vờ lờ.,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0011781491,0.99837816,0.00044369503,0.0,0.0
+1702,việt nam thì nó lại là lồn các cậu ạ 🤦🤦,OFFENSIVE,HATE,HATE,HATE,0,0.99589443,0.0022128168,0.0018927224,0.8494,0.0
+1720,bất hạnh nhất cuộc đời là ra trường rồi mà bạn vẫn ngu dốt.😔 đáng buồn cho nghàn,OFFENSIVE,HATE,HATE,HATE,0,0.9981178,0.0012057736,0.0006763776,0.7263,0.0
+1728,gan vđ,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.000690718,0.98791957,0.011389715,0.0,0.0
+1749,tối ngày đi ra ngoài đường khùng khùng,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.954833e-06,5.1441908e-05,0.99994254,0.0,0.0
+1751,phát biểu nguu vãi,HATE,CLEAN,CLEAN,CLEAN,0,0.000104574414,0.009213403,0.990682,0.26,0.0
+1752,"làm được chức lớn mà cậy, chẳng hiểu cán bộ lãnh đạo làm như vậy có đẹp để noi g",CLEAN,HATE,CLEAN,HATE,1,0.99802965,0.0014095677,0.0005606873,0.0,0.0
+1757,"hi sinh thầm lặng cho mấy thằng sếp của nó đứng đằng xa, nó cũng có phần chia ch",OFFENSIVE,HATE,HATE,HATE,0,0.9987888,0.0010401405,0.00017113001,0.8581,0.0
+1767,nhìn bản mặt thành long nhầm tưởng nhân hậu nhưng bản chất vô hậu,HATE,CLEAN,CLEAN,CLEAN,0,9.818082e-06,2.507135e-05,0.9999652,0.0,0.0
+1769,đcm cười 33 giây,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.001341068,0.99509794,0.0035609545,0.6822,0.0
+1807,". tìm hiểu dùm mình nhen bạn, ko phải cứ tây ăn cứt thì ta cũng ăn cứt nhen!",HATE,CLEAN,HATE,CLEAN,1,7.888965e-06,3.763615e-05,0.99995446,0.9552,0.0
+1827,bộ hết người hay sao vậy trời...,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.646174e-06,4.7576093e-05,0.9999448,0.0,0.0
+1836,trần bắc hà cũng chết trong tù đó!,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0035928024,0.00022261366,0.9961845,0.0,0.0
+1837,"càng đọc càng tức con quỷ đó. bây giơ vì nó bao nhiu ng chuẩn bị thất nghiệp, ng",HATE,CLEAN,CLEAN,CLEAN,0,9.515457e-06,8.3495484e-05,0.999907,0.0,0.0
+1841,nguyễn thuận ca sĩ ra bài fan ý kiến chứ clg căng,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.00086852507,0.99816257,0.00096890965,0.0,0.0
+1871,đổi avata để ủng hộ. yêu cầu nhà nuosc đưa cán bộ tới vũng án tắm biển hết đi,CLEAN,HATE,CLEAN,HATE,1,0.9977785,0.0016866069,0.0005348769,0.0,0.0
+1874,thôi anh ơi chuẩn bị về mở tiệm bánh tráng là được rồi,HATE,CLEAN,CLEAN,CLEAN,0,8.397822e-06,2.9772866e-05,0.99996185,0.0,0.0
+1881,nguyễn thịnh như con đĩ quái thai. bổ xug thêm con cu nưa nhé. trứng hơi to 😁😁😁,HATE,CLEAN,HATE,CLEAN,1,0.00010227969,0.00019714927,0.99970067,0.9489,0.0
+1888,giống loài loan luân la vây,HATE,CLEAN,CLEAN,CLEAN,0,0.07441911,0.43840808,0.4871728,0.0,0.0
+1924,này khẩu phật tâm xà,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.143904e-06,4.4000913e-05,0.9999498,0.0,0.0
+1955,nhung ơi nhung ra đây mà xem nè em:) xem em đã làm j cho đất nước nè:),HATE,CLEAN,CLEAN,CLEAN,0,9.2232085e-06,2.8409486e-05,0.99996245,0.199,0.0
+1971,đm! đen méo chơi nữa,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0011417884,0.9982796,0.00057863025,0.6869,0.0
+1976,má dơ vl =))),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.9614493e-06,0.00011591854,0.9998771,0.0,0.0
+1991,no vừa thôi ma ơi. nó nở banh hang giờ...,HATE,CLEAN,CLEAN,CLEAN,0,1.9525092e-05,4.0693783e-05,0.9999398,0.0,0.0
+2008,sao già xap xuong lô roi ma len mang chui chi vay that la xau hô,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.30113545,0.035965502,0.662899,0.1712,0.0
+2010,"quỳnh hương thật, t tưởng nó viết thiếu dấu nặng, mẹ nó chứ",HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0008288101,0.99823207,0.00093916495,0.0,0.0
+2036,ông sena kiểu như: clg đang xảy ra vậy:))),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.016477857,0.9765722,0.006949962,0.0,0.0
+2052,bút thì chả cần bỏ mẹ ra:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.473771e-05,8.6145235e-05,0.999899,0.0,0.0
+2060,nguyễn trọng thái ong giám bảo anh tôi sai à? sai cc đéo sai 😆,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.002914524,0.80811673,0.18896873,0.8967,0.0
+2077,cứ như thế này thì duyệt mẹ đi cho nhanh 😀,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0005881308,0.99893934,0.00047257636,0.0,0.0
+2121,"tăng thu, giảm chi, tích cực tham nhũng. dân biết khổ sở nhiều sẽ bớt ngu đi thì",CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0002913813,0.9102801,0.08942854,0.7522,0.0
+2135,có biết vì sao cnxh xếp sau cùng trong các hình thái kinh tế của thế giới không?,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0005686297,0.99647516,0.0029562206,0.0,0.0
+2155,giết nó,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0042388444,0.7588398,0.23692134,0.0,0.0
+2176,thanglon nào cũng từng như thế cacban ạ 😌😌😌,OFFENSIVE,HATE,CLEAN,HATE,0,0.9935976,0.0029019844,0.0035004613,0.0,0.0
+2206,thằng trung có con *** to lắm,OFFENSIVE,HATE,CLEAN,HATE,0,0.99822396,0.0013038907,0.00047223794,0.0,0.0
+2218,người tinh không bằng trời tính. nhân quả nhãn tiến. ác giả ác báo. bọn truyền t,CLEAN,HATE,CLEAN,HATE,1,0.9986338,0.0012350059,0.00013118959,0.0,0.0
+2244,từ bao giờ người nhật mất ý thức như vậy💁,HATE,CLEAN,CLEAN,CLEAN,0,3.1200496e-05,4.5396453e-05,0.99992335,0.0,0.0
+2249,bắn chet moe abe h,HATE,CLEAN,CLEAN,CLEAN,0,8.664448e-06,2.3552415e-05,0.9999677,0.0,0.0
+2259,còn này thật hoc,HATE,CLEAN,CLEAN,CLEAN,0,5.255037e-06,6.814836e-05,0.99992657,0.0,0.0
+2260,vu hoang lan dua vo hai len kenh duoc cong dong xem dong qua mong sao ong dung m,CLEAN,HATE,CLEAN,HATE,1,0.9957445,0.0021277247,0.0021277247,0.0,0.0
+2268,"bị giải tỏa nhưng đền bù không thỏa đáng, cả nhà sắp mất bát cơm nên làm liều.",HATE,CLEAN,CLEAN,CLEAN,0,7.1829445e-06,4.400087e-05,0.99994886,0.0,0.0
+2272,biết bao nhiêu vụ đi bắt người bị quay xong bảo bắt bớ dân lành? thì đm bây giờ ,CLEAN,HATE,HATE,HATE,0,0.9966557,0.003110782,0.00023340745,0.902,0.0
+2275,"lão già này đã mở được mắt rôi à, năm 2022 quoay đầu về bờ, đúng là đồ dở hết đư",HATE,CLEAN,CLEAN,CLEAN,0,3.2191612e-05,2.2473367e-05,0.9999453,0.0,0.0
+2280,con di~ dang hang leo rank,OFFENSIVE,HATE,CLEAN,HATE,0,0.9978744,0.0017403129,0.0003852944,0.2776,0.0
+2296,dm cái giọng cười abe nghe khốn nạn vl ạ:)) nhưng mỗi lần em nghe em đều cười th,CLEAN,HATE,CLEAN,HATE,1,0.99008304,0.0039835116,0.0059334235,0.0,0.0
+2300,ba nay nge noi bu cu chau ba ne,HATE,CLEAN,CLEAN,CLEAN,0,0.052430164,0.005429809,0.94214,0.0,0.0
+2319,tphcm có chợ nổi,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0009392775,0.9983517,0.00070900377,0.0,0.0
+2355,"cô ba chở vàng qua mỹ:)) nghe hư cấu vl,mày vào xem ký sự 30/4 đi nhé",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,2.3549477e-05,0.00013341688,0.999843,0.0,0.0
+2356,vãi thèn tèo về cctalk ngay. =]]],CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0037030005,0.9951499,0.001147136,0.0,0.0
+2372,người j đâu mà chưởi người việt nam mình trưởi người ta quá trời đúng là bã chưa,HATE,CLEAN,CLEAN,CLEAN,0,1.6187083e-05,3.0717685e-05,0.99995303,0.0,0.0
+2391,"người ta đã xin lỗi rồi sao cứ vào nick người ta xem rồi đăng lên chửi hoài,nó c",OFFENSIVE,CLEAN,HATE,CLEAN,0,1.0129571e-05,4.1334977e-05,0.9999485,0.5493,0.0
+2411,mỗi khi anh độ chửi bậy nó sẽ giật... sau khi giật xong anh độ sẽ đập nó xuống b,OFFENSIVE,HATE,CLEAN,HATE,0,0.9884956,0.009766876,0.0017374773,0.0,0.0
+2422,bớt bớt dô diên dùm cái nha 😒,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0041194023,0.0035235116,0.99235713,0.0,0.0
+2437,lai chim chửi máy đứa trẻ trâu pat! đi chị,CLEAN,HATE,CLEAN,HATE,1,0.8339609,0.13370289,0.03233617,0.0,0.0
+2452,dư luận viên là gì?? mấy thằng này là ai? họ là ngưởi bảo vệ chất độc hã???,CLEAN,HATE,HATE,HATE,0,0.9983517,0.0012250487,0.0004233655,0.9657,0.0
+2460,sắp tè le hột me hết r chứ ở đó mà tính hàng chục,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00024129679,0.998643,0.0011157449,0.0,0.0
+2467,d' đức d hiểu nhìn cái hình là cừ ỉa,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00089550746,0.99750805,0.0015964147,0.0,0.0
+2520,lúc nó đi ngược chiều nó tông cho rồi kêu chó vàng giúp. quyền lợi thì muốn mà c,HATE,CLEAN,HATE,CLEAN,1,1.2606243e-05,5.562136e-05,0.9999317,0.7905,0.0
+2529,đem đưa lên cơ sơ xo thẩm quyền thp bốc phân mà ăn:),HATE,CLEAN,CLEAN,CLEAN,0,6.3389903e-06,3.48079e-05,0.9999589,0.0,0.0
+2542,m biết ass là gì kh?,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00052436325,0.96300095,0.03647463,0.0,0.0
+2545,chán không thèm nói!,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.078094e-05,0.00021995099,0.9997693,0.0,0.0
+2548,xạo thặc,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0006664109,0.9988965,0.00043704294,0.8059,0.0
+2551,anh em bắc mà bớ được thì được đập mặt xây lại là ít,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.11251475e-05,4.1334937e-05,0.99994755,0.0,0.0
+2568,iu cô gái khơ me hàm răng trắng tác cái l** đen thui 🙏🙏,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0006235263,0.99489355,0.004482998,0.8199,0.0
+2570,lên top chỉ qua được ng ta ủng hộ sau vụ việc thg kicm nhạc dell hay chổ nào,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.08228722,0.90830755,0.009405273,0.0,0.0
+2579,hoang mang😱,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.9548815e-06,4.331878e-05,0.99995077,0.0,0.0
+2599,a vũ khắc tiệp nhỉ 👌🏻👌🏻 đc r,CLEAN,HATE,CLEAN,HATE,1,0.98926336,0.002569819,0.008166868,0.0,0.0
+2607,"nó ko cộng điểm, mà nó cho thí sinh rớt bớt thôi, có bà chị gặp vụ này r:)))) th",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.817737e-06,6.0140927e-05,0.99993,0.3596,0.0
+2617,biết là nhật cũng có người này người kia nhưng chú bao nhiêu tuổi rồi mà hành độ,HATE,CLEAN,HATE,CLEAN,1,1.1125355e-05,2.2827746e-05,0.99996614,0.7372,0.0
+2627,về 572 gia định mà đòi đất....kkkkkk..già mà ngu vl,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0021744512,0.99403894,0.0037865823,0.8396,0.0
+2628,anlonroi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.00027356314,0.0005791332,0.9991473,0.0,0.0
+2630,dỗi vl. cay vl:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.771614e-06,5.307478e-05,0.99994123,0.0,0.0
+2651,du me may,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.010000189,0.98962945,0.0003703546,0.2685,0.0
+2653,đẹp trai. tài năng. tư duy đỉnh cao. call team tốt và nhiều phẩm chất tốt khác n,HATE,CLEAN,HATE,CLEAN,1,1.5689111e-05,2.7968861e-05,0.99995625,0.9053,0.0
+2667,táng chết cha tụi mày lũ học trò l:)),CLEAN,HATE,HATE,HATE,0,0.9980294,0.0016608761,0.00030964083,0.7666,0.0
+2714,nhanh chậm cái con mẹ chúng mày =))),OFFENSIVE,HATE,HATE,HATE,0,0.9797198,0.016338374,0.0039418163,0.9945,0.0
+2723,ở việt nam rất khó...vì lý do...(ai sẽ là người đứng lên chỉ mặt người đàn áp...,HATE,CLEAN,CLEAN,CLEAN,0,0.00020986474,8.748464e-05,0.99970263,0.2255,0.0
+2728,bài hát phải nói là như con cac.,HATE,CLEAN,CLEAN,CLEAN,0,0.0003201735,0.014959493,0.98472047,0.0,0.0
+2734,vaidai,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.003227709,0.013857187,0.98291504,0.0,0.0
+2736,toang thật nhỉ,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.2550895e-06,5.829096e-05,0.99993646,0.0,0.0
+2742,chịchhhhh,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0008356764,0.99866927,0.0004951218,0.0,0.0
+2754,wibu rách,HATE,CLEAN,CLEAN,CLEAN,0,0.00078688073,0.0059988713,0.99321425,0.0,0.0
+2760,"của bà này chuyển giới hả mn, xin hỏi ngu",CLEAN,HATE,HATE,HATE,0,0.9974132,0.0018088026,0.0007779564,0.7522,0.0
+2766,"ngày xưa, khi giấy vệ sinh chưa phổ biến thì mỗi gia đình đều thấm nhuần tư tưởn",HATE,CLEAN,CLEAN,CLEAN,0,8.397434e-06,7.602416e-05,0.9999156,0.0,0.0
+2768,"mày nhìn lại mày đi, đăng clip đell đc 5 like, à phải rồi, bởi vậy mới bươi móc ",HATE,CLEAN,HATE,CLEAN,1,8.664364e-06,3.3213902e-05,0.99995804,0.9325,0.0
+2779,đ nhặt đc mồm với nỗi nhục của bạn này:v,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0028025145,0.045124132,0.9520734,0.0,0.0
+2781,lê luân đừng so sánh lương. mà hãy so sánh quyền lực và lợi ích. làm cty tư nhân,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.6186477e-05,6.814761e-05,0.9999156,0.0,0.0
+2809,tôi sin tuyên thệ.. trong nhiệm kỳ của mình sẽ cố gắng vơ vét đục khoét tàn phá ,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,4.9082526e-05,8.349218e-05,0.99986744,0.0,0.0
+2833,xin mời:))) to mồm đòi làm cách mạng vậy làm đi:))) lật đổ cộng sản đi:))),CLEAN,OFFENSIVE,HATE,HATE,0,0.29222435,0.70100975,0.0067659104,0.8859,0.0
+2847,các ông có làm công ăn lương k?hay hàng tháng cứ đều đặn có thêm nguồn thu nhập ,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.5401787e-06,3.944233e-05,0.999954,0.0,0.0
+2850,minh nhật chuẩn cmnr. jack tuổi j so dislike:))) haha. k atm là ca sĩ duy nhất t,HATE,CLEAN,CLEAN,CLEAN,0,1.5689004e-05,3.4807574e-05,0.99994946,0.0,0.0
+2859,"vãi l bùi thắng, uh thì chú cứ nói nữa đi:) cãi chi cho mệt",HATE,CLEAN,CLEAN,CLEAN,0,6.198594e-05,0.0010402539,0.9988977,0.0,0.0
+2866,con sâu gặm tiền,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.8922661e-05,0.00013134931,0.9998497,0.0,0.0
+2900,ba noi oi ng ta lay ba ra lam tro he.cho ba khau nghiep.tuog dau ba hay lam ha.,HATE,CLEAN,CLEAN,CLEAN,0,0.00049496564,0.0011508296,0.9983542,0.0,0.0
+2939,huhu toang,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.422012e-06,3.8228907e-05,0.99995637,0.0,0.0
+2945,"hoàng văn nếu là nhà tài trợ thưởng thì ko mất thuế,nhưng sợ ko biết có tới tay ",HATE,CLEAN,CLEAN,CLEAN,0,7.410964e-06,4.264715e-05,0.99994993,0.0,0.0
+2947,"tôi vẫn chưa hiểu, tại sao saigon, một thành phố ""ngụy"" đói khổ, bị bọn mỹ ""ngụy",OFFENSIVE,HATE,HATE,HATE,0,0.99866736,0.0009923883,0.00034029127,0.8964,0.0
+2948,tao gõ chớt mẹ mày chứ ở đó mà múa. abe said:)),HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0017300283,0.9842577,0.014012287,0.9243,0.0
+2949,đéo hiểu page này lập nên nhầm mục đích gì:)))))))))))))),CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.000741174,0.9958584,0.0034004834,0.6834,0.0
+2960,chào thầy ba girl😌nứng vcl,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.035336565,0.9550781,0.0095852995,0.0,0.0
+2973,trời,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.589511e-05,0.002157135,0.997747,0.0,0.0
+2977,dlv: đây chỉ là con sâu làm rầu nồi canh thôi:v,HATE,CLEAN,CLEAN,CLEAN,0,4.331417e-05,0.00011234842,0.9998443,0.0,0.0
+2980,con bóng già h mới lộ:v:))),HATE,CLEAN,HATE,CLEAN,1,6.2999374e-05,0.00044767268,0.9994893,0.8857,0.0
+2982,giờ m mới sáng mắt ra và tai đã nghe đc rùi phải k,HATE,CLEAN,CLEAN,CLEAN,0,8.139438e-06,3.120166e-05,0.99996066,0.0,0.0
+2988,ờ face dành cho con người k dành cho thú vật ok,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.646138e-06,5.225187e-05,0.99994016,0.0,0.0
+2990,cho liếm hậu m*n cái abe:)),CLEAN,HATE,CLEAN,CLEAN,1,0.67290187,0.1254506,0.20164755,0.0,0.0
+2991,nguyễn đăng khoa thg học trò l này:))),HATE,CLEAN,CLEAN,CLEAN,0,5.6488403e-05,0.00016864322,0.9997749,0.0,0.0
+2999,"đâu chỉ có hk, vietnam cũng cần tẩy chay nhỉ, vì có hẳn cả 2 sao ủng hộ đường lư",OFFENSIVE,HATE,CLEAN,HATE,0,0.9775564,0.018690675,0.0037530018,0.0,0.4577
+3005,truyền thông nó cứ nói thổi phồng giá trị của tpp thôi chứ vn đang tham gia hàng,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0009766995,0.99835724,0.0006660512,0.0,0.0
+3044,già mà non:)),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0023982057,0.95250535,0.045096416,0.0,0.0
+3047,day la mot ong gia dien thoi dai ong co xau ho khong??,HATE,CLEAN,CLEAN,CLEAN,0,8.139287e-06,4.985918e-05,0.99994206,0.1712,0.0
+3058,học putin chỉnh đồng hồ à?,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.9619646e-06,4.198602e-05,0.9999511,0.0,0.0
+3060,ở mỹ sao người vn don bây ác quá,HATE,CLEAN,CLEAN,CLEAN,0,6.8146896e-05,2.6686712e-05,0.9999051,0.0,0.0
+3063,nguyễn ngọc sơn dm chac may lam pr cho cai page nay chac,OFFENSIVE,HATE,CLEAN,HATE,0,0.9977603,0.0017131359,0.0005265748,0.2354,0.0
+3064,già đầu mà non quá:)))),CLEAN,HATE,CLEAN,HATE,1,0.95110863,0.014784301,0.034107022,0.0,0.0
+3075,nói đéo ngoa thì cái xh này nát vcl rồi ế 😕😕😕,OFFENSIVE,HATE,HATE,HATE,0,0.76135874,0.22949608,0.009145205,0.6662,0.0
+3116,phản động là gì vậy? auto đéo động não à,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0003295315,0.9977889,0.0018815658,0.6662,0.0
+3128,"có tiền cứ làm,chỉ có bọn không có tiền làm mới ý kiến lọ chai",HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.15070567,0.84716135,0.002132972,0.0,0.0
+3207,thà từ chức còn hơn làm một con rối!,CLEAN,HATE,CLEAN,HATE,1,0.8626003,0.13280179,0.0045977933,0.0,0.4184
+3209,vải lờ thầy😂😂😂,CLEAN,HATE,CLEAN,HATE,1,0.981632,0.004690159,0.013677868,0.0,0.0
+3219,trym to,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.223139e-06,3.5912683e-05,0.99995494,0.0,0.0
+3223,cho những ai chưa biết quần què là gì.?:))),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0009322472,0.99865085,0.0004169267,0.0,0.0
+3256,20-10 vui vẻ con bóng sadec:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0001940896,0.00012145817,0.99968445,0.0,0.0
+3267,nguyễn nhật chuẩn cmnr. nhạc ko nhai nổi. đên bon fan cũng đéo thể yêu thương nổ,HATE,OFFENSIVE,HATE,HATE,1,0.00079138874,0.53467494,0.46453366,0.7055,0.1628
+3282,arlios trinh kinh tởm,CLEAN,HATE,HATE,HATE,0,0.9959137,0.0030246207,0.0010617417,0.7075,0.0
+3295,thông minh bị nó diệt,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0009925829,0.90239763,0.0966098,0.0,0.0
+3297,tối qua xem đoạn này mà đéo dám cười,OFFENSIVE,CLEAN,HATE,CLEAN,0,8.9389505e-06,8.3495535e-05,0.9999076,0.6662,0.0
+3309,phó chủ nhiệm ubkttp tân an(long an) không có bằng cấp 3 nhưng lý luận ct rất gi,HATE,CLEAN,CLEAN,CLEAN,0,7.1829813e-06,3.8830833e-05,0.999954,0.4769,0.0
+3310,mình đang tìm một con bò đặc điểm nhận dạng nó kêu cực kì thuyết phục nha có hậu,OFFENSIVE,HATE,HATE,HATE,0,0.9966467,0.0028434591,0.0005098042,0.7607,0.0
+3318,hải đăng t gọi tường gió oánh bỏ mịa bây giờ:((,CLEAN,HATE,CLEAN,HATE,1,0.9950375,0.0027515253,0.0022109128,0.0,0.0
+3327,"vâng! xin giới thiệu vs các bạn, đây là ông cao thất đức!",HATE,CLEAN,CLEAN,CLEAN,0,9.818096e-06,2.355239e-05,0.9999666,0.0,0.0
+3328,ôi cát mẹt của bả,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.139485e-06,2.5466195e-05,0.9999664,0.0,0.0
+3349,phan hoài nhân thế này chắc đéo bán dc hàng đâu,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.00052699057,0.9985481,0.00092489726,0.6662,0.0
+3368,gặp lol xỉu 3 ngày,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0006662784,0.9986979,0.00063576724,0.0,0.0
+3378,"với tài năng của thủ tướng cộng với trí tuệ của ông kiên, minh tin rằng năm sau ",HATE,CLEAN,CLEAN,CLEAN,0,3.3736153e-05,3.1692187e-05,0.99993455,0.0,0.0
+3379,"chúng nó quên nhiều thứ, nhưng ăn cướp là việc chúng nó không bao giờ quên",HATE,CLEAN,CLEAN,CLEAN,0,1.8342243e-05,3.5355602e-05,0.99994624,0.0,0.0
+3384,như 2 giọt nước luôn thầy ơi. trinh giọt nước suối còn thầy giọt nước cống thầy ,CLEAN,HATE,CLEAN,HATE,1,0.9874428,0.006057932,0.0064992127,0.176,0.0
+3400,nói sao con linh nó không chửi điện thoại lại chửi người ta tục tĩu,HATE,CLEAN,CLEAN,CLEAN,0,1.2606619e-05,2.5867104e-05,0.9999615,0.0,0.0
+3418,loạn cực,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,5.7714606e-06,7.967255e-05,0.99991465,0.0,0.0
+3422,cái mỏ của nó cho khẩu súng vào bấm nút cái bùm,HATE,CLEAN,CLEAN,CLEAN,0,9.858241e-05,0.005751978,0.99414945,0.0,0.0
+3428,óc chó hi hi,OFFENSIVE,HATE,HATE,HATE,0,0.9954471,0.0042137303,0.000339194,0.919,0.0
+3431,sáng nào kao cũng thức lúc 4h sàng hết mài thằng assmin xăm xí đú...khỏi nhắc mà,CLEAN,HATE,HATE,HATE,0,0.99293834,0.0033379474,0.0037237494,0.8459,0.0
+3455,chú nói cả dân tộc việt nam cùng đồng lòng nhưng nhung thì không,HATE,CLEAN,CLEAN,CLEAN,0,1.1842919e-05,1.8631528e-05,0.9999696,0.0,0.0
+3456,trường giang ụa. bả biết bả nhiễm s bả đ chịu khai báo cách ly đi. chị bả nhiễm ,HATE,CLEAN,CLEAN,CLEAN,0,8.664331e-06,3.7052647e-05,0.9999542,0.0,0.0
+3466,"đầu còn lắc được là chưa kẹt nha, mấy anh nói khi nào không nhúc nhích được mới ",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.397639e-06,5.1441784e-05,0.99994016,0.2564,0.0
+3470,"1 quốc gia không có đường để đi, số bot thật chóng mặt",HATE,CLEAN,CLEAN,CLEAN,0,0.0052595274,0.00025182488,0.9944886,0.0,0.0
+3510,thất vọng về xã hội này khi mà sáng mở mắt ra thấy:,HATE,CLEAN,CLEAN,CLEAN,0,9.223196e-06,2.977284e-05,0.999961,0.0,0.0
+3515,"no recording, filming, photo taking mà nó ghi là talking. cấm nói luôn à.",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.646138e-06,5.225187e-05,0.99994016,0.0,0.0
+3521,vũ thanh huyền thấy cmt của bạn này nghe mùi ích kỉ tính vào nói vài câu mà thấy,HATE,CLEAN,CLEAN,CLEAN,0,8.93938e-06,3.5355934e-05,0.99995565,0.0,0.0
+3534,nhạc bắt tay vai lon,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00095437496,0.9986719,0.00037373859,0.2029,0.0
+3535,anh em bên nước mỹ trông nom trần dần cẩn thận nhé hàng hiếm của dân việt nam đấ,CLEAN,HATE,HATE,HATE,0,0.99755067,0.0012629217,0.0011864052,0.522,0.0
+3549,thằng hùng vs bà 4 nha đụ nín thở nhe a tuân.,OFFENSIVE,HATE,HATE,HATE,0,0.5478507,0.07414354,0.37800565,0.7156,0.0
+3556,ngửi cho tỉnh đi 3 gòa,HATE,CLEAN,CLEAN,CLEAN,0,6.338772e-06,6.9221394e-05,0.9999244,0.0,0.0
+3567,nó đéo vi phạm gì. chửi gato với voz à?,CLEAN,HATE,HATE,HATE,0,0.98375285,0.007933245,0.00831397,0.6891,0.0
+3572,tỉ phú nào đấy tẩy chay đồ vô học,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.010530175,0.985656,0.0038137767,0.8447,0.0
+3603,ong tran dan lam tong thong viet nam cho dan nga ngua dfo. mot la gia 2...... gi,CLEAN,HATE,CLEAN,HATE,1,0.9919858,0.006038444,0.0019757713,0.0,0.0
+3635,bảo vệ thì ăn chia rồi. còn lãnh đạo trường thì đang cố giấu!,HATE,CLEAN,CLEAN,CLEAN,0,0.0005111865,0.00013975061,0.99934906,0.0,0.0
+3645,ko thich vn thì cút sang campuchia mà sống (dlv cho biết),HATE,CLEAN,CLEAN,CLEAN,0,0.002025005,0.012550881,0.9854241,0.0,0.0
+3648,ra đường nhớ cằm theo não,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0006353553,0.9980508,0.0013138893,0.0,0.0
+3706,chat chan tay la xong.ko can lgi het.thang nao danh nguoi giet nguoi cu chat cha,HATE,CLEAN,CLEAN,CLEAN,0,0.00034736362,0.34146383,0.65818876,0.0,0.0
+3712,"làm chủ tịch thành phố dễ vậy sao, chắc các cháu tiểu học cũng làm được",HATE,CLEAN,CLEAN,CLEAN,0,1.1478369e-05,3.4807723e-05,0.99995375,0.0,0.0
+3714,moi tới lỗ mũi mà không hung dữ sao được,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.9618754e-06,5.475939e-05,0.99993837,0.0,0.0
+3733,võ xuân hoan điên hả m,OFFENSIVE,HATE,CLEAN,HATE,0,0.9160637,0.008704463,0.07523181,0.0,0.0
+3751,trân dân.mày vê vn tao sē công đâu mày....nhơ lơi tao nói...thương bé lăm,HATE,CLEAN,HATE,CLEAN,1,7.889009e-06,3.2192085e-05,0.99995995,0.7896,0.0
+3783,sau đợt này về mở 1 chuỗi cửa hàng bánh tráng đc rồi chúc mừng anh 😏,HATE,CLEAN,CLEAN,CLEAN,0,8.397822e-06,2.9772866e-05,0.99996185,0.0,0.0
+3785,đm nhắn tin ủng hộ thì chịuuuuu =)))),CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.00022284212,0.99720687,0.0025702952,0.6869,0.0
+3794,manh thi song yeu thi chet,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.618322e-05,0.00026947478,0.9997143,0.0,0.0
+3796,"boxit nữa, đừng quên bùn đỏ",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.4738527e-05,3.071773e-05,0.99995446,0.0,0.0
+3821,anh em yếu sly ib,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.3845718e-05,2.0784884e-05,0.9999654,0.0,0.0
+3830,virus corona tuổi lìn:))),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0022045628,0.020998172,0.9767973,0.0,0.0
+3833,tại sao những đứa như này lại tồn tại trong khi những người tốt thì lại bị tan n,OFFENSIVE,CLEAN,HATE,CLEAN,0,1.0129322e-05,6.605147e-05,0.9999238,0.7666,0.0
+3851,vloz,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.00054789026,0.024201283,0.9752508,0.0,0.0
+3860,like và cm tụi nó ăn được hay sao mà ham hố vậy trời. lũ điên,OFFENSIVE,HATE,HATE,HATE,0,0.9976011,0.0021652612,0.00023362885,0.8319,0.0
+3866,bọn giàu mà mang thua người nghèo nửa đm chán quá,HATE,OFFENSIVE,HATE,HATE,1,0.0010940285,0.6032711,0.39563486,0.6869,0.0
+3887,and dlv come in 3...2...,HATE,CLEAN,CLEAN,CLEAN,0,0.00016089375,0.00023046964,0.9996087,0.0,0.0
+3892,nó làm cái gì đấy chú.ỉa bậy à,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0042154724,0.003808362,0.9919762,0.0,0.0
+3898,yêu đương đ gì tầm này em còn phải đi cà khịa đã 😒,OFFENSIVE,CLEAN,HATE,CLEAN,0,8.207459e-05,0.0015486339,0.9983693,0.6024,0.0
+3902,đm crush:),HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.001659782,0.99737203,0.0009681423,0.6869,0.0
+3937,bao nhiêu tiền đem cho con đi định cư bên mẽo cả rồi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0001087397,0.0014435988,0.99844754,0.2776,0.0
+3942,"quá tốt,vậy là cả thế giới noi gương theo mỹ có biện pháp chế tài đối với cá nhâ",CLEAN,HATE,HATE,HATE,0,0.99884206,0.0008228628,0.00033507418,0.9828,0.0
+3950,con bóng sadec =]],CLEAN,HATE,CLEAN,HATE,1,0.9958157,0.0038231025,0.00036120386,0.0,0.0
+3951,sao không đền bằng rau muống?,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.747735e-06,4.6838566e-05,0.99994636,0.0,0.0
+3973,🤦♀️😪 mạng mẽo như cức chỗ các bác có v không,CLEAN,OFFENSIVE,HATE,HATE,0,0.0019395468,0.7124462,0.28561422,0.7919,0.0
+4003,đén lức vỡ nợ,CLEAN,HATE,CLEAN,HATE,1,0.9804421,0.012634627,0.0069232043,0.0,0.0
+4025,con ho ly tinh nay o tha thu duoc,HATE,CLEAN,CLEAN,CLEAN,0,0.16506435,0.003193198,0.8317425,0.0,0.0
+4035,đhs cứ mặc định nghĩ là nội bài là tđn nào nhỉ? qatar thì nó cũng có sân bay mà ,HATE,CLEAN,CLEAN,CLEAN,0,8.139267e-06,5.225185e-05,0.9999397,0.389,0.0
+4047,mấy bài trước hợp tác với kicm còn hay chứ vô nghe bài mới như hạch vậy,HATE,CLEAN,CLEAN,CLEAN,0,6.961982e-06,3.9442315e-05,0.9999536,0.0,0.0
+4051,đkm đứa nào bảo idol trần dần t mắc covid đấy:v,HATE,CLEAN,HATE,CLEAN,1,0.017504374,0.0041252975,0.97837025,0.7622,0.0
+4056,chấp gì thằng thiểu năng đó trần ngọc giàu ơi,OFFENSIVE,HATE,HATE,HATE,0,0.93185705,0.0019450826,0.06619786,0.7458,0.0
+4065,uiss cùi vl:)) lương mấy chục ngìn đồng còn đc ăn pizza loại kẹo dẻo đây:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.260397e-05,0.00023596878,0.9997514,0.0,0.0
+4077,hương thảo vkl,HATE,CLEAN,CLEAN,CLEAN,0,8.664062e-06,6.8148125e-05,0.9999231,0.0,0.0
+4079,tốt nhất là giết bỏ đi vài thành phần óc chó đó là vừa,OFFENSIVE,HATE,HATE,HATE,0,0.99821764,0.0015727824,0.00020955299,0.919,0.0
+4094,"việt nam phải khéo, cs việt nam không đến nỗi ác độc như tq đâu. về vn đi rồi bi",CLEAN,HATE,CLEAN,HATE,1,0.997456,0.0011679009,0.0013761235,0.0,0.0
+4100,phò người ta có làm gì bọn bây ko? hàng ngày có những đứa hiếp dâm cướp tiền bọn,CLEAN,HATE,HATE,HATE,0,0.99876237,0.0009924828,0.00024512596,0.9883,0.0
+4101,lồn ba rọi,OFFENSIVE,HATE,HATE,HATE,0,0.9306187,0.013274563,0.05610674,0.8494,0.0
+4105,chữi nhiều quá tắt thở bây giờ,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.6462875e-06,3.2699023e-05,0.9999597,0.0,0.0
+4124,đánh chết mẹ thằng này đi,OFFENSIVE,HATE,HATE,HATE,0,0.77693886,0.06735985,0.15570135,0.6441,0.0
+4146,nó có lây qua đường máu đéo đâu,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.00025669788,0.99801624,0.0017270152,0.6471,0.0
+4197,cho ra những tấm ảnh đầy tính ấu dâm,OFFENSIVE,CLEAN,HATE,CLEAN,0,6.962039e-06,3.1201696e-05,0.99996185,0.9466,0.0
+4223,o ko thây so đsng chông dich ma con tam trang đang.,CLEAN,HATE,CLEAN,HATE,1,0.8741661,0.023848182,0.10198572,0.0,0.0
+4255,hèn gì chúng nó chỉ dám nói là ko có liên quan. cái địt mẹ mấy thằng lớn,OFFENSIVE,HATE,HATE,HATE,0,0.9985083,0.0010812713,0.0004104043,0.9886,0.0
+4260,sao đi so sánh ngừoi dân như chó vậy admin..coi vậy có đc ko?,CLEAN,HATE,HATE,HATE,0,0.9657858,0.0036503284,0.030563822,0.9532,0.0
+4264,"độc lập, tự do, hạnh phúc hơn 40 năm rồi mà vẫn phải ngửa tay xin tiền tư bản a.",HATE,CLEAN,CLEAN,CLEAN,0,0.0066839037,0.0013368649,0.99197924,0.0,0.0
+4283,chỉ có óc chó mới nghe giặc tàu,OFFENSIVE,HATE,HATE,HATE,0,0.9923099,0.007400873,0.00028921367,0.919,0.0
+4297,rank việt nam mà yasuo tt6 tt5 thì del phải người việt nam r,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.818089e-06,2.4300003e-05,0.9999659,0.0,0.0
+4322,huỳnh tuấn phản động đó bạn,HATE,CLEAN,CLEAN,CLEAN,0,1.7231185e-05,2.2473701e-05,0.9999602,0.0,0.0
+4328,@chuyên gia dạy chó chuan men kkkk,OFFENSIVE,HATE,HATE,HATE,0,0.80194473,0.022749422,0.17530581,0.7905,0.0
+4333,nguyễn nhân link cái mã tổ nhà mày à,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.05331323,0.9449996,0.0016871816,0.8547,0.0
+4348,xạo có tiếng:)) haha,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0009968844,0.97995293,0.019050147,0.8059,0.0
+4379,trung nút vàng bá dơ,HATE,CLEAN,CLEAN,CLEAN,0,3.6475634e-05,7.9670106e-05,0.9998839,0.0,0.0
+4404,kim hà huyền nhi quyên quyên nguyễn thị mỹ cẩm ở chuồng cũng éo ai quan tâm luôn,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0009658393,0.9949995,0.004034691,0.0,0.0
+4426,nguyễn minh thu chếtluondi,HATE,CLEAN,CLEAN,CLEAN,0,4.0690076e-05,0.0001106071,0.9998487,0.0,0.0
+4455,như con bóng dạ.:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0039794273,0.18876691,0.80725366,0.0,0.0
+4482,"dân phát hiện cục cứt lạ sắp ra, báo cáo câpm trên, cấp trên bảo chờ kinh phí mớ",CLEAN,HATE,CLEAN,HATE,1,0.99751365,0.002359361,0.00012701067,0.0,0.0
+4493,võ công hoàng cái lon má,OFFENSIVE,HATE,CLEAN,HATE,0,0.9905867,0.008306576,0.001106744,0.2376,0.0
+4498,rồi sao mày làm đc củ c gì... hay viết đọc cho hay?,HATE,CLEAN,HATE,CLEAN,1,7.4844036e-05,2.9309344e-05,0.9998958,0.8359,0.0
+4520,bố đéo rảnh tiếp chuyện vs acc clone,OFFENSIVE,CLEAN,HATE,CLEAN,0,0.00021624808,0.0013667301,0.998417,0.6662,0.0
+4521,đíu tin được luôn =)))))))),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00039795783,0.9989611,0.0006409226,0.0,0.0
+4542,bán linh hồn và não cho quỷ r thất vọng làm j =)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.81798e-06,3.5355904e-05,0.9999548,0.2822,0.0
+4553,cc 3 m,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.02588835,0.97335243,0.0007591896,0.6905,0.0
+4576,"bên anh có vụ racist nữa, anh du học sinh singapore bị nhóm hãm lon thượng đẳng ",CLEAN,HATE,HATE,HATE,0,0.9985305,0.001169159,0.00030026486,0.9305,0.0
+4582,"hy sinh đời bố, kệ cho dân chửi, miễn sao ăn cho nhiều tiền, có biến thì chạy th",HATE,CLEAN,CLEAN,CLEAN,0,1.0782846e-05,4.3318574e-05,0.999946,0.0,0.0
+4585,deo hieu luon:))),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.3389093e-06,4.7576155e-05,0.9999461,0.205,0.0
+4588,bài nào cũng cmt nhưng vẫn đ đc fan cứng 🤦♀️,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.411049e-06,3.1201682e-05,0.9999614,0.0,0.0
+4605,"giàu thì nói cứt cũng thành cơm,nói gì chả đúng",HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.00039111706,0.99725014,0.0023587376,0.0,0.0
+4613,mặt nhìn giống cái âm hộ gái nhật ge,HATE,CLEAN,CLEAN,CLEAN,0,5.38997e-05,0.00020661869,0.99973947,0.0,0.0
+4632,đcm cười 33 giây,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.001341068,0.99509794,0.0035609545,0.6822,0.0
+4635,oke hasagi chết mọe đi 💀,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.4738459e-05,3.5355726e-05,0.9999498,0.0,0.0
+4670,nhịn tham nhũng sẽ có lợi hơn cho các lãnh đạo việt nam.,CLEAN,HATE,CLEAN,HATE,1,0.9973195,0.0009680913,0.001712379,0.0,0.0
+4678,cang noi cang nham nhi qua pho bolsa,HATE,CLEAN,CLEAN,CLEAN,0,0.074775025,0.017830135,0.90739477,0.0,0.0
+4681,nghe mắc i* quá abeeee,OFFENSIVE,HATE,CLEAN,HATE,0,0.7323302,0.059181355,0.2084885,0.0,0.0
+4683,"ủa ng ta nói kệ ng ta chứ, k khí k giống mọi năm thì nói, ủa bị gì v, ăn cơm nhà",CLEAN,HATE,HATE,HATE,0,0.9972933,0.002081669,0.0006250303,0.6692,0.0
+4696,hệ thống thủy lợi yếu kém cộng thêm khựa chơi bẩn bựa thì lụt lội là điều tất nh,HATE,CLEAN,CLEAN,CLEAN,0,1.4283457e-05,0.00014425779,0.99984145,0.0,0.0
+4697,khánh con sao ko lấy số người chết của ý ra nhỉ. ý cũng là châu âu đó. hi sinh n,HATE,CLEAN,HATE,CLEAN,1,8.3978175e-06,3.0241705e-05,0.9999614,0.8604,0.0
+4699,trong ảnh nhìn đẹp trai mà sao trong clip nhìn hãm loll vậy a,HATE,CLEAN,HATE,CLEAN,1,1.6183963e-05,0.00022341272,0.9997603,0.7335,0.0
+4709,lee sin lol mẹ giáo án kiểm soát của thầy tú,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0035609545,0.99509794,0.001341068,0.0,0.0
+4718,dân chống nhưng quan chức không chống,HATE,CLEAN,CLEAN,CLEAN,0,9.516037e-06,2.2473876e-05,0.99996793,0.0,0.0
+4729,lần sau bắt gặp chụp thành quả + chủ vũng nước đái = ghép lại. up nó lên gr cty ,HATE,CLEAN,CLEAN,CLEAN,0,0.018599786,0.012390127,0.9690101,0.0,0.0
+4730,xao lon,OFFENSIVE,HATE,CLEAN,HATE,0,0.99738723,0.0022510327,0.00036177388,0.2674,0.0
+4750,"loạn rồi, loạn thật rồi ông giáo ạ:))",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.1830063e-06,3.5355995e-05,0.99995744,0.0,0.0
+4764,lol,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.000606645,0.9986841,0.00070923986,0.0,0.0
+4805,đảng ko đủi thì nhân dân đủi:v rồi đảng bỏ tù dân vì gây rối:v tóm váy ngậm tiền,HATE,CLEAN,CLEAN,CLEAN,0,0.035517443,0.004515536,0.95996696,0.0,0.0
+4815,dnn thay ba nhieu hok tro` tot vc:l)),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0018665674,0.9975987,0.0005347805,0.0,0.0
+4819,mày nên nhớ là nguời trong nam ngoài bắc cỡ 70 triêu nguời mày chờ chết là vừa,HATE,CLEAN,HATE,CLEAN,1,9.516027e-06,2.3552395e-05,0.99996686,0.7906,0.0
+4839,máy khứa có tiền đi nước ngoài đem bệnh về phát tháy gơi cmn,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0005973869,0.99893004,0.00047257196,0.0,0.0
+4844,vơ vét mùa dịch tởm nhỉ,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0117512215,0.98598844,0.00226035,0.0,0.4129
+4856,"to su ong can, deu co ong can nao tot. ong can tot chi thay trog phim. sao ko co",HATE,CLEAN,CLEAN,CLEAN,0,2.5465532e-05,3.4267618e-05,0.9999403,0.2556,0.0
+4878,"hay học pha thuốc nổ, qua bển du lịch đánh sập đập nhề?!",HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0044253916,0.993686,0.0018885253,0.0,0.0
+4881,nguyễn hương giang đúng thật bọn nước ngoài quá ngây thơ ko bt j hết,HATE,CLEAN,CLEAN,CLEAN,0,1.1125329e-05,2.5071316e-05,0.9999639,0.0,0.0
+4883,tộc trưởng buồi to như lõi giấy vệ sinh nghỉ lễ 2/9 vui vẻ,CLEAN,HATE,CLEAN,HATE,1,0.9943388,0.0032908323,0.0023702974,0.0,0.0
+4890,bú mạnh,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0016606421,0.99788886,0.00045046132,0.0,0.0
+4895,sáng mắt chưa nhung:),HATE,CLEAN,CLEAN,CLEAN,0,6.9620423e-06,3.0717973e-05,0.99996233,0.0,0.0
+4925,abe ochco =))),HATE,CLEAN,CLEAN,CLEAN,0,0.0002453565,5.3062056e-05,0.99970156,0.0,0.0
+4976,"ông khác với các vị tù khác ở chỗ là ông chẳng khổ như họ ở tù, quan chức ở tù c",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.28698918,0.0027057577,0.71030504,0.0,0.0
+4996,"khổ, làm ăn bố láo bị tẩy chay thì có mấy thành phần bợ đít chạy theo: ""người vi",OFFENSIVE,HATE,HATE,HATE,0,0.99845123,0.0013455871,0.00020315325,0.8339,0.0
+5009,tại c t chân thật quá k quỷ ma giống m,HATE,CLEAN,CLEAN,CLEAN,0,1.8924708e-05,2.3187038e-05,0.9999578,0.0,0.0
+5019,"tiêu chảy cấp e đồng ý với ý kiến của bác,cmt của e bên kia cũng có vài thanh ni",CLEAN,HATE,CLEAN,HATE,1,0.99807775,0.00081583444,0.0011064355,0.2183,0.0
+5026,anh nghị trẻ việt cộng😂🤣😅😄🤣😂,HATE,CLEAN,HATE,CLEAN,1,1.4285175e-05,2.3923167e-05,0.99996173,0.7431,0.0
+5039,quang minh xạo lồn vừa phải 🤣🤣🤣,CLEAN,HATE,HATE,HATE,0,0.9877601,0.005264914,0.0069748787,0.8913,0.0
+5047,an nguyen 😒😒😒 đéo biết gì về thời sự cả,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.00054387783,0.9988398,0.0006162943,0.6873,0.0
+5071,đụ kía... cho cây vàng làm đẹp xong... cái tánh tui hay trêu... xong giận đời lạ,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0006976987,0.99790394,0.001398422,0.7156,0.0
+5105,ý thức nd đã kém rồi nói gì đến mấy anh bụng phệ,OFFENSIVE,HATE,CLEAN,HATE,0,0.9985214,0.0011875597,0.00029102404,0.0,0.0
+5108,chứ dân thường có gì để ng khác đút lót????,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.18609737,0.8083701,0.005532529,0.5112,0.0
+5119,chị này có chim mà,CLEAN,HATE,CLEAN,HATE,1,0.99699426,0.0024713017,0.00053445646,0.0,0.0
+5137,"lấy về tế ông nội, tổ tiên đó mà:v",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0019564112,0.00030954918,0.99773395,0.0,0.0
+5143,ông này chắc là bọn tân thiên địa nằm vùng bên mình rồi....,HATE,CLEAN,CLEAN,CLEAN,0,0.0004582901,4.9836737e-05,0.99949193,0.0,0.0
+5144,thanh xuân như một cái đụ,CLEAN,HATE,HATE,HATE,0,0.91993666,0.026096595,0.053966705,0.7156,0.0
+5162,trung quốc thì nói mẹ trung quốc đi bày đặt china chi nủng. đang nói tiếng việt ,OFFENSIVE,HATE,HATE,HATE,0,0.9082162,0.088186264,0.0035974758,0.5882,0.0
+5186,bánh bèo cái l.ồ.n như cái bánh xèo. má cười ĩa á.,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0014886004,0.9978957,0.00061571185,0.8963,0.0
+5214,cứ như thế này thì duyệt mẹ đi cho nhanh 😀,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0005881308,0.99893934,0.00047257636,0.0,0.0
+5256,ghẹo nó chi để nó chửi trời,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.9618377e-06,6.0141097e-05,0.9999329,0.0,0.0
+5281,"chúng tôi: đại đa số dân đen nước việt, rất cảm ơn thịnh tình và sự nhiệt huyết ",HATE,CLEAN,CLEAN,CLEAN,0,9.223232e-06,2.5867195e-05,0.99996495,0.0,0.0
+5302,dnn thay ba nhieu hok tro` tot vc:l)),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0018665674,0.9975987,0.0005347805,0.0,0.0
+5306,nản ba gà thật sự,CLEAN,HATE,CLEAN,HATE,1,0.9937071,0.0023873704,0.0039054772,0.0,0.0
+5307,chưa cạo râu kìa con bóng lông xiên,HATE,CLEAN,CLEAN,CLEAN,0,7.1829986e-06,3.647828e-05,0.99995637,0.0,0.0
+5326,hết mie nó rừng vàng biển bạc rồi.,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0451009e-05,5.144167e-05,0.999938,0.0,0.0
+5347,muon tan 1 phat vao mat,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.7478654e-06,2.7535505e-05,0.99996567,0.0,0.0
+5381,má 🙂 kiều oanh nguyễn thị,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.0007852959,0.023368098,0.9758465,0.0,0.0
+5395,thầy làm như vậy là chết cdm tụi em ròi,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0014442228,0.99110585,0.007449868,0.6663,0.0
+5405,dạo này không thấy bọn dlv vào chửi phản động nữa nhỉ. hay tiền lương thấp quá k,HATE,CLEAN,HATE,CLEAN,1,4.316296e-05,0.019050078,0.9809068,0.7485,0.0
+5418,@to nhu nguyen giả đầu m t sài r nha,HATE,CLEAN,CLEAN,CLEAN,0,1.0451359e-05,1.8058328e-05,0.9999715,0.0,0.0
+5502,"nhiều đứa thấy rãnh hơi lắm, làm đủ mọi cách rình rập nhà ngta xong kiểu nó đi ă",CLEAN,HATE,CLEAN,HATE,1,0.9986098,0.0011332778,0.00025685056,0.0,0.0
+5509,thằng cha nào đó sáng lên ti vi phỏng vấn danh nhân thời đại chiều là thấy nó và,HATE,CLEAN,CLEAN,CLEAN,0,8.939426e-06,3.0241687e-05,0.9999608,0.0,0.0
+5518,"nói thầy ngáo thì mấy đứa nó lại tự ái, híc",HATE,CLEAN,CLEAN,CLEAN,0,2.5067862e-05,0.00014883475,0.99982613,0.2464,0.0
+5519,đây là thất bại của cs chứ còn gì nữa,HATE,CLEAN,CLEAN,CLEAN,0,4.198088e-05,0.00012931023,0.9998287,0.0,0.0
+5570,"đấu đá nhau khốc liệt,giã dối hơn cả xh đen.vì có quyền điều khiển đc dư luận qu",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.013005579,0.22518918,0.7618052,0.0,0.0
+5577,tây nó lại bảo mới trốn viện,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.139391e-06,3.705267e-05,0.9999548,0.0,0.0
+5583,"lông dương lông là lông, dương là dương v.. có nghĩa là lông cu",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0122601e-05,0.00072932144,0.9992605,0.0,0.0
+5587,đậu má thầy ok chưa?,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.3845617e-05,2.7968916e-05,0.99995816,0.0,0.0
+5614,cho cục gạch vào cái kính,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.961994e-06,3.7636186e-05,0.9999554,0.0,0.0
+5624,cực kỳ thuyết con mẹ nó phục,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.001089417,0.9982016,0.00070889725,0.8011,0.0
+5631,bên ngoài là phát triển doanh nghiệp sản xuất ô tô trong nước nhưng bản chất thậ,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.00048624456,0.9655583,0.03395548,0.0,0.0
+5638,nói ra câu ngu bị mọi người chửi thêm cho,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0014065938,0.9959241,0.002669246,0.7522,0.0
+5658,mở mồm ra chửi bắc kỳ rồi lại bị mấy anh bắc tìm thôi,HATE,CLEAN,HATE,CLEAN,1,3.4807137e-05,2.8408756e-05,0.9999368,0.9281,0.0
+5674,"ừm thế đấy,chữ nhân dân hiện diện trên khắp danh xưng cơ quan chính phủ, nhưng d",CLEAN,HATE,CLEAN,HATE,1,0.9969926,0.0026102106,0.00039717363,0.0,0.0
+5694,"a đừng có giống chị tịp đấy nhé, thông báo cách li tại nhà rồi đi quán uống cafe",HATE,CLEAN,CLEAN,CLEAN,0,0.00046539344,0.00028672058,0.99924785,0.0,0.0
+5716,thối quá rồi,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.00043017106,0.9986733,0.0008965535,0.0,0.0
+5740,bat hết cái bọn gây hoang mang dư luận.,CLEAN,HATE,CLEAN,HATE,1,0.99715483,0.0023585123,0.00048670656,0.0,0.0
+5765,nhà ai có người làm trong sân bay thì nhục phụ cái,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.00044125807,0.9928947,0.00666399,0.0,0.0
+5798,nhìn như con bóng lải cái 🤣,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0451101e-05,4.2647018e-05,0.99994683,0.0,0.0
+5800,bê đê dơ,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.00096607546,0.9952428,0.0037911683,0.0,0.0
+5821,k phải khen chứ phim dỡ vkl,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.3419083e-05,6.92209e-05,0.99991727,0.0,0.0
+5829,chó vàng đéo cắn để rồi thành cầu 2 chiều à:v đm cái gì đúng cái gì sai phải biế,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.00462394,0.9946003,0.0007757624,0.983,0.0
+5874,vâng ơn đoảng ơn boác xd,HATE,CLEAN,CLEAN,CLEAN,0,7.5996795e-05,0.00036826992,0.99955565,0.0,0.0
+5876,oi troi oi cai mo ba xau nhu quy,HATE,CLEAN,CLEAN,CLEAN,0,0.011460171,0.00031633102,0.9882235,0.0,0.0
+5880,"sao tụi bây toàn chửi nhau mà ko thấy làm gì hết,cao lông nó chưa hay nói cho vu",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.4283289e-05,0.00015597804,0.99982965,0.0,0.0
+5887,còn anh có công với ghpg đâu rồi.chắc lên cỏi niết bàn rồi thì phải???,HATE,CLEAN,CLEAN,CLEAN,0,1.1125317e-05,2.6274483e-05,0.9999627,0.0,0.0
+5914,bài mai dù,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.888795e-06,5.9208698e-05,0.9999329,0.0,0.0
+5919,chac chan coronaviruswuhan qua di thi the gioi se khong de yen trung cong.,HATE,CLEAN,CLEAN,CLEAN,0,3.8829403e-05,4.3999476e-05,0.99991715,0.2519,0.0
+5936,lại hợp sâm clm đến v thì /ff,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0007790656,0.99883527,0.00038566542,0.0,0.3796
+5938,cái lồn má toàn danh hài thế này:v,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.0011690733,0.9984573,0.0003736583,0.792,0.0
+5943,"ad tên thắm à, hehe, em lại nhớ tới cái con em học cùng cấp 1 cũng tên là thắm v",HATE,CLEAN,HATE,CLEAN,1,7.6020566e-05,5.561783e-05,0.9998683,0.7686,0.0
+5974,con này chắc không có gì làm nên rảnh nên bày ra tay đôi nói bậy,CLEAN,HATE,CLEAN,HATE,1,0.9861356,0.0025616942,0.011302726,0.0,0.0
+5975,thôi tụi nhật về nước dùm tao đi,HATE,CLEAN,CLEAN,CLEAN,0,7.410992e-06,3.883082e-05,0.99995375,0.0,0.0
+5993,"cá chết vẫn chưa rõ nguyên nhân, biển thì vẫn đầy chất độc, chính quyền vẫn hô h",HATE,CLEAN,CLEAN,CLEAN,0,0.0082424665,0.0011068156,0.9906508,0.0,0.0
+5997,phim dở vl,HATE,CLEAN,CLEAN,CLEAN,0,7.707544e-05,0.0018967737,0.9980261,0.0,0.0
+6002,xạo l,HATE,OFFENSIVE,HATE,OFFENSIVE,1,0.0033885962,0.9962612,0.0003502474,0.8059,0.0
+6013,khổ thân a. nhìn mặt a e thấy ngột ngạt r á,HATE,CLEAN,CLEAN,CLEAN,0,2.753166e-05,0.00014652725,0.999826,0.0,0.0
+6018,nhảy ổn như mạng nhà t😕,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.339025e-06,2.9311354e-05,0.99996436,0.0,0.0
+6026,củ kỉ xấu xí để mầm chi,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.0451221e-05,3.1201584e-05,0.9999583,0.0,0.0
+6036,dm áo vú =)),CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0022686217,0.99735814,0.00037324696,0.0,0.0
+6076,abe ochco =))),HATE,CLEAN,CLEAN,CLEAN,0,0.0002453565,5.3062056e-05,0.99970156,0.0,0.0
+6104,t khép đít lạy m!,HATE,CLEAN,CLEAN,CLEAN,0,0.00048293645,0.010086442,0.98943067,0.0,0.0
+6107,mẹ. mày ko phân biệt đâu là tài năng và phá hoại hả gin tama?? chẳng lẻ mày giỏi,CLEAN,HATE,HATE,HATE,0,0.9950578,0.0020131,0.0029290433,0.9968,0.0
+6108,cai mieng hay la cai ong cong vay,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,0.051305074,0.010423258,0.9382717,0.0,0.0
+6109,og tran dan ok bi nhiem coronna.ma bi nhiẻm beh khat la beh gi? og bi beh b 20 d,HATE,CLEAN,CLEAN,CLEAN,0,2.66751e-05,0.00050332217,0.99947006,0.0,0.0
+6118,mieng c qui nay chac co doi k,CLEAN,HATE,CLEAN,CLEAN,1,0.602038,0.034231048,0.3637309,0.0,0.0
+6119,🙂🙂gửi mấy con bò,OFFENSIVE,HATE,HATE,HATE,0,0.9920725,0.0068698335,0.0010576466,0.8025,0.0
+6129,"m lảm nhảm cái đéo gì thế, sai lè còn cãi, ở việt nam! cái hay nhất nhà chối tội",OFFENSIVE,HATE,HATE,HATE,0,0.9983406,0.001377344,0.00028201911,0.972,0.0
+6131,"đào đất đóng gạch đi,đông về khối đứa cần ủ ấm.",OFFENSIVE,CLEAN,CLEAN,CLEAN,0,9.594768e-05,0.001610203,0.99829394,0.0,0.0
+6134,"đang chuẩn bị họp, 1 ông người tàu bước vào phòng,,, búng tay cái ""póc"" 10 thằng",CLEAN,HATE,CLEAN,HATE,1,0.9973967,0.0022687092,0.0003345893,0.0,0.0
+6135,nó bị què ko làm thế đi kieu gi dc,CLEAN,HATE,CLEAN,HATE,1,0.9905158,0.0023797033,0.007104481,0.0,0.0
+6136,duma.nhỏ cà chớn lớn cà khịa @@,CLEAN,OFFENSIVE,CLEAN,OFFENSIVE,1,0.0012431304,0.9973808,0.0013760198,0.0,0.0
+6183,nguyễn văn nhã be bé cái mồm thôi bọn châu chấu nó có thể xuất hiện bất cứ đâu n,CLEAN,HATE,CLEAN,HATE,1,0.9978635,0.0016999801,0.00043659096,0.0,0.0
+6192,huỳnh my đỉ mẹ. t vs m đi trước thời đại mất tiêu r bé 🤣,CLEAN,HATE,HATE,HATE,0,0.87653095,0.01790978,0.1055593,0.9534,0.0
+6205,top1 ca sĩ nhưng k biết hát:)),OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.540135e-06,4.6112444e-05,0.9999473,0.0,0.0
+6209,đảng đã cho ta một mùa xuân đầy thất vọng!,HATE,CLEAN,CLEAN,CLEAN,0,1.3006915e-05,1.6442282e-05,0.99997056,0.0,0.0
+6215,vn phải có cái riêng biệt cái tự chủ độc lập toàn đi sau làm sau,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,1.7778033e-05,2.9311017e-05,0.9999529,0.0,0.0
+6219,ngta đẹp và bán hàng có tiếng lâu năm.và đẹp hơn mặt chó,CLEAN,OFFENSIVE,HATE,OFFENSIVE,0,0.14804128,0.84859747,0.0033613238,0.7905,0.0
+6239,à m bảo ở nước ngoài nó quen rồi vậy cho m sang ý ở nhé thàng ml,HATE,CLEAN,HATE,CLEAN,1,0.00026523523,0.00025308924,0.99948174,0.8251,0.0
+6280,"từ dịch này thấy ý thức người nhật xăng đổ nửa bình, nhưng giấy vệ sinh không th",HATE,CLEAN,CLEAN,CLEAN,0,1.3845515e-05,3.5355763e-05,0.99995077,0.0,0.0
+6285,"hôm bữa xin lỗi, tôi nói con này khóc là nước mắt cá sấu thôi, nhung anh này giọ",CLEAN,HATE,CLEAN,HATE,1,0.9964573,0.0011486431,0.0023939777,0.0,0.0
+6289,t làm thế đâu... thằng ad vớ vẩn:v,CLEAN,HATE,CLEAN,HATE,1,0.9147301,0.026564255,0.058705606,0.0,0.0
+6307,. ai khịa thầy là chetme đó nha,HATE,CLEAN,CLEAN,CLEAN,0,0.0016894434,0.12315719,0.8751533,0.0,0.0
+6323,con nay bo tay,CLEAN,HATE,CLEAN,HATE,1,0.997122,0.002510541,0.0003673733,0.0,0.0
+6324,ngo boingoc giống bên úc lợn. tự cách ly nên mới có chuyện dương tính vẫn đi siê,HATE,CLEAN,CLEAN,CLEAN,0,0.00022961154,0.0038835846,0.99588686,0.0,0.0
+6326,tinh trùng khuyết tật,OFFENSIVE,HATE,HATE,HATE,0,0.9968984,0.0028889668,0.00021257167,0.7827,0.0
+6342,trend như con cật cũng đi đú,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,7.88902e-06,3.0717943e-05,0.9999614,0.0,0.0
+6348,ba nay mat dai khoe vang cuop chac hai cai tay no di an noi mat dai,CLEAN,HATE,HATE,HATE,0,0.9971666,0.0021141816,0.0007193141,0.9906,0.0
+6353,vãi lộc,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,6.7472683e-06,0.000115918556,0.9998772,0.0,0.0
+6363,động cơ của các vị là gì?,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.397862e-06,2.5071386e-05,0.9999666,0.0,0.0
+6429,hết ẳng 🙂 câm mõm lại hết đi,OFFENSIVE,HATE,HATE,HATE,0,0.98401076,0.015453387,0.00053580326,0.8888,0.0
+6436,đậu má thầy ok chưa?,HATE,CLEAN,CLEAN,CLEAN,0,1.3845617e-05,2.7968916e-05,0.99995816,0.0,0.0
+6441,võ công hoàng cái lon má,OFFENSIVE,HATE,CLEAN,HATE,0,0.9905867,0.008306576,0.001106744,0.2376,0.0
+6463,bú bóng cao su ha gì cười ghê z abe:)),HATE,CLEAN,CLEAN,CLEAN,0,0.0015419049,0.0044269287,0.99403113,0.0,0.0
+6471,"có thể là do thế lực thù địch lợi dụng những hôm đêm tối đã ra đào bới bờ kè, kh",HATE,CLEAN,HATE,CLEAN,1,3.2191107e-05,3.822788e-05,0.99992955,0.7666,0.0
+6481,chỉ 1/2 đất nước trong nội chiến vẫn & đã làm đc điều như này vào 60n trước....ô,HATE,CLEAN,CLEAN,CLEAN,0,1.1842701e-05,3.705253e-05,0.9999511,0.0,0.0
+6483,ns vậy lại xúc phạm cái đầu b**i 😐,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0034493287,0.9867627,0.009787914,0.0,0.0
+6494,"cần xử tử con thú máu lạnh này vì nếu để nó sống, xã hội sẽ nguy hiểm hơn!",OFFENSIVE,HATE,CLEAN,HATE,0,0.9945918,0.0023159788,0.0030922373,0.0,0.0
+6509,phạm văn lộc vãi lol lộc,HATE,OFFENSIVE,CLEAN,OFFENSIVE,0,0.0005008291,0.9945194,0.004979775,0.0,0.0
+6525,trâu bò chứ ko phải người mà. 🤔 sức chịu đựng của dân thủ đô thật đáng ngưỡng mộ,OFFENSIVE,HATE,CLEAN,HATE,0,0.8707528,0.004292452,0.12495478,0.0,0.0
+6611,giống lão gà mên teong là xì trum vl,HATE,CLEAN,CLEAN,CLEAN,0,0.0009746581,0.1266616,0.87236375,0.0,0.0
+6634,khi bạn muốn bợ đít ai đó nhưng bạn không có não. ngu như lợn nhưng vẫn làm báo ,OFFENSIVE,HATE,HATE,HATE,0,0.9984345,0.0014323458,0.00013322892,0.9957,0.0
+6635,"chơi với thằng nào cũng được,trừ thằng tàu cộng ra,ok",HATE,CLEAN,HATE,CLEAN,1,7.888988e-06,3.480785e-05,0.9999573,0.8849,0.0
+6636,"đưa từ vụ bán độ lịch sử 4 cái tàu choán nước hơn nghìn tấn,ngắm bắn bằng radar,",CLEAN,HATE,HATE,HATE,0,0.9972128,0.002033283,0.00075386965,0.8283,0.1632
+6637,tranh cho va bong sa ban gai cung kg gai trai chan ra trai hahaha,OFFENSIVE,CLEAN,CLEAN,CLEAN,0,8.13943e-06,3.2192074e-05,0.9999597,0.0,0.0
+6659,cám ơn đảng. cám ơn nhà nc 😏,HATE,CLEAN,CLEAN,CLEAN,0,0.00094722357,9.019488e-05,0.99896264,0.0,0.0
+6670,"tôi không dùng bảo hiểm, bởi vì bác sĩ coi thường sức khỏe bệnh nhân dùng bảo hi",HATE,CLEAN,CLEAN,CLEAN,0,9.51602e-06,2.4300009e-05,0.99996614,0.0,0.0

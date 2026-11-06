@@ -1,0 +1,45 @@
+%!TEX root = ../main.tex
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{Two benchmarks only.}  All results come from ViHSD and Davidson.
+The lexicon and cue taxonomy are language-specific; the fusion protocol is
+language-agnostic, but it has not been tested on other languages or domains.
+
+\paragraph{One seed per backbone.}  Each backbone was trained once with seed 42,
+so neural variance is not estimated and the small ViHSD fusion difference
+($\Delta$macro-F1 $=-0.0004$) is well inside what seed variance could produce:
+the tests rule out a large effect, not a small one.
+
+\paragraph{The focused backbone is chosen on test behaviour.}  The Vietnamese
+backbone for the primary provenance analysis was selected by its test-set fusion
+effect (39 corrections vs 25 regressions on ViHSD), not purely by validation
+criteria.  Results therefore characterise this backbone as a case study; other
+backbones with higher standalone macro-F1 (e.g., dlr2stage) are described for
+comparison only.
+
+\paragraph{Apparent calibration gains are a shrinkage artefact.}  The ECE
+reduction (AI-only VI 0.112 $\to$ hybrid 0.092) is replicated by a
+uniform-mixing control (ECE 0.092 at $\alpha=0.70$); mean confidence drops
+0.984 $\to$ 0.939.  Calibration statements are therefore limited to reporting
+these diagnostics, not to a claim of improved calibration.
+
+\paragraph{Tuned rule-engine scoring removes obfuscation defences.}  During
+validation-set tuning, the accent-less alias weight was driven to zero and the
+negation factor to one.  This removes the primary defence against dropped
+diacritics and the discount for negated slurs, visible in the
+\off{}-as-intensifier regressions.
+
+\paragraph{The English lexicon is imbalanced.}  The 818-entry English lexicon
+contains only 86 HATE terms because the Davidson training split has few HATE
+documents (5.8\% vs 10.3\% in ViHSD).  The English HATE F1 (0.453) remains the
+weakest class of the bilingual system.
+
+\paragraph{The multilingual fallback is rule-only.}  5.89\% of the mixed sample
+falls into \texttt{mix}/\texttt{multilingual}, where no dedicated AI checkpoint
+is loaded.  Fusion degenerates to rule-only scoring and depresses macro-F1.
+
+\paragraph{Explanations are not evaluated by humans.}  The evidence record is
+faithful for the lexical channel and decomposes the changed decisions, but we
+do not measure whether reviewers find it useful, and the cue taxonomy is a
+post-hoc annotation.

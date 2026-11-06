@@ -1,0 +1,115 @@
+% !TEX program = xelatex
+% =============================================================================
+% ICCIES 2027 Submission - 15 pages - SensitiveAI Bilingual Hate Speech Moderation
+% =============================================================================
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[font=small,labelfont=bf,skip=2pt]{caption}
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc, arrows.meta}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, fit, backgrounds, shadows}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, shadows}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+% Tighten spacing for 15-page limit
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.9}
+\setcounter{totalnumber}{6}
+\setlength{\textfloatsep}{3pt plus 1pt minus 1pt}
+\setlength{\floatsep}{3pt plus 1pt minus 1pt}
+\setlength{\intextsep}{3pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{4em}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+\raggedbottom
+
+\newcommand{\model}[1]{\textsc{#1}}
+\newcommand{\hate}{\textsc{hate}}
+\newcommand{\off}{\textsc{offensive}}
+\newcommand{\clean}{\textsc{clean}}
+
+\begin{document}
+
+\title{An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for
+       Bilingual Hate Speech Detection: System Evaluation and Latency}
+\titlerunning{Explainable Hybrid for Bilingual Hate Speech Detection}
+\author{
+Pham Kha Vy\inst{1}
+ \and
+Cao Hong Nga\inst{1}\textsuperscript{(*)}
+\and
+Jia-Ching Wang\inst{2}\textsuperscript{(*)}
+}
+
+\authorrunning{K. V. Pham, H. N. Cao, and J. C. Wang}
+\institute{
+FPT University, Can Tho, Vietnam\\
+\email{phamkhavycm2004@gmail.com}, \email{caohongnga@gmail.com}
+\and
+Department of Computer Science \& Information Engineering, National Central University, Taoyuan, Taiwan\\
+\email{jcw@csie.ncu.edu.tw}\\
+\textsuperscript{(*)}is the correspondent author.
+}
+\maketitle
+
+\begin{abstract}
+Fine-tuned multilingual transformers dominate content moderation, yet they are
+opaque and brittle on surface forms: teencode, dropped diacritics, inserted
+separators and abbreviated profanity.  We present \textbf{SensitiveAI}, a
+bilingual language-aware pipeline coupling two lexicon-driven rule engines
+(Vietnamese and English) with per-language mDeBERTa-v3-base backbones through
+language detection, language-aware routing, pseudo-probability fusion and
+decision thresholds.  The pipeline is evaluated on complete test splits of
+ViHSD (6{,}680 Vietnamese comments) and Davidson (2{,}478 English comments).
+Per-language backbone accuracy is 87.13\% (VI) and 87.17\% (EN); the full
+pipeline (with language detection, routing, and per-language fusion) reaches
+87.28\% mixed accuracy (87.32\% VI, 87.17\% EN) at 6.14\,ms mean latency
+(P95 6.66\,ms) with 94.11\% language detection accuracy.  A paired analysis
+shows the fusion change is small and not statistically significant
+($\Delta$macro-F1 $=-0.0004$, 95\% CI $[-0.0045,+0.0036]$, $p=0.84$; exact
+McNemar $p=0.17$).  We therefore frame the hybrid not as an accuracy gain but
+as an auditable, real-time moderation layer whose rule evidence is inspectable
+for the 75 decisions it corrects or reverses (44 corrections, 31
+regressions, net +13; 0.82\% of the 9{,}158-sample stream).
+\end{abstract}
+\keywords{Hate speech \and multilingual transformers \and lexicon rules \and
+          hybrid fusion \and language-aware routing \and calibration.}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/data}
+\input{sections/architecture}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+\input{sections/ethics}
+\input{sections/conclusion}
+
+\credits
+\subsubsection{\discintname}
+The authors have no competing interests to declare.
+
+\bibliographystyle{splncs04}
+\bibliography{references}
+
+\end{document}

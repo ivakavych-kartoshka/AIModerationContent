@@ -1,0 +1,26 @@
+\begin{table}[ht]
+\centering
+\caption{Decision-level variants for the focused Vietnamese backbone
+(\model{sensitiveai-vi-custom-curriculum}) on the ViHSD test split (6{,}680 comments).
+Every variant reads the same frozen scores; only the mixing and decision rule
+differ. The last row is the paper's primary system. \emph{Per-class columns are
+F1}; the best macro-F1 is in bold. The two rule-only rows are scored inside
+the fusion pipeline on the renormalised rule scores; the standalone rule
+engine, with its own thresholds, is reported in the text.}
+\label{tab:fusion_variants}
+\begin{tabular}{lccccc}
+\toprule
+System & Acc. & Macro-F1 & \hate & \off & \clean \\
+\midrule
+AI only (argmax)                      & 0.871 & 0.661 & 0.620 & 0.425 & 0.938 \\
+Rule only (argmax)                    & 0.849 & 0.471 & 0.487 & 0.000 & 0.927 \\
+Rule only (frozen thresholds)         & 0.842 & 0.526 & 0.410 & 0.239 & 0.928 \\
+\midrule
+Fusion, global $\alpha$ (argmax)      & 0.873 & 0.660 & 0.612 & 0.428 & 0.938 \\
+Fusion, global $\alpha$ (thresholds)  & 0.873 & 0.659 & 0.614 & 0.425 & 0.939 \\
+Fusion, logistic meta-classifier      & 0.865 & 0.660 & 0.617 & 0.428 & 0.935 \\
+Fusion, per-channel $\alpha$ (argmax) & 0.872 & 0.660 & 0.613 & 0.428 & 0.938 \\
+Fusion, per-channel (thresholds)      & 0.873 & \textbf{0.661} & 0.612 & 0.432 & 0.939 \\
+\bottomrule
+\end{tabular}
+\end{table}

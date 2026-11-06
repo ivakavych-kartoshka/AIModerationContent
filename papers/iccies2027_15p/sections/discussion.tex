@@ -1,0 +1,26 @@
+%!TEX root = ../main.tex
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the Hybrid Is Good For}
+The result is better read as a successful audit: 64 of 6{,}680 decisions change
+on ViHSD (91 of 9{,}158 across the bilingual stream), each described by a channel,
+a direction and a mechanism.  The end-to-end bilingual evaluation demonstrates
+deployment viability (87.32\% accuracy on VI, 87.17\% on EN, 6.14\,ms latency),
+showing that a hybrid architecture can be both explainable and production-ready.
+
+The hybrid provides three operational benefits:
+\begin{enumerate}
+    \item \textbf{Auditability}: Each decision carries rule evidence if present,
+          enabling rapid human review for appeals.
+    \item \textbf{Triage}: A queue can sort comments by whether the decision was
+          rule-supported; a \hate{} decision with a matched span is easier to
+          defend than one with no lexical evidence.
+    \item \textbf{Error analysis}: The 31 regressions are fully decomposable into
+          rule-driven and threshold-driven categories.
+\end{enumerate}
+
+The latency profile (6.14\,ms mean, P95 6.66\,ms) supports synchronous
+moderation for text comments.  Routing (2.15\,ms) and AI inference (3.99\,ms) are
+the main components; tail latency can reach up to 2.1\,s during cold-start
+tokenizer initialization, a one-time cost that can be pre-warmed.

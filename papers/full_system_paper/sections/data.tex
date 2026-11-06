@@ -43,11 +43,11 @@ is also imbalanced but with a different profile (77.8\% \off{}, 5.8\% \hate{},
 \subsection{Mixed Evaluation Sample}
 \label{sec:mixed_sample}
 
-To evaluate the bilingual pipeline end-to-end we draw a stratified random
-sample (seed 42) of 500 Vietnamese and 500 English comments from the held-out
-test splits, yielding the composition in Table~\ref{tab:mixed_composition}.
-This sample preserves the per-language class priors and is used exclusively
-for the end-to-end experiment in Sect.~\ref{sec:e2e}.
+To evaluate the bilingual pipeline end-to-end we use the complete held-out test
+splits: 6{,}680 Vietnamese comments from ViHSD test and 2{,}478 English comments
+from Davidson test, yielding the composition in Table~\ref{tab:mixed_composition}.
+This full-split evaluation preserves the per-language class priors and is used for
+the end-to-end experiment in Sect.~\ref{sec:e2e}.
 
 \input{tables/mixed_composition}
 
@@ -92,8 +92,8 @@ contains 86 \hate{}, 356 \off{}, and 376 \clean{} terms.
 
 The English lexicon is larger in raw count (818 vs. 668) but contains far fewer
 HATE terms (86 vs. 594) because the Davidson corpus has only 5.8\% HATE
-documents.  This asymmetry directly impacts the hybrid's HATE F1 (0.46 EN vs
-0.61 VI on the mixed sample) and is the highest-priority target for future
+documents.  This asymmetry directly impacts the hybrid's HATE F1 (0.4537 EN vs
+0.6051 VI on the full-split evaluation) and is the highest-priority target for future
 lexicon expansion.
 
 \paragraph{Ethics of examples.}

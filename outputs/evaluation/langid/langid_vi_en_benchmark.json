@@ -1,0 +1,14 @@
+{
+  "dataset_vi": "ViNLI (30,376 pairs, 34,021 unique sents)",
+  "dataset_en": "Wortschatz Leipzig 2015 English News (29,934 sentences)",
+  "sample_size_per_lang": 29934,
+  "vi_correct": 29926,
+  "vi_total": 29934,
+  "vi_accuracy": 0.9997,
+  "en_correct": 29827,
+  "en_total": 29934,
+  "en_accuracy": 0.9964,
+  "overall_correct": 59753,
+  "overall_total": 59868,
+  "overall_accuracy": 0.9981
+}

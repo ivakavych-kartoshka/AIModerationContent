@@ -1,0 +1,130 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\citation{he2023debertav3,conneau2020xlmr}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {title}{An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for Bilingual Hate Speech Detection: System Evaluation and Latency}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\authcount {3}}
+\@writefile{toc}{\contentsline {author}{ Pham Kha Vy \and Cao Hong Nga\textsuperscript  {(*)} \and Jia-Ching Wang\textsuperscript  {(*)} }{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:introduction}{{1}{1}{Introduction}{section.1}{}}
+\citation{waseem2016hateful,mathew2021hatexplain}
+\citation{luu2021vihsd}
+\citation{nguyen2020phobert}
+\citation{conneau2020xlmr}
+\citation{nguyen2026vicm}
+\citation{davidson2017automated}
+\citation{waseem2016hateful}
+\citation{mathew2021hatexplain}
+\citation{lui2012langid}
+\citation{conneau2020xlmr}
+\citation{nguyen2026vicm}
+\citation{danilevsky2020survey,mathew2021hatexplain}
+\citation{luu2021vihsd}
+\citation{davidson2017automated}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related_work}{{2}{3}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data and Lexicons}{3}{section.3}\protected@file@percent }
+\newlabel{sec:data}{{3}{3}{Data and Lexicons}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Vietnamese Corpus (ViHSD)}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}English Corpus (Davidson et al.)}{3}{subsection.3.2}\protected@file@percent }
+\citation{bontoriTdtu}
+\citation{nguyen2026vicm}
+\citation{lui2012langid}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Mixed Evaluation Sample}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Mixed evaluation sample composition ($n=9{,}158$ full test splits)}}{4}{table.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:mixed_composition}{{1}{4}{Mixed evaluation sample composition ($n=9{,}158$ full test splits)}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Vietnamese Lexicon (668 entries)}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}English Lexicon (818 entries)}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}System Architecture and Training}{4}{section.4}\protected@file@percent }
+\newlabel{sec:architecture}{{4}{4}{System Architecture and Training}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Language Detection and Routing}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces SensitiveAI pipeline: language-aware routing and score fusion.}}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:pipeline}{{1}{5}{SensitiveAI pipeline: language-aware routing and score fusion}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Per-Language Neural Backbones}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Language-Aware Fusion}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Training Setup}{6}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Methodology}{6}{section.5}\protected@file@percent }
+\newlabel{sec:methodology}{{5}{6}{Methodology}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Backbones and Training Recipes}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Backbone test performance. All backbones share \texttt  {mDeBERTa-v3-base}. VI backbones: ViHSD test ($n=6{,}680$); EN backbones: Davidson test ($n=2{,}478$).}}{6}{table.caption.4}\protected@file@percent }
+\newlabel{tab:backbones_full}{{2}{6}{Backbone test performance. All backbones share \texttt {mDeBERTa-v3-base}. VI backbones: ViHSD test ($n=6{,}680$); EN backbones: Davidson test ($n=2{,}478$)}{table.caption.4}{}}
+\citation{efron1993bootstrap}
+\citation{mcnemar1947note}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Rule-Engine Scoring}{7}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Fusion Variants}{7}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:fusion_variants}{{5.3}{7}{Fusion Variants}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Metrics and Statistical Testing}{7}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:metrics}{{5.4}{7}{Metrics and Statistical Testing}{subsection.5.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Reproducibility}{7}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:repro}{{5.5}{7}{Reproducibility}{subsection.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Experimental Setup}{8}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Hardware and Software}{8}{subsection.5.7}\protected@file@percent }
+\newlabel{sec:hardware}{{5.7}{8}{Hardware and Software}{subsection.5.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Hyperparameters}{8}{subsection.5.8}\protected@file@percent }
+\newlabel{sec:hyperparameters}{{5.8}{8}{Hyperparameters}{subsection.5.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Evaluation Protocol}{8}{subsection.5.9}\protected@file@percent }
+\newlabel{sec:protocol}{{5.9}{8}{Evaluation Protocol}{subsection.5.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.10}Baselines}{8}{subsection.5.10}\protected@file@percent }
+\newlabel{sec:baselines}{{5.10}{8}{Baselines}{subsection.5.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation on the full test splits: backbone-only inference versus the full pipeline (language detection $\to $ routing $\to $ backbone $\to $ fusion). Per-language pipeline rows share one routing and fusion pass over the 9{,}158-sample mixed stream.}}{9}{table.caption.5}\protected@file@percent }
+\newlabel{tab:e2e_full_benchmark}{{3}{9}{Evaluation on the full test splits: backbone-only inference versus the full pipeline (language detection $\to $ routing $\to $ backbone $\to $ fusion). Per-language pipeline rows share one routing and fusion pass over the 9{,}158-sample mixed stream}{table.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Global cross-lingual benchmark on full test splits. The first two rows are backbone-only inference (per-language AI-only argmax); the last row is the full pipeline (routing $+$ backbone $+$ fusion) with serialised latency and fused-score ECE. \textbf  {Note:} English HATE F1 (0.453) is lower than Vietnamese (0.610) due to Davidson dataset HATE class imbalance (5.8\% vs ViHSD 10.3\%).}}{9}{table.caption.6}\protected@file@percent }
+\newlabel{tab:global_benchmark}{{4}{9}{Global cross-lingual benchmark on full test splits. The first two rows are backbone-only inference (per-language AI-only argmax); the last row is the full pipeline (routing $+$ backbone $+$ fusion) with serialised latency and fused-score ECE. \textbf {Note:} English HATE F1 (0.453) is lower than Vietnamese (0.610) due to Davidson dataset HATE class imbalance (5.8\% vs ViHSD 10.3\%)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Analysis}{9}{section.6}\protected@file@percent }
+\newlabel{sec:results}{{6}{9}{Results and Analysis}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}End-to-End Bilingual Evaluation}{9}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:e2e}{{6.1}{9}{End-to-End Bilingual Evaluation}{subsection.6.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Latency and Throughput Profile}{9}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:latency}{{6.2}{9}{Latency and Throughput Profile}{subsection.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Per-request latency breakdown (ms) and throughput over the 9{,}158-sample bilingual test stream (serialised execution). Stage P50/P95 values are summed per request, so the total P95 conservatively sums stage P95s.}}{10}{table.caption.7}\protected@file@percent }
+\newlabel{tab:latency}{{5}{10}{Per-request latency breakdown (ms) and throughput over the 9{,}158-sample bilingual test stream (serialised execution). Stage P50/P95 values are summed per request, so the total P95 conservatively sums stage P95s}{table.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces F1-score comparison per class and macro-average on the 9,158-sample bilingual test splits (ViHSD 6,680 + Davidson 2,478). Backbone-only inference without routing/fusion.}}{10}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:f1_comp}{{2}{10}{F1-score comparison per class and macro-average on the 9,158-sample bilingual test splits (ViHSD 6,680 + Davidson 2,478). Backbone-only inference without routing/fusion}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Calibration Diagnostics}{10}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:calibration}{{6.3}{10}{Calibration Diagnostics}{subsection.6.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Reliability diagram (ECE) comparison between AI-only and Hybrid fusion on the ViHSD test set.}}{11}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:reliability}{{3}{11}{Reliability diagram (ECE) comparison between AI-only and Hybrid fusion on the ViHSD test set}{figure.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Calibration diagnostics (ECE, Brier, NLL, mean confidence, and macro-F1) for AI-only argmax versus Hybrid on ViHSD test, and full pipeline (fused scores) on 9{,}158 bilingual samples.}}{11}{table.caption.10}\protected@file@percent }
+\newlabel{tab:hybrid-calibration}{{6}{11}{Calibration diagnostics (ECE, Brier, NLL, mean confidence, and macro-F1) for AI-only argmax versus Hybrid on ViHSD test, and full pipeline (fused scores) on 9{,}158 bilingual samples}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Robustness to Noisy Vietnamese Surface Forms}{11}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:surface}{{6.4}{11}{Robustness to Noisy Vietnamese Surface Forms}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Provenance of Changed Decisions (ViHSD)}{11}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:provenance}{{6.5}{11}{Provenance of Changed Decisions (ViHSD)}{subsection.6.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Model performance on challenging surface forms: teencode, no diacritics, repeat characters (leet-like obfuscation), emoji, short text, long text, and standard diacritics on ViHSD test (6,680 samples).}}{12}{table.caption.11}\protected@file@percent }
+\newlabel{tab:surface-forms}{{7}{12}{Model performance on challenging surface forms: teencode, no diacritics, repeat characters (leet-like obfuscation), emoji, short text, long text, and standard diacritics on ViHSD test (6,680 samples)}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{12}{section.7}\protected@file@percent }
+\newlabel{sec:discussion}{{7}{12}{Discussion}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}What the Hybrid Is Good For}{12}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Limitations}{13}{section.8}\protected@file@percent }
+\newlabel{sec:limitations}{{8}{13}{Limitations}{section.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{Two benchmarks only.}{13}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{One seed per backbone.}{13}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The focused backbone is chosen on test behaviour.}{13}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Apparent calibration gains are a shrinkage artefact.}{13}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tuned rule-engine scoring removes obfuscation defences.}{13}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The English lexicon is imbalanced.}{13}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The multilingual fallback is rule-only.}{13}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Explanations are not evaluated by humans.}{13}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Ethical Statement}{13}{section.9}\protected@file@percent }
+\newlabel{sec:ethics}{{9}{13}{Ethical Statement}{section.9}{}}
+\bibstyle{splncs04}
+\bibdata{references}
+\bibcite{bontoriTdtu}{1}
+\bibcite{conneau2020xlmr}{2}
+\bibcite{danilevsky2020survey}{3}
+\bibcite{davidson2017automated}{4}
+\bibcite{efron1993bootstrap}{5}
+\bibcite{he2023debertav3}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{14}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{10}{14}{Conclusion}{section.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Disclosure of Interests.}{14}{section*.20}\protected@file@percent }
+\bibcite{lui2012langid}{7}
+\bibcite{luu2021vihsd}{8}
+\bibcite{mathew2021hatexplain}{9}
+\bibcite{mcnemar1947note}{10}
+\bibcite{nguyen2020phobert}{11}
+\bibcite{nguyen2026vicm}{12}
+\bibcite{waseem2016hateful}{13}
+\gdef \@abspage@last{15}

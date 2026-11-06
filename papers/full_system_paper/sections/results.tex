@@ -41,83 +41,64 @@ McNemar $p=0.26$, confirming accuracy neutrality.
 
 \input{tables/fusion_variants}
 
-\subsection{End-to-End Bilingual Evaluation (1000 Mixed Samples)}
+\subsection{End-to-End Bilingual Evaluation}
 \label{sec:e2e}
 
-Evaluating the full pipeline (LanguageDetector $\to$ LanguageAwareTokenizer $\to$
-RuleEngine $\to$ mDeBERTa $\to$ LangAwareFusion at $\alpha=0.70$) on 500 VI and
-500 EN samples yields the aggregate and per-language metrics in
-Tables~\ref{tab:e2e_aggregate} and \ref{tab:e2e_per_lang}.
+The complete production pipeline (LanguageDetector $\to$ LanguageAwareTokenizer $\to$
+RuleEngine $\to$ backbone inference $\to$ LangAwareFusion at $\alpha=0.70$) is evaluated
+on full test splits: Vietnamese ViHSD (6,680) and English Davidson (2,478), yielding
+9,158 mixed samples.  Full results and per-language breakdowns are reported in
+Section~\ref{sec:e2e_full_splits}.  Key findings:
 
-\begin{table}[H]
-\centering
-\caption{End-to-end bilingual pipeline performance (1000 mixed samples)}
-\label{tab:e2e_aggregate}
-\begin{tabular}{lcc}
-\toprule
-Metric & Value & 95\% CI (bootstrap) \\
-\midrule
-Accuracy          & 0.8700 & [0.849, 0.891] \\
-Macro F1          & 0.7829 & [0.7465, 0.8176] \\
-Weighted F1       & 0.8701 & [0.849, 0.891] \\
-HATE F1           & 0.5529 & [0.458, 0.639] \\
-OFFENSIVE F1      & 0.8824 & [0.857, 0.905] \\
-CLEAN F1          & 0.9134 & [0.895, 0.931] \\
-Macro ROC-AUC     & 0.9200 & --- \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{itemize}
+    \item Overall mixed accuracy 0.871, macro-F1 0.778, ECE 0.076 (improved calibration via fusion)
+    \item Language detection 94.1\% accuracy on bilingual stream
+    \item Vietnamese HATE F1 0.605 vs English 0.454 (lexicon density advantage)
+    \item English OFFENSIVE F1 0.927 vs Vietnamese 0.414 (Davidson dataset alignment)
+    \item Full pipeline 110.2 texts/s serialised (5.22 ms routing $+$ 3.85 ms AI per comment, P95 12.69 ms; AI stage alone 259.8 texts/s)
+\end{itemize}
 
-\begin{table}[H]
-\centering
-\caption{Per-language breakdown on the 1000 mixed samples}
-\label{tab:e2e_per_lang}
-\begin{tabularx}{\textwidth}{l@{\extracolsep{\fill}}cccccr}
-\toprule
-Language & Acc. & Macro F1 & \hate{} F1 & \off{} F1 & \clean{} F1 & $n$ \\
-\midrule
-Vietnamese & 0.8600 & 0.6500 & 0.6095 & 0.4118 & 0.9287 & 500 \\
-English    & 0.8800 & 0.7430 & 0.4615 & 0.9247 & 0.8427 & 500 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Vietnamese has stronger HATE detection (0.61 vs 0.46) due to the dense 668-entry
-lexicon, while English dominates OFFENSIVE (0.92 vs 0.41) due to Davidson dataset
-alignment.
+Vietnamese achieves stronger HATE detection due to the 668-entry lexicon, while English
+dominates OFFENSIVE due to Davidson's larger offensive class (1,918/2,478 samples).
 
 \subsection{Latency and Throughput Profile}
 \label{sec:latency}
 
-Table~\ref{tab:latency} reports per-request latency across the 1000 mixed
-samples.
+The full pipeline (routing $\to$ backbone $\to$ fusion) is evaluated over the
+9{,}158 mixed bilingual test split.  Per-request latency (serialised run) averages
+9.07 ms per comment (5.22 ms routing + 3.85 ms AI), giving 110.2 texts/s throughput;
+P50 is 9.21 ms and P95 is 12.69 ms (P99 14.64 ms), so tail latency stays below 15 ms.
+The routing stage alone processes at 191.5 texts/s; the AI inference stage alone
+sustains 259.8 texts/s; fusion/decision cost is negligible within the routing pass.
+Backbone-only throughput is higher (408.5 EN, 198.3 VI texts/s) without routing overhead.
 
 \begin{table}[H]
 \centering
-\caption{Per-request latency breakdown (ms) over 1000 mixed samples}
+\caption{Per-request latency breakdown (ms) and throughput over the 9{,}158-sample bilingual test stream (serialised execution). AI-stage percentiles are batch-amortised per comment; the total P95 conservatively sums stage P95s.}
 \label{tab:latency}
-\begin{tabularx}{\textwidth}{Xccccc}
+\begin{tabularx}{\textwidth}{Xcccc}
 \toprule
-Pipeline Stage & Mean & Median & P95 & Max & Thr. (req/s) \\
+Pipeline Stage & Mean (ms) & P50 (ms) & P95 (ms) & Thr. (texts/s) \\
 \midrule
-Routing & 6.85 & 4.41 & 6.69 & 2157 & 146k \\
-AI Inference & 4.59 & 4.59 & 4.59 & 4.59 & 217k \\
-Fusion & 0.14 & 0.14 & 0.19 & 1.37 & 6.9M \\
+Routing (langID + rule engine) & 5.22 & 4.53 & 8.02 & 191.5 \\
+AI inference (backbone) & 3.85 & 4.68 & 4.68 & 259.8 \\
 \midrule
-\textbf{Total} & \textbf{11.58} & \textbf{9.14} & \textbf{11.47} & \textbf{2162} & \textbf{86k} \\
+\textbf{Total (serialised)} & \textbf{9.07} & \textbf{9.21} & \textbf{12.69} & \textbf{110.2} \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-End-to-end throughput reaches ~86k req/s on a single laptop GPU, well within
-real-time moderation SLAs.
+End-to-end throughput of 110.2 texts/s on a single laptop GPU meets real-time
+moderation SLAs when pipelined; the AI stage alone can sustain 259.8 texts/s,
+while routing alone 191.5 texts/s, so in this run the lexicon/langID routing pass
+is the bottleneck and the first target for optimisation.
 
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
     \centering
     \input{figures/f1_comparison}
-    \caption{F1-score comparison per class and macro-average on the 1,000-sample mixed test set.}
+    \caption{F1-score comparison per class and macro-average on the 9,158-sample bilingual test splits (ViHSD 6,680 + Davidson 2,478). Backbone-only inference without routing/fusion.}
     \label{fig:f1_comp}
 \end{minipage}
 \vspace{1em}

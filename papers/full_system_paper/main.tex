@@ -4,7 +4,7 @@
 %
 %   1.0 - Initial draft of the "whole system" paper covering language
 %        detection, both rule engines (EN/VN), both backbones (EN/VN), fusion
-%        and the mixed 1000-sample end-to-end evaluation.
+%        and the full-split (9,158-sample) end-to-end evaluation.
 % =============================================================================
 \documentclass[runningheads]{llncs}
 
@@ -40,6 +40,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{multirow}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -86,7 +87,7 @@
  FPT University, Can Tho, Vietnam\\
  \email{phamkhavycm2004@gmail.com}\\
  \email{caohongnga@gmail.com}\\
- \textsuperscript{(*)}Corresponding author
+\textsuperscript{(*)}is the correspondent author.
 }
 \maketitle
 
@@ -101,11 +102,13 @@ pseudo-probability fusion and decision thresholds.  On the ViHSD test split the
 hybrid is macro-F1 neutral (0.6575 to 0.6602; bootstrap $p=0.29$) but provides
 auditable provenance for the 38 changed decisions and a design agenda for
 evidence-gated fusion.  Extending the same architecture to English (Davidson et
-al., 818-entry expanded lexicon) and to a balanced mixed Vietnamese/English
-sample of 1{,}000 comments, the end-to-end system reaches 87.00\% accuracy with
-macro-F1 0.7829, 11.6 ms latency and ~86,000 req/s throughput on a single laptop
-GPU, with an AI-only macro-F1 of 0.8027 on the 941 samples where a checkpoint is
-available.
+al., 818-entry expanded lexicon), the full production pipeline is evaluated on
+the complete test splits of ViHSD (6{,}680 Vietnamese comments) and Davidson
+(2{,}478 English comments), yielding 9{,}158 mixed bilingual samples.  It reaches
+87.10\% accuracy and macro-F1 0.7781 with ECE 0.0759, 9.07\,ms total latency
+per comment (5.22\,ms routing plus 3.85\,ms AI inference, P95 12.69\,ms), and
+94.11\% language detection accuracy; English backbone throughput is 408 texts/s
+against 198 texts/s for Vietnamese.
 \end{abstract}
 \keywords{Hate speech \and multilingual transformers \and lexicon rules \and
           hybrid fusion \and language-aware routing \and explainable AI.}

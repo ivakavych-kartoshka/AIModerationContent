@@ -1,0 +1,123 @@
+{
+  "datasets": {
+    "vietnamese_vihsd_test": {
+      "n": 1000,
+      "lang": "vi",
+      "domain": "social_media",
+      "accuracy": 0.87,
+      "macro_f1": 0.6593,
+      "ece_ai": 0.111,
+      "ece_hybrid": 0.097,
+      "latency_ms_per_text": 11.6
+    },
+    "english_wortschatz_test": {
+      "n": 9879,
+      "lang": "en",
+      "domain": "news",
+      "clean_ratio": 0.9989,
+      "throughput_texts_per_sec": 321.82,
+      "latency_ms_per_text": 3.107
+    },
+    "mixed_bilingual_test": {
+      "n": 1000,
+      "lang": "vi+en",
+      "domain": "mixed",
+      "accuracy": 0.872,
+      "latency_ms_per_text": 11.8
+    }
+  },
+  "calibration": {
+    "vihsd": {
+      "AI\u2011only": {
+        "ece": 0.1111989763772456,
+        "brier": 0.23339120679318043,
+        "nll": 0.8381864539604075,
+        "mean_conf": 0.9872143827964073,
+        "macro_f1": 0.6575258588726859,
+        "n": 6680
+      },
+      "Hybrid": {
+        "ece": 0.09677712468306304,
+        "brier": 0.22726366831680317,
+        "nll": 0.7879155733165697,
+        "mean_conf": 0.951706111775819,
+        "macro_f1": 0.6592688072933265,
+        "n": 6680
+      }
+    },
+    "mixed": {
+      "AI\u2011only": {
+        "ece": 0.09613836128324048,
+        "brier": 0.20778232615085637,
+        "nll": 0.5626709815012723,
+        "mean_conf": 0.896199347615622,
+        "macro_f1": 0.802660672570218,
+        "n": 941
+      },
+      "Hybrid": {
+        "ece": 0.08543250048890802,
+        "brier": 0.22864704004154504,
+        "nll": 0.808620195993224,
+        "mean_conf": 0.8244920098735533,
+        "macro_f1": 0.7829327515719088,
+        "n": 1000
+      }
+    }
+  },
+  "blind_spot": {
+    "blind_spot_504": {
+      "total_in_504": 504,
+      "rule_correct": 124,
+      "rule_correct_by_class": {
+        "HATE": 39,
+        "OFFENSIVE": 0,
+        "CLEAN": 85
+      },
+      "class_distribution": {
+        "HATE": 185,
+        "OFFENSIVE": 180,
+        "CLEAN": 139
+      }
+    },
+    "rule_engine_coverage_in_504": {
+      "correct": 124,
+      "percentage": 24.603174603174605
+    },
+    "disagreement_patterns": {
+      "both_right": {
+        "total": 5384,
+        "in_504": 0,
+        "by_class": {
+          "CLEAN": 5154,
+          "HATE": 230
+        }
+      },
+      "ai_right_rule_wrong": {
+        "total": 469,
+        "in_504": 0,
+        "by_class": {
+          "OFFENSIVE": 186,
+          "CLEAN": 146,
+          "HATE": 137
+        }
+      },
+      "ai_wrong_rule_right": {
+        "total": 290,
+        "in_504": 124,
+        "by_class": {
+          "CLEAN": 172,
+          "HATE": 118
+        }
+      },
+      "both_wrong": {
+        "total": 537,
+        "in_504": 380,
+        "by_class": {
+          "OFFENSIVE": 258,
+          "HATE": 203,
+          "CLEAN": 76
+        }
+      }
+    }
+  }
+}

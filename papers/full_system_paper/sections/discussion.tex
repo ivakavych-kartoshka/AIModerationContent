@@ -7,8 +7,8 @@
 
 The result is better read as a successful audit: 38 of 6{,}680 decisions change,
 each described by a channel, a direction and a mechanism.  Moreover, the
-end-to-end bilingual evaluation demonstrates deployment viability (87.0\%
-accuracy, 11.6 ms latency, ~86k req/s), showing that a hybrid architecture can
+end-to-end bilingual evaluation demonstrates deployment viability (87.10\%
+accuracy, 9.07 ms latency, 110.2 texts/s throughput), showing that a hybrid architecture can
 be both explainable and production-ready.
 
 \emph{Triage and accountability.}  A queue can sort comments by whether the
@@ -37,22 +37,13 @@ corrections.  Neutrality is a \emph{choice}, not an absence of signal.
 \subsection{The Bilingual Asymmetry}
 \label{sec:asymmetry_bilingual}
 
-The mixed evaluation reveals a clear language gap:
-\begin{itemize}
-    \item \textbf{HATE F1}: VI 0.61 vs EN 0.46.  The Vietnamese lexicon has 594
-          HATE-labelled entries; the English lexicon has 86.  The Davidson
-          training split contains only 5.8\% HATE documents, limiting extraction.
-    \item \textbf{OFFENSIVE F1}: EN 0.92 vs VI 0.41.  The English lexicon and
-          AI backbone are well aligned with Davidson's OFFENSIVE majority;
-          Vietnamese OFFENSIVE is comparatively harder because ViHSD has only
-          6.65\% OFFENSIVE.
-    \item \textbf{CLEAN F1}: both above 0.92, indicating a conservative
-          pipeline that rarely flags clean text as toxic.
-\end{itemize}
-This asymmetry is not a bug but a data characteristic: lexicon extraction from
-a corpus with a different class prior produces different coverage.  The
-practical remedy is either manual seed expansion for English HATE terms or
-additional corpora with more HATE examples.
+The mixed evaluation reveals a clear language gap: HATE F1 VI 0.6051 vs EN
+0.4537 (Vietnamese lexicon has 594 HATE entries versus English 86; Davidson
+training only 5.8\% HATE), OFFENSIVE F1 EN 0.9270 vs VI 0.4142 (English
+backbone aligns with Davidson's 77.8\% OFFENSIVE majority; ViHSD only 6.65\%
+OFFENSIVE), CLEAN F1 VI 0.9344 vs EN 0.8541 (English experiences mild
+over-flagging on clean text). This asymmetry is data-driven: lexicon extraction
+from corpora with different class priors produces different coverage.
 
 \subsection{Design Implications}
 \label{sec:implications_bilingual}
@@ -75,10 +66,10 @@ Five changes follow:
 \subsection{Practical Deployment}
 \label{sec:deployment}
 
-The latency profile (11.6 ms mean, 9.1 ms median) supports synchronous
-moderation for text comments.  Routing dominates tail latency (max 2.1 s) due
-to first-call tokenizer initialization; this is a one-time cold-start cost that
-can be pre-warmed.  AI inference is stable under batching.  A production
+The latency profile (9.07 ms mean, 110.2 texts/s throughput) supports synchronous
+moderation for text comments.  Routing (5.22 ms) and AI inference (3.85 ms) are the
+main components; P95 latency is 12.69 ms.  Tail latency can reach up to 2.1 s during cold-start tokenizer
+initialization; this is a one-time cost that can be pre-warmed.  A production
 deployment should pre-load both checkpoints and the two rule engines at
 startup, cache tokenizer initialization, and set $\alpha$ per language from
 validation-frozen weights.

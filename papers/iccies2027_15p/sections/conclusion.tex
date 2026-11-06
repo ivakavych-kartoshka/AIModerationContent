@@ -1,0 +1,25 @@
+%!TEX root = ../main.tex
+\section{Conclusion}
+\label{sec:conclusion}
+
+The key results are:
+\begin{itemize}
+    \item On the 9{,}158-sample bilingual evaluation (full ViHSD $+$ Davidson splits), the
+          pipeline reaches per-language accuracy 87.32\% (VI) / 87.17\% (EN),
+          6.14 ms mean latency (P95 6.66 ms), supporting real-time deployment.
+    \item The bilingual comparison exposes a structural asymmetry: English
+          excels on OFFENSIVE (F1 0.920) while Vietnamese excels on HATE
+          (F1 0.610); the 818-entry English lexicon contains only 86 HATE
+          terms versus 594 for Vietnamese.
+    \item Fusion does not improve calibration: the ECE reduction from 0.112
+          (AI-only) to 0.092 (hybrid) is replicated by a uniform-mixing control
+          (ECE 0.092 at $\alpha=0.70$) and is explained by confidence shrinkage
+          toward uniform.
+    \item The 64 changed decisions on ViHSD are fully decomposable into
+          rule-driven and threshold-driven causes, with all corrections
+          rule-supported, providing auditable provenance for audit and appeal.
+\end{itemize}
+
+The contribution is not an accuracy breakthrough but a production-ready
+hybrid system that combines neural accuracy with rule-level explainability,
+supported by real-time latency on a single laptop GPU.
