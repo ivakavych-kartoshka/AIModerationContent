@@ -72,18 +72,17 @@ in this run the AI backbone is the dominant latency component.
 \label{sec:calibration}
 
 Table~\ref{tab:hybrid-calibration} reports calibration diagnostics for AI-only and
-Hybrid variants on ViHSD test, alongside a uniform-mixing control ($\alpha=0.70$)
-where the rule channel is replaced by a constant $(1/3, 1/3, 1/3)$ distribution.
-While hybrid ECE (0.092) improves over AI-only (0.112), the uniform-mixing
-control reaches the same ECE (0.092) while mean confidence drops from 0.984
-to 0.939 and 0.791 respectively. This indicates that the apparent calibration
-gain is a confidence-shrinkage artefact rather than genuine calibration
+Hybrid variants on the bilingual test splits.
+While hybrid ECE for ViHSD (0.097) improves over AI-only (0.111), the English
+ECE slightly degrades (0.101 $\to$ 0.106) while mean confidence drops from 0.987
+to 0.952 (VI) and 0.808 to 0.804 (EN). This indicates that the apparent calibration
+gain on ViHSD is a confidence-shrinkage artefact rather than genuine calibration
 improvement from rule evidence. We do not claim calibration gains.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/hybrid_reliability.png}
-\caption{Reliability diagram (ECE) comparison between AI-only and Hybrid fusion on the ViHSD test set.}
+\caption{Reliability diagram (ECE) comparison between AI-only and Hybrid fusion on the bilingual test sets (left: ViHSD, right: Davidson EN).}
 \label{fig:reliability}
 \end{figure}
 

@@ -24,7 +24,10 @@ The key results are:
           terms versus 594 for Vietnamese.
     \item Fusion improves calibration: the full-pipeline ECE is 0.076 versus
           0.114 (VI backbone-only) and 0.102 (EN backbone-only), confirming that
-          fused scores are better calibrated than raw neural outputs.
+          fused scores are better calibrated than raw neural outputs. The hybrid
+          ECE on ViHSD (0.097 vs 0.111 AI-only) improves, while on EN the hybrid
+          ECE (0.106) sits near the AI-only level (0.101); reported gains are
+          treated as confidence shrinkage rather than genuine calibration gains.
 \end{itemize}
 
 The broader lesson is methodological: a hybrid evaluated only by its aggregate

@@ -315,8 +315,8 @@ Table~\ref{tab:calibration_full} summarizes probability calibration metrics acro
 \toprule
 System Variant & ECE $\downarrow$ & Brier $\downarrow$ & NLL $\downarrow$ & Mean Conf. & Macro-F1 $\uparrow$ \\
 \midrule
-AI-only (ViHSD test) & 0.112 & 0.240 & 0.825 & 0.984 & 0.660 \\
-Hybrid Fusion (ViHSD test) & 0.092 & 0.230 & 0.822 & 0.939 & 0.660 \\
+AI-only (ViHSD test) & 0.111 & 0.2334 & 0.8382 & 0.987 & 0.6575 \\
+Hybrid Fusion (ViHSD test) & 0.098 & 0.2273 & 0.7879 & 0.952 & 0.659 \\
 Uniform Control ($\alpha=0.70$) & 0.092 & 0.227 & --- & 0.791 & 0.658 \\
 Mixed E2E Stream ($n=9{,}158$) & 0.078 & 0.230 & 0.755 & 0.904 & 0.779 \\
 \midrule
@@ -661,7 +661,7 @@ Table~\ref{tab:experimental_setup} outlines exact computational infrastructure, 
 \toprule
 Category & Configuration Details \\
 \midrule
-Hardware & NVIDIA GeForce RTX 4060 Laptop GPU (8 GB VRAM), Intel Core i7-13700H, 32 GB RAM \\
+Hardware & NVIDIA GeForce RTX 4060 Laptop GPU (8 GB VRAM), Intel Core i7-13650HX, 24 GB RAM \\
 Operating System & Windows 11 Home 64-bit \\
 Software Stack & Python 3.11.9, PyTorch 2.5.1, Hugging Face Transformers 4.46.3, scikit-learn 1.5.2 \\
 Backbone Architecture & \texttt{microsoft/mdeberta-v3-base} (12-layer, 768-hidden, 12-heads, 278M parameters) \\

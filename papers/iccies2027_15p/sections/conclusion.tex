@@ -11,10 +11,7 @@ The key results are:
           excels on OFFENSIVE (F1 0.920) while Vietnamese excels on HATE
           (F1 0.610); the 818-entry English lexicon contains only 86 HATE
           terms versus 594 for Vietnamese.
-    \item Fusion does not improve calibration: the ECE reduction from 0.112
-          (AI-only) to 0.092 (hybrid) is replicated by a uniform-mixing control
-          (ECE 0.092 at $\alpha=0.70$) and is explained by confidence shrinkage
-          toward uniform.
+    \item Fusion does not consistently improve calibration: ViHSD ECE drops from 0.111 (AI-only) to 0.097 (hybrid) but EN ECE increases from 0.101 to 0.106; both are explained by confidence shrinkage toward uniform rather than genuine calibration improvement.
     \item The 64 changed decisions on ViHSD are fully decomposable into
           rule-driven and threshold-driven causes, with all corrections
           rule-supported, providing auditable provenance for audit and appeal.
