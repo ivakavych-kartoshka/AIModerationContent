@@ -1,0 +1,68 @@
+\section{Data and Lexicon}
+
+\label{sec:data}
+
+\subsection{The ViHSD corpus}
+
+\label{sec:vihsd}
+
+We use UIT-ViHSD \cite{luu2021vihsd}, Vietnamese social-media comments annotated
+with three mutually exclusive labels: \clean{} (no offensive content), \off{}
+(offensive language not targeting a protected group as hate speech) and \hate{}
+(hateful or seriously derogatory). The \off{}/\hate{} distinction depends on target
+and intensity rather than on a particular word, so a lexical rule engine is
+insufficient on its own.
+
+After cleaning, the corpus contains 33{,}398 comments. Every system---rule engine,
+backbone, fusion variant, analysis script---reads the same fixed split, and each run
+stores and re-checks the split's SHA-256 digest, ruling out a silently re-shuffled
+split. Training has 24{,}046 comments (2{,}556 \hate{}, 1{,}605 \off{}, 19{,}885
+\clean{}), validation 2{,}672 (270/212/2{,}190) and test 6{,}680 (688/444/5{,}548).
+
+The test split is imbalanced: 83.05\% \clean{}, 10.30\% \hate{} and 6.65\% \off{},
+so accuracy is a poor headline metric---a constant \clean{} predictor already reaches
+0.8305---and macro-F1 is primary, always with per-class F1. The 6{,}680 test rows
+contain 6{,}571 distinct texts (109 duplicated rows), kept because removing them would
+change the frozen test set; one appears twice among the 15 regressions, which thus
+cover 14 distinct texts.
+
+\subsection{The hate-speech lexicon}
+
+\label{sec:lexicon}
+
+The rule engine is driven by a Vietnamese hate-speech lexicon of \textbf{668 entries},
+mined and labelled from the \emph{training} portions of ViHSD; R-ViHSD, a cleaned
+release adding TDTU YouTube and voz-forum comments \cite{bontoriTdtu}; and the code-mixed
+ViCM corpus \cite{nguyen2026vicm}. The three training splits yield 1{,}062 candidate
+terms, first attested 257/665/140 in ViHSD/ViCM/R-ViHSD; labelling reduces them to the
+entries kept below. No evaluation split is intentionally sampled, and each entry records
+its supporting corpora (414 of 668 occur in all three).
+
+An exact-text cross-corpus audit nevertheless found 895 of the 6{,}680 ViHSD test rows
+(13.4\%) with a matching text in the auxiliary corpus material examined for lexicon
+development, corresponding to 620 distinct test texts also present in the Bontori/R-ViHSD
+training partition. This is a potential source of lexicon-construction leakage even
+though ViHSD test comments were not deliberately sampled. To assess its effect, we
+rebuilt the lexicon after excluding the overlapping Bontori/R-ViHSD training texts; the
+leak-free lexicon has 671 entries versus 668 canonical. Unless stated otherwise, main
+results use the canonical 668-entry lexicon; leak-free results are in
+Sect.~\ref{sec:leak-free-sensitivity}.
+
+Each entry stores the surface term and canonical form, a label (\hate{} or \off{}) with
+per-label severity, a training-estimated confidence, a context-required flag, and a
+review status (\emph{verified} or \emph{auto}), retained in the evidence record.
+
+The lexicon is deliberately not a list of slurs. Most entries---551 of 668 (82.5\%)---are
+multi-word constructions such as \emph{mả cha}, \emph{con mẹ} or \emph{ngu hơn}, and 524
+(78.4\%) are context-required, because Vietnamese insults often work by comparison and
+implication rather than a single taboo word. Only 74 entries carry an \off{} label against
+594 for \hate{}, so the engine is weak on \off{} and fusion keeps that channel mostly
+neural. The lexicon is \emph{editable} (a new variant needs no retraining),
+\emph{deterministic} (same comment, same spans) and \emph{inspectable} (each score
+decomposes into a term, match type and context factor).
+
+\paragraph{Ethics of examples.}
+All quoted comments are public ViHSD test comments. Because they contain profanity
+and slurs, we mask offending characters with \texttt{*} in every table; evaluation
+runs on unmasked text. No user identifiers are reproduced, and names inside comments
+are part of the public corpus text.

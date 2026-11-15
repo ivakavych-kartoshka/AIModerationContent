@@ -1,0 +1,35 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We attached a canonical 668-term Vietnamese hate-speech lexicon to four
+multilingual transformer backbones as an evidence channel and evaluated it on
+the ViHSD test split. We retain \texttt{sensitiveai-vi-custom} as an
+exploratory, post-hoc case study for fusion provenance, rather than as a
+confirmatorily selected primary model. The strongest standalone backbone by
+validation macro-F1 is \texttt{sensitiveai-vi-customdlr2stage} (0.7089), with
+test macro-F1 0.6638. On the focused backbone, the canonical hybrid changes
+macro-F1 from 0.6575 to 0.6602---a net of eight additional correct comments,
+with paired-bootstrap $p=0.29$---so we do not present it as an accuracy
+contribution.
+
+The contribution is the provenance of the change. All 23 corrections are
+rule-supported (16 \hate{} recoveries with median rule score 0.77, and 7
+\clean{} de-flagging cases where the rule is correctly silent), and all 10
+rule-driven regressions push towards \hate{}, localising the failure mode to an
+aggressive channel rather than to coverage. A further 132 missed corrections
+show the rule already pointing right while a full-weight \clean{} channel
+blocks the fix.
+
+The leak-free sensitivity run uses a 671-entry lexicon and yields fusion
+macro-F1 0.6612 and accuracy 0.8777 (23 corrections and 13 regressions); the
+standalone leak-free rule engine reaches test macro-F1 0.5328 and accuracy
+0.8440. In a preliminary three-seed check, the fusion-minus-AI macro-F1
+differences are $+0.0027$, $-0.0041$ and $-0.0010$ (mean $-0.0008$), so the
+positive single-seed difference is not a stable gain.
+
+The broader lesson is methodological: a hybrid evaluated only by its aggregate
+metric looks like a null result, whereas the same hybrid decomposed by channel
+and direction yields an auditable decision procedure and a design agenda.
+Future work: validate evidence-gated fusion, separate profanity from political
+entries, restore negation and accent-less matching, and measure whether the
+evidence record helps reviewers.

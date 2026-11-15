@@ -28,35 +28,35 @@ Max sequence length               : 256
 
 [Training]
 Best Metric                       : macro_f1
-Best Value                        : 0.695699
-Best Epoch                        : 14
+Best Value                        : 0.690522
+Best Epoch                        : 6
 Best Stage                        : single
-Epochs Run                        : 20 / 30
-Training Time                     : 03:50:56 (h:mm:ss)
+Epochs Run                        : 12 / 30
+Training Time                     : 02:14:02 (h:mm:ss)
 Early Stopped                     : True
 
 [Inference Benchmark]
 Batch Size                        : 32
-Average Latency / Batch           : 351.956 ms
-Average Latency / Sample          : 10.9986 ms
-Latency p95 / Batch               : 361.012 ms
-FPS (samples / second)            : 90.92
+Average Latency / Batch           : 344.738 ms
+Average Latency / Sample          : 10.7731 ms
+Latency p95 / Batch               : 344.984 ms
+FPS (samples / second)            : 92.82
 Precision                         : fp32
 Timed Batches                     : 50
 
 [Test Results]  (decision rule: argmax)
-Accuracy                          : 0.8762
-Macro Precision                   : 0.6843
-Macro Recall                      : 0.6359
-Macro F1                          : 0.6575
-Weighted F1                       : 0.8709
-Macro ROC-AUC                     : 0.8842
-Macro Average Precision           : 0.6484
+Accuracy                          : 0.8738
+Macro Precision                   : 0.6758
+Macro Recall                      : 0.6516
+Macro F1                          : 0.6627
+Weighted F1                       : 0.8712
+Macro ROC-AUC                     : 0.9063
+Macro Average Precision           : 0.6832
 
 Class          Precision      Recall          F1     Support
-HATE              0.6427      0.5334      0.5830         688
-OFFENSIVE         0.4844      0.4189      0.4493         444
-CLEAN             0.9258      0.9553      0.9403        5548
+HATE              0.6304      0.5480      0.5863         688
+OFFENSIVE         0.4658      0.4595      0.4626         444
+CLEAN             0.9313      0.9474      0.9392        5548
 
 [Hardware / Software]
 GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU

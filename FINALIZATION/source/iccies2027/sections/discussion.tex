@@ -1,0 +1,99 @@
+\section{Discussion}
+
+\label{sec:discussion}
+
+\subsection{What the hybrid is good for}
+
+The result is better read as a successful audit: 38 of 6{,}680 decisions change,
+each with a channel, a direction and a mechanism.
+
+\emph{Triage and accountability.} A queue can sort comments by whether the decision
+was rule-supported: a \hate{} decision with a matched span and $r_H=0.8$ is easier to
+review and defend.
+
+\emph{Editing and diagnosis.} Adding a slur variant is a configuration change, not a
+retraining run, and it affects the \hate{} channel (weight 0.8) most. The decomposition
+exists only because the channels are separate: a monolithic classifier improving by
+0.0027 could not show whether the change was lexical or neural.
+
+\subsection{Why accuracy does not move}
+
+\label{sec:why-neutral}
+
+First, \emph{coverage is low}: the rule fires on 15.75\% of comments, so a perfect
+rule channel could only change decisions in that subset. Second, \emph{the majority
+class dominates}: with 83\% \clean{}, only the 1{,}132 toxic comments can improve, and
+38 changes is 3.4\% of that support---enough to matter operationally, too little to
+move a macro-average beyond its interval. Third, \emph{tuning is safety-oriented}:
+protecting \clean{} and gating \hate{} on lexical support produces both the
+de-flagging and the missed corrections. Neutrality is a \emph{choice}, not an absence
+of signal; the leak-free run shows the same pattern.
+
+\subsection{The directional asymmetry is a policy question}
+
+\label{sec:asymmetry}
+
+In a binary ``remove / keep'' framing the asymmetry of Sect.~\ref{sec:regressions} is
+a recall-oriented trade-off; in a three-class framing it is not, because an \off{}
+comment mislabelled as \hate{} can trigger a stronger sanction than warranted, and a
+political comment mislabelled as \hate{} is a different harm. That entry is a charged
+multi-word expression labelled \hate{} from co-occurrence, so the lexicon is not
+neutral---it encodes editorial judgments entering at weight 0.8. Deployments should
+separate \emph{profanity} from \emph{political} entries and weight them accordingly.
+
+\subsection{Design implications}
+
+\label{sec:implications}
+
+Four changes follow: (i) \textbf{evidence-gated fusion}---abstain or escalate when
+the rule fires strongly against a confident \clean{}; (ii) \textbf{separate thresholds
+per mechanism}, requiring $r_H\ge0.5$ before the \hate{} channel can override, making
+the rule- and threshold-driven paths separately tunable; (iii) \textbf{per-class
+calibration} of the \clean{} channel, which now blocks the missed corrections; (iv)
+\textbf{human-in-the-loop} for the 804 both-wrong comments no fusion can fix.
+
+\subsection{Limitations}
+
+\label{sec:limitations}
+
+\paragraph{Single benchmark and language.}
+All results come from ViHSD and Vietnamese. The lexicon and cue taxonomy are
+language-specific; the fusion protocol is not, but we have not tested it
+elsewhere.
+
+\paragraph{Preliminary three-seed check.}
+The main sweep used seed 42. A preliminary three-seed check gives fusion-minus-AI
+macro-F1 differences of $+0.0027$, $-0.0041$ and $-0.0010$ (mean $-0.0008$): the sign
+changes, so the single-seed gain is not stable and this does not replace a full
+multi-seed evaluation.
+
+\paragraph{Cross-corpus overlap.}
+The audit in Sect.~\ref{sec:lexicon} found 895 overlapping test rows and motivated the
+671-entry leak-free lexicon re-evaluated in Sect.~\ref{sec:leak-free-sensitivity};
+this bounds, but does not eliminate, cross-corpus dependence.
+
+\paragraph{Repeated test texts.}
+The frozen split has 6{,}680 rows but 6{,}571 distinct texts; one appears twice among
+the 15 canonical regressions. We retain all rows to preserve the split, but no
+deduplicated sensitivity analysis or duplicate-group bootstrap was available, so
+row-level resampling may not fully account for dependence among repeated texts.
+
+\paragraph{The rule engine is weaker than designed.}
+Validation set the accent-less alias weight to zero and the negation factor to one,
+removing the main defence against dropped diacritics and the discount for negated
+slurs visible in the \off{}-as-intensifier regressions.
+
+\paragraph{Explanations are not evaluated by humans.}
+The evidence record is faithful for the lexical channel and decomposes the changed
+decisions, but we do not measure whether reviewers find it useful, and the cue
+taxonomy is a post-hoc, unblinded annotation.
+
+\subsection{Ethics}
+
+\label{sec:ethics}
+
+Comments are public ViHSD test comments, masked as described in Sect.~\ref{sec:data}.
+The system is decision support, not automatic sanctioning: the directional asymmetry
+and the political false positive show that automatic \hate{} labels from this pipeline
+should be reviewed before affecting a user, and the lexicon should be a governed
+artefact with a change log since its entries shape moderation outcomes.

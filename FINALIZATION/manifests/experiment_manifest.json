@@ -1,0 +1,45 @@
+{
+  "project": "ICCIES 2027 - An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for Vietnamese Hate Speech Detection",
+  "branch": "sensitiveai-vi",
+  "commit": "62e5f079a7f7d60160c503c75d678ec2be56520f",
+  "primary_model": "sensitiveai-vi-custom",
+  "encoder": "microsoft/mdeberta-v3-base",
+  "random_seed_reported": 42,
+  "seed_runs_available": "single seed per backbone (limitation)",
+  "dataset_split_manifest": "data/splits/split_manifest.json",
+  "fusion_config": {
+    "variant": "fusion_per_channel_thresholds",
+    "alphas": {
+      "HATE": 0.2,
+      "OFFENSIVE": 0.9,
+      "CLEAN": 1.0
+    },
+    "thresholds": {
+      "HATE": 0.14,
+      "OFFENSIVE": 0.66,
+      "CLEAN": 0.6
+    }
+  },
+  "rule_engine": {
+    "config": "configs/rule_engine.yaml",
+    "tuned_config": "configs/rule_engine_tuned.yaml",
+    "entries_original": 668,
+    "entries_leakage_free": 671,
+    "thresholds_original": {
+      "HATE": 0.81,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.64
+    }
+  },
+  "artifacts": {
+    "numbers": "outputs/evaluation/fusion/iccies2027/numbers.json",
+    "predictions": "outputs/evaluation/fusion/sensitiveai-vi-custom/fusion_predictions.csv",
+    "rule_scores": "outputs/evaluation/rule_engine_tuned/test/rule_scores.csv",
+    "significance": "outputs/evaluation/fusion/fusion_significance.json",
+    "figures": [
+      "papers/iccies2027/figures/architecture.pdf",
+      "papers/iccies2027/figures/results.pdf"
+    ]
+  },
+  "verification_script": "scripts/audit_iccies2027_assertions.py"
+}

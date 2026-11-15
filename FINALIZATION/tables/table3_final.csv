@@ -1,0 +1,6 @@
+﻿case,comment_masked,gold,ai,hybrid,r_H,mechanism
+1,để avata bít ngay là ngu hơn chó,HATE,CLEAN,HATE,0.97,rule rescue; two exact matches lift HATE channel
+2,... cũng đ*o thể yêu thương nổi,HATE,OFFENSIVE,HATE,0.71,threshold rescue; HATE just below OFFENSIVE but clears tau_H
+3,hóng bro tét đ*t thằng tùng,CLEAN,HATE,CLEAN,0.00,de-flagging; silent rule collapses HATE channel
+4,... nói không.. đợi cái loz,OFFENSIVE,OFFENSIVE,HATE,0.87,rule-driven regression; profanity read as HATE
+5,... abe tuổi lol mà so đc,HATE,HATE,CLEAN,0.00,threshold-driven regression; HATE misses tau_H by 0.001

@@ -1,0 +1,70 @@
+{
+  "data/splits/train.csv": {
+    "sha256": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244",
+    "size_bytes": 2034944
+  },
+  "data/splits/validation.csv": {
+    "sha256": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353",
+    "size_bytes": 215121
+  },
+  "data/splits/test.csv": {
+    "sha256": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b",
+    "size_bytes": 546151
+  },
+  "data/processed/lexicon/verified_lexicon.csv": {
+    "sha256": "b4c5edadb6c7a9e979d8dda92212ee67ccdb48ad649fdff065f346af8b210c3b",
+    "size_bytes": 116706
+  },
+  "data/processed/lexicon/leakage_free/verified_lexicon.csv": {
+    "sha256": "251652318d4e47732df159e70037c15d9d3b4b15aca57af64fc5b6c823eeaefd",
+    "size_bytes": 117238
+  },
+  "outputs/evaluation/fusion/sensitiveai-vi-custom/fusion_predictions.csv": {
+    "sha256": "b99cd64b6fe0b007b9f099750eaed076d97ca9ef4230ec969c6280653b5e06ef",
+    "size_bytes": 1222532
+  },
+  "outputs/evaluation/rule_engine_tuned/test/rule_scores.csv": {
+    "sha256": "889066685b15096bc45b24eb0044ee8746fc7695be4cf24b01c69459c157c2ef",
+    "size_bytes": 178302
+  },
+  "outputs/evaluation/fusion/iccies2027/numbers.json": {
+    "sha256": "5e723e85d3bf6dd5f4fa72e0285f3259bc33e743dfb1c2189295b93c92107530",
+    "size_bytes": 5852
+  },
+  "outputs/evaluation/fusion/sensitiveai-vi-custom/metrics.json": {
+    "sha256": "a32814fe9a6b0bfdbc911095da6e12947708a689ef4dcb926bb80e23ee2706e3",
+    "size_bytes": 26599
+  },
+  "outputs/evaluation/rule_engine_tuned/thresholds.json": {
+    "sha256": "ec6ba6e6031490695f7725d1af5f5b6e2de6b4ec34d75a5fb3beb8f26064be6d",
+    "size_bytes": 1987
+  },
+  "outputs/evaluation/fusion/fusion_significance.json": {
+    "sha256": "b9d2fa9f26928167a7bfe9824974d132fd381d48d3e9f62c09d323deab84945a",
+    "size_bytes": 1718
+  },
+  "papers/iccies2027/main.tex": {
+    "sha256": "b76595d453f1ce8ab07feb95f143a102d7dde5ff68ca97ee48fc524df920924a",
+    "size_bytes": 6778
+  },
+  "papers/iccies2027/figures/architecture.pdf": {
+    "sha256": "e123761865149c2392738147bb370281bbab7f608d3977e6437d56ab647f843a",
+    "size_bytes": 44355
+  },
+  "papers/iccies2027/figures/results.pdf": {
+    "sha256": "9940db7251d656c69a78ec2553585a04dee4cc48c4b20e424df4bf954917ac6c",
+    "size_bytes": 40263
+  },
+  "scripts/47_iccies_numbers.py": {
+    "sha256": "bd47b9bd276c6d66a1a294b8f068ad5beb35a07b374f21b9855e743536f90372",
+    "size_bytes": 13177
+  },
+  "scripts/48_paper_figures.py": {
+    "sha256": "abeec697f0b41aaca465f01a14003b0b05f91b0bf26f08e1c7e57dd49f204133",
+    "size_bytes": 12637
+  },
+  "scripts/audit_iccies2027_assertions.py": {
+    "sha256": "8200e958b7e55805e43924b09f49640170c34f6aa73f05b72cfe3db2750b70fd",
+    "size_bytes": 3214
+  }
+}
