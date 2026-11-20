@@ -7,21 +7,17 @@ The aggregate result is neutral; the question is what the 38 changes consist of.
 \label{sec:corrections}
 
 Of the 23 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{}) and
-7 are \clean{} de-flagging cases (6 from \hate{}, 1 from \off{}). All 16 recoveries
-have a rule firing with a \hate{} score above the \off{} score---the rule points in
-the corrected direction---and the rule \hate{} score has median 0.7652 (mean 0.7507,
-range 0.2351--0.9939), so the evidence is strong, not marginal, for most of them.
+7 are \clean{} de-flagging cases. All 16 recoveries have a rule firing with a \hate{}
+score above the \off{} score, and the rule \hate{} score has median 76.52\% (mean
+75.07\%, range 23.51\%--99.39\%): the evidence is strong, not marginal.
 
-All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$, so
-$\tilde{\mathbf r}=(0,0,1)$). With $\alpha_H=0.2$ the rule term vanishes from the
-\hate{} channel and $f_H=0.2\,p_H$, so $p_H\ge0.70$ is needed merely to reach
-$\tau_H=0.14$; a flagged \hate{} at $p_H\approx0.5$ ends at $f_H\approx0.10$ and falls
-back to \clean{}, whose channel keeps the full neural weight ($\alpha_C=1$). Silence
-therefore acts only as a multiplicative prior on \hate{}. The alternative
-convention---a silent rule contributes nothing and neural scores pass through---changes
-30 decisions (10 for it, 14 against) and raises macro-F1 from 0.6602 to 0.6614
-(95\% CI $[-0.0015,+0.0042]$, $p=0.44$; McNemar 14--10, $p=0.54$); it is undecided,
-so we keep the shipped convention for its net corrections ($+8$ vs.\ $+4$).
+All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$), so $f_H=0.2\,p_H$
+and $p_H\ge0.70$ is needed merely to reach $\tau_H=0.14$; a flagged \hate{} at
+$p_H\approx0.5$ ends at $f_H\approx0.10$ and falls back to \clean{}, whose channel keeps
+full neural weight. Silence acts only as a multiplicative prior on \hate{}. The
+alternative convention (silent rule contributes nothing) changes 30 decisions and
+raises macro-F1 to 66.14\% ($p=0.44$; McNemar $p=0.54$); it is undecided, so we keep
+the shipped convention for its net corrections ($+8$ vs.\ $+4$).
 
 \subsection{Regressions are rule-driven and directional}
 \label{sec:regressions}
@@ -33,15 +29,15 @@ trusts lexical evidence over the neural label and the lexicon is wrong about
 intensity or target. The \off{} cases are the expected failure of a phrase lexicon:
 profanity used as an intensifier, not an attack. The \clean{} cases are false
 positives on non-abusive text; one is a political comment whose charged multi-word
-entry fires at $r_H=0.62$ while the transformer prefers \clean{} ($p_C=0.515$ vs.\
-$p_H=0.473$), but the \clean{} channel misses $\tau_C=0.60$ and the rule lifts $f_H$
-to $0.588$, far above $\tau_H=0.14$, so the decision goes to \hate{}. A lexicon
+entry fires at $r_H=0.62$ while the transformer prefers \clean{} ($p_C=51.50\%$ vs.\
+$p_H=47.30\%$), but the \clean{} channel misses $\tau_C=0.60$ and the rule lifts $f_H$
+to $58.80\%$, far above $\tau_H=0.14$, so the decision goes to \hate{}. A lexicon
 entry's \emph{political} sensitivity can thus leak into moderation decisions
 (Sect.~\ref{sec:discussion}).
 
 The 5 threshold-driven regressions are the mirror image: the rule is silent, the
 fused \hate{} score is $0.2\,p_H$, and below $p_H\approx0.7$ the \hate{} channel no
-longer wins; two miss by exactly 0.001 ($f_H=0.1390$ vs.\ $\tau_H=0.14$). One
+longer wins; two miss by exactly 0.1\% ($f_H=13.90\%$ vs.\ $\tau_H=0.14$). One
 mechanism ($\alpha_H=0.2$, $\tau_H=0.14$) thus produces 7 correct and 5 incorrect
 de-flagging decisions and cannot be removed without also removing the corrections.
 The decomposition is exhaustive---26 of 38 changes rule-driven, 12
@@ -52,8 +48,8 @@ much.
 \subsection{The corrections fusion does not make}
 \label{sec:missed}
 
-A channel with no signal and a channel whose signal fusion ignores look alike in
-aggregate; the second is the case here. Among the 827 AI errors, 148 non-\clean{}
+A channel with no signal and a channel whose signal fusion ignores look the same in
+aggregate; here it is the latter. Among the 827 AI errors, 148 non-\clean{}
 comments have the rule firing in the correct direction and 151 \clean{} comments have
 it correctly silent, so the rule agrees with gold on 299 errors and fusion acts on 23
 of them (7.7\%). The remaining \textbf{132 missed corrections} are non-\clean{} cases
@@ -61,47 +57,31 @@ where the rule already points right yet the hybrid is still wrong. Separately, 1
 the 151 silent-\clean{} errors stay wrong because the AI's \hate{} probability is high
 enough that even one fifth of it clears $\tau_H$.
 
-The 132 are not missed for weak evidence: their median rule \hate{} score is 0.7609
-(quartiles 0.67--0.85), indistinguishable from the 0.7652 median of corrected cases.
-They are missed because the \clean{} channel keeps the full AI weight ($\alpha_C=1.0$),
-so a confidently wrong \clean{} cannot be outvoted: the median fused \clean{} score is
-0.97 for missed versus 0.46 for corrected cases. Evidence-gated fusion
-(Sect.~\ref{sec:implications}) would abstain, but we did not tune such a rule on test,
-which would invalidate the analysis.
+The 132 are not missed for weak evidence: their median rule \hate{} score is 76.09\%,
+indistinguishable from the 76.52\% median of corrected cases. They are missed because
+the \clean{} channel keeps full AI weight, so a confidently wrong \clean{} cannot be
+outvoted (median fused \clean{} score 97\% for missed vs.\ 46\% for corrected).
+Evidence-gated fusion (Sect.~\ref{sec:implications}) would abstain, but we did not tune
+such a rule on test.
 
 \subsection{What the rule channel responds to}
 \label{sec:cue-taxonomy}
 
-We annotated the 16 \hate{} recoveries with a multi-label cue taxonomy: ten contain
-teencode or abbreviated profanity (\texttt{đ*o}, \texttt{dm}, \texttt{cmnr}), five
-standard-spelling profanity or an animal slur, and eight derogatory wording without
-profanity (\emph{ngu}, \emph{thua}, \emph{nhục}); one has no surface cue, and
-categories overlap, so counts exceed 16. The channel is not merely a profanity
-detector: much of its value comes from derogatory wording a slur list would miss.
+The 16 \hate{} recoveries carry a multi-label cue taxonomy: ten teencode/abbreviated
+profanity, five standard-spelling profanity or animal slur, eight derogatory wording
+without profanity; categories overlap. The channel is not merely a profanity detector.
 
-Which components do the work? Re-tuning and re-freezing fusion once per switch
-(Sect.~\ref{sec:fusion} protocol), only one switch matters: removing per-entry
-confidence costs 0.034 standalone macro-F1 (0.5258 to 0.4914), almost all on \off{}
-(F1 0.2389 to 0.0600), and no other switch moves the standalone engine by more than
-0.008. Rescaling severity rewrites 1{,}046 of 6{,}680 rule scores yet changes no
-hybrid decision ($p=1.0$): $\alpha$ and $\tau$ re-tune. Dropping obfuscation views
-trades recall for precision (firings 1{,}052 $\to$ 779, precision 58.75\% $\to$
-69.58\%); fuzzy matching never fires, and case-folding cannot be ablated because all
-6{,}680 test comments are already lower-case. Inside the hybrid no switch leaves
-noise ($|\Delta|\le0.0012$): the channel helps as a channel, not through its weights.
+Which components do the work? Only
+one switch matters: removing per-entry confidence costs 3.4\% standalone macro-F1
+(52.58\% to 49.14\%), almost all on \off{}; no other switch moves the engine by more
+than 0.8\%. Rescaling severity rewrites 1{,}046 rule scores yet changes no hybrid
+decision ($p=1.0$). Dropping obfuscation views trades recall for precision (firings
+1{,}052 $\to$ 779, precision 58.75\% $\to$ 69.58\%). Inside the hybrid no switch leaves noise ($|\Delta|\le0.12\%$).
 
-\subsection{Case studies}
-\label{sec:cases}
-
-Table~\ref{tab:cases} shows five decisions. Case~1 is the rule rescue: two exact
-matches carry \hate{} from $p_H{=}0.19$ to $f_H{=}0.81$, past the 0.78 \clean{}
-channel. Case~2 is the one correction plain argmax would not make: \hate{} is 0.01
-\emph{below} \off{}, but \off{} misses $\tau_O{=}0.66$ while \hate{} clears
-$\tau_H{=}0.14$---the 0.0009 per-channel thresholds buy. Case~3 is a de-flagging: a
-zero-weight accent-less alias leaves the rule silent, the \hate{} channel collapses to
-$0.2\,p_H$, and no channel clears its threshold, so the fallback returns \clean{}.
-Cases~4--5 are the failure modes of Sect.~\ref{sec:regressions}: an over-firing rule
-on profanity used as an interjection, and a \hate{} channel that misses $\tau_H$ by
-0.001.
+Table~\ref{tab:cases} shows five decisions. Case~1: two exact matches carry \hate{}
+from $p_H{=}0.19$ to $f_H{=}0.81$, past the 0.78 \clean{} channel. Case~2: \hate{} 0.01
+\emph{below} \off{}, but \off{} misses $\tau_O{=}0.66$ while \hate{} clears $\tau_H{=}0.14$.
+Case~3: silent rule, $f_H{=}0.2\,p_H$, fallback \clean{}. Cases~4--5: over-firing on
+profanity-as-interjection, and \hate{} missing $\tau_H$ by 0.1\%.
 
 \input{tables/case_studies}

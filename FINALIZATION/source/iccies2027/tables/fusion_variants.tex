@@ -5,7 +5,7 @@
 \caption{Decision-level variants for the focused backbone
 (\model{sensitiveai-vi-custom}) on test. Every variant reads the same frozen
 scores; only mixing and the decision rule differ; the last row is primary.
-\emph{Per-class columns are F1}; best macro-F1 in bold. Rule-only rows are scored
+\emph{Per-class columns are F1 (in percent)}; best macro-F1 in bold. Rule-only rows are scored
 inside the fusion pipeline on renormalised rule scores; the standalone engine with
 its own thresholds is reported in the text.}
 \label{tab:fusion-variants}
@@ -13,15 +13,15 @@ its own thresholds is reported in the text.}
 \toprule
 System & Acc. & Macro-F1 & \hate & \off & \clean \\
 \midrule
-AI only (argmax)                      & 0.8762 & 0.6575 & 0.5830 & 0.4493 & 0.9403 \\
-Rule only (argmax)                    & 0.8494 & 0.4714 & 0.4867 & 0.0000 & 0.9274 \\
-Rule only (frozen thresholds)         & 0.8421 & 0.5258 & 0.4102 & 0.2389 & 0.9284 \\
+AI only (argmax)                      & 87.62 & 65.75 & 58.30 & 44.93 & 94.03 \\
+Rule only (argmax)                    & 84.94 & 47.14 & 48.67 & 0.00 & 92.74 \\
+Rule only (frozen thresholds)         & 84.21 & 52.58 & 41.02 & 23.89 & 92.84 \\
 \midrule
-Fusion, global $\alpha$ (argmax)      & 0.8769 & 0.6583 & 0.5851 & 0.4490 & 0.9408 \\
-Fusion, global $\alpha$ (thresholds)  & 0.8769 & 0.6583 & 0.5851 & 0.4490 & 0.9408 \\
-Fusion, logistic meta-classifier      & 0.8626 & 0.6513 & 0.5818 & 0.4379 & 0.9341 \\
-Fusion, per-channel $\alpha$ (argmax) & 0.8774 & 0.6593 & 0.5882 & 0.4488 & 0.9408 \\
-Fusion, per-channel (thresholds)      & 0.8774 & \textbf{0.6602} & 0.5906 & 0.4494 & 0.9407 \\
+Fusion, global $\alpha$ (argmax)      & 87.69 & 65.83 & 58.51 & 44.90 & 94.08 \\
+Fusion, global $\alpha$ (thresholds)  & 87.69 & 65.83 & 58.51 & 44.90 & 94.08 \\
+Fusion, logistic meta-classifier      & 86.26 & 65.13 & 58.18 & 43.79 & 93.41 \\
+Fusion, per-channel $\alpha$ (argmax) & 87.74 & 65.93 & 58.82 & 44.88 & 94.08 \\
+Fusion, per-channel (thresholds)      & 87.74 & \textbf{66.02} & 59.06 & 44.94 & 94.07 \\
 \bottomrule
 \end{tabular}
 \end{table}

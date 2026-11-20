@@ -16,7 +16,7 @@ overlap, obfuscation, domain shift. We treat these as the object of analysis, no
 obstacles to a classifier.
 
 \paragraph{Vietnamese resources and models.}
-ViHSD \cite{luu2021vihsd} is the reference three-way benchmark, ViCTSD
+UIT-ViHSD \cite{luu2021vihsd} is the reference three-way benchmark, ViCTSD
 \cite{nguyen2021victsd} provides related data, and ViCM \cite{nguyen2026vicm} adds
 code-mixed comments. PhoBERT \cite{nguyen2020phobert} adapts RoBERTa to Vietnamese,
 ViSoBERT \cite{nguyen2023visobert} is pre-trained on social media, and ViHateT5
@@ -25,6 +25,11 @@ annotates the \emph{spans} that make a comment hateful, the closest Vietnamese w
 our notion of evidence; our spans come from a lexicon matcher, but the motivation is
 the same. SMTCE \cite{nguyen2022smtce} standardises evaluation, hence our macro-F1
 focus.
+
+\input{tables/external_comparison}
+
+Published encoders score higher macro-F1 than our backbone, so we claim no
+accuracy gain; our contribution is inspectability, not a new SOTA number.
 
 \paragraph{Multilingual transformers.}
 mBERT \cite{devlin2019bert} and XLM-R \cite{conneau2020xlmr} established multilingual

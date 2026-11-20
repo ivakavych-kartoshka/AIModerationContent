@@ -39,7 +39,6 @@ a sampled audit.
 \subsection{Reproducibility}
 \label{sec:repro}
 
-The split is hashed and re-checked, the rule-engine evaluation is re-read rather than
-recomputed, and the analysis script asserts that the rule scores shipped with the fusion
-predictions match the frozen tuned output---an earlier version read the \emph{untuned}
-scores and over-reported rule coverage threefold.
+The split is hashed and re-checked, and the analysis script asserts that the rule
+scores shipped with the fusion predictions match the frozen tuned output---an earlier
+version read the \emph{untuned} scores and over-reported rule coverage threefold.

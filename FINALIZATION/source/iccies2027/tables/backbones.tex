@@ -1,7 +1,7 @@
 \begin{table}[ht]
 \centering
 \scriptsize
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{1pt}
 \caption{The four backbones and the paired tests between AI-only and the hybrid.
 All share the encoder (\texttt{microsoft/mdeberta-v3-base}), tokenizer, split and
 evaluation code, differing only in optimisation recipe.
@@ -14,10 +14,10 @@ exact McNemar $p$.}
 \toprule
 Backbone (recipe) & AI & Hybrid & $\Delta$ & 95\% CI & $p_{\text{boot}}$ & $b/c$ & $p_{\text{McN.}}$ \\
 \midrule
-\model{sensitiveai-vi} (std.\ head)        & 0.6545 & 0.6494 & $+0.0051$ & $[-0.0020,\,0.0120]$ & 0.1592 & 61/30 & \textbf{0.0015} \\
-\model{sensitiveai-vi-custom} (multi-pool) & 0.6575 & \textbf{0.6602} & $-0.0027$ & $[-0.0079,\,0.0027]$ & 0.2942 & 15/23 & 0.2559 \\
-\model{sensitiveai-vi-dlr2stage} (2-stage) & \textbf{0.6638} & 0.6637 & $+0.0000$ & $[-0.0020,\,0.0024]$ & 0.9782 & 2/3 & 1.0000 \\
-\model{sensitiveai-vi-curriculum} (3-stage) & 0.6590 & 0.6618 & $-0.0028$ & $[-0.0058,\,0.0004]$ & 0.0868 & 8/31 & \textbf{0.0003} \\
+\model{sensitiveai-vi} (std.\ head)        & 65.45\% & 64.94\% & $+0.51\%$ & $[-0.20,\,1.20]\%$ & 0.1592 & 61/30 & \textbf{0.0015} \\
+\model{sensitiveai-vi-custom} (multi-pool) & 65.75\% & \textbf{66.02\%} & $-0.27\%$ & $[-0.79,\,0.27]\%$ & 0.2942 & 15/23 & 0.2559 \\
+\model{sensitiveai-vi-dlr2stage} (2-stage) & \textbf{66.38\%} & 66.37\% & $+0.00\%$ & $[-0.20,\,0.24]\%$ & 0.9782 & 2/3 & 1.0000 \\
+\model{sensitiveai-vi-curriculum} (3-stage) & 65.90\% & 66.18\% & $-0.28\%$ & $[-0.58,\,0.04]\%$ & 0.0868 & 8/31 & \textbf{0.0003} \\
 \bottomrule
 \end{tabular}
 \end{table}

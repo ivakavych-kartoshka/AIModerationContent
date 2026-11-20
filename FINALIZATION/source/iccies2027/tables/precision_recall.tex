@@ -1,0 +1,29 @@
+\begin{table}[ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\caption{Precision and recall on test for the focused backbone
+(\model{sensitiveai-vi-custom}), over the same eight systems as
+Table~\ref{tab:fusion-variants}. Per-class columns are precision (P)
+and recall (R) in percent; macro averages are unweighted means. Best value in
+each column is bold. Different systems win different columns: the
+logistic meta-classifier has the highest recall but the lowest
+macro-F1 (Table~\ref{tab:fusion-variants}), which aggregate F1 hides.}
+\label{tab:precision-recall}
+\begin{tabular}{lcccccccc}
+\toprule
+System & \multicolumn{2}{c}{\hate} & \multicolumn{2}{c}{\off} & \multicolumn{2}{c}{\clean} & \multicolumn{2}{c}{Macro} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & P & R & P & R & P & R & P & R \\
+\midrule
+AI only (argmax) & 64.27 & 53.34 & 48.44 & 41.89 & 92.58 & 95.53 & 68.43/63.59 \\
+Rule only (argmax) & 46.90 & 50.58 & 0.00 & 0.00 & 89.69 & \textbf{96.00} & 45.53/48.86 \\
+Rule only (thresholds) & 62.50 & 30.52 & 23.48 & 24.32 & 90.19 & 95.66 & 58.72/50.17 \\
+Fusion, global $\alpha$ (argmax) & 64.56 & 53.49 & 48.68 & 41.67 & 92.58 & 95.62 & 68.61/63.59 \\
+Fusion, global $\alpha$ (thresholds) & 64.56 & 53.49 & 48.68 & 41.67 & 92.58 & 95.62 & 68.61/63.59 \\
+Fusion, logistic meta-classifier & 53.47 & \textbf{63.81} & 45.61 & \textbf{42.12} & \textbf{94.26} & 92.57 & 64.45/\textbf{66.17} \\
+Fusion, per-channel $\alpha$ (argmax) & \textbf{64.91} & 53.78 & 48.94 & 41.44 & 92.55 & 95.66 & \textbf{68.80}/63.63 \\
+Fusion, per-channel (thresholds) & 63.85 & 54.94 & \textbf{49.73} & 40.99 & 92.64 & 95.55 & 68.74/63.83 \\
+\bottomrule
+\end{tabular}
+\end{table}

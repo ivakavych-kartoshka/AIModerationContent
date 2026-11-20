@@ -3,28 +3,25 @@
 
 We attached a canonical 668-term Vietnamese hate-speech lexicon to four
 multilingual transformer backbones as an evidence channel and evaluated it on
-the ViHSD test split. \texttt{sensitiveai-vi-custom} is retained as an
+the UIT-ViHSD \cite{luu2021vihsd} test split. \texttt{sensitiveai-vi-custom} is retained as an
 exploratory, post-hoc case study for fusion provenance, not a confirmatorily
 selected primary model; the strongest standalone backbone is
-\texttt{sensitiveai-vi-customdlr2stage} (validation macro-F1 0.7089, test
-0.6638). On the focused backbone the canonical hybrid changes macro-F1 from
-0.6575 to 0.6602---eight additional correct comments, paired-bootstrap
+\texttt{sensitiveai-vi-customdlr2stage} (validation macro-F1 70.89\%, test
+66.38\%). On the focused backbone the canonical hybrid changes macro-F1 from
+65.75\% to 66.02\%---eight additional correct comments, paired-bootstrap
 $p=0.29$---so we do not present it as an accuracy contribution.
 
 The contribution is the provenance of the change. All 23 corrections are
 rule-supported (16 \hate{} recoveries with median rule score 0.77, and 7
 \clean{} de-flagging cases where the rule is correctly silent), and all 10
 rule-driven regressions push towards \hate{}, localising the failure to an
-aggressive channel rather than to coverage. A further 132 missed corrections
-show the rule pointing right while a full-weight \clean{} channel blocks the fix.
+aggressive channel rather than to coverage. A further 132 missed corrections show the rule pointing right while a full-weight
+\clean{} channel blocks the fix.
 
-The leak-free sensitivity run (671 entries) yields fusion macro-F1 0.6612 and
-accuracy 0.8777 (23 corrections, 13 regressions); the standalone engine reaches
-0.5328 and 0.8440. A preliminary three-seed check gives fusion-minus-AI
-differences of $+0.0027$, $-0.0041$ and $-0.0010$ (mean $-0.0008$), so the
-single-seed gain is not stable. The broader lesson is methodological: a hybrid
-judged only by its aggregate metric looks null, whereas the same hybrid
-decomposed by channel and direction yields an auditable procedure and a design
-agenda. Future work: validate evidence-gated fusion, separate profanity from
+The leak-free run (671 entries) yields fusion macro-F1 66.12\%, accuracy 87.77\% (23
+corrections, 13 regressions); the standalone engine reaches 53.28\% and 84.40\%. A
+three-seed check gives fusion-minus-AI differences of $+0.27\%$, $-0.41\%$, $-0.10\%$
+(mean $-0.08\%$), so the gain is not stable.
+Future work: validate evidence-gated fusion, separate profanity from
 political entries, restore negation and accent-less matching, and measure
 whether the evidence record helps reviewers.

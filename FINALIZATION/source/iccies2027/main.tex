@@ -22,29 +22,20 @@
   % instead of the 15 allowed.  \stop is required because Overleaf and editors
   % run TeX in nonstopmode, where \PackageError alone only prints the message and
   % then carries on producing a silently wrong PDF.
-  \PackageError{iccies2027}{%
+  \PackageError{iccies2027}{\%
     Build this paper with XeLaTeX, not pdfLaTeX.\MessageBreak
     On Overleaf: Menu -> Compiler -> XeLaTeX.\MessageBreak
-    Locally: latexmk -xelatex main.tex}{%
+    Locally: latexmk -xelatex main.tex}{\%
     Vietnamese tone marks do not exist in T1, so pdfLaTeX reports\MessageBreak
     "Unicode character ... not set up for use with LaTeX" for every example,\MessageBreak
-    drops the letters, and needs 17 pages instead of the 15 allowed.}%
+    drops the letters, and needs 17 pages instead of the 15 allowed.}\%
   \stop
 \else
   \usepackage{fontspec}
-  % TeX Gyre Termes is the TeX Live Times: metric-compatible with Times New
-  % Roman and shipped with every TeX distribution, so the PDF is identical on
-  % Overleaf and on Windows and needs no system font.  The font is loaded by
-  % file name because name lookup of the texmf copy fails under MiKTeX.
-  % Sans and mono stay at the class default (Latin Modern).
-  \IfFontExistsTF{texgyretermes-regular.otf}
-    {\setmainfont{texgyretermes}[
-       Extension      = .otf,
-       UprightFont    = *-regular,
-       BoldFont       = *-bold,
-       ItalicFont     = *-italic,
-       BoldItalicFont = *-bolditalic]}
-    {\setmainfont{Latin Modern Roman}}
+  % CMU Serif (Computer Modern Unicode): Latin Modern look with full
+  % Vietnamese glyph support (roman + italic + small caps).
+  % Installed via MiKTeX cm-unicode package.
+  \setmainfont{CMU Serif}
 \fi
 
 \usepackage{graphicx}
@@ -66,9 +57,9 @@
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.9}
 \setcounter{totalnumber}{6}
-\setlength{\textfloatsep}{3pt plus 2pt minus 2pt}
-\setlength{\floatsep}{3pt plus 2pt minus 2pt}
-\setlength{\intextsep}{3pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{0pt plus 1pt minus 1pt}
+\setlength{\floatsep}{0pt plus 1pt minus 1pt}
+\setlength{\intextsep}{0pt plus 1pt minus 1pt}
 \setlength{\emergencystretch}{3em}
 
 \newcommand{\model}[1]{\textsc{#1}}
@@ -76,59 +67,41 @@
 \newcommand{\off}{\textsc{offensive}}
 \newcommand{\clean}{\textsc{clean}}
 
+\linespread{0.98}\selectfont
 \begin{document}
 
 \title{An Explainable Hybrid of Lexicon Rules and Multilingual
-       Transformers for Vietnamese Hate Speech Detection}
+  Transformers for Vietnamese Hate Speech Detection}
 \titlerunning{An Explainable Hybrid for Vietnamese Hate Speech Detection}
 
 % ORCID iDs are optional in the class but expected by Springer for the
 % corresponding authors: replace the commented placeholders below with the real
 % iDs (https://orcid.org) before submitting to CMT.
 \author{
-Pham Kha Vy\inst{1}% \orcidID{0000-0000-0000-0000}
- \and
-Cao Hong Nga\inst{1}\textsuperscript{(*)}\,\orcidlink{0000-0003-0343-6523}
-\and
-Jia-Ching Wang\inst{2}\textsuperscript{(*)}\,\orcidlink{0000-0003-0024-6732}
+  Pham Kha Vy\inst{1}\% \orcidID{0000-0000-0000-0000}
+  \and
+  Cao Hong Nga\inst{1}\textsuperscript{(*)}\,\orcidlink{0000-0003-0343-6523}
+  \and
+  Jia-Ching Wang\inst{2}\textsuperscript{(*)}\,\orcidlink{0000-0003-0024-6732}
 }
 
 \authorrunning{K. V. Pham,  H. N. Cao, and J. C. Wang}
 \institute{
-FPT University, Can Tho, Vietnam, 
-\email{phamkhavycm2004@gmail.com}, 
-\email{caohongnga@gmail.com}\\
-\and 
-Department of Computer Science \& Information Engineering, National Central University, Taoyuan, Taiwan,  \email{jcw@csie.ncu.edu.tw}\\
-\textsuperscript{(*)}are the corresponding authors.
+  FPT University, Can Tho, Vietnam,
+  \email{phamkhavycm2004@gmail.com},
+  \email{caohongnga@gmail.com}\\
+  \and
+  Department of Computer Science \& Information Engineering, National Central University, Taoyuan, Taiwan,  \email{jcw@csie.ncu.edu.tw}\\
+  \textsuperscript{(*)}are the corresponding authors.
 }
 
 \maketitle
 
 \begin{abstract}
-Fine-tuned multilingual transformers dominate Vietnamese hate speech detection,
-yet they are opaque and brittle on the surface forms moderation sees: teencode,
-dropped diacritics, inserted separators and abbreviated profanity.  We ask whether
-a lexicon rule engine can be attached to such a transformer as an \emph{evidence
-channel} rather than a competing classifier.  On the ViHSD test set (6{,}680
-comments, 83\% \clean) we fuse a 668-term Vietnamese hate-speech lexicon, matched
-through accent-less, leet, repeat-collapsed and separator-stripped views, with
-four backbones that differ only in their optimisation recipe.  The headline effect
-is small and not distinguishable from zero: the focused backbone improves from
-0.6575 to 0.6602 macro-F1, a net of 8 comments (23 fixed, 15 broken),
-with a paired-bootstrap $p=0.29$.  The value we report is not the delta but its
-\emph{provenance}.  The rule channel fires on 15.75\% of test comments with
-58.75\% precision, and all 23 corrections are rule-consistent: 16 \hate{}
-recoveries where the rule fires in the corrected direction, and 7 \clean{}
-de-flagging cases where it is correctly silent.  All 10 rule-driven regressions
-push towards \hate{}, localising the failure mode to an aggressive channel rather
-than to lexical coverage.  We further identify 132 missed corrections where the
-rule already carries directional evidence fusion does not act on.  These
-diagnostics, not the fourth decimal of macro-F1, are the contribution.
-\keywords{Vietnamese hate speech \and ViHSD \and Explainable AI \and
-          Hybrid fusion \and Lexicon rules \and Error analysis.}
+  Hate speech detection is an essential component of content moderation on social media, where harmful comments spread rapidly and platforms are required to provide clear justifications for content removal decisions. Detecting hate and offensive speech in Vietnamese presents several challenges due to the limited availability of linguistic resources and the widespread use of obfuscation techniques, such as teencode, diacritic omission, character separation, and profanity abbreviation. Furthermore, the distinction between "hate" and "insult" depends not only on the vocabulary used but also on the intensity of the expression and the target of the attack. To address these challenges, this study proposes a hybrid framework for Vietnamese sensitive content detection that integrates a rule-based detection mechanism with a Transformer-based deep learning model, namely mDeBERTa-v3. The proposed framework aims to identify both hate speech and offensive language by leveraging the complementary strengths of lexical rules and contextual representations. Experiments conducted on the ViHSD dataset achieved a macro-F1 score of 66.02\% on the test set, representing a modest improvement over the mDeBERTa-v3 baseline, which obtained 65.75\%. Although the improvement is relatively small, the results suggest that incorporating rule-based detection can provide additional benefits beyond the standalone Transformer model. Nevertheless, the rule-based component requires further refinement, particularly in terms of lexical coverage and quality, to enhance its contribution to the overall framework.
+  \keywords{Sensitive content detection \and Rule-based detection \and Transformer-based detection \and
+    Hybrid system \and Lexicon rules.}
 \end{abstract}
-
 \input{sections/introduction}
 \input{sections/related_work}
 \input{sections/data}
@@ -144,9 +117,9 @@ diagnostics, not the fourth decimal of macro-F1, are the contribution.
 % an "Acknowledgments" paragraph (\ackname) may be added above it if the work
 % was funded.
 \begin{credits}
-\subsubsection{\discintname}
-The authors have no competing interests to declare that are relevant to the
-content of this article.
+  \subsubsection{\discintname}
+  The authors have no competing interests to declare that are relevant to the
+  content of this article.
 \end{credits}
 
 \bibliographystyle{splncs04}

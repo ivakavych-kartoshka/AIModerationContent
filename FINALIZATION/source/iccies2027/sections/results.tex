@@ -7,39 +7,39 @@
 We retain \texttt{sensitiveai-vi-custom} as a focused, exploratory case study for
 tracing decision provenance---a post-hoc analysis, not a confirmatory validation-based
 selection. The strongest standalone backbone by validation macro-F1 is
-\texttt{sensitiveai-vi-customdlr2stage} (0.7089), also strongest on test (0.6638), so
+\texttt{sensitiveai-vi-customdlr2stage} (70.89\%), also strongest on test (66.38\%), so
 the fusion results are not evidence that the focused backbone is best standalone.
 
 \subsection{The hybrid does not improve accuracy}
 
 \label{sec:no-accuracy-gain}
 
-Table~\ref{tab:fusion-variants} reports every variant and Fig.~\ref{fig:results}(a)
-plots the ordering. AI alone reaches 0.6575 macro-F1 and 0.8762 accuracy; the
-canonical per-channel hybrid reaches 0.6602 and 0.8774, a gain of 0.0027 and eight
-more correct comments (5{,}861 versus 5{,}853), concentrated in \hate{}: F1 rises
-from 0.5830 to 0.5906 through recall (0.5334 to 0.5494) at a small precision cost
-(0.6427 to 0.6385), while \off{} and \clean{} barely move (0.4493 to 0.4494, 0.9403
-to 0.9407)---added \hate{} recall, not a reallocation between classes.
+Table~\ref{tab:fusion-variants} reports every variant. AI alone reaches 65.75\%
+macro-F1 and 87.62\% accuracy; the per-channel hybrid reaches 66.02\% and 87.74\%, a gain
+of 0.27\% and eight more correct comments (5{,}861 vs. 5{,}853), concentrated in
+\hate{}: F1 rises 58.30\% to 59.06\% via recall (53.34\% to 54.94\%) at a small precision
+cost (64.27\% to 63.85\%), while \off{} and \clean{} barely move.
 
-Per-channel weights add 0.0010 macro-F1 over a single global weight (0.6583 to
-0.6593), thresholds a further 0.0009. The logistic meta-classifier is \emph{worse}
-than AI alone (0.6513): six features on 2{,}672 validation comments overfit and shift
-towards \hate{} recall. Thresholds make the rule engine usable alone---0.5258
-macro-F1, identical standalone and in the pipeline, against 0.4714 with argmax, which
-collapses on \off{}---but far below the transformer (0.8421).
+Per-channel weights add 0.10\% over a global weight (65.83\% to 65.93\%), thresholds
+a further 0.09\%. The logistic meta-classifier is worse than AI alone (65.13\%): six
+features on 2{,}672 validation comments overfit. Thresholds make the rule engine
+usable alone (52.58\% vs.\ 47.14\% with argmax).
 
 \input{tables/fusion_variants}
+
+Table~\ref{tab:precision-recall} gives precision and recall, overall (macro) and
+per label. The hybrid's \hate{} gain is recall-driven (53.34\% to 54.94\%) at a small
+precision cost (64.27\% to 63.85\%); macro precision rises 68.43\% to 68.74\% and macro
+recall 63.59\% to 63.83\%.
+
+\input{tables/precision_recall}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/results.pdf}
-\caption{Quantitative summary for the focused backbone. (a)\ Macro-F1 of every
-decision variant; the dotted line is AI-only, the green bar the per-channel hybrid.
-(b)\ Provenance of the 38 changed decisions, by correction and regression type.
-(c)\ Behaviour of the rule channel on test: coverage, precision when firing, recall on
-non-\clean{} comments, and false alarms on \clean{}; values are percentages, raw
-counts are in the text.}
+\caption{Focused backbone. (a)\ Macro-F1 of each variant (dotted: AI-only).
+(b)\ Provenance of the 38 changed decisions. (c)\ Rule-channel coverage, precision
+when firing, recall on non-\clean{}, and false alarms on \clean{} (percentages).}
 \label{fig:results}
 \end{figure}
 
@@ -47,37 +47,30 @@ counts are in the text.}
 
 \label{sec:significance-results}
 
-Table~\ref{tab:backbones} makes the negative result explicit. For the focused
-backbone the paired-bootstrap difference (AI-only minus hybrid) is $-0.0027$ with a
-95\% interval of $[-0.0079,+0.0027]$ and $p=0.29$; McNemar on the 38 changed
-decisions gives $b=15$, $c=23$, $p=0.26$. Every bootstrap interval across the four
-backbones contains zero. Where McNemar does reach significance the sign flips: the
-standard-head backbone loses 61 comments to the hybrid and wins back 30
-($p=0.0015$), while the curriculum backbone loses 8 and wins back 31 ($p=0.0003$).
-Fusion thus helps one recipe and hurts another by margins the aggregate macro-F1
-cannot separate. The hybrid is \emph{accuracy-neutral}: 38 decisions change without
+Table~\ref{tab:backbones} makes the negative result explicit: for the focused
+backbone the paired-bootstrap difference is $-0.27\%$ (95\% CI $[-0.79,+0.27]\%$,
+$p=0.29$) and McNemar gives $b=15$, $c=23$, $p=0.26$. Every bootstrap interval
+across the four backbones contains zero. Where McNemar reaches significance the sign
+flips (standard head loses 61/wins 30, $p=0.0015$; curriculum loses 8/wins 31,
+$p=0.0003$). The hybrid is \emph{accuracy-neutral}: 38 decisions change without
 moving the aggregate metric beyond noise.
 
-\subsection{The rule channel is narrow and precise-ish}
+\subsection{The rule channel is narrow and precise}
 
 \label{sec:rule-channel-results}
 
 The rule engine fires on 1{,}052 of 6{,}680 comments (15.75\%) at 58.75\% precision,
 recovers 54.59\% of non-\clean{} comments and fires on 7.82\% of \clean{} ones
-(Fig.~\ref{fig:results}c): useful as evidence, not as a decision, being silent on 45\%
-of toxic comments and wrong about much of what it flags. Coverage is low by
-construction---most entries are multi-word, context-required phrases and validation
-zeroed the accent-less alias weight---so it matches near-canonical forms, not
-respellings.
+(Fig.~\ref{fig:results}c): useful as evidence, not as a decision. Coverage is low by
+construction (multi-word, context-required phrases; validation zeroed the accent-less
+alias weight), so it matches near-canonical forms.
 
 \subsection{Leak-free sensitivity analysis}
 
 \label{sec:leak-free-sensitivity}
 
-With the 671-entry leak-free lexicon, the standalone rule engine reaches 0.5398
-validation and 0.5328 test macro-F1 (accuracy 0.8440), with thresholds \hate{} 0.76,
-\off{} 0.00 and \clean{} 0.64. Leak-free fusion obtains 5{,}863 correct test
-predictions (accuracy 0.8777), 23 corrections and 13 regressions (36 changes),
-macro-F1 0.6612; the canonical 668-entry setup gives 5{,}861 correct, 23 corrections
-and 15 regressions (38 changes), macro-F1 0.6602. This is a separate sensitivity
-result, not the headline; no paired-bootstrap test is available.
+With the 671-entry leak-free lexicon, the standalone rule engine reaches 53.98\%
+validation and 53.28\% test macro-F1. Leak-free fusion obtains 5{,}863 correct
+predictions, 23 corrections and 13 regressions (36 changes), macro-F1 66.12\%; the
+canonical setup gives 5{,}861 correct, 23 corrections and 15 regressions (38 changes),
+macro-F1 66.02\%. Separate sensitivity result, not the headline.
