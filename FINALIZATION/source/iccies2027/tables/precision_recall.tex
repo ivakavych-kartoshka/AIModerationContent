@@ -1,20 +1,22 @@
 \begin{table}[ht]
+\vspace{6pt}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{2pt}
 \caption{Precision and recall on test for the focused backbone
 (\model{sensitiveai-vi-custom}), over the same eight systems as
-Table~\ref{tab:fusion-variants}. Per-class columns are precision (P)
-and recall (R) in percent; macro averages are unweighted means. Best value in
-each column is bold. Different systems win different columns: the
-logistic meta-classifier has the highest recall but the lowest
-macro-F1 (Table~\ref{tab:fusion-variants}), which aggregate F1 hides.}
+Table~\ref{tab:fusion-variants}. Per-class columns are precision (P) and recall (R); macro averages are
+unweighted means. All evaluation metrics, including precision and recall, are
+reported as percentages (\%). Best value in each column is bold. Different
+systems win different columns: the logistic meta-classifier has the highest
+recall but the lowest macro-F1 (Table~\ref{tab:fusion-variants}), which
+aggregate F1 hides.}
 \label{tab:precision-recall}
 \begin{tabular}{lcccccccc}
 \toprule
 System & \multicolumn{2}{c}{\hate} & \multicolumn{2}{c}{\off} & \multicolumn{2}{c}{\clean} & \multicolumn{2}{c}{Macro} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
- & P & R & P & R & P & R & P & R \\
+ & P (\%) & R (\%) & P (\%) & R (\%) & P (\%) & R (\%) & P (\%) & R (\%) \\
 \midrule
 AI only (argmax) & 64.27 & 53.34 & 48.44 & 41.89 & 92.58 & 95.53 & 68.43/63.59 \\
 Rule only (argmax) & 46.90 & 50.58 & 0.00 & 0.00 & 89.69 & \textbf{96.00} & 45.53/48.86 \\

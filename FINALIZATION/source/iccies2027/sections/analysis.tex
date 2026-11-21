@@ -41,15 +41,12 @@ longer wins; two miss by exactly 0.1\% ($f_H=13.90\%$ vs.\ $\tau_H=0.14$). One
 mechanism ($\alpha_H=0.2$, $\tau_H=0.14$) thus produces 7 correct and 5 incorrect
 de-flagging decisions and cannot be removed without also removing the corrections.
 The decomposition is exhaustive---26 of 38 changes rule-driven, 12
-threshold-driven---which is what makes the hybrid explainable: not a heat-map but a
-statement of which channel moved, in which direction, with which spans, and by how
-much.
+threshold-driven---The interpretability of the hybrid model does not rely on heatmaps; instead, it stems from the ability to explicitly identify which channel influenced the result, the direction of that influence, the specific text segments involved, and the magnitude of the impact.
 
 \subsection{The corrections fusion does not make}
 \label{sec:missed}
 
-A channel with no signal and a channel whose signal fusion ignores look the same in
-aggregate; here it is the latter. Among the 827 AI errors, 148 non-\clean{}
+When examining aggregate metrics, instances where the Rule Engine detects no signal are indistinguishable from instances where a signal is detected but subsequently disregarded by the fusion mechanism. In our results, the latter occurred: the Rule Engine detected a signal, but the Transformer model held a high-confidence \clean{} classification---meaning the Rule Engine\textquotesingle s signal was insufficient to alter the final outcome. Among the 827 AI errors, 148 non-\clean{}
 comments have the rule firing in the correct direction and 151 \clean{} comments have
 it correctly silent, so the rule agrees with gold on 299 errors and fusion acts on 23
 of them (7.7\%). The remaining \textbf{132 missed corrections} are non-\clean{} cases

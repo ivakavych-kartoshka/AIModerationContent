@@ -57,8 +57,8 @@
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.9}
 \setcounter{totalnumber}{6}
-\setlength{\textfloatsep}{0pt plus 1pt minus 1pt}
-\setlength{\floatsep}{0pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{0pt plus 1pt minus 1pt}
 \setlength{\emergencystretch}{3em}
 
@@ -71,14 +71,14 @@
 \begin{document}
 
 \title{An Explainable Hybrid of Lexicon Rules and Multilingual
-  Transformers for Vietnamese Hate Speech Detection}
-\titlerunning{An Explainable Hybrid for Vietnamese Hate Speech Detection}
+  Transformers for Vietnamese Sensitive Speech Detection}
+\titlerunning{An Explainable Hybrid for Vietnamese Sensitive Speech Detection}
 
 % ORCID iDs are optional in the class but expected by Springer for the
 % corresponding authors: replace the commented placeholders below with the real
 % iDs (https://orcid.org) before submitting to CMT.
 \author{
-  Pham Kha Vy\inst{1}\% \orcidID{0000-0000-0000-0000}
+  Pham Kha Vy\inst{1}\,\orcidlink{0009-0008-1958-3070}
   \and
   Cao Hong Nga\inst{1}\textsuperscript{(*)}\,\orcidlink{0000-0003-0343-6523}
   \and
@@ -99,7 +99,7 @@
 
 \begin{abstract}
   Hate speech detection is an essential component of content moderation on social media, where harmful comments spread rapidly and platforms are required to provide clear justifications for content removal decisions. Detecting hate and offensive speech in Vietnamese presents several challenges due to the limited availability of linguistic resources and the widespread use of obfuscation techniques, such as teencode, diacritic omission, character separation, and profanity abbreviation. Furthermore, the distinction between "hate" and "insult" depends not only on the vocabulary used but also on the intensity of the expression and the target of the attack. To address these challenges, this study proposes a hybrid framework for Vietnamese sensitive content detection that integrates a rule-based detection mechanism with a Transformer-based deep learning model, namely mDeBERTa-v3. The proposed framework aims to identify both hate speech and offensive language by leveraging the complementary strengths of lexical rules and contextual representations. Experiments conducted on the ViHSD dataset achieved a macro-F1 score of 66.02\% on the test set, representing a modest improvement over the mDeBERTa-v3 baseline, which obtained 65.75\%. Although the improvement is relatively small, the results suggest that incorporating rule-based detection can provide additional benefits beyond the standalone Transformer model. Nevertheless, the rule-based component requires further refinement, particularly in terms of lexical coverage and quality, to enhance its contribution to the overall framework.
-  \keywords{Sensitive content detection \and Rule-based detection \and Transformer-based detection \and
+  \keywords{Sensitive content detection \and Rule-based sensitive detection \and Transformer-based sensitive detection \and
     Hybrid system \and Lexicon rules.}
 \end{abstract}
 \input{sections/introduction}

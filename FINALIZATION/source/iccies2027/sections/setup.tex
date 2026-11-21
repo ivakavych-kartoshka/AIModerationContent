@@ -4,13 +4,11 @@
 \subsection{Backbones and tuning}
 \label{sec:backbones}
 
-Table~\ref{tab:backbones} lists the four backbones, all using
-\texttt{microsoft/mdeberta-v3-base} with the same tokenizer, split and evaluation
-code and differing only in head and optimisation recipe. The focused model,
-\model{sensitiveai-vi-custom}, gives the clearest positive net effect (23 corrections,
-15 regressions) and is thus the clearest subject for studying what fusion changes.
-
-\input{tables/backbones}
+Four backbones are evaluated, all using \texttt{microsoft/mdeberta-v3-base} with the
+same tokenizer, split and evaluation code and differing only in head and optimisation
+recipe. The focused model, \model{sensitiveai-vi-custom}, gives the clearest positive
+net effect (23 corrections, 15 regressions) and is thus the clearest subject for
+studying what fusion changes.
 
 Rule-engine weights are tuned by greedy coordinate descent over the scoring
 parameters, with the three decision thresholds re-optimised on validation macro-F1

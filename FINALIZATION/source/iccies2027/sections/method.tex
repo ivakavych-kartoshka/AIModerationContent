@@ -70,7 +70,7 @@ We fine-tune \texttt{microsoft/mdeberta-v3-base}
 (\model{sensitiveai-vi-custom}) uses a multi-pool head: \texttt{[CLS]}, mean and max
 pooling concatenated, projected to a 512-dim bottleneck (dropout $0.1$), then three
 logits. Training: cross-entropy, AdamW \cite{loshchilov2019adamw}, linear schedule
-with 10\% warm-up, lr $3\times10^{-5}$, batch 32, max length 256, up to 30 epochs,
+with 10\% warm-up, lr $3\times10^{-5}$, batch 16, max length 256, up to 30 epochs,
 early stopping on validation macro-F1. Three further backbones share the encoder with
 different recipes: standard head; two-stage with discriminative learning rates and
 focal loss \cite{lin2017focal}; three-stage curriculum \cite{bengio2009curriculum}

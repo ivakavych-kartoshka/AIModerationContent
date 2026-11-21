@@ -32,8 +32,10 @@ per label. The hybrid's \hate{} gain is recall-driven (53.34\% to 54.94\%) at a 
 precision cost (64.27\% to 63.85\%); macro precision rises 68.43\% to 68.74\% and macro
 recall 63.59\% to 63.83\%.
 
+\vspace{12pt}
 \input{tables/precision_recall}
 
+\vspace{6pt}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/results.pdf}
@@ -47,7 +49,7 @@ when firing, recall on non-\clean{}, and false alarms on \clean{} (percentages).
 
 \label{sec:significance-results}
 
-Table~\ref{tab:backbones} makes the negative result explicit: for the focused
+The negative result is explicit: for the focused
 backbone the paired-bootstrap difference is $-0.27\%$ (95\% CI $[-0.79,+0.27]\%$,
 $p=0.29$) and McNemar gives $b=15$, $c=23$, $p=0.26$. Every bootstrap interval
 across the four backbones contains zero. Where McNemar reaches significance the sign
@@ -61,7 +63,7 @@ moving the aggregate metric beyond noise.
 
 The rule engine fires on 1{,}052 of 6{,}680 comments (15.75\%) at 58.75\% precision,
 recovers 54.59\% of non-\clean{} comments and fires on 7.82\% of \clean{} ones
-(Fig.~\ref{fig:results}c): useful as evidence, not as a decision. Coverage is low by
+(Fig.~\ref{fig:results}c): Signals from the Rule Engine serve to supplement the evidence available to the model, rather than independently determining the classification outcome. Coverage is low by
 construction (multi-word, context-required phrases; validation zeroed the accent-less
 alias weight), so it matches near-canonical forms.
 
