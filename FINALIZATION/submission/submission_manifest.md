@@ -1,6 +1,6 @@
 ﻿# Submission Manifest
 
-- Title: An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for Vietnamese Hate Speech Detection
+- Title: An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for Vietnamese Sensitive Speech Detection
 - Target: ICCIES 2027
 - Final PDF: FINALIZATION/submission/iccies2027_final.pdf
 - Pages: 15

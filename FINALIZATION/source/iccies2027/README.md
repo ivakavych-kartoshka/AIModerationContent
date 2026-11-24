@@ -1,7 +1,7 @@
 # ICCIES 2027 submission
 
 Self-contained LaTeX source for *An Explainable Hybrid of Lexicon Rules and
-Multilingual Transformers for Vietnamese Hate Speech Detection* (Springer CCIS /
+Multilingual Transformers for Vietnamese Sensitive Speech Detection* (Springer CCIS /
 LNCS format).
 
 ## Files

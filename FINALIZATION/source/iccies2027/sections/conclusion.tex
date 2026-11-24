@@ -16,12 +16,15 @@ rule-supported (16 \hate{} recoveries with median rule score 0.77, and 7
 \clean{} de-flagging cases where the rule is correctly silent), and all 10
 rule-driven regressions push towards \hate{}, localising the failure to an
 aggressive channel rather than to coverage. A further 132 missed corrections show the rule pointing right while a full-weight
-\clean{} channel blocks the fix.
+\clean{} channel blocks the fix. Improving lexical coverage and label quality remains a primary direction for future work, consistent with the abstract.
 
 The leak-free run (671 entries) yields fusion macro-F1 66.12\%, accuracy 87.77\% (23
 corrections, 13 regressions); the standalone engine reaches 53.28\% and 84.40\%. A
 three-seed check gives fusion-minus-AI differences of $+0.27\%$, $-0.41\%$, $-0.10\%$
-(mean $-0.08\%$), so the gain is not stable.
+(mean $-0.08\%$), so the gain is not stable. The six AI configurations were also
+re-run on three seeds: macro-F1 means range from 65.74\% to 66.52\% with standard
+deviations below 1\%, so no optimization recipe is reliably separated from the
+others.
 Future work: validate evidence-gated fusion, separate profanity from
 political entries, restore negation and accent-less matching, and measure
 whether the evidence record helps reviewers.

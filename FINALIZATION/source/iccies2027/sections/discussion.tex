@@ -4,7 +4,7 @@
 
 \subsection{What the hybrid is good for}
 
-These findings demonstrate that the hybrid mechanism has been validated at the level of individual decisions: 38 out of 6{,}680 predictions were altered, and each change can be traced back to the specific channel that exerted influence, the direction of the shift, and the precise mechanism that triggered the change.
+These findings demonstrate that the hybrid mechanism is supported at the level of individual decisions: 38 out of 6{,}680 predictions were altered, and each change can be traced back to the specific channel that exerted influence, the direction of the shift, and the precise mechanism that triggered the change.
 
 \emph{Triage and accountability.} A queue can sort comments by whether the decision
 was rule-supported; a \hate{} decision with a matched span and $r_H=0.8$ is easier to
@@ -21,7 +21,7 @@ change decisions in that subset. Second, \emph{the majority class dominates}: wi
 83\% \clean{}, only 1{,}132 toxic comments can improve, and 38 changes is 3.4\% of that
 support. Third, \emph{tuning is safety-oriented}: protecting \clean{} and gating \hate{}
 on lexical support produces both the de-flagging and the missed corrections.
-Neutrality is a deliberate choice: when the evidence is not sufficiently strong, the hybrid model may retain the \clean{} label rather than concluding that the data is malicious.
+Neutrality is a consequence of safety-oriented tuning on validation: the \clean{} channel keeps full weight, so the hybrid defaults to \clean{} unless lexical evidence is strong.
 
 \subsection{The directional asymmetry is a policy question}
 
@@ -78,7 +78,4 @@ and unblinded.
 \label{sec:ethics}
 
 Comments are public UIT-ViHSD test comments, masked as described in Sect.~\ref{sec:data}.
-The system is decision support, not automatic sanctioning: the directional asymmetry
-and the political false positive show that automatic \hate{} labels from this pipeline
-should be reviewed before affecting a user, and the lexicon should be a governed
-artefact with a change log since its entries shape moderation outcomes.
+The system is decision support, not automatic sanctioning.

@@ -23,13 +23,13 @@ never see obfuscated profanity (\texttt{d.m}, \texttt{đ*m}), while a lexicon ma
 such variants explicitly.
 
 We ask: \emph{can a lexicon be attached to a transformer as an evidence channel, so
-every decision carries inspectable lexical support, without degrading accuracy?} We
+decisions where the rule fires carry inspectable lexical support, without degrading accuracy?} We
 do not claim higher accuracy; we claim the small change is \emph{attributable}: each
 changed decision traces to a specific mechanism, exposing a systematic failure that
 aggregate metrics hide.
 
 We fuse a 668-term Vietnamese hate-speech lexicon with four mDeBERTa-v3 backbones
-differing only in optimisation recipe. The rule engine normalises the comment, builds
+differing only in head and optimisation recipe. The rule engine normalises the comment, builds
 accent-less, leet, repeat-collapsed and separator-stripped views, scores each matched
 span by severity, confidence, match type and context, and aggregates per label; fusion
 mixes channels and applies frozen per-channel thresholds.

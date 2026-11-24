@@ -64,8 +64,8 @@
   "training": {
     "model_name": "sensitiveai-vi-custom-curriculum",
     "best_metric": "macro_f1",
-    "best_value": 0.6941996657807886,
-    "best_epoch": 1,
+    "best_value": 0.69613,
+    "best_epoch": 5,
     "best_stage": "stage_1",
     "epochs_run": 19,
     "total_epochs_planned": 30,

@@ -39,7 +39,7 @@ HateXplain \cite{mathew2021hatexplain} made human rationales and explanation qua
 benchmark quantities. LIME \cite{ribeiro2016why} and SHAP \cite{lundberg2017shap} are
 model-agnostic but do not guarantee that highlighted tokens are the ones the decision
 used. Our rule channel is part of the decision function, so its matched spans are
-\emph{faithful by construction} for the lexical component, though the neural component
-remains opaque. We settle the accuracy question with a paired test, analyse provenance,
+\emph{faithful by construction} for the lexical component only; the neural component
+remains opaque, and no human evaluation of the explanations has been performed. We settle the accuracy question with a paired test, analyse provenance,
 and report the rule channel's own error profile and the direction of every
 rule-induced change; to our knowledge, this audit is new for Vietnamese hate speech.

@@ -33,7 +33,10 @@ The rule engine is driven by a Vietnamese hate-speech lexicon of \textbf{668 ent
 mined and labelled from the \emph{training} portions of UIT-ViHSD; R-UIT-ViHSD
 \cite{bontoriTdtu}; and ViCM \cite{nguyen2026vicm}. The three training splits yield
 1{,}062 candidate terms (first attested 257/665/140 in UIT-ViHSD/ViCM/R-UIT-ViHSD); manual labelling and
-filtering reduce these candidates to the 668 entries below. No evaluation split is sampled; each entry records
+filtering reduce these candidates to the 668 entries below. Labelling was performed by the first author:
+a term was kept only if it occurred in at least one training split, carried abusive intent in context,
+and survived review for ambiguity; duplicates, non-abusive uses, and terms with insufficient support
+were removed. No inter-annotator agreement is available, which we report as a limitation. No evaluation split is sampled; each entry records
 its supporting corpora (414 of 668 occur in all three).
 
 An exact-text cross-corpus audit found 895 of 6{,}680 UIT-ViHSD test rows (13.4\%)
@@ -41,7 +44,10 @@ with a matching text in auxiliary corpus material used for lexicon development--
 distinct test texts also in the Bontori/R-UIT-ViHSD training partition---a potential
 source of lexicon-construction leakage. To assess its effect, we rebuilt the lexicon
 excluding those texts (671 entries vs. 668 canonical). Main results use the canonical
-lexicon; leak-free results are in Sect.~\ref{sec:leak-free-sensitivity}.
+lexicon; leak-free results are in Sect.~\ref{sec:leak-free-sensitivity}. The canonical
+and leak-free lexicons differ by only three entries because the audit is exact-text:
+near-duplicate variants (spacing, diacritics, separators) are not removed, so the
+leak-free figure is an upper bound on the effect of leakage.
 
 Each entry stores the surface term and canonical form, a label (\hate{} or \off{}) with
 per-label severity, a training-estimated confidence, a context-required flag, and a
@@ -51,9 +57,14 @@ The lexicon is deliberately not a list of slurs: 551 of 668 (82.5\%) are multi-w
 constructions (\emph{mẹ cha}, \emph{con mẹ}, \emph{ngu hơn}) and 524 (78.4\%) are
 context-required, since Vietnamese insults work by comparison and implication rather
 than a single taboo word. Only 74 entries are \off{} against 594 \hate{}, so the engine
-is weak on \off{} and fusion keeps that channel mostly neural. The lexicon is
+is weak on \off{} and fusion keeps that channel mostly neural. The lexicon does not
+distinguish term types (profanity, political, identity-based); a type-aware ablation
+that removes the political group is left for future work. The lexicon is
 \emph{editable}, \emph{deterministic} and \emph{inspectable} (each score decomposes
-into term, match type and context factor).
+into term, match type and context factor). Two limitations follow: entry confidence
+is estimated on the same corpus used to mine the terms, so it may be optimistic, and
+the lexicon is heavily imbalanced (594 \hate{} against 74 \off{}), which weakens the
+\off{} channel.
 
 \paragraph{Ethics of examples.}
 All quoted comments are public UIT-ViHSD test comments. Because they contain profanity

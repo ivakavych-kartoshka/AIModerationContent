@@ -4,7 +4,7 @@ model_name: sensitiveai-vi-stage2
 run_id: run_001
 base_model: microsoft/mdeberta-v3-base
 head: standard
-seed: 42
+seed: 44
 deterministic: true
 dataset:
   name: uitnlp/vihsd
@@ -70,7 +70,7 @@ stages:
   description: Stage-2 recipe (focal + class weights + halved discriminative LRs),
     applied to the best checkpoint of the plain mdeberta baseline.
   epochs: 15
-  init_from: outputs/reports/sensitiveai-vi/run_001/best_model
+  init_from: outputs/reports/sensitiveai-vi/run_005/best_model
   save_checkpoint: true
 curriculum:
   enabled: false

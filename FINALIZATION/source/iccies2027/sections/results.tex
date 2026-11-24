@@ -49,23 +49,62 @@ when firing, recall on non-\clean{}, and false alarms on \clean{} (percentages).
 
 \label{sec:significance-results}
 
-The negative result is explicit: for the focused
-backbone the paired-bootstrap difference is $-0.27\%$ (95\% CI $[-0.79,+0.27]\%$,
+Table~\ref{tab:backbones} makes the negative result explicit: for the focused
+backbone the paired-bootstrap difference is $+0.27\%$ (95\% CI $[-0.27,+0.79]\%$,
 $p=0.29$) and McNemar gives $b=15$, $c=23$, $p=0.26$. Every bootstrap interval
-across the four backbones contains zero. Where McNemar reaches significance the sign
+across the four backbones contains zero. No multiple-comparison correction is
+applied; the four backbones are reported descriptively. Where McNemar reaches significance the sign
 flips (standard head loses 61/wins 30, $p=0.0015$; curriculum loses 8/wins 31,
-$p=0.0003$). The hybrid is \emph{accuracy-neutral}: 38 decisions change without
-moving the aggregate metric beyond noise.
+$p=0.0003$). The hybrid is \emph{accuracy-neutral} on average, but the effect is not uniform:
+the standard head loses significantly (61 wins/30 losses) and the curriculum backbone
+wins significantly (8 wins/31 losses), while the focused and two-stage backbones show
+no significant aggregate movement.
 
-\subsection{The rule channel is narrow and precise}
+\subsection{Stability across seeds}
+\label{sec:multi-seed}
+
+Table~\ref{tab:multi-seed} reports three seeds for the focused backbone. The
+AI-only macro-F1 ranges from 65.75\% to 67.17\% (mean 66.40\%, std 0.72\%), and
+the hybrid from 66.02\% to 66.76\% (mean 66.32\%, std 0.39\%). The gain is
++0.27\% on seed 42 but $-0.41\%$ and $-0.10\%$ on seeds 7 and 123 (mean
+$-0.08\%$, std 0.34\%), so the gain is not stable across seeds and the
++0.27\% headline is a seed-42 result.
+
+\begin{table}[ht]
+\centering
+\caption{Multi-seed stability of the focused backbone (macro-F1 and accuracy on
+test). The gain is seed-dependent.}
+\label{tab:multi-seed}
+\input{tables/multi_seed_preliminary_tabular}
+\end{table}
+
+
+\subsection{Stability of the six configurations across seeds}
+\label{sec:ablation-multi-seed}
+
+Table~\ref{tab:ablation-multi-seed} reports three seeds (42, 43, 44) for all six
+configurations. The macro-F1 means range from 65.74\% to 66.52\% with standard
+deviations below 1\%, confirming that the single-seed differences are small and not
+stable. The curriculum and two-stage variants retain the highest mean macro-F1, but
+no configuration is statistically separated from the others.
+
+\begin{table}[ht]
+\centering
+\caption{Multi-seed stability of the six configurations (test macro-F1 and
+accuracy, mean $\pm$ std over 3 seeds).}
+\label{tab:ablation-multi-seed}
+\input{tables/ablation_multi_seed_tabular}
+\end{table}
 
 \label{sec:rule-channel-results}
 
 The rule engine fires on 1{,}052 of 6{,}680 comments (15.75\%) at 58.75\% precision,
 recovers 54.59\% of non-\clean{} comments and fires on 7.82\% of \clean{} ones
-(Fig.~\ref{fig:results}c): Signals from the Rule Engine serve to supplement the evidence available to the model, rather than independently determining the classification outcome. Coverage is low by
+(Fig.~\ref{fig:results}c): Signals from the rule engine serve to supplement the evidence available to the model, rather than independently determining the classification outcome. Coverage is low by
 construction (multi-word, context-required phrases; validation zeroed the accent-less
-alias weight), so it matches near-canonical forms.
+alias weight), so it matches near-canonical forms. Negation and accent-less matching
+were tuned to zero on validation because they increased false positives; re-enabling
+them did not improve macro-F1, so they remain disabled.
 
 \subsection{Leak-free sensitivity analysis}
 

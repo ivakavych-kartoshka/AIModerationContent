@@ -5,7 +5,7 @@
     \caption{Decision-level variants for the focused backbone
         (\model{sensitiveai-vi-custom}) on test. Every variant reads the same frozen
         scores; only mixing and the decision rule differ; the last row is primary.
-        \emph{All evaluation metrics, including accuracy, macro-F1, and per-class F1-scores, are reported as percentages (\%).} Rule-only rows are scored
+        \emph{All evaluation metrics, including accuracy, macro-F1, and per-class F1-scores, are reported as percentages (\%).} Best value in each column is bold. The two global-$\alpha$ rows coincide because the tuned thresholds do not change any validation prediction under a single global weight. Rule-only rows are scored
         inside the fusion pipeline on renormalised rule scores; the standalone engine with
         its own thresholds is reported in the text.}
     \label{tab:fusion-variants}

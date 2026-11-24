@@ -3,13 +3,13 @@
 
 The aggregate result is neutral; the question is what the 38 changes consist of.
 
-\subsection{Corrections are rule-consistent}
+\subsection{Corrections are rule-consistent, but the deciding factor is \clean{} confidence}
 \label{sec:corrections}
 
 Of the 23 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{}) and
 7 are \clean{} de-flagging cases. All 16 recoveries have a rule firing with a \hate{}
 score above the \off{} score, and the rule \hate{} score has median 76.52\% (mean
-75.07\%, range 23.51\%--99.39\%): the evidence is strong, not marginal.
+75.07\%, range 23.51\%--99.39\%): the evidence is strong on average, though individual scores range down to 23.51\%.
 
 All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$), so $f_H=0.2\,p_H$
 and $p_H\ge0.70$ is needed merely to reach $\tau_H=0.14$; a flagged \hate{} at
@@ -41,12 +41,12 @@ longer wins; two miss by exactly 0.1\% ($f_H=13.90\%$ vs.\ $\tau_H=0.14$). One
 mechanism ($\alpha_H=0.2$, $\tau_H=0.14$) thus produces 7 correct and 5 incorrect
 de-flagging decisions and cannot be removed without also removing the corrections.
 The decomposition is exhaustive---26 of 38 changes rule-driven, 12
-threshold-driven---The interpretability of the hybrid model does not rely on heatmaps; instead, it stems from the ability to explicitly identify which channel influenced the result, the direction of that influence, the specific text segments involved, and the magnitude of the impact.
+threshold-driven. The interpretability of the hybrid model does not rely on heatmaps; instead, it stems from the ability to explicitly identify which channel influenced the result, the direction of that influence, the specific text segments involved, and the magnitude of the impact. This applies only to the 16\% of comments where the rule fires; the remaining 84\% have no lexical span.
 
 \subsection{The corrections fusion does not make}
 \label{sec:missed}
 
-When examining aggregate metrics, instances where the Rule Engine detects no signal are indistinguishable from instances where a signal is detected but subsequently disregarded by the fusion mechanism. In our results, the latter occurred: the Rule Engine detected a signal, but the Transformer model held a high-confidence \clean{} classification---meaning the Rule Engine\textquotesingle s signal was insufficient to alter the final outcome. Among the 827 AI errors, 148 non-\clean{}
+When examining aggregate metrics, instances where the rule engine detects no signal are indistinguishable from instances where a signal is detected but subsequently disregarded by the fusion mechanism. In our results, the latter occurred: the rule engine detected a signal, but the Transformer model held a high-confidence \clean{} classification---meaning the rule engine\textquotesingle s signal was insufficient to alter the final outcome. Among the 827 AI errors, 148 non-\clean{}
 comments have the rule firing in the correct direction and 151 \clean{} comments have
 it correctly silent, so the rule agrees with gold on 299 errors and fusion acts on 23
 of them (7.7\%). The remaining \textbf{132 missed corrections} are non-\clean{} cases
@@ -55,7 +55,7 @@ the 151 silent-\clean{} errors stay wrong because the AI's \hate{} probability i
 enough that even one fifth of it clears $\tau_H$.
 
 The 132 are not missed for weak evidence: their median rule \hate{} score is 76.09\%,
-indistinguishable from the 76.52\% median of corrected cases. They are missed because
+indistinguishable from the 76.52\% median of corrected cases (minimum 23.51\%). The deciding factor is therefore not evidence strength but the \clean{} channel\textquotesingle s confidence. They are missed because
 the \clean{} channel keeps full AI weight, so a confidently wrong \clean{} cannot be
 outvoted (median fused \clean{} score 97\% for missed vs.\ 46\% for corrected).
 Evidence-gated fusion (Sect.~\ref{sec:implications}) would abstain, but we did not tune
