@@ -42,8 +42,10 @@ from typing import Any, Dict, List, Optional
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.common.config import dump_json, dump_yaml, load_yaml, resolve_config_path  # noqa: E402
+from src.common.constants import REPORTS_DIR  # noqa: E402
 from src.common.logging_utils import get_logger  # noqa: E402
 from src.common.paths import (  # noqa: E402
+    checkpoint_has_weights,
     experiment_dir,
     next_run_id,
     project_relative,
@@ -144,10 +146,46 @@ def read_metrics(report_dir: Path) -> Dict[str, Any]:
     return {k: payload.get(k) for k in METRIC_KEYS if payload.get(k) is not None}
 
 
-def run_seed(seed: int, models: List[str], root: Path, dry_run: bool, skip_eval: bool) -> Dict[str, Any]:
+def _existing_run_for(model: str, seed: int) -> Optional[Dict[str, Path]]:
+    """Find a finished run of ``model`` whose config carries ``seed``.
+
+    Used by ``--resume`` to rebuild the lineage without retraining.  Returns
+    ``None`` when no such run exists.
+    """
+    root = REPORTS_DIR / model
+    if not root.is_dir():
+        return None
+    best: Optional[Path] = None
+    for child in sorted(root.glob("run_*")):
+        if not (child / "training_summary.json").is_file():
+            continue
+        cfg_file = child / "config.yaml"
+        if not cfg_file.is_file():
+            continue
+        try:
+            cfg = load_yaml(cfg_file)
+        except Exception:  # pragma: no cover - defensive
+            continue
+        if int(cfg.get("seed", -1)) != int(seed):
+            continue
+        # A run whose best checkpoint lost its weights cannot be evaluated or
+        # chained from; treat it as if it never finished so it gets retrained.
+        if not checkpoint_has_weights(child / "best_model"):
+            LOGGER.warning("[resume] ignoring %s: best_model checkpoint is incomplete", child)
+            continue
+        best = child
+    if best is None:
+        return None
+    return {"report": best, "experiment": experiment_dir(model, best.name)}
+
+
+def run_seed(seed: int, models: List[str], root: Path, dry_run: bool, skip_eval: bool,
+             resume: bool = False) -> Dict[str, Any]:
     seed_dir = root / f"seed_{seed}"
     cfg_dir = seed_dir / "configs"
     eval_dir = seed_dir / "evaluation"
+    lineage_file = seed_dir / "lineage.json"
+    summary_file = seed_dir / "seed_summary.json"
 
     LOGGER.info("=" * 78)
     LOGGER.info("SEED %d  ->  %s", seed, project_relative(seed_dir))
@@ -156,11 +194,38 @@ def run_seed(seed: int, models: List[str], root: Path, dry_run: bool, skip_eval:
     lineage: Dict[str, Dict[str, Path]] = {}
     rows: List[Dict[str, Any]] = []
 
+    if resume:
+        if lineage_file.is_file():
+            try:
+                raw = json.loads(lineage_file.read_text(encoding="utf-8"))
+                lineage = {
+                    k: {"report": Path(v["report"]), "experiment": Path(v["experiment"])}
+                    for k, v in raw.items()
+                }
+            except Exception:  # pragma: no cover - defensive
+                lineage = {}
+        if summary_file.is_file():
+            try:
+                rows = json.loads(summary_file.read_text(encoding="utf-8")).get("rows", [])
+            except Exception:  # pragma: no cover - defensive
+                rows = []
+        for model in PIPELINE:
+            if model not in lineage:
+                found = _existing_run_for(model, seed)
+                if found is not None:
+                    lineage[model] = found
+        if lineage:
+            LOGGER.info("[resume] reused lineage: %s", ", ".join(lineage))
+
     for index, model in enumerate(models, start=1):
         LOGGER.info("")
         LOGGER.info("#" * 78)
         LOGGER.info("# [seed %d | %d/%d] %s", seed, index, len(models), model)
         LOGGER.info("#" * 78)
+
+        if dry_run and model in lineage:
+            LOGGER.info("[resume] %s already has a run - skipping", model)
+            continue
 
         cfg_path = build_seed_config(model, seed, lineage, cfg_dir)
 
@@ -173,6 +238,37 @@ def run_seed(seed: int, models: List[str], root: Path, dry_run: bool, skip_eval:
                 project_relative(cfg_path),
             )
             continue
+
+        if model in lineage:
+            run_report = lineage[model]["report"]
+            if run_report.is_dir() and (run_report / "training_summary.json").is_file():
+                run_id = run_report.name
+                run_experiment = lineage[model]["experiment"]
+                if not skip_eval and not (run_report / "metrics.json").is_file():
+                    eval_args = eval_parser().parse_args(
+                        ["--model", model, "--run-id", run_id, "--eval-dir", str(eval_dir)]
+                    )
+                    eval_run(eval_args)
+                if not any(r.get("model") == model for r in rows):
+                    row = {
+                        "seed": seed,
+                        "model": model,
+                        "run_id": run_id,
+                        "report_dir": project_relative(run_report),
+                        "train_seconds": 0.0,
+                    }
+                    if not skip_eval:
+                        row.update(read_metrics(run_report))
+                    rows.append(row)
+                lineage[model] = {"report": run_report, "experiment": run_experiment}
+                dump_json(
+                    {k: {"report": str(v["report"]), "experiment": str(v["experiment"])}
+                     for k, v in lineage.items()},
+                    lineage_file,
+                )
+                dump_json({"seed": seed, "models": models, "rows": rows}, summary_file)
+                LOGGER.info("[resume] %s reused (run=%s)", model, run_id)
+                continue
 
         train_argv = ["--config", str(cfg_path)]
         args = train_parser().parse_args(train_argv)
@@ -200,6 +296,12 @@ def run_seed(seed: int, models: List[str], root: Path, dry_run: bool, skip_eval:
             row.update(read_metrics(run_report))
 
         rows.append(row)
+        dump_json(
+            {k: {"report": str(v["report"]), "experiment": str(v["experiment"])}
+             for k, v in lineage.items()},
+            lineage_file,
+        )
+        dump_json({"seed": seed, "models": models, "rows": rows}, summary_file)
         LOGGER.info("[seed %d] %s done (run=%s) in %.1fs", seed, model, run_id, row["train_seconds"])
 
     if dry_run:
@@ -273,6 +375,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--out-dir", default="outputs/seeds", help="Where to write per-seed configs/results.")
     parser.add_argument("--dry-run", action="store_true", help="Write the per-seed configs and stop.")
     parser.add_argument("--skip-eval", action="store_true", help="Train only; do not score the test split.")
+    parser.add_argument("--resume", action="store_true", help="Resume an interrupted seed run instead of retraining.")
     args = parser.parse_args(argv)
 
     models = [m for m in PIPELINE if m in args.models]  # keep dependency order
@@ -283,7 +386,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     LOGGER.info("  models : %s", ", ".join(models))
 
     payloads = [
-        run_seed(seed, models, root, args.dry_run, args.skip_eval)
+        run_seed(seed, models, root, args.dry_run, args.skip_eval, resume=args.resume)
         for seed in args.seeds
     ]
 

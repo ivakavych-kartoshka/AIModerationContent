@@ -1,0 +1,21 @@
+% Fixed split used by every system; digests are the first 12 hex digits of the
+% full SHA-256 recorded in data/splits/split_manifest.json.
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{The fixed split stored once and reread by every system.  Counts are
+comments after cleaning (Sect.~\ref{sec:dataset}).  The SHA-256 digest (first
+12 hex digits of the full value in the released manifest) is copied into each run
+directory and re-checked before training.}
+\label{tab:splits}
+\begin{tabular}{lrrrrl}
+\toprule
+Split & Comments & HATE & OFF. & CLEAN & SHA-256 \\
+\midrule
+train      & 24{,}046 & 2{,}556 & 1{,}605 & 19{,}885 & \texttt{f705ffe94d41} \\
+validation & 2{,}672  & 270     & 212     & 2{,}190  & \texttt{6aa552aafb92} \\
+test       & 6{,}680  & 688     & 444     & 5{,}548  & \texttt{d8f9ae7ddd8c} \\
+\bottomrule
+\end{tabular}
+\end{table}

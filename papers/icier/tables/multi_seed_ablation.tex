@@ -1,0 +1,23 @@
+% AUTO-GENERATED from so_lieu/multi_seed_summary_3seeds.md
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Stability of the six systems across three training seeds (42, 43, 44):
+test metrics as mean $\pm$ standard deviation.  Macro-F1 means span only
+$0.6574$--$0.6652$ with standard deviations below $0.01$, so no recipe is
+reliably separated by training seed.}
+\label{tab:multi-seed-ablation}
+\begin{tabular}{lcccc}
+\toprule
+Model & Acc. & M-F1 & HATE F1 & AUC \\
+\midrule
+M1 & $0.8741\pm0.0048$ & $0.6580\pm0.0097$ & $0.6075\pm0.0124$ & $0.9064\pm0.0067$ \\
+M2 & $0.8760\pm0.0012$ & $0.6608\pm0.0037$ & $0.6070\pm0.0118$ & $0.9026\pm0.0056$ \\
+M3 & $0.8717\pm0.0007$ & $0.6632\pm0.0016$ & $0.5994\pm0.0053$ & $0.8921\pm0.0107$ \\
+M4 & $0.8732\pm0.0031$ & $\mathbf{0.6652\pm0.0058}$ & $0.6092\pm0.0134$ & $0.8576\pm0.0066$ \\
+M5 & $0.8708\pm0.0065$ & $0.6574\pm0.0038$ & $0.5909\pm0.0059$ & $0.8524\pm0.0382$ \\
+M6 & $0.8659\pm0.0031$ & $0.6611\pm0.0022$ & $\mathbf{0.6097\pm0.0013}$ & $0.8899\pm0.0132$ \\
+\bottomrule
+\end{tabular}
+\end{table}

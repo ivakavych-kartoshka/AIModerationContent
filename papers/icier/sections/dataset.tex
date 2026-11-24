@@ -1,0 +1,60 @@
+\section{Dataset}
+\label{sec:dataset}
+
+\subsection{UIT-ViHSD}
+We use \emph{UIT-ViHSD} \cite{luu2021vihsd}, a human-annotated corpus of Vietnamese
+social-media comments, each carrying exactly one label: \textsc{clean},
+\textsc{offensive} (insulting but not hate speech) or \textsc{hate} (targeting a
+person or protected group).
+
+We follow the official train/dev/test partition.  Preprocessing is deliberately
+light and label-preserving: strip leading/trailing whitespace, collapse runs of
+whitespace, drop control characters, and drop only rows with no usable text (2
+rows in train).  We \emph{keep} duplicates and do not lowercase, strip diacritics,
+normalise teencode or truncate emoji, because those surface cues are part of the
+signal.  This yields 33{,}398 comments (24{,}046 / 2{,}672 / 6{,}680 for
+train/dev/test); the corpus has 33{,}400 rows---the difference is exactly the 2
+empty-text train rows (Table~\ref{tab:splits}).  Comments are short and uneven
+(test mean 47.5 characters, median 33; \textsc{hate} about twice as long as the
+others).  The annotation study reports only moderate inter-annotator agreement
+($\kappa\approx0.5$), which sets a ceiling on accuracy: some test comments are
+genuinely ambiguous between \textsc{offensive} and \textsc{hate}, and no recipe
+removes that label noise.
+
+\subsection{Label Mapping and Imbalance}
+\label{sec:imbalance}
+The native ViHSD identifiers are (0 = \textsc{clean}, 1 = \textsc{offensive},
+2 = \textsc{hate}); because the minority classes are the object of study, we freeze
+a canonical mapping with the rare class first ($\textsc{hate}=0$,
+$\textsc{offensive}=1$, $\textsc{clean}=2$), applied once and never changed.
+
+The distribution is skewed and stable across splits: \textsc{clean} is 82--83\% of
+every split, \textsc{hate} about 10\%, and \textsc{offensive} the smallest class at
+6.6--7.9\% (test: 688 \textsc{hate}, 444 \textsc{offensive}, 5{,}548
+\textsc{clean}).  Two consequences follow.  First, accuracy is misleading---a
+degenerate \textsc{clean}-always classifier would score about $0.83$ yet be
+useless---so macro-F1 is primary.  Second, offensive and hate speech share most
+surface markers, so the interesting comparison is the trade-off between
+minority-class F1 and the easy \textsc{clean} class.
+
+\subsection{Fixed Split and Reproducibility}
+The split must be identical for every system, so we store it as CSV files and record
+each file's SHA-256 digest in a manifest copied into every run directory; all six
+systems read the same three files and label mapping, leaving the recipe as the only
+varying factor, with the test split scored once per system after hyper-parameters
+are frozen on validation (Table~\ref{tab:splits}).
+
+\input{tables/splits}
+
+\subsection{Duplication Across Splits}
+Because we keep duplicates, we measured their cross-split prevalence.  The official
+ViHSD partition reuses comments: after case-folding, $895$ of the $6{,}680$ test
+comments ($13.4\%$) have an exact duplicate in train or validation and $118$
+duplicated strings carry conflicting labels, a property of the public split that
+can only flatter absolute scores.  Table~\ref{tab:duplicate-free} re-scores all six
+systems on the $5{,}785$ duplicate-free comments: accuracy drops by $0.3$--$0.5$
+points for every system while macro-F1 and its ordering barely move (M3 still
+highest at $0.6654$; only the two lowest systems swap, by $0.0003$), so the
+conclusions do not rest on the overlap (Sect.~\ref{sec:threats}).
+
+\input{tables/duplicate_free}

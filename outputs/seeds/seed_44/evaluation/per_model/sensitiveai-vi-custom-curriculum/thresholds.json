@@ -1,0 +1,88 @@
+{
+  "objective": "macro_f1",
+  "search_space": {
+    "min": 0.0,
+    "max": 1.0,
+    "grid_size": 101
+  },
+  "coordinate_rounds": 3,
+  "initial_threshold": 0.5,
+  "thresholds": {
+    "HATE": 0.0,
+    "OFFENSIVE": 0.35,
+    "CLEAN": 0.79
+  },
+  "threshold_list": [
+    0.0,
+    0.35,
+    0.79
+  ],
+  "objective_before": 0.700691,
+  "objective_after": 0.704381,
+  "validation_macro_f1_with_thresholds": 0.7043812692053898,
+  "validation_accuracy_with_thresholds": 0.8764970059880239,
+  "validation_macro_f1_with_argmax": 0.700690639970532,
+  "trace": [
+    {
+      "round": 0,
+      "label": "init",
+      "threshold": 0.5,
+      "objective": 0.700690639970532
+    },
+    {
+      "round": 1,
+      "label": "HATE",
+      "threshold": 0.0,
+      "objective": 0.7007181585417456
+    },
+    {
+      "round": 1,
+      "label": "OFFENSIVE",
+      "threshold": 0.56,
+      "objective": 0.7020586545653033
+    },
+    {
+      "round": 1,
+      "label": "CLEAN",
+      "threshold": 0.79,
+      "objective": 0.702666837840669
+    },
+    {
+      "round": 2,
+      "label": "HATE",
+      "threshold": 0.0,
+      "objective": 0.702666837840669
+    },
+    {
+      "round": 2,
+      "label": "OFFENSIVE",
+      "threshold": 0.35000000000000003,
+      "objective": 0.7043812692053898
+    },
+    {
+      "round": 2,
+      "label": "CLEAN",
+      "threshold": 0.79,
+      "objective": 0.7043812692053898
+    },
+    {
+      "round": 3,
+      "label": "HATE",
+      "threshold": 0.0,
+      "objective": 0.7043812692053898
+    },
+    {
+      "round": 3,
+      "label": "OFFENSIVE",
+      "threshold": 0.35000000000000003,
+      "objective": 0.7043812692053898
+    },
+    {
+      "round": 3,
+      "label": "CLEAN",
+      "threshold": 0.79,
+      "objective": 0.7043812692053898
+    }
+  ],
+  "note": "Optimised on the validation split only; frozen before test evaluation."
+}

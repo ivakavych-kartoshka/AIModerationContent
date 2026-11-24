@@ -1,0 +1,165 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Headline Comparison}
+Table~\ref{tab:model-comparison} reports the test results.  The systems are
+tightly clustered---macro-F1 spans $0.6536$--$0.6638$ ($1.0$ pt) and accuracy
+$0.8633$--$0.8783$---and these spreads sit inside sampling noise: the 95\% bootstrap
+intervals on macro-F1 are about $\pm0.019$ wide (Table~\ref{tab:confidence}), so
+every pairwise gap lies within a single interval and none is significant
+(Sect.~\ref{sec:significance}).  The observations below are directions of effect,
+not established rankings.
+
+\input{tables/model_comparison}
+
+On seed 42, the full recipe (M3) is best by macro-F1 ($\mathbf{0.6638}$) and
+OFFENSIVE F1 ($0.4561$); the extended probe (M5) has the highest accuracy
+($\mathbf{0.8783}$)
+and CLEAN F1 yet the lowest macro ROC-AUC ($0.8096$); the stage-2 probe (M6) has
+the highest HATE F1 ($\mathbf{0.6088}$) and macro ROC-AUC ($\mathbf{0.8930}$) but
+the lowest accuracy, while the baseline (M1) holds the highest macro average
+precision (AP, $0.6599$, ahead of M6's $0.6534$); and the custom head alone moves
+macro-F1 only to $0.6575$.
+
+\subsection{Stability Across Training Seeds}
+\label{sec:multi-seed}
+The systems above are reported on seed 42.  We repeated all six on seeds 43 and
+44 with self-contained per-seed lineages (so chained checkpoints never mix seeds)
+and scored each on the same test split.  Table~\ref{tab:multi-seed-ablation}
+gives mean $\pm$ standard deviation.  Macro-F1 means span only
+$0.6574$--$0.6652$ with standard deviations below $0.01$, so no recipe is
+reliably separated by training seed; the seed-42 ordering (M3 best) is not
+preserved in the mean, where the curriculum (M4) is marginally highest.  The
+relative pattern does hold: M6 keeps the lowest accuracy and highest HATE F1,
+M5 the lowest macro ROC-AUC, and M1 the highest macro ROC-AUC.  Training variance
+is therefore smaller than the sampling noise already reported, but the conclusion
+remains the same: no recipe is demonstrably better.
+
+\input{tables/multi_seed_ablation}
+
+\subsection{Ablation Reading}
+Table~\ref{tab:model-comparison} gives the chain: each step swaps a \emph{whole}
+recipe, so a gap is the combined effect of its changes, not a single-factor
+estimate.  The custom head adds $+0.30$ macro-F1 (M1$\to$M2); discriminative rates,
+two-stage class-weighted training and a threshold search another $+0.63$
+(M2$\to$M3); and the curriculum gives back $0.48$ (M3$\to$M4), but all three
+stages ran and the frozen M4 checkpoint is still stage~1, epoch~1 (val.\ macro-F1
+$0.6942$): the later stages never won validation selection.  The two probes are
+most informative: class-weighted focal loss on a \emph{standard} head (M6) reaches
+$0.6604$, beating the baseline, the custom head and the curriculum at the best HATE
+F1 and macro ROC-AUC (though not macro AP, where M1 leads); extending stage~1 (M5)
+\emph{hurts} (macro-F1 $0.6536$,
+ROC-AUC $0.8096$), evidence that further cross-entropy training drifts to the
+majority class.  M3's selected checkpoint was the end of its cross-entropy stage
+(val. macro-F1 $0.7089$ at epoch~15), so its focal stage never helped: the same
+ingredient succeeds or fails depending on what precedes it.
+
+\subsection{Accuracy Versus Macro-F1}
+\label{sec:trap}
+The clearest lesson is the accuracy/macro-F1 contrast: the most accurate system
+(M5, $0.8783$) is the one \emph{not} to deploy---it has the worst OFFENSIVE
+recall ($0.381$) and the weakest ranking quality, because majority-class
+prediction is rewarded by accuracy and punished by macro-F1.  Accuracy-based
+selection is therefore inadvisable here, consistent with the classical preference
+for precision-recall over ROC under imbalance \cite{saito2015precision}.
+
+\subsection{Per-Class Behaviour and Error Analysis}
+The per-class breakdown (Table~\ref{tab:model-comparison}) localises the
+difficulty: CLEAN is nearly solved (F1 $0.93$--$0.94$) while OFFENSIVE stays at
+$0.43$--$0.46$ and HATE at $0.58$--$0.61$ for every system.  The full recipe
+rebalances the minority classes---HATE recall $0.538\to0.573$ and OFFENSIVE
+precision $0.434\to0.474$ at unchanged recall---while the focal-only probe (M6) is
+the most minority-heavy system of the six: it has the highest HATE recall
+($0.647$) and OFFENSIVE recall ($0.471$), bought with the lowest CLEAN recall
+($0.922$), which is why it loses the most accuracy on an 83\%-CLEAN test set.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/confusion_matrices.png}
+\caption{Row-normalised test confusion matrices for the baseline (M1), the best
+macro-F1 system (M3) and the focal-only probe (M6).  Every system shares one
+failure mode: \textsc{offensive} comments sent to \textsc{hate} or
+\textsc{clean}, and \textsc{hate} diluted into its neighbours; the systems differ
+by a few percent along these rows, not by a change of failure mode.}
+\label{fig:confusion}
+\end{figure}
+
+Figure~\ref{fig:confusion} confirms the shared failure mode: the
+\textsc{offensive} row is weakest ($38$--$46\%$ misrouted) and \textsc{hate} is
+diluted into its neighbours, while \textsc{clean} is almost never touched.
+Splitting the test set by surface cues (M3) localises the difficulty: macro-F1
+is lowest on \emph{very long} comments ($0.61$; accuracy $0.786$, OFFENSIVE recall
+$0.14$) and on \emph{teencode} or \emph{no-diacritic} comments, highest on short
+ones---descriptive gaps on one split, not a causal claim.
+
+\subsection{Statistical Significance and Calibration}
+\label{sec:significance}
+Because the spread is so small we re-analyse the frozen predictions with a
+percentile bootstrap ($10{,}000$ resamples, seed 42) for macro-F1 and the exact
+two-sided McNemar test for correctness; the two tests answer different questions
+and are reported separately.  Table~\ref{tab:confidence} gives the intervals, the
+top-label expected calibration error (ECE) and the paired comparisons.
+
+\input{tables/significance}
+
+Two conclusions follow.  First, \textbf{no pairwise macro-F1 difference is
+significant}: the largest gap (M3$-$M5, $+0.010$) has paired interval
+$[-0.002,+0.023]$ containing zero ($p=0.11$).  Second, \textbf{the accuracy ranking
+is more stable, and there the McNemar test does reject}: M6 is significantly
+\emph{less} accurate than both M3 ($p=1.6\times10^{-4}$) and M1
+($p=2.7\times10^{-4}$)---the only two of the seven comparisons in
+Table~\ref{tab:significance} that survive a Holm--Bonferroni correction---because
+M6 buys the highest minority recall by giving up CLEAN recall ($0.922$), and on a
+test set that is 83\% CLEAN that exchange costs accuracy.  Calibration also
+differs (focal-only probe best, ECE $0.068$; full recipe worst, $0.120$).
+
+Non-rejection is not equivalence: one seed and $6{,}680$ test items support only
+``no macro-F1 difference detected''; proving equivalence would need a
+pre-specified margin and a powered test over several seeds.  We therefore claim
+neither ``M3 is best'' nor ``the recipes are equal'', only that the choice should
+rest on secondary criteria (minority recall, calibration, cost).
+
+\subsection{Ranking Quality and Decision Rules}
+Ranking tells a different story from thresholded F1: macro ROC-AUC peaks for M6
+($0.8930$) and M1 ($0.8873$) while M3 sits at $0.8594$, consistent with their
+differing calibration.  Macro average precision (AP) is less kind to M6: it peaks
+for M1 ($0.6599$, M6 second at $0.6534$), so the two ranking summaries disagree
+and no single ranking number crowns M6.  Only M3--M6 searched per-class thresholds, and only M4
+found non-trivial values ($0.01/0.5/0.64$, validation macro-F1 $0.694\to0.697$)---a
+gain that did not transfer to test; elsewhere the search returned the trivial
+$0.5$, so a searched rule adds nothing over calibrated argmax here.
+
+\subsection{External Comparison}
+\label{sec:external}
+Table~\ref{tab:external} compares with published ViHSD results.  Our best
+macro-F1 ($0.6638$) is comparable to the strongest published monolingual encoders
+(PhoBERT $66.07$) and above the multilingual ones, but below recent
+Vietnamese-specific encoders (viBERT4news $66.43$, ViSoBERT $68.77$) and
+augmentation-based systems; the rows differ in split handling, preprocessing and
+model selection and none is re-trained by us, so the table is indicative.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Published macro-F1 on ViHSD vs.\ our best system (reported values, not
+re-trained by us).  External rows differ in split handling, preprocessing, encoder
+size and model selection, none of which we control; SMTCE rows are as tabulated in
+\cite{nguyen2022smtce}.}
+\label{tab:external}
+\begin{tabular}{llr}
+\toprule
+System & Training setting & Macro-F1 \\
+\midrule
+Dataset baseline \cite{luu2021vihsd} & reported baseline & 62.69 \\
+XLM-R \cite{nguyen2022smtce,conneau2020xlmr} & multilingual encoder & 63.68 \\
+mBERT (cased) \cite{nguyen2022smtce} & multilingual encoder & 64.20 \\
+PhoBERT \cite{nguyen2022smtce,nguyen2020phobert} & monolingual encoder & 66.07 \\
+viBERT4news \cite{nguyen2022smtce} & monolingual encoder & 66.43 \\
+\midrule
+\textbf{Ours (best system, M3)} & mDeBERTa-v3 + full recipe & \textbf{66.38} \\
+PhoBERT-CNN \cite{tran2022phobertcnn} & + augmentation / preprocessing & 67.46 \\
+ViSoBERT \cite{nguyen2023visobert} & social-media encoder & 68.77 \\
+\bottomrule
+\end{tabular}
+\end{table}

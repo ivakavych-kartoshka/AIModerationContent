@@ -1,0 +1,26 @@
+{
+  "sensitiveai-vi": {
+    "report": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi\\run_003",
+    "experiment": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi\\run_003"
+  },
+  "sensitiveai-vi-custom": {
+    "report": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom\\run_007",
+    "experiment": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom\\run_007"
+  },
+  "sensitiveai-vi-custom-curriculum": {
+    "report": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_001",
+    "experiment": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_001"
+  },
+  "sensitiveai-vi-customdlr2stage-ext": {
+    "report": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage-ext\\run_002",
+    "experiment": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-customdlr2stage-ext\\run_002"
+  },
+  "sensitiveai-vi-stage2": {
+    "report": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-stage2\\run_002",
+    "experiment": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-stage2\\run_002"
+  },
+  "sensitiveai-vi-customdlr2stage": {
+    "report": "outputs\\reports\\sensitiveai-vi-customdlr2stage\\run_008",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_008"
+  }
+}

@@ -1,0 +1,771 @@
+ SensitiveAI: An Ablation Study of Optimization
+                                    Recipes
+       for Three-Class Vietnamese Hate Speech
+                                  Detection
+
+               1 [0000-0000-0000-0000]                        1 [0000-0000-0000-0000]
+First Author                             and Second Author
+
+
+                      Your University, Your City, Your Country
+                            first.author@example.edu
+
+
+      Abstract. Hate speech on Vietnamese social media is a pressing
+      moderation problem, and ne-tuned multilingual transformers such as
+      mDeBERTa-v3 are now a common approach. Reported gains, however,
+      usually bundle several independent design decisionsclassication head,
+      learning-rate schedule, loss function, class weighting, training curriculum
+      and decision ruleinto one number, so it is unclear which decision
+      actually matters. We present SensitiveAI, a controlled ablation of six
+      such systems that share one xed data split, one frozen label mapping,
+      one backbone (microsoft/mdeberta-v3-base) and one random seed,
+      and dier only in the optimisation recipe. Every system is trained
+      on UIT-ViHSD (three classes HATE / OFFENSIVE / CLEAN, 83%
+      CLEAN) and scored exactly once on the held-out test set. All six
+      systems land in a narrow band of 0.6540.664 macro-F1 and 0.8630.878
+      accuracy, and no pairwise macro-F1 dierence is signicant under a
+      paired bootstrap or an exact McNemar test. A multi-view classication
+      head with discriminative learning rates reaches the best macro-F1
+      (0.6638), a focal-only continuation of the plain baseline gives the best
+      HATE F1 (0.609) and macro ROC-AUC (0.893), and the highest
+      accuracy (0.878) belongs to the system with the lowest macro-F1the
+      classic imbalanced-classication trap. A three-stage curriculum and
+      a validation-searched threshold rule did not improve over simpler
+      recipes. We report the full protocol, bootstrap condence intervals, a
+      confusion-matrix and error analysis, and the negative results, so the
+      comparison can be reproduced rather than re-argued.
+
+      Keywords: hate speech detection · Vietnamese NLP · mDeBERTa ·
+      class imbalance · ablation study · reproducibility.
+
+
+1   Introduction
+Vietnam has one of the fastest-growing social-media user bases in Southeast
+Asia, and the volume of Vietnamese text that platforms must moderate keeps
+rising. Automatically agging hateful and oensive comments is therefore a prac-
+tical prerequisite for healthier online communities, yet Vietnamese remains low-
+resource, and its social-media style is hardcode-switching, teencode, informal
+2         F. Author et al.
+
+spellings, character substitutions used to evade lters, and frequently dropped
+diacritics.
+      The release of   UIT-ViHSD [11], a human-annotated corpus of roughly 33k
+Vietnamese comments labelled clean, offensive or hate, made supervised
+transformer ne-tuning a realistic default, and the dataset is now a standard
+benchmark for monolingual encoders such as PhoBERT [13] and multilingual
+encoders such as mBERT and XLM-R [2,16,7]. Multilingual DeBERTa-v3 vari-
+ants (mDeBERTa-v3) have recently become popular because they combine a large
+multilingual pre-training corpus with disentangled attention [6,5].
+      In parallel, many   optimisation tricks are routinely applied to imbalanced
+text classication: a richer classication head, discriminative (layer-wise) learn-
+ing rates, multi-stage ne-tuning, class-weighted or focal losses [9], curriculum
+learning [1], and per-class decision thresholds [18]. In the literature these are usu-
+ally bundled together and reported as a single end-to-end improvement, which
+                                      which of these decisions actually moves
+leaves a practical question unanswered:
+the number on Vietnamese hate speech detection, and by how much?
+    This paper answers that with a controlled ablation. We build six systems
+sharing one backbone (microsoft/mdeberta-v3-base), one ngerprinted split,
+one frozen label mapping, one tokenizer conguration and one seed, and diering
+only in the optimisation recipe, each scored once on the held-out test set. The
+chain (Sect. 4) runs from a plain baseline with the standard head, to a multi-view
+pooling head, to a variant adding discriminative learning rates and class-weighted
+two-stage training, to a three-stage curriculum.
+      Our contributions are:
+
+     A comparison of six optimisation recipes for three-class Vietnamese hate
+      speech detection under a single xed split and seed, reported with split
+      ngerprints, per-class metrics, bootstrap condence intervals and paired sig-
+      nicance tests so the comparison can be reproduced rather than re-argued.
+     A multi-view classication head (rst-token, masked-mean and masked-max
+      pooling) attaining the best macro-F1 at essentially the same parameter count
+      as the standard head.
+     An empirical demonstration that the recipes are not uniformly better: no
+      pairwise macro-F1 dierence is statistically signicant, the highest accuracy
+      comes from a system with one of the lowest macro-F1 scores, a training
+      curriculum does not help, and a validation-searched per-class threshold col-
+      lapses back to the trivial 0.5 decisionnegative results we discuss for applied
+      moderation.
+
+      The remainder reviews related work, describes the data and its imbalance,
+presents the systems and recipes, and reports results and discussion.
+
+
+
+2      Related Work
+2.1     Vietnamese Hate Speech Detection
+Hate speech detection has been studied extensively for high-resource languages,
+but Vietnamese resources appeared comparatively late. The       UIT-ViHSD corpus
+            SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD        3
+
+[11] is the reference dataset for three-class classication on Vietnamese social me-
+dia; the VLSP 2019 shared task [21] provided an earlier, smaller benchmark, and
+related resources include UIT-ViCTSD [14] and ViHOS for hate/oensive span
+detection [7]. The SMTCE benchmark [16] re-evaluates BERTology models on
+ViHSD and supplies the published numbers we use in Sect. 6. Vietnamese-specic
+encoders have since pushed the number higher: ViDeBERTa [19] is a monolin-
+gual DeBERTa pre-trained on a large Vietnamese corpus, ViSoBERT [15] adapts
+to social-media text and is, to our knowledge, the strongest reported ViHSD en-
+coder, and ViHateT5 [17] reformulates the task as text-to-text. Augmentation
+pipelines such as PhoBERT-CNN [20] also report higher scores, though with
+pre-processing and synthetic-data steps outside our controlled setting.
+
+
+
+2.2     Pre-trained Encoders
+Fine-tuning pre-trained transformers is the dominant approach. Monolingual
+Vietnamese encoders are represented by PhoBERT [13]; multilingual encoders
+by mBERT [4] and XLM-R [2]. DeBERTa [6] introduced disentangled attention
+and    an   enhanced   mask   decoder,   and   DeBERTaV3     [5]   replaced   masked-
+language modelling with replaced-token detection in the ELECTRA style,
+improving accuracy and pre-training eciency. The multilingual checkpoint
+microsoft/mdeberta-v3-base extends this to 100+ languages and is the
+backbone used here.
+
+
+
+2.3     Learning under Class Imbalance
+ViHSD is strongly imbalanced, and the minority classes are the main source
+of error. Common remedies re-weight the loss by the training frequencythe
+eective number of samples [3] or the inverse frequencyuse focal loss, which
+down-weights easy examples [9], or move the decision threshold away from 0.5.
+Curriculum learning [1] schedules the diculty or label focus over time, and
+discriminative ne-tuning with layer-wise rates was popularised by ULMFiT
+[8]. We keep the encoder and optimiser family xed and vary exactly these
+factors; most prior ViHSD papers instead report a single aggregate improvement
+from several changes at once, so our contribution is complementary, deliberately
+surfacing negative ndings that single-number reports hide.
+
+
+
+3      Dataset
+3.1     UIT-ViHSD
+We use    UIT-ViHSD [11], a human-annotated corpus of Vietnamese social-media
+comments. Each comment carries exactly one label: clean (no hate or oensive
+content), offensive (insulting language that does not rise to hate speech), or
+hate (hate speech targeting a person or a protected group).
+      We follow the ocial train/dev/test partition. Our preprocessing is delib-
+erately light and label-preserving: we strip leading/trailing whitespace, collapse
+4         F. Author et al.
+
+runs of whitespace, drop control characters and remove exact duplicate (text, la-
+bel) pairs; we do not lowercase, remove diacritics, normalise teencode or truncate
+emoji, because those surface cues are part of the signal the models must learn.
+This yields 33,398 usable comments (24,046 / 2,672 / 6,680 for train/dev/test);
+the corpus has 33,400 rows and the small dierence is duplicate removal. The
+comments are short and uneven: the test split is 47.5 characters on average (me-
+dian 33), and hate comments are about twice as long (mean 84) as offensive
+or clean ones (mean 44 and 43). The annotation study reports only moderate
+inter-annotator agreement (around 0.5), which sets a ceiling on achievable ac-
+curacy: some test comments are genuinely ambiguous between offensive and
+hate, and no optimisation recipe can remove that label noise.
+
+
+3.2     Label Mapping and Imbalance
+The native ViHSD identiers are (0 = clean, 1 = offensive, 2 = hate); be-
+cause the minority classes are the object of study, we freeze a canonical mapping
+with the rare class rst (hate = 0, offensive = 1, clean = 2), applied once
+and never changed.
+      The distribution is skewed and stable across splits: clean accounts for 82
+83% of every split, hate for about 10%, and offensive is the smallest class
+at 6.67.9% (test: 688 hate, 444 offensive, 5,548 clean). Two consequences
+drive the rest of the paper. First, accuracy is misleading: a degenerate classier
+predicting clean always would score about       0.83 yet be useless, so we treat
+macro-F1 as primary alongside per-class precision, recall and F1. Second, the
+classes are confusable by designoensive and hate speech share most surface
+markersso the interesting comparison is the trade-o between minority-class
+F1 and the easy clean class.
+
+
+
+3.3     Fixed Split and Reproducibility
+The split must be identical for every system, so we store it as CSV les and
+record each le's SHA-256 digest in a manifest copied into every run directory;
+all six systems read the same three les and share the label mapping, leaving
+the recipe as the only varying factor, with the test split scored exactly once per
+system after all hyper-parameters are frozen on validation.
+
+
+
+4      Methodology
+4.1     Backbone and Common Conguration
+All six systems use the same encoder, microsoft/mdeberta-v3-base [5,12], a
+multilingual DeBERTa-v3 model with a hidden size of 768 and 12 transformer
+layers. The encoder is left untouched; the systems dier only in what sits on top
+of it and in how it is trained.
+      The training conguration is xed across systems (Sect. 5). The random seed
+is 42 and all runs used the same device and library versions; we make no claim
+            SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD        5
+
+                           Input comment → mDeBERTa
+                             tokenizer (max 256 tokens)
+                          mDeBERTa-v3-base encoder
+                           (12 layers, d=768, ne-tuned)
+
+                    CLS h0          Masked mean       Masked max
+
+                        Concatenate (2304-d) → LayerNorm
+
+                          Fusion MLP: 2304→512, GELU,
+                           Dropout, LayerNorm, 512→3
+                       Decision: argmax or per-class thresh-
+                       olds → hate / offensive / clean
+Fig. 1. The SensitiveAI pipeline. All six systems share the encoder and the decision
+stage; M2M5 add the multi-view pooling head shown here, whereas M1 and M6 keep
+the standard rst-token head. The recipes ablated on top are the baseline, the multi-
+view head plus DLR and two-stage training (weighted CE then focal), and the three-
+stage concept curriculum.
+
+of bitwise determinism across hardware, and the tokenizer, label mapping and
+split are identical everywhere. Figure 1 overviews the pipeline and the points at
+which the six systems dier.
+
+
+
+
+4.2     Systems and the Ablation Chain
+
+The systems form a chain in which each step ips exactly one group of de-
+cisions, plus two single-factor probes. We label them      M1M6 and use these
+labels throughout:
+
+
+
+ 1.   M1, sensitiveai-vi (baseline): standard Hugging Face head, single rate
+      3 × 10−5 , unweighted cross-entropy, argmax.
+ 2. M2, sensitiveai-vi-custom: baseline plus the multi-view head (Sect. 4.3).
+ 3. M3, sensitiveai-vi-customdlr2stage: custom head plus discriminative
+      learning rates, two-stage training, class-weighted cross-entropy then focal
+      loss, and searched thresholds (Sect. 4.5).
+ 4.   M4, sensitiveai-vi-custom-curriculum: custom head plus a three-stage
+      concept curriculum instead of the two stages (Sect. 4.6).
+ 5.   M5,    sensitiveai-vi-customdlr2stage-ext:         probe      continuing   M3's
+      stage 1 for 15 further epochs, to test whether that optimum was a genuine
+      peak or merely the end of the schedule.
+ 6.   M6, sensitiveai-vi-stage2: probe applying only the stage-2 recipe (fo-
+      cal loss, class weights, lower rate) on the baseline checkpoint, keeping the
+      standard head.
+6         F. Author et al.
+
+4.3     Multi-View Classication Head
+
+The standard DeBERTa head places a pooler on the rst token and a single
+linear layer on top: h[0] → Linear(768→768) + tanh → Linear(768→3), so the
+decision rests on one tokenfragile for short, noisy comments where a trigger
+word, not the rst token, decides the label. The custom head keeps the encoder
+                                                  L×768
+and changes only what follows. Let H ∈ R                  be the nal encoder states and
+              L
+m ∈ {0, 1}        the mask; the three views are
+
+
+
+
+                                    zcls = H[0],                                     (1)
+                                           P
+                                             l ml H[l]
+                                  zmean = P            ,                             (2)
+                                                l ml
+                                   zmax = max H[l],                                  (3)
+                                           l: ml =1
+
+
+      where the masked mean ignores padding and the masked max maximises over
+valid positions only. The views are concatenated into a 2304-dimensional vector,
+LayerNorm-normalised, and passed through a fusion block:
+
+
+
+
+         z → LayerNorm → Linear(2304→512) → GELU → Dropout(0.1)
+           → LayerNorm → Dropout(0.1) → Linear(512→3).                               (4)
+
+
+      The rst-token view keeps DeBERTa's pooled representation, the masked
+mean aggregates all positions, and the masked max preserves the strongest local
+activations; the 512-unit bottleneck adds a non-linear, regularised boundary.
+Since the encoder, data and optimiser are unchanged, M1 vs. M2 isolates the
+head.
+
+
+
+
+4.4     Losses and Class Weighting
+
+The baseline uses unweighted cross-entropy; later systems use one of three vari-
+ants:   weighted cross-entropy with class weights equal to the inverse square root
+of the training frequency (normalised to mean one);      focal loss [9] with γ = 2
+and label-specic weights αhate       = 0.5, αoffensive = αclean = 0.25, combined
+with the class weights; or      manual weights hate:3, offensive:2, clean:1 for
+the curriculum's nal stage. Class weights are always computed on the training
+split only.
+
+
+
+
+4.5     Discriminative Learning Rates and Two-Stage Training
+
+Two optimisation ideas are combined in M3.
+          SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD              7
+
+Discriminative (layer-wise) learning rates. Following ULMFiT [8], parameters
+are split into four groups with decreasing rates from head to input: embeddings
+5×10−6 , lower transformer half 1×10−5 , upper half 2×10−5 , and head 1×10−4 ,
+so the task-specic head adapts quickly from random initialisation while pre-
+trained representations avoid catastrophic forgetting. The encoder starts from
+the same mdeberta-v3-base checkpoint as M1 and M2, so the recipes share one
+initialisation.
+
+
+Two-stage training. Training proceeds in two stages of up to 15 epochs each:
+stage 1 stabilises the representation under class-weighted cross-entropy at rate
+2 × 10−5 with warmup 0.1; stage 2 continues from the stage-1 checkpoint with
+lower discriminative rates and focal loss, so hard and rare examples dominate the
+gradient. In this run the selected checkpoint was the     end of stage 1 (validation
+macro-F1 0.7089); the focal stage 2 never improved on it and was stopped early,
+so M3's headline number in practice comes from discriminative rates plus class-
+weighted cross-entropy, not from focal loss.
+
+
+Label-specic decision thresholds. The decision rule is changed from argmax to
+per-class thresholds: a label is accepted when its probability reaches its own
+threshold, the highest-probability accepted label wins, and if none passes the
+plain argmax is used. The thresholds are searched to maximise validation macro-
+F1 by coordinate ascent over a 101-point grid in [0, 1] from 0.5, on the validation
+split only, then frozen and applied unchanged to the test pass.
+
+
+
+4.6   Three-Stage Curriculum Concept Training
+M4 replaces the two stages with a three-stage curriculum inspired by curriculum
+learning [1], shaping the representation with easier binary sub-problems before
+the nal three-way decision: stage 1 targets  offensive versus anything else,
+stage 2  hate versus anything else, and stage 3 returns to the three-class objec-
+tive with class weights hate:3, offensive:2, clean:1 and cross-entropy. Two
+choices keep this a genuine curriculum: the full dataset is used in    every stage (a
+concept's negative class is the other two classes), and the three-way head is kept
+throughout, the concept loss just re-reading the three logits as a binary objective.
+                                                                        −5          −5
+Each stage runs for up to 10 epochs with decreasing rates (2 × 10            , 1 × 10    ,
+        −5
+1.5×10       ), the discriminative grouping of Sect. 4.5, and concept positive weights
+set to the negative-to-positive ratio so the rarer class is not swamped. M4 asks
+whether a ner-grained sequence of increasingly dicult stages helps more than
+M3's two; as we report in Sect. 6, it does not.
+
+
+
+5     Experimental Setup
+5.1   Hardware and Software
+All experiments were run on a single workstation with an NVIDIA GeForce RTX
+4060 Laptop GPU (8 GB), CUDA 12.6, PyTorch 2.13 and Python 3.11, using the
+8         F. Author et al.
+
+Hugging Face Transformers library [22]. The backbone has 278.8M parameters;
+the custom head adds about 594k (≈ 0.2%), so the systems are of essentially
+identical size.
+
+
+
+5.2     Training Protocol
+All systems share one conguration: AdamW [10] with weight decay 0.01, a lin-
+ear schedule with warmup 0.050.1, batch size 16 with gradient accumulation 2
+(eective 32), gradient clipping at norm 1.0, sequence length 256 tokens, bf16
+training (fp32 for the latency benchmark), and up to 1530 epochs depending
+on the recipe. Early stopping monitors validation macro-F1 with patience 6 and
+restores the best checkpoint. The systems dier only in the encoder initialisa-
+tion, the number of stages, the loss sequence and the class-weighting scheme
+(Sect. 4.2); the test split is evaluated exactly once per system with the check-
+point selected on validation.
+
+
+
+5.3     Metrics
+Because of the imbalance described in Sect. 3.2, we treat   macro-averaged F1 as
+the primary metric and report accuracy only as a secondary, diagnostic number,
+alongside per-class precision, recall and F1, the macro ROC-AUC and the macro
+average precision (AP), since precision-recall summaries are more trustworthy
+than ROC under imbalance [18]. Calibration uses the top-label expected calibra-
+tion error (ECE, 10 bins); signicance uses a percentile bootstrap and the exact
+McNemar test. Inference cost is reported as milliseconds per sample on the same
+GPU, as an indicative measurement only.
+
+
+
+5.4     Fairness of the Comparison
+Every system reads the same three split les (veried by SHA-256 digest) and
+label mapping, uses the same encoder checkpoint family and seed, and is scored
+on the same test set; class weights and thresholds, when used, are estimated on
+the training and validation splits respectively, never on the test set. The only
+things that vary are the head, the learning rates, the number of stages and the
+loss.
+
+
+
+
+6       Results
+6.1     Headline Comparison
+Table 1 reports the test results. The systems are tightly clusteredmacro-F1
+spans 0.65360.6638 (1.0 pt) and accuracy 0.86330.8783and these spreads
+sit inside sampling noise: the 95% bootstrap intervals on macro-F1 are about
+±0.019 wide (Table 2), so every pairwise gap lies within a single interval and
+           SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD              9
+
+Table 1. Comparison of the six systems (M1M6, Sect. 4.2) on the ViHSD test set
+under one xed split; M-F1/W-F1: macro/weighted F1; HATE/OFF./CLEAN: per-
+class F1; AUC/AP: macro ROC-AUC / average precision.
+
+  Model     Acc.     M-F1       W-F1     HATE     OFF.     CLEAN       AUC        AP
+  M1       0.8734    0.6545     0.8705   0.5864   0.4367    0.9405    0.8873   0.6599
+  M2       0.8762    0.6575     0.8709   0.5830   0.4493    0.9403    0.8842    0.6484
+  M3       0.8754   0.6638 0.8730        0.5943   0.4561    0.9409    0.8594    0.6254
+  M4       0.8731    0.6590     0.8701   0.5847   0.4535    0.9389    0.8500    0.6367
+  M5       0.8783    0.6536     0.8711   0.5843   0.4350    0.9415    0.8096    0.6124
+  M6       0.8633    0.6604     0.8679   0.6088   0.4382    0.9344    0.8930    0.6534
+
+
+
+
+Fig. 2. Test-set performance of the six systems. Panel (a): macro-F1; the 1.0-point
+spread is within a single bootstrap interval (Sect. 6.6). Panel (b): per-class F1, showing
+that the CLEAN class is nearly solved while HATE and especially OFFENSIVE stay
+low for every recipe.
+
+none is signicant (Sect. 6.6). The observations below are therefore directions of
+eect, not established rankings.
+      The full recipe (M3) is best by macro-F1 (0.6638) and OFFENSIVE F1
+(0.4561); the extended probe (M5) has the highest accuracy (0.8783) and
+CLEAN F1 yet one of the lowest macro-F1 (0.6536) and the lowest macro
+ROC-AUC (0.8096); the stage-2 probe (M6) has the highest HATE F1 (0.6088),
+ROC-AUC (0.8930) and AP, but the lowest accuracy; and the custom head
+alone moves macro-F1 only 0.6545 → 0.6575.
+
+
+
+
+6.2     Ablation Reading
+
+Figure 2 and Table 1 give the chain. The custom head alone adds +0.30 macro-F1
+(M1→M2), discriminative rates with two-stage class-weighted training another
++0.63 (M2→M3), and the three-stage curriculum gives back 0.48 (M3→M4).
+The single-factor probes are the most informative: focal loss with class weighting
+on a   standard head (M6) reaches 0.6604, beating the baseline, the custom head
+and the curriculum, and also giving the best HATE F1 and ranking quality;
+extending stage 1 (M5)        hurts (macro-F1 0.6536, ROC-AUC 0.8096), evidence
+that further cross-entropy training drifts to the majority class. M3's selected
+checkpoint was the end of its cross-entropy stage (validation macro-F1 0.7089
+10      F. Author et al.
+
+
+
+
+Fig. 3. Validation loss (left) and validation accuracy (right) per epoch for the six
+systems. Accuracy plateaus early inside 0.860.88; loss turns upward while training
+loss keeps falling, so the checkpoint is selected on validation macro-F1. A step in a
+curve marks a change of training objective between stages.
+
+on epoch 15), so its focal stage never helped: the same ingredient succeeds or
+fails depending on what precedes it.
+
+
+
+6.3   Accuracy Versus Macro-F1
+The clearest lesson is the accuracy/macro-F1 contrast: the most accurate sys-
+tem (M5, 0.8783) is the one    not to deployit has the worst OFFENSIVE re-
+call (0.381) and the weakest ranking quality, because predicting the majority
+class is rewarded by accuracy and punished by macro-F1. We therefore advise
+against accuracy-based selection here, consistent with the classical preference for
+precision-recall over ROC analysis under imbalance [18].
+
+
+
+6.4   Training Dynamics
+Validation accuracy plateaus within about ve epochs in a narrow 0.860.88
+band, so most dierences are settled early; the selected checkpoints fall at dier-
+ent epochs (9 for M1, 15 for M3, 3 for M5), so the dynamics, not the nal epoch,
+decide each score. Because validation loss turns upward while training loss keeps
+fallingand systems that change objective between stages show a step in the
+curveearly stopping on validation macro-F1, not loss, selects the checkpoint.
+
+
+
+6.5   Per-Class Behaviour and Error Analysis
+The per-class breakdown (Fig. 2b) localises the diculty: CLEAN is nearly
+solved (F1 0.930.94) while OFFENSIVE stays at 0.430.46 and HATE at 0.58
+0.61 for every system. The full recipe rebalances the minority classesHATE
+recall 0.538 → 0.573 and OFFENSIVE precision 0.434 → 0.474 at unchanged
+recall, lifting OFFENSIVE F1 0.437 → 0.456while the curriculum and the
+focal-only probe buy HATE recall up to 0.647 (M6) by cutting CLEAN recall
+to 0.922.
+    Figure 4 conrms the shared failure mode: the offensive row is weakest (38
+46% misrouted) and hate is diluted into its neighbours, while clean is almost
+never touched. Splitting the test set by surface cues (M3) shows the diculty is
+           SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD           11
+
+
+
+
+Fig. 4. Row-normalised test confusion matrices for the baseline (M1), the best macro-
+F1 system (M3) and the focal-only probe (M6). Every system shares one failure mode:
+offensive comments sent to hate or clean, and hate diluted into its neighbours;
+the systems dier by a few percent along these rows, not by a change of failure mode.
+Table 2. Post-hoc statistics on the frozen test predictions. Top: accuracy and macro-F1
+with 95% percentile bootstrap intervals (10,000 resamples of the 6,680 test items) and
+the top-label expected calibration error (ECE, 10 bins). Bottom: paired comparisons, A
+minus B , with a 95% paired-bootstrap interval; p is the exact two-sided McNemar test
+on the two systems' correctness (b/c: A right/B wrong vs. the reverse). No macro-F1
+gap is signicant at α = 0.05.
+
+  System                     Accuracy [95% CI]          Macro-F1 [95% CI]       ECE
+  M1                       0.8734 [0.8653, 0.8813]    0.6545 [0.6353, 0.6736]   0.106
+  M2                       0.8762 [0.8681, 0.8841]    0.6575 [0.6375, 0.6771]   0.111
+  M3                       0.8754 [0.8672, 0.8835]    0.6638 [0.6442, 0.6823]   0.120
+  M4                       0.8731 [0.8648, 0.8810]    0.6590 [0.6396, 0.6779]   0.119
+  M5                       0.8783 [0.8702, 0.8861]    0.6536 [0.6334, 0.6728]   0.118
+  M6                       0.8633 [0.8549, 0.8716]    0.6604 [0.6424, 0.6781]   0.068
+  Comparison (A − B )         ∆MF1 [95% CI]                    ∆Acc              p
+  M3 − M1                +0.0092 [-0.0082, +0.0269]          +0.0021            0.526
+  M3 − M2                +0.0062 [-0.0060, +0.0186]          -0.0007            0.788
+  M3 − M4                +0.0047 [-0.0051, +0.0144]          +0.0024            0.217
+  M3 − M6                +0.0033 [-0.0124, +0.0188]          +0.0121            0.000
+  M3 − M5                +0.0101 [-0.0023, +0.0228]          -0.0028            0.217
+  M5 − M1                -0.0009 [-0.0185, +0.0164]          +0.0049            0.110
+  M6 − M1                +0.0059 [-0.0071, +0.0191]          -0.0100            0.000
+
+lexical rather than syntactic: it is worst onvery long comments (accuracy 0.786;
+OFFENSIVE recall 0.14) and on those      without diacritics (0.851) or with teencode
+(0.854), and best on short comments (0.921)exactly the long, teencode-heavy
+minority comments a majority shortcut discards.
+
+
+
+6.6    Statistical Signicance and Calibration
+Because the spread is so small we re-analyse the frozen predictions with a per-
+centile bootstrap (10,000 resamples, seed 42) and the exact two-sided McNemar
+test. Table 2 gives the intervals, the top-label expected calibration error (ECE)
+and the paired comparisons.
+   Two conclusions follow. First, no pairwise macro-F1 dierence is signif-
+icant: the largest gap (M3−M5, +0.010) has a paired interval [−0.002, +0.023]
+12      F. Author et al.
+
+                                            the accuracy ranking is
+containing zero and McNemar p = 0.217. Second,
+more stable than the macro-F1 ranking: the same test rejects equal accu-
+racy for M3 vs. M6 (p < 0.001), because M6 trades minority recall for majority
+predictions. Calibration also diersthe focal-only probe is best (ECE 0.068),
+the full recipe worst (0.120)so the defensible claim is not M3 is best but
+the recipes tie on macro-F1, and the choice should rest on secondary criteria
+(minority recall, calibration, cost).
+
+
+
+6.7   Ranking Quality and Decision Rules
+Ranking tells a dierent story from thresholded F1: macro ROC-AUC peaks for
+M6 (0.8930) and M1 (0.8873) while M3 sits at 0.8594, so the best-thresholded
+systems are not the best-ranking ones, consistent with their diering calibra-
+tion. Every system used a per-class threshold rule, but only M3M6 searched the
+thresholds: for M3, M5 and M6 the search returned the trivial 0.5 with the valida-
+tion objective unchanged, and only M4 found non-trivial values (0.01/0.5/0.64,
+validation macro-F1 0.694     → 0.697), a gain that did not transfer to test. A
+searched decision rule thus adds nothing over a calibrated argmax here.
+
+
+
+6.8   Inference Cost
+Latency was measured once per system on the same GPU, tokenizer, length and
+batch size (fp32), reported as indicative rather than controlled. The four custom-
+head systems cluster at 11.011.6 ms/sample, but the standard-head baseline
+(M1) measured 28.1 ms while the     architecturally identical standard-head probe
+(M6) measured 10.7 msa 2.6× gap at equal parameter count. Such a gap cannot
+come from the head, so we make      no claim that the multi-view head is faster; a
+controlled latency study remains future work.
+
+
+
+6.9   External Comparison
+Table 3 compares with published ViHSD results. Our best macro-F1 (0.6638)
+is comparable to the strongest published monolingual encoders (PhoBERT
+66.07) and above the multilingual ones (XLM-R, mBERT), but below recent
+Vietnamese-specic encoders (viBERT4news 66.43, ViSoBERT 68.77) and
+augmentation-based systems. These are not like-for-likethey dier in split
+handling, preprocessing and model selection, and none is re-trained by usso
+the table is indicative.
+
+
+
+7     Discussion
+7.1   Which Decisions Actually Matter
+The encoder and data dominate: all recipes sit within 1.0 macro-F1 point and,
+as Sect. 6.6 shows, these gaps are statistically indistinguishable, so the ablation
+           SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD      13
+
+Table 3. Published macro-F1 on ViHSD compared with our best system (reported
+values, not re-trained by us). The comparison is indicative: the external rows dier
+in split handling, preprocessing, encoder size and model selection, none of which we
+control. SMTCE rows are as tabulated in [16].
+
+        System                     Training setting                 Macro-F1
+        Dataset baseline [11]      reported baseline                    62.69
+        XLM-R [16,2]               multilingual encoder                 63.68
+        mBERT (cased) [16]         multilingual encoder                 64.20
+        PhoBERT [16,13]            monolingual encoder                  66.07
+        viBERT4news [16]           monolingual encoder                  66.43
+        Ours (best system, M3) mDeBERTa-v3 + full recipe                66.38
+        PhoBERT-CNN [20]           + augmentation / preprocessing       67.46
+        ViSoBERT [15]              social-media encoder                 68.77
+
+gives only the direction of the eects. Class-weighted focal loss on a plain head
+(M6) reached      0.6604, matching the full recipe within noise while giving the
+best minority recall and ranking quality, so loss design is the most useful single
+lever. The multi-view head alone gives only +0.30 macro-F1, and we make no
+throughput claim for it because two architecturally identical systems measured
+dierent latencies (Sect. 6). More stages did not help, and the threshold search
+either collapsed to 0.5 (M3, M5, M6) or failed to transfer (M4), so gains come
+from training, not the decision rule.
+      The accuracy leader is also the macro-F1 laggard (Sect. 6.3), a direct conse-
+quence of an 83%-majority test set: each extra clean prediction raises accuracy
+even when it misclassies a minority comment, so an accuracy-optimised system
+would under-report oensive and hateful contentthe opposite of the product
+requirement. Selection should therefore use macro-F1 (or minority recall), driven
+by the validation split so the test split stays honest.
+
+
+
+7.2     Threats to Validity
+Each system was trained once (seed 42), so the point estimates carry run-to-
+run variance that a shared split and seed do not remove; the bootstrap intervals
+quantify sampling noise but not training noise, and because the observed gaps al-
+ready lie inside one interval we cannot claim any recipe is reliably better. ViHSD
+is the only corpus studied, and its external baselines (Table 3) reprint published
+numbers under other settings and are indicative, not controlled. The latency
+measurements were single-session and inconsistent between identical architec-
+tures, so no cost claim is made. Finally, ViHSD's inter-annotator agreement is
+only moderate (κ ≈ 0.5), so part of the remaining error is irreducible.
+
+
+
+7.3     Implications
+For applied moderation the message is negative but worth reporting: no single
+trick solves Vietnamese hate speech detection, and added complexitycurricula,
+14      F. Author et al.
+
+searched thresholds, longer trainingdid not pay o. The minority classes re-
+main hard (OFFENSIVE F1 stuck near 0.46 across all six systems), which points
+at the data rather than the optimiser as the next place to invest: more labelled
+oensive examples, span-level supervision as in ViHOS [7], or retrieval-based
+hard-negative mining.
+
+
+
+
+8    Conclusion
+We presented SensitiveAI, a controlled ablation of six optimisation recipes for
+three-class Vietnamese hate speech detection on UIT-ViHSD. Holding the data
+split, label mapping, backbone, tokenizer and seed xed while changing one
+recipe at a time let us isolate the direction of each design choice. Our mainand
+deliberately modestnding is that the recipes are     statistically indistinguishable
+on macro-F1: the 1.0-point spread lies within one bootstrap interval and no pair-
+wise McNemar comparison is signicant. The only robust signal is on accuracy,
+where the majority-heavy probe is signicantly less accurate than the balanced
+recipes; the highest-accuracy system is thus also the macro-F1 laggard, conrm-
+ing that accuracy is an unsafe selection criterion on an 83%-majority corpus.
+The best macro-F1 (0.6604, from focal loss on a plain head, M6) barely exceeds
+the baseline, the full recipe (M3) reaches 0.6638, and the custom head alone
+gives only +0.30 points: the blocker is the data and the task, not the optimiser,
+since OFFENSIVE F1 stays near 0.46 for every system.
+
+
+Future Work. Repeat each system with several seeds to quantify training vari-
+ance and test the gaps against it; re-train the published baselines under the same
+split to make Table 3 a controlled comparison; and attack the data rather than
+the optimiser, since span-level supervision, hard-negative retrieval and targeted
+collection of offensive examples look more promising. A controlled latency
+study is also needed before any throughput claim about the custom head.
+
+
+Acknowledgements. TODO: add funding, GPU and dataset acknowledgements.
+
+Data and Code Availability. TODO: add repository / DOI link after anonymi-
+sation review.
+
+
+
+
+References
+ 1. Bengio, Y., Louradour, J., Collobert, R., Weston, J.: Curriculum learning. In: Pro-
+    ceedings of the 26th International Conference on Machine Learning (ICML). pp.
+    4148 (2009)
+ 2. Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzmán,
+    F., Grave, E., Ott, M., Zettlemoyer, L., Stoyanov, V.: Unsupervised cross-lingual
+    representation learning at scale. Proceedings of the 58th Annual Meeting of the
+    Association for Computational Linguistics (ACL) pp. 84408451 (2020)
+          SensitiveAI: Ablation of Optimization Recipes for Vietnamese HSD              15
+
+ 3. Cui, Y., Jia, M., Lin, T.Y., Yang, J., Belongie, S.: Class-balanced loss based on
+    eective number of samples. In: Proceedings of the IEEE/CVF Conference on
+    Computer Vision and Pattern Recognition (CVPR). pp. 92689277 (2019)
+ 4. Devlin, J., Chang, M.W., Lee, K., Toutanova, K.: BERT: Pre-training of deep
+    bidirectional transformers for language understanding. In: Proceedings of NAACL-
+    HLT. pp. 41714186 (2019)
+ 5. He, P., Gao, J., Chen, W.: DeBERTaV3: Improving DeBERTa using ELECTRA-
+    style pre-training with gradient-disentangled embedding sharing. In: International
+    Conference on Learning Representations (ICLR) (2023)
+ 6. He, P., Liu, X., Gao, J., Chen, W.: DeBERTa: Decoding-enhanced BERT with
+    disentangled attention. In: International Conference on Learning Representations
+    (ICLR) (2021)
+ 7. Hoang, P.G., Luu, C.D., Tran, K.Q., Nguyen, K.V., Nguyen, N.L.T.: ViHOS: Hate
+    speech spans detection for vietnamese. In: Proceedings of the 17th Conference of
+    the European Chapter of the Association for Computational Linguistics (EACL).
+    pp. 652669 (2023)
+ 8. Howard, J., Ruder, S.: Universal language model ne-tuning for text classication.
+    In: Proceedings of the 56th Annual Meeting of the Association for Computational
+    Linguistics (ACL). pp. 328339 (2018)
+ 9. Lin, T.Y., Goyal, P., Girshick, R., He, K., Dollár, P.: Focal loss for dense object de-
+    tection. In: Proceedings of the IEEE International Conference on Computer Vision
+    (ICCV). pp. 29802988 (2017)
+10. Loshchilov, I., Hutter, F.: Decoupled weight decay regularization. In: International
+    Conference on Learning Representations (ICLR) (2019)
+11. Luu, S.T., Nguyen, K.V., Nguyen, N.L.T.: A large-scale dataset for hate speech
+    detection on vietnamese social media texts. In: Advances and Trends in Arti-
+    cial Intelligence. Articial Intelligence Practices (IEA/AIE). pp. 415426. Lecture
+    Notes in Computer Science, Springer (2021)
+12. Microsoft: mDeBERTa-v3: Multilingual DeBERTa-v3 pre-trained language model.
+    Hugging Face model card (2021)
+13. Nguyen, D.Q., Nguyen, A.T.: PhoBERT: Pre-trained language models for viet-
+    namese. In: Findings of the Association for Computational Linguistics: EMNLP
+    2020. pp. 10371042 (2020)
+14. Nguyen, L.T., Nguyen, K.V., Nguyen, N.L.T.: Constructive and toxic speech de-
+    tection for open-domain social media comments in vietnamese. In: Advances and
+    Trends in Articial Intelligence. Articial Intelligence Practices (IEA/AIE). pp.
+    572583. Springer (2021)
+15. Nguyen, N., Phan, T., Nguyen, D.V., Nguyen, K.V.: ViSoBERT: A pre-trained
+    language model for vietnamese social media text processing. In: Proceedings of the
+    2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)
+    (2023)
+16. Nguyen, N.L.T., et al.: SMTCE: A social media text classication evaluation bench-
+    mark and BERTology models for vietnamese. In: Proceedings of the 36th Pacic
+    Asia Conference on Language, Information and Computation (PACLIC) (2022)
+17. Nguyen, T.T., Nguyen, H., Pham, D.V., Nguyen, C.V., Do, T.H., Nguyen, K.V.:
+    ViHateT5: A T5-based model for vietnamese hate speech detection. In: Findings
+    of the Association for Computational Linguistics: ACL 2024 (2024)
+18. Saito, T., Rehmsmeier, M.: The precision-recall plot is more informative than the
+    roc plot when evaluating binary classiers on imbalanced datasets. PLOS ONE
+    10(3), e0118432 (2015)
+16      F. Author et al.
+
+19. Tran, C.D., Nguyen, H., Pham, Q., Nguyen, V.H., Nguyen, P., Luu, A.T., Nguyen,
+    H.T.H., Vu, H., Le, H., Nguyen, D.T.N., et al.: ViDeBERTa: A powerful pre-trained
+    language model for vietnamese. In: Findings of the Association for Computational
+    Linguistics: EACL 2023. pp. 10411048 (2023)
+20. Tran, K.Q., Nguyen, A.T., Hoang, P.G., Luu, C.D., Do, T.H., Nguyen, K.V.:
+    Vietnamese hate and oensive detection using PhoBERT-CNN and social media
+    streaming data. arXiv preprint arXiv:2206.00524 (2022)
+21. Vu, X.S., Vu, T., Tran, M., Nguyen, L.M.: Vietnamese hate speech detection: VLSP
+    shared task. In: Proceedings of the 7th International Workshop on Vietnamese
+    Language and Speech Processing (VLSP) (2020)
+22. Wolf, T., Debut, L., Sanh, V., Chaumond, J., Delangue, C., Moi, A., et al.: Trans-
+    formers: State-of-the-art natural language processing. In: Proceedings of the 2020
+    Conference on Empirical Methods in Natural Language Processing (EMNLP): Sys-
+    tem Demonstrations. pp. 3845 (2020)
+

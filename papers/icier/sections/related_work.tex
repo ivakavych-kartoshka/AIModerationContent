@@ -1,0 +1,39 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Vietnamese Hate Speech Detection}
+Hate speech detection is well studied for high-resource languages, but Vietnamese
+resources appeared comparatively late.  The \emph{UIT-ViHSD} corpus
+\cite{luu2021vihsd} is the reference three-class dataset for Vietnamese social
+media; the VLSP 2019 shared task \cite{vu2020hsdvlsp} was an earlier benchmark, and
+related resources include UIT-ViCTSD \cite{nguyen2021victsd} and ViHOS for
+hate/offensive span detection \cite{hoang2023vihos}; the SMTCE benchmark
+\cite{nguyen2022smtce} supplies the published numbers we reuse.  Vietnamese-specific
+encoders have since raised the state of the art: ViDeBERTa \cite{tran2023videberta}
+is a monolingual DeBERTa pre-trained on Vietnamese, ViSoBERT
+\cite{nguyen2023visobert} adapts to social-media text and is, to our knowledge, the
+strongest reported ViHSD encoder, ViHateT5 \cite{nguyen2024vihatet5} reformulates
+the task as text-to-text, and pipelines such as PhoBERT-CNN
+\cite{tran2022phobertcnn} report higher scores with steps outside our controlled
+setting.
+
+\subsection{Pre-trained Encoders}
+Fine-tuning pre-trained transformers is the dominant approach, with PhoBERT
+\cite{nguyen2020phobert} for Vietnamese and mBERT \cite{devlin2019bert} and XLM-R
+\cite{conneau2020xlmr} for multilingual settings.  DeBERTa \cite{he2021deberta}
+introduced disentangled attention and DeBERTaV3 \cite{he2023debertav3} replaced
+masked-language modelling with replaced-token detection; the multilingual
+checkpoint \texttt{microsoft/mdeberta-v3-base}, extending this to 100+ languages,
+is the backbone used here.
+
+\subsection{Learning under Class Imbalance}
+ViHSD is strongly imbalanced and the minority classes are the main error source.
+Common remedies re-weight the loss by training frequency---the effective number of
+samples \cite{cui2019classbalanced} or the inverse frequency---use focal loss,
+which down-weights easy examples \cite{lin2017focal}, or move the decision threshold
+away from $0.5$.  Curriculum learning \cite{bengio2009curriculum} schedules
+difficulty or label focus over time, and discriminative fine-tuning with layer-wise
+rates was popularised by ULMFiT \cite{howard2018ulmfit}.  We fix the encoder and
+optimiser family and vary exactly these factors; most prior ViHSD work reports a
+single aggregate improvement, so we deliberately surface the negative findings that
+single-number reports hide.
