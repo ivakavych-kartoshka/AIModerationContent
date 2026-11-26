@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{he2023debertav3}
+He, P., Gao, J., Chen, W.: {DeBERTaV3}: Improving {DeBERTa} using
+  {ELECTRA}-style pre-training with gradient-disentangled embedding sharing.
+  In: International Conference on Learning Representations (ICLR) (2023)
+
+\bibitem{lin2017focal}
+Lin, T.Y., Goyal, P., Girshick, R., He, K., Doll{\'a}r, P.: Focal loss for
+  dense object detection. In: Proceedings of the IEEE International Conference
+  on Computer Vision (ICCV). pp. 2980--2988 (2017)
+
+\bibitem{luu2021vihsd}
+Luu, S.T., Nguyen, K.V., Nguyen, N.L.T.: A large-scale dataset for hate speech
+  detection on vietnamese social media texts. In: Advances and Trends in
+  Artificial Intelligence. Artificial Intelligence Practices (IEA/AIE). pp.
+  415--426. Lecture Notes in Computer Science, Springer (2021)
+
+\bibitem{liu2024mdeberta}
+Microsoft: {mDeBERTa-v3}: Multilingual {DeBERTa-v3} pre-trained language model.
+  Hugging Face model card  (2021)
+
+\bibitem{saito2015precision}
+Saito, T., Rehmsmeier, M.: The precision-recall plot is more informative than
+  the roc plot when evaluating binary classifiers on imbalanced datasets. PLOS
+  ONE  \textbf{10}(3),  e0118432 (2015)
+
+\end{thebibliography}

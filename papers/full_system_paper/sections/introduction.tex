@@ -18,39 +18,18 @@ neural contextualisation.
 
 This paper presents \textbf{SensitiveAI}, a bilingual language-aware pipeline
 that treats a rule engine as an \emph{evidence channel} rather than a competing
-classifier.  The system consists of:
-\begin{enumerate}
-    \item a hybrid language detector (heuristics + langid backend) producing
-          \texttt{vi}/\texttt{en}/\texttt{mix}/\texttt{other} with confidence;
-    \item a language-aware tokenizer that segments each comment into
-          per-language spans;
-    \item two independent rule engines (668-entry Vietnamese lexicon
-          \texttt{v1}, 818-entry English lexicon \texttt{v1-en-combined})
-          with anti-obfuscation views (accentless, leet, repeat-collapsed,
-          separator-stripped);
-    \item per-language mDeBERTa-v3-base checkpoints (\model{sensitiveai-vi-custom}
-          and \model{sensitiveai-en-stage2});
-    \item a language-aware fusion module that blends AI probabilities and rule
-          pseudo-probabilities channel-wise with per-language weights
-          ($\alpha_{\text{VI}}=0.70$, $\alpha_{\text{EN}}=0.70$, $\alpha_{\text{mix}}=0.65$,
-          $\alpha_{\text{multilingual}}=0.80$) and per-class decision thresholds.
-\end{enumerate}
+classifier.  The system integrates five modules:
+(1)~a hybrid language detector (heuristics + statistical backend) producing \texttt{vi}/\texttt{en}/\texttt{mix}/\texttt{other} with confidence;
+(2)~a language-aware tokenizer segmenting comments into per-language spans;
+(3)~two independent rule engines (668-entry Vietnamese lexicon \texttt{v1}, 818-entry English lexicon \texttt{v1-en-combined}) with four anti-obfuscation views;
+(4)~per-language fine-tuned mDeBERTa-v3-base checkpoints (\model{sensitiveai-vi-custom} and \model{sensitiveai-en-stage2}); and
+(5)~a language-aware fusion module blending AI probabilities and rule pseudo-probabilities channel-wise with language-specific weights ($\alpha_{\text{VI}}=0.70$, $\alpha_{\text{EN}}=0.70$, $\alpha_{\text{mix}}=0.65$, $\alpha_{\text{multi}}=0.80$) and per-class decision thresholds.
 
-We evaluate on three axes:
-\begin{itemize}
-    \item \textbf{Per-language backbone comparison}: four Vietnamese backbones
-          (differing only in head and curriculum) and three English backbones
-          on their respective held-out test sets.
-    \item \textbf{Rule engine standalone}: macro-F1 0.345 (VI) and 0.504 (EN)
-          with thresholded decisions.
-    \item \textbf{Fusion variants}: global $\alpha$, per-channel $\alpha$,
-          per-class thresholds, logistic meta-classifier—all tuned on
-          validation, frozen for test.
-    \item \textbf{End-to-end mixed evaluation}: 9{,}158 comments (6{,}680 Vietnamese
-          from ViHSD test + 2{,}478 English from Davidson test), yielding 87.10\%
-          accuracy, macro-F1 0.7781, 9.07 ms latency and 110.2 texts/s throughput
-          (serialised run, $\alpha=0.70$, P95 12.69 ms).
-\end{itemize}
+We evaluate across four principal axes:
+(1)~\textbf{Per-language backbones}: four Vietnamese and three English configurations on held-out test splits;
+(2)~\textbf{Rule engine standalone}: macro-F1 0.345 (VI) and 0.504 (EN);
+(3)~\textbf{Fusion variants}: global $\alpha$, per-channel $\alpha$, per-class thresholds, and logistic meta-classifier; and
+(4)~\textbf{End-to-end mixed benchmark}: 9{,}158 comments (6{,}680 ViHSD + 2{,}478 Davidson), attaining 87.10\% accuracy, macro-F1 0.7781, 9.07\,ms average latency, and 110.2 texts/s throughput.
 
 The headline finding is \emph{not} an accuracy breakthrough: on ViHSD the
 hybrid gains 0.0027 macro-F1 (8 comments, $p=0.29$).  The contribution is the

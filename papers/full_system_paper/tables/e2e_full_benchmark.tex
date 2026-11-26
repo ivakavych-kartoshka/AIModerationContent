@@ -1,21 +1,22 @@
-% Auto-generated from scripts/65_e2e_benchmark_vi_en.py
+% Unified comprehensive benchmark table
 \begin{table}[t]
 \centering
-\small
-\caption{Evaluation on the full test splits: backbone-only inference versus the full pipeline (language detection $\to$ routing $\to$ backbone $\to$ fusion at $\alpha=0.70$). Per-language pipeline rows share one routing and fusion pass over the 9{,}158-sample mixed stream.}
+\caption{End-to-end evaluation on the full test splits: backbone-only inference versus the full hybrid pipeline (language detection $\to$ routing $\to$ backbone $\to$ fusion at $\alpha=0.70$). Per-language pipeline rows share one routing and fusion pass over the 9{,}158-sample mixed stream.}
 \label{tab:e2e_full_benchmark}
-\begin{tabular}{llccccc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccc}
 \toprule
-\textbf{Mode} & \textbf{Language} & \textbf{Dataset} & \textbf{$N$} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{Throughput} \\
+\textbf{Mode} & \textbf{Language} & \textbf{Dataset} & \textbf{$N$} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{ECE} & \textbf{Throughput} \\
 \midrule
 \multirow{2}{*}{Backbone only}
-  & Vietnamese & ViHSD & 6{,}680 & 0.8711 & 0.6608 & 198.3 texts/s \\
-  & English & Davidson & 2{,}478 & 0.9084 & 0.7676 & 408.5 texts/s \\
+  & Vietnamese & ViHSD    & 6{,}680 & 0.8711 & 0.6608 & 0.1143 & 198.3 texts/s \\
+  & English    & Davidson & 2{,}478 & 0.9084 & 0.7676 & 0.1022 & 408.5 texts/s \\
 \midrule
 \multirow{3}{*}{Full pipeline}
-  & Vietnamese & ViHSD & 6{,}680 & 0.8665 & 0.6512 & \multirow{3}{*}{110.2 texts/s} \\
-  & English & Davidson & 2{,}478 & 0.8834 & 0.7449 & \\
-  & \textbf{Mixed} & \textbf{Both} & \textbf{9{,}158} & \textbf{0.8710} & \textbf{0.7781} & \\
+  & Vietnamese & ViHSD    & 6{,}680 & 0.8665 & 0.6512 & 0.0968 & \multirow{3}{*}{110.2 texts/s} \\
+  & English    & Davidson & 2{,}478 & 0.8834 & 0.7449 & 0.1060 & \\
+  & \textbf{Mixed} & \textbf{Both} & \textbf{9{,}158} & \textbf{0.8710} & \textbf{0.7781} & \textbf{0.0759} & \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}

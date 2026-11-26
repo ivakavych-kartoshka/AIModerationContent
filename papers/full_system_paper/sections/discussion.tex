@@ -48,28 +48,17 @@ from corpora with different class priors produces different coverage.
 \subsection{Design Implications}
 \label{sec:implications_bilingual}
 
-Five changes follow:
-\begin{enumerate}
-    \item \textbf{Evidence-gated fusion}: when the rule fires strongly against
-          a high-confidence \clean{} prediction, abstain or escalate.
-    \item \textbf{Separate thresholds per mechanism}: requiring $r_H\ge0.5$
-          before the \hate{} channel can override would make the rule-driven
-          and threshold-driven paths separately tunable.
-    \item \textbf{Per-class calibration} of the \clean{} channel, which currently
-          blocks the missed corrections.
-    \item \textbf{Balanced English lexicon}: expand HATE entries by merging
-          HateXplain/Gab sources and retrain the English rule engine.
-    \item \textbf{Multilingual fallback checkpoint}: for \texttt{mix}/\texttt{multilingual}
-          samples (5.6\%), route to a multilingual mDeBERTa instead of rule-only.
-\end{enumerate}
+Five design changes follow from our empirical findings:
+(1)~\textbf{Evidence-gated fusion}: when the rule fires strongly against a high-confidence \clean{} prediction, abstain or escalate.
+(2)~\textbf{Separate thresholds per mechanism}: requiring $r_H\ge0.5$ before the \hate{} channel can override would make the rule-driven and threshold-driven paths separately tunable.
+(3)~\textbf{Per-class calibration} of the \clean{} channel, which currently blocks the missed corrections.
+(4)~\textbf{Balanced English lexicon}: expand HATE entries by merging HateXplain/Gab sources and retrain the English rule engine.
+(5)~\textbf{Multilingual fallback checkpoint}: for \texttt{mix}/\texttt{multilingual} samples (5.6\%), route to a multilingual mDeBERTa instead of rule-only.
 
-\subsection{Practical Deployment}
-\label{sec:deployment}
+\subsection{Limitations}
+\label{sec:limitations}
+Results rely on ViHSD and Davidson benchmarks with seed-42 backbones; neural run-to-run variance remains unestimated, and the small $+0.0027$ macro-F1 ViHSD delta is within seed noise. The Vietnamese rule engine tuned away accentless matching and negation discounting on validation, while the English lexicon lacks minority \hate{} entries ($86$ terms vs.\ $594$ VI), keeping English \hate{} F1 at $0.45$. Furthermore, fallback handling on mixed segments degenerates to rule-only decisions, and human utility of the generated provenance is not empirically measured.
 
-The latency profile (9.07 ms mean, 110.2 texts/s throughput) supports synchronous
-moderation for text comments.  Routing (5.22 ms) and AI inference (3.85 ms) are the
-main components; P95 latency is 12.69 ms.  Tail latency can reach up to 2.1 s during cold-start tokenizer
-initialization; this is a one-time cost that can be pre-warmed.  A production
-deployment should pre-load both checkpoints and the two rule engines at
-startup, cache tokenizer initialization, and set $\alpha$ per language from
-validation-frozen weights.
+\subsection{Ethical Considerations}
+\label{sec:ethics}
+SensitiveAI is designed for human-in-the-loop decision support rather than autonomous sanctioning. Because lexicon entries carry political and social valence that directly shapes outcomes, lexicons must be treated as versioned, auditable platform artefacts. Deployments should strictly distinguish profane intensifiers from targeted slurs and enforce human review before enacting account-level penalties. All comments analyzed are publicly available corpus data with user identifiers omitted.

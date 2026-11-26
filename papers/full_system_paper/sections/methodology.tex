@@ -37,18 +37,13 @@ Fusion follows the same discipline: thresholds by coordinate descent over the
 same grid for three rounds, per-channel weights by coordinate ascent from the
 AI-only corner, and a multinomial logistic meta-classifier fitted on the six
 validation features.  All selected values are frozen before the test pass.  We
-evaluate five decision variants on each backbone:
-
-\begin{enumerate}
-    \item \textbf{AI-only (argmax)}: $\alpha=1$, no rule scores.
-    \item \textbf{AI-only (thresholds)}: per-class thresholds on AI probabilities.
-    \item \textbf{Global $\alpha$ fusion}: single weight $\alpha$ for all three
-          channels, $\alpha \in [0,1]$ step 0.01.
-    \item \textbf{Per-channel $\alpha$ fusion}: independent $\alpha_H, \alpha_O,
-          \alpha_C$.
-    \item \textbf{Per-channel $\alpha$ + thresholds}: add thresholds to variant 4.
-    \item \textbf{Meta-classifier}: multinomial logistic on six features.
-\end{enumerate}
+evaluate six decision variants on each backbone:
+(1)~\textbf{AI-only (argmax)}: $\alpha=1$, no rule scores;
+(2)~\textbf{AI-only (thresholds)}: per-class thresholds on AI probabilities;
+(3)~\textbf{Global $\alpha$ fusion}: single weight $\alpha \in [0,1]$ step 0.01;
+(4)~\textbf{Per-channel $\alpha$ fusion}: independent $\alpha_H, \alpha_O, \alpha_C$;
+(5)~\textbf{Per-channel $\alpha$ + thresholds}: add thresholds to variant 4; and
+(6)~\textbf{Meta-classifier}: multinomial logistic on six features.
 
 The primary hybrid system for VI is \textbf{per-channel $\alpha$ + thresholds}
 (frozen from validation).  For EN the optimal global $\alpha$ converged to

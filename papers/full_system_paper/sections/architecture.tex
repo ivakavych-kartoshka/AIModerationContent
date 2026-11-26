@@ -6,9 +6,9 @@ The SensitiveAI pipeline follows a strict language-routing design (Fig.
 \ref{fig:pipeline}).  Each component is described below; configuration files
 are in \texttt{configs/} and code in \texttt{src/}.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-\resizebox{0.8\textwidth}{!}{\input{figures/architecture}}
+\resizebox{0.41\textwidth}{!}{\input{figures/architecture}}
 \caption{SensitiveAI pipeline overview: language-aware routing and score fusion.}
 \label{fig:pipeline}
 \end{figure}
@@ -16,20 +16,7 @@ are in \texttt{configs/} and code in \texttt{src/}.
 \subsection{Language Detector}
 \label{sec:lang_detector}
 
-The detector (\texttt{src/langid/detector.py}) combines:
-\begin{itemize}
-    \item \textbf{Heuristics} (\texttt{heuristics.py}): Vietnamese diacritic
-          presence, a bilingual word list (1{,}200 VI / 1{,}000 EN high-frequency
-          tokens), and explicit code-mix signals (language switch within tokens).
-          Always runs, no third-party dependency.
-    \item \textbf{Statistical backend}: \texttt{langid.py} \cite{lui2012langid}
-          when installed; its votes are blended with heuristics (default weight
-          0.6 heuristic / 0.4 backend).
-\end{itemize}
-Outputs \texttt{vi}, \texttt{en}, \texttt{mix} (both languages above
-\texttt{mix\_floor}=0.12 evidence) or \texttt{other} (confidence $<$ 0.50).
-The \texttt{mix} verdict is \emph{not} a failure: it signals the router to
-keep both language pipelines active.
+The language detector combines: (1)~\textbf{Heuristics} (\texttt{heuristics.py}) tracking Vietnamese diacritics, a bilingual frequency list (1{,}200 VI / 1{,}000 EN tokens), and explicit code-mix signals; and (2)~\textbf{Statistical backend} (\texttt{langid.py} \cite{lui2012langid}) blended at 0.6 / 0.4 weight. Outputs are \texttt{vi}, \texttt{en}, \texttt{mix} (above \texttt{mix\_floor}=0.12), or \texttt{other} ($<0.50$). On 59{,}868 standard sentences (ViNLI and Leipzig Wortschatz), it attains 99.81\% accuracy (99.97\% VI, 99.64\% EN) at 1.67\,ms latency (599.5 texts/s). The \texttt{mix} verdict keeps both language pipelines active.
 
 \subsection{Language-Aware Tokenizer}
 \label{sec:tokenizer}
@@ -42,16 +29,7 @@ so that an English insult inside a Vietnamese comment is still caught.
 \subsection{Language Router \& Rule Engines}
 \label{sec:router}
 
-The router (\texttt{src/routing/language\_router.py}) selects the appropriate
-\texttt{RuleEngine} per span:
-\begin{itemize}
-    \item \texttt{vi} $\to$ 668-entry Vietnamese lexicon (\texttt{v1},
-          \texttt{configs/rule\_engine.yaml})
-    \item \texttt{en} $\to$ 818-entry English lexicon (\texttt{v1-en-combined},
-          \texttt{configs/rule\_engine\_en.yaml})
-    \item \texttt{mix} $\to$ both engines (config \texttt{use\_both\_for\_mix=true})
-    \item \texttt{other}/\texttt{multilingual} $\to$ both engines (fallback)
-\end{itemize}
+The router (\texttt{src/routing/language\_router.py}) selects the appropriate \texttt{RuleEngine} per span: \texttt{vi} maps to the 668-entry Vietnamese lexicon (\texttt{configs/rule\_engine.yaml}), \texttt{en} maps to the 818-entry English lexicon (\texttt{configs/rule\_engine\_en.yaml}), while \texttt{mix} and \texttt{other}/\texttt{multilingual} fall back to querying both engines in parallel.
 
 Each engine applies the same normalisation pipeline (NFC, lowercase, invisible
 char removal, whitespace collapse, max repeat char 3) and four
@@ -66,16 +44,9 @@ scores with a temperature of 1.0.
 \subsection{Per-Language Neural Checkpoints}
 \label{sec:checkpoints}
 
-\begin{itemize}
-    \item \textbf{VI}: \model{sensitiveai-vi-custom} (custom head, macro-F1
-          0.6590 on validation).  Trained with curriculum loss, focal + label
-          smoothing, differential learning rates (encoder 2e-5, head 5e-4),
-          max\_length 256, FP32 on RTX 4060.
-    \item \textbf{EN}: \model{sensitiveai-en-stage2} (standard head, macro-F1
-          0.7722 on validation).  Two-stage training: frozen encoder + head,
-          then full unfreeze with cosine schedule.  max\_length 128.
-\end{itemize}
-Inference runs in batched mode (batch size 32) on GPU.
+We deploy distinct fine-tuned checkpoints per language:
+(1)~\textbf{VI}: \model{sensitiveai-vi-custom} (custom head, validation macro-F1 0.6590), trained with curriculum loss, focal loss, label smoothing, and differential learning rates (encoder 2e-5, head 5e-4; max length 256); and
+(2)~\textbf{EN}: \model{sensitiveai-en-stage2} (standard head, validation macro-F1 0.7722), trained via a two-stage head-first protocol with cosine scheduling (max length 128). Inference runs in batched mode (size 32) on GPU.
 
 \subsection{Language-Aware Fusion}
 \label{sec:fusion}

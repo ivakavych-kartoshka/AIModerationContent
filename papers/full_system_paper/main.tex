@@ -8,33 +8,8 @@
 % =============================================================================
 \documentclass[runningheads]{llncs}
 
-
-\usepackage{tikz}
-\usetikzlibrary{positioning, calc, arrows.meta}
-\usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, fit, backgrounds, shadows}
-\usepackage{iftex}
-\ifPDFTeX
-  \PackageError{full_system_paper}{%
-    Build this paper with XeLaTeX, not pdfLaTeX.\MessageBreak
-    On Overleaf: Menu -> Compiler -> XeLaTeX.\MessageBreak
-    Locally: latexmk -xelatex main.tex}{%
-    Vietnamese tone marks do not exist in T1, so pdfLaTeX reports\MessageBreak
-    "Unicode character ... not set up for use with LaTeX" for every example,\MessageBreak
-    drops the letters, and needs 17 pages instead of the 15 allowed.}
-  \stop
-\else
-  \usepackage{fontspec}
-  \IfFontExistsTF{texgyretermes-regular.otf}
-    {\setmainfont{texgyretermes}[
-       Extension      = .otf,
-       UprightFont    = *-regular,
-       BoldFont       = *-bold,
-       ItalicFont     = *-italic,
-       BoldItalicFont = *-bolditalic]}
-    {\setmainfont{Latin Modern Roman}}
-  \usepackage{setspace} % spacing for Vietnamese text
-\fi
+\usepackage[utf8]{inputenc}
+\usepackage[nocaptions]{vntex}
 
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -45,13 +20,14 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, shadows}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, shadows, calc}
 
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{orcidlink}
 
 % The llncs class asks authors not to change the printing area or the caption
 % spacing (llncsdoc, Sect. 2.1).  Only the float-placement policy and the
@@ -63,10 +39,24 @@
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\floatpagefraction}{0.9}
 \setcounter{totalnumber}{6}
-\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
-\setlength{\floatsep}{5pt plus 2pt minus 2pt}
-\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{3pt plus 1pt minus 1pt}
+\setlength{\floatsep}{3pt plus 1pt minus 1pt}
+\setlength{\intextsep}{3pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{1pt}
 \setlength{\emergencystretch}{3em}
+
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\small}{\footnotesize}{}{}
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+    \setlength{\itemsep}{0pt plus 0.1ex}%
+    \setlength{\parskip}{0pt}%
+}{%
+  \end{oldthebibliography}%
+}
 
 \newcommand{\model}[1]{\textsc{#1}}
 \newcommand{\hate}{\textsc{hate}}
@@ -74,20 +64,24 @@
 \newcommand{\clean}{\textsc{clean}}
 
 \begin{document}
+\linespread{0.90}\selectfont
 
 \title{An Explainable Hybrid of Lexicon Rules and Multilingual Transformers for
        Bilingual Hate Speech Detection: System Evaluation, Fusion and Latency}
 \titlerunning{Explainable Hybrid for Bilingual Hate Speech Detection}
-\author{Kha Vy Pham\inst{1}% \orcidID{0000-0000-0000-0000}
- \and
- Hong Nga Cao\inst{1}\textsuperscript{(*)}% \orcidID{0000-0000-0000-0000}
+\author{
+  Pham Kha Vy\inst{1}\,\orcidlink{0009-0008-1958-3070} \and
+  Cao Hong Nga\inst{1}\textsuperscript{(*)}\,\orcidlink{0000-0003-0343-6523} \and
+  Jia-Ching Wang\inst{2}\textsuperscript{(*)}\,\orcidlink{0000-0003-0024-6732}
 }
-\authorrunning{K. V. Pham and H. N. Cao}
+\authorrunning{P. K. Vy, C. H. Nga, and J.-C. Wang}
 \institute{
- FPT University, Can Tho, Vietnam\\
- \email{phamkhavycm2004@gmail.com}\\
- \email{caohongnga@gmail.com}\\
-\textsuperscript{(*)}is the correspondent author.
+  FPT University, Can Tho Campus, Can Tho, Vietnam\\
+  \email{phamkhavycm2004@gmail.com}, \email{caohongnga@gmail.com}
+  \and
+  Department of Computer Science \& Information Engineering, National Central University, Taoyuan, Taiwan\\
+  \email{jcw@csie.ncu.edu.tw}\\
+  \textsuperscript{(*)}are the corresponding authors.
 }
 \maketitle
 
@@ -105,10 +99,10 @@ evidence-gated fusion.  Extending the same architecture to English (Davidson et
 al., 818-entry expanded lexicon), the full production pipeline is evaluated on
 the complete test splits of ViHSD (6{,}680 Vietnamese comments) and Davidson
 (2{,}478 English comments), yielding 9{,}158 mixed bilingual samples.  It reaches
-87.10\% accuracy and macro-F1 0.7781 with ECE 0.0759, 9.07\,ms total latency
-per comment (5.22\,ms routing plus 3.85\,ms AI inference, P95 12.69\,ms), and
-94.11\% language detection accuracy; English backbone throughput is 408 texts/s
-against 198 texts/s for Vietnamese.
+87.10\% accuracy, macro-F1 0.7781, ECE 0.0759, 9.07\,ms total latency (5.22\,ms
+routing, 3.85\,ms AI, P95 12.69\,ms), and 99.81\% language detection accuracy on
+standard sentences (94.11\% on noisy social media); English throughput is 408
+texts/s vs.\ 198 texts/s for Vietnamese.
 \end{abstract}
 \keywords{Hate speech \and multilingual transformers \and lexicon rules \and
           hybrid fusion \and language-aware routing \and explainable AI.}
@@ -123,8 +117,6 @@ against 198 texts/s for Vietnamese.
 \input{sections/analysis}
 \input{sections/discussion}
 \input{sections/conclusion}
-\input{sections/limitations}
-\input{sections/ethics}
 
 \credits
 \subsubsection{\discintname}

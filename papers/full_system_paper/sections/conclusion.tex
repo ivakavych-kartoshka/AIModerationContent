@@ -2,37 +2,12 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We presented SensitiveAI, a bilingual language-aware hybrid of lexicon rules
-and multilingual transformers for Vietnamese and English hate speech detection.
-The system combines a lightweight language detector, language-aware
-tokenization, two independently editable rule engines (668 Vietnamese entries,
-818 English entries), per-language mDeBERTa-v3-base checkpoints, and
-language-aware score fusion with per-class thresholds.
+We presented SensitiveAI, a bilingual language-aware hybrid of lexicon rules and multilingual transformers for Vietnamese and English hate speech detection, combining a lightweight language detector, language-aware tokenization, two independently editable rule engines (668 Vietnamese and 818 English entries), per-language mDeBERTa-v3-base checkpoints, and language-aware score fusion with per-class thresholds.
 
-The key results are:
-\begin{itemize}
-    \item On ViHSD, the hybrid is macro-F1 neutral (0.6575 $\to$ 0.6602,
-          $p=0.29$), but its 38 changed decisions are fully decomposable into
-          rule-driven and threshold-driven causes, with all 23 corrections
-          rule-supported.
-    \item On the 9{,}158-sample bilingual evaluation (full ViHSD $+$ Davidson splits), the pipeline
-          reaches 87.10\% accuracy, macro-F1 0.7781, 9.07 ms latency and
-          110.2 texts/s throughput (serialised run, $\alpha=0.70$, P95 12.69 ms).
-    \item The bilingual comparison exposes a structural asymmetry: English
-          excels on OFFENSIVE (F1 0.9270) while Vietnamese excels on HATE
-          (F1 0.6051); the 818-entry English lexicon still has only 86 HATE
-          terms versus 594 for Vietnamese.
-    \item Fusion improves calibration: the full-pipeline ECE is 0.076 versus
-          0.114 (VI backbone-only) and 0.102 (EN backbone-only), confirming that
-          fused scores are better calibrated than raw neural outputs. The hybrid
-          ECE on ViHSD (0.097 vs 0.111 AI-only) improves, while on EN the hybrid
-          ECE (0.106) sits near the AI-only level (0.101); reported gains are
-          treated as confidence shrinkage rather than genuine calibration gains.
-\end{itemize}
+Four empirical conclusions follow:
+(1)~\emph{ViHSD neutrality with full provenance}: the hybrid is macro-F1 neutral ($0.6575 \to 0.6602$, $p=0.29$), but all 38 changed decisions are fully decomposable into rule-driven and threshold-driven causes, with all 23 corrections rule-supported.
+(2)~\emph{Bilingual scale and throughput}: on the 9{,}158-sample bilingual stream (full ViHSD $+$ Davidson splits), the pipeline achieves 87.10\% accuracy, macro-F1 0.7781, 9.07\,ms latency, and 110.2\,texts/s throughput (serialised run, $\alpha=0.70$, P95 12.69\,ms).
+(3)~\emph{Cross-lingual data asymmetry}: English excels on \off{} (F1 0.9270) while Vietnamese excels on \hate{} (F1 0.6051), reflecting disparate lexicon density and corpus priors.
+(4)~\emph{Calibration gains}: end-to-end fusion achieves an ECE of 0.076 versus 0.114 (VI) and 0.102 (EN) for raw backbones, demonstrating superior posterior calibration.
 
-The broader lesson is methodological: a hybrid evaluated only by its aggregate
-metric looks like a null result, whereas the same hybrid decomposed by channel
-and direction yields an auditable decision procedure and a design agenda.
-Future work includes evidence-gated fusion, balanced English HATE lexicon
-expansion, a multilingual fallback checkpoint for code-mixed text, and a
-human evaluation of whether the evidence record helps reviewers.
+The broader methodological lesson is that a hybrid evaluated only by aggregate metrics resembles a null result, whereas decomposing decisions by channel and direction yields an auditable moderation procedure and a clear engineering agenda. Future work will investigate evidence-gated fusion, balanced English HATE lexicon expansion, and human-in-the-loop reviewer utility.

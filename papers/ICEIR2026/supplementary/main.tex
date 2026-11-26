@@ -20,6 +20,7 @@
 \usepackage{url}
 \usepackage[section]{placeins}
 \usepackage[hidelinks]{hyperref}
+\usepackage{orcidlink}
 
 \graphicspath{{figures/}{../figures/}}
 
@@ -42,8 +43,8 @@
 \titlerunning{Supplementary Material for SensitiveAI}
 
 \author{
-Pham Kha Vy\inst{1} \and
-Cao Hong Nga\inst{1}\textsuperscript{*}
+Pham Kha Vy\inst{1}\,\orcidlink{0009-0008-1958-3070} \and
+Cao Hong Nga\inst{1}\textsuperscript{*}\,\orcidlink{0000-0003-0343-6523}
 }
 
 \authorrunning{P. K. Vy and C. H. Nga}
@@ -82,9 +83,12 @@ supplement and is not part of the main paper page budget.
 The main paper compares six systems (\model{M1}--\model{M6}) that share one
 backbone (\texttt{microsoft/mdeberta-v3-base}~\cite{liu2024mdeberta,he2023debertav3}),
 one fixed three-way split of the ViHSD corpus~\cite{luu2021vihsd}, one
-label mapping (HATE\,/\,OFFENSIVE\,/\,CLEAN) and one random seed, and differ
-only in the optimisation recipe.  All six systems were trained once and scored
-once on the held-out test set of 6{,}680 comments.  This supplement does not
+label mapping (HATE\,/\,OFFENSIVE\,/\,CLEAN), and differ
+only in the optimisation recipe. While stability across retraining is verified
+across seeds 42--44 in the main paper (Table~2) and detailed in Table~\ref{tab:supp-multi-seed-full}, this supplement provides the
+comprehensive diagnostics (per-class breakdowns, calibration, error overlap, and
+significance matrices) evaluated on the frozen primary run (seed~42) on the
+held-out test set of 6{,}680 comments.  This supplement does not
 train or tune anything new: it re-reads the frozen per-run artefacts
 (\texttt{test\_predictions.csv} with the three class posteriors,
 \texttt{metrics.json}, \texttt{training\_summary.json}) and derives additional
@@ -383,29 +387,27 @@ least the budget), unlike \model{M1}--\model{M4}.
 \input{tables/hyperparameters}
 \input{tables/timing}
 
-\section{Complementary Experiments}
+\section{Complementary Experiments and Seed Variance}
 \label{sec:supp-complementary}
 
-Two further experiments are provided as runnable scripts but are \emph{not}
-part of the main results, because ensuring they were meaningful (rather than
-noise) would require compute beyond a single training session.
+\subsection{Seed Variance Across Retraining}
+As requested during peer review to evaluate training stability, all six
+systems were retrained across three independent random seeds (42, 43, 44)
+with self-contained per-seed lineages (so chained checkpoints never mix seeds).
+Table~\ref{tab:supp-multi-seed-full} provides the detailed per-seed breakdown alongside
+mean $\pm$ standard deviation for each model.
+As demonstrated, macro-F1 standard deviations are all below $0.01$ (ranging $0.0016$--$0.0097$),
+confirming that training variance is narrow and does not alter the empirical finding that
+no recipe is reliably separated from the others.
 
-\begin{itemize}
-  \item \textbf{Seed variance} (\path{scripts/09_seed_variance.py})
-        re-trains each of the six recipes under five seeds (30 runs) so that a
-        seed-variance floor can be placed under the 0.654--0.664 macro-F1 band.
-        On the available single-GPU budget this is roughly 60\,h of training
-        and was out of scope; the script is included so the experiment can be
-        reproduced, and the main text is careful not to \emph{claim} a
-        seed-robust ordering.
-  \item \textbf{Monolingual encoders}
-        (\path{scripts/10_train_monolingual_baselines.py}), which trains
-        PhoBERT (\texttt{vinai/phobert-base-v2}) and ViSoBERT
-        (\texttt{uitnlp/visobert}) under the same recipe as the baseline, to
-        test whether the multilingual backbone is actually doing work.  This is
-        a separate comparison and is deliberately kept out of the six-system
-        ablation so as not to confound the optimisation-recipe study.
-\end{itemize}
+\input{tables/multi_seed_full}
+
+\subsection{Monolingual Encoders}
+Monolingual baselines (\texttt{scripts/10\_train\_monolingual\_baselines.py}) train
+PhoBERT (\texttt{vinai/phobert-base-v2}) and ViSoBERT (\texttt{uitnlp/visobert}) under
+the baseline recipe to verify multilingual backbone utility.
+This comparison is deliberately kept separate from the six-system ablation so as not to
+confound the optimisation-recipe study.
 
 \section{Reproduction}
 \label{sec:supp-reproduce}
