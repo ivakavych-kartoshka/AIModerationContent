@@ -34,6 +34,39 @@ PAPER_DIR = OUTPUTS_DIR / "paper"
 VIHSD_RAW_DIR = RAW_DIR / "vihsd"
 VIHSD_PROCESSED_DIR = PROCESSED_DIR / "vihsd"
 
+#: English (Hate Speech & Offensive Language, Davidson et al. 2017)
+HATE_SPEECH_OFFENSIVE_RAW_DIR = RAW_DIR / "hate_speech_offensive"
+HATE_SPEECH_OFFENSIVE_PROCESSED_DIR = PROCESSED_DIR / "hate_speech_offensive"
+HATE_SPEECH_OFFENSIVE_SPLITS_DIR = DATA_DIR / "splits_en"
+
+#: Sensitive-word lexicons (raw downloads + extracted word lists).
+LEXICON_RAW_DIR = RAW_DIR / "lexicon"
+LEXICON_PROCESSED_DIR = PROCESSED_DIR / "lexicon"
+
+# Sub-folders of LEXICON_PROCESSED_DIR, one per pipeline stage (plan section 36):
+#   sources/     raw word lists extracted from the 2 GitHub lexicons + 3 datasets
+#   labeling/    intermediates of the labelling step (evidence table + review queue)
+#   pruning/     outputs of the TF-IDF prune step (+ pre-prune backup)
+#   relabeling/  outputs of the re-label step (before/after audit)
+#   sweeps/      TF-IDF threshold sweep experiments (pruned_scoreXXX/)
+# The ACTIVE dictionary (verified_lexicon.csv) and its metadata stay at the
+# lexicon root: configs/rule_engine.yaml points straight at it.
+LEXICON_SOURCES_DIR = LEXICON_PROCESSED_DIR / "sources"
+LEXICON_LABELING_DIR = LEXICON_PROCESSED_DIR / "labeling"
+LEXICON_PRUNING_DIR = LEXICON_PROCESSED_DIR / "pruning"
+LEXICON_RELABELING_DIR = LEXICON_PROCESSED_DIR / "relabeling"
+LEXICON_SWEEPS_DIR = LEXICON_PROCESSED_DIR / "sweeps"
+
+#: Sub-folder names (relative to LEXICON_PROCESSED_DIR) - use when a function
+#: receives ``output_dir`` instead of importing the absolute constants above.
+LEXICON_SUBDIRS = {
+    "sources": "sources",
+    "labeling": "labeling",
+    "pruning": "pruning",
+    "relabeling": "relabeling",
+    "sweeps": "sweeps",
+}
+
 # --------------------------------------------------------------------------- #
 # Labels  (plan section 2.1 - FIXED, do not change)
 # --------------------------------------------------------------------------- #

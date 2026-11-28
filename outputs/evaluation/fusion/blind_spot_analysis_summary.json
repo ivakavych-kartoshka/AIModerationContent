@@ -1,0 +1,56 @@
+{
+  "blind_spot_504": {
+    "total_in_504": 504,
+    "rule_correct": 124,
+    "rule_correct_by_class": {
+      "HATE": 39,
+      "OFFENSIVE": 0,
+      "CLEAN": 85
+    },
+    "class_distribution": {
+      "HATE": 185,
+      "OFFENSIVE": 180,
+      "CLEAN": 139
+    }
+  },
+  "rule_engine_coverage_in_504": {
+    "correct": 124,
+    "percentage": 24.603174603174605
+  },
+  "disagreement_patterns": {
+    "both_right": {
+      "total": 5384,
+      "in_504": 0,
+      "by_class": {
+        "CLEAN": 5154,
+        "HATE": 230
+      }
+    },
+    "ai_right_rule_wrong": {
+      "total": 469,
+      "in_504": 0,
+      "by_class": {
+        "OFFENSIVE": 186,
+        "CLEAN": 146,
+        "HATE": 137
+      }
+    },
+    "ai_wrong_rule_right": {
+      "total": 290,
+      "in_504": 124,
+      "by_class": {
+        "CLEAN": 172,
+        "HATE": 118
+      }
+    },
+    "both_wrong": {
+      "total": 537,
+      "in_504": 380,
+      "by_class": {
+        "OFFENSIVE": 258,
+        "HATE": 203,
+        "CLEAN": 76
+      }
+    }
+  }
+}

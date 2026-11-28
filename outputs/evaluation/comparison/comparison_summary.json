@@ -1,13 +1,12 @@
 {
   "models_compared": [
-    "sensitiveai-vi",
-    "sensitiveai-vi-custom",
-    "sensitiveai-vi-customdlr2stage",
-    "sensitiveai-vi-custom-curriculum",
-    "sensitiveai-vi-customdlr2stage-ext",
-    "sensitiveai-vi-stage2"
+    "sensitiveai-en",
+    "sensitiveai-en-custom",
+    "sensitiveai-en-custom-curriculum",
+    "sensitiveai-en-customdlr2stage",
+    "sensitiveai-en-stage2"
   ],
-  "num_models": 6,
+  "num_models": 5,
   "table_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.csv",
   "markdown_file": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\model_comparison.md",
   "figures": {
@@ -27,81 +26,72 @@
     "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\comparison\\per_class_f1_all_models.png"
   },
   "latex_tables": {
-    "model_comparison": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\model_comparison.tex",
-    "classification_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\classification_results.tex",
-    "ablation_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\tables\\ablation_results.tex"
+    "model_comparison": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\model_comparison.tex",
+    "classification_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\classification_results.tex",
+    "ablation_results": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\tables\\ablation_results.tex"
   },
   "paper_figures": {
-    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_accuracy_all_models.png",
-    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_loss_all_models.png",
-    "validation_loss_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\validation_loss_accuracy_all_models.png",
-    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_curve_all_models.png",
-    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_curve_all_models.png",
-    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_hate_all_models.png",
-    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_offensive_all_models.png",
-    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\pr_clean_all_models.png",
-    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_hate_all_models.png",
-    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_offensive_all_models.png",
-    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\roc_clean_all_models.png",
-    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\macro_f1_all_models.png",
-    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\papers\\figures\\per_class_f1_all_models.png"
+    "validation_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_accuracy_all_models.png",
+    "validation_loss_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_loss_all_models.png",
+    "validation_loss_accuracy_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\validation_loss_accuracy_all_models.png",
+    "pr_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_curve_all_models.png",
+    "roc_curve_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_curve_all_models.png",
+    "pr_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_hate_all_models.png",
+    "pr_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_offensive_all_models.png",
+    "pr_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\pr_clean_all_models.png",
+    "roc_hate_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_hate_all_models.png",
+    "roc_offensive_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_offensive_all_models.png",
+    "roc_clean_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\roc_clean_all_models.png",
+    "macro_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\macro_f1_all_models.png",
+    "per_class_f1_all_models.png": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\paper\\figures\\per_class_f1_all_models.png"
   },
-  "best_macro_f1_model": "sensitiveai-vi-customdlr2stage",
-  "best_macro_f1": 0.6637600346663973,
+  "best_macro_f1_model": "sensitiveai-en-stage2",
+  "best_macro_f1": 0.7722067431937735,
   "metrics": {
-    "sensitiveai-vi": {
-      "accuracy": 0.8733532934131737,
-      "macro_f1": 0.6545246554135017,
-      "weighted_f1": 0.8705202895057186,
-      "macro_roc_auc": 0.8873048606954345,
-      "macro_average_precision": 0.6599470675928379,
+    "sensitiveai-en": {
+      "accuracy": 0.9031476997578692,
+      "macro_f1": 0.7675554110049351,
+      "weighted_f1": 0.907108572200213,
+      "macro_roc_auc": 0.9391340392422,
+      "macro_average_precision": 0.7689612445911571,
       "decision_rule": "argmax",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi\\run_001"
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-en\\run_001"
     },
-    "sensitiveai-vi-custom": {
-      "accuracy": 0.8761976047904192,
-      "macro_f1": 0.6575258588726859,
-      "weighted_f1": 0.8708633780212699,
-      "macro_roc_auc": 0.8841738491763579,
-      "macro_average_precision": 0.6484148252127984,
+    "sensitiveai-en-custom": {
+      "accuracy": 0.9031476997578692,
+      "macro_f1": 0.7586924526411246,
+      "weighted_f1": 0.9042548873555798,
+      "macro_roc_auc": 0.9385361993729454,
+      "macro_average_precision": 0.7794073830891476,
       "decision_rule": "argmax",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom\\run_001"
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-en-custom\\run_001"
     },
-    "sensitiveai-vi-customdlr2stage": {
-      "accuracy": 0.8754491017964072,
-      "macro_f1": 0.6637600346663973,
-      "weighted_f1": 0.872954621217101,
-      "macro_roc_auc": 0.8594258663811232,
-      "macro_average_precision": 0.625442480897972,
+    "sensitiveai-en-custom-curriculum": {
+      "accuracy": 0.9071832122679581,
+      "macro_f1": 0.7441019308134244,
+      "weighted_f1": 0.9045819766779943,
+      "macro_roc_auc": 0.9361139792437632,
+      "macro_average_precision": 0.766950055904879,
       "decision_rule": "thresholds",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage\\run_001"
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-en-custom-curriculum\\run_001"
     },
-    "sensitiveai-vi-custom-curriculum": {
-      "accuracy": 0.8730538922155688,
-      "macro_f1": 0.6590104447581234,
-      "weighted_f1": 0.8701239034392981,
-      "macro_roc_auc": 0.8500229360003478,
-      "macro_average_precision": 0.6367033254502207,
+    "sensitiveai-en-customdlr2stage": {
+      "accuracy": 0.9108151735270379,
+      "macro_f1": 0.7509316770186335,
+      "weighted_f1": 0.9071568519326177,
+      "macro_roc_auc": 0.9443414272252882,
+      "macro_average_precision": 0.7890763019640161,
       "decision_rule": "thresholds",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_001"
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-en-customdlr2stage\\run_001"
     },
-    "sensitiveai-vi-customdlr2stage-ext": {
-      "accuracy": 0.8782934131736527,
-      "macro_f1": 0.653616303338486,
-      "weighted_f1": 0.8710639120128569,
-      "macro_roc_auc": 0.8096101664924135,
-      "macro_average_precision": 0.6124480714749313,
+    "sensitiveai-en-stage2": {
+      "accuracy": 0.9079903147699758,
+      "macro_f1": 0.7722067431937735,
+      "weighted_f1": 0.9101827726184378,
+      "macro_roc_auc": 0.9416920679006973,
+      "macro_average_precision": 0.7812362609978957,
       "decision_rule": "thresholds",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-customdlr2stage-ext\\run_002"
-    },
-    "sensitiveai-vi-stage2": {
-      "accuracy": 0.8633233532934131,
-      "macro_f1": 0.6604345136937018,
-      "weighted_f1": 0.8678710028149399,
-      "macro_roc_auc": 0.8929574343326477,
-      "macro_average_precision": 0.6533899673980419,
-      "decision_rule": "thresholds",
-      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi-stage2\\run_002"
+      "report_dir": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-en-stage2\\run_001"
     }
   }
 }

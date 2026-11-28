@@ -1,0 +1,94 @@
+{
+  "vietnamese": {
+    "lang": "vi",
+    "checkpoint": "outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_002\\best_model",
+    "head": "custom",
+    "max_length": 256,
+    "batch_size": 32,
+    "n_samples": 6680,
+    "accuracy": 0.8711,
+    "macro_f1": 0.6608,
+    "ece": 0.1143,
+    "latency_ms_per_text": 5.04,
+    "throughput_texts_per_sec": 198.26,
+    "total_time_sec": 33.69,
+    "f1_hate": 0.6197,
+    "f1_offensive": 0.4251,
+    "f1_clean": 0.9375,
+    "label_distribution": {
+      "HATE": 688,
+      "OFFENSIVE": 444,
+      "CLEAN": 5548
+    }
+  },
+  "english": {
+    "lang": "en",
+    "checkpoint": "outputs\\reports\\sensitiveai-en-stage2\\run_001\\best_model",
+    "head": "standard",
+    "max_length": 128,
+    "batch_size": 64,
+    "n_samples": 2478,
+    "accuracy": 0.9084,
+    "macro_f1": 0.7676,
+    "ece": 0.1022,
+    "latency_ms_per_text": 2.45,
+    "throughput_texts_per_sec": 408.5,
+    "total_time_sec": 6.07,
+    "f1_hate": 0.4505,
+    "f1_offensive": 0.9439,
+    "f1_clean": 0.9083,
+    "label_distribution": {
+      "HATE": 143,
+      "OFFENSIVE": 1918,
+      "CLEAN": 417
+    }
+  },
+  "mixed_e2e": {
+    "n_samples": 9158,
+    "accuracy": 0.871,
+    "macro_f1": 0.7781,
+    "ece": 0.0759,
+    "brier": 0.2248,
+    "nll": 0.8645,
+    "mean_conf": 0.8536,
+    "routing_ms_per_text": 5.223,
+    "routing_p50_ms": 4.534,
+    "routing_p95_ms": 8.017,
+    "routing_p99_ms": 9.966,
+    "routing_texts_per_sec": 191.5,
+    "ai_total_sec": 35.25,
+    "ai_ms_per_text": 3.849,
+    "ai_p50_ms": 4.675,
+    "ai_p95_ms": 4.675,
+    "ai_p99_ms": 4.675,
+    "ai_texts_per_sec": 259.8,
+    "total_p50_ms": 9.209,
+    "total_p95_ms": 12.692,
+    "total_p99_ms": 14.642,
+    "langdetect_accuracy": 0.9411,
+    "per_language": {
+      "vi": {
+        "n": 6680,
+        "accuracy": 0.8665,
+        "macro_f1": 0.6512,
+        "HATE_f1": 0.6051,
+        "OFFENSIVE_f1": 0.4142,
+        "CLEAN_f1": 0.9344
+      },
+      "en": {
+        "n": 2478,
+        "accuracy": 0.8834,
+        "macro_f1": 0.7449,
+        "HATE_f1": 0.4537,
+        "OFFENSIVE_f1": 0.927,
+        "CLEAN_f1": 0.8541
+      }
+    }
+  },
+  "comparison": {
+    "accuracy_vi_vs_en": "0.8711 vs 0.9084",
+    "macro_f1_vi_vs_en": "0.6608 vs 0.7676",
+    "ece_vi_vs_en": "0.1143 vs 0.1022",
+    "throughput_vi_vs_en": "198.3 vs 408.5 texts/s"
+  }
+}

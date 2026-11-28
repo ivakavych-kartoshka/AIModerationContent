@@ -1,0 +1,4 @@
+actual\predicted,HATE,OFFENSIVE,CLEAN
+actual_HATE,103,49,118
+actual_OFFENSIVE,28,45,139
+actual_CLEAN,35,73,2082

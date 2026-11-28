@@ -1,0 +1,12 @@
+{
+  "model": "sensitiveai-vi-customdlr2stage",
+  "primary": "fusion_thresholds",
+  "n": 6680,
+  "ai_correct": 5848,
+  "fuse_correct": 5848,
+  "ai_wrong_fuse_right": 3,
+  "ai_right_fuse_wrong": 3,
+  "net_gain": 0,
+  "both_wrong": 829,
+  "both_right": 5845
+}

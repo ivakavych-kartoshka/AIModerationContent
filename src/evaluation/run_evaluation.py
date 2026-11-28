@@ -50,6 +50,7 @@ from ..common.folder_docs import ensure_explain
 from ..common.logging_utils import add_file_handler, get_logger
 from ..common.paths import (
     archive_run_artifacts,
+    checkpoint_has_weights,
     ensure_dir,
     evaluation_log_path,
     find_best_report_dir,
@@ -163,11 +164,19 @@ def resolve_checkpoint(report_path: Path, override: Optional[str], save_checkpoi
         return Path(override)
     best = report_path / "best_model"
     last = report_path / "last_model"
-    if best.is_dir() and any(best.iterdir()):
+    if best.is_dir() and any(best.iterdir()) and checkpoint_has_weights(best):
         return best
-    if last.is_dir() and any(last.iterdir()):
-        LOGGER.warning("[eval] best_model not found - falling back to last_model (NOT the best epoch)")
+    if last.is_dir() and any(last.iterdir()) and checkpoint_has_weights(last):
+        LOGGER.warning("[eval] best_model not found or incomplete - falling back to last_model (NOT the best epoch)")
         return last
+    # Surface a clear error instead of letting transformers fail with a
+    # cryptic "no file named model.safetensors" message.
+    for candidate in (best, last):
+        if candidate.is_dir() and any(candidate.iterdir()) and not checkpoint_has_weights(candidate):
+            raise FileNotFoundError(
+                f"Checkpoint {candidate} is incomplete (missing weight tensors). "
+                "Re-train the run or restore the weights before evaluating."
+            )
     raise FileNotFoundError(
         f"No checkpoint in {report_path}. Re-train with output.save_checkpoints=true "
         "or pass --checkpoint <dir>."

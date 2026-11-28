@@ -1,0 +1,82 @@
+%!TEX root = main.tex
+\section{Results}
+\label{sec:results}
+
+\subsection{Backbone Performance}
+\label{sec:results_backbones}
+
+Table~\ref{tab:backbones_full} reports the test performance of the four
+Vietnamese and five English backbones.  For Vietnamese,
+\model{sensitiveai-vi-dlr2stage} achieves the highest macro-F1 (0.6638), while
+\model{sensitiveai-vi-custom} (0.6575) is selected for fusion analysis because
+its net change is the most balanced (23 corrections vs 15 regressions).  For
+English, \model{sensitiveai-en-stage2} leads with macro-F1 0.7722 and accuracy
+0.9080.  English backbones substantially outperform Vietnamese ones on macro-F1
+(averaging ~0.76 vs ~0.66) primarily due to higher OFFENSIVE F1 (0.94 vs 0.44),
+reflecting the larger clean/offensive balance in Davidson vs ViHSD.
+
+\subsection{Rule Engine Standalone Performance}
+\label{sec:results_rule}
+
+Standalone rule engines operate with thresholds tuned on validation.
+\begin{itemize}
+    \item \textbf{Vietnamese rule engine} (668 entries, thresholded): accuracy
+          0.5999, macro-F1 0.3452, HATE F1 0.2911, OFFENSIVE F1 0.0000 (missing
+          rules for milder offenses), CLEAN F1 0.7444.
+    \item \textbf{English rule engine} (123 seed entries in evaluation,
+          upgraded to 818 in combined): accuracy 0.7058, macro-F1 0.5036,
+          HATE F1 0.1782, OFFENSIVE F1 0.8063, CLEAN F1 0.5264.
+\end{itemize}
+Standalone rules alone are insufficient for robust moderation (failing on
+OFFENSIVE in VI and HATE in EN), validating the hybrid design.
+
+\subsection{Fusion Variants on Vietnamese}
+\label{sec:results_fusion}
+
+Table~\ref{tab:fusion_variants} (from the focused ViHSD study) shows that global
+$\alpha$ fusion improves macro-F1 slightly (0.6583), per-channel $\alpha$ reaches
+0.6593, and per-channel $\alpha$ + thresholds reaches 0.6602 (+0.0027 over AI).
+The paired-bootstrap difference is $-0.0027$ ($[-0.0079, +0.0027]$, $p=0.29$) and
+McNemar $p=0.26$, confirming accuracy neutrality.
+
+\input{tables/fusion_variants}
+
+\subsection{End-to-End Bilingual Evaluation}
+\label{sec:e2e}
+
+The complete production pipeline (LanguageDetector $\to$ LanguageAwareTokenizer $\to$
+RuleEngine $\to$ backbone inference $\to$ LangAwareFusion at $\alpha=0.70$) is evaluated
+on the full held-out test splits: Vietnamese ViHSD ($n=6{,}680$) and English Davidson ($n=2{,}478$),
+yielding $9{,}158$ mixed bilingual samples. Table~\ref{tab:e2e_full_benchmark} compares
+backbone-only inference with the full hybrid pipeline.
+
+Key findings on the bilingual benchmark:
+\begin{itemize}
+    \item \textbf{Overall performance}: The full pipeline reaches $87.10\%$ accuracy and macro-F1 $0.7781$ across the $9{,}158$ mixed stream, maintaining strong joint classification quality.
+    \item \textbf{Routing reliability}: The language detector achieves $99.81\%$ accuracy on standard sentences and $94.11\%$ strict accuracy on the noisy mixed stream ($6{,}658$ VI and $2{,}479$ EN correctly routed), with only $21$ fallback cases.
+    \item \textbf{Cross-lingual class asymmetry}: Vietnamese attains higher \hate{} F1 ($0.6051$ vs $0.4537$) due to denser lexicon support ($594$ \hate{} terms vs $86$ in EN), whereas English dominates \off{} F1 ($0.9270$ vs $0.4142$) due to Davidson dataset composition ($77.4\%$ \off{} vs ViHSD $6.65\%$).
+    \item \textbf{Calibration improvement}: End-to-end fusion achieves an ECE of $0.0759$, significantly improving calibration over raw backbone inference ($0.1143$ VI, $0.1022$ EN).
+\end{itemize}
+
+\input{tables/e2e_full_benchmark}
+
+\subsection{Latency and Throughput Profile}
+\label{sec:latency}
+
+Table~\ref{tab:latency} presents the per-request latency breakdown (serialised execution) over the $9{,}158$ mixed comments on a single consumer GPU. Average total latency is $9.07$\,ms per comment ($5.22$\,ms routing plus $3.85$\,ms AI inference), achieving an end-to-end throughput of $110.2$\,texts/s. Tail latency is well-controlled: P50 is $9.21$\,ms and P95 is $12.69$\,ms (P99 $14.64$\,ms), comfortably meeting real-time SLAs. The AI backbone alone sustains $259.8$\,texts/s while routing sustains $191.5$\,texts/s.
+
+\begin{table}[t]
+\centering
+\caption{Per-request latency breakdown (ms) and throughput over the 9{,}158-sample bilingual test stream (serialised execution). AI-stage percentiles are batch-amortised per comment; the total P95 conservatively sums stage P95s.}
+\label{tab:latency}
+\begin{tabularx}{\textwidth}{Xcccc}
+\toprule
+Pipeline Stage & Mean (ms) & P50 (ms) & P95 (ms) & Thr. (texts/s) \\
+\midrule
+Routing (langID + rule engine) & 5.22 & 4.53 & 8.02 & 191.5 \\
+AI inference (backbone) & 3.85 & 4.68 & 4.68 & 259.8 \\
+\midrule
+\textbf{Total (serialised)} & \textbf{9.07} & \textbf{9.21} & \textbf{12.69} & \textbf{110.2} \\
+\bottomrule
+\end{tabularx}
+\end{table}

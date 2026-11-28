@@ -1,0 +1,16 @@
+% Auto-generated from scripts/65_e2e_benchmark_vi_en.py
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Dataset} & \textbf{Lang} & \textbf{Domain} & \textbf{Size ($N$)} & \textbf{Throughput} & \textbf{Latency} & \textbf{ECE} \\
+\midrule
+ViHSD Test & Vi & Social media & 6{,}680 & 198.3 texts/s & 5.04 ms & 0.114 \\
+Davidson Test & En & Hate speech & 2{,}478 & 408.5 texts/s & 2.45 ms & 0.102 \\
+Mixed E2E & Vi+En & Bilingual & 9{,}158 & 110.2 texts/s & 9.07 ms & 0.076 \\
+\bottomrule
+\end{tabular}
+\caption{Global cross-lingual benchmark on full test splits. The first two rows are backbone-only inference; the last row is the full pipeline (routing $+$ backbone $+$ fusion) with serialised latency (5.22\,ms routing plus 3.85\,ms AI, P95 12.69\,ms) and fused-score ECE. \textbf{Note:} English HATE F1 (0.454) is lower than Vietnamese (0.605) due to Davidson dataset HATE class imbalance (5.8\% vs ViHSD 10.3\%).}
+\label{tab:global_benchmark}
+\end{table}

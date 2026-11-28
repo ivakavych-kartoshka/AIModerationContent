@@ -1,0 +1,69 @@
+{
+  "strategy": "stratified",
+  "dataset": "tdavidson/hate_speech_offensive",
+  "seed": 42,
+  "ratios": {
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "label_mapping": {
+    "0": "HATE",
+    "1": "OFFENSIVE",
+    "2": "CLEAN"
+  },
+  "columns": [
+    "text",
+    "label",
+    "label_name",
+    "source",
+    "source_row"
+  ],
+  "splits": {
+    "train": {
+      "file": "train.csv",
+      "num_samples": 19816,
+      "sha256": "0ea612f9a9835d0ed02557662d7c56e0cf887ad209e267741dffe4a19f007369",
+      "label_distribution": {
+        "HATE": 1144,
+        "OFFENSIVE": 15342,
+        "CLEAN": 3330
+      },
+      "label_ratios": {
+        "HATE": 0.057731,
+        "OFFENSIVE": 0.774223,
+        "CLEAN": 0.168046
+      }
+    },
+    "validation": {
+      "file": "validation.csv",
+      "num_samples": 2477,
+      "sha256": "305fd4bf217131053a71f672097f3dc663147f9592585cf241e48ad9fdebdfa5",
+      "label_distribution": {
+        "HATE": 143,
+        "OFFENSIVE": 1918,
+        "CLEAN": 416
+      },
+      "label_ratios": {
+        "HATE": 0.057731,
+        "OFFENSIVE": 0.774324,
+        "CLEAN": 0.167945
+      }
+    },
+    "test": {
+      "file": "test.csv",
+      "num_samples": 2478,
+      "sha256": "d234577ee4b9239c8e55495f3e12952d352843dbbc0473c00921e7d55f3cbb08",
+      "label_distribution": {
+        "HATE": 143,
+        "OFFENSIVE": 1918,
+        "CLEAN": 417
+      },
+      "label_ratios": {
+        "HATE": 0.057708,
+        "OFFENSIVE": 0.774011,
+        "CLEAN": 0.168281
+      }
+    }
+  }
+}

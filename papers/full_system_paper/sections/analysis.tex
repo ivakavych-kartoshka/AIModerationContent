@@ -1,0 +1,112 @@
+%!TEX root = main.tex
+\section{Analysis}
+\label{sec:analysis}
+
+\subsection{Provenance of the 38 Changes (ViHSD)}
+\label{sec:provenance}
+
+The aggregate result is neutral; the question is what the 38 changes consist of.
+Of the 23 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{})
+and 7 are \clean{} de-flagging cases (6 from \hate{}, 1 from \off{}).  All 16
+\hate{} recoveries have a rule firing with a \hate{} score above the \off{}
+score, i.e.\ the rule points in exactly the corrected direction.  The rule
+\hate{} score has median 0.7652 (mean 0.7507, range 0.2351--0.9939).
+
+All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$, so
+$\tilde{\mathbf r}=(0,0,1)$).  With $\alpha_H=0.2$ the rule term disappears from
+the \hate{} channel and $f_H=0.2\,p_H$, so a comment needs $p_H\ge0.70$ merely
+to reach $\tau_H=0.14$; one flagged \hate{} at $p_H\approx0.5$ ends at
+$f_H\approx0.10$ and the decision falls back to \clean{}.
+
+The 15 regressions split into 10 rule-driven and 5 threshold-driven cases, and
+the split aligns perfectly with direction: all 10 rule-driven cases
+(\off{}$\to$\hate{}, \clean{}$\to$\hate{}) have the rule firing in the \hate{}
+direction, so fusion trusts lexical \hate{} evidence over the neural label and
+the lexicon is wrong about intensity or target.  The \off{} cases are the
+expected failure of a phrase lexicon: profanity used as an intensifier rather
+than an attack.  The 5 threshold-driven regressions are the mirror image: the
+rule is silent, the fused \hate{} score is $0.2\,p_H$, and when $p_H$ falls
+below roughly 0.7 the \hate{} channel no longer wins; two miss by exactly
+0.001.
+
+\subsection{The Corrections Fusion Does Not Make}
+\label{sec:missed_corrections}
+
+Among the 827 AI errors on ViHSD, 148 non-\clean{} comments have the rule
+firing in the correct direction and 151 \clean{} comments have the rule
+correctly silent, so the rule agrees with the gold label on 299 errors.  Fusion
+acts on 23 of them (7.7\%).  The remaining \textbf{132 missed corrections} are
+non-\clean{} cases where the rule already points the right way and the hybrid
+is still wrong.  Their median rule \hate{} score is 0.7609 (quartiles 0.67--0.85),
+indistinguishable from the 0.7652 median of the corrected cases.  They are
+missed because the \clean{} channel keeps the full AI weight ($\alpha_C=1.0$),
+so a confidently wrong \clean{} cannot be outvoted: the median fused \clean{}
+score is 0.97 for missed cases versus 0.46 for corrected ones.
+
+\subsection{What the Rule Channel Responds To (Cue Taxonomy)}
+\label{sec:cue_taxonomy}
+
+We annotated the 16 \hate{} recoveries with a multi-label cue taxonomy: ten
+contain teencode or abbreviated profanity (\texttt{đ*o}, \texttt{dm},
+\texttt{cmnr}), five standard-spelling profanity or an animal slur, and eight
+derogatory wording without profanity (\emph{ngu}, \emph{thua}, \emph{nhục}).
+The categories overlap.  The channel is therefore not merely a profanity
+detector: much of its value comes from derogatory wording a slur list would
+miss, and teencode is its largest single category.
+
+\subsection{Component Ablation (Rule Engine Switches)}
+\label{sec:ablation}
+
+Re-tuning and re-freezing the fusion once per switch, only one switch matters:
+removing the per-entry confidence costs 0.034 standalone macro-F1 (0.5258 to
+0.4914), almost all of it on \off{} (F1 0.2389 to 0.0600), and no other
+switch moves the standalone engine by more than 0.008.  Rescaling severity
+rewrites 1{,}046 of 6{,}680 rule scores yet changes no hybrid decision
+($p=1.0$): $\alpha$ and $\tau$ re-tune.  Dropping the obfuscation views trades
+recall for precision (firings 1{,}052 $\to$ 779, precision on fired comments
+58.75\% $\to$ 69.58\%); fuzzy matching never fires (0 matches), and case-folding
+cannot be ablated because all 6{,}680 test comments are already lower-case.
+Inside the hybrid no switch leaves noise ($|\Delta|\le0.0012$): the channel
+helps as a channel, not through its weights.
+
+\subsection{Language Detection and Routing Quality}
+\label{sec:lang_quality}
+
+Language identification is evaluated across two complementary benchmarks:
+(1)~\textbf{Standard sentences} (59{,}868 clean sentences from ViNLI and Leipzig Wortschatz): the detector reaches 99.81\% overall accuracy (99.97\% VI, 99.64\% EN) at 1.67\,ms mean latency (599.5 texts/s; P50 1.63\,ms, P95 1.90\,ms).
+(2)~\textbf{Noisy social-media stream} (9{,}158 mixed comments from ViHSD and Davidson): strict routing accuracy is 94.11\% (6{,}658 VI and 2{,}479 EN correctly routed). Short teencode and diacritic drops prompt conservative handling; fallback to \texttt{multilingual} occurs in only 21 cases, preserving robust dual-engine coverage.
+
+\subsection{Posterior Calibration and Blind-Spot Coverage}
+\label{sec:calibration_blindspot}
+
+To assess the quality of uncertainty estimates, Table~\ref{tab:hybrid-calibration}
+reports calibration diagnostics (Expected Calibration Error, Brier score,
+Negative Log-Likelihood, and mean confidence) for AI-only and Hybrid variants on
+the ViHSD test split, as well as on the Davidson English test split.
+On ViHSD, the Hybrid achieves lower ECE (0.097 vs 0.111, a 12.6\% relative improvement)
+and lower Brier score (0.2273 vs 0.2334), indicating that fused probabilities remain well-calibrated
+despite the fusion mechanism.  This is important for deployment: a system claiming
+high confidence should be trusted, and rule-backed decisions preserve confidence
+while uncertain cases benefit from conservative per-channel thresholds.
+
+Among the 504 ViHSD comments missed by all six AI backbones (Table~\ref{tab:blind-spot-504}),
+the Rule Engine recovers 124 (24.6\%), split across HATE (39) and CLEAN (85) classes.
+The remaining 380 hard cases are errors by both subsystems, indicating fundamental
+ambiguity or minority-class sparsity.  The 290 cases where Rule Engine alone succeeds
+(and AI fails) confirm that lexical patterns provide orthogonal signal; however, the
+low coverage of rule firing (15.75\% of all comments) limits the ceiling on hybrid
+improvement.  This trade-off is by design: a conservative system that rarely flags
+clean text reduces false positives at the cost of missing some violations.
+
+\input{tables/hybrid_calibration}
+
+\input{tables/blind_spot_504}
+
+\subsection{Cross-Lingual Domain Robustness (Wortschatz Corpus)}
+\label{sec:crosslingual_wortschatz}
+
+To assess domain robustness and avoid false positives on clean out-of-domain text,
+we evaluate the English backbone on the Wortschatz Leipzig
+2015 English News Corpus, a neutral 30k-sentence benchmark. On 9,879 test sentences,
+the classifier predicts 99.89\% CLEAN (7 HATE, 4 OFFENSIVE), confirming the model does
+not over-flag neutral text, with throughput sustaining 321.8 texts/sec (3.1 ms per sentence).

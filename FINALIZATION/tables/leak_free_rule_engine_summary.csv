@@ -1,0 +1,5 @@
+﻿system,split,macro_f1,accuracy,hate_f1,offensive_f1,clean_f1,thresholds
+original_tuned_rule_engine,validation,0.5428,0.8421,0.4725,0.2368,0.9192,"HATE 0.81, OFFENSIVE 0.00, CLEAN 0.64"
+leak_free_tuned_rule_engine,validation,0.5398,0.8331,0.4775,0.2234,0.9187,"HATE 0.76, OFFENSIVE 0.00, CLEAN 0.64"
+original_tuned_rule_engine,test,0.5258,0.8421,0.4102,0.2389,0.9284,"HATE 0.81, OFFENSIVE 0.00, CLEAN 0.64"
+leak_free_tuned_rule_engine,test,0.5328,0.8440,0.4250,0.2447,0.9284,"HATE 0.76, OFFENSIVE 0.00, CLEAN 0.64"

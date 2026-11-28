@@ -1,0 +1,79 @@
+==========================================================================
+Model summary - sensitiveai-vi-customdlr2stage-ext
+==========================================================================
+
+[Model]
+Model Name                        : sensitiveai-vi-customdlr2stage-ext
+Base Model                        : microsoft/mdeberta-v3-base
+Classification Head               : custom
+Training Stages                   : 1 stage(s)
+  stage stage_1_ext               : epochs 1-15
+
+[Parameters]
+Total Parameters                  : 279,406,083
+Trainable Parameters              : 279,406,083
+Non-trainable Parameters          : 0
+Estimated Parameter Memory        : 1065.85 MB (fp32 weights)
+  head parameters                 : 1,187,331
+Peak GPU Memory (inference)       : 2150.75 MB
+
+[Dataset]
+Dataset                           : uitnlp/vihsd
+Split directory                   : data/splits
+Label Mapping                     : HATE=0, OFFENSIVE=1, CLEAN=2
+Training Samples                  : 24,046
+Validation Samples                : 2,672
+Test Samples                      : 6,680
+Max sequence length               : 256
+
+[Training]
+Best Metric                       : macro_f1
+Best Value                        : 0.707234
+Best Epoch                        : 3
+Best Stage                        : stage_1_ext
+Epochs Run                        : 15 / 15
+Training Time                     : 02:48:28 (h:mm:ss)
+Early Stopped                     : False
+
+[Inference Benchmark]
+Batch Size                        : 32
+Average Latency / Batch           : 372.791 ms
+Average Latency / Sample          : 11.6497 ms
+Latency p95 / Batch               : 380.911 ms
+FPS (samples / second)            : 85.84
+Precision                         : fp32
+Timed Batches                     : 50
+
+[Test Results]  (decision rule: thresholds)
+Accuracy                          : 0.8783
+Macro Precision                   : 0.6908
+Macro Recall                      : 0.6258
+Macro F1                          : 0.6536
+Weighted F1                       : 0.8711
+Macro ROC-AUC                     : 0.8096
+Macro Average Precision           : 0.6124
+
+Class          Precision      Recall          F1     Support
+HATE              0.6417      0.5363      0.5843         688
+OFFENSIVE         0.5075      0.3806      0.4350         444
+CLEAN             0.9233      0.9605      0.9415        5548
+
+[Label-specific Thresholds]  (searched on VALIDATION only)
+threshold HATE                    : 0.5
+threshold OFFENSIVE               : 0.5
+threshold CLEAN                   : 0.5
+objective before -> after         : 0.707234 -> 0.707234
+
+[Hardware / Software]
+GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU
+GPU Memory (GB)                   : 8.0
+CUDA Version (torch)              : 12.6
+cuDNN Version                     : 91002
+NVIDIA Driver                     : 617.14
+PyTorch Version                   : 2.13.0+cu126
+Transformers Version              : 5.14.1
+scikit-learn Version              : 1.8.0
+Python Version                    : 3.11.9
+Platform                          : Windows-10-10.0.26300-SP0
+
+==========================================================================

@@ -1,0 +1,25 @@
+\begin{table}[ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Published macro-F1 (in percent) on the UIT-ViHSD three-class test split
+(24{,}048/2{,}672/6{,}680). Numbers from cited papers' reproductions; recipes differ, so this is a
+reference point, not a controlled comparison. ViHateT5 reproduces ViSoBERT at
+88.17/67.71 under its own settings \cite{nguyen2024vihatet5}. Published values use each paper's own fine-tuning recipe; our \textit{Ours} rows use the same-protocol baseline (lr 3e-5, batch 16, max length 256). Same-split runs are in progress.}
+\label{tab:external-comparison}
+\begin{tabular}{lcccc}
+\toprule
+Model & Acc. & Macro-F1 & Source \\
+\midrule
+mBERT (cased)            & 83.55\% & 60.62\% & \cite{nguyen2023visobert} \\
+XLM-R (base)             & 86.36\% & 63.39\% & \cite{nguyen2023visobert} \\
+PhoBERT (base)           & 87.12\% & 65.01\% & \cite{nguyen2023visobert} \\
+PhoBERT-v2 (base)        & 87.42\% & 66.60\% & \cite{nguyen2024vihatet5} \\
+ViSoBERT                 & 88.51\% & 68.77\% & \cite{nguyen2023visobert} \\
+ViHateT5                 & 88.76\% & 68.67\% & \cite{nguyen2024vihatet5} \\
+\midrule
+Ours: AI only (mDeBERTa-v3) & 87.62\% & 65.75\% & this work \\
+Ours: fusion (per-channel)  & 87.74\% & 66.02\% & this work \\
+\bottomrule
+\end{tabular}
+\end{table}

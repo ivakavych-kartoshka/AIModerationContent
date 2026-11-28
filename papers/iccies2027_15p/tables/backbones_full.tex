@@ -1,0 +1,20 @@
+\begin{table}[ht]
+\centering
+\caption{Backbone test performance. All backbones share \texttt{mDeBERTa-v3-base}. VI backbones: ViHSD test ($n=6{,}680$); EN backbones: Davidson test ($n=2{,}478$).}
+\label{tab:backbones_full}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm}*{5}{>{\centering\arraybackslash}X} X}
+\toprule
+Backbone & Acc. & Macro-F1 & \hate & \off & \clean & Notes / Source \\
+\midrule
+\model{sensitiveai-vi-custom-curriculum} & 0.871 & 0.661 & 0.620 & 0.425 & 0.938 & Primary VI \\
+\model{sensitiveai-vi-dlr2}   & 0.875 & 0.664 & 0.594 & 0.456 & 0.941 & 2-stage DLR \\
+\model{sensitiveai-vi-stage2} & 0.869 & 0.660 & 0.609 & 0.434 & 0.937 & Stage-2 \\
+\midrule
+\model{sensitiveai-en-stage2} & 0.908 & \textbf{0.768} & 0.451 & \textbf{0.944} & \textbf{0.908} & Primary EN \\
+\model{sensitiveai-en-std}    & 0.903 & 0.768 & 0.455 & 0.941 & 0.906 & Standard \\
+\model{sensitiveai-en-custom} & 0.903 & 0.759 & 0.438 & 0.940 & 0.898 & Multi-pool \\
+\bottomrule
+\end{tabularx}
+\end{table}

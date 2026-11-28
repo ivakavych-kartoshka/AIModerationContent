@@ -1,0 +1,27 @@
+Reviewer #1
+Questions
+1. Overall evaluation
+Accept
+2. Comments
+The authors present SensitiveAI, a controlled ablation study comparing six system configurations that share the same data split, label mapping, backbone (microsoft/mdeberta-v3-base), and random seed, differing only in their optimization strategies. The results show relatively similar performance across configurations, with macro-F1 scores ranging from 0.654 to 0.664 and accuracy from 0.863 to 0.878. No statistically significant differences are observed in macro-F1 based on paired bootstrap analysis. The focal-loss configuration achieves the best HATE-class F1 (0.609) and macro ROC-AUC (0.893), while the multi-view architecture with discriminative learning rates obtains the highest macro-F1 (0.6638). The findings also highlight the limitations of accuracy in imbalanced classification. The authors provide experimental protocols, confidence intervals, confusion matrices, and error analyses to support reproducibility. Overall, the study is clearly structured; however, the reliance on a single random seed should be acknowledged as a limitation.
+
+Reviewer #2
+Questions
+1. Overall evaluation
+Accept
+2. Comments
+This paper presents a carefully controlled ablation study of optimization recipes for Vietnamese hate speech detection using a fixed mDeBERTa-v3 backbone and the UIT-ViHSD dataset. The main strength of the paper is its methodological rigor. The study includes reproducibility safeguards, duplicate-analysis experiments, paired bootstrap significance testing, calibration analysis, McNemar tests, and detailed reporting of negative results.
+The paper is also commendable for openly reporting negative findings. The results suggest that several commonly used techniques, including curriculum learning and threshold optimization, do not consistently improve performance in the setting studied. This insight is useful for both researchers and practitioners working on content moderation systems.
+The main limitation is the relatively limited methodological novelty. Most components of the proposed systems are established techniques, and the contribution lies primarily in the controlled experimental study rather than in a new model architecture. In addition, all experiments are conducted using a single random seed, which limits conclusions regarding training variance. Furthermore, the best-performing system does not exceed the strongest reported Vietnamese-specific models in the literature.
+The manuscript is technically sound and experimentally rigorous. However, the following improvement is strongly recommended before final acceptance: Repeat all experiments using multiple random seeds and report the mean +/- standard deviation. This is necessary to verify the stability and statistical reliability of the conclusions.
+Overall, the study is technically sound, reproducible, and scientifically valuable. Its contribution lies in experimental rigor and empirical understanding rather than algorithmic novelty. I recommend acceptance after minor revision.
+
+Reviewer #3
+Questions
+1. Overall evaluation
+Accept
+2. Comments
+The paper presents SensitiveAI, a controlled ablation study of optimization strategies for Vietnamese hate speech detection using a fixed mDeBERTa-v3 backbone and UIT-ViHSD. Its main strength is experimental rigor, including duplicate analysis, paired bootstrap testing, calibration assessment, McNemar tests, and transparent reporting of negative findings.
+The six configurations achieve similar macro-F1 scores, ranging from 0.654 to 0.664, without statistically significant differences under paired bootstrap analysis. The findings usefully show that curriculum learning and threshold optimization do not consistently improve performance in this setting, while highlighting the limitations of accuracy for imbalanced classification.
+The contribution is primarily empirical rather than algorithmic, and the best configuration does not surpass the strongest reported Vietnamese-specific models. More importantly, all experiments use one random seed. The reported uncertainty therefore does not establish stability across retraining, limiting conclusions about the reliability of differences between optimization strategies.
+Overall, the study is clearly structured, technically sound, and valuable as a controlled empirical investigation. Acceptance with minor revision is supported, with training-seed variability remaining the principal unresolved limitation.

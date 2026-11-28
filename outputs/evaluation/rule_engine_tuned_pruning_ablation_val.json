@@ -1,0 +1,62 @@
+[
+  {
+    "variant": "full 922 (tuned)",
+    "terms": 922,
+    "val_macro_f1": 0.5304963286012749,
+    "val_accuracy": 0.8005239520958084,
+    "HATE_f1": 0.4846153846153846,
+    "OFFENSIVE_f1": 0.20425531914893616,
+    "CLEAN_f1": 0.9026182820395039,
+    "thresholds": {
+      "HATE": 0.6,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.72
+    },
+    "n_lexicon_entries": 922
+  },
+  {
+    "variant": "pruned 691",
+    "terms": 691,
+    "val_macro_f1": 0.527740831879254,
+    "val_accuracy": 0.8035179640718563,
+    "HATE_f1": 0.4812623274161736,
+    "OFFENSIVE_f1": 0.1986754966887417,
+    "CLEAN_f1": 0.9032846715328468,
+    "thresholds": {
+      "HATE": 0.6,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.72
+    },
+    "n_lexicon_entries": 691
+  },
+  {
+    "variant": "pruned 576",
+    "terms": 576,
+    "val_macro_f1": 0.5220416813410197,
+    "val_accuracy": 0.8027694610778443,
+    "HATE_f1": 0.4775510204081633,
+    "OFFENSIVE_f1": 0.18666666666666668,
+    "CLEAN_f1": 0.9019073569482289,
+    "thresholds": {
+      "HATE": 0.6,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.72
+    },
+    "n_lexicon_entries": 576
+  },
+  {
+    "variant": "pruned 324",
+    "terms": 324,
+    "val_macro_f1": 0.5018250369964202,
+    "val_accuracy": 0.8379491017964071,
+    "HATE_f1": 0.4743083003952569,
+    "OFFENSIVE_f1": 0.11475409836065574,
+    "CLEAN_f1": 0.9164127122333479,
+    "thresholds": {
+      "HATE": 0.75,
+      "OFFENSIVE": 0.01,
+      "CLEAN": 0.75
+    },
+    "n_lexicon_entries": 324
+  }
+]

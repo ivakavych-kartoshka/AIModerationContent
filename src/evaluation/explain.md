@@ -16,25 +16,29 @@
 | `benchmark.py` | Đo latency (ms/sample) và throughput (samples/s) với warmup, không tính thời gian warmup vào kết quả. |
 | `curves.py` | Chuỗi dữ liệu cho PR/ROC curve. |
 | `plots.py` | Vẽ ma trận nhầm lẫn, PR/ROC, per-class F1, đường cong validation theo epoch. |
+| `tfidf_sweep.py` | Quét lưới ngưỡng TF-IDF trên validation: chấm lại lexicon cho từng `(min_ratio, min_score)`, tune threshold, ghi macro-F1 và chọn cấu hình tốt nhất (plan §36, §44); CLI cho `scripts/21_sweep_tfidf.py`. |
 | `report.py` | `model_summary.txt` và khối thông tin môi trường để tái lập. |
 | `run_evaluation.py` | CLI đánh giá một model; **lưu trữ** kết quả cũ vào `history/` thay vì xóa. |
 | `explain.md` | File này. |
+
 
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `__pycache__` | thư mục | 8 file, 120.2 KB |
+| `__pycache__` | thư mục | 10 file, 164.0 KB |
 | `__init__.py` | file | 879 B · 2026-10-04 10:44:02 |
+| `analysis.py` | file | 17.1 KB · 2026-10-15 00:29:04 |
 | `benchmark.py` | file | 5.4 KB · 2026-10-04 10:43:04 |
 | `curves.py` | file | 5.3 KB · 2026-10-04 11:40:09 |
-| `explain.md` | file | 2.5 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.9 KB · 2026-10-20 07:13:19 |
 | `metrics.py` | file | 12.6 KB · 2026-10-04 11:12:26 |
-| `plots.py` | file | 12.1 KB · 2026-10-04 11:39:41 |
+| `plots.py` | file | 13.5 KB · 2026-10-17 10:30:31 |
 | `report.py` | file | 8.3 KB · 2026-10-04 11:39:41 |
-| `run_evaluation.py` | file | 26.2 KB · 2026-10-04 12:38:31 |
+| `run_evaluation.py` | file | 27.9 KB · 2026-10-05 07:54:23 |
+| `tfidf_sweep.py` | file | 11.1 KB · 2026-10-17 13:06:33 |
 | `thresholds.py` | file | 6.1 KB · 2026-10-04 10:42:08 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

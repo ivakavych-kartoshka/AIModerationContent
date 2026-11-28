@@ -13,15 +13,33 @@
 |---|---|
 | `logs/` | Nhật ký CSV của **mọi** lần chấm điểm - nối các lần chạy lại thành một dòng thời gian. |
 | `per_model/` | Bản sao số liệu chính của từng model, gom lại một chỗ. |
-| `comparison/` | Bảng và biểu đồ so sánh 4 model. |
+| `comparison/` | Bảng và biểu đồ so sánh 4 model + so sánh 2 rule engine. |
+| `analysis/` | Ba báo cáo phân tích hậu nghiệm: chống trùng lặp giữa các split, kiểm định thống kê 4 model, supplementary (calibration/MCC). |
+| `rule_engine/` | Kết quả đánh giá rule engine từ vựng độc lập (plan §39, §44). |
+| `rule_engine_tuned/` | Rule engine với cấu hình đã tune (`configs/rule_engine_tuned.yaml`) - bản tốt nhất, kèm hồ sơ tune (`tuning_trials.csv`, `tuning_report.json`). |
+| `fusion/` | Ghép điểm rule engine với xác suất của từng model AI (plan §40-41). |
+| `rule_ablations/` | Ablation từng thành phần rule engine (severity, confidence, context, view, fuzzy): mỗi biến thể re-score, re-tune fusion rồi chấm test một lần. |
+
 
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `logs` | thư mục | 2 file, 3.0 KB |
-| `per_model` | thư mục | 75 file, 2.3 MB |
-| `explain.md` | file | 1.8 KB · 2026-10-04 12:58:19 |
+| `_archive_pre_regen_20261101` | thư mục | 11 file, 5.1 MB |
+| `analysis` | thư mục | 7 file, 75.3 KB |
+| `comparison` | thư mục | 42 file, 2.6 MB |
+| `fusion` | thư mục | 70 file, 7.9 MB |
+| `fusion_nb` | thư mục | 6 file, 1.2 MB |
+| `input_filter` | thư mục | 16 file, 150.8 KB |
+| `logs` | thư mục | 2 file, 3.7 KB |
+| `per_model` | thư mục | 125 file, 15.6 MB |
+| `rule_ablations` | thư mục | 261 file, 23.2 MB |
+| `rule_engine` | thư mục | 50 file, 2.6 MB |
+| `rule_engine_nb` | thư mục | 39 file, 2.5 MB |
+| `rule_engine_tune` | thư mục | 2 file, 17.9 KB |
+| `rule_engine_tuned` | thư mục | 43 file, 2.5 MB |
+| `explain.md` | file | 2.8 KB · 2026-10-29 19:28:17 |
+| `rule_engine_tuned_pruning_ablation_val.json` | file | 1.5 KB · 2026-10-19 10:17:39 |
 
 ## Cách đọc
 
@@ -30,4 +48,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-11-01 13:13:02. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -1,0 +1,40 @@
+%!TEX root = ../main.tex
+\subsection{Hardware and Software}
+\label{sec:hardware}
+All experiments run on a single NVIDIA GeForce RTX 4060 Laptop GPU (8 GB) with
+an Intel Core i7-13700H CPU, 32 GB RAM, Windows 11, Python 3.11, PyTorch
+2.5.1, Hugging Face Transformers 4.46, and scikit-learn 1.5.  Training uses
+FP32, AdamW, gradient clipping 1.0, early stopping with patience 3 on
+validation macro-F1.  Inference uses batch size 32.
+
+\subsection{Hyperparameters}
+\label{sec:hyperparameters}
+\begin{itemize}
+    \item \textbf{Optimiser}: AdamW, weight decay 0.01, $\beta_1=0.9$,
+          $\beta_2=0.999$.
+    \item \textbf{Learning rates}: encoder $2\times10^{-5}$, head
+          $5\times10^{-4}$ (custom head); differential multiplier 25.
+    \item \textbf{Schedule}: linear warm-up (10\% of steps) + cosine decay
+          (standard head); stage-based unfreeze (2-stage recipes).
+    \item \textbf{Epochs}: 5–10 with early stopping (VI), 4–6 (EN).
+    \item \textbf{Batch size}: 16 (VI, max\_length 256), 32 (EN, max\_length 128).
+    \item \textbf{Loss}: cross-entropy with class weights (inverse frequency),
+          label smoothing 0.05; focal loss $\gamma=1.5$ for the curriculum
+          variants.
+\end{itemize}
+
+\subsection{Evaluation Protocol}
+\label{sec:protocol}
+For each backbone:
+\begin{enumerate}
+    \item Train on the training split, select the best checkpoint on validation
+          macro-F1.
+    \item Run the rule engine on validation, tune its weights and thresholds
+          via coordinate descent.
+    \item Tune fusion $\alpha$ and thresholds on validation (never test).
+    \item Freeze all hyperparameters and run exactly one test pass.
+    \item Run paired bootstrap and McNemar tests on the frozen predictions.
+\end{enumerate}
+The mixed end-to-end experiment (Sect.~\ref{sec:e2e}) follows the same
+protocol: language detection and routing are fixed, fusion uses
+$\alpha=0.70$ for VI/EN, and no test-time tuning is performed.

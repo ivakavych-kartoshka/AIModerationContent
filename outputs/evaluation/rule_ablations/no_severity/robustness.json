@@ -1,0 +1,39 @@
+{
+  "n_positive": 400,
+  "modes": {
+    "clean": {
+      "detection_rate": 0.4625,
+      "detected": 185,
+      "total": 400
+    },
+    "leet": {
+      "detection_rate": 0.44,
+      "detected": 176,
+      "total": 400,
+      "detection_drop_vs_clean": 0.0225
+    },
+    "spaced": {
+      "detection_rate": 0.465,
+      "detected": 186,
+      "total": 400,
+      "detection_drop_vs_clean": -0.0025
+    },
+    "no_accent": {
+      "detection_rate": 0.2925,
+      "detected": 117,
+      "total": 400,
+      "detection_drop_vs_clean": 0.17
+    },
+    "repeat": {
+      "detection_rate": 0.3925,
+      "detected": 157,
+      "total": 400,
+      "detection_drop_vs_clean": 0.07
+    }
+  },
+  "thresholds": {
+    "HATE": 0.85,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.59
+  }
+}

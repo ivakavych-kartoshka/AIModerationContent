@@ -1,0 +1,152 @@
+# =============================================================================
+# Model 3 - sensitiveai-en-customdlr2stage
+#
+# Combines:
+#   * Custom Classification Head          (identical to sensitiveai-en-custom)
+#   * Discriminative Learning Rates       (section 8.2)
+#   * Two-stage training                  (section 8.3)
+#   * Class Weight                        (section 9)
+#   * Label-specific Class Weight         (section 10)
+#   * Focal Loss                          (section 11)
+#   * Label-specific Threshold            (section 12, searched on VALIDATION)
+#
+#   python -m src.training.run_experiment --config configs/sensitiveai-en-customdlr2stage.yaml
+# =============================================================================
+model_name: sensitiveai-en-customdlr2stage
+base_model: microsoft/mdeberta-v3-base
+head: custom
+seed: 42
+deterministic: true
+
+encoder_checkpoint: outputs/reports/sensitiveai-en-custom/run_001/best_model
+
+head_options:
+  head_hidden_size: 512
+  dropout: 0.1
+  use_cls_pool: true
+  use_mean_pool: true
+  use_max_pool: true
+  use_attention_pool: false
+  use_class_prior: false
+
+dataset:
+  name: tdavidson/hate_speech_offensive
+  splits_dir: data/splits_en
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 128
+  padding: max_length
+  truncation: true
+
+# --- global defaults; each stage may override them -------------------------- #
+training:
+  batch_size: 16
+  eval_batch_size: 32
+  gradient_accumulation: 2
+  epochs: 30
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 0
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: true
+  class_weight: inverse_sqrt_frequency
+  class_weight_beta: 0.999
+  label_smoothing: 0.0
+  focal:
+    gamma: 2.0
+    alpha:
+      HATE: 0.5
+      OFFENSIVE: 0.25
+      CLEAN: 0.25
+
+# --- discriminative learning rates (section 8.2) --------------------------- #
+dlr:
+  enabled: true
+  embedding_lr: 5.0e-6
+  encoder_lr: 1.0e-5
+  layer_lr: 2.0e-5
+  head_lr: 1.0e-4
+  layer_split: 0.5
+  layer_decay: 1.0
+
+stages:
+  - name: stage_1
+    description: >-
+      Stabilise the pre-trained representation. Cross-entropy with class weights
+      computed on the TRAIN split only.
+    epochs: 15
+    save_checkpoint: true
+    training:
+      learning_rate: 2.0e-5
+      warmup_ratio: 0.1
+    loss:
+      type: cross_entropy
+      use_class_weight: true
+      class_weight: inverse_sqrt_frequency
+
+  - name: stage_2
+    description: >-
+      Continue from the stage 1 checkpoint with lower learning rates, focal loss
+      and label-specific alpha so that hard / rare HATE samples dominate the
+      gradient.
+    epochs: 15
+    save_checkpoint: true
+    init_from: "stage:stage_1"
+    training:
+      learning_rate: 1.0e-5
+      warmup_ratio: 0.05
+    dlr:
+      embedding_lr: 2.5e-6
+      encoder_lr: 5.0e-6
+      layer_lr: 1.0e-5
+      head_lr: 5.0e-5
+    loss:
+      type: focal
+      use_class_weight: true
+      class_weight: inverse_sqrt_frequency
+      focal:
+        gamma: 2.0
+        alpha:
+          HATE: 0.5
+          OFFENSIVE: 0.25
+          CLEAN: 0.25
+
+# --- label-specific thresholds (section 12) -------------------------------- #
+thresholds:
+  enabled: true
+  search: macro_f1
+  grid_size: 101
+  coordinate_ascent_rounds: 3
+  init: 0.5
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 6
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: thresholds
+  benchmark: true
+  benchmark_batch_size: 32
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

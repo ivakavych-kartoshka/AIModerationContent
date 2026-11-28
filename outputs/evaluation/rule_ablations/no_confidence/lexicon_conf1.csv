@@ -1,0 +1,669 @@
+entry_id,term,canonical_form,lexical_labels,severity,confidence,context_required,source_datasets,source_split,review_status,dictionary_version,label_severities,label_confidences
+lex_0001,ad ngu,ad ngu,HATE,0.0032,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.014222;HATE:0.003184;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0002,ad này,ad này,HATE,0.0022,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.027061;HATE:0.002206;OFFENSIVE:5.5e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0003,ad page,ad page,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0004,asshole,asshole,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.019189;HATE:0.000943;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0005,assmin,assmin,HATE,0.0022,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.026139;HATE:0.002206;OFFENSIVE:0.000119,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0006,ba que,ba que,HATE,0.002,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.037786;HATE:0.001988;OFFENSIVE:0.001358,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0007,bait,bait,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.078144;HATE:0.002339;OFFENSIVE:0.000535,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0008,bake,bake,HATE,0.0013,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0009,bitch,bitch,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023558;HATE:0.002412;OFFENSIVE:0.000188,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0010,biết cc,biết cc,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008509;HATE:0.002693;OFFENSIVE:6.3e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0011,biết con,biết con,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.070093;HATE:0.002848;OFFENSIVE:0.000664,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0012,biết mày,biết mày,HATE,0.0029,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002878;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0013,biết nhục,biết nhục,HATE,0.0027,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0014,brain,brain,HATE,0.0008,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.063566;HATE:0.000795;OFFENSIVE:0.000251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0015,brainwash,brainwash,HATE,0.0006,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0016,bull,bull,HATE,0.0012,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.012452;HATE:0.001156;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0017,bày đặt,bày đặt,HATE,0.0038,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.051625;HATE:0.003823;OFFENSIVE:0.002456,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0018,bên mĩ,bên mĩ,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.045326;HATE:0.0015;OFFENSIVE:0.000459,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0019,bò vàng,bò vàng,OFFENSIVE,0.0005,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.023954;HATE:0.000338;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0020,bò đỏ,bò đỏ,HATE,0.0141,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015164;HATE:0.014088;OFFENSIVE:0.002689,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0021,bóng dơ,bóng dơ,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0022,bóng già,bóng già,HATE,0.0022,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.028049;HATE:0.002206;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0023,búa liềm,búa liềm,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012019;HATE:0.005668;OFFENSIVE:5.5e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0024,bưng bô,bưng bô,HATE,0.0039,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.03006;HATE:0.003929;OFFENSIVE:0.000584,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0025,bẩn tính,bẩn tính,HATE,0.0013,1.0,False,bontori;vicm,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0026,bẩn để,bẩn để,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0027,bắc kì,bắc kì,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.043002;HATE:0.00165;OFFENSIVE:0.000825,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0028,bắc kỳ,bắc kỳ,HATE,0.0087,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028374;HATE:0.008658;OFFENSIVE:0.002807,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0029,bị bọn,bị bọn,HATE,0.0032,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.068303;HATE:0.003208;OFFENSIVE:0.000465,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0030,bị dắt,bị dắt,OFFENSIVE,0.004,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.024196;HATE:0.001618;OFFENSIVE:0.004036,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0031,bị giết,bị giết,HATE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.013958;HATE:0.000943;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0032,bị khùng,bị khùng,HATE,0.0012,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000951,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0033,bị nhồi,bị nhồi,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.042642;HATE:0.002851;OFFENSIVE:0.000931,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0034,bị điên,bị điên,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010331;HATE:0.001373;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0035,bọn bò,bọn bò,HATE,0.0023,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0036,bọn chó,bọn chó,HATE,0.0043,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.004844;HATE:0.00435;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0037,bọn fan,bọn fan,OFFENSIVE,0.0015,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.013149;HATE:0.000155;OFFENSIVE:0.001518,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0038,bọn m,bọn m,HATE,0.0014,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.011755;HATE:0.001373;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0039,bọn mày,bọn mày,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.048361;HATE:0.003378;OFFENSIVE:0.000354,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0040,bọn mỹ,bọn mỹ,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.019666;HATE:0.001266;OFFENSIVE:0.000773,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0041,bọn ngu,bọn ngu,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011321;HATE:0.003406;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0042,bọn phản,bọn phản,HATE,0.0021,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.016045;HATE:0.002099;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0043,bọn tư,bọn tư,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008293;HATE:0.002486;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0044,bọn việt,bọn việt,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0045,bỏ con,bỏ con,HATE,0.0014,1.0,True,bontori,train,verified,v1,CLEAN:0.010331;HATE:0.001373;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0046,bỏ học,bỏ học,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.123091;HATE:0.001454;OFFENSIVE:0.000398,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0047,bố láo,bố láo,HATE,0.0066,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014258;HATE:0.006645;OFFENSIVE:0.000924,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0048,bố m,bố m,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026498;HATE:0.002131;OFFENSIVE:0.000788,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0049,bố mày,bố mày,HATE,0.0049,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.049094;HATE:0.004877;OFFENSIVE:0.000597,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0050,bố mỹ,bố mỹ,HATE,0.0014,1.0,True,bontori,train,verified,v1,CLEAN:0.012321;HATE:0.001373;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0051,bố này,bố này,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.001124,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0052,bố thằng,bố thằng,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037438;HATE:0.0028;OFFENSIVE:0.000239,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0053,bụm chúa,bụm chúa,OFFENSIVE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.001038,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0054,bủm chúa,bủm chúa,OFFENSIVE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0055,cave,cave,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010693;HATE:0.004079;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0056,cc,cc,HATE,0.0304,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028158;HATE:0.030389;OFFENSIVE:0.011904,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0057,cc gì,cc gì,HATE,0.0089,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.016597;HATE:0.008913;OFFENSIVE:0.002369,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0058,cc j,cc j,HATE,0.0038,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003837;OFFENSIVE:0.001383,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0059,ccc,ccc,HATE,0.0021,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0060,cdm,cdm,HATE,0.0018,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.021362;HATE:0.001798;OFFENSIVE:0.000987,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0061,cha chúng,cha chúng,HATE,0.0016,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.012803;HATE:0.001592;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0062,cha mày,cha mày,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015255;HATE:0.002745;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0063,chet me,chet me,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0064,cho lũ,cho lũ,HATE,0.0015,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.018786;HATE:0.00147;OFFENSIVE:0.000686,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0065,cho mày,cho mày,HATE,0.0068,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012565;HATE:0.006813;OFFENSIVE:0.000323,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0066,cháo đá,cháo đá,HATE,0.0012,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0067,chính kiến,chính kiến,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.045326;HATE:0.0015;OFFENSIVE:0.000459,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0068,chó,chó,HATE,0.1108,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.029971;HATE:0.110797;OFFENSIVE:0.014427,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0069,chó ad,chó ad,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0070,chó cao,chó cao,OFFENSIVE,0.0007,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0071,chó hùa,chó hùa,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0072,chó săn,chó săn,HATE,0.0013,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0073,chó sủa,chó sủa,HATE,0.0031,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006316;HATE:0.003107;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0074,chó thì,chó thì,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.055425;HATE:0.00165;OFFENSIVE:0.000239,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0075,chúng mày,chúng mày,HATE,0.0196,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.03796;HATE:0.019632;OFFENSIVE:0.002475,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0076,chậm cái,chậm cái,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0077,chật đất,chật đất,HATE,0.0005,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.021503;HATE:0.000533;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0078,chết cdm,chết cdm,HATE,0.0012,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0079,chết của,chết của,HATE,0.0018,1.0,True,bontori,train,verified,v1,CLEAN:0.010153;HATE:0.001815;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0080,chết mẹ,chết mẹ,HATE,0.0073,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.04146;HATE:0.007312;OFFENSIVE:0.003436,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0081,chịch,chịch,OFFENSIVE,0.0014,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.042907;HATE:0.001437;OFFENSIVE:0.001439,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0082,chứ tao,chứ tao,HATE,0.001,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.071471;HATE:0.000977;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0083,chứ đéo,chứ đéo,HATE,0.0049,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015798;HATE:0.004928;OFFENSIVE:0.001673,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0084,chửi thì,chửi thì,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.045619;HATE:0.002139;OFFENSIVE:0.000945,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0085,clm,clm,OFFENSIVE,0.0047,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.029949;HATE:0.003452;OFFENSIVE:0.004676,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0086,cmm,cmm,HATE,0.0031,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004298;HATE:0.003107;OFFENSIVE:0.002428,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0087,con bò,con bò,HATE,0.0118,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024604;HATE:0.011803;OFFENSIVE:0.00263,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0088,con c,con c,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014396;HATE:0.002745;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0089,con chó,con chó,HATE,0.0294,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.022249;HATE:0.029361;OFFENSIVE:0.003425,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0090,con cu,con cu,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02202;HATE:0.00147;OFFENSIVE:0.000354,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0091,con cặc,con cặc,HATE,0.0067,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.006714;OFFENSIVE:0.001643,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0092,con dog,con dog,HATE,0.0012,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0093,con mơ,con mơ,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0.011571;HATE:0.000735;OFFENSIVE:0.001126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0094,con mẹ,con mẹ,HATE,0.0228,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017802;HATE:0.022754;OFFENSIVE:0.004028,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0095,con mụ,con mụ,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0096,con rối,con rối,OFFENSIVE,0.0014,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.008659;HATE:0.001156;OFFENSIVE:0.001419,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0097,con đàn,con đàn,HATE,0.0039,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.015629;HATE:0.0039;OFFENSIVE:0.000261,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0098,con đĩ,con đĩ,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.035129;HATE:0.004262;OFFENSIVE:0.000168,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0099,con đỉ,con đỉ,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0100,critical,critical,HATE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.044992;HATE:0.000676;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0101,critical thinking,critical thinking,HATE,0.0005,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.055882;HATE:0.000489;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0102,csvn,csvn,HATE,0.0025,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.015355;HATE:0.002528;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0103,cung co,cung co,HATE,0.0014,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.03745;HATE:0.0014;OFFENSIVE:0.000119,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0104,cào phím,cào phím,HATE,0.0008,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.056545;HATE:0.000795;OFFENSIVE:0.000397,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0105,các đảng,các đảng,HATE,0.002,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.009332;HATE:0.00204;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0106,cái bài,cái bài,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.084769;HATE:0.002418;OFFENSIVE:0.001053,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0107,cái cc,cái cc,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012316;HATE:0.002745;OFFENSIVE:0.000773,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0108,cái comment,cái comment,HATE,0.0008,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.050921;HATE:0.000795;OFFENSIVE:0.00055,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0109,cái con,cái con,HATE,0.0077,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.041931;HATE:0.007713;OFFENSIVE:0.001046,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0110,cái củ,cái củ,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021107;HATE:0.002206;OFFENSIVE:0.000652,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0111,cái l,cái l,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008088;HATE:0.002267;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0112,cái lol,cái lol,HATE,0.0033,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003261;OFFENSIVE:0.001124,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0113,cái loz,cái loz,HATE,0.0027,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0114,cái loại,cái loại,HATE,0.0073,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031809;HATE:0.007259;OFFENSIVE:0.001168,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0115,cái lũ,cái lũ,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031584;HATE:0.001933;OFFENSIVE:0.000473,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0116,cái lồn,cái lồn,HATE,0.0089,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011673;HATE:0.008892;OFFENSIVE:0.002318,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0117,cái lỗ,cái lỗ,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018912;HATE:0.002412;OFFENSIVE:0.000817,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0118,cái máu,cái máu,OFFENSIVE,0.0012,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.017766;HATE:0.001065;OFFENSIVE:0.001218,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0119,cái ngu,cái ngu,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006942;HATE:0.002486;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0120,cái não,cái não,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.019672;HATE:0.00283;OFFENSIVE:0.000336,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0121,cái post,cái post,HATE,0.0011,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.06808;HATE:0.00113;OFFENSIVE:0.000112,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0122,cái qq,cái qq,HATE,0.0014,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.023621;HATE:0.0014;OFFENSIVE:0.001072,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0123,cái sub,cái sub,HATE,0.0019,1.0,False,vicm,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0124,cái thumbnail,cái thumbnail,OFFENSIVE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.019007;HATE:0.000155;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0125,cái thằng,cái thằng,HATE,0.0107,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028553;HATE:0.01072;OFFENSIVE:0.00215,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0126,cái trò,cái trò,HATE,0.0031,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.053244;HATE:0.003084;OFFENSIVE:0.001105,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0127,cái văn,cái văn,HATE,0.003,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.069113;HATE:0.003002;OFFENSIVE:0.000795,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0128,cái đ,cái đ,OFFENSIVE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010708;HATE:0.000533;OFFENSIVE:0.001518,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0129,cái đb,cái đb,OFFENSIVE,0.0013,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009717;HATE:0.000943;OFFENSIVE:0.00132,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0130,cái đách,cái đách,HATE,0.0018,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.011525;HATE:0.001815;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0131,cái đéo,cái đéo,HATE,0.0056,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017836;HATE:0.005559;OFFENSIVE:0.002445,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0132,cái địt,cái địt,HATE,0.0039,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011464;HATE:0.003854;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0133,câm,câm,HATE,0.0124,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006809;HATE:0.01243;OFFENSIVE:0.001202,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0134,câm mẹ,câm mẹ,HATE,0.0029,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002878;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0135,còn mày,còn mày,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008032;HATE:0.002486;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0136,còn đéo,còn đéo,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.035634;HATE:0.004146;OFFENSIVE:0.001068,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0137,có cc,có cc,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018266;HATE:0.00283;OFFENSIVE:0.000571,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0138,có não,có não,HATE,0.0066,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.013795;HATE:0.006645;OFFENSIVE:0.001168,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0139,cũng rảnh,cũng rảnh,HATE,0.0006,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.114595;HATE:0.000586;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0140,cũng đéo,cũng đéo,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.027628;HATE:0.005661;OFFENSIVE:0.001985,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0141,cơm sườn,cơm sườn,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.043407;HATE:0.002748;OFFENSIVE:0.000234,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0142,cả lò,cả lò,HATE,0.0015,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0143,cả thằng,cả thằng,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.052667;HATE:0.002139;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0144,cấp mà,cấp mà,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.105173;HATE:0.001355;OFFENSIVE:0.000223,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0145,cắp chất,cắp chất,OFFENSIVE,0.0009,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.044496;HATE:0;OFFENSIVE:0.00086,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0146,cắp content,cắp content,OFFENSIVE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0147,cặc,cặc,HATE,0.0136,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.013621;OFFENSIVE:0.003545,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0148,cặc gì,cặc gì,HATE,0.0042,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.004221;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0149,cặn,cặn,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.0403;HATE:0.005741;OFFENSIVE:0.000343,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0150,cặn bã,cặn bã,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024574;HATE:0.004089;OFFENSIVE:0.000112,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0151,cộng nó,cộng nó,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0152,cộng sản,cộng sản,HATE,0.0229,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.038084;HATE:0.022949;OFFENSIVE:0.013635,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0153,cờ hó,cờ hó,HATE,0.002,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.025461;HATE:0.002001;OFFENSIVE:0.000336,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0154,của diệm,của diệm,HATE,0.0014,1.0,True,bontori,train,auto,v1,CLEAN:0.008316;HATE:0.001373;OFFENSIVE:0.00132,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0155,của huy,của huy,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0.020531;HATE:0.000155;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0156,của mày,của mày,HATE,0.0078,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018942;HATE:0.007758;OFFENSIVE:0.001022,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0157,cứ thích,cứ thích,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.083601;HATE:0.002435;OFFENSIVE:0.00092,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0158,cức,cức,HATE,0.0068,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.040273;HATE:0.006751;OFFENSIVE:0.000659,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0159,da đen,da đen,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.084503;HATE:0.002184;OFFENSIVE:0.00028,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0160,damm,damm,HATE,0.0008,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0161,damn,damn,HATE,0.0017,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.035066;HATE:0.001736;OFFENSIVE:0.000397,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0162,damn it,damn it,HATE,0.0017,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0163,dcm,dcm,OFFENSIVE,0.0027,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.033189;HATE:0.00229;OFFENSIVE:0.002705,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0164,dick,dick,HATE,0.001,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0165,dit,dit,HATE,0.0015,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0166,diệm chỉ,diệm chỉ,HATE,0.0015,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0167,diệm mà,diệm mà,HATE,0.0014,1.0,True,bontori,train,verified,v1,CLEAN:0.00993;HATE:0.001373;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0168,diệm nhu,diệm nhu,HATE,0.0012,1.0,True,bontori,train,auto,v1,CLEAN:0.010423;HATE:0.001156;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0169,diệt chủng,diệt chủng,HATE,0.0033,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003261;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0170,do ngôn,do ngôn,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.046949;HATE:0.00165;OFFENSIVE:0.000596,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0171,dog bắc,dog bắc,HATE,0.0006,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0172,downvote,downvote,HATE,0.0021,1.0,False,vicm,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0173,du kích,du kích,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.044638;HATE:0.00188;OFFENSIVE:0.000177,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0174,du mục,du mục,OFFENSIVE,0.0013,1.0,True,bontori,train,auto,v1,CLEAN:0.008963;HATE:0.001156;OFFENSIVE:0.00132,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0175,duoi,duoi,HATE,0.0019,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.022568;HATE:0.001887;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0176,dâm,dâm,HATE,0.0163,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.040658;HATE:0.016342;OFFENSIVE:0.002224,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0177,dâm loạn,dâm loạn,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0178,dâm tinh,dâm tinh,HATE,0.0015,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0179,dân ngu,dân ngu,HATE,0.0033,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003261;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0180,dân như,dân như,HATE,0.002,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008144;HATE:0.00204;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0181,dân nó,dân nó,HATE,0.0045,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.048739;HATE:0.0045;OFFENSIVE:0.000942,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0182,dân thường,dân thường,HATE,0.0012,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.110671;HATE:0.00116;OFFENSIVE:0.00054,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0183,dùng não,dùng não,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021111;HATE:0.00147;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0184,dắt mũi,dắt mũi,HATE,0.0045,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.022769;HATE:0.004537;OFFENSIVE:0.004037,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0185,dột từ,dột từ,HATE,0.0007,1.0,True,bontori,train,auto,v1,CLEAN:0.014951;HATE:0.000735;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0186,eq,eq,HATE,0.0017,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.06453;HATE:0.001745;OFFENSIVE:0.000565,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0187,exploit,exploit,HATE,0.001,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0188,fan nó,fan nó,OFFENSIVE,0.0009,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037305;HATE:0.000141;OFFENSIVE:0.00086,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0189,fat,fat,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.054575;HATE:0.001351;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0190,fuck,fuck,HATE,0.0085,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004804;HATE:0.008494;OFFENSIVE:0.001218,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0191,fuck off,fuck off,HATE,0.0008,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0192,fucking,fucking,HATE,0.0009,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.040643;HATE:0.000868;OFFENSIVE:5.8e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0193,ghét thằng,ghét thằng,HATE,0.0014,1.0,True,bontori,train,verified,v1,CLEAN:0.011755;HATE:0.001373;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0194,ghê tởm,ghê tởm,HATE,0.0015,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0195,giãy,giãy,HATE,0.0032,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.048427;HATE:0.003237;OFFENSIVE:0.001769,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0196,giãy chết,giãy chết,HATE,0.0021,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.031373;HATE:0.002131;OFFENSIVE:0.000323,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0197,giả gái,giả gái,OFFENSIVE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.022754;HATE:0;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0198,giấu đầu,giấu đầu,OFFENSIVE,0.001,1.0,True,bontori,train,verified,v1,CLEAN:0.020897;HATE:0;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0199,giờ tao,giờ tao,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015558;HATE:0.002099;OFFENSIVE:0.000601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0200,giờ thống,giờ thống,OFFENSIVE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.016319;HATE:0.000338;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0201,growoldwiththetrans,growoldwiththetrans,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0.017431;HATE:0.000338;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0202,gì bọn,gì bọn,HATE,0.004,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.025448;HATE:0.004002;OFFENSIVE:0.000671,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0203,gì mày,gì mày,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008509;HATE:0.002693;OFFENSIVE:6.3e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0204,gì tao,gì tao,HATE,0.0008,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.056545;HATE:0.000795;OFFENSIVE:0.000397,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0205,hãm,hãm,HATE,0.01,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.03177;HATE:0.009998;OFFENSIVE:0.002501,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0206,hèn hạ,hèn hạ,HATE,0.0019,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0207,hòn dái,hòn dái,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0208,hó,hó,HATE,0.0024,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.041819;HATE:0.002364;OFFENSIVE:0.000658,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0209,hù,hù,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.104917;HATE:0.002418;OFFENSIVE:0.000329,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0210,hùa,hùa,HATE,0.0037,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.03966;HATE:0.003725;OFFENSIVE:0.003476,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0211,hạ đẳng,hạ đẳng,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.007051;HATE:0.0029;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0212,hại dân,hại dân,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021707;HATE:0.003564;OFFENSIVE:0.000251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0213,hả thằng,hả thằng,HATE,0.0039,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011464;HATE:0.003854;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0214,hằng du,hằng du,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0.01655;HATE:0.000155;OFFENSIVE:0.001126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0215,hết bọn,hết bọn,HATE,0.0032,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012189;HATE:0.003184;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0216,jerk,jerk,HATE,0.001,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0217,k ưa,k ưa,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010766;HATE:0.001373;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0218,kasim,kasim,OFFENSIVE,0.001,1.0,True,bontori,train,verified,v1,CLEAN:0.015341;HATE:0.000338;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0219,khuyết,khuyết,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.053875;HATE:0.002931;OFFENSIVE:0.000897,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0220,khuyết tật,khuyết tật,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024795;HATE:0.002736;OFFENSIVE:0.000473,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0221,khác nó,khác nó,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.058942;HATE:0.001104;OFFENSIVE:0.000596,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0222,khác đéo,khác đéo,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015002;HATE:0.002312;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0223,không nữa,không nữa,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.142871;HATE:0.001421;OFFENSIVE:0.00039,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0224,khắp miền,khắp miền,HATE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.015878;HATE:0.000735;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0225,kinh tởm,kinh tởm,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004711;HATE:0.0029;OFFENSIVE:0.002123,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0226,kl7,kl7,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0.014474;HATE:0.000338;OFFENSIVE:0.001126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0227,kênh rác,kênh rác,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0.015143;HATE:0.000533;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0228,kệ con,kệ con,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0229,kệ mẹ,kệ mẹ,HATE,0.0068,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02874;HATE:0.006805;OFFENSIVE:0.003096,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0230,kỳ chó,kỳ chó,HATE,0.0008,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0231,kỳ thị,kỳ thị,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.132454;HATE:0.001431;OFFENSIVE:0.000455,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0232,lazy,lazy,HATE,0.0012,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0233,liềm,liềm,HATE,0.0061,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.013871;HATE:0.006148;OFFENSIVE:0.000251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0234,lol gì,lol gì,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.005122;HATE:0.003522;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0235,lone,lone,HATE,0.0014,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.026024;HATE:0.0014;OFFENSIVE:0.000817,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0236,loser,loser,HATE,0.0084,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.054431;HATE:0.008363;OFFENSIVE:0.000496,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0237,loz,loz,HATE,0.0172,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008745;HATE:0.017224;OFFENSIVE:0.003528,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0238,loạn viên,loạn viên,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0239,luận viên,luận viên,HATE,0.0037,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024309;HATE:0.003676;OFFENSIVE:0.000459,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0240,là bò,là bò,HATE,0.0015,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0241,là bù,là bù,HATE,0.0007,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.029461;HATE:0.000676;OFFENSIVE:0.000601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0242,là bắc,là bắc,OFFENSIVE,0.0008,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.072027;HATE:0.00074;OFFENSIVE:0.000808,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0243,là lũ,là lũ,HATE,0.0058,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.003585;HATE:0.005801;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0244,là m,là m,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.093885;HATE:0.001526;OFFENSIVE:0.000285,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0245,là mày,là mày,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.04198;HATE:0.00241;OFFENSIVE:0.000239,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0246,là ngô,là ngô,HATE,0.0014,1.0,True,bontori,train,verified,v1,CLEAN:0.012944;HATE:0.001373;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0247,là rác,là rác,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.012585;HATE:0.000943;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0248,là tao,là tao,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.050183;HATE:0.002413;OFFENSIVE:0.001357,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0249,là tt,là tt,HATE,0.0012,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.010423;HATE:0.001156;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0250,làm cc,làm cc,HATE,0.0039,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010972;HATE:0.003854;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0251,làm chó,làm chó,HATE,0.0032,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.030431;HATE:0.003196;OFFENSIVE:0.000596,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0252,làm lãnh,làm lãnh,HATE,0.0048,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009218;HATE:0.004763;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0253,làm đéo,làm đéo,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.02053;HATE:0.002331;OFFENSIVE:0.001545,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0254,láo,láo,HATE,0.018,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.035384;HATE:0.018038;OFFENSIVE:0.00402,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0255,lên reddit,lên reddit,HATE,0.0011,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.032374;HATE:0.001065;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0256,lòn,lòn,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009232;HATE:0.003629;OFFENSIVE:0.001218,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0257,lý luận,lý luận,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.080581;HATE:0.001326;OFFENSIVE:0.001179,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0258,lũ,lũ,HATE,0.053,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031525;HATE:0.053016;OFFENSIVE:0.00921,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0259,lũ bán,lũ bán,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0260,lũ chó,lũ chó,HATE,0.0044,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.004412;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0261,lũ ngu,lũ ngu,HATE,0.0017,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0262,lưu manh,lưu manh,HATE,0.005,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008713;HATE:0.004972;OFFENSIVE:0.000354,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0263,lật đổ,lật đổ,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023935;HATE:0.004129;OFFENSIVE:0.001603,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0264,lắm tiền,lắm tiền,HATE,0.0015,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.046991;HATE:0.0015;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0265,lắm vào,lắm vào,HATE,0.0006,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.106641;HATE:0.000586;OFFENSIVE:0.000239,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0266,lẹo,lẹo,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.09945;HATE:0.001606;OFFENSIVE:0.000927,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0267,lố lăng,lố lăng,OFFENSIVE,0.0008,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.017431;HATE:0.000338;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0268,lồn,lồn,HATE,0.0614,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008472;HATE:0.061435;OFFENSIVE:0.010605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0269,lồn gì,lồn gì,HATE,0.0029,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002878;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0270,lồn nào,lồn nào,HATE,0.0023,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0271,lồn quá,lồn quá,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0272,lồn à,lồn à,HATE,0.0015,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0273,lỗ đít,lỗ đít,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.018262;HATE:0.001266;OFFENSIVE:0.000948,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0274,lộc nó,lộc nó,OFFENSIVE,0.0009,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000384;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0275,lủ,lủ,HATE,0.0038,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.003837;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0276,m ko,m ko,HATE,0.002,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.091143;HATE:0.001955;OFFENSIVE:0.000727,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0277,m làm,m làm,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.070762;HATE:0.001899;OFFENSIVE:0.00042,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0278,m mà,m mà,HATE,0.0006,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.060781;HATE:0.000642;OFFENSIVE:0.000188,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0279,m ngu,m ngu,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008032;HATE:0.002486;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0280,m nói,m nói,HATE,0.0026,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.042598;HATE:0.002555;OFFENSIVE:0.00044,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0281,m thì,m thì,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.08165;HATE:0.002126;OFFENSIVE:0.000934,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0282,m đang,m đang,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.032827;HATE:0.000868;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0283,m đéo,m đéo,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0284,m113,m113,HATE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0285,mat dai,mat dai,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0286,mat day,mat day,HATE,0.0027,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0287,ml,ml,HATE,0.0059,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.051175;HATE:0.005933;OFFENSIVE:0.000156,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0288,moron,moron,HATE,0.0013,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0289,muôn đời,muôn đời,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.058862;HATE:0.002107;OFFENSIVE:0.000495,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0290,mà m,mà m,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.050088;HATE:0.002139;OFFENSIVE:0.000646,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0291,mà mày,mà mày,HATE,0.0047,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.027362;HATE:0.004737;OFFENSIVE:0.000369,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0292,mà ngu,mà ngu,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010568;HATE:0.003629;OFFENSIVE:0.000601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0293,mà tao,mà tao,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.08606;HATE:0.002473;OFFENSIVE:0.000461,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0294,mà tưởng,mà tưởng,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.020093;HATE:0.003355;OFFENSIVE:0.000707,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0295,mà ý,mà ý,HATE,0.0011,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.08009;HATE:0.001063;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0296,màn lên,màn lên,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0.01932;HATE:0;OFFENSIVE:0.001126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0297,mày biết,mày biết,HATE,0.0017,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017372;HATE:0.001677;OFFENSIVE:0.000686,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0298,mày bảo,mày bảo,HATE,0.0017,1.0,False,bontori;vicm,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0299,mày bị,mày bị,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014127;HATE:0.004118;OFFENSIVE:0.000491,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0300,mày chắc,mày chắc,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0301,mày còn,mày còn,HATE,0.0014,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.00993;HATE:0.001373;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0302,mày có,mày có,HATE,0.0096,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021684;HATE:0.009649;OFFENSIVE:0.001572,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0303,mày cũng,mày cũng,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.039939;HATE:0.003423;OFFENSIVE:0.000709,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0304,mày cứ,mày cứ,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015455;HATE:0.002312;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0305,mày không,mày không,HATE,0.0042,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.048341;HATE:0.004244;OFFENSIVE:0.000282,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0306,mày ko,mày ko,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.039112;HATE:0.003616;OFFENSIVE:0.000637,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0307,mày là,mày là,HATE,0.0112,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014983;HATE:0.011199;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0308,mày làm,mày làm,HATE,0.0045,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018948;HATE:0.004507;OFFENSIVE:0.000924,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0309,mày lên,mày lên,HATE,0.0021,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0310,mày lại,mày lại,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.016996;HATE:0.002312;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0311,mày muốn,mày muốn,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014668;HATE:0.004118;OFFENSIVE:0.000336,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0312,mày mà,mày mà,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.027298;HATE:0.002941;OFFENSIVE:5.4e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0313,mày mới,mày mới,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012421;HATE:0.003406;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0314,mày nghe,mày nghe,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.019189;HATE:0.000943;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0315,mày nghĩ,mày nghĩ,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017501;HATE:0.00147;OFFENSIVE:0.00086,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0316,mày ngu,mày ngu,HATE,0.007,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006652;HATE:0.007044;OFFENSIVE:5.8e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0317,mày như,mày như,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.026596;HATE:0.00147;OFFENSIVE:5.8e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0318,mày nên,mày nên,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037522;HATE:0.002268;OFFENSIVE:0.000244,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0319,mày nói,mày nói,HATE,0.0061,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02941;HATE:0.006129;OFFENSIVE:0.000558,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0320,mày tao,mày tao,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.08384;HATE:0.001567;OFFENSIVE:0.000165,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0321,mày thì,mày thì,HATE,0.0066,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008744;HATE:0.006573;OFFENSIVE:0.001246,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0322,mày thích,mày thích,HATE,0.0029,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.007462;HATE:0.0029;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0323,mày thôi,mày thôi,HATE,0.0012,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0324,mày đi,mày đi,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031845;HATE:0.004262;OFFENSIVE:0.000574,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0325,mày đâu,mày đâu,HATE,0.0019,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0326,mày đéo,mày đéo,HATE,0.0027,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0327,mày đúng,mày đúng,HATE,0.001,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0328,máu lồn,máu lồn,HATE,0.0023,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.001556,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0329,méo mó,méo mó,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0.015143;HATE:0.000533;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0330,mả,mả,HATE,0.0064,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.040423;HATE:0.006414;OFFENSIVE:0.00053,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0331,mả cha,mả cha,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0332,mấy nước,mấy nước,HATE,0.003,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.072456;HATE:0.003028;OFFENSIVE:0.000401,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0333,mấy thg,mấy thg,HATE,0.0017,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.014035;HATE:0.001677;OFFENSIVE:0.001309,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0334,mấy thằng,mấy thằng,HATE,0.0532,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.047749;HATE:0.053227;OFFENSIVE:0.008052,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0335,mầy,mầy,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.032349;HATE:0.004262;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0336,mắc ói,mắc ói,OFFENSIVE,0.0017,1.0,True,bontori,train,verified,v1,CLEAN:0.009881;HATE:0.000533;OFFENSIVE:0.001717,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0337,mặt heo,mặt heo,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0338,mẹ chúng,mẹ chúng,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024574;HATE:0.004089;OFFENSIVE:0.000112,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0339,mẹ m,mẹ m,HATE,0.006,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.00306;HATE:0.006008;OFFENSIVE:0.001717,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0340,mẹ mày,mẹ mày,HATE,0.0178,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.007612;HATE:0.017816;OFFENSIVE:0.000596,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0341,mẹ người,mẹ người,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024304;HATE:0.002412;OFFENSIVE:0.000119,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0342,mẹ thầy,mẹ thầy,HATE,0.0021,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0343,mẹ thằng,mẹ thằng,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028176;HATE:0.003471;OFFENSIVE:0.000112,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0344,mẹ tụi,mẹ tụi,HATE,0.0023,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.009258;HATE:0.002267;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0345,mỉa,mỉa,HATE,0.0018,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.072818;HATE:0.001818;OFFENSIVE:0.001241,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0346,mọi rợ,mọi rợ,HATE,0.0035,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003453;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0347,mồm ra,mồm ra,HATE,0.004,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026322;HATE:0.004002;OFFENSIVE:0.000521,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0348,một lũ,một lũ,HATE,0.0039,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.005078;HATE:0.003936;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0349,mở mồm,mở mồm,HATE,0.0045,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028229;HATE:0.004461;OFFENSIVE:0.001022,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0350,mỹ bỏ,mỹ bỏ,OFFENSIVE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0351,mỹ họ,mỹ họ,OFFENSIVE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.019007;HATE:0.000155;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0352,mỹ lập,mỹ lập,HATE,0.0007,1.0,True,bontori,train,auto,v1,CLEAN:0.015878;HATE:0.000735;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0353,mỹ đưa,mỹ đưa,HATE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0354,nam kỳ,nam kỳ,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.020353;HATE:0.002736;OFFENSIVE:0.001202,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0355,nam vn,nam vn,OFFENSIVE,0.001,1.0,True,bontori,train,verified,v1,CLEAN:0.013541;HATE:0.000533;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0356,nam à,nam à,OFFENSIVE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0357,nato,nato,HATE,0.0031,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.06927;HATE:0.003055;OFFENSIVE:0.00034,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0358,nghễ,nghễ,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.115687;HATE:0.001647;OFFENSIVE:0.000159,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0359,ngu,ngu,HATE,0.1402,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024998;HATE:0.140166;OFFENSIVE:0.032934,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0360,ngu còn,ngu còn,HATE,0.0037,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015699;HATE:0.003684;OFFENSIVE:0.000412,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0361,ngu dốt,ngu dốt,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.019429;HATE:0.004617;OFFENSIVE:0.001635,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0362,ngu hay,ngu hay,HATE,0.0033,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006607;HATE:0.003315;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0363,ngu hơn,ngu hơn,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009868;HATE:0.004079;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0364,ngu lol,ngu lol,HATE,0.0013,1.0,False,bontori;vicm;vihsd,train,auto,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0365,ngu lồn,ngu lồn,HATE,0.0013,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0366,ngu mà,ngu mà,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.016441;HATE:0.004624;OFFENSIVE:0.00055,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0367,ngu người,ngu người,HATE,0.0015,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.045851;HATE:0.001466;OFFENSIVE:0.000825,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0368,ngu như,ngu như,HATE,0.0157,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.022651;HATE:0.015723;OFFENSIVE:0.000716,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0369,ngu quá,ngu quá,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026429;HATE:0.003471;OFFENSIVE:0.000314,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0370,ngu thì,ngu thì,HATE,0.0048,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.045594;HATE:0.004766;OFFENSIVE:0.002165,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0371,ngu thế,ngu thế,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02353;HATE:0.002941;OFFENSIVE:0.000473,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0372,ngu vl,ngu vl,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015656;HATE:0.00283;OFFENSIVE:0.001159,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0373,ngu vãi,ngu vãi,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008935;HATE:0.002267;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0374,ngu vậy,ngu vậy,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008571;HATE:0.002486;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0375,ngu à,ngu à,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.00605;HATE:0.0029;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0376,ngu ạ,ngu ạ,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0377,ngóc,ngóc,HATE,0.0026,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.063551;HATE:0.002595;OFFENSIVE:0.00035,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0378,ngôn luận,ngôn luận,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.059762;HATE:0.002443;OFFENSIVE:0.00042,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0379,người di,người di,HATE,0.0009,1.0,True,bontori,train,auto,v1,CLEAN:0.013236;HATE:0.000943;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0380,người ngu,người ngu,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0381,ngạo,ngạo,HATE,0.0018,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.095522;HATE:0.001759;OFFENSIVE:0.00106,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0382,ngạo nghễ,ngạo nghễ,HATE,0.0013,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.135027;HATE:0.001313;OFFENSIVE:0.000159,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0383,ngụy,ngụy,HATE,0.0052,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.038074;HATE:0.005175;OFFENSIVE:0.002887,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0384,nhai lại,nhai lại,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.049046;HATE:0.003526;OFFENSIVE:0.000483,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0385,nhai đi,nhai đi,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037762;HATE:0.002073;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0386,nhu cai,nhu cai,HATE,0.0015,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0387,nhà m,nhà m,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.075584;HATE:0.001567;OFFENSIVE:0.000358,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0388,nhà mày,nhà mày,HATE,0.0072,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.019031;HATE:0.007239;OFFENSIVE:0.000511,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0389,nhà tao,nhà tao,HATE,0.002,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02727;HATE:0.002001;OFFENSIVE:0.000188,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0390,như bò,như bò,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021658;HATE:0.004089;OFFENSIVE:0.00061,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0391,như cc,như cc,HATE,0.0059,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017184;HATE:0.005871;OFFENSIVE:0.001386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0392,như chó,như chó,HATE,0.0134,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023146;HATE:0.01344;OFFENSIVE:0.002165,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0393,như l,như l,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.012513;HATE:0.002099;OFFENSIVE:0.001309,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0394,như lol,như lol,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.007051;HATE:0.0029;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0395,như lồn,như lồn,HATE,0.0021,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0396,như m,như m,HATE,0.0081,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.027022;HATE:0.008058;OFFENSIVE:0.002002,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0397,như mày,như mày,HATE,0.0166,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.003864;HATE:0.016573;OFFENSIVE:0.001601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0398,như nó,như nó,HATE,0.0026,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.085945;HATE:0.002589;OFFENSIVE:0.000846,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0399,như shit,như shit,HATE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.015878;HATE:0.000735;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0400,như thằng,như thằng,HATE,0.0085,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.051748;HATE:0.008512;OFFENSIVE:0.00107,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0401,như đầu,như đầu,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.051607;HATE:0.00113;OFFENSIVE:0.000534,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0402,nhưng đéo,nhưng đéo,HATE,0.0009,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.050028;HATE:0.000949;OFFENSIVE:0.000765,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0403,nhồi sọ,nhồi sọ,HATE,0.0048,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.033655;HATE:0.004821;OFFENSIVE:0.001805,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0404,nhục mặt,nhục mặt,HATE,0.0016,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.011132;HATE:0.001592;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0405,nhức đau,nhức đau,HATE,0.0021,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0406,những kẻ,những kẻ,HATE,0.0078,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.031403;HATE:0.007814;OFFENSIVE:0.002945,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0407,những thằng,những thằng,HATE,0.0101,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.036199;HATE:0.010137;OFFENSIVE:0.001311,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0408,nuke,nuke,HATE,0.0011,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.03706;HATE:0.001065;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0409,này bệnh,này bệnh,OFFENSIVE,0.0009,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.012721;HATE:0.000735;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0410,này tao,này tao,HATE,0.0018,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.090077;HATE:0.001835;OFFENSIVE:0.000407,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0411,não chó,não chó,HATE,0.0021,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.00211;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0412,não của,não của,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.018262;HATE:0.001266;OFFENSIVE:0.000948,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0413,não tàn,não tàn,HATE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0414,nãy giờ,nãy giờ,HATE,0.0012,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.134666;HATE:0.001173;OFFENSIVE:0.000104,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0415,nên tao,nên tao,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.020743;HATE:0.000943;OFFENSIVE:6.3e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0416,nó ngu,nó ngu,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021579;HATE:0.004298;OFFENSIVE:0.000459,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0417,nó đéo,nó đéo,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026771;HATE:0.004596;OFFENSIVE:0.001874,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0418,nói láo,nói láo,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023001;HATE:0.002941;OFFENSIVE:0.00055,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0419,nói ngu,nói ngu,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.001124,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0420,nói xàm,nói xàm,HATE,0.0023,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.017579;HATE:0.002312;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0421,nô lệ,nô lệ,HATE,0.0056,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.032629;HATE:0.005601;OFFENSIVE:0.001342,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0422,nước cộng,nước cộng,HATE,0.0013,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.022228;HATE:0.001266;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0423,nước hại,nước hại,HATE,0.0027,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0424,nếu chúng,nếu chúng,OFFENSIVE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.014126;HATE:0.000735;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0425,nếu m,nếu m,HATE,0.0011,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.030449;HATE:0.001065;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0426,nếu mày,nếu mày,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037347;HATE:0.001933;OFFENSIVE:0.000115,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0427,nể mấy,nể mấy,OFFENSIVE,0.0022,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.015915;HATE:0.000489;OFFENSIVE:0.002156,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0428,nứng nứng,nứng nứng,OFFENSIVE,0.0008,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.04873;HATE:0;OFFENSIVE:0.000773,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0429,nữ quyền,nữ quyền,HATE,0.0013,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.023237;HATE:0.001266;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0430,op,op,HATE,0.0042,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.02815;HATE:0.004206;OFFENSIVE:0.00011,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0431,pbvm,pbvm,HATE,0.002,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.020662;HATE:0.002001;OFFENSIVE:0.000902,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0432,phong sát,phong sát,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.001124,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0433,phò,phò,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.053241;HATE:0.005662;OFFENSIVE:0.000645,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0434,phụ hồ,phụ hồ,HATE,0.0009,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.103506;HATE:0.000927;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0435,phục cái,phục cái,HATE,0.0019,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.017846;HATE:0.001887;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0436,pussy,pussy,HATE,0.001,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0437,qq,qq,OFFENSIVE,0.0028,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.038074;HATE:0.001899;OFFENSIVE:0.002837,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0438,qq gì,qq gì,OFFENSIVE,0.0013,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.05134;HATE:0.000434;OFFENSIVE:0.001251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0439,quan lệch,quan lệch,OFFENSIVE,0.0008,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000384;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0440,quyền tay,quyền tay,HATE,0.0019,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0441,quân cờ,quân cờ,HATE,0.0009,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.011458;HATE:0.000943;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0442,què gì,què gì,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0443,ra mày,ra mày,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.021615;HATE:0.001887;OFFENSIVE:5.8e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0444,ra vẻ,ra vẻ,HATE,0.0032,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.041538;HATE:0.003231;OFFENSIVE:0.000709,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0445,ra đấy,ra đấy,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.137935;HATE:0.001583;OFFENSIVE:0.000329,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0446,red bull,red bull,HATE,0.0007,1.0,True,vicm,train,auto,v1,CLEAN:0.015878;HATE:0.000735;OFFENSIVE:0.000564,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0447,reddit,reddit,HATE,0.0029,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.091738;HATE:0.002936;OFFENSIVE:0.000329,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0448,retard,retard,HATE,0.0009,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.020743;HATE:0.000943;OFFENSIVE:6.3e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0449,rác rưởi,rác rưởi,HATE,0.0064,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008446;HATE:0.006369;OFFENSIVE:0.004215,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0450,rưởi,rưởi,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.022888;HATE:0.005661;OFFENSIVE:0.003732,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0451,rảnh háng,rảnh háng,HATE,0.0017,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.039083;HATE:0.001736;OFFENSIVE:0.000182,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0452,rồi mày,rồi mày,HATE,0.0024,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.021571;HATE:0.002412;OFFENSIVE:0.000412,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0453,rợ,rợ,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004649;HATE:0.004558;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0454,sai khiến,sai khiến,HATE,0.002,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.010066;HATE:0.00204;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0455,sao lon,sao lon,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0456,sao tao,sao tao,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.05813;HATE:0.001314;OFFENSIVE:0.000177,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0457,sex,sex,HATE,0.0024,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.102698;HATE:0.002418;OFFENSIVE:0.00039,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0458,shut,shut,HATE,0.0015,1.0,False,bontori;vicm,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0459,shut up,shut up,HATE,0.0012,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0460,sida,sida,HATE,0.001,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.198661;HATE:0.000972;OFFENSIVE:4.9e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0461,simp,simp,HATE,0.0032,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.013473;HATE:0.003184;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0462,skinship,skinship,OFFENSIVE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.000951,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0463,snowflake,snowflake,HATE,0.0005,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.028744;HATE:0.000533;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0464,sua,sua,HATE,0.001,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.036447;HATE:0.001013;OFFENSIVE:0.000491,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0465,sub này,sub này,HATE,0.0036,1.0,False,vicm,train,verified,v1,CLEAN:0;HATE:0.003645;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0466,suck,suck,HATE,0.0006,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0467,suy đồi,suy đồi,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009847;HATE:0.001592;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0468,súc sinh,súc sinh,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004917;HATE:0.004558;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0469,súc vật,súc vật,HATE,0.0118,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.006932;HATE:0.011808;OFFENSIVE:0.001545,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0470,sạo,sạo,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031373;HATE:0.002131;OFFENSIVE:0.000323,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0471,sủa,sủa,HATE,0.0349,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.01489;HATE:0.034884;OFFENSIVE:0.003945,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0472,t chỉ,t chỉ,OFFENSIVE,0.0018,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.089952;HATE:0.001421;OFFENSIVE:0.001774,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0473,t nể,t nể,OFFENSIVE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0;OFFENSIVE:0.001038,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0474,tam quan,tam quan,OFFENSIVE,0.0022,1.0,True,bontori,train,verified,v1,CLEAN:0.006813;HATE:0.001156;OFFENSIVE:0.002225,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0475,tao biết,tao biết,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008935;HATE:0.002267;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0476,tao chỉ,tao chỉ,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.041996;HATE:0.002893;OFFENSIVE:0.000574,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0477,tao chửi,tao chửi,HATE,0.0027,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0478,tao còn,tao còn,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.067249;HATE:0.002232;OFFENSIVE:0.000483,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0479,tao ghét,tao ghét,HATE,0.0013,1.0,False,bontori;vicm,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000692,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0480,tao hay,tao hay,HATE,0.0008,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0481,tao hỏi,tao hỏi,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.037347;HATE:0.001933;OFFENSIVE:0.000115,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0482,tao không,tao không,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.097477;HATE:0.001479;OFFENSIVE:0.00067,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0483,tao là,tao là,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.05497;HATE:0.00342;OFFENSIVE:0.00095,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0484,tao làm,tao làm,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.043426;HATE:0.002218;OFFENSIVE:0.000307,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0485,tao muốn,tao muốn,HATE,0.002,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.029355;HATE:0.002001;OFFENSIVE:5.5e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0486,tao mà,tao mà,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.08009;HATE:0.001063;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0487,tao mới,tao mới,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.024093;HATE:0.00147;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0488,tao nghe,tao nghe,HATE,0.001,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.12066;HATE:0.00102;OFFENSIVE:0.000285,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0489,tao nói,tao nói,HATE,0.003,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.050695;HATE:0.003;OFFENSIVE:0.000488,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0490,tao sẽ,tao sẽ,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.060767;HATE:0.001283;OFFENSIVE:0.000377,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0491,tao vào,tao vào,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.019029;HATE:0.002099;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0492,tao đéo,tao đéo,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.01153;HATE:0.004336;OFFENSIVE:0.001334,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0493,tay sai,tay sai,HATE,0.0108,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011668;HATE:0.010763;OFFENSIVE:0.00406,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0494,tham ô,tham ô,HATE,0.0031,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.024536;HATE:0.003147;OFFENSIVE:0.000182,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0495,thinking,thinking,HATE,0.0006,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.141549;HATE:0.000575;OFFENSIVE:0.000109,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0496,thiếu ý,thiếu ý,HATE,0.002,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.030523;HATE:0.002001;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0497,thiểu năng,thiểu năng,HATE,0.0026,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017932;HATE:0.00262;OFFENSIVE:0.000817,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0498,thua cả,thua cả,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.06167;HATE:0.002053;OFFENSIVE:0.000907,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0499,thuốc chữa,thuốc chữa,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.044638;HATE:0.00188;OFFENSIVE:0.000177,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0500,thân mỹ,thân mỹ,HATE,0.0009,1.0,True,bontori,train,auto,v1,CLEAN:0.011995;HATE:0.000943;OFFENSIVE:0.00084,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0501,thêm thằng,thêm thằng,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018491;HATE:0.001887;OFFENSIVE:0.000354,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0502,thì hàn,thì hàn,OFFENSIVE,0.0009,1.0,True,bontori,train,verified,v1,CLEAN:0.022754;HATE:0;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0503,thì m,thì m,HATE,0.0031,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.054494;HATE:0.003055;OFFENSIVE:0.001315,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0504,thì mày,thì mày,HATE,0.0075,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017328;HATE:0.007451;OFFENSIVE:0.00104,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0505,thì tội,thì tội,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.122209;HATE:0.001149;OFFENSIVE:0.000469,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0506,thôi mày,thôi mày,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.020739;HATE:0.001887;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0507,thù năm,thù năm,OFFENSIVE,0.0015,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000192;OFFENSIVE:0.00147,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0508,thượng đẳng,thượng đẳng,HATE,0.0094,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.035932;HATE:0.009356;OFFENSIVE:0.002035,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0509,thấy bọn,thấy bọn,HATE,0.0034,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.045763;HATE:0.003378;OFFENSIVE:0.000558,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0510,thấy m,thấy m,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.046991;HATE:0.0015;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0511,thấy thằng,thấy thằng,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.079974;HATE:0.002762;OFFENSIVE:0.000983,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0512,thấy tởm,thấy tởm,OFFENSIVE,0.0013,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.001297,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0513,thầy lol,thầy lol,HATE,0.0019,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.022568;HATE:0.001887;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0514,thằg,thằg,HATE,0.0017,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0515,thằng bắc,thằng bắc,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02202;HATE:0.00147;OFFENSIVE:0.000354,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0516,thằng chó,thằng chó,HATE,0.0082,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.008249;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0517,thằng diệm,thằng diệm,OFFENSIVE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000384;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0518,thằng già,thằng già,HATE,0.0031,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003069;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0519,thằng loser,thằng loser,HATE,0.003,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.01392;HATE:0.002964;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0520,thằng lồn,thằng lồn,HATE,0.004,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.004029;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0521,thằng lộc,thằng lộc,OFFENSIVE,0.0022,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.002162,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0522,thằng mặt,thằng mặt,HATE,0.004,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.004029;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0523,thằng nam,thằng nam,HATE,0.0009,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.032827;HATE:0.000868;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0524,thằng ngu,thằng ngu,HATE,0.0186,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004691;HATE:0.018645;OFFENSIVE:0.001287,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0525,thằng như,thằng như,HATE,0.0025,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.04727;HATE:0.002513;OFFENSIVE:0.000502,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0526,thằng op,thằng op,HATE,0.001,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0527,thằng thành,thằng thành,HATE,0.0008,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0528,thằng trấn,thằng trấn,OFFENSIVE,0.0013,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.001297,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0529,thằng óc,thằng óc,HATE,0.0023,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0530,thằng ăn,thằng ăn,HATE,0.0016,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.023464;HATE:0.001598;OFFENSIVE:0.000902,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0531,thằng điên,thằng điên,HATE,0.0031,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003069;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0532,thằng đó,thằng đó,HATE,0.0036,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.053961;HATE:0.003604;OFFENSIVE:0.000879,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0533,thối nát,thối nát,HATE,0.0059,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.009235;HATE:0.005893;OFFENSIVE:0.001422,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0534,thủ dâm,thủ dâm,HATE,0.0051,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.030036;HATE:0.005065;OFFENSIVE:0.000231,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0535,tiên sẽ,tiên sẽ,HATE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.031259;HATE:0.000676;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0536,tiên thống,tiên thống,OFFENSIVE,0.0013,1.0,True,bontori,train,verified,v1,CLEAN:0.009717;HATE:0.000943;OFFENSIVE:0.00132,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0537,tml,tml,HATE,0.0033,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.058443;HATE:0.003337;OFFENSIVE:5e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0538,toàn bọn,toàn bọn,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026911;HATE:0.002663;OFFENSIVE:0.000924,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0539,tranh du,tranh du,HATE,0.001,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000173,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0540,trung cộng,trung cộng,HATE,0.0033,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.028953;HATE:0.003267;OFFENSIVE:0.000177,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0541,trí khôn,trí khôn,HATE,0.002,1.0,True,bontori,train,verified,v1,CLEAN:0.010478;HATE:0.00204;OFFENSIVE:0.000137,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0542,trấn lột,trấn lột,HATE,0.0009,1.0,True,bontori,train,auto,v1,CLEAN:0.013236;HATE:0.000943;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0543,trẩu,trẩu,HATE,0.0035,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.029289;HATE:0.00353;OFFENSIVE:0.00104,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0544,trộm cướp,trộm cướp,HATE,0.0021,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.040132;HATE:0.002073;OFFENSIVE:0.000244,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0545,tt cũng,tt cũng,OFFENSIVE,0.0008,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000384;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0546,tuc,tuc,HATE,0.0015,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.040989;HATE:0.001543;OFFENSIVE:0.000251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0547,tuyên giáo,tuyên giáo,HATE,0.0032,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011905;HATE:0.003184;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0548,tài phiệt,tài phiệt,HATE,0.0016,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.010668;HATE:0.001592;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0549,tàn sát,tàn sát,HATE,0.0017,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.019342;HATE:0.001677;OFFENSIVE:0.000435,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0550,tàu cộng,tàu cộng,HATE,0.0027,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002686;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0551,tâm nhưng,tâm nhưng,HATE,0.0008,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.143712;HATE:0.000847;OFFENSIVE:0.000282,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0552,tôn sùng,tôn sùng,OFFENSIVE,0.0012,1.0,False,bontori;vicm,train,verified,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0553,tưởng mình,tưởng mình,HATE,0.004,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.036771;HATE:0.003953;OFFENSIVE:0.001068,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0554,tưởng đâu,tưởng đâu,HATE,0.0007,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.152396;HATE:0.00069;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0555,tầm ảnh,tầm ảnh,HATE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.014951;HATE:0.000735;OFFENSIVE:0.000655,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0556,tổ cha,tổ cha,HATE,0.0017,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.040635;HATE:0.001736;OFFENSIVE:0.000115,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0557,tổ sư,tổ sư,HATE,0.0028,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.020735;HATE:0.00283;OFFENSIVE:0.000188,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0558,tội đồ,tội đồ,HATE,0.0023,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.009258;HATE:0.002267;OFFENSIVE:0.000217,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0559,tởm,tởm,OFFENSIVE,0.0128,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.006356;HATE:0.012479;OFFENSIVE:0.012826,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0560,tởm vl,tởm vl,OFFENSIVE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000192;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0561,tử trả,tử trả,OFFENSIVE,0.0014,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000192;OFFENSIVE:0.001383,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0562,tự nhục,tự nhục,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.027682;HATE:0.001543;OFFENSIVE:0.001202,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0563,ugly,ugly,HATE,0.0013,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0564,upvote,upvote,HATE,0.0008,1.0,False,vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0565,va vớ,va vớ,HATE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0566,van hoa,van hoa,HATE,0.0019,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.019184;HATE:0.001887;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0567,viết cái,viết cái,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.099564;HATE:0.001063;OFFENSIVE:0.000168,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0568,việt cộng,việt cộng,HATE,0.0054,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.025907;HATE:0.005395;OFFENSIVE:0.001393,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0569,vnch thì,vnch thì,HATE,0.0007,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.029461;HATE:0.000676;OFFENSIVE:0.000601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0570,và sống,và sống,HATE,0.0013,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.106361;HATE:0.001326;OFFENSIVE:0.000473,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0571,vào mỹ,vào mỹ,OFFENSIVE,0.0007,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.014126;HATE:0.000735;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0572,vào sủa,vào sủa,HATE,0.0031,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003069;OFFENSIVE:0.000346,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0573,vãi lồn,vãi lồn,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.032946;HATE:0.003616;OFFENSIVE:0.001472,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0574,vô chửi,vô chửi,HATE,0.0009,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.011458;HATE:0.000943;OFFENSIVE:0.000935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0575,vô duyên,vô duyên,HATE,0.0018,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.065299;HATE:0.001835;OFFENSIVE:0.001403,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0576,vô học,vô học,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.01025;HATE:0.005668;OFFENSIVE:0.000902,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0577,vô đạo,vô đạo,HATE,0.0012,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.001151;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0578,vậy mày,vậy mày,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028384;HATE:0.002533;OFFENSIVE:0.000251,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0579,về rác,về rác,OFFENSIVE,0.001,1.0,True,bontori,train,verified,v1,CLEAN:0.020897;HATE:0;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0580,vện,vện,OFFENSIVE,0.001,1.0,True,bontori,train,verified,v1,CLEAN:0.017693;HATE:0.000155;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0581,vớ va,vớ va,HATE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0582,với cộng,với cộng,HATE,0.0012,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.040083;HATE:0.001162;OFFENSIVE:0.000628,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0583,với m,với m,HATE,0.0011,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.160545;HATE:0.001149;OFFENSIVE:4.9e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0584,với tao,với tao,HATE,0.0017,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.022786;HATE:0.001677;OFFENSIVE:0.000126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0585,woke,woke,HATE,0.0013,1.0,True,bontori;vicm,train,auto,v1,CLEAN:0.019666;HATE:0.001266;OFFENSIVE:0.000773,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0586,xuẩn,xuẩn,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.010668;HATE:0.001592;OFFENSIVE:0.000474,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0587,xàm,xàm,HATE,0.0201,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.034256;HATE:0.020058;OFFENSIVE:0.005902,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0588,xàm l,xàm l,HATE,0.002,1.0,True,bontori;vicm,train,verified,v1,CLEAN:0.021234;HATE:0.002001;OFFENSIVE:0.000817,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0589,xàm lol,xàm lol,HATE,0.0025,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0590,xàm loz,xàm loz,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.009186;HATE:0.002486;OFFENSIVE:6.3e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0591,xàm lồn,xàm lồn,HATE,0.0052,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008681;HATE:0.005179;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0592,xạo,xạo,HATE,0.0271,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.015742;HATE:0.027104;OFFENSIVE:0.00497,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0593,xạo lol,xạo lol,HATE,0.0038,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.019176;HATE:0.003774;OFFENSIVE:0.00055,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0594,xạo loz,xạo loz,HATE,0.0017,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.018638;HATE:0.001677;OFFENSIVE:0.000517,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0595,xạo lồn,xạo lồn,HATE,0.0106,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.004037;HATE:0.010565;OFFENSIVE:0.001037,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0596,xấu hổ,xấu hổ,HATE,0.0018,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.080891;HATE:0.001801;OFFENSIVE:0.001085,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0597,xỏ,xỏ,HATE,0.0029,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.066958;HATE:0.002874;OFFENSIVE:0.000602,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0598,xỏ lá,xỏ lá,HATE,0.0023,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0599,ác của,ác của,HATE,0.0011,1.0,True,bontori;vihsd,train,auto,v1,CLEAN:0.02244;HATE:0.001065;OFFENSIVE:0.000686,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0600,áp tôn,áp tôn,HATE,0.0016,1.0,True,bontori,train,verified,v1,CLEAN:0.009482;HATE:0.001592;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0601,óc chó,óc chó,HATE,0.0114,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.007865;HATE:0.011394;OFFENSIVE:0.000473,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0602,ói,ói,OFFENSIVE,0.0024,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.053825;HATE:0.00134;OFFENSIVE:0.002444,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0603,ông hồ,ông hồ,HATE,0.0014,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.009215;HATE:0.001373;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0604,ông im,ông im,HATE,0.0023,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.014575;HATE:0.002312;OFFENSIVE:0.000601,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0605,ăn bám,ăn bám,HATE,0.0048,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031034;HATE:0.004794;OFFENSIVE:0.000782,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0606,ăn chửi,ăn chửi,HATE,0.0015,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.093719;HATE:0.001493;OFFENSIVE:0.000607,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0607,ăn cứt,ăn cứt,HATE,0.0041,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028981;HATE:0.004129;OFFENSIVE:0.000584,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0608,ăn shit,ăn shit,HATE,0.0008,1.0,False,bontori;vicm,train,auto,v1,CLEAN:0;HATE:0.000767;OFFENSIVE:0.000259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0609,đ gì,đ gì,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.024824;HATE:0.003473;OFFENSIVE:0.002745,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0610,đ*o,đ*o,OFFENSIVE,0.001,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.000192;OFFENSIVE:0.000951,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0611,đb,đb,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.039458;HATE:0.00229;OFFENSIVE:0.001793,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0612,đcm,đcm,HATE,0.0052,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.01524;HATE:0.005241;OFFENSIVE:0.002934,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0613,đi nhai,đi nhai,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.028556;HATE:0.002331;OFFENSIVE:0.000397,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0614,đi thằng,đi thằng,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.007737;HATE:0.002693;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0615,đkm,đkm,HATE,0.0035,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.014036;HATE:0.003468;OFFENSIVE:0.001072,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0616,đm,đm,HATE,0.0341,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.036141;HATE:0.034132;OFFENSIVE:0.012102,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0617,đm ad,đm ad,HATE,0.0019,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.022568;HATE:0.001887;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0618,đu càng,đu càng,HATE,0.005,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.004988;OFFENSIVE:0.001124,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0619,đàn bà,đàn bà,HATE,0.0093,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.044428;HATE:0.009337;OFFENSIVE:0.00304,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0620,đá bát,đá bát,HATE,0.001,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0621,đách,đách,HATE,0.0024,1.0,True,bontori;vihsd,train,verified,v1,CLEAN:0.023558;HATE:0.002412;OFFENSIVE:0.000188,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0622,đám bò,đám bò,HATE,0.0025,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0623,đánh du,đánh du,HATE,0.001,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.062717;HATE:0.000977;OFFENSIVE:0.000115,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0624,đánh pháp,đánh pháp,HATE,0.0017,1.0,True,bontori,train,verified,v1,CLEAN:0;HATE:0.001727;OFFENSIVE:0.001211,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0625,đéo,đéo,HATE,0.1082,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.036899;HATE:0.108151;OFFENSIVE:0.044314,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0626,đéo ai,đéo ai,HATE,0.0057,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.031198;HATE:0.005741;OFFENSIVE:0.0021,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0627,đéo biết,đéo biết,HATE,0.0078,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026165;HATE:0.007792;OFFENSIVE:0.003259,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0628,đéo chịu,đéo chịu,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.016323;HATE:0.00283;OFFENSIVE:0.000987,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0629,đéo còn,đéo còn,HATE,0.0015,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001535;OFFENSIVE:0.000778,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0630,đéo có,đéo có,HATE,0.0146,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.033334;HATE:0.014565;OFFENSIVE:0.00444,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0631,đéo cần,đéo cần,HATE,0.0019,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.040408;HATE:0.00188;OFFENSIVE:0.000386,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0632,đéo gì,đéo gì,HATE,0.0149,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026983;HATE:0.014916;OFFENSIVE:0.005032,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0633,đéo hiểu,đéo hiểu,HATE,0.0074,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.034612;HATE:0.007375;OFFENSIVE:0.002767,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0634,đéo làm,đéo làm,HATE,0.0046,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.02258;HATE:0.004617;OFFENSIVE:0.000747,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0635,đéo phải,đéo phải,HATE,0.0075,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.044778;HATE:0.007538;OFFENSIVE:0.002012,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0636,đéo quan,đéo quan,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.031628;HATE:0.002175;OFFENSIVE:0.001935,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0637,đéo thích,đéo thích,OFFENSIVE,0.0006,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.000576;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0638,đéo thấy,đéo thấy,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.008533;HATE:0.001592;OFFENSIVE:0.00103,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0639,đéo đâu,đéo đâu,HATE,0.0038,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.03264;HATE:0.00376;OFFENSIVE:0.001929,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0640,đéo được,đéo được,HATE,0.0021,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.055526;HATE:0.002139;OFFENSIVE:0.000363,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0641,đúng hơn,đúng hơn,HATE,0.0016,1.0,True,bontori;vicm;vihsd,train,auto,v1,CLEAN:0.093026;HATE:0.001583;OFFENSIVE:0.00148,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0642,đĩ,đĩ,HATE,0.0111,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023587;HATE:0.011119;OFFENSIVE:0.00095,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0643,đĩ mẹ,đĩ mẹ,HATE,0.0043,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.005035;HATE:0.00435;OFFENSIVE:0.000301,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0644,đũa,đũa,HATE,0.0027,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.077484;HATE:0.00267;OFFENSIVE:0.000465,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0645,đường lưỡi,đường lưỡi,OFFENSIVE,0.0017,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.034502;HATE:0.000447;OFFENSIVE:0.00172,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0646,đảng viên,đảng viên,HATE,0.0033,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.026548;HATE:0.003267;OFFENSIVE:0.000459,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0647,đấm chết,đấm chết,OFFENSIVE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000192;OFFENSIVE:0.001038,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0648,đầu buồi,đầu buồi,HATE,0.0023,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.000519,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0649,đầu bùi,đầu bùi,HATE,0.0019,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.001918;OFFENSIVE:0,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0650,đầu hở,đầu hở,OFFENSIVE,0.0011,1.0,True,bontori,train,verified,v1,CLEAN:0.01932;HATE:0;OFFENSIVE:0.001126,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0651,đầu thai,đầu thai,HATE,0.0031,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.030483;HATE:0.003065;OFFENSIVE:0.000177,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0652,đỉ,đỉ,HATE,0.0035,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.003453;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0653,định lật,định lật,OFFENSIVE,0.0009,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000384;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0654,địt,địt,HATE,0.0254,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.016316;HATE:0.025435;OFFENSIVE:0.003101,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0655,địt con,địt con,HATE,0.0013,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.001343;OFFENSIVE:0.000432,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0656,địt cụ,địt cụ,HATE,0.003,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.013551;HATE:0.002964;OFFENSIVE:0.000275,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0657,địt mẹ,địt mẹ,HATE,0.0155,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.020127;HATE:0.015516;OFFENSIVE:0.001076,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0658,đọc hiểu,đọc hiểu,HATE,0.0025,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.092893;HATE:0.002453;OFFENSIVE:0.000395,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0659,đổng,đổng,HATE,0.0022,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.07436;HATE:0.002232;OFFENSIVE:0.000223,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0660,độc tài,độc tài,HATE,0.0107,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.017149;HATE:0.010705;OFFENSIVE:0.005932,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0661,độc đảng,độc đảng,HATE,0.0025,1.0,False,bontori;vihsd,train,verified,v1,CLEAN:0;HATE:0.002494;OFFENSIVE:8.6e-05,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0662,động vật,động vật,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.110023;HATE:0.002264;OFFENSIVE:0.000212,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0663,đụ,đụ,HATE,0.0099,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.023465;HATE:0.009928;OFFENSIVE:0.003476,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0664,đụ má,đụ má,HATE,0.0023,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.002302;OFFENSIVE:0.001902,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0665,đụ mẹ,đụ mẹ,HATE,0.0036,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.011786;HATE:0.003629;OFFENSIVE:0.000199,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0666,đức giả,đức giả,HATE,0.0033,1.0,False,bontori;vicm;vihsd,train,verified,v1,CLEAN:0;HATE:0.003261;OFFENSIVE:0.000865,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0667,ấu,ấu,HATE,0.0028,1.0,True,bontori;vicm;vihsd,train,verified,v1,CLEAN:0.081868;HATE:0.002825;OFFENSIVE:0.000335,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0
+lex_0668,ổng thì,ổng thì,HATE,0.001,1.0,False,bontori,train,verified,v1,CLEAN:0;HATE:0.000959;OFFENSIVE:0.000605,CLEAN:1.0;HATE:1.0;OFFENSIVE:1.0

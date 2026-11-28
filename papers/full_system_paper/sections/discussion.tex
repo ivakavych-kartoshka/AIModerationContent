@@ -1,0 +1,64 @@
+%!TEX root = main.tex
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the Hybrid Is Good For}
+\label{sec:value}
+
+The result is better read as a successful audit: 38 of 6{,}680 decisions change,
+each described by a channel, a direction and a mechanism.  Moreover, the
+end-to-end bilingual evaluation demonstrates deployment viability (87.10\%
+accuracy, 9.07 ms latency, 110.2 texts/s throughput), showing that a hybrid architecture can
+be both explainable and production-ready.
+
+\emph{Triage and accountability.}  A queue can sort comments by whether the
+decision was rule-supported: a \hate{} decision with a matched span and
+$r_H=0.8$ is easier to review than one with no lexical evidence, and the span,
+the entry and the arithmetic are what a platform can defend in policy terms.
+
+\emph{Editing and diagnosis.}  Adding a slur variant is a configuration change,
+not a retraining run, and an edit affects the \hate{} channel (weight 0.8) far
+more than the others.  The decomposition exists only because the channels are
+separate: a monolithic classifier improving by 0.0027 macro-F1 would give no
+handle on whether the change was lexical or neural.
+
+\subsection{Why Accuracy Does Not Move (Much)}
+\label{sec:why_neutral}
+
+First, \emph{coverage is low}: the rule fires on 15.75\% of comments, so a
+perfect rule channel could still only change decisions in that subset.  Second,
+\emph{the majority class dominates}: with 83\% \clean{}, only the 1{,}132 toxic
+comments can improve, and 38 changes is 3.4\% of that support---enough to matter
+operationally, too little to move a macro-average beyond its confidence
+interval.  Third, \emph{tuning is safety-oriented}: protecting \clean{} and
+gating \hate{} on lexical support produces both the de-flagging and the missed
+corrections.  Neutrality is a \emph{choice}, not an absence of signal.
+
+\subsection{The Bilingual Asymmetry}
+\label{sec:asymmetry_bilingual}
+
+The mixed evaluation reveals a clear language gap: HATE F1 VI 0.6051 vs EN
+0.4537 (Vietnamese lexicon has 594 HATE entries versus English 86; Davidson
+training only 5.8\% HATE), OFFENSIVE F1 EN 0.9270 vs VI 0.4142 (English
+backbone aligns with Davidson's 77.8\% OFFENSIVE majority; ViHSD only 6.65\%
+OFFENSIVE), CLEAN F1 VI 0.9344 vs EN 0.8541 (English experiences mild
+over-flagging on clean text). This asymmetry is data-driven: lexicon extraction
+from corpora with different class priors produces different coverage.
+
+\subsection{Design Implications}
+\label{sec:implications_bilingual}
+
+Five design changes follow from our empirical findings:
+(1)~\textbf{Evidence-gated fusion}: when the rule fires strongly against a high-confidence \clean{} prediction, abstain or escalate.
+(2)~\textbf{Separate thresholds per mechanism}: requiring $r_H\ge0.5$ before the \hate{} channel can override would make the rule-driven and threshold-driven paths separately tunable.
+(3)~\textbf{Per-class calibration} of the \clean{} channel, which currently blocks the missed corrections.
+(4)~\textbf{Balanced English lexicon}: expand HATE entries by merging HateXplain/Gab sources and retrain the English rule engine.
+(5)~\textbf{Multilingual fallback checkpoint}: for \texttt{mix}/\texttt{multilingual} samples (5.6\%), route to a multilingual mDeBERTa instead of rule-only.
+
+\subsection{Limitations}
+\label{sec:limitations}
+Results rely on ViHSD and Davidson benchmarks with seed-42 backbones; neural run-to-run variance remains unestimated, and the small $+0.0027$ macro-F1 ViHSD delta is within seed noise. The Vietnamese rule engine tuned away accentless matching and negation discounting on validation, while the English lexicon lacks minority \hate{} entries ($86$ terms vs.\ $594$ VI), keeping English \hate{} F1 at $0.45$. Furthermore, fallback handling on mixed segments degenerates to rule-only decisions, and human utility of the generated provenance is not empirically measured.
+
+\subsection{Ethical Considerations}
+\label{sec:ethics}
+SensitiveAI is designed for human-in-the-loop decision support rather than autonomous sanctioning. Because lexicon entries carry political and social valence that directly shapes outcomes, lexicons must be treated as versioned, auditable platform artefacts. Deployments should strictly distinguish profane intensifiers from targeted slurs and enforce human review before enacting account-level penalties. All comments analyzed are publicly available corpus data with user identifiers omitted.

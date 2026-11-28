@@ -1,0 +1,247 @@
+{
+  "protocol": "Each variant re-scores validation and test with the shipped rule engine, re-tunes alpha and thresholds on validation with the shipped fusion code, freezes them, and scores test once. Test is never used to tune.",
+  "model": "sensitiveai-vi-custom",
+  "variants": {
+    "full": {
+      "variant": "full",
+      "fires": 1052,
+      "coverage": 0.15748502994011976,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.9,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.14,
+        "OFFENSIVE": 0.66,
+        "CLEAN": 0.6
+      },
+      "macro_f1": 0.6602451038117877,
+      "accuracy": 0.8773952095808383,
+      "HATE_f1": 0.590625,
+      "OFFENSIVE_f1": 0.44938271604938274,
+      "CLEAN_f1": 0.9407275953859805,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.002719244939101806,
+      "correct": 5861,
+      "corrections": 23,
+      "regressions": 15,
+      "precision_on_fired": 0.5874524714828897
+    },
+    "no_severity": {
+      "variant": "no_severity",
+      "fires": 1052,
+      "coverage": 0.15748502994011976,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.95,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.14,
+        "OFFENSIVE": 0.69,
+        "CLEAN": 0.6
+      },
+      "macro_f1": 0.6602451038117877,
+      "accuracy": 0.8773952095808383,
+      "HATE_f1": 0.590625,
+      "OFFENSIVE_f1": 0.44938271604938274,
+      "CLEAN_f1": 0.9407275953859805,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.002719244939101806,
+      "correct": 5861,
+      "corrections": 23,
+      "regressions": 15,
+      "precision_on_fired": 0.5874524714828897,
+      "vs_full": {
+        "macro_f1": {
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "p_value": 1.0,
+          "n_boot": 10000
+        },
+        "mcnemar": {
+          "a_correct_b_wrong": 0,
+          "a_wrong_b_correct": 0,
+          "discordant": 0,
+          "p_value": 1.0,
+          "p_value_chi2": 1.0,
+          "odds_ratio": Infinity
+        }
+      }
+    },
+    "no_confidence": {
+      "variant": "no_confidence",
+      "fires": 1052,
+      "coverage": 0.15748502994011976,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.8,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.8,
+        "OFFENSIVE": 0.58,
+        "CLEAN": 0.5
+      },
+      "macro_f1": 0.6609715376618669,
+      "accuracy": 0.8781437125748504,
+      "HATE_f1": 0.5935280189423836,
+      "OFFENSIVE_f1": 0.4485749690210657,
+      "CLEAN_f1": 0.9408116250221513,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.003445678789181006,
+      "correct": 5866,
+      "corrections": 32,
+      "regressions": 19,
+      "precision_on_fired": 0.5874524714828897,
+      "vs_full": {
+        "macro_f1": {
+          "delta": 0.0007264338500792,
+          "ci_low": -0.004792262323893529,
+          "ci_high": 0.006276939154803621,
+          "p_value": 0.7982,
+          "n_boot": 10000
+        },
+        "mcnemar": {
+          "a_correct_b_wrong": 15,
+          "a_wrong_b_correct": 20,
+          "discordant": 35,
+          "p_value": 0.4995598332025112,
+          "p_value_chi2": 0.49896229860376107,
+          "odds_ratio": 0.75
+        }
+      }
+    },
+    "no_context": {
+      "variant": "no_context",
+      "fires": 1052,
+      "coverage": 0.15748502994011976,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.9,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.14,
+        "OFFENSIVE": 0.66,
+        "CLEAN": 0.6
+      },
+      "macro_f1": 0.6602451038117877,
+      "accuracy": 0.8773952095808383,
+      "HATE_f1": 0.590625,
+      "OFFENSIVE_f1": 0.44938271604938274,
+      "CLEAN_f1": 0.9407275953859805,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.002719244939101806,
+      "correct": 5857,
+      "corrections": 20,
+      "regressions": 16,
+      "precision_on_fired": 0.5874524714828897,
+      "vs_full": {
+        "macro_f1": {
+          "delta": -0.0021662727441472684,
+          "ci_low": -0.006707229657754843,
+          "ci_high": 0.0023933983277476174,
+          "p_value": 0.361,
+          "n_boot": 10000
+        },
+        "mcnemar": {
+          "a_correct_b_wrong": 18,
+          "a_wrong_b_correct": 14,
+          "discordant": 32,
+          "p_value": 0.5966148958541453,
+          "p_value_chi2": 0.5958830905651775,
+          "odds_ratio": 1.2857142857142858
+        }
+      }
+    },
+    "no_views": {
+      "variant": "no_views",
+      "fires": 779,
+      "coverage": 0.11661676646706587,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.9,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.14,
+        "OFFENSIVE": 0.66,
+        "CLEAN": 0.6
+      },
+      "macro_f1": 0.6590268283413022,
+      "accuracy": 0.8772455089820359,
+      "HATE_f1": 0.589622641509434,
+      "OFFENSIVE_f1": 0.4466257668711656,
+      "CLEAN_f1": 0.940832076643307,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.001500969468616331,
+      "correct": 5860,
+      "corrections": 22,
+      "regressions": 15,
+      "precision_on_fired": 0.6957637997432606,
+      "vs_full": {
+        "macro_f1": {
+          "delta": -0.0012182754704854748,
+          "ci_low": -0.0033152108699668254,
+          "ci_high": 0.00047179900072639926,
+          "p_value": 0.1934,
+          "n_boot": 10000
+        },
+        "mcnemar": {
+          "a_correct_b_wrong": 3,
+          "a_wrong_b_correct": 2,
+          "discordant": 5,
+          "p_value": 1.0,
+          "p_value_chi2": 1.0,
+          "odds_ratio": 1.5
+        }
+      }
+    },
+    "no_fuzzy": {
+      "variant": "no_fuzzy",
+      "fires": 1052,
+      "coverage": 0.15748502994011976,
+      "alpha": {
+        "HATE": 0.2,
+        "OFFENSIVE": 0.9,
+        "CLEAN": 1.0
+      },
+      "thresholds": {
+        "HATE": 0.14,
+        "OFFENSIVE": 0.66,
+        "CLEAN": 0.6
+      },
+      "macro_f1": 0.6602451038117877,
+      "accuracy": 0.8773952095808383,
+      "HATE_f1": 0.590625,
+      "OFFENSIVE_f1": 0.44938271604938274,
+      "CLEAN_f1": 0.9407275953859805,
+      "ai_macro_f1": 0.6575258588726859,
+      "delta_vs_ai": 0.002719244939101806,
+      "correct": 5861,
+      "corrections": 23,
+      "regressions": 15,
+      "precision_on_fired": 0.5874524714828897,
+      "vs_full": {
+        "macro_f1": {
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "p_value": 1.0,
+          "n_boot": 10000
+        },
+        "mcnemar": {
+          "a_correct_b_wrong": 0,
+          "a_wrong_b_correct": 0,
+          "discordant": 0,
+          "p_value": 1.0,
+          "p_value_chi2": 1.0,
+          "odds_ratio": Infinity
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+﻿system,accuracy,macro_f1,hate_f1,offensive_f1,clean_f1
+AI only (argmax),0.8762,0.6575,0.5830,0.4493,0.9403
+Rule only (argmax),0.8494,0.4714,0.4867,0.0000,0.9274
+Rule only (frozen thresholds),0.8421,0.5258,0.4102,0.2389,0.9284
+Fusion global alpha (argmax),0.8769,0.6583,0.5851,0.4490,0.9408
+Fusion global alpha (thresholds),0.8769,0.6583,0.5851,0.4490,0.9408
+Fusion logistic meta-classifier,0.8626,0.6513,0.5818,0.4379,0.9341
+Fusion per-channel alpha (argmax),0.8774,0.6593,0.5882,0.4488,0.9408
+Fusion per-channel (thresholds),0.8774,0.6602,0.5906,0.4494,0.9407

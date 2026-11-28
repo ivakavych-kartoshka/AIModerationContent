@@ -1,0 +1,22 @@
+{
+  "models": [
+    "visobert-base"
+  ],
+  "rows": [
+    {
+      "model": "visobert-base",
+      "run_id": "run_001",
+      "report_dir": "outputs/reports/visobert-base/run_001",
+      "eval_seconds": 39.5,
+      "accuracy": 0.8715568862275449,
+      "macro_f1": 0.6547675139204072,
+      "weighted_f1": 0.86770448134167,
+      "macro_precision": 0.6755639360458597,
+      "macro_recall": 0.6404786342234994,
+      "HATE_f1": 0.5835734870317003,
+      "OFFENSIVE_f1": 0.44387096774193546,
+      "CLEAN_f1": 0.936858086987586,
+      "macro_roc_auc": 0.9053507349036364
+    }
+  ]
+}

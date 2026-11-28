@@ -1,0 +1,13 @@
+%!TEX root = main.tex
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented SensitiveAI, a bilingual language-aware hybrid of lexicon rules and multilingual transformers for Vietnamese and English hate speech detection, combining a lightweight language detector, language-aware tokenization, two independently editable rule engines (668 Vietnamese and 818 English entries), per-language mDeBERTa-v3-base checkpoints, and language-aware score fusion with per-class thresholds.
+
+Four empirical conclusions follow:
+(1)~\emph{ViHSD neutrality with full provenance}: the hybrid is macro-F1 neutral ($0.6575 \to 0.6602$, $p=0.29$), but all 38 changed decisions are fully decomposable into rule-driven and threshold-driven causes, with all 23 corrections rule-supported.
+(2)~\emph{Bilingual scale and throughput}: on the 9{,}158-sample bilingual stream (full ViHSD $+$ Davidson splits), the pipeline achieves 87.10\% accuracy, macro-F1 0.7781, 9.07\,ms latency, and 110.2\,texts/s throughput (serialised run, $\alpha=0.70$, P95 12.69\,ms).
+(3)~\emph{Cross-lingual data asymmetry}: English excels on \off{} (F1 0.9270) while Vietnamese excels on \hate{} (F1 0.6051), reflecting disparate lexicon density and corpus priors.
+(4)~\emph{Calibration gains}: end-to-end fusion achieves an ECE of 0.076 versus 0.114 (VI) and 0.102 (EN) for raw backbones, demonstrating superior posterior calibration.
+
+The broader methodological lesson is that a hybrid evaluated only by aggregate metrics resembles a null result, whereas decomposing decisions by channel and direction yields an auditable moderation procedure and a clear engineering agenda. Future work will investigate evidence-gated fusion, balanced English HATE lexicon expansion, and human-in-the-loop reviewer utility.

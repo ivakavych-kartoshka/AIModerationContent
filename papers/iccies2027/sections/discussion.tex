@@ -1,0 +1,85 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the hybrid is good for}
+\label{sec:value}
+
+The result is better read as a successful audit: 38 of 6{,}680 decisions change, each
+described by a channel, a direction and a mechanism.
+
+\emph{Triage and accountability.} A queue can sort comments by whether the decision was
+rule-supported: a \hate{} decision with a matched span and $r_H=0.8$ is easier to review
+than one with no lexical evidence, and the span, the entry and the arithmetic are what a
+platform can defend in policy terms.
+
+\emph{Editing and diagnosis.} Adding a slur variant is a configuration change, not a
+retraining run, and an edit affects the \hate{} channel (weight 0.8) far more than the
+others. The decomposition exists only because the channels are separate: a monolithic
+classifier improving by 0.0027 macro-F1 would give no handle on whether the change was
+lexical or neural.
+
+\subsection{Why accuracy does not move}
+\label{sec:why-neutral}
+
+First, \emph{coverage is low}: the rule fires on 15.75\% of comments, so a perfect rule
+channel could still only change decisions in that subset. Second, \emph{the majority
+class dominates}: with 83\% \clean{}, only the 1{,}132 toxic comments can improve, and 38
+changes is 3.4\% of that support---enough to matter operationally, too little to move a
+macro-average beyond its confidence interval. Third, \emph{tuning is safety-oriented}:
+protecting \clean{} and gating \hate{} on lexical support produces both the de-flagging
+and the missed corrections. Neutrality is a \emph{choice}, not an absence of signal.
+
+\subsection{The directional asymmetry is a policy question}
+\label{sec:asymmetry}
+
+In a binary ``remove / keep'' framing the asymmetry of
+Sect.~\ref{sec:regressions} is a recall-oriented trade-off; in a three-class framing
+it is not, because an \off{} comment mislabelled as \hate{} can trigger a stronger
+sanction than the content warrants, and a political comment mislabelled as \hate{}
+is a different kind of harm.
+
+That false positive matters: the entry is a charged multi-word expression labelled
+\hate{} from co-occurrence, so the lexicon is not a neutral artefact---it encodes
+editorial judgments that enter at weight 0.8. Deployments should separate
+\emph{profanity} from \emph{political} entries and weight them accordingly.
+
+\subsection{Design implications}
+\label{sec:implications}
+
+Four changes follow. (i) \textbf{Evidence-gated fusion}: when the rule fires strongly
+against a high-confidence \clean{} prediction, abstain or escalate. (ii) \textbf{Separate
+thresholds per mechanism}: requiring $r_H\ge0.5$ before the \hate{} channel can override
+would make the rule-driven and threshold-driven paths separately tunable. (iii)
+\textbf{Per-class calibration} of the \clean{} channel, which currently blocks the missed
+corrections. (iv) \textbf{Human-in-the-loop} for the 804 both-wrong comments, which no
+fusion of these two channels can fix.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\paragraph{Single benchmark and language.} All results come from ViHSD and Vietnamese.
+The lexicon and cue taxonomy are language-specific; the fusion protocol is not, but we
+have not tested it elsewhere.
+
+\paragraph{One seed per backbone.} Each backbone was trained once with seed 42, so
+neural variance is not estimated and the 0.0027 difference is well inside what seed
+variance could produce: the tests rule out a large effect, not a small one.
+
+\paragraph{The rule engine is weaker than designed.} Validation set the accent-less
+alias weight to zero and the negation factor to one, removing the main defence against
+dropped diacritics and the discount for negated slurs visible in the
+\off{}-as-intensifier regressions.
+
+\paragraph{Explanations are not evaluated by humans.} The evidence record is faithful
+for the lexical channel and decomposes the changed decisions, but we do not measure
+whether reviewers find it useful, and the cue taxonomy is a post-hoc annotation.
+
+\subsection{Ethics}
+\label{sec:ethics}
+
+The comments are public ViHSD test comments and are masked as described in
+Sect.~\ref{sec:data}. The system is decision support, not automatic sanctioning: the
+directional asymmetry and the political false positive show that automatic \hate{}
+labels from this pipeline should be reviewed before they affect a user. The lexicon
+should be treated as a governed artefact with a change log, because its entries shape
+moderation outcomes.

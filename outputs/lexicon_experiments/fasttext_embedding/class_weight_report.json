@@ -1,0 +1,31 @@
+{
+  "corpus_lines": 133883,
+  "unique_tokens": {
+    "HATE": 21455,
+    "OFFENSIVE": 27425,
+    "CLEAN": 67830
+  },
+  "candidates": 1455,
+  "pred_distribution": {
+    "HATE": 967,
+    "CLEAN": 248,
+    "OFFENSIVE": 240
+  },
+  "kept": 1207,
+  "kept_distribution": {
+    "HATE": 967,
+    "OFFENSIVE": 240
+  },
+  "params": {
+    "dim": 100,
+    "epochs": 8,
+    "min_count": 3,
+    "window": 5,
+    "min_margin": 0.0,
+    "splits": [
+      "train",
+      "dev",
+      "test"
+    ]
+  }
+}

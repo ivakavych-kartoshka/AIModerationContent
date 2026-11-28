@@ -1,0 +1,25 @@
+{
+  "dataset": "ViNLI (Vietnamese Natural Language Inference)",
+  "paper": "Huynh, Van Nguyen, Nguyen. ViNLI. COLING 2022 (2022.coling-1.339)",
+  "hf_source": "presencesw/vinli_4_label",
+  "license_note": "Research use, per ViNLI paper",
+  "lang": "vi",
+  "domain": "online news (13 topics)",
+  "num_pairs": 30376,
+  "num_unique_sentences": 34021,
+  "pairs_by_split": {
+    "train": 24376,
+    "dev": 3009,
+    "test": 2991
+  },
+  "labels": {
+    "neutral": 7623,
+    "contradiction": 7595,
+    "entailment": 7583,
+    "other": 7575
+  },
+  "mean_sentence_chars": 102.267,
+  "median_sentence_chars": 95.0,
+  "wortschatz_total_sentences": 29934,
+  "size_ratio_vs_wortschatz": 1.1365
+}

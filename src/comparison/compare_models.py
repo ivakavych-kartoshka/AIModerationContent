@@ -470,8 +470,8 @@ def write_latex_tables(table: pd.DataFrame, runs: Dict[str, Any], paper_dir: Pat
         "sensitiveai-vi-custom": "M2",
         "sensitiveai-vi-customdlr2stage": "M3",
         "sensitiveai-vi-custom-curriculum": "M4",
-        "sensitiveai-vi-customdlr2stage-ext": "M5",
-        "sensitiveai-vi-stage2": "M6",
+        # "sensitiveai-vi-customdlr2stage-ext": "M5",
+        # "sensitiveai-vi-stage2": "M6",
     }
 
     def _label(name: str) -> str:

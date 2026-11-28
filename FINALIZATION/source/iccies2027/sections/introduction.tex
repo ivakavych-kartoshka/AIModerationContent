@@ -1,0 +1,41 @@
+\section{Introduction}
+\label{sec:intro}
+
+Vietnam has one of Southeast Asia's fastest-growing social-media user bases, and the
+volume of Vietnamese text its platforms must moderate keeps rising. The language is low-resource
+and its social-media register is hard: writers abbreviate profanity into
+\emph{teencode} (\texttt{dm}, \texttt{cc}, \texttt{vl}), drop diacritics, stretch
+letters, insert separators, and rely on irony or quotation to be hostile without
+writing a dictionary slur.
+
+The release of UIT-ViHSD \cite{luu2021vihsd}, roughly 33k comments labelled
+\clean{}, \off{} or \hate{}, made supervised transformer fine-tuning the default.
+PhoBERT \cite{nguyen2020phobert}, ViSoBERT \cite{nguyen2023visobert}, multilingual
+DeBERTa-v3 variants \cite{he2021deberta,he2023debertav3,liu2024mdeberta} and
+ViHateT5 \cite{nguyen2024vihatet5} all perform well, yet on UIT-ViHSD strong encoders
+plateau: about 83\% of test comments are \clean{}, \hate{} and \off{} overlap in
+annotation, and their boundary is often intensity rather than lexical content.
+
+Two problems follow. First, \emph{opacity}: removals need inspectable reasons, yet
+post-hoc attribution (LIME \cite{ribeiro2016why}, SHAP \cite{lundberg2017shap})
+approximates the model. Second, \emph{brittleness on surface form}: a transformer may
+never see obfuscated profanity (\texttt{d.m}, \texttt{đ*m}), while a lexicon matches
+such variants explicitly.
+
+We ask: \emph{can a lexicon be attached to a transformer as an evidence channel, so
+decisions where the rule fires carry inspectable lexical support, without degrading accuracy?} We
+do not claim higher accuracy; we claim the small change is \emph{attributable}: each
+changed decision traces to a specific mechanism, exposing a systematic failure that
+aggregate metrics hide.
+
+We fuse a 668-term Vietnamese hate-speech lexicon with four mDeBERTa-v3 backbones
+differing only in head and optimisation recipe. The rule engine normalises the comment, builds
+accent-less, leet, repeat-collapsed and separator-stripped views, scores each matched
+span by severity, confidence, match type and context, and aggregates per label; fusion
+mixes channels and applies frozen per-channel thresholds.
+
+Contributions: (i) a frozen, reproducible hybrid protocol with an independent,
+inspectable rule channel; (ii) per-decision provenance assigning every change to a
+rule- or threshold-driven mechanism; (iii) a behavioural audit of the rule channel
+with a cue taxonomy; (iv) an analysis of missed corrections motivating
+evidence-gated fusion; (v) case studies with matched spans and scores.

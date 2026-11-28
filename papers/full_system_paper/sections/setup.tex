@@ -1,0 +1,12 @@
+%!TEX root = main.tex
+\section{Experimental Setup}
+\label{sec:setup}
+
+\paragraph{Hardware and Environment.}
+All experiments run on an NVIDIA GeForce RTX 4060 Laptop GPU (8 GB), Intel Core i7-13700H, 32 GB RAM, Windows 11, PyTorch 2.5.1, Transformers 4.46, and scikit-learn 1.5. Training uses FP32 weights, AdamW, gradient clipping 1.0, and early stopping (patience 3) on validation macro-F1. Inference is batch-amortised (batch size 32).
+
+\paragraph{Hyperparameters.}
+AdamW ($\beta_1=0.9, \beta_2=0.999$, weight decay 0.01) is shared; encoder learning rate is $2\times10^{-5}$ and custom head rate is $5\times10^{-4}$. Schedules use linear warm-up (10\%) with cosine decay or stage unfreezing. Training runs 5--10 epochs for Vietnamese (max length 256, batch 16) and 4--6 epochs for English (max length 128, batch 32). Loss combines cross-entropy with inverse-frequency weights and label smoothing 0.05.
+
+\paragraph{Protocol and Baselines.}
+Checkpoints, rule-engine weights, and fusion thresholds ($\alpha$, per-channel thresholds) are tuned exclusively on validation splits and frozen before test evaluation. Evaluation runs once on the held-out test split with paired bootstrap (10,000 resamples) and McNemar tests, benchmarking against majority-class, rule-only, and AI-only baselines.

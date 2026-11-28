@@ -1,0 +1,129 @@
+{
+  "protocol_note": "Frozen test scores, frozen validation-selected alphas and thresholds. No parameter was re-tuned; both configurations use the alphas and thresholds of the shipped primary variant, so the difference isolates the rule-silence convention.",
+  "test_size": 6680,
+  "silent_fraction": 0.8425149700598802,
+  "alphas": {
+    "HATE": 0.2,
+    "OFFENSIVE": 0.9,
+    "CLEAN": 1.0
+  },
+  "thresholds": {
+    "HATE": 0.14,
+    "OFFENSIVE": 0.66,
+    "CLEAN": 0.6
+  },
+  "fidelity": {
+    "reproduced_macro_f1": true,
+    "reproduced_predictions": true
+  },
+  "CALIBRATED": "PENDING - the rule engine has no validated CLEAN signal; its CLEAN score is the derived 1 - max(r_H, r_O).",
+  "CURRENT": {
+    "macro_f1": 0.6602451038117877,
+    "accuracy": 0.8773952095808383,
+    "confusion_matrix": [
+      [
+        378,
+        76,
+        234
+      ],
+      [
+        75,
+        182,
+        187
+      ],
+      [
+        139,
+        108,
+        5301
+      ]
+    ],
+    "HATE_precision": 0.6385135135135135,
+    "HATE_recall": 0.5494186046511628,
+    "HATE_f1": 0.590625,
+    "OFFENSIVE_precision": 0.4972677595628415,
+    "OFFENSIVE_recall": 0.4099099099099099,
+    "OFFENSIVE_f1": 0.44938271604938274,
+    "CLEAN_precision": 0.9264243271583362,
+    "CLEAN_recall": 0.9554794520547946,
+    "CLEAN_f1": 0.9407275953859805,
+    "CLEAN_fpr": 0.04452054794520548,
+    "HATE_fnr": 0.34011627906976744,
+    "OFFENSIVE_fnr": 0.42117117117117114,
+    "correct": 5861,
+    "corrections_vs_ai": 23,
+    "regressions_vs_ai": 15,
+    "flips_vs_current": 0
+  },
+  "NEUTRAL": {
+    "macro_f1": 0.6614282980197852,
+    "accuracy": 0.8767964071856288,
+    "confusion_matrix": [
+      [
+        388,
+        75,
+        225
+      ],
+      [
+        78,
+        182,
+        184
+      ],
+      [
+        155,
+        106,
+        5287
+      ]
+    ],
+    "HATE_precision": 0.6247987117552335,
+    "HATE_recall": 0.563953488372093,
+    "HATE_f1": 0.5928189457601223,
+    "OFFENSIVE_precision": 0.5013774104683195,
+    "OFFENSIVE_recall": 0.4099099099099099,
+    "OFFENSIVE_f1": 0.4510532837670384,
+    "CLEAN_precision": 0.9281952247191011,
+    "CLEAN_recall": 0.952956020187455,
+    "CLEAN_f1": 0.940412664532195,
+    "CLEAN_fpr": 0.04704397981254506,
+    "HATE_fnr": 0.32703488372093026,
+    "OFFENSIVE_fnr": 0.4144144144144144,
+    "correct": 5857,
+    "corrections_vs_ai": 21,
+    "regressions_vs_ai": 17,
+    "flips_vs_current": 30
+  },
+  "disagreement": {
+    "n_changed": 30,
+    "neutral_wins": 10,
+    "current_wins": 14,
+    "both_wrong": 6,
+    "all_on_silent_rows": true
+  },
+  "regression_check": {
+    "current_regressions_on_silent_rows": 5,
+    "current_regressions_total": 15
+  },
+  "significance": {
+    "macro_f1_neutral_minus_current": {
+      "delta": 0.0011831942079975066,
+      "ci_low": -0.0015402789041341098,
+      "ci_high": 0.004237885898825421,
+      "p_value": 0.4384,
+      "n_boot": 10000
+    },
+    "accuracy_neutral_minus_current": {
+      "delta": -0.0005988023952094856,
+      "ci_low": -0.0019461077844311614,
+      "ci_high": 0.0007485029940120791,
+      "p_value": 0.4746,
+      "n_boot": 10000
+    },
+    "mcnemar_current_vs_neutral": {
+      "a_correct_b_wrong": 14,
+      "a_wrong_b_correct": 10,
+      "discordant": 24,
+      "p_value": 0.5412561893463135,
+      "p_value_chi2": 0.5402913746074199,
+      "odds_ratio": 1.4
+    }
+  }
+}

@@ -1,0 +1,42 @@
+lexicon_path: data/processed/lexicon/verified_lexicon.csv
+dictionary_version: v1-abl-no_fuzzy
+normalize:
+  unicode_form: NFC
+  lowercase: true
+  remove_invisible: true
+  collapse_whitespace: true
+  max_repeat_char: 3
+  max_text_chars: 20000
+obfuscation:
+  enabled: true
+  accentless: true
+  leet: true
+  collapse_repeats: true
+  separator_stripping: true
+  min_compact_term_len: 3
+  max_variant_chars: 40000
+matcher:
+  min_term_len: 2
+  fuzzy_enabled: false
+  fuzzy_max_distance: 1
+  fuzzy_min_term_len: 6
+  max_matches: 200
+scoring:
+  severity:
+    HATE: 0.95
+    OFFENSIVE: 0.6
+  match_factors:
+    exact: 1
+    accentless_alias: 0
+    leet: 0.8
+    repeat_collapsed: 0.4
+    separator_inserted: 0.8
+    obfuscated_combined: 0.3
+    fuzzy: 0.6
+  negation_factor: 1
+  quote_factor: 0.6
+  context_required_factor: 1
+  aggregation_cap: 10
+  min_review_statuses:
+  - verified
+  - auto

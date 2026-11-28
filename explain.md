@@ -22,46 +22,52 @@
 
 | Thư mục con | Vai trò |
 |---|---|
-| `configs/` | 5 file YAML: data split + 4 cấu hình model. |
+| `configs/` | YAML: data split + 4 cấu hình model + 2 cấu hình rule engine. |
 | `src/` | Mã nguồn Python (43 module). |
 | `scripts/` | 5 entry point chạy theo thứ tự 00 -> 05. |
 | `data/` | Dữ liệu ViHSD: raw, processed, splits. |
-| `reports/` | Log + artifact của mỗi lần train/evaluate. **Nơu cần tìm log.** |
-| `experiments/` | Checkpoint từng stage của mỗi lần train. |
+| `outputs/` | Toàn bộ kết quả chính thức: reports, experiments, evaluation, paper. |
+| `outputs_smoke/` | Toàn bộ kết quả smoke test (nếu gom vào thư mục con). |
 | `checkpoints/` | Kho checkpoint dự trữ. |
-| `evaluation/` | Log đánh giá tổng hợp + bảng/biểu đồ so sánh 4 model. |
-| `paper/` | Khung bài báo: main.tex, references.bib, sections, tables, figures. |
+
 
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `checkpoints` | thư mục | 1 file, 1.9 KB |
-| `configs` | thư mục | 6 file, 16.8 KB |
-| `data` | thư mục | 18 file, 7.5 MB |
-| `docs` | thư mục | 2 file, 25.2 KB |
-| `evaluation` | thư mục | 78 file, 2.3 MB |
-| `evaluation_smoke` | thư mục | 18 file, 1.2 MB |
-| `experiments` | thư mục | 25 file, 47.7 KB |
-| `experiments_smoke` | thư mục | 58 file, 6.2 GB |
-| `paper` | thư mục | 18 file, 12.8 KB |
-| `paper_smoke` | thư mục | 18 file, 1.1 MB |
-| `reports` | thư mục | 55 file, 91.4 KB |
-| `reports_smoke` | thư mục | 214 file, 4.2 GB |
-| `scripts` | thư mục | 8 file, 20.7 KB |
-| `src` | thư mục | 100 file, 905.8 KB |
-| `.gitignore` | file | 508 B · 2026-10-04 10:33:39 |
-| `explain.md` | file | 3.3 KB · 2026-10-04 12:58:19 |
-| `plan.md` | file | 20.2 KB · 2026-10-04 01:32:27 |
-| `README.md` | file | 48.1 KB · 2026-10-04 12:15:15 |
+| `.freebuff` | thư mục | 1 file, 37 B |
+| `.git` | thư mục | 3520 file, 707.2 MB |
+| `.kilo` | thư mục | 2 file, 1.5 KB |
+| `checkpoints` | thư mục | 1 file, 1.3 KB |
+| `configs` | thư mục | 17 file, 48.3 KB |
+| `data` | thư mục | 73 file, 18.5 MB |
+| `docs` | thư mục | 4 file, 59.1 KB |
+| `outputs` | thư mục | 825 file, 57.5 GB |
+| `outputs_smoke` | thư mục | 620 file, 19.9 GB |
+| `papers` | thư mục | 150 file, 15.8 MB |
+| `scripts` | thư mục | 44 file, 506.0 KB |
+| `src` | thư mục | 144 file, 1.8 MB |
+| `.gitignore` | file | 857 B · 2026-10-19 07:42:22 |
+| `explain.md` | file | 3.6 KB · 2026-10-20 07:13:19 |
+| `plan.md` | file | 20.1 KB · 2026-10-19 14:15:48 |
+| `README.md` | file | 48.7 KB · 2026-10-05 22:28:54 |
 | `requirements.txt` | file | 517 B · 2026-10-04 11:31:24 |
+| `Rule_Engine_Plan.md` | file | 11.7 KB · 2026-10-17 01:00:08 |
+| `tmp_ablation_table.py` | file | 1.3 KB · 2026-10-19 10:17:11 |
+| `tmp_context_fp.py` | file | 2.7 KB · 2026-10-19 13:08:02 |
+| `tmp_hashes.py` | file | 1.8 KB · 2026-10-19 12:37:36 |
+| `tmp_labelmix.py` | file | 835 B · 2026-10-19 12:37:51 |
+| `tmp_make_configs.py` | file | 1.2 KB · 2026-10-19 12:37:51 |
+| `tmp_prune_sweep.py` | file | 2.1 KB · 2026-10-19 12:37:36 |
+| `tmp_report_lexicon.py` | file | 1.0 KB · 2026-10-19 09:18:55 |
+| `tmp_summarize17.py` | file | 1.8 KB · 2026-10-19 09:48:08 |
 
 ## Cách đọc
 
 1. Người mới bắt đầu: đọc `README.md` mục 1 và mục 9.
 2. Muốn hiểu code: `src/` (mỗi subfolder có `explain.md` riêng).
-3. Muốn xem log train: `reports/<model>/run_XXX/explain.md`.
+3. Muốn xem log train: `outputs/reports/<model>/run_XXX/explain.md`.
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

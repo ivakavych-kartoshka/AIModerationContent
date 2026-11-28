@@ -39,32 +39,32 @@ Early Stopped                     : True
 
 [Inference Benchmark]
 Batch Size                        : 32
-Average Latency / Batch           : 369.447 ms
-Average Latency / Sample          : 11.5452 ms
-Latency p95 / Batch               : 370.996 ms
-FPS (samples / second)            : 86.62
+Average Latency / Batch           : 345.075 ms
+Average Latency / Sample          : 10.7836 ms
+Latency p95 / Batch               : 345.664 ms
+FPS (samples / second)            : 92.73
 Precision                         : fp32
 Timed Batches                     : 50
 
 [Test Results]  (decision rule: thresholds)
-Accuracy                          : 0.8731
-Macro Precision                   : 0.6724
-Macro Recall                      : 0.6471
-Macro F1                          : 0.6590
-Weighted F1                       : 0.8701
-Macro ROC-AUC                     : 0.8500
-Macro Average Precision           : 0.6367
+Accuracy                          : 0.8710
+Macro Precision                   : 0.6622
+Macro Recall                      : 0.6593
+Macro F1                          : 0.6607
+Weighted F1                       : 0.8708
+Macro ROC-AUC                     : 0.8645
+Macro Average Precision           : 0.6342
 
 Class          Precision      Recall          F1     Support
-HATE              0.6037      0.5669      0.5847         688
-OFFENSIVE         0.4822      0.4279      0.4535         444
-CLEAN             0.9312      0.9466      0.9389        5548
+HATE              0.6301      0.6090      0.6194         688
+OFFENSIVE         0.4198      0.4302      0.4249         444
+CLEAN             0.9367      0.9387      0.9377        5548
 
 [Label-specific Thresholds]  (searched on VALIDATION only)
-threshold HATE                    : 0.01
-threshold OFFENSIVE               : 0.5
-threshold CLEAN                   : 0.64
-objective before -> after         : 0.6942 -> 0.69652
+threshold HATE                    : 0.52
+threshold OFFENSIVE               : 0.47
+threshold CLEAN                   : 0.5
+objective before -> after         : 0.69613 -> 0.698936
 
 [Hardware / Software]
 GPU                               : NVIDIA GeForce RTX 4060 Laptop GPU

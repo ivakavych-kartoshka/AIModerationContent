@@ -1,0 +1,120 @@
+{
+  "comparison": "rule_engine_tuned vs rule_engine",
+  "n_test": 6680,
+  "protocol": {
+    "split": "test",
+    "thresholds": "frozen (tuned on validation by scripts/17 --split validation)",
+    "n_boot": 10000,
+    "seed": 42,
+    "alpha": 0.05,
+    "source": "scripts/17_evaluate_rule_engine.py --split test -> predictions.csv"
+  },
+  "a": {
+    "label": "rule_engine_tuned",
+    "path": "outputs\\evaluation\\rule_engine_tuned\\test\\predictions.csv",
+    "sha256": "d53f81fb23cc3dc59cbfb3fa6e1a52cad7f26d324383a305b3774b8006bb40fc",
+    "split": "test",
+    "config": "configs/rule_engine_tuned.yaml",
+    "lexicon": "data/processed/lexicon/verified_lexicon.csv",
+    "n_lexicon_entries": 668,
+    "thresholds": {
+      "HATE": 0.64,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.68
+    },
+    "objective": "frozen"
+  },
+  "b": {
+    "label": "rule_engine",
+    "path": "outputs\\evaluation\\rule_engine\\test\\predictions.csv",
+    "sha256": "06c83c5ee7d74f410a9837787714a326a9b8f01b82b66f0f753ff7a04bfba5f4",
+    "split": "test",
+    "config": "configs/rule_engine.yaml",
+    "lexicon": "data/processed/lexicon/verified_lexicon.csv",
+    "n_lexicon_entries": 668,
+    "thresholds": {
+      "HATE": 0.85,
+      "OFFENSIVE": 0.0,
+      "CLEAN": 0.41
+    },
+    "objective": "frozen"
+  },
+  "metrics": {
+    "a": {
+      "macro_f1": 0.5334501603784555,
+      "accuracy": 0.8398203592814372,
+      "HATE_f1": 0.4322820037105751,
+      "OFFENSIVE_f1": 0.24175824175824173,
+      "CLEAN_f1": 0.9263102356665495
+    },
+    "b": {
+      "macro_f1": 0.45358116945723514,
+      "accuracy": 0.7070359281437125,
+      "HATE_f1": 0.37169312169312174,
+      "OFFENSIVE_f1": 0.15457627118644066,
+      "CLEAN_f1": 0.834474115492143
+    }
+  },
+  "bootstrap_ci": {
+    "macro_f1": {
+      "a": {
+        "point": 0.5334501603784555,
+        "ci_low": 0.5150179941630952,
+        "ci_high": 0.5518898021913083,
+        "std": 0.009483407856907423,
+        "n_boot": 10000
+      },
+      "b": {
+        "point": 0.45358116945723514,
+        "ci_low": 0.4389553083976177,
+        "ci_high": 0.46807452197727084,
+        "std": 0.007355467791468353,
+        "n_boot": 10000
+      }
+    },
+    "accuracy": {
+      "a": {
+        "point": 0.8398203592814372,
+        "ci_low": 0.8309880239520958,
+        "ci_high": 0.8488023952095808,
+        "std": 0.004526077426089428,
+        "n_boot": 10000
+      },
+      "b": {
+        "point": 0.7070359281437125,
+        "ci_low": 0.6961077844311377,
+        "ci_high": 0.717814371257485,
+        "std": 0.005610263917810143,
+        "n_boot": 10000
+      }
+    }
+  },
+  "paired": {
+    "macro_f1": {
+      "delta": 0.07986899092122035,
+      "ci_low": 0.05975414960120604,
+      "ci_high": 0.10020664546329926,
+      "p_value": 0.0,
+      "n_boot": 10000
+    },
+    "accuracy": {
+      "delta": 0.13278443113772465,
+      "ci_low": 0.12260479041916161,
+      "ci_high": 0.14311377245508983,
+      "p_value": 0.0,
+      "n_boot": 10000
+    }
+  },
+  "mcnemar": {
+    "a_correct_b_wrong": 1132,
+    "a_wrong_b_correct": 245,
+    "discordant": 1377,
+    "p_value": 2.2350480301835244e-136,
+    "p_value_chi2": 5.402212928971803e-126,
+    "odds_ratio": 4.6204081632653065
+  },
+  "verdict": [
+    "rule_engine_tuned is significantly higher than rule_engine on macro-F1 (p=0.0000)",
+    "rule_engine_tuned is significantly higher than rule_engine on accuracy (p=0.0000)"
+  ]
+}

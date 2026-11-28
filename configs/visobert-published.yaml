@@ -1,0 +1,76 @@
+# =============================================================================
+# ViSoBERT with the published recipe (Nguyen et al. 2023, ViSoBERT paper)
+#
+# Reproduces the published HSD numbers as closely as possible:
+#   batch size 40, max length 128, lr 2e-5, AdamW, 10 epochs, best checkpoint.
+# No class weighting, no DLR, no thresholds (plain argmax) - identical protocol
+# to the published fine-tuning. Purpose: test whether the rule channel still
+# helps on top of a properly tuned ViSoBERT backbone.
+#
+#   python -m src.training.run_experiment --config configs/visobert-published.yaml
+#   python -m src.evaluation.run_evaluation  --model visobert-published
+#   python scripts/23_evaluate_fusion.py --model visobert-published
+# =============================================================================
+model_name: visobert-published
+base_model: uitnlp/visobert
+head: standard
+seed: 42
+deterministic: true
+
+dataset:
+  name: uitnlp/vihsd
+  splits_dir: data/splits
+  text_column: text
+  label_column: label
+  num_labels: 3
+
+tokenizer:
+  max_length: 128
+  padding: max_length
+  truncation: true
+
+training:
+  batch_size: 40
+  eval_batch_size: 80
+  gradient_accumulation: 1
+  epochs: 10
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  optimizer: adamw_torch
+  scheduler: linear
+  min_lr_ratio: 0.01
+  max_grad_norm: 1.0
+  precision: bf16
+  gradient_checkpointing: true
+  num_workers: 2
+  log_every_n_steps: 100
+
+loss:
+  type: cross_entropy
+  use_class_weight: false
+
+dlr:
+  enabled: false
+
+thresholds:
+  enabled: false
+
+early_stopping:
+  enabled: true
+  metric: macro_f1
+  mode: max
+  patience: 10
+  min_delta: 0.0
+
+evaluation:
+  decision_rule: argmax
+  benchmark: true
+  benchmark_batch_size: 80
+  benchmark_warmup: 10
+  benchmark_runs: 50
+  save_predictions: true
+
+output:
+  save_checkpoints: true
+  save_last_checkpoint: true

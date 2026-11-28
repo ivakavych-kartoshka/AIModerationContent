@@ -1,0 +1,11 @@
+# Bỏ qua rác biên dịch LaTeX (giữ lại .tex và .pdf)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.xdv

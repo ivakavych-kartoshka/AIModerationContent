@@ -1,0 +1,31 @@
+\begin{table}[ht]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\caption{Detailed comparison (in percent) of the two fused backbones on the UIT-ViHSD \cite{luu2021vihsd} test split (ViSoBERT \cite{nguyen2023visobert}).
+AI columns are plain argmax of the trained classifier; Fusion columns are the
+per-channel threshold variant (best in each system).}
+\label{tab:model-comparison}
+\begin{tabular}{lcccc}
+\toprule
+Metric & mDeBERTa AI & mDeBERTa Fusion & ViSoBERT AI & ViSoBERT Fusion \\
+\midrule
+Accuracy      & 87.62\% & 87.74\% & 87.16\% & 87.38\% \\
+Macro-F1      & 65.75\% & 66.02\% & 65.48\% & \textbf{66.22\%} \\
+Macro-P       & 68.43\% & 68.74\% & 67.56\% & 67.22\% \\
+Macro-R       & 63.59\% & 63.83\% & 64.05\% & 65.31\% \\
+\midrule
+HATE P        & 64.27\% & 63.85\% & 57.86\% & 63.48\% \\
+HATE R        & 53.34\% & 54.94\% & 58.87\% & 58.87\% \\
+HATE F1       & 58.30\% & 59.06\% & 58.36\% & 61.09\% \\
+\midrule
+OFF. P        & 48.44\% & 49.73\% & 51.96\% & 44.89\% \\
+OFF. R        & 41.89\% & 40.99\% & 38.74\% & 42.57\% \\
+OFF. F1       & 44.93\% & 44.94\% & 44.39\% & 43.70\% \\
+\midrule
+CLEAN P       & 92.58\% & 92.64\% & 92.85\% & 93.28\% \\
+CLEAN R       & 95.53\% & 95.55\% & 94.54\% & 94.50\% \\
+CLEAN F1      & 94.03\% & 94.07\% & 93.69\% & 93.88\% \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,48 @@
+# =============================================================================
+# Language router + language-aware fusion configuration (TUNED variant).
+#
+# Identical to configs/language_router.yaml except that the Vietnamese
+# rule-engine configuration points at the validation-tuned scoring parameters
+# (configs/rule_engine_tuned.yaml).  This is the configuration used by the
+# reported end-to-end benchmark (scripts/67_e2e_tuned_benchmark.py) and by the
+# primary fusion variant (per-channel alpha + per-class thresholds).
+#
+# The English engine is unchanged: the English fusion weight converged to
+# alpha = 1.0 on validation, so English decisions use AI-only probabilities
+# with the validation-selected per-class thresholds.
+# =============================================================================
+
+# --- detection ------------------------------------------------------------- #
+detection:
+  backend: auto          # auto | langid | heuristic
+  min_confidence: 0.50
+  mix_floor: 0.12
+  mix_min_tokens: 3
+  heuristic_weight: 0.60
+  token_min_len: 2
+
+# --- lexicons / rule-engine configs --------------------------------------- #
+lexicon_paths:
+  vi: data/processed/lexicon/verified_lexicon.csv
+  en: data/processed/lexicon/verified_lexicon_en_combined.csv
+
+rule_config_paths:
+  vi: configs/rule_engine_tuned.yaml
+  en: configs/rule_engine_en.yaml
+
+# --- routing --------------------------------------------------------------- #
+fallback_lang: multilingual
+use_both_for_mix: true
+segment_by_language: true
+
+# --- fusion weights -------------------------------------------------------- #
+# The E2E benchmark overrides these with the per-channel Vietnamese vector
+# (HATE 0.20, OFFENSIVE 0.90, CLEAN 1.00) and uses alpha = 1.0 for English;
+# the scalar entries below are the legacy per-language defaults kept for
+# compatibility with LangAwareFusion.from_config().
+alphas:
+  vi: 0.70
+  en: 1.00
+  mix: 0.65
+  multilingual: 0.80
+  default: 0.70

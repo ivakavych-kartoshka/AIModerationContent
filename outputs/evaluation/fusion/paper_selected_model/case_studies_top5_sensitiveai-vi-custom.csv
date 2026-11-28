@@ -1,0 +1,6 @@
+﻿index,text,true_label,ai_pred,fuse_pred,ai_correct,fuse_correct,rule_hate,rule_offensive,rule_clean
+9,"lý khùng thì có,kk",CLEAN,HATE,CLEAN,False,True,0.0,0.0,
+114,hóng bro tét đít thằng tùng,CLEAN,HATE,CLEAN,False,True,0.6046,0.0,
+304,sạo loxz quền của chị 3,HATE,CLEAN,HATE,False,True,0.6268,0.0,
+624,"tâm nguyễn bỏ mớ tiền ra thuê hẳn một cái máy bay riêng, đi 1 mình thì lây ai, lây cho con mẹ bạn à? thông tin trên google sợt là ra cũng đéo chịu tìm hiểu, vào đây chửi adua phong trào. \""đạo đức rách\"" mà cứ ngồi đấy mà nói đạo lý.",HATE,OFFENSIVE,HATE,False,True,0.999,0.0,
+676,lủ chó,HATE,OFFENSIVE,HATE,False,True,0.9882,0.0,

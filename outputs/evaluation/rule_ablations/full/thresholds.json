@@ -1,0 +1,90 @@
+{
+  "objective": "macro_f1",
+  "search_space": {
+    "min": 0.0,
+    "max": 1.0,
+    "grid_size": 101
+  },
+  "coordinate_rounds": 3,
+  "initial_threshold": 0.5,
+  "thresholds": {
+    "HATE": 0.81,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.64
+  },
+  "threshold_list": [
+    0.81,
+    0.0,
+    0.64
+  ],
+  "objective_before": 0.475845,
+  "objective_after": 0.54283,
+  "validation_macro_f1_with_thresholds": 0.5428295935969206,
+  "validation_accuracy_with_thresholds": 0.8342065868263473,
+  "validation_macro_f1_with_argmax": 0.47584517073953697,
+  "trace": [
+    {
+      "round": 0,
+      "label": "init",
+      "threshold": 0.5,
+      "objective": 0.47584517073953697
+    },
+    {
+      "round": 1,
+      "label": "HATE",
+      "threshold": 0.67,
+      "objective": 0.47922234489296683
+    },
+    {
+      "round": 1,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5048281199195305
+    },
+    {
+      "round": 1,
+      "label": "CLEAN",
+      "threshold": 0.74,
+      "objective": 0.5258470061720704
+    },
+    {
+      "round": 2,
+      "label": "HATE",
+      "threshold": 0.81,
+      "objective": 0.5416330124388657
+    },
+    {
+      "round": 2,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5416330124388657
+    },
+    {
+      "round": 2,
+      "label": "CLEAN",
+      "threshold": 0.64,
+      "objective": 0.5428295935969206
+    },
+    {
+      "round": 3,
+      "label": "HATE",
+      "threshold": 0.81,
+      "objective": 0.5428295935969206
+    },
+    {
+      "round": 3,
+      "label": "OFFENSIVE",
+      "threshold": 0.0,
+      "objective": 0.5428295935969206
+    },
+    {
+      "round": 3,
+      "label": "CLEAN",
+      "threshold": 0.64,
+      "objective": 0.5428295935969206
+    }
+  ],
+  "note": "Optimised on the validation split only; frozen before test evaluation.",
+  "split": "validation",
+  "config": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\evaluation\\rule_ablations\\full\\rule_config.yaml"
+}

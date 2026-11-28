@@ -1,0 +1,4 @@
+﻿index,text,true_label,ai_pred,fuse_pred,ai_correct,fuse_correct,rule_hate,rule_offensive,rule_clean
+5311,chảm,CLEAN,OFFENSIVE,CLEAN,False,True,0.0,0.0,
+5886,dành cho lũ quan ngại,HATE,OFFENSIVE,HATE,False,True,0.4976,0.0,
+6366,quá chán,CLEAN,OFFENSIVE,CLEAN,False,True,0.0,0.0,

@@ -1,0 +1,92 @@
+%!TEX root = ../main.tex
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Backbones and Training Recipes}
+All backbones use \texttt{microsoft/mdeberta-v3-base}, the same tokenizer,
+data splits and evaluation code; they differ only in the classification head
+and optimisation recipe.  Table~\ref{tab:backbones_full} summarises the four
+Vietnamese and three English configurations evaluated.
+
+\input{tables/backbones_full}
+
+The focused Vietnamese backbone is \model{sensitiveai-vi-custom-curriculum}.  It is
+chosen as the primary case study because it exhibits the largest positive net
+effect from fusion on the ViHSD test set: 39 corrections versus 25
+regressions ($\Delta$accuracy +0.21\,pp, $\Delta$macro-F1 +0.0003 over AI-only),
+which makes it the most informative backbone for provenance analysis.  The stronger English backbone
+sensitiveai-en-stage2 reaches 0.7676 macro-F1 standalone.  Conclusions about fusion
+apply only to the reported curriculum backbone; other backbones are discussed for
+comparison.
+
+\subsection{Rule-Engine Scoring}
+Rule-engine weights are tuned by greedy coordinate descent over the scoring
+parameters (match factors, negation factor, quote factor, context-required
+factor, aggregation cap), with the three decision thresholds re-optimised on
+validation macro-F1 over a 101-point grid at every candidate; the search never
+touches the lexicon.  The final frozen thresholds for VI are
+$\tau_H=0.81, \tau_O=0.00, \tau_C=0.64$ (rule engine, tuned); for EN
+$\tau_H=0.29, \tau_O=0.48, \tau_C=0.50$.
+
+\subsection{Fusion Variants}
+\label{sec:fusion_variants}
+Fusion follows the same discipline: thresholds by coordinate descent over the
+same grid for three rounds, per-channel weights by coordinate ascent from the
+AI-only corner, and a multinomial logistic meta-classifier fitted on the six
+validation features.  All selected values are frozen before the test pass.  We
+evaluate five decision variants on each backbone:
+
+\begin{enumerate}
+    \item \textbf{AI-only (argmax)}: $\alpha=1$, no rule scores.
+    \item \textbf{AI-only (thresholds)}: per-class thresholds on AI probabilities.
+    \item \textbf{Global $\alpha$ fusion}: single weight $\alpha$ for all three
+          channels, $\alpha \in [0,1]$ step 0.01.
+    \item \textbf{Per-channel $\alpha$ fusion}: independent $\alpha_H, \alpha_O,
+          \alpha_C$.
+    \item \textbf{Per-channel $\alpha$ + thresholds}: add thresholds to variant 4.
+    \item \textbf{Meta-classifier}: multinomial logistic on six features.
+\end{enumerate}
+
+The primary hybrid system for VI is \textbf{per-channel $\alpha$ + thresholds}
+(frozen from validation: $\alpha_H=0.20,\alpha_O=0.80,\alpha_C=1.00$,
+$\tau_H=0.17,\tau_O=0.67,\tau_C=0.16$).  For EN the optimal global $\alpha$ converged to
+1.0, so the primary EN fusion is AI-only with per-channel thresholds
+($\tau_H=0.29,\tau_O=0.48,\tau_C=0.50$).
+
+\subsection{Metrics and Statistical Testing}
+\label{sec:metrics}
+Macro-F1 is primary.  We report accuracy and per-class
+precision, recall and F1, and evaluate differences with two paired tests:
+\begin{itemize}
+    \item \textbf{Paired bootstrap} over comments (10,000 resamples) for the
+          macro-F1 difference \cite{efron1993bootstrap}.
+    \item \textbf{Exact McNemar} on the correctness contingency table
+          \cite{mcnemar1947note}.
+\end{itemize}
+The bootstrap asks whether the aggregate metric moved; McNemar asks whether
+the pattern of individual decisions changed.  Both are reported for every
+fusion comparison.
+
+\subsection{Reproducibility}
+\label{sec:repro}
+The split is hashed and re-checked, the rule-engine evaluation directory is
+recorded in the fusion metrics and re-read rather than recomputed, and the
+analysis script asserts that the rule scores shipped with the fusion
+predictions match the frozen tuned output.  This is not cosmetic: an earlier
+version silently read the \emph{untuned} scores and over-reported rule
+coverage by a factor of three.
+
+\subsection{Experimental Setup}
+\input{sections/setup}
+
+\subsection{Baselines}
+\label{sec:baselines}
+We compare against three baselines:
+\begin{itemize}
+    \item \textbf{Constant CLEAN}: predicts \clean{} for every comment
+          (accuracy 0.8305 on ViHSD test).
+    \item \textbf{Rule-only} (argmax): standalone rule engine with thresholded
+          decisions.
+    \item \textbf{AI-only} (argmax): the fine-tuned transformer without fusion.
+\end{itemize}
+The hybrid is compared to these and to the AI-only thresholded variant.

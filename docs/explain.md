@@ -14,12 +14,15 @@
 | `folder_index.md` | Chỉ mục toàn bộ thư mục: tên, đường dẫn `explain.md`, kích thước, số file. |
 | `explain.md` | File này. |
 
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
-| `explain.md` | file | 1.4 KB · 2026-10-04 12:58:19 |
-| `folder_index.md` | file | 23.8 KB · 2026-10-04 12:58:19 |
+| `bao_cao_tfidf_prune_ablation.md` | file | 20.7 KB · 2026-10-19 14:06:07 |
+| `explain.md` | file | 1.6 KB · 2026-10-20 07:13:19 |
+| `folder_index.md` | file | 23.8 KB · 2026-10-04 13:00:01 |
+| `lexicon_and_rule_engine_explained.md` | file | 13.0 KB · 2026-10-19 14:05:50 |
 
 ## Cách đọc
 
@@ -28,4 +31,4 @@
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

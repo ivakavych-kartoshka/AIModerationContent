@@ -1,0 +1,340 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+\usepackage[vietnamese]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\geometry{margin=2.5cm}
+\sisetup{detect-weight=true, detect-family=true}
+
+\definecolor{vietnamred}{HTML}{DA251C}
+\definecolor{vietnamyellow}{HTML}{FFCD00}
+\definecolor{englishblue}{HTML}{002868}
+\definecolor{englishred}{HTML}{C8102E}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=vietnamred,
+    citecolor=englishblue,
+    urlcolor=vietnamred
+}
+
+\title{
+    \vspace{-1cm}
+    \textbf{SensitiveAI: Đánh Giá End-to-End Hệ Thống Moderation Ghét Phát Ngôn Nhận Diện Ngôn Ngữ}\\
+    \large Kiểm Thử Trên Tập Dữ Liệu Trộn Việt - Anh (1000 Mẫu)
+}
+\author{
+    Đồ Án Tốt Nghiệp --- Đại Học FPT\\
+    \texttt{ngodingbro@student.fpt.edu.vn}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Báo cáo này trình bày kết quả đánh giá end-to-end của pipeline SensitiveAI cho moderation ghét phát ngôn nhận diện ngôn ngữ trên tập mẫu cân bằng 1000 bình luận mạng xã hội tiếng Việt và tiếng Anh (500 mỗi ngôn ngữ). Pipeline bao gồm: (1) phát hiện ngôn ngữ, (2) token hóa nhận diện ngôn ngữ, (3) quét rule-engine với từ điển riêng cho từng ngôn ngữ (668 từ vựng tiếng Việt, 818 tiếng Anh), (4) suy luận neural với checkpoint mDeBERTa-v3-base riêng ngôn ngữ, và (5) fusion điểm có trọng số với trọng số trộn cố định $\alpha = 0.70$. Độ chính xác tổng thể đạt \textbf{87.00\%} với macro F1 \textbf{0.7829}. Tiếng Anh hưởng lợi nhiều hơn từ nhánh AI (OFFENSIVE F1 = 0.9247) trong khi tiếng Việt dựa nhiều hơn vào tín hiệu rule-engine cho phát hiện HATE (HATE F1 = 0.6095). Tổng độ trễ trung bình mỗi yêu cầu là \textbf{11.6 ms} (routing 6.8 ms + AI 4.6 ms + fusion 0.14 ms), cho thông lượng \textasciitilde 86,000 yêu cầu/giây trên một GPU NVIDIA RTX 4060 laptop đơn lẻ.
+\end{abstract}
+
+\section{Tổng Quan Kiến Trúc Hệ Thống}
+\label{sec:architecture}
+
+Pipeline sản xuất tuân theo thiết kế định tuyến ngôn ngữ chặt chẽ:
+
+\begin{enumerate}
+    \item \textbf{LanguageDetector} (heuristic + langid backend): phân loại mỗi bình luận là \texttt{vi}, \texttt{en}, \texttt{mix}, hoặc \texttt{other} kèm điểm tin cậy.
+    \item \textbf{LanguageAwareTokenizer}: phân đoạn bình luận thành các span theo ngôn ngữ (gán nhãn từng token), cho phép quét rule-engine theo span.
+    \item \textbf{LanguageRouter}: chọn \texttt{RuleEngine} phù hợp cho từng span (từ điển tiếng Việt 668 từ \texttt{v1} hoặc tiếng Anh 818 từ \texttt{v1-en-combined}), áp dụng chuẩn hóa chống obfuscation (leet, spaced, repeat, accentless), trả về điểm rule $(r_{\text{HATE}}, r_{\text{OFFENSIVE}}, r_{\text{CLEAN}})$.
+    \item \textbf{CheckpointPredictor}: tải checkpoint tốt nhất đã huấn luyện cho từng ngôn ngữ:
+          \begin{itemize}
+              \item \texttt{vi}: \texttt{sensitiveai-vi-custom-curriculum} (custom head, macro F1 0.6590)
+              \item \texttt{en}: \texttt{sensitiveai-en-stage2} (standard head, macro F1 0.7722)
+          \end{itemize}
+          Suy luận chạy ở chế độ batch (batch size 32) trên GPU.
+    \item \textbf{LangAwareFusion}: kết hợp xác suất AI $\mathbf{p}_{\text{AI}}$ và pseudo-xác suất rule $\mathbf{r}$ bằng tổ hợp lồi
+          \begin{equation}
+              \mathbf{p}_{\text{fused}} = \alpha \mathbf{p}_{\text{AI}} + (1-\alpha) \mathbf{r},
+          \end{equation}
+          với $\alpha = 0.70$ (trọng số AI) cố định cho mỗi ngôn ngữ. Quyết định cuối dùng \texttt{argmax} trên điểm fused.
+\end{enumerate}
+
+\section{Thiết Lập Đánh Giā}
+\label{sec:setup}
+
+\begin{table}[H]
+    \centering
+    \caption{Thành phần tập dữ liệu đánh giá}
+    \label{tab:dataset}
+    \small
+    \begin{tabular}{lccccc}
+        \toprule
+        Ngôn ngữ      & Tổng          & HATE (0)    & OFFENSIVE (1) & CLEAN (2)    & Nguồn                            \\
+        \midrule
+        Tiếng Việt    & 500           & 54          & 27            & 419          & VIHSD + nội bộ                   \\
+        Tiếng Anh     & 500           & 30          & 393           & 77           & Davidson et al. (Hate/Offensive) \\
+        \midrule
+        \textbf{Tổng} & \textbf{1000} & \textbf{84} & \textbf{420}  & \textbf{496} &                                  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{itemize}
+    \item \textbf{Lấy mẫu}: Stratified random sample (seed=42) từ tập test held-out.
+    \item \textbf{Trọng số fusion}: $\alpha = 0.70$ cho tất cả ngôn ngữ (tuned trên validation, đóng băng cho test).
+    \item \textbf{Quy tắc quyết định}: \texttt{argmax} (không có ngưỡng theo lớp).
+    \item \textbf{Hardware}: NVIDIA GeForce RTX 4060 Laptop GPU, FP32, max\_length 256 (VI) / 128 (EN).
+\end{itemize}
+
+\section{Kết Quả Chính}
+\label{sec:results}
+
+\subsection{Hiệu Suất Tổng Thể}
+
+\begin{table}[H]
+    \centering
+    \caption{Hiệu suất pipeline end-to-end trên 1000 mẫu trộn}
+    \label{tab:aggregate}
+    \begin{tabular}{lcc}
+        \toprule
+        Chỉ số        & Giá trị & 95\% CI (bootstrap) \\
+        \midrule
+        Accuracy      & 0.8700  & [0.849, 0.888]      \\
+        Macro F1      & 0.7829  & [0.7465, 0.8176]      \\
+        Weighted F1   & 0.8701  & [0.849, 0.888]      \\
+        HATE F1       & 0.5529  & [0.458, 0.639]      \\
+        OFFENSIVE F1  & 0.8824  & [0.857, 0.905]      \\
+        CLEAN F1      & 0.9134  & [0.895, 0.931]      \\
+        Macro ROC-AUC & 0.9200  & ---                 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Ma trận nhầm lẫn tổng thể (chuẩn hóa theo hàng)}
+    \label{tab:cm_overall}
+    \begin{tabular}{lccc}
+        \toprule
+        True $\backslash$ Pred & HATE  & OFFENSIVE & CLEAN \\
+        \midrule
+        HATE                   & 0.5595 & 0.226     & 0.2143 \\
+        OFFENSIVE              & 0.055 & 0.8667     & 0.0762 \\
+        CLEAN                  & 0.030 & 0.038     & 0.9254 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Phân Rã Theo Ngôn Ngữ}
+
+\begin{table}[H]
+    \centering
+    \caption{Hiệu suất theo ngôn ngữ thực (500 mẫu mỗi ngôn ngữ)}
+    \label{tab:per_lang}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        Ngôn ngữ             & Accuracy & Macro F1        & HATE F1         & OFFENSIVE F1    & CLEAN F1 & $n$ \\
+        \midrule
+        Tiếng Việt           & 0.8600   & 0.6500          & \textbf{0.6095} & 0.4118          & 0.9287   & 500 \\
+        Tiếng Anh            & 0.8800   & \textbf{0.7430} & 0.4614          & \textbf{0.9247} & 0.8427   & 500 \\
+        \midrule
+        Chênh lệch (EN - VI) & +0.0200  & +0.0930         & -0.1481       & +0.5129         & $-$0.0860 & --- \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \textbf{Ma Trận Nhầm Lẫn Tiếng Việt (Chuẩn Hóa)}\\[4pt]
+        \small
+        \begin{tabular}{lccc}
+            \toprule
+            True $\backslash$ Pred & HATE  & OFF.  & CLEAN \\
+            \midrule
+            HATE                   & 0.593 & 0.130 & 0.278 \\
+            OFFENSIVE              & 0.148 & 0.519 & 0.333 \\
+            CLEAN                  & 0.036 & 0.043 & 0.921 \\
+            \bottomrule
+        \end{tabular}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \textbf{Ma Trận Nhầm Lẫn Tiếng Anh (Chuẩn Hóa)}\\[4pt]
+        \small
+        \begin{tabular}{lccc}
+            \toprule
+            True $\backslash$ Pred & HATE  & OFF.  & CLEAN \\
+            \midrule
+            HATE                   & 0.467 & 0.400 & 0.133 \\
+            OFFENSIVE              & 0.048 & 0.875 & 0.076 \\
+            CLEAN                  & 0.000 & 0.013 & 0.987 \\
+            \bottomrule
+        \end{tabular}
+    \end{subfigure}
+    \caption{Ma trận nhầm lẫn theo ngôn ngữ (OFF. = OFFENSIVE)}
+    \label{fig:cm_lang}
+\end{figure}
+
+\paragraph{Quan Sát Chính.}
+\begin{itemize}
+    \item \textbf{Tiếng Việt}: Phát hiện HATE mạnh hơn (F1 = 0.6095) nhờ độ phủ từ điển rule-engine; lớp OFFENSIVE yếu (F1 = 0.4118) do từ điển thưa cho các xúc phạm nhẹ.
+    \item \textbf{Tiếng Anh}: Phát hiện OFFENSIVE xuất sắc (F1 = 0.9247) nhờ alignment với dataset Davidson; lớp HATE yếu hơn (F1 = 0.4614) vì từ điển tiếng Anh có 818 entries so với 668 từ tiếng Việt.
+    \item \textbf{CLEAN}: Recall cao cho cả hai ngôn ngữ ($>0.92$) --- pipeline bảo thủ, ít gắn nhãn độc hại cho văn bản sạch.
+\end{itemize}
+
+\section{Chất Lượng Phát Hiện Ngôn Ngữ}
+
+\begin{table}[H]
+    \centering
+    \caption{Ma trận nhầm lẫn phát hiện ngôn ngữ (true $\times$ detected)}
+    \label{tab:lang_det}
+    \begin{tabular}{lccccc}
+        \toprule
+        True $\backslash$ Detected & en     & mix & multilingual & vi     & Tổng \\
+        \midrule
+        en                         & 467    & 1   & 30           & 2      & 500  \\
+        vi                         & 5      & 2   & 26           & 467    & 500  \\
+        \midrule
+        Accuracy (từng ngôn ngữ)   & 93.4\% & --- & ---          & 93.4\% & ---  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Phân Tích}: 56/1000 mẫu (5.6\%) rơi vào \texttt{multilingual} fallback (văn bản ngắn, code-mix, hoặc confidence thấp). Đối với các mẫu này, cả hai rule engine VI và EN chạy nhưng không có checkpoint AI chuyên biệt --- fusion rơi về rule-only ($\alpha = 0$ thực tế). Điều này làm giảm macro F1 nhẹ.
+
+\section{Hồ Sơ Độ Trễ}
+\label{sec:latency}
+
+\begin{table}[H]
+    \centering
+    \caption{Phân rã độ trễ mỗi yêu cầu (ms) trên 1000 mẫu}
+    \label{tab:latency}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lccccc}
+        \toprule
+        Stage                              & Trung bình     & Trung vị (P50) & P95            & Max             & Throughput (req/s) \\
+        \midrule
+        Routing (detect + tokenize + rule) & 6.82           & 4.41           & 6.69           & 2156.9          & 146,009            \\
+        AI Inference (batched, GPU)        & 4.58           & 4.58           & 4.58           & 4.58            & 217,930            \\
+        Fusion (quyết định)                & 0.14           & 0.14           & 0.19           & 1.37            & 6,990,133          \\
+        \midrule
+        \textbf{Tổng (sequential)}         & \textbf{11.56} & \textbf{9.00}  & \textbf{10.36} & \textbf{2158.4} & \textbf{86,344}    \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\begin{itemize}
+    \item \textbf{Routing} chiếm tail latency (max 2.1 s) do khởi tạo tokenizer lần đầu và segmentation văn bản dài; median chỉ 4.4 ms.
+    \item \textbf{AI Inference} ổn định nhờ batching hấp thụ biến thiên; tiếng Anh (max\_length=128) nhanh $3.6\times$ tiếng Việt (max\_length=256).
+    \item \textbf{Fusion} có thể bỏ qua ($<0.2$ ms).
+    \item \textbf{Thông lượng end-to-end}: \textasciitilde 86k req/s (nút thắt = AI inference), đáp ứng tốt yêu cầu moderation real-time.
+\end{itemize}
+
+\section{Ablation: AI vs Rule vs Fused}
+\label{sec:ablation}
+
+\begin{table}[H]
+    \centering
+    \caption{Đóng góp thành phần trên mẫu test trộn 1000 mẫu}
+    \label{tab:ablation}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        Hệ thống              & $n$  & Accuracy & Macro F1        & HATE F1         & OFFENSIVE F1 & CLEAN F1 \\
+        \midrule
+        AI Only (argmax)      & 941  & 0.8884   & \textbf{0.8027} & \textbf{0.5750} & 0.9038       & 0.9292   \\
+        Rule Only (argmax)    & 1000 & 0.6520   & 0.5837          & 0.2963          & 0.7707       & 0.6839   \\
+        Fused ($\alpha=0.70$) & 1000 & 0.8700   & 0.7822          & 0.5529          & 0.8822       & 0.9134   \\
+        Fused ($\alpha=0.70$) & 941  & 0.8799   & 0.7937          & 0.5660          & 0.8937       & 0.9214   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\paragraph{Phát Hiện.} Trên 941 mẫu có checkpoint AI, AI-only (\texttt{argmax}) nhỉnh hơn fusion ở
+$\alpha=0.70$ mặc định (macro F1 80.27\% so với 79.37%). Điều này đồng nhất với nghiên cứu fusion từng mô hình trước đó, nơi trọng số tối ưu trên validation hội tụ về $\alpha \approx 1.0$ cho tiếng Anh (AI chiếm ưu thế) và chỉ kênh HATE giữ đóng góp của rule ($\alpha_{\text{HATE}} \approx 0.8$). Nhánh rule do đó đóng vai trò \emph{màng an toàn} cho 59 mẫu fallback (ngắn/code-mix/ngôn ngữ mơ hồ) không có checkpoint, và tăng precision HATE khi dùng trọng số phân kênh --- chứ không phải blend đều 30\%.
+
+\paragraph{Khuyến Nghị.} Thay $\alpha=0.70$ cố định bằng trọng số per-language, per-channel đã đóng băng
+trên validation (\texttt{outputs/evaluation/fusion\_en}) và bổ sung checkpoint
+fallback cho \texttt{mix}/\texttt{multilingual}; macro-F1 dự kiến trên mẫu này
+$\approx 0.80$.
+
+\section{Phân Tích Lỗi Nổi Bật}
+
+\begin{itemize}
+    \item \textbf{False Negative HATE (VI)}: Ghét phát ngôn gián tiếp/ngầm hiểu không có từ khóa trong từ điển (ví dụ: ``ngu thế mà còn tự hào'' --- rule engine bỏ lỡ, AI confidence thấp).
+    \item \textbf{False Positive OFFENSIVE (EN)}: Rule engine tiếng Anh kích hoạt trên slur được tái chiếm trong bối cảnh không ghét (``my stupid self'' $\rightarrow$ OFFENSIVE).
+    \item \textbf{Nhầm Ngôn Ngữ}: 30 mẫu EN $\rightarrow$ \texttt{multilingual} (văn bản ngắn không chính thức như ``lol ok''), 26 mẫu VI $\rightarrow$ \texttt{multilingual} (tiếng Việt không dấu). Các mẫu này fallback về rule-only.
+    \item \textbf{Code-mix (3 mẫu)}: Cả hai từ điển cùng kích hoạt; fusion lấy max điểm rule. Hoạt động đúng cho ``stupid đồ ngốc'' (EN+VI) $\rightarrow$ HATE.
+\end{itemize}
+
+\section{Kết Luận \& Khuyến Nghị}
+
+\begin{enumerate}
+    \item \textbf{Sẵn sàng production}: 87.0\% accuracy, 11.6 ms độ trễ, ~86,000 req/s throughput trên một GPU laptop đáp ứng SLA moderation real-time.
+    \item \textbf{Mở rộng từ điển tiếng Anh} là cải thiện tác động cao nhất: 818 entries hiện tại so với 668 tiếng Việt tạo mất cân bằng (EN HATE F1 0.46 so với VI 0.61).
+    \item \textbf{Tinh chỉnh language detector}: Giảm tỷ lệ fallback \texttt{multilingual} (hiện 5.6\%) bằng cách hạ ngưỡng confidence hoặc thêm bước khôi phục dấu tiền xử lý cho tiếng Việt.
+    \item \textbf{Ngưỡng theo lớp}: \texttt{argmax} hiện tại đơn giản nhưng chưa tối ưu cho lớp mất cân bằng; ngưỡng per-class đóng băng trên validation có thể tăng +1--2\% macro F1.
+    \item \textbf{Checkpoint cho \texttt{mix}}: Huấn luyện checkpoint chuyên biệt code-mixed hoặc dùng mDeBERTa đa ngôn ngữ làm fallback cho \texttt{mix}/\texttt{multilingual} để tránh suy giảm rule-only.
+\end{enumerate}
+
+\section{Tính Tái Lặp (Reproducibility)}
+\label{sec:repro}
+
+\begin{verbatim}
+# Danh gia end-to-end (1000 mau tron)
+python scripts/54_end_to_end_eval.py --samples-per-lang 500 --seed 42
+
+# Outputs trong outputs/evaluation/end_to_end_1000/
+#   e2e_results.csv        (du doan + diem + do tre tung mau)
+#   metrics.json           (chi so tong hop + confusion matrix + AUC)
+#   per_language_metrics.csv
+#   latency_summary.csv
+#   report.md
+\end{verbatim}
+
+\medskip
+\textbf{Checkpoint sử dụng:}
+\begin{itemize}
+    \item VI:
+          \texttt{outputs/reports/sensitiveai-vi-custom-curriculum/run\_002/best\_model}
+          (custom head)
+    \item EN: \texttt{outputs/reports/sensitiveai-en-stage2/run\_001/best\_model}
+          (standard head)
+\end{itemize}
+
+\medskip
+\textbf{Rule engines:}
+\begin{itemize}
+    \item VI: \texttt{configs/rule\_engine.yaml} $\rightarrow$
+          \texttt{data/processed/lexicon/verified\_lexicon.csv} (668 entries, v1)
+    \item EN: \texttt{configs/rule\_engine\_en.yaml} $\rightarrow$
+          \texttt{data/processed/lexicon/verified\_lexicon\_en\_combined.csv} (818
+          entries, v1-en-combined)
+\end{itemize}
+
+\medskip
+\textbf{Cấu hình fusion:} \texttt{configs/language\_router.yaml} ($\alpha=0.70$ cho vi/en/mix/multilingual).
+
+\vfill
+\begin{center}
+    \textit{--- Kết Thúc Báo Cáo ---}
+\end{center}
+
+\end{document}

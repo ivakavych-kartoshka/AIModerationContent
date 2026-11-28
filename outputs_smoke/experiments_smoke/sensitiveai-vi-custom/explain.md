@@ -15,18 +15,23 @@ Cột **Trạng thái**: `đã chấm test` = có `metrics.json` · `đã train`
 
 | Run | Sửa lần cuối | Số epoch đã log | Best val macro F1 | Trạng thái |
 |---|---|---:|---|---|
-| `run_001` | 2026-10-04 12:47:05 | - | - | đã train |
+| `run_001` | 2026-10-17 01:00:08 | 1 | 0.3004 | đã train |
+| `run_002` | 2026-10-17 01:00:08 | 1 | 0.6804 | đã train |
+| `run_003` | 2026-10-17 01:00:08 | 1 | 0.6195 | đã train |
 
 Cột *Sửa lần cuối* là thời điểm sửa file trong thư mục run - dùng để biết lần chạy nào mới nhất.
 
 > Bảng này do `scripts/05_document_folders.py` sinh lại. Cần làm mới sau mỗi lần train: `python scripts/05_document_folders.py`
+
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `run_001` | thư mục | 3 file, 10.4 KB |
-| `explain.md` | file | 2.1 KB · 2026-10-04 12:58:19 |
+| `run_002` | thư mục | 3 file, 10.6 KB |
+| `run_003` | thư mục | 3 file, 10.5 KB |
+| `explain.md` | file | 2.3 KB · 2026-10-20 07:13:19 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:01. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

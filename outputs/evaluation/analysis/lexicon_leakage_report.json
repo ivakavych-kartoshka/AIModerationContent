@@ -1,0 +1,112 @@
+{
+  "results": [
+    {
+      "language": "vi",
+      "lexicon_file": "data/processed/lexicon/verified_lexicon.csv",
+      "lexicon_terms": 668,
+      "bad_source_split_rows": 0,
+      "source_split_counts": {
+        "train": 668
+      },
+      "source_datasets_counts": {
+        "bontori;vicm;vihsd": 414,
+        "bontori;vihsd": 95,
+        "bontori": 74,
+        "bontori;vicm": 65,
+        "vicm": 20
+      },
+      "lexical_labels": {
+        "HATE": 594,
+        "OFFENSIVE": 74
+      },
+      "exact_full_comment_matches": [
+        "bóng già",
+        "chó",
+        "lũ chó",
+        "mắc ói",
+        "nghễ",
+        "ngu thì",
+        "sao lon",
+        "súc vật",
+        "thằng chó",
+        "thối nát",
+        "tởm",
+        "xạo lồn",
+        "óc chó"
+      ],
+      "terms_fired_in_test_not_train": [],
+      "terms_not_fired_in_train": [
+        "asshole",
+        "brainwash",
+        "bull",
+        "critical",
+        "critical thinking",
+        "damm",
+        "damn",
+        "dick",
+        "downvote",
+        "eq",
+        "exploit",
+        "growoldwiththetrans",
+        "jerk",
+        "kasim",
+        "kl7",
+        "lazy",
+        "loser",
+        "m113",
+        "moron",
+        "nato",
+        "nuke",
+        "pussy",
+        "reddit",
+        "retard",
+        "shut",
+        "simp",
+        "skinship",
+        "snowflake",
+        "suck",
+        "thinking",
+        "ugly",
+        "upvote",
+        "woke",
+        "đ*o"
+      ]
+    },
+    {
+      "language": "en",
+      "lexicon_file": "data/processed/lexicon/verified_lexicon_en_combined.csv",
+      "lexicon_terms": 818,
+      "bad_source_split_rows": 0,
+      "source_split_counts": {
+        "train": 778,
+        "manual": 40
+      },
+      "source_datasets_counts": {
+        "davidson": 778,
+        "seed": 40
+      },
+      "lexical_labels": {
+        "OFFENSIVE": 356,
+        "HATE": 86,
+        "CLEAN": 376
+      },
+      "exact_full_comment_matches": [],
+      "terms_fired_in_test_not_train": [],
+      "terms_not_fired_in_train": [
+        "buckm",
+        "friendlyassh",
+        "i'm",
+        "jrise",
+        "koredeb",
+        "kys",
+        "msoltan",
+        "pattism",
+        "racistnegro",
+        "sleepinggiant",
+        "stacydmomof",
+        "stblocjeremiah",
+        "titan"
+      ]
+    }
+  ]
+}

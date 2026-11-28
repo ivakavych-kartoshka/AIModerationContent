@@ -1,0 +1,38 @@
+{
+  "nb only": {
+    "delta": 0.022719,
+    "ci": [
+      0.001289,
+      0.043801
+    ],
+    "p_value": 0.0368,
+    "right": 234,
+    "wrong": 92,
+    "mcnemar_p": 0.0,
+    "significant_95": true
+  },
+  "current + nb": {
+    "delta": 0.004167,
+    "ci": [
+      -0.016849,
+      0.024714
+    ],
+    "p_value": 0.7024,
+    "right": 229,
+    "wrong": 91,
+    "mcnemar_p": 0.0,
+    "significant_95": false
+  },
+  "nb multilabel only": {
+    "delta": -0.005692,
+    "ci": [
+      -0.035887,
+      0.024522
+    ],
+    "p_value": 0.7078,
+    "right": 410,
+    "wrong": 126,
+    "mcnemar_p": 0.0,
+    "significant_95": false
+  }
+}

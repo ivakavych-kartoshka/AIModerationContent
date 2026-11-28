@@ -1,0 +1,74 @@
+{
+  "accuracy": 0.8612275449101796,
+  "HATE_precision": 0.5975103734439834,
+  "HATE_recall": 0.4186046511627907,
+  "HATE_f1": 0.49230769230769234,
+  "HATE_support": 688,
+  "OFFENSIVE_precision": 0.38436482084690554,
+  "OFFENSIVE_recall": 0.26576576576576577,
+  "OFFENSIVE_f1": 0.31424766977363516,
+  "OFFENSIVE_support": 444,
+  "CLEAN_precision": 0.9076557460533017,
+  "CLEAN_recall": 0.9637707281903388,
+  "CLEAN_f1": 0.934871929364455,
+  "CLEAN_support": 5548,
+  "macro_precision": 0.6298436467813969,
+  "macro_recall": 0.5493803817062984,
+  "macro_f1": 0.5804757638152608,
+  "weighted_f1": 0.848039389491195,
+  "confusion_matrix": [
+    [
+      288,
+      107,
+      293
+    ],
+    [
+      75,
+      118,
+      251
+    ],
+    [
+      119,
+      82,
+      5347
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.4186046511627907,
+      0.1555232558139535,
+      0.4258720930232558
+    ],
+    [
+      0.16891891891891891,
+      0.26576576576576577,
+      0.5653153153153153
+    ],
+    [
+      0.021449170872386444,
+      0.014780100937274693,
+      0.9637707281903388
+    ]
+  ],
+  "HATE_roc_auc": 0.8111134613593319,
+  "HATE_average_precision": 0.5254333500572204,
+  "OFFENSIVE_roc_auc": 0.649283945587666,
+  "OFFENSIVE_average_precision": 0.1772008729382835,
+  "CLEAN_roc_auc": 0.7959245333370697,
+  "CLEAN_average_precision": 0.9255231482832827,
+  "macro_roc_auc": 0.7521073134280224,
+  "macro_average_precision": 0.5427191237595955,
+  "micro_roc_auc": 0.9345079321148122,
+  "micro_average_precision": 0.8743273755201123,
+  "split": "test",
+  "config": "configs/rule_engine_nb.yaml",
+  "lexicon": "outputs/lexicon_experiments/nb_multilabel/lexicon_nb_best.csv",
+  "dictionary_version": "nb-multilabel-2026-10-20",
+  "thresholds": {
+    "HATE": 0.75,
+    "OFFENSIVE": 0.24,
+    "CLEAN": 0.73
+  },
+  "objective": "frozen",
+  "n_lexicon_entries": 1155
+}

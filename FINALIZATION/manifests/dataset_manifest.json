@@ -1,0 +1,29 @@
+{
+  "name": "UIT-ViHSD fixed split",
+  "train": {
+    "rows": 24046,
+    "sha256": "f705ffe94d41f496f3f7e3f1355c6e818d4b30291ce559621099ef2b48889244"
+  },
+  "validation": {
+    "rows": 2672,
+    "sha256": "6aa552aafb9247580558c59abf02fc3725d3c9de4dc622523651082e8a585353"
+  },
+  "test": {
+    "rows": 6680,
+    "distinct_texts": 6571,
+    "duplicated_rows": 109,
+    "sha256": "d8f9ae7ddd8ced908c8cfae8e6a7a7b61dd63849cc225346829f7ca6de28729b",
+    "label_distribution": {
+      "HATE": 688,
+      "OFFENSIVE": 444,
+      "CLEAN": 5548
+    }
+  },
+  "cross_corpus_leakage": {
+    "vhsd_exact_duplicates_across_splits": 895,
+    "bontori_train_distinct_vhsd_test_texts": 620,
+    "bontori_train_rows_with_vhsd_test_text": 679,
+    "toxic_texts_in_overlap": 72,
+    "vicm_train_overlap_distinct_texts": 2
+  }
+}

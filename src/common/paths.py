@@ -222,6 +222,30 @@ def resolve_encoder_checkpoint(configured: str | Path | None) -> Optional[Path]:
     )
 
 
+def checkpoint_has_weights(path: str | Path) -> bool:
+    """Return ``True`` when ``path`` holds a loadable model checkpoint.
+
+    A checkpoint directory produced by this project is only usable when it
+    contains the actual weight tensors, not just ``config.json`` / tokenizer
+    files (a run whose saving was interrupted can leave such a shell behind).
+    Both head types are handled: a custom-head checkpoint carries
+    ``sensitiveai_config.json`` + ``head.safetensors`` + an ``encoder/``
+    subdirectory with its own weights, a standard checkpoint carries the HF
+    weights directly at its root.
+    """
+    p = Path(path)
+    if not p.is_dir():
+        return False
+    if (p / "sensitiveai_config.json").is_file():
+        encoder_dir = p / "encoder"
+        encoder_ok = encoder_dir.is_dir() and any(
+            q.suffix in {".safetensors", ".bin"} for q in encoder_dir.iterdir()
+        )
+        return (p / "head.safetensors").is_file() and encoder_ok
+    # standard Hugging Face checkpoint
+    return any(q.suffix in {".safetensors", ".bin"} for q in p.iterdir())
+
+
 def ensure_dir(path: str | Path) -> Path:
     p = Path(path)
     p.mkdir(parents=True, exist_ok=True)

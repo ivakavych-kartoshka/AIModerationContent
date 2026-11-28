@@ -1,0 +1,24 @@
+{
+  "original": {
+    "path": "data/processed/lexicon/verified_lexicon.csv",
+    "entries": 668,
+    "sha256": "b4c5edadb6c7a9e979d8dda92212ee67ccdb48ad649fdff065f346af8b210c3b"
+  },
+  "leakage_free": {
+    "path": "data/processed/lexicon/leakage_free/verified_lexicon.csv",
+    "entries": 671,
+    "sha256": "251652318d4e47732df159e70037c15d9d3b4b15aca57af64fc5b6c823eeaefd"
+  },
+  "changes": {
+    "added": 3,
+    "removed": 0,
+    "label_changes": 1,
+    "changed_term": "ch?ch (OFFENSIVE -> HATE)"
+  },
+  "source_splits": [
+    "ViHSD train",
+    "R-ViHSD train",
+    "ViCM train"
+  ],
+  "leakage_note": "bontori train contains 620 distinct ViHSD test texts; leakage-free lexicon created. Standalone tuned rule engine with leak-free lexicon: validation macro-F1 0.4545, test macro-F1 0.4562; original validation macro-F1 0.5428, test macro-F1 0.5258 under validation-tuned thresholds."
+}

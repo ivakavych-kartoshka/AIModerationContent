@@ -1,0 +1,1420 @@
+{
+  "model": "sensitiveai-vi-custom-curriculum",
+  "checkpoint": "outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_002\\best_model",
+  "protocol": "alphas + thresholds selected on validation, frozen before the single test pass",
+  "n_validation": 2672,
+  "n_test": 6680,
+  "alpha_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95,
+    1.0
+  ],
+  "global_alpha": 0.6,
+  "global_thresholds": {
+    "HATE": 0.33,
+    "OFFENSIVE": 0.56,
+    "CLEAN": 0.52
+  },
+  "per_channel_alphas": [
+    0.2,
+    0.8,
+    1.0
+  ],
+  "per_channel_thresholds": {
+    "HATE": 0.17,
+    "OFFENSIVE": 0.67,
+    "CLEAN": 0.16
+  },
+  "ai_only_thresholds": {
+    "HATE": 0.5,
+    "OFFENSIVE": 0.0,
+    "CLEAN": 0.5
+  },
+  "validation": {
+    "global": {
+      "alpha": 0.6,
+      "trace": [
+        {
+          "alpha": 0.0,
+          "macro_f1": 0.475845,
+          "accuracy": 0.836452,
+          "HATE_f1": 0.509402,
+          "OFFENSIVE_f1": 0.0,
+          "CLEAN_f1": 0.918134
+        },
+        {
+          "alpha": 0.1,
+          "macro_f1": 0.486386,
+          "accuracy": 0.839072,
+          "HATE_f1": 0.512111,
+          "OFFENSIVE_f1": 0.027523,
+          "CLEAN_f1": 0.919525
+        },
+        {
+          "alpha": 0.2,
+          "macro_f1": 0.490398,
+          "accuracy": 0.840943,
+          "HATE_f1": 0.513986,
+          "OFFENSIVE_f1": 0.036697,
+          "CLEAN_f1": 0.920509
+        },
+        {
+          "alpha": 0.3,
+          "macro_f1": 0.498864,
+          "accuracy": 0.84768,
+          "HATE_f1": 0.526508,
+          "OFFENSIVE_f1": 0.045662,
+          "CLEAN_f1": 0.924421
+        },
+        {
+          "alpha": 0.4,
+          "macro_f1": 0.52574,
+          "accuracy": 0.856662,
+          "HATE_f1": 0.550943,
+          "OFFENSIVE_f1": 0.096491,
+          "CLEAN_f1": 0.929786
+        },
+        {
+          "alpha": 0.5,
+          "macro_f1": 0.596442,
+          "accuracy": 0.864521,
+          "HATE_f1": 0.562637,
+          "OFFENSIVE_f1": 0.295302,
+          "CLEAN_f1": 0.931387
+        },
+        {
+          "alpha": 0.6,
+          "macro_f1": 0.696455,
+          "accuracy": 0.878743,
+          "HATE_f1": 0.645283,
+          "OFFENSIVE_f1": 0.501193,
+          "CLEAN_f1": 0.94289
+        },
+        {
+          "alpha": 0.7,
+          "macro_f1": 0.695715,
+          "accuracy": 0.877994,
+          "HATE_f1": 0.646729,
+          "OFFENSIVE_f1": 0.49763,
+          "CLEAN_f1": 0.942786
+        },
+        {
+          "alpha": 0.8,
+          "macro_f1": 0.694872,
+          "accuracy": 0.877246,
+          "HATE_f1": 0.64684,
+          "OFFENSIVE_f1": 0.495283,
+          "CLEAN_f1": 0.942492
+        },
+        {
+          "alpha": 0.9,
+          "macro_f1": 0.694307,
+          "accuracy": 0.876123,
+          "HATE_f1": 0.64825,
+          "OFFENSIVE_f1": 0.492958,
+          "CLEAN_f1": 0.941714
+        },
+        {
+          "alpha": 0.95,
+          "macro_f1": 0.694307,
+          "accuracy": 0.876123,
+          "HATE_f1": 0.64825,
+          "OFFENSIVE_f1": 0.492958,
+          "CLEAN_f1": 0.941714
+        },
+        {
+          "alpha": 1.0,
+          "macro_f1": 0.694278,
+          "accuracy": 0.875749,
+          "HATE_f1": 0.650735,
+          "OFFENSIVE_f1": 0.490654,
+          "CLEAN_f1": 0.941446
+        }
+      ],
+      "thresholds": {
+        "objective": "macro_f1",
+        "search_space": {
+          "min": 0.0,
+          "max": 1.0,
+          "grid_size": 101
+        },
+        "coordinate_rounds": 3,
+        "initial_threshold": 0.5,
+        "thresholds": {
+          "HATE": 0.33,
+          "OFFENSIVE": 0.56,
+          "CLEAN": 0.52
+        },
+        "threshold_list": [
+          0.33,
+          0.56,
+          0.52
+        ],
+        "objective_before": 0.696455,
+        "objective_after": 0.702031,
+        "validation_macro_f1_with_thresholds": 0.7020306865606658,
+        "validation_accuracy_with_thresholds": 0.8802395209580839,
+        "validation_macro_f1_with_argmax": 0.6964553278722887,
+        "trace": [
+          {
+            "round": 0,
+            "label": "init",
+            "threshold": 0.5,
+            "objective": 0.6964553278722887
+          },
+          {
+            "round": 1,
+            "label": "HATE",
+            "threshold": 0.33,
+            "objective": 0.6978091213249179
+          },
+          {
+            "round": 1,
+            "label": "OFFENSIVE",
+            "threshold": 0.56,
+            "objective": 0.7015319676401773
+          },
+          {
+            "round": 1,
+            "label": "CLEAN",
+            "threshold": 0.52,
+            "objective": 0.7020306865606658
+          },
+          {
+            "round": 2,
+            "label": "HATE",
+            "threshold": 0.33,
+            "objective": 0.7020306865606658
+          },
+          {
+            "round": 2,
+            "label": "OFFENSIVE",
+            "threshold": 0.56,
+            "objective": 0.7020306865606658
+          },
+          {
+            "round": 2,
+            "label": "CLEAN",
+            "threshold": 0.52,
+            "objective": 0.7020306865606658
+          }
+        ],
+        "note": "Optimised on the validation split only; frozen before test evaluation.",
+        "alpha": 0.6
+      }
+    },
+    "per_channel": {
+      "alphas": [
+        0.2,
+        0.8,
+        1.0
+      ],
+      "trace": [
+        {
+          "round": 0,
+          "channel": "init",
+          "alpha": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "macro_f1": 0.694278
+        },
+        {
+          "round": 1,
+          "channel": "all",
+          "alpha": [
+            0.2,
+            0.8,
+            1.0
+          ],
+          "macro_f1": 0.698723
+        },
+        {
+          "round": 2,
+          "channel": "all",
+          "alpha": [
+            0.2,
+            0.8,
+            1.0
+          ],
+          "macro_f1": 0.698723
+        }
+      ],
+      "thresholds": {
+        "objective": "macro_f1",
+        "search_space": {
+          "min": 0.0,
+          "max": 1.0,
+          "grid_size": 101
+        },
+        "coordinate_rounds": 3,
+        "initial_threshold": 0.5,
+        "thresholds": {
+          "HATE": 0.17,
+          "OFFENSIVE": 0.67,
+          "CLEAN": 0.16
+        },
+        "threshold_list": [
+          0.17,
+          0.67,
+          0.16
+        ],
+        "objective_before": 0.698723,
+        "objective_after": 0.702719,
+        "validation_macro_f1_with_thresholds": 0.7027193103915792,
+        "validation_accuracy_with_thresholds": 0.8806137724550899,
+        "validation_macro_f1_with_argmax": 0.6987233067368109,
+        "trace": [
+          {
+            "round": 0,
+            "label": "init",
+            "threshold": 0.5,
+            "objective": 0.6987233067368109
+          },
+          {
+            "round": 1,
+            "label": "HATE",
+            "threshold": 0.5,
+            "objective": 0.6987233067368109
+          },
+          {
+            "round": 1,
+            "label": "OFFENSIVE",
+            "threshold": 0.67,
+            "objective": 0.6999611371834558
+          },
+          {
+            "round": 1,
+            "label": "CLEAN",
+            "threshold": 0.16,
+            "objective": 0.7008897326343467
+          },
+          {
+            "round": 2,
+            "label": "HATE",
+            "threshold": 0.17,
+            "objective": 0.7027193103915792
+          },
+          {
+            "round": 2,
+            "label": "OFFENSIVE",
+            "threshold": 0.67,
+            "objective": 0.7027193103915792
+          },
+          {
+            "round": 2,
+            "label": "CLEAN",
+            "threshold": 0.16,
+            "objective": 0.7027193103915792
+          },
+          {
+            "round": 3,
+            "label": "HATE",
+            "threshold": 0.17,
+            "objective": 0.7027193103915792
+          },
+          {
+            "round": 3,
+            "label": "OFFENSIVE",
+            "threshold": 0.67,
+            "objective": 0.7027193103915792
+          },
+          {
+            "round": 3,
+            "label": "CLEAN",
+            "threshold": 0.16,
+            "objective": 0.7027193103915792
+          }
+        ],
+        "note": "Optimised on the validation split only; frozen before test evaluation.",
+        "alphas": [
+          0.2,
+          0.8,
+          1.0
+        ]
+      }
+    },
+    "ai_only_thresholds": {
+      "objective": "macro_f1",
+      "search_space": {
+        "min": 0.0,
+        "max": 1.0,
+        "grid_size": 101
+      },
+      "coordinate_rounds": 3,
+      "initial_threshold": 0.5,
+      "thresholds": {
+        "HATE": 0.5,
+        "OFFENSIVE": 0.0,
+        "CLEAN": 0.5
+      },
+      "threshold_list": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "objective_before": 0.694278,
+      "objective_after": 0.695523,
+      "validation_macro_f1_with_thresholds": 0.6955229118139409,
+      "validation_accuracy_with_thresholds": 0.876122754491018,
+      "validation_macro_f1_with_argmax": 0.6942783541322233,
+      "trace": [
+        {
+          "round": 0,
+          "label": "init",
+          "threshold": 0.5,
+          "objective": 0.6942783541322233
+        },
+        {
+          "round": 1,
+          "label": "HATE",
+          "threshold": 0.5,
+          "objective": 0.6942783541322233
+        },
+        {
+          "round": 1,
+          "label": "OFFENSIVE",
+          "threshold": 0.0,
+          "objective": 0.6955229118139409
+        },
+        {
+          "round": 1,
+          "label": "CLEAN",
+          "threshold": 0.5,
+          "objective": 0.6955229118139409
+        },
+        {
+          "round": 2,
+          "label": "HATE",
+          "threshold": 0.5,
+          "objective": 0.6955229118139409
+        },
+        {
+          "round": 2,
+          "label": "OFFENSIVE",
+          "threshold": 0.0,
+          "objective": 0.6955229118139409
+        },
+        {
+          "round": 2,
+          "label": "CLEAN",
+          "threshold": 0.5,
+          "objective": 0.6955229118139409
+        }
+      ],
+      "note": "Optimised on the validation split only; frozen before test evaluation.",
+      "alpha": 1.0
+    }
+  },
+  "test": {
+    "ai_only_argmax": {
+      "n": 6680,
+      "accuracy": 0.8711,
+      "macro_f1": 0.6608,
+      "HATE_precision": 0.6324,
+      "HATE_recall": 0.6076,
+      "HATE_f1": 0.6197,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4222,
+      "OFFENSIVE_recall": 0.4279,
+      "OFFENSIVE_f1": 0.4251,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9357,
+      "CLEAN_recall": 0.9393,
+      "CLEAN_f1": 0.9375,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          418,
+          83,
+          187
+        ],
+        [
+          83,
+          190,
+          171
+        ],
+        [
+          160,
+          177,
+          5211
+        ]
+      ]
+    },
+    "ai_only_thresholds": {
+      "n": 6680,
+      "accuracy": 0.8711,
+      "macro_f1": 0.6607,
+      "HATE_precision": 0.6318,
+      "HATE_recall": 0.6061,
+      "HATE_f1": 0.6187,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4216,
+      "OFFENSIVE_recall": 0.4302,
+      "OFFENSIVE_f1": 0.4259,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9361,
+      "CLEAN_recall": 0.9393,
+      "CLEAN_f1": 0.9377,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          417,
+          85,
+          186
+        ],
+        [
+          83,
+          191,
+          170
+        ],
+        [
+          160,
+          177,
+          5211
+        ]
+      ]
+    },
+    "rule_only_argmax": {
+      "n": 6680,
+      "accuracy": 0.8494,
+      "macro_f1": 0.4714,
+      "HATE_precision": 0.469,
+      "HATE_recall": 0.5058,
+      "HATE_f1": 0.4867,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.0,
+      "OFFENSIVE_recall": 0.0,
+      "OFFENSIVE_f1": 0.0,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.8969,
+      "CLEAN_recall": 0.96,
+      "CLEAN_f1": 0.9274,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          348,
+          0,
+          340
+        ],
+        [
+          172,
+          0,
+          272
+        ],
+        [
+          222,
+          0,
+          5326
+        ]
+      ]
+    },
+    "rule_only_thresholds": {
+      "n": 6680,
+      "accuracy": 0.8421,
+      "macro_f1": 0.5258,
+      "HATE_precision": 0.625,
+      "HATE_recall": 0.3052,
+      "HATE_f1": 0.4102,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.2348,
+      "OFFENSIVE_recall": 0.2432,
+      "OFFENSIVE_f1": 0.2389,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9019,
+      "CLEAN_recall": 0.9566,
+      "CLEAN_f1": 0.9284,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          210,
+          160,
+          318
+        ],
+        [
+          77,
+          108,
+          259
+        ],
+        [
+          49,
+          192,
+          5307
+        ]
+      ]
+    },
+    "fusion_global_argmax": {
+      "n": 6680,
+      "accuracy": 0.8726,
+      "macro_f1": 0.6595,
+      "HATE_precision": 0.6368,
+      "HATE_recall": 0.5887,
+      "HATE_f1": 0.6118,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4332,
+      "OFFENSIVE_recall": 0.4234,
+      "OFFENSIVE_f1": 0.4282,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9333,
+      "CLEAN_recall": 0.9438,
+      "CLEAN_f1": 0.9385,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          405,
+          80,
+          203
+        ],
+        [
+          85,
+          188,
+          171
+        ],
+        [
+          146,
+          166,
+          5236
+        ]
+      ]
+    },
+    "fusion_global_thresholds": {
+      "n": 6680,
+      "accuracy": 0.8725,
+      "macro_f1": 0.659,
+      "HATE_precision": 0.6341,
+      "HATE_recall": 0.5945,
+      "HATE_f1": 0.6137,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4306,
+      "OFFENSIVE_recall": 0.4189,
+      "OFFENSIVE_f1": 0.4247,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.934,
+      "CLEAN_recall": 0.9432,
+      "CLEAN_f1": 0.9386,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          409,
+          80,
+          199
+        ],
+        [
+          87,
+          186,
+          171
+        ],
+        [
+          149,
+          166,
+          5233
+        ]
+      ]
+    },
+    "fusion_per_channel_argmax": {
+      "n": 6680,
+      "accuracy": 0.8722,
+      "macro_f1": 0.6597,
+      "HATE_precision": 0.6374,
+      "HATE_recall": 0.5901,
+      "HATE_f1": 0.6128,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4279,
+      "OFFENSIVE_recall": 0.4279,
+      "OFFENSIVE_f1": 0.4279,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9341,
+      "CLEAN_recall": 0.9427,
+      "CLEAN_f1": 0.9384,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          406,
+          82,
+          200
+        ],
+        [
+          85,
+          190,
+          169
+        ],
+        [
+          146,
+          172,
+          5230
+        ]
+      ]
+    },
+    "fusion_per_channel_thresholds": {
+      "n": 6680,
+      "accuracy": 0.8732,
+      "macro_f1": 0.6611,
+      "HATE_precision": 0.6364,
+      "HATE_recall": 0.5901,
+      "HATE_f1": 0.6124,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.4385,
+      "OFFENSIVE_recall": 0.4257,
+      "OFFENSIVE_f1": 0.432,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9335,
+      "CLEAN_recall": 0.9441,
+      "CLEAN_f1": 0.9388,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          406,
+          79,
+          203
+        ],
+        [
+          85,
+          189,
+          170
+        ],
+        [
+          147,
+          163,
+          5238
+        ]
+      ]
+    },
+    "meta_classifier": {
+      "n": 6680,
+      "accuracy": 0.865,
+      "macro_f1": 0.6597,
+      "HATE_precision": 0.5765,
+      "HATE_recall": 0.6628,
+      "HATE_f1": 0.6166,
+      "HATE_support": 688,
+      "OFFENSIVE_precision": 0.419,
+      "OFFENSIVE_recall": 0.4369,
+      "OFFENSIVE_f1": 0.4278,
+      "OFFENSIVE_support": 444,
+      "CLEAN_precision": 0.9451,
+      "CLEAN_recall": 0.9243,
+      "CLEAN_f1": 0.9346,
+      "CLEAN_support": 5548,
+      "confusion_matrix": [
+        [
+          456,
+          84,
+          148
+        ],
+        [
+          100,
+          194,
+          150
+        ],
+        [
+          235,
+          185,
+          5128
+        ]
+      ]
+    }
+  },
+  "significance": {
+    "hybrid_vs_ai_argmax": {
+      "a": "hybrid",
+      "b": "ai_argmax",
+      "delta_macro_f1": 0.0003,
+      "ci_low": -0.0052,
+      "ci_high": 0.0055,
+      "bootstrap_p": 0.9048,
+      "a_right_b_wrong": 39,
+      "a_wrong_b_right": 25,
+      "mcnemar_p": 0.1034,
+      "accuracy_a": 0.8732,
+      "accuracy_b": 0.8711
+    },
+    "hybrid_vs_ai_thresholds": {
+      "a": "hybrid",
+      "b": "ai_thresholds",
+      "delta_macro_f1": 0.0003,
+      "ci_low": -0.0053,
+      "ci_high": 0.0058,
+      "bootstrap_p": 0.9102,
+      "a_right_b_wrong": 40,
+      "a_wrong_b_right": 26,
+      "mcnemar_p": 0.1089,
+      "accuracy_a": 0.8732,
+      "accuracy_b": 0.8711
+    }
+  },
+  "calibration": {
+    "ai_only_argmax": {
+      "ece": 0.1143,
+      "brier": 0.2399,
+      "nll": 0.8309,
+      "mean_confidence": 0.9854,
+      "bins": [
+        {
+          "low": 0.0,
+          "high": 0.1,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.1,
+          "high": 0.2,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.2,
+          "high": 0.30000000000000004,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.30000000000000004,
+          "high": 0.4,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.4,
+          "high": 0.5,
+          "count": 3,
+          "confidence": 0.4581,
+          "accuracy": 0.3333
+        },
+        {
+          "low": 0.5,
+          "high": 0.6000000000000001,
+          "count": 44,
+          "confidence": 0.549,
+          "accuracy": 0.4091
+        },
+        {
+          "low": 0.6000000000000001,
+          "high": 0.7000000000000001,
+          "count": 46,
+          "confidence": 0.6487,
+          "accuracy": 0.5435
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "count": 65,
+          "confidence": 0.7459,
+          "accuracy": 0.4462
+        },
+        {
+          "low": 0.8,
+          "high": 0.9,
+          "count": 109,
+          "confidence": 0.8567,
+          "accuracy": 0.6422
+        },
+        {
+          "low": 0.9,
+          "high": 1.0,
+          "count": 6413,
+          "confidence": 0.9956,
+          "accuracy": 0.8851
+        }
+      ]
+    },
+    "hybrid_per_channel_thresholds": {
+      "ece": 0.0933,
+      "brier": 0.2301,
+      "nll": 0.8257,
+      "mean_confidence": 0.9402,
+      "bins": [
+        {
+          "low": 0.0,
+          "high": 0.1,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.1,
+          "high": 0.2,
+          "count": 202,
+          "confidence": 0.1892,
+          "accuracy": 0.5396
+        },
+        {
+          "low": 0.2,
+          "high": 0.30000000000000004,
+          "count": 15,
+          "confidence": 0.2528,
+          "accuracy": 0.6667
+        },
+        {
+          "low": 0.30000000000000004,
+          "high": 0.4,
+          "count": 35,
+          "confidence": 0.3525,
+          "accuracy": 0.4571
+        },
+        {
+          "low": 0.4,
+          "high": 0.5,
+          "count": 30,
+          "confidence": 0.4441,
+          "accuracy": 0.5333
+        },
+        {
+          "low": 0.5,
+          "high": 0.6000000000000001,
+          "count": 34,
+          "confidence": 0.5529,
+          "accuracy": 0.5882
+        },
+        {
+          "low": 0.6000000000000001,
+          "high": 0.7000000000000001,
+          "count": 56,
+          "confidence": 0.6612,
+          "accuracy": 0.4286
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "count": 518,
+          "confidence": 0.7858,
+          "accuracy": 0.4595
+        },
+        {
+          "low": 0.8,
+          "high": 0.9,
+          "count": 183,
+          "confidence": 0.8505,
+          "accuracy": 0.7049
+        },
+        {
+          "low": 0.9,
+          "high": 1.0,
+          "count": 5607,
+          "confidence": 0.9977,
+          "accuracy": 0.9388
+        }
+      ]
+    },
+    "uniform_mix_global_0.70": {
+      "ece": 0.0871,
+      "brier": 0.2326,
+      "nll": 0.4754,
+      "mean_confidence": 0.7898,
+      "bins": [
+        {
+          "low": 0.0,
+          "high": 0.1,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.1,
+          "high": 0.2,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.2,
+          "high": 0.30000000000000004,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.30000000000000004,
+          "high": 0.4,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.4,
+          "high": 0.5,
+          "count": 37,
+          "confidence": 0.4718,
+          "accuracy": 0.3784
+        },
+        {
+          "low": 0.5,
+          "high": 0.6000000000000001,
+          "count": 70,
+          "confidence": 0.5559,
+          "accuracy": 0.5
+        },
+        {
+          "low": 0.6000000000000001,
+          "high": 0.7000000000000001,
+          "count": 105,
+          "confidence": 0.6565,
+          "accuracy": 0.5429
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "count": 6468,
+          "confidence": 0.7963,
+          "accuracy": 0.8833
+        },
+        {
+          "low": 0.8,
+          "high": 0.9,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.9,
+          "high": 1.0,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        }
+      ]
+    },
+    "uniform_mix_per_channel": {
+      "ece": 0.0941,
+      "brier": 0.2698,
+      "nll": 0.439,
+      "mean_confidence": 0.9299,
+      "bins": [
+        {
+          "low": 0.0,
+          "high": 0.1,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.1,
+          "high": 0.2,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.2,
+          "high": 0.30000000000000004,
+          "count": 0,
+          "confidence": 0.0,
+          "accuracy": 0.0
+        },
+        {
+          "low": 0.30000000000000004,
+          "high": 0.4,
+          "count": 16,
+          "confidence": 0.3907,
+          "accuracy": 0.5
+        },
+        {
+          "low": 0.4,
+          "high": 0.5,
+          "count": 648,
+          "confidence": 0.4554,
+          "accuracy": 0.6373
+        },
+        {
+          "low": 0.5,
+          "high": 0.6000000000000001,
+          "count": 33,
+          "confidence": 0.5474,
+          "accuracy": 0.4242
+        },
+        {
+          "low": 0.6000000000000001,
+          "high": 0.7000000000000001,
+          "count": 29,
+          "confidence": 0.6566,
+          "accuracy": 0.4483
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "count": 41,
+          "confidence": 0.7454,
+          "accuracy": 0.4634
+        },
+        {
+          "low": 0.8,
+          "high": 0.9,
+          "count": 459,
+          "confidence": 0.8617,
+          "accuracy": 0.4575
+        },
+        {
+          "low": 0.9,
+          "high": 1.0,
+          "count": 5454,
+          "confidence": 0.9987,
+          "accuracy": 0.9433
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "changed": 76,
+    "corrections": 51,
+    "regressions": 25,
+    "transitions": {
+      "HATE->CLEAN": 42,
+      "OFFENSIVE->CLEAN": 11,
+      "CLEAN->HATE": 11,
+      "OFFENSIVE->HATE": 10,
+      "HATE->OFFENSIVE": 2
+    },
+    "corrections_by_rule_direction": {
+      "HATE": 17,
+      "OFFENSIVE": 1,
+      "silent": 33
+    },
+    "regressions_by_rule_direction": {
+      "HATE": 8,
+      "OFFENSIVE": 0,
+      "silent": 17
+    },
+    "hate_recoveries": 15,
+    "hate_recoveries_with_rule_hate_direction": 15,
+    "median_rule_hate_on_hate_recoveries": 0.7919,
+    "clean_deflag": 34,
+    "clean_deflag_with_silent_rule": 31
+  },
+  "rule_stats": {
+    "silent_fraction": 0.8425,
+    "non_silent_fraction": 0.1575,
+    "hate_direction_fraction": 0.151,
+    "offensive_direction_fraction": 0.0064
+  },
+  "surface_strata": {
+    "ai_only_argmax": {
+      "emoji": {
+        "count": 974,
+        "accuracy": 0.9127310061601642,
+        "macro_f1": 0.6297601874528528,
+        "per_class": {
+          "HATE": {
+            "support": 54,
+            "recall": 0.46296296296296297
+          },
+          "OFFENSIVE": {
+            "support": 49,
+            "recall": 0.3877551020408163
+          },
+          "CLEAN": {
+            "support": 871,
+            "recall": 0.9701492537313433
+          }
+        }
+      },
+      "no_diacritics": {
+        "count": 370,
+        "accuracy": 0.8189189189189189,
+        "macro_f1": 0.571304731752493,
+        "per_class": {
+          "HATE": {
+            "support": 47,
+            "recall": 0.48936170212765956
+          },
+          "OFFENSIVE": {
+            "support": 26,
+            "recall": 0.2692307692307692
+          },
+          "CLEAN": {
+            "support": 297,
+            "recall": 0.9191919191919192
+          }
+        }
+      },
+      "repeat_chars": {
+        "count": 997,
+        "accuracy": 0.880641925777332,
+        "macro_f1": 0.7055935525651179,
+        "per_class": {
+          "HATE": {
+            "support": 104,
+            "recall": 0.6826923076923077
+          },
+          "OFFENSIVE": {
+            "support": 57,
+            "recall": 0.5614035087719298
+          },
+          "CLEAN": {
+            "support": 836,
+            "recall": 0.9270334928229665
+          }
+        }
+      },
+      "teencode": {
+        "count": 1039,
+        "accuracy": 0.8498556304138595,
+        "macro_f1": 0.6612134595487746,
+        "per_class": {
+          "HATE": {
+            "support": 117,
+            "recall": 0.5555555555555556
+          },
+          "OFFENSIVE": {
+            "support": 78,
+            "recall": 0.5256410256410257
+          },
+          "CLEAN": {
+            "support": 844,
+            "recall": 0.9206161137440758
+          }
+        }
+      },
+      "very_long": {
+        "count": 145,
+        "accuracy": 0.7517241379310344,
+        "macro_f1": 0.5183662280701754,
+        "per_class": {
+          "HATE": {
+            "support": 54,
+            "recall": 0.9074074074074074
+          },
+          "OFFENSIVE": {
+            "support": 7,
+            "recall": 0.0
+          },
+          "CLEAN": {
+            "support": 84,
+            "recall": 0.7142857142857143
+          }
+        }
+      },
+      "very_short": {
+        "count": 1852,
+        "accuracy": 0.9200863930885529,
+        "macro_f1": 0.7232975743320571,
+        "per_class": {
+          "HATE": {
+            "support": 76,
+            "recall": 0.6447368421052632
+          },
+          "OFFENSIVE": {
+            "support": 131,
+            "recall": 0.5267175572519084
+          },
+          "CLEAN": {
+            "support": 1645,
+            "recall": 0.9641337386018237
+          }
+        }
+      },
+      "with_diacritics": {
+        "count": 6114,
+        "accuracy": 0.8717697088649002,
+        "macro_f1": 0.6638596707296118,
+        "per_class": {
+          "HATE": {
+            "support": 637,
+            "recall": 0.6169544740973313
+          },
+          "OFFENSIVE": {
+            "support": 404,
+            "recall": 0.43316831683168316
+          },
+          "CLEAN": {
+            "support": 5073,
+            "recall": 0.938695052237335
+          }
+        }
+      }
+    },
+    "hybrid": {
+      "emoji": {
+        "count": 974,
+        "accuracy": 0.9158110882956879,
+        "macro_f1": 0.623695480873391,
+        "per_class": {
+          "HATE": {
+            "support": 54,
+            "recall": 0.42592592592592593
+          },
+          "OFFENSIVE": {
+            "support": 49,
+            "recall": 0.3673469387755102
+          },
+          "CLEAN": {
+            "support": 871,
+            "recall": 0.9770378874856487
+          }
+        }
+      },
+      "no_diacritics": {
+        "count": 370,
+        "accuracy": 0.8351351351351352,
+        "macro_f1": 0.6088673746510699,
+        "per_class": {
+          "HATE": {
+            "support": 47,
+            "recall": 0.48936170212765956
+          },
+          "OFFENSIVE": {
+            "support": 26,
+            "recall": 0.34615384615384615
+          },
+          "CLEAN": {
+            "support": 297,
+            "recall": 0.9326599326599326
+          }
+        }
+      },
+      "repeat_chars": {
+        "count": 997,
+        "accuracy": 0.8856569709127382,
+        "macro_f1": 0.7070591635140816,
+        "per_class": {
+          "HATE": {
+            "support": 104,
+            "recall": 0.6730769230769231
+          },
+          "OFFENSIVE": {
+            "support": 57,
+            "recall": 0.543859649122807
+          },
+          "CLEAN": {
+            "support": 836,
+            "recall": 0.9354066985645934
+          }
+        }
+      },
+      "teencode": {
+        "count": 1039,
+        "accuracy": 0.8517805582290664,
+        "macro_f1": 0.6585058999856321,
+        "per_class": {
+          "HATE": {
+            "support": 117,
+            "recall": 0.5384615384615384
+          },
+          "OFFENSIVE": {
+            "support": 78,
+            "recall": 0.5128205128205128
+          },
+          "CLEAN": {
+            "support": 844,
+            "recall": 0.9265402843601895
+          }
+        }
+      },
+      "very_long": {
+        "count": 145,
+        "accuracy": 0.7517241379310344,
+        "macro_f1": 0.5160377680062719,
+        "per_class": {
+          "HATE": {
+            "support": 54,
+            "recall": 0.8888888888888888
+          },
+          "OFFENSIVE": {
+            "support": 7,
+            "recall": 0.0
+          },
+          "CLEAN": {
+            "support": 84,
+            "recall": 0.7261904761904762
+          }
+        }
+      },
+      "very_short": {
+        "count": 1852,
+        "accuracy": 0.92170626349892,
+        "macro_f1": 0.728048024213031,
+        "per_class": {
+          "HATE": {
+            "support": 76,
+            "recall": 0.6447368421052632
+          },
+          "OFFENSIVE": {
+            "support": 131,
+            "recall": 0.5267175572519084
+          },
+          "CLEAN": {
+            "support": 1645,
+            "recall": 0.9659574468085106
+          }
+        }
+      },
+      "with_diacritics": {
+        "count": 6114,
+        "accuracy": 0.8729146221786065,
+        "macro_f1": 0.6616246985196597,
+        "per_class": {
+          "HATE": {
+            "support": 637,
+            "recall": 0.598116169544741
+          },
+          "OFFENSIVE": {
+            "support": 404,
+            "recall": 0.42574257425742573
+          },
+          "CLEAN": {
+            "support": 5073,
+            "recall": 0.9430317366449833
+          }
+        }
+      }
+    }
+  },
+  "meta_coefficients": {
+    "features": [
+      "p_hate",
+      "p_offensive",
+      "p_clean",
+      "rule_hate",
+      "rule_offensive",
+      "rule_clean"
+    ],
+    "classes": [
+      "HATE",
+      "OFFENSIVE",
+      "CLEAN"
+    ],
+    "coef": [
+      [
+        1.1293,
+        -0.3912,
+        -0.7266,
+        0.5014,
+        0.1513,
+        -0.6412
+      ],
+      [
+        -0.1285,
+        0.9228,
+        -0.7876,
+        -0.0903,
+        0.2303,
+        -0.1333
+      ],
+      [
+        -1.0009,
+        -0.5316,
+        1.5142,
+        -0.4112,
+        -0.3815,
+        0.7745
+      ]
+    ],
+    "intercept": [
+      0.6494,
+      0.6542,
+      -1.3037
+    ]
+  }
+}

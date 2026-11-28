@@ -1,0 +1,117 @@
+\section{Results}
+
+\label{sec:results}
+
+\subsection{Model-selection context}
+
+We retain \texttt{sensitiveai-vi-custom} as a focused, exploratory case study for
+tracing decision provenance---a post-hoc analysis, not a confirmatory validation-based
+selection. The strongest standalone backbone by validation macro-F1 is
+\texttt{sensitiveai-vi-customdlr2stage} (70.89\%), also strongest on test (66.38\%), so
+the fusion results are not evidence that the focused backbone is best standalone.
+
+\subsection{The hybrid does not improve accuracy}
+
+\label{sec:no-accuracy-gain}
+
+Table~\ref{tab:fusion-variants} reports every variant. AI alone reaches 65.75\%
+macro-F1 and 87.62\% accuracy; the per-channel hybrid reaches 66.02\% and 87.74\%, a gain
+of 0.27\% and eight more correct comments (5{,}861 vs. 5{,}853), concentrated in
+\hate{}: F1 rises 58.30\% to 59.06\% via recall (53.34\% to 54.94\%) at a small precision
+cost (64.27\% to 63.85\%), while \off{} and \clean{} barely move.
+
+Per-channel weights add 0.10\% over a global weight (65.83\% to 65.93\%), thresholds
+a further 0.09\%. The logistic meta-classifier is worse than AI alone (65.13\%): six
+features on 2{,}672 validation comments overfit. Thresholds make the rule engine
+usable alone (52.58\% vs.\ 47.14\% with argmax).
+
+\input{tables/fusion_variants}
+
+Table~\ref{tab:precision-recall} gives precision and recall, overall (macro) and
+per label. The hybrid's \hate{} gain is recall-driven (53.34\% to 54.94\%) at a small
+precision cost (64.27\% to 63.85\%); macro precision rises 68.43\% to 68.74\% and macro
+recall 63.59\% to 63.83\%.
+
+\vspace{12pt}
+\input{tables/precision_recall}
+
+\vspace{6pt}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/results.pdf}
+\caption{Focused backbone. (a)\ Macro-F1 of each variant (dotted: AI-only).
+(b)\ Provenance of the 38 changed decisions. (c)\ Rule-channel coverage, precision
+when firing, recall on non-\clean{}, and false alarms on \clean{} (percentages).}
+\label{fig:results}
+\end{figure}
+
+\subsection{The difference is not distinguishable from zero}
+
+\label{sec:significance-results}
+
+Table~\ref{tab:backbones} makes the negative result explicit: for the focused
+backbone the paired-bootstrap difference is $+0.27\%$ (95\% CI $[-0.27,+0.79]\%$,
+$p=0.29$) and McNemar gives $b=15$, $c=23$, $p=0.26$. Every bootstrap interval
+across the four backbones contains zero. No multiple-comparison correction is
+applied; the four backbones are reported descriptively. Where McNemar reaches significance the sign
+flips (standard head loses 61/wins 30, $p=0.0015$; curriculum loses 8/wins 31,
+$p=0.0003$). The hybrid is \emph{accuracy-neutral} on average, but the effect is not uniform:
+the standard head loses significantly (61 wins/30 losses) and the curriculum backbone
+wins significantly (8 wins/31 losses), while the focused and two-stage backbones show
+no significant aggregate movement.
+
+\subsection{Stability across seeds}
+\label{sec:multi-seed}
+
+Table~\ref{tab:multi-seed} reports three seeds for the focused backbone. The
+AI-only macro-F1 ranges from 65.75\% to 67.17\% (mean 66.40\%, std 0.72\%), and
+the hybrid from 66.02\% to 66.76\% (mean 66.32\%, std 0.39\%). The gain is
++0.27\% on seed 42 but $-0.41\%$ and $-0.10\%$ on seeds 7 and 123 (mean
+$-0.08\%$, std 0.34\%), so the gain is not stable across seeds and the
++0.27\% headline is a seed-42 result.
+
+\begin{table}[ht]
+\centering
+\caption{Multi-seed stability of the focused backbone (macro-F1 and accuracy on
+test). The gain is seed-dependent.}
+\label{tab:multi-seed}
+\input{tables/multi_seed_preliminary_tabular}
+\end{table}
+
+
+\subsection{Stability of the six configurations across seeds}
+\label{sec:ablation-multi-seed}
+
+Table~\ref{tab:ablation-multi-seed} reports three seeds (42, 43, 44) for all six
+configurations. The macro-F1 means range from 65.74\% to 66.52\% with standard
+deviations below 1\%, confirming that the single-seed differences are small and not
+stable. The curriculum and two-stage variants retain the highest mean macro-F1, but
+no configuration is statistically separated from the others.
+
+\begin{table}[ht]
+\centering
+\caption{Multi-seed stability of the six configurations (test macro-F1 and
+accuracy, mean $\pm$ std over 3 seeds).}
+\label{tab:ablation-multi-seed}
+\input{tables/ablation_multi_seed_tabular}
+\end{table}
+
+\label{sec:rule-channel-results}
+
+The rule engine fires on 1{,}052 of 6{,}680 comments (15.75\%) at 58.75\% precision,
+recovers 54.59\% of non-\clean{} comments and fires on 7.82\% of \clean{} ones
+(Fig.~\ref{fig:results}c): Signals from the rule engine serve to supplement the evidence available to the model, rather than independently determining the classification outcome. Coverage is low by
+construction (multi-word, context-required phrases; validation zeroed the accent-less
+alias weight), so it matches near-canonical forms. Negation and accent-less matching
+were tuned to zero on validation because they increased false positives; re-enabling
+them did not improve macro-F1, so they remain disabled.
+
+\subsection{Leak-free sensitivity analysis}
+
+\label{sec:leak-free-sensitivity}
+
+With the 671-entry leak-free lexicon, the standalone rule engine reaches 53.98\%
+validation and 53.28\% test macro-F1. Leak-free fusion obtains 5{,}863 correct
+predictions, 23 corrections and 13 regressions (36 changes), macro-F1 66.12\%; the
+canonical setup gives 5{,}861 correct, 23 corrections and 15 regressions (38 changes),
+macro-F1 66.02\%. Separate sensitivity result, not the headline.

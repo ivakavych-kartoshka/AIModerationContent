@@ -25,25 +25,29 @@
 | `callbacks/` | Ghi CSV từng epoch, theo dõi best checkpoint, early stopping, điều phối stage. |
 | `training/` | Optimizer theo nhóm DLR, kế hoạch stage, vòng lặp train, CLI `run_experiment`. |
 | `evaluation/` | Chỉ số, đường cong, tìm threshold, benchmark tốc độ, biểu đồ, CLI đánh giá. |
+| `rule_engine/` | Rule engine từ vựng đứng độc lập: chuẩn hoá giữ offset, view chống ngụy trang, khớp từ điển và chấm điểm có bằng chứng (plan §35-39). |
 | `comparison/` | Gộp 4 model và sinh bảng + LaTeX cho paper. |
+
 
 ## Nội dung hiện có trên đĩa
 
 | Tên | Loại | Kích thước · sửa lần cuối |
 |---|---|---|
 | `__pycache__` | thư mục | 1 file, 272 B |
-| `callbacks` | thư mục | 11 file, 63.4 KB |
-| `common` | thư mục | 17 file, 190.4 KB |
-| `comparison` | thư mục | 5 file, 71.3 KB |
-| `data` | thư mục | 13 file, 98.4 KB |
-| `evaluation` | thư mục | 17 file, 199.5 KB |
+| `callbacks` | thư mục | 11 file, 67.1 KB |
+| `common` | thư mục | 17 file, 357.3 KB |
+| `comparison` | thư mục | 5 file, 77.5 KB |
+| `data` | thư mục | 29 file, 481.9 KB |
+| `evaluation` | thư mục | 21 file, 275.0 KB |
+| `fusion` | thư mục | 7 file, 106.0 KB |
 | `losses` | thư mục | 11 file, 59.4 KB |
-| `models` | thư mục | 7 file, 58.5 KB |
+| `models` | thư mục | 7 file, 58.8 KB |
 | `preprocessing` | thư mục | 5 file, 21.1 KB |
-| `training` | thư mục | 11 file, 141.1 KB |
+| `rule_engine` | thư mục | 17 file, 128.6 KB |
+| `training` | thư mục | 11 file, 164.8 KB |
 | `__init__.py` | file | 111 B · 2026-10-04 10:36:17 |
-| `explain.md` | file | 2.4 KB · 2026-10-04 12:58:19 |
+| `explain.md` | file | 2.7 KB · 2026-10-20 07:13:19 |
 
 ---
 
-_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-04 13:00:00. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

@@ -1,0 +1,84 @@
+\section{Provenance and Error Analysis}
+\label{sec:analysis}
+
+The aggregate result is neutral; the question is what the 38 changes consist of.
+
+\subsection{Corrections are rule-consistent, but the deciding factor is \clean{} confidence}
+\label{sec:corrections}
+
+Of the 23 corrections, 16 are \hate{} recoveries (7 from \off{}, 9 from \clean{}) and
+7 are \clean{} de-flagging cases. All 16 recoveries have a rule firing with a \hate{}
+score above the \off{} score, and the rule \hate{} score has median 76.52\% (mean
+75.07\%, range 23.51\%--99.39\%): the evidence is strong on average, though individual scores range down to 23.51\%.
+
+All 7 \clean{} de-flagging cases have a silent rule ($r_H=r_O=0$), so $f_H=0.2\,p_H$
+and $p_H\ge0.70$ is needed merely to reach $\tau_H=0.14$; a flagged \hate{} at
+$p_H\approx0.5$ ends at $f_H\approx0.10$ and falls back to \clean{}, whose channel keeps
+full neural weight. Silence acts only as a multiplicative prior on \hate{}. The
+alternative convention (silent rule contributes nothing) changes 30 decisions and
+raises macro-F1 to 66.14\% ($p=0.44$; McNemar $p=0.54$); it is undecided, so we keep
+the shipped convention for its net corrections ($+8$ vs.\ $+4$).
+
+\subsection{Regressions are rule-driven and directional}
+\label{sec:regressions}
+
+The 15 regressions split into 10 rule-driven and 5 threshold-driven cases, aligning
+perfectly with direction (Fig.~\ref{fig:results}b). In all 10 rule-driven cases (four
+\off{}$\to$\hate{}, six \clean{}$\to$\hate{}) the rule fires towards \hate{}, so fusion
+trusts lexical evidence over the neural label and the lexicon is wrong about
+intensity or target. The \off{} cases are the expected failure of a phrase lexicon:
+profanity used as an intensifier, not an attack. The \clean{} cases are false
+positives on non-abusive text; one is a political comment whose charged multi-word
+entry fires at $r_H=0.62$ while the transformer prefers \clean{} ($p_C=51.50\%$ vs.\
+$p_H=47.30\%$), but the \clean{} channel misses $\tau_C=0.60$ and the rule lifts $f_H$
+to $58.80\%$, far above $\tau_H=0.14$, so the decision goes to \hate{}. A lexicon
+entry's \emph{political} sensitivity can thus leak into moderation decisions
+(Sect.~\ref{sec:discussion}).
+
+The 5 threshold-driven regressions are the mirror image: the rule is silent, the
+fused \hate{} score is $0.2\,p_H$, and below $p_H\approx0.7$ the \hate{} channel no
+longer wins; two miss by exactly 0.1\% ($f_H=13.90\%$ vs.\ $\tau_H=0.14$). One
+mechanism ($\alpha_H=0.2$, $\tau_H=0.14$) thus produces 7 correct and 5 incorrect
+de-flagging decisions and cannot be removed without also removing the corrections.
+The decomposition is exhaustive---26 of 38 changes rule-driven, 12
+threshold-driven. The interpretability of the hybrid model does not rely on heatmaps; instead, it stems from the ability to explicitly identify which channel influenced the result, the direction of that influence, the specific text segments involved, and the magnitude of the impact. This applies only to the 16\% of comments where the rule fires; the remaining 84\% have no lexical span.
+
+\subsection{The corrections fusion does not make}
+\label{sec:missed}
+
+When examining aggregate metrics, instances where the rule engine detects no signal are indistinguishable from instances where a signal is detected but subsequently disregarded by the fusion mechanism. In our results, the latter occurred: the rule engine detected a signal, but the Transformer model held a high-confidence \clean{} classification---meaning the rule engine\textquotesingle s signal was insufficient to alter the final outcome. Among the 827 AI errors, 148 non-\clean{}
+comments have the rule firing in the correct direction and 151 \clean{} comments have
+it correctly silent, so the rule agrees with gold on 299 errors and fusion acts on 23
+of them (7.7\%). The remaining \textbf{132 missed corrections} are non-\clean{} cases
+where the rule already points right yet the hybrid is still wrong. Separately, 144 of
+the 151 silent-\clean{} errors stay wrong because the AI's \hate{} probability is high
+enough that even one fifth of it clears $\tau_H$.
+
+The 132 are not missed for weak evidence: their median rule \hate{} score is 76.09\%,
+indistinguishable from the 76.52\% median of corrected cases (minimum 23.51\%). The deciding factor is therefore not evidence strength but the \clean{} channel\textquotesingle s confidence. They are missed because
+the \clean{} channel keeps full AI weight, so a confidently wrong \clean{} cannot be
+outvoted (median fused \clean{} score 97\% for missed vs.\ 46\% for corrected).
+Evidence-gated fusion (Sect.~\ref{sec:implications}) would abstain, but we did not tune
+such a rule on test.
+
+\subsection{What the rule channel responds to}
+\label{sec:cue-taxonomy}
+
+The 16 \hate{} recoveries carry a multi-label cue taxonomy: ten teencode/abbreviated
+profanity, five standard-spelling profanity or animal slur, eight derogatory wording
+without profanity; categories overlap. The channel is not merely a profanity detector.
+
+Which components do the work? Only
+one switch matters: removing per-entry confidence costs 3.4\% standalone macro-F1
+(52.58\% to 49.14\%), almost all on \off{}; no other switch moves the engine by more
+than 0.8\%. Rescaling severity rewrites 1{,}046 rule scores yet changes no hybrid
+decision ($p=1.0$). Dropping obfuscation views trades recall for precision (firings
+1{,}052 $\to$ 779, precision 58.75\% $\to$ 69.58\%). Inside the hybrid no switch leaves noise ($|\Delta|\le0.12\%$).
+
+Table~\ref{tab:cases} shows five decisions. Case~1: two exact matches carry \hate{}
+from $p_H{=}0.19$ to $f_H{=}0.81$, past the 0.78 \clean{} channel. Case~2: \hate{} 0.01
+\emph{below} \off{}, but \off{} misses $\tau_O{=}0.66$ while \hate{} clears $\tau_H{=}0.14$.
+Case~3: silent rule, $f_H{=}0.2\,p_H$, fallback \clean{}. Cases~4--5: over-firing on
+profanity-as-interjection, and \hate{} missing $\tau_H$ by 0.1\%.
+
+\input{tables/case_studies}

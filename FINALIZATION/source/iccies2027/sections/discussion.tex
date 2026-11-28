@@ -1,0 +1,81 @@
+\section{Discussion}
+
+\label{sec:discussion}
+
+\subsection{What the hybrid is good for}
+
+These findings demonstrate that the hybrid mechanism is supported at the level of individual decisions: 38 out of 6{,}680 predictions were altered, and each change can be traced back to the specific channel that exerted influence, the direction of the shift, and the precise mechanism that triggered the change.
+
+\emph{Triage and accountability.} A queue can sort comments by whether the decision
+was rule-supported; a \hate{} decision with a matched span and $r_H=0.8$ is easier to
+defend. \emph{Editing and diagnosis.} Adding a slur variant is a configuration change,
+not retraining. The decomposition exists only because channels are separate: a
+monolithic classifier improving by 0.27\% could not say whether the change was lexical.
+
+\subsection{Why accuracy does not move}
+
+\label{sec:why-neutral}
+
+First, \emph{coverage is low}: the rule fires on 15.75\% of comments, so it can only
+change decisions in that subset. Second, \emph{the majority class dominates}: with
+83\% \clean{}, only 1{,}132 toxic comments can improve, and 38 changes is 3.4\% of that
+support. Third, \emph{tuning is safety-oriented}: protecting \clean{} and gating \hate{}
+on lexical support produces both the de-flagging and the missed corrections.
+Neutrality is a consequence of safety-oriented tuning on validation: the \clean{} channel keeps full weight, so the hybrid defaults to \clean{} unless lexical evidence is strong.
+
+\subsection{The directional asymmetry is a policy question}
+
+\label{sec:asymmetry}
+
+In a binary ``remove / keep'' framing the asymmetry of Sect.~\ref{sec:regressions} is
+a recall-oriented trade-off; in a three-class framing it is not, because an \off{}
+comment mislabelled as \hate{} can trigger a stronger sanction than warranted, and a
+political comment mislabelled as \hate{} is a different harm. That entry is a charged
+multi-word expression labelled \hate{} from co-occurrence, so the lexicon is not
+neutral---it encodes editorial judgments entering at weight 0.8. Deployments should
+separate \emph{profanity} from \emph{political} entries and weight them accordingly.
+
+\subsection{Design implications}
+
+\label{sec:implications}
+
+Four changes follow: (i) \textbf{evidence-gated fusion}---abstain or escalate when
+the rule fires strongly against a confident \clean{}; (ii) \textbf{separate thresholds
+per mechanism}, requiring $r_H\ge0.5$ before override; (iii) \textbf{per-class
+calibration} of the \clean{} channel; (iv) \textbf{human-in-the-loop} for the 804
+both-wrong comments.
+
+\subsection{Limitations}
+
+\label{sec:limitations}
+
+\paragraph{Single benchmark and language.}
+All results come from UIT-ViHSD \cite{luu2021vihsd} and Vietnamese. The lexicon and cue taxonomy are
+language-specific; the fusion protocol is not, but we have not tested it
+elsewhere.
+
+\paragraph{Cross-corpus overlap.}
+The audit in Sect.~\ref{sec:lexicon} found 895 overlapping test rows and motivated the
+671-entry leak-free lexicon re-evaluated in Sect.~\ref{sec:leak-free-sensitivity};
+this bounds, but does not eliminate, cross-corpus dependence.
+
+\paragraph{Repeated test texts.}
+The split has 6{,}680 rows but 6{,}571 distinct texts; one appears twice among the 15
+regressions. We retain all rows to preserve the split, but no deduplicated sensitivity
+analysis was available.
+
+\paragraph{The rule engine is weaker than designed.}
+Validation set the accent-less alias weight to zero and the negation factor to one,
+removing the main defence against dropped diacritics and the discount for negated slurs.
+
+\paragraph{Explanations are not evaluated by humans.}
+The evidence record is faithful for the lexical channel and decomposes changed
+decisions, but we do not measure reviewer usefulness; the cue taxonomy is post-hoc
+and unblinded.
+
+\subsection{Ethics}
+
+\label{sec:ethics}
+
+Comments are public UIT-ViHSD test comments, masked as described in Sect.~\ref{sec:data}.
+The system is decision support, not automatic sanctioning.

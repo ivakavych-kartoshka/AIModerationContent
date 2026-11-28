@@ -5,7 +5,7 @@
 
 > **Sinh ra bởi:** Các pipeline huấn luyện chính thức (scripts 01 -> 03).
 
-> **Quy tắc giữ lại:** **KHÔNG XÓA.** Mọi lần chạy đều tạo một thư mục riêng (`run_XXX`), nên không lần chạy nào ghi đè lần trước. Muốn dọn dung lượng thì copy ra nơi khác rồi mới xóa - không xóa tại chỗ.
+> **Quy tắc giữ lại:** **KHÔNG XÓA.** Mọi lần chạy đều tạo một thư mục riêng (`run_XXX` hoặc thư mục được `--reports-dir`/`--experiments-dir` trỏ tới), nên không lần chạy nào ghi đè lần trước. Muốn dọn dung lượng thì copy ra nơi khác rồi mới xóa - không xóa tại chỗ.
 
 ## Thư mục con và vai trò
 
@@ -15,3 +15,17 @@
 | `experiments/` | Checkpoints trung gian giữa các stage của mô hình đa giai đoạn. |
 | `evaluation/` | Log chấm điểm tổng hợp và bảng/biểu đồ so sánh 4 model. |
 | `paper/` | Bảng LaTeX và hình vẽ dùng cho bài báo. |
+
+
+## Nội dung hiện có trên đĩa
+
+| Tên | Loại | Kích thước · sửa lần cuối |
+|---|---|---|
+| `evaluation` | thư mục | 314 file, 32.7 MB |
+| `experiments` | thư mục | 97 file, 10.4 GB |
+| `reports` | thư mục | 413 file, 47.1 GB |
+| `explain.md` | file | 1.8 KB · 2026-10-20 07:13:19 |
+
+---
+
+_Sinh tự động bởi `scripts/05_document_folders.py` lúc 2026-10-20 07:58:43. Muốn đổi nội dung, sửa registry trong `src/common/folder_docs.py` rồi chạy lại script._

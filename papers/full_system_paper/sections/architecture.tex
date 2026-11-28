@@ -1,0 +1,65 @@
+%!TEX root = main.tex
+\section{System Architecture}
+\label{sec:architecture}
+
+The SensitiveAI pipeline follows a strict language-routing design (Fig.
+\ref{fig:pipeline}).  Each component is described below; configuration files
+are in \texttt{configs/} and code in \texttt{src/}.
+
+\begin{figure}[t]
+\centering
+\resizebox{0.41\textwidth}{!}{\input{figures/architecture}}
+\caption{SensitiveAI pipeline overview: language-aware routing and score fusion.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Language Detector}
+\label{sec:lang_detector}
+
+The language detector combines: (1)~\textbf{Heuristics} (\texttt{heuristics.py}) tracking Vietnamese diacritics, a bilingual frequency list (1{,}200 VI / 1{,}000 EN tokens), and explicit code-mix signals; and (2)~\textbf{Statistical backend} (\texttt{langid.py} \cite{lui2012langid}) blended at 0.6 / 0.4 weight. Outputs are \texttt{vi}, \texttt{en}, \texttt{mix} (above \texttt{mix\_floor}=0.12), or \texttt{other} ($<0.50$). On 59{,}868 standard sentences (ViNLI and Leipzig Wortschatz), it attains 99.81\% accuracy (99.97\% VI, 99.64\% EN) at 1.67\,ms latency (599.5 texts/s). The \texttt{mix} verdict keeps both language pipelines active.
+
+\subsection{Language-Aware Tokenizer}
+\label{sec:tokenizer}
+
+The tokenizer (\texttt{src/langid/tokenizer.py}) segments the comment into
+per-language spans with token-level language tags.  For \texttt{mix} documents
+it produces alternating VI/EN spans, enabling span-wise rule-engine scanning
+so that an English insult inside a Vietnamese comment is still caught.
+
+\subsection{Language Router \& Rule Engines}
+\label{sec:router}
+
+The router (\texttt{src/routing/language\_router.py}) selects the appropriate \texttt{RuleEngine} per span: \texttt{vi} maps to the 668-entry Vietnamese lexicon (\texttt{configs/rule\_engine.yaml}), \texttt{en} maps to the 818-entry English lexicon (\texttt{configs/rule\_engine\_en.yaml}), while \texttt{mix} and \texttt{other}/\texttt{multilingual} fall back to querying both engines in parallel.
+
+Each engine applies the same normalisation pipeline (NFC, lowercase, invisible
+char removal, whitespace collapse, max repeat char 3) and four
+anti-obfuscation matching views: accentless alias, leet, repeat-collapsed,
+separator-stripped (fuzzy matching enabled with max distance 1 for terms
+$\ge$6 chars).  Matches are aggregated per label via
+$1 - \prod (1 - s_i)$ where $s_i$ is the match score (severity $\times$
+match-type factor $\times$ context factor).  Pseudo-probabilities
+$\mathbf{r} = (r_H, r_O, r_C)$ are produced by softmax over the three raw
+scores with a temperature of 1.0.
+
+\subsection{Per-Language Neural Checkpoints}
+\label{sec:checkpoints}
+
+We deploy distinct fine-tuned checkpoints per language:
+(1)~\textbf{VI}: \model{sensitiveai-vi-custom} (custom head, validation macro-F1 0.6590), trained with curriculum loss, focal loss, label smoothing, and differential learning rates (encoder 2e-5, head 5e-4; max length 256); and
+(2)~\textbf{EN}: \model{sensitiveai-en-stage2} (standard head, validation macro-F1 0.7722), trained via a two-stage head-first protocol with cosine scheduling (max length 128). Inference runs in batched mode (size 32) on GPU.
+
+\subsection{Language-Aware Fusion}
+\label{sec:fusion}
+
+The fusion module (\texttt{src/fusion/lang\_aware\_fusion.py}) blends AI
+probabilities $\mathbf{p}_{\text{AI}}$ and rule pseudo-probabilities
+$\mathbf{r}$ channel-wise:
+\begin{equation}
+    \mathbf{p}_{\text{fused}} = \alpha \mathbf{p}_{\text{AI}} + (1-\alpha)
+    \mathbf{r},
+\end{equation}
+with $\alpha$ per language (VI/EN 0.70, MIX 0.65, MULTILINGUAL 0.80) and
+per-class decision thresholds $\tau_H, \tau_O, \tau_C$ tuned on validation
+macro-F1.  The meta-classifier (multinomial logistic on six features
+$[p_H,p_O,p_C,r_H,r_O,r_C]$) is also fitted on validation but found worse than
+simple fusion for EN (macro-F1 0.6513 vs 0.7722 AI-only on validation).

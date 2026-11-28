@@ -1,0 +1,26 @@
+{
+  "sensitiveai-vi": {
+    "report": "outputs\\reports\\sensitiveai-vi\\run_005",
+    "experiment": "outputs\\experiments\\sensitiveai-vi\\run_005"
+  },
+  "sensitiveai-vi-custom": {
+    "report": "outputs\\reports\\sensitiveai-vi-custom\\run_009",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-custom\\run_009"
+  },
+  "sensitiveai-vi-customdlr2stage": {
+    "report": "outputs\\reports\\sensitiveai-vi-customdlr2stage\\run_010",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-customdlr2stage\\run_010"
+  },
+  "sensitiveai-vi-custom-curriculum": {
+    "report": "outputs\\reports\\sensitiveai-vi-custom-curriculum\\run_005",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-custom-curriculum\\run_005"
+  },
+  "sensitiveai-vi-customdlr2stage-ext": {
+    "report": "outputs\\reports\\sensitiveai-vi-customdlr2stage-ext\\run_004",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-customdlr2stage-ext\\run_004"
+  },
+  "sensitiveai-vi-stage2": {
+    "report": "outputs\\reports\\sensitiveai-vi-stage2\\run_004",
+    "experiment": "outputs\\experiments\\sensitiveai-vi-stage2\\run_004"
+  }
+}

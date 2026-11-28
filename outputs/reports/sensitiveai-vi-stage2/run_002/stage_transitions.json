@@ -1,0 +1,70 @@
+[
+  {
+    "event": "stage_begin",
+    "global_epoch": 0,
+    "stage": "stage_2",
+    "index": 1,
+    "spec": {
+      "name": "stage_2",
+      "description": "Stage-2 recipe (focal + class weights + halved discriminative LRs), applied to the best checkpoint of the plain mdeberta baseline.",
+      "epochs": 15,
+      "focus_label": null,
+      "init_from": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\reports\\sensitiveai-vi\\run_001\\best_model",
+      "save_checkpoint": true,
+      "training": {
+        "batch_size": 16,
+        "eval_batch_size": 32,
+        "gradient_accumulation": 2,
+        "learning_rate": 1e-05,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.05,
+        "optimizer": "adamw_torch",
+        "max_grad_norm": 1.0,
+        "scheduler": "linear",
+        "precision": "bf16",
+        "label_smoothing": 0.0
+      },
+      "dlr": {
+        "enabled": false,
+        "encoder_lr": 5e-06,
+        "layer_lr": 1e-05,
+        "head_lr": 5e-05,
+        "embedding_lr": 2.5e-06,
+        "layer_split": 0.5,
+        "layer_decay": 1.0
+      },
+      "loss": {
+        "type": "focal",
+        "use_class_weight": true,
+        "class_weight": "inverse_sqrt_frequency",
+        "class_weight_beta": 0.999,
+        "focal": {
+          "gamma": 2.0,
+          "alpha": {
+            "HATE": 0.5,
+            "OFFENSIVE": 0.25,
+            "CLEAN": 0.25
+          }
+        },
+        "label_smoothing": 0.0
+      },
+      "global_epoch_start": 1,
+      "global_epoch_end": 15
+    }
+  },
+  {
+    "event": "stage_end",
+    "global_epoch": 15,
+    "stage": "stage_2",
+    "index": 1,
+    "epochs_run": 15,
+    "last_global_epoch": 15,
+    "checkpoint": "D:\\Year4\\FA26\\Capstone_Project\\AIModerationContent\\outputs\\experiments\\sensitiveai-vi-stage2\\run_002\\stage_checkpoints\\stage_2"
+  },
+  {
+    "event": "train_end",
+    "global_epoch": 15,
+    "reason": "completed",
+    "epochs_run": 15
+  }
+]

@@ -1,0 +1,5 @@
+﻿backbone,validation_macro_f1,test_macro_f1,role_in_paper
+sensitiveai-vi,0.6961,0.6545,backbone comparison
+sensitiveai-vi-custom,0.6957,0.6575,primary case study for fusion provenance
+sensitiveai-vi-customdlr2stage,0.7089,0.6638,strongest standalone backbone
+sensitiveai-vi-custom-curriculum,0.6942,0.6590,backbone comparison

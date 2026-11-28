@@ -1,0 +1,4 @@
+﻿seed,run_id,ai_macro_f1,hybrid_macro_f1,delta_hybrid_minus_ai,ai_accuracy,hybrid_accuracy
+42,run_001,0.6575,0.6602,0.0027,0.8762,0.8774
+7,run_005,0.6717,0.6676,-0.0041,0.8744,0.8750
+123,run_006,0.6627,0.6617,-0.0010,0.8738,0.8747

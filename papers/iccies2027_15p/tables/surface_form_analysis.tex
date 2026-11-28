@@ -1,0 +1,23 @@
+% Auto-generated from outputs/evaluation/analysis/significance_summary.json
+% Error stratification for sensitiveai-vi-custom backbone
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{Model performance on challenging surface forms: teencode, no diacritics, repeat characters (leet-like obfuscation), emoji, short text, long text, and standard diacritics on ViHSD test (6,680 samples).}
+\label{tab:surface-forms}
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Category} & \textbf{$N$} & \textbf{Acc} & \textbf{Macro-F1} & \textbf{HATE R} & \textbf{OFF R} & \textbf{CLEAN R} \\
+\midrule
+Teencode & 1,039 & 0.849 & 0.630 & 0.453 & 0.436 & 0.942 \\
+No diacritics & 370 & 0.849 & 0.634 & 0.532 & 0.346 & 0.943 \\
+Repeat chars (leet) & 997 & 0.882 & 0.699 & 0.625 & 0.561 & 0.935 \\
+Emoji & 974 & 0.912 & 0.616 & 0.426 & 0.367 & 0.972 \\
+Very short ($<20$ chars) & 1,852 & 0.924 & 0.709 & 0.553 & 0.534 & 0.972 \\
+Very long ($>500$ chars) & 145 & 0.759 & 0.568 & 0.741 & 0.143 & 0.821 \\
+With diacritics & 6,114 & 0.876 & 0.656 & 0.532 & 0.418 & 0.955 \\
+\midrule
+\textbf{Overall (all test)} & \textbf{6,680} & \textbf{0.871} & \textbf{0.661} & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}

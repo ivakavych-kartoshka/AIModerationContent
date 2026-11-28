@@ -1,0 +1,108 @@
+{
+  "min_toxic_df": 5,
+  "max_clean_df": 1,
+  "splits": [
+    "train",
+    "dev",
+    "test"
+  ],
+  "sources": {
+    "vihsd": {
+      "syllable": 228,
+      "word": 192,
+      "only_word_examples": [
+        "banh xac",
+        "bưng",
+        "bắn chết",
+        "cat",
+        "chùi",
+        "chùi lol",
+        "chất độc",
+        "con chó này",
+        "các vị",
+        "của chúng",
+        "dm thằng",
+        "duma",
+        "dân trí thấp lại",
+        "giải tỏa",
+        "hiếp",
+        "họng",
+        "im mẹ mồm",
+        "lam gi",
+        "là luật",
+        "làm cán bộ",
+        "làm nô lệ",
+        "me no",
+        "mặt con",
+        "mẹ cái",
+        "mị dân"
+      ]
+    },
+    "vicm": {
+      "syllable": 647,
+      "word": 542,
+      "only_word_examples": [
+        "bi",
+        "chiến tranh du kích",
+        "chó chết",
+        "chật",
+        "chứng tỏ",
+        "con dân",
+        "các nước",
+        "cũng chả",
+        "cụ",
+        "dickhead",
+        "dẹp",
+        "dở",
+        "gay",
+        "go away",
+        "hèn",
+        "hại",
+        "hồn",
+        "khi stream chán vl",
+        "khác đi",
+        "khôn",
+        "kìa",
+        "les",
+        "loại ngu",
+        "làm như",
+        "lông"
+      ]
+    },
+    "bontori": {
+      "syllable": 77,
+      "word": 86,
+      "only_word_examples": [
+        "bao giờ thống nhất",
+        "bắn chết",
+        "bị mỹ",
+        "bố con nhà này",
+        "cho mỹ",
+        "chính quyền tay sai",
+        "chết thì được",
+        "có cl",
+        "của ông bố",
+        "diệm có",
+        "diệm thì",
+        "dân hàn",
+        "ghét trấn thành",
+        "gia đình này nó",
+        "là tay sai của",
+        "làm cách mạng màu",
+        "làm tay sai cho",
+        "lệ con",
+        "mấy đứa fan",
+        "ngáo quyền lực",
+        "ngụy quyền",
+        "nhận mình là",
+        "npc",
+        "quân tử trả thù",
+        "quân tử trả thù năm"
+      ]
+    }
+  },
+  "totals": {
+    "syllable": 952,
+    "word": 820
+  }
+}
